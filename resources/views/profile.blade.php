@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h2>{{ $wasteland_name }}</h2>
+<h2>Wasteland name: {{ $wasteland_name }}</h2>
 <p>
 @if ($gender)
 	Gender: {{ $gender }}
@@ -25,31 +25,37 @@
 @endif
 </p>
 <p>
-@if ($number_people === 1)
-	I&apos;m here because I&apos;m
-@elseif ($number_people > 1)
-	We&apos;re a group of {{ $number_people }} here because we are
-@endif
-@if ($hoping_to_find_acquaintance)
-	open to making new acquaintances.
-@endif
-@if ($hoping_to_find_friend)
-	open to making new friends.
-@endif
-@if ($hoping_to_find_love)
-	open to making new friends or possibly building new romantic relationships.
-@endif
-@if ($hoping_to_find_lost)
-	looking for someone specific.
-@endif
-@if ($hoping_to_find_enemy)
-	looking for adversaries to battle in the Thunderdome.
+@if ($hoping_to_find_love or $hoping_to_find_friend or $hoping_to_find_acquaintance or $hoping_to_find_enemy)
+	@if ($number_people === 1)
+		I&apos;m
+	@elseif ($number_people > 1)
+		We&apos;re a group of {{ $number_people }} people, here because we are
+	@endif
+	open to finding
+	@if ($hoping_to_find_love)
+		a new acquaintance, friend, or romantic partner.
+	@elseif ($hoping_to_find_friend)
+		a new acquaintance or a friend.
+	@elseif ($hoping_to_find_acquaintance)
+		a new acquaintance.
+	@endif
+	@if ($hoping_to_find_enemy)
+		@if ($hoping_to_find_love or $hoping_to_find_friend or $hoping_to_find_acquaintance)
+			Or
+		@endif
+		an adversary to battle in the Thunderdome.
+	@endif
 @endif
 </p>
 <p>
 	{{ $description }}
 </p>
+@if ($wasteland_name === 'Firebird')
 <p>
 	How to find me: {{ $how_to_find_me }}
 </p>
+@endif
+@for ($i = 1; $i <= $number_photos; $i++)
+<img src="/uploads/image{{ $i }}.jpg">
+@endfor
 @endsection
