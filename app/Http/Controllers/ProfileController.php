@@ -20,6 +20,7 @@ class ProfileController extends Controller
 		$birth_year                  = $profile->birth_year;
 		$description                 = $profile->description;
 		$how_to_find_me              = $profile->how_to_find_me;
+		$number_photos               = $profile->number_photos;
 		$hoping_to_find_acquaintance = $profile->hoping_to_find_acquaintance;
 		$hoping_to_find_friend       = $profile->hoping_to_find_friend;
 		$hoping_to_find_love         = $profile->hoping_to_find_love;
@@ -33,6 +34,7 @@ class ProfileController extends Controller
 			'birth_year'                  => $birth_year,
 			'description'                 => $description,
 			'how_to_find_me'              => $how_to_find_me,
+			'number_photos'               => $number_photos,
 			'hoping_to_find_acquaintance' => $hoping_to_find_acquaintance,
 			'hoping_to_find_friend'       => $hoping_to_find_friend,
 			'hoping_to_find_love'         => $hoping_to_find_love,
@@ -53,12 +55,17 @@ class ProfileController extends Controller
 // note: validate they are looking for some kind of relationship
 // note: looking for friend must also be open to acquaintance, looking for love must also be open to friend. automatically fix that and return a message
 
-		if ($_FILES['image1']['tmp_name']) {
-			$destination = getenv("DOCUMENT_ROOT") . '/uploads/image.jpg';
-			File::copy($_FILES['image1']['tmp_name'], $destination);
-			$img = Image::make($destination);
-			$img->heighten(200);
-			$img->save($destination);
+		$max_images   = 5;
+		$image_height = 300;
+		for ($i = 1; $i <= $max_images; $i++) {
+			$uploaded_file = $_FILES["image$i"]['tmp_name'];
+			if ($uploaded_file) {
+				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image$i.jpg";
+				File::copy($uploaded_file, $destination);
+				$img = Image::make($destination);
+				$img->heighten($image_height);
+				$img->save($destination);
+			}
 		}
 
 		$ip = request()->ip() or die("No ip");
