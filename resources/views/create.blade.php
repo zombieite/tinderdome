@@ -57,7 +57,17 @@
 
 	<h3>Suggested</h3>
 
-	<label for="image">Select an image file to upload </label><input type="file" name="image" value="image">
+	Upload images
+	<br>
+	<input type="file" name="image1" value="image">
+	<br>
+	<input type="file" name="image2" value="image">
+	<br>
+	<input type="file" name="image3" value="image">
+	<br>
+	<input type="file" name="image4" value="image">
+	<br>
+	<input type="file" name="image5" value="image">
 
 	<br><br>
 	<label for="gender">Gender</label>
@@ -119,7 +129,7 @@
 	<h3>Submit your profile</h3>
 
 	{{ csrf_field() }}
-	<label for="submit">Everything you submit on this page, except your email, will be visible to other site users.</label>
+	<label for="submit">Everything you submit on this page, except your email, will be publicly visible.</label>
 	<br><br>
 	<input type="submit" value="Submit" id="submit">
 

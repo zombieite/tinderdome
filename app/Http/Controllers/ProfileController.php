@@ -53,8 +53,13 @@ class ProfileController extends Controller
 // note: validate they are looking for some kind of relationship
 // note: looking for friend must also be open to acquaintance, looking for love must also be open to friend. automatically fix that and return a message
 
-		$destination = getenv("DOCUMENT_ROOT") . '/uploads/image.jpg';
-		File::copy($_FILES['image']['tmp_name'], $destination);
+		if ($_FILES['image1']['tmp_name']) {
+			$destination = getenv("DOCUMENT_ROOT") . '/uploads/image.jpg';
+			File::copy($_FILES['image1']['tmp_name'], $destination);
+			$img = Image::make($destination);
+			$img->heighten(200);
+			$img->save($destination);
+		}
 
 		$ip = request()->ip() or die("No ip");
 		$profile = \App\Profile::create([
