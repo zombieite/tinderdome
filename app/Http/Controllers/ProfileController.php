@@ -106,6 +106,7 @@ class ProfileController extends Controller
 				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name-$i.jpg";
 				File::copy($uploaded_file, $destination);
 				$img = Image::make($destination);
+				$img->orientate();
 				$img->heighten($image_height);
 				$img->encode('jpg');
 				$img->save($destination);
