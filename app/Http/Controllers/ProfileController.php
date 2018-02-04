@@ -9,11 +9,17 @@ use File;
 
 class ProfileController extends Controller
 {
-    public function show($profile_id)
+    public function show($profile_id, $wasteland_name_from_url)
     {
-		$profile                     = \App\Profile::find( $profile_id );
+		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
 
+		$profile                     = \App\Profile::find( $profile_id );
 		$wasteland_name              = $profile->wasteland_name;
+
+		if ($wasteland_name_from_url !== $wasteland_name) {
+			abort(404);
+		}
+
 		$number_people               = $profile->number_people;
 		$gender                      = $profile->gender;
 		$height                      = $profile->height;
@@ -59,6 +65,7 @@ class ProfileController extends Controller
 		$max_images    = 5;
 		$image_height  = 300;
 		$number_photos = 0;
+		$wasteland_name = $request->wasteland_name;
 
 		for ($i = 1; $i <= $max_images; $i++) {
 			$uploaded_file = $_FILES["image$i"]['tmp_name'];
@@ -69,7 +76,7 @@ class ProfileController extends Controller
 
 		$ip = request()->ip() or die("No ip");
 		$profile = \App\Profile::create([
-			'wasteland_name'              => $request->wasteland_name,
+			'wasteland_name'              => $wasteland_name,
 			'number_people'               => $request->number_people,
 			'email'                       => $request->email,
 			'gender'                      => $request->gender,
@@ -96,7 +103,7 @@ class ProfileController extends Controller
 		for ($i = 1; $i <= $max_images; $i++) {
 			$uploaded_file = $_FILES["image$i"]['tmp_name'];
 			if ($uploaded_file) {
-				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$i.jpg";
+				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name-$i.jpg";
 				File::copy($uploaded_file, $destination);
 				$img = Image::make($destination);
 				$img->heighten($image_height);

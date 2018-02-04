@@ -15,7 +15,7 @@ Route::get('/', function () {
 	return view('home');
 });
 
-Route::get('profile/{id}/{nickname}', 'ProfileController@show', function () {
+Route::get('profile/{profile_id}/{wasteland_name}', 'ProfileController@show', function () {
 	return view('profile');
 });
 
