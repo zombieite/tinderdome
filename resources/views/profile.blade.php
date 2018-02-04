@@ -56,6 +56,6 @@
 </p>
 @endif
 @for ($i = 1; $i <= $number_photos; $i++)
-<img src="/uploads/image{{ $i }}.jpg">
+<img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg">
 @endfor
 @endsection

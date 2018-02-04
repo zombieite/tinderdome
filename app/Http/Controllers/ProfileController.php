@@ -27,6 +27,7 @@ class ProfileController extends Controller
 		$hoping_to_find_lost         = $profile->hoping_to_find_lost;
 		$hoping_to_find_enemy        = $profile->hoping_to_find_enemy;
 		return view('profile', [
+			'profile_id'                  => $profile_id,
 			'wasteland_name'              => $wasteland_name,
 			'number_people'               => $number_people,
 			'gender'                      => $gender,
@@ -55,16 +56,14 @@ class ProfileController extends Controller
 // note: validate they are looking for some kind of relationship
 // note: looking for friend must also be open to acquaintance, looking for love must also be open to friend. automatically fix that and return a message
 
-		$max_images   = 5;
-		$image_height = 300;
+		$max_images    = 5;
+		$image_height  = 300;
+		$number_photos = 0;
+
 		for ($i = 1; $i <= $max_images; $i++) {
 			$uploaded_file = $_FILES["image$i"]['tmp_name'];
 			if ($uploaded_file) {
-				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image$i.jpg";
-				File::copy($uploaded_file, $destination);
-				$img = Image::make($destination);
-				$img->heighten($image_height);
-				$img->save($destination);
+				$number_photos++;
 			}
 		}
 
@@ -78,6 +77,7 @@ class ProfileController extends Controller
 			'birth_year'                  => $request->birth_year,
 			'description'                 => $request->description,
 			'how_to_find_me'              => $request->how_to_find_me,
+			'number_photos'               => $number_photos,
 			'random_ok'                   => $request->random_ok                   ? true : false,
 			'hoping_to_find_acquaintance' => $request->hoping_to_find_acquaintance ? true : false,
 			'hoping_to_find_friend'       => $request->hoping_to_find_friend       ? true : false,
@@ -90,6 +90,21 @@ class ProfileController extends Controller
 			'attending_wasteland'         => $request->attending_wasteland         ? true : false,
 			'ip'                          => $ip
 		]);
+
+		$profile_id = $profile->profile_id;
+
+		for ($i = 1; $i <= $max_images; $i++) {
+			$uploaded_file = $_FILES["image$i"]['tmp_name'];
+			if ($uploaded_file) {
+				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$i.jpg";
+				File::copy($uploaded_file, $destination);
+				$img = Image::make($destination);
+				$img->heighten($image_height);
+				$img->encode('jpg');
+				$img->save($destination);
+			}
+		}
+
 		return view('store');
     }
 
