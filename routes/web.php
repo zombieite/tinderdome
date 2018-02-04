@@ -15,6 +15,10 @@ Route::get('/', function () {
 	return view('home');
 });
 
+Route::get('profile/{id}/{nickname}', 'ProfileController@show', function () {
+	return view('profile');
+});
+
 Route::resource('profile', 'ProfileController',
-	['only' => [ 'show', 'create', 'store' ]]
+	['only' => [ 'create', 'store' ]]
 );
