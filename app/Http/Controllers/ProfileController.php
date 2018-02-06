@@ -14,6 +14,11 @@ class ProfileController extends Controller
 		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
 
 		$profile                     = \App\Profile::find( $profile_id );
+		if ($profile) {
+			// All good
+		} else {
+			abort(404);
+		}
 		$wasteland_name              = $profile->wasteland_name;
 
 		if ($wasteland_name_from_url !== $wasteland_name) {
@@ -63,7 +68,7 @@ class ProfileController extends Controller
 // note: looking for friend must also be open to acquaintance, looking for love must also be open to friend. automatically fix that and return a message
 
 		$max_images    = 5;
-		$image_height  = 300;
+		$image_height  = 500;
 		$number_photos = 0;
 		$wasteland_name = $request->wasteland_name;
 
@@ -99,11 +104,12 @@ class ProfileController extends Controller
 		]);
 
 		$profile_id = $profile->profile_id;
+		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 
 		for ($i = 1; $i <= $max_images; $i++) {
 			$uploaded_file = $_FILES["image$i"]['tmp_name'];
 			if ($uploaded_file) {
-				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name-$i.jpg";
+				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name_hyphenated-$i.jpg";
 				File::copy($uploaded_file, $destination);
 				$img = Image::make($destination);
 				$img->orientate();
@@ -113,7 +119,7 @@ class ProfileController extends Controller
 			}
 		}
 
-		return view('store');
+		return redirect("/profile/$profile_id/$wasteland_name_hyphenated");
     }
 
 //    public function edit($id)
