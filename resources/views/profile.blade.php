@@ -1,20 +1,22 @@
 @extends('layouts.app')
 @section('content')
 <h2>Wasteland name: {{ $wasteland_name }}</h2>
-<p>
 @if ($gender)
+	<p>
 	Gender: {{ $gender }}
+	</p>
 @endif
-<br>
 @if ($birth_year)
+	<p>
 	@if ($birth_year === 1959)
 		Born before 1960
 	@else
-		Born in the {{ $birth_year }}s
+		Born in the {{ intval($birth_year / 10) * 10 }}s
 	@endif
+	</p>
 @endif
-<br>
 @if ($height)
+	<p>
 	@if ($height < 60)
 		Height: Under 5 feet
 	@elseif ($height > 72)
@@ -22,10 +24,10 @@
 	@else
 		Height: {{ floor($height / 12) }}&apos;{{ $height % 12 }}&quot;
 	@endif
+	</p>
 @endif
-</p>
-<p>
 @if ($hoping_to_find_love or $hoping_to_find_friend or $hoping_to_find_acquaintance or $hoping_to_find_enemy)
+	<p>
 	@if ($number_people === 1)
 		I&apos;m
 	@elseif ($number_people > 1)
@@ -45,17 +47,19 @@
 		@endif
 		an adversary to battle in the Thunderdome.
 	@endif
+	</p>
 @endif
-</p>
+@if ($description)
 <p>
 	{{ $description }}
 </p>
+@endif
 @if ($wasteland_name === 'Firebird')
 <p>
 	How to find me: {{ $how_to_find_me }}
 </p>
 @endif
 @for ($i = 1; $i <= $number_photos; $i++)
-<img src="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg">
+<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg" style="height:250px;"></a>
 @endfor
 @endsection
