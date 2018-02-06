@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+@if ($save_message)
+<h1 style="color:red;">THIS IS YOUR PROFILE. BOOKMARK THIS PAGE NOW. RETURN HERE LATER TO FIND A LINK TO YOUR MATCH.</h1>
+@endif
 <h2>Wasteland name: {{ $wasteland_name }}</h2>
 @if ($gender)
 	<p>
