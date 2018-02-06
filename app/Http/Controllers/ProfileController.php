@@ -25,6 +25,7 @@ class ProfileController extends Controller
 			abort(404);
 		}
 
+		$save_message                = (isset( $_GET['save_message']) ? $_GET['save_message'] : null);
 		$number_people               = $profile->number_people;
 		$gender                      = $profile->gender;
 		$height                      = $profile->height;
@@ -38,6 +39,7 @@ class ProfileController extends Controller
 		$hoping_to_find_lost         = $profile->hoping_to_find_lost;
 		$hoping_to_find_enemy        = $profile->hoping_to_find_enemy;
 		return view('profile', [
+			'save_message'                => $save_message,
 			'profile_id'                  => $profile_id,
 			'wasteland_name'              => $wasteland_name,
 			'number_people'               => $number_people,
@@ -119,7 +121,7 @@ class ProfileController extends Controller
 			}
 		}
 
-		return redirect("/profile/$profile_id/$wasteland_name_hyphenated");
+		return redirect("/profile/$profile_id/$wasteland_name_hyphenated?save_message=1");
     }
 
 //    public function edit($id)
