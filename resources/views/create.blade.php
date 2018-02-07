@@ -2,7 +2,7 @@
 @section('content')
 <h2>Create profile</h2>
 <p>
-	Once submitted, this profile cannot be edited. Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to delete your profile or to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/1">Here&apos;s my profile</a>.
+	Once submitted, this profile cannot be edited. Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to delete your profile or to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/1/Firebird">Here&apos;s my profile</a>.
 </p>
 <form action="/profile" method="post" enctype="multipart/form-data">
 
