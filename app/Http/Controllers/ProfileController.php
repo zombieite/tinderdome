@@ -84,6 +84,7 @@ class ProfileController extends Controller
 		$ip = request()->ip() or die("No ip");
 		$profile = \App\Profile::create([
 			'wasteland_name'              => $wasteland_name,
+			'password'                    => $request->password,
 			'number_people'               => $request->number_people,
 			'email'                       => $request->email,
 			'gender'                      => $request->gender,

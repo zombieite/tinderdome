@@ -12,6 +12,10 @@
 	<input type="text" size="50" maxlength="50" name="wasteland_name" id="wasteland_name" pattern="^[A-Za-z0-9 ]+$" autofocus required>
 
 	<br><br>
+	<label for="password">Password (English letters, numbers, spaces only)</label>
+	<input type="password" size="12" maxlength="12" name="password" id="password" pattern="^[A-Za-z0-9 ]+$" required>
+
+	<br><br>
 	<label for="number_people">Number of people in this profile</label>
 	<select name="number_people" id="number_people">
 		<option value="1" selected>1</option>
