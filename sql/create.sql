@@ -4,6 +4,8 @@ DROP TABLE IF EXISTS profile;
 CREATE TABLE profile (
 	profile_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	wasteland_name VARCHAR(50) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	remember_token VARCHAR(100),
 	number_people INT NOT NULL,
 	email VARCHAR(50),
 	gender VARCHAR(1),
@@ -28,6 +30,7 @@ CREATE TABLE profile (
 );
 INSERT INTO profile (
 	wasteland_name,
+	password,
 	number_people,
 	email,
 	gender,
@@ -49,6 +52,7 @@ INSERT INTO profile (
 	ip
 ) VALUES (
 	'Firebird',
+	'changeme',
 	1,
 	'wastelandfirebird@gmail.com',
 	'M',

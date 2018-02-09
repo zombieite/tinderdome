@@ -10,6 +10,7 @@ class Profile extends Model
 	protected $primaryKey = 'profile_id';
 	protected $fillable   = [
 		'wasteland_name',
+		'password',
 		'number_people',
 		'email',
 		'gender',
