@@ -22,3 +22,7 @@ Route::get('profile/{profile_id}/{wasteland_name}', 'ProfileController@show', fu
 Route::resource('profile', 'ProfileController',
 	['only' => [ 'create', 'store' ]]
 );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

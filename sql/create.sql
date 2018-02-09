@@ -1,13 +1,13 @@
 USE tinderdome;
 
-DROP TABLE IF EXISTS profile;
-CREATE TABLE profile (
-	profile_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	wasteland_name VARCHAR(50) NOT NULL,
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
 	remember_token VARCHAR(100),
-	number_people INT NOT NULL,
-	email VARCHAR(50),
+	email VARCHAR(255),
+	number_people INT,
 	gender VARCHAR(1),
 	height INT,
 	birth_year INT,
@@ -24,15 +24,15 @@ CREATE TABLE profile (
 	attending_ball BOOLEAN,
 	attending_detonation BOOLEAN,
 	attending_wasteland BOOLEAN,
-	ip VARCHAR(50) NOT NULL,
+	ip VARCHAR(50),
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-INSERT INTO profile (
-	wasteland_name,
+INSERT INTO users (
+	name,
 	password,
-	number_people,
 	email,
+	number_people,
 	gender,
 	height,
 	birth_year,
@@ -53,8 +53,8 @@ INSERT INTO profile (
 ) VALUES (
 	'Firebird',
 	'changeme',
-	1,
 	'wastelandfirebird@gmail.com',
+	1,
 	'M',
 	NULL,
 	1970,

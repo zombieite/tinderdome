@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <h2>Find thems you're looking for and thems you've lost</h2>
 <p>
