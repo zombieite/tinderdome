@@ -6,66 +6,67 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Image;
+use File;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
+	use RegistersUsers;
 
-    use RegistersUsers;
+	protected $redirectTo = '/home';
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+	public function __construct()
+	{
+		$this->middleware('guest');
+	}
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+	protected function validator(array $data)
+	{
+		return Validator::make($data, [
+			'name' => 'required|string|max:255',
+			'email' => 'required|string|email|max:255|unique:users',
+			'password' => 'required|string|min:6|confirmed',
+		]);
+	}
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    }
+	protected function create(array $data)
+	{
+		$max_images    = 5;
+		$image_height  = 500;
+		$number_photos = 0;
+		for ($i = 1; $i <= $max_images; $i++) {
+			$uploaded_file = $_FILES["image$i"]['tmp_name'];
+			if ($uploaded_file) {
+				$number_photos++;
+			}
+		}
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
+		$wasteland_name = $data['name'];
+
+		$user =  User::create([
+			'name' => $wasteland_name,
+			'email' => $data['email'],
+			'password' => bcrypt($data['password']),
+			'number_people' => $data['number_people'],
+			'number_photos' => $number_photos,
+		]);
+
+		$user_id                   = $user->id;
+		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+
+		for ($i = 1; $i <= $max_images; $i++) {
+			$uploaded_file = $_FILES["image$i"]['tmp_name'];
+			if ($uploaded_file) {
+				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$user_id-$wasteland_name_hyphenated-$i.jpg";
+				File::copy($uploaded_file, $destination);
+				$img = Image::make($destination);
+				$img->orientate();
+				$img->heighten($image_height);
+				$img->encode('jpg');
+				$img->save($destination);
+			}
+		}
+
+		return $user;
+	}
 }
