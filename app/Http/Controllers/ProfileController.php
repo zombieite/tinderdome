@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -58,5 +59,14 @@ class ProfileController extends Controller
 	public function showFirebird()
 	{
 		return $this->show(1, 'Firebird');
+	}
+
+	public function showMe()
+	{
+		$user = Auth::user();
+		if ($user) {
+			return $this->show($user->id, $user->name);
+		}
+		abort(404);
 	}
 }
