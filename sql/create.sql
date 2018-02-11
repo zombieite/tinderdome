@@ -6,8 +6,8 @@ CREATE TABLE users (
 	name VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
 	remember_token VARCHAR(100),
-	email VARCHAR(255),
-	number_people INT,
+	email VARCHAR(255) UNIQUE NOT NULL,
+	number_people INT NOT NULL,
 	gender VARCHAR(1),
 	gender_of_match VARCHAR(1),
 	height INT,
@@ -24,7 +24,7 @@ CREATE TABLE users (
 	attending_ball BOOLEAN,
 	attending_detonation BOOLEAN,
 	attending_wasteland BOOLEAN,
-	ip VARCHAR(50),
+	ip VARCHAR(50) NOT NULL,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

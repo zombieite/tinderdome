@@ -13,9 +13,9 @@
 <h1><a href="{{ url('/') }}">You Are Awaited</a></h1>
 
 @guest
-	<a href="{{ route('register') }}">Sign up</a> &middot; <a href="{{ route('login') }}">Log in</a>
+	<a href="{{ route('register') }}">Create a profile</a> &middot; <a href="{{ route('login') }}">Log in</a>
 @else
-	You are logged in as <a href="/profile/{{ Auth::user()->id}}/{{ Auth::user()->name }}">{{ Auth::user()->name }}</a>
+	You are logged in as  <a href="/profile/{{ Auth::user()->id}}/{{ Auth::user()->name }}">{{ Auth::user()->name }}</a>
 	<form action="{{ route('logout') }}" method="POST">
 	{{ csrf_field() }}
 	<input type="submit" value="Log out">
