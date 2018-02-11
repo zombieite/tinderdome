@@ -23,8 +23,8 @@ class RegisterController extends Controller
 	protected function validator(array $data)
 	{
 		return Validator::make($data, [
-			'name' => 'required|string|max:255',
-			'email' => 'required|string|email|max:255|unique:users',
+			'name'     => 'required|string|max:255',
+			'email'    => 'required|string|email|max:255|unique:users',
 			'password' => 'required|string|min:6|confirmed',
 		]);
 	}
@@ -46,12 +46,27 @@ class RegisterController extends Controller
 		$ip      = request()->ip() or die("No ip");
 
 		$user =  User::create([
-			'name'          => $wasteland_name,
-			'email'         => $data['email'],
-			'password'      => bcrypt($data['password']),
-			'number_people' => $data['number_people'],
-			'number_photos' => $number_photos,
-			'ip'            => $ip,
+			'name'                        => $wasteland_name,
+			'email'                       => $data['email'],
+			'password'                    => bcrypt($data['password']),
+			'number_people'               => $data['number_people'],
+			'gender'                      => $data['gender'],
+			'height'                      => $data['height'],
+			'birth_year'                  => $data['birth_year'],
+			'description'                 => $data['description'],
+			'how_to_find_me'              => $data['how_to_find_me'],
+			'random_ok'                   => isset($data['random_ok'])                   ? true : false,
+			'hoping_to_find_acquaintance' => isset($data['hoping_to_find_acquaintance']) ? true : false,
+			'hoping_to_find_friend'       => isset($data['hoping_to_find_friend'])       ? true : false,
+			'hoping_to_find_love'         => isset($data['hoping_to_find_love'])         ? true : false,
+			'hoping_to_find_lost'         => isset($data['hoping_to_find_lost'])         ? true : false,
+			'hoping_to_find_enemy'        => isset($data['hoping_to_find_enemy'])        ? true : false,
+			'attending_winter_games'      => isset($data['attending_winter_games'])      ? true : false,
+			'attending_ball'              => isset($data['attending_ball'])              ? true : false,
+			'attending_detonation'        => isset($data['attending_detonation'])        ? true : false,
+			'attending_wasteland'         => isset($data['attending_wasteland'])         ? true : false,
+			'number_photos'               => $number_photos,
+			'ip'                          => $ip,
 		]);
 
 		$user_id = $user->id;
