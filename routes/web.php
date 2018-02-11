@@ -18,4 +18,9 @@ Route::get('profile/{profile_id}/{wasteland_name}', 'ProfileController@show', fu
 	return view('profile');
 })->middleware('auth');;
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');;
+
+Route::get('profile/me', 'ProfileController@showMe', function () {
+	return view('profile');
+})->middleware('auth');
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
