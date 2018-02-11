@@ -3,7 +3,7 @@
 @if ($save_message)
 <h1 style="color:red;">Profile created.</h1>
 @endif
-<h2>Wasteland name: {{ $wasteland_name }}</h2>
+<h2>Profile for {{ $wasteland_name }}</h2>
 @if ($gender)
 	<p>
 	Gender: {{ $gender }}

@@ -1,24 +1,21 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Visible to everyone
 
 Route::get('/', function () {
 	return view('intro');
 });
 
-Auth::routes();
-
-Route::get('profile/{profile_id}/{wasteland_name}', 'ProfileController@show', function () {
+Route::get('profile/Firebird', 'ProfileController@showFirebird', function () {
 	return view('profile');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+// Visible to logged in only ( add ->middleware('auth'); )
+
+Route::get('profile/{profile_id}/{wasteland_name}', 'ProfileController@show', function () {
+	return view('profile');
+})->middleware('auth');;
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');;

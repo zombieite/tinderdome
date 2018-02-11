@@ -3,7 +3,7 @@
 
 <h2>Create profile</h2>
 <p>
-	Once submitted, this profile cannot be edited. Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to delete your profile or to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/1/Firebird">Here&apos;s my profile</a>.
+	Once submitted, this profile cannot be edited. Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to delete your profile or to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/Firebird">Here&apos;s my profile</a>.
 </p>
 
 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
@@ -12,14 +12,14 @@
 <h3>Required</h3>
 
 <label for="name">Wasteland nickname (English letters, numbers, spaces only)</label>
-<input id="name" type="text" name="name" value="{{ old('name') }}" pattern="^[A-Za-z0-9 ]+$" required autofocus>
+<input id="name" type="text" name="name" value="{{ old('name') }}" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
 @if ($errors->has('name'))
 <strong>{{ $errors->first('name') }}</strong>
 @endif
 
 <br>
 <label for="email">Email. It will not be shown or given out to anyone, not even your mutual matches.</label>
-<input id="email" type="email" name="email" value="{{ old('email') }}" required>
+<input id="email" type="email" name="email" value="{{ old('email') }}" maxlength="50" required>
 @if ($errors->has('email'))
 <strong>{{ $errors->first('email') }}</strong>
 @endif
