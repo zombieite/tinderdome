@@ -41,18 +41,20 @@ class RegisterController extends Controller
 			}
 		}
 
-		$wasteland_name = $data['name'];
+		$wasteland_name            = $data['name'];
+		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+		$ip      = request()->ip() or die("No ip");
 
 		$user =  User::create([
-			'name' => $wasteland_name,
-			'email' => $data['email'],
-			'password' => bcrypt($data['password']),
+			'name'          => $wasteland_name,
+			'email'         => $data['email'],
+			'password'      => bcrypt($data['password']),
 			'number_people' => $data['number_people'],
 			'number_photos' => $number_photos,
+			'ip'            => $ip,
 		]);
 
-		$user_id                   = $user->id;
-		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+		$user_id = $user->id;
 
 		for ($i = 1; $i <= $max_images; $i++) {
 			$uploaded_file = $_FILES["image$i"]['tmp_name'];
