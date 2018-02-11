@@ -13,7 +13,9 @@ When you meet, you are to merge the backstories of your Wasteland personas. If y
 <p>
 If you come together to find me, Firebird, and tell me your story, I'll reward you with special caps. <a href="/profile/Firebird">Here's my profile</a>.
 </p>
+@guest
 <p>
 <a href="{{ route('register') }}">Get started by creating your profile</a>.
 </p>
+@endguest
 @endsection
