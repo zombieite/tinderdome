@@ -3,23 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Profile;
-use Image;
-use File;
+use App\User;
 
 class ProfileController extends Controller
 {
 	public function show($profile_id, $wasteland_name_from_url)
 	{
+		$profile                 = \App\User::find( $profile_id );
+		$wasteland_name          = $profile->name;
 		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
 
-		$profile                     = \App\Profile::find( $profile_id );
 		if ($profile) {
 			// All good
 		} else {
 			abort(404);
 		}
-		$wasteland_name              = $profile->wasteland_name;
 
 		if ($wasteland_name_from_url !== $wasteland_name) {
 			abort(404);
@@ -56,5 +54,9 @@ class ProfileController extends Controller
 			'hoping_to_find_enemy'        => $hoping_to_find_enemy
 		]);
 	}
-}
 
+	public function showFirebird()
+	{
+		return $this->show(1, 'Firebird');
+	}
+}
