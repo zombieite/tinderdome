@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-
 <h2>Create profile</h2>
 <p>
 	Once submitted, this profile cannot be edited. Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to delete your profile or to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/1/Firebird">Here&apos;s my profile</a>.
@@ -9,13 +8,6 @@
 
 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
 {{ csrf_field() }}
-
-
-
-
-
-
-
 
 <h3>Required</h3>
 
@@ -46,23 +38,14 @@
 <br>
 <label for="number_people">Number of people in this profile</label>
 <select name="number_people" id="number_people">
-    <option value="1" selected>1</option>
-    <option value="2">2 people</option>
-    <option value="3">A group of 3 or more</option>
+<option value="1" selected>1</option>
+<option value="2">2 people</option>
+<option value="3">A group of 3 or more</option>
 </select>
 
 @if ($errors->has('number_people'))
 <strong>{{ $errors->first('number_people') }}</strong>
 @endif
-
-
-
-
-
-
-
-
-
 
 <br><br>
 Check at least one. I/we...
@@ -173,7 +156,6 @@ Upload images
 <button id="submit" type="submit">
 Register
 </button>
-
 
 </form>
 
