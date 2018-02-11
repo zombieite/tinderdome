@@ -4,9 +4,19 @@
 <h1 style="color:red;">Profile created.</h1>
 @endif
 <h2>Profile for {{ $wasteland_name }}</h2>
-@if ($gender)
+@if ($gender or $gender_of_match)
 	<p>
-	Gender: {{ $gender }}
+	@if ($gender)
+		{{ $gender === 'M' ? 'Male' : 'Female' }}
+		@if ($gender_of_match)
+			looking
+		@endif
+	@else
+		Looking
+	@endif
+	@if ($gender_of_match)
+		to be matched with a {{ $gender_of_match === 'M' ? 'male' : 'female' }}
+	@endif
 	</p>
 @endif
 @if ($birth_year)
@@ -29,26 +39,19 @@
 	@endif
 	</p>
 @endif
-@if ($hoping_to_find_love or $hoping_to_find_friend or $hoping_to_find_acquaintance or $hoping_to_find_enemy)
+@if ($hoping_to_find_love or $hoping_to_find_friend or $hoping_to_find_enemy)
 	<p>
-	@if ($number_people === 1)
-		I&apos;m
-	@elseif ($number_people > 1)
-		We&apos;re a group of {{ $number_people }} people, here because we are
-	@endif
-	open to finding
+	Open to
 	@if ($hoping_to_find_love)
-		a new acquaintance, friend, or romantic partner.
+		finding a new friend or romantic partner
 	@elseif ($hoping_to_find_friend)
-		a new acquaintance or a friend.
-	@elseif ($hoping_to_find_acquaintance)
-		a new acquaintance.
+		making a new friend
 	@endif
 	@if ($hoping_to_find_enemy)
-		@if ($hoping_to_find_love or $hoping_to_find_friend or $hoping_to_find_acquaintance)
+		@if ($hoping_to_find_love or $hoping_to_find_friend)
 			Or
 		@endif
-		an adversary to battle in the Thunderdome.
+		making an enemy
 	@endif
 	</p>
 @endif
@@ -65,4 +68,7 @@
 @for ($i = 1; $i <= $number_photos; $i++)
 <a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg" style="height:250px;"></a>
 @endfor
+@if ($its_me)
+	<h2>To edit your profile contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a></h2>
+@endif
 @endsection

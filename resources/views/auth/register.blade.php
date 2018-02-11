@@ -3,7 +3,7 @@
 
 <h2>Create profile</h2>
 <p>
-	Once submitted, this profile cannot be edited. Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to delete your profile or to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/Firebird">Here&apos;s my profile</a>.
+	Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to edit or delete your profile or to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/Firebird">Here&apos;s my profile</a>.
 </p>
 
 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
@@ -66,22 +66,19 @@ Check at least one. I/we...
 Check as many as possible. I am/we are...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" checked>
-<label for="random_ok">Open to a random match, but would prefer to choose one</label>
+<label for="random_ok">Open to a random match</label>
 <br>
-<input type="checkbox" name="hoping_to_find_acquaintance" id="hoping_to_find_acquaintance">
-<label for="hoping_to_find_acquaintance">Open to making a new acquaintance</label>
-<br>
-<input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend">
-<label for="hoping_to_find_friend">Open to making a new acquaintance or friend</label>
+<input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" checked>
+<label for="hoping_to_find_friend">Open to making a new friend</label>
 <br>
 <input type="checkbox" name="hoping_to_find_love" id="hoping_to_find_love">
-<label for="hoping_to_find_love">Open to making a new acquaintance, friend, or romantic partner</label>
+<label for="hoping_to_find_love">Open to making a new friend or romantic partner</label>
 <br>
 <input type="checkbox" name="hoping_to_find_lost" id="hoping_to_find_lost">
 <label for="hoping_to_find_lost">Looking for someone specific, a missed connection, or someone I once knew but have lost</label>
 <br>
 <input type="checkbox" name="hoping_to_find_enemy" id="hoping_to_find_enemy">
-<label for="hoping_to_find_enemy">Looking for an adversary to battle in the Thunderdome</label>
+<label for="hoping_to_find_enemy">Looking for an enemy</label>
 
 <h3>Suggested</h3>
 
@@ -101,6 +98,14 @@ Upload images
 <label for="gender">Gender</label>
 <select name="gender" id="gender">
 	<option value="" selected>No answer</option>
+	<option value="M">M</option>
+	<option value="F">F</option>
+</select>
+
+<br><br>
+<label for="gender_of_match">Match me with gender</label>
+<select name="gender_of_match" id="gender_of_match">
+	<option value="" selected>Any</option>
 	<option value="M">M</option>
 	<option value="F">F</option>
 </select>
@@ -154,7 +159,7 @@ Upload images
 <br><br>
 
 <button id="submit" type="submit">
-Register
+Sign up
 </button>
 
 </form>
