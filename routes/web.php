@@ -12,17 +12,13 @@
 */
 
 Route::get('/', function () {
-	return view('home');
+	return view('intro');
 });
+
+Auth::routes();
 
 Route::get('profile/{profile_id}/{wasteland_name}', 'ProfileController@show', function () {
 	return view('profile');
 });
-
-Route::resource('profile', 'ProfileController',
-	['only' => [ 'create', 'store' ]]
-);
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

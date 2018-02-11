@@ -9,8 +9,8 @@ use File;
 
 class ProfileController extends Controller
 {
-    public function show($profile_id, $wasteland_name_from_url)
-    {
+	public function show($profile_id, $wasteland_name_from_url)
+	{
 		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
 
 		$profile                     = \App\Profile::find( $profile_id );
@@ -55,86 +55,6 @@ class ProfileController extends Controller
 			'hoping_to_find_lost'         => $hoping_to_find_lost,
 			'hoping_to_find_enemy'        => $hoping_to_find_enemy
 		]);
-    }
-
-    public function create()
-    {
-		return view('create');
-    }
-
-    public function store(Request $request)
-    {
-// TODO: VALIDATION
-// note: validate they are attending at least one event
-// note: validate they are looking for some kind of relationship
-// note: looking for friend must also be open to acquaintance, looking for love must also be open to friend. automatically fix that and return a message
-
-		$max_images    = 5;
-		$image_height  = 500;
-		$number_photos = 0;
-		$wasteland_name = $request->wasteland_name;
-
-		for ($i = 1; $i <= $max_images; $i++) {
-			$uploaded_file = $_FILES["image$i"]['tmp_name'];
-			if ($uploaded_file) {
-				$number_photos++;
-			}
-		}
-
-		$ip = request()->ip() or die("No ip");
-		$profile = \App\Profile::create([
-			'wasteland_name'              => $wasteland_name,
-			'password'                    => $request->password,
-			'number_people'               => $request->number_people,
-			'email'                       => $request->email,
-			'gender'                      => $request->gender,
-			'height'                      => $request->height,
-			'birth_year'                  => $request->birth_year,
-			'description'                 => $request->description,
-			'how_to_find_me'              => $request->how_to_find_me,
-			'number_photos'               => $number_photos,
-			'random_ok'                   => $request->random_ok                   ? true : false,
-			'hoping_to_find_acquaintance' => $request->hoping_to_find_acquaintance ? true : false,
-			'hoping_to_find_friend'       => $request->hoping_to_find_friend       ? true : false,
-			'hoping_to_find_love'         => $request->hoping_to_find_love         ? true : false,
-			'hoping_to_find_lost'         => $request->hoping_to_find_lost         ? true : false,
-			'hoping_to_find_enemy'        => $request->hoping_to_find_enemy        ? true : false,
-			'attending_winter_games'      => $request->attending_winter_games      ? true : false,
-			'attending_ball'              => $request->attending_ball              ? true : false,
-			'attending_detonation'        => $request->attending_detonation        ? true : false,
-			'attending_wasteland'         => $request->attending_wasteland         ? true : false,
-			'ip'                          => $ip
-		]);
-
-		$profile_id = $profile->profile_id;
-		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
-
-		for ($i = 1; $i <= $max_images; $i++) {
-			$uploaded_file = $_FILES["image$i"]['tmp_name'];
-			if ($uploaded_file) {
-				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name_hyphenated-$i.jpg";
-				File::copy($uploaded_file, $destination);
-				$img = Image::make($destination);
-				$img->orientate();
-				$img->heighten($image_height);
-				$img->encode('jpg');
-				$img->save($destination);
-			}
-		}
-
-		return redirect("/profile/$profile_id/$wasteland_name_hyphenated?save_message=1");
-    }
-
-//    public function edit($id)
-//    {
-//    }
-//
-//    public function update(Request $request, $id)
-//    {
-//    }
-//
-//    public function destroy($id)
-//    {
-//    }
+	}
 }
 
