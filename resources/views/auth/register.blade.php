@@ -66,7 +66,7 @@ Check at least one. I/we...
 Check as many as possible. I am/we are...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" checked>
-<label for="random_ok">Open to a random match</label>
+<label for="random_ok">Open to a random match (if unchecked you must come back later to mark some profiles as favorites, and even then you might not get a mutual match)</label>
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" checked>
 <label for="hoping_to_find_friend">Open to making a new friend</label>
@@ -101,9 +101,8 @@ Upload images
 	<option value="M">M</option>
 	<option value="F">F</option>
 </select>
-
-<br><br>
-<label for="gender_of_match">Match me with gender</label>
+<br>
+<label for="gender_of_match">Match me with a person of gender</label>
 <select name="gender_of_match" id="gender_of_match">
 	<option value="" selected>Any</option>
 	<option value="M">M</option>
