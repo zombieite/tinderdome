@@ -11,7 +11,6 @@ class ProfileController extends Controller
 	public function show($profile_id, $wasteland_name_from_url)
 	{
 		$profile                 = \App\User::find( $profile_id );
-		$wasteland_name          = $profile->name;
 		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
 
 		if ($profile) {
@@ -20,19 +19,29 @@ class ProfileController extends Controller
 			abort(404);
 		}
 
+		$wasteland_name = $profile->name;
+
 		if ($wasteland_name_from_url !== $wasteland_name) {
 			abort(404);
+		}
+
+		$its_me = 0;
+		$viewing_user = Auth::user();
+		if ($viewing_user) {
+			if ($viewing_user->id === $profile->id) {
+				$its_me = 1;
+			}
 		}
 
 		$save_message                = (isset( $_GET['save_message']) ? $_GET['save_message'] : null);
 		$number_people               = $profile->number_people;
 		$gender                      = $profile->gender;
+		$gender_of_match             = $profile->gender_of_match;
 		$height                      = $profile->height;
 		$birth_year                  = $profile->birth_year;
 		$description                 = $profile->description;
 		$how_to_find_me              = $profile->how_to_find_me;
 		$number_photos               = $profile->number_photos;
-		$hoping_to_find_acquaintance = $profile->hoping_to_find_acquaintance;
 		$hoping_to_find_friend       = $profile->hoping_to_find_friend;
 		$hoping_to_find_love         = $profile->hoping_to_find_love;
 		$hoping_to_find_lost         = $profile->hoping_to_find_lost;
@@ -43,16 +52,17 @@ class ProfileController extends Controller
 			'wasteland_name'              => $wasteland_name,
 			'number_people'               => $number_people,
 			'gender'                      => $gender,
+			'gender_of_match'             => $gender_of_match,
 			'height'                      => $height,
 			'birth_year'                  => $birth_year,
 			'description'                 => $description,
 			'how_to_find_me'              => $how_to_find_me,
 			'number_photos'               => $number_photos,
-			'hoping_to_find_acquaintance' => $hoping_to_find_acquaintance,
 			'hoping_to_find_friend'       => $hoping_to_find_friend,
 			'hoping_to_find_love'         => $hoping_to_find_love,
 			'hoping_to_find_lost'         => $hoping_to_find_lost,
-			'hoping_to_find_enemy'        => $hoping_to_find_enemy
+			'hoping_to_find_enemy'        => $hoping_to_find_enemy,
+			'its_me'                      => $its_me,
 		]);
 	}
 
