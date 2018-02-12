@@ -19,19 +19,24 @@
 @guest
 	<a href="{{ route('register') }}">Create a profile</a> &middot; <a href="{{ route('login') }}">Log in</a>
 @else
-	You are logged in as <a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a> &middot; <a href="/profile/edit">Edit profile</a>
 	<form action="{{ route('logout') }}" method="POST">
 	{{ csrf_field() }}
+	You are logged in as <a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>
+	&middot;
+	<a href="/profile/edit">Edit profile</a>
+	&middot;
 	<input type="submit" value="Log out">
 	</form>
 @endguest
 
-<br>
-Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/Firebird">Here&apos;s my profile</a>.
-
 <hr>
 
 @yield('content')
+
+<hr>
+
+Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to report bugs or offensive profiles. <a href="/profile/Firebird">Here&apos;s my profile</a>.
+
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
