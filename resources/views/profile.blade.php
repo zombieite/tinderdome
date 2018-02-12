@@ -68,7 +68,4 @@
 @for ($i = 1; $i <= $number_photos; $i++)
 <a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg" style="height:250px;"></a>
 @endfor
-@if ($its_me)
-	<h2>To edit your profile contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a></h2>
-@endif
 @endsection

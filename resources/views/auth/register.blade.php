@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-
+@guest
 <h2>Create profile</h2>
-<p>
-	Contact me, <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>, to edit or delete your profile or to report users for bad behavior. Any data may be deleted by me at any time for any reason without notice. <a href="/profile/Firebird">Here&apos;s my profile</a>.
-</p>
+@else
+<h2>Edit profile</h2>
+@endguest
 
 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
 {{ csrf_field() }}
