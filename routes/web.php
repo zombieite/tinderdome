@@ -27,4 +27,8 @@ Route::get('profile/edit', 'ProfileController@edit', function () {
 	return view('auth/register');
 })->middleware('auth');
 
+Route::post('profile/edit', 'ProfileController@update', function () {
+	return view('auth/register');
+})->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
