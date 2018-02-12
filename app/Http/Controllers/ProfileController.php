@@ -207,6 +207,8 @@ class ProfileController extends Controller
 			$profile->ip                     = $ip;
 
 			$profile->save();
+
+			return redirect('/profile/me');
 		}
 
 		return view('auth/register', [
