@@ -3,7 +3,7 @@
 @guest
 <h2>Create profile</h2>
 @else
-<h2>Edit profile</h2>
+<h2>Edit profile for {{ $email }}</h2>
 @endguest
 
 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
@@ -12,17 +12,19 @@
 <h3>Required</h3>
 
 <label for="name">Wasteland nickname (English letters, numbers, spaces only)</label>
-<input id="name" type="text" name="name" value="{{ old('name') }}" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
+<input id="name" type="text" name="name" value="@guest{{ old('name') }}@else{{ $wasteland_name }}@endguest" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
 @if ($errors->has('name'))
 <strong>{{ $errors->first('name') }}</strong>
 @endif
 
+@guest
 <br>
 <label for="email">Email. It will not be shown or given out to anyone, not even your mutual matches.</label>
 <input id="email" type="email" name="email" value="{{ old('email') }}" maxlength="50" required>
 @if ($errors->has('email'))
 <strong>{{ $errors->first('email') }}</strong>
 @endif
+@endguest
 
 <br>
 <label for="password">Password (English letters, numbers, spaces only)</label>
@@ -38,9 +40,9 @@
 <br>
 <label for="number_people">Number of people in this profile</label>
 <select name="number_people" id="number_people">
-<option value="1" selected>1</option>
-<option value="2">2 people</option>
-<option value="3">A group of 3 or more</option>
+<option value="1" @guest @else @if ($number_people === 1) selected @endif @endguest>1</option>
+<option value="2" @guest @else @if ($number_people === 2) selected @endif @endguest>2 people</option>
+<option value="3" @guest @else @if ($number_people === 3) selected @endif @endguest>A group of 3 or more</option>
 </select>
 
 @if ($errors->has('number_people'))
@@ -145,12 +147,12 @@ Upload images
 <br><br>
 <label for="description">Tell other users about yourself. Do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
 <br>
-<input type="text" size="100" maxlength="2000" name="description" id="description">
+<input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
 <br><br>
 <label for="how_to_find_me">Give other users a hint how they can find you at the event. Do not include real names, emails, phone numbers, or addresses. 200 characters max.</label>
 <br>
-<input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me">
+<input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
 <h3>Submit your profile</h3>
 
