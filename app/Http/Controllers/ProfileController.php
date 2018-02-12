@@ -25,14 +25,6 @@ class ProfileController extends Controller
 			abort(404);
 		}
 
-		$its_me = 0;
-		$viewing_user = Auth::user();
-		if ($viewing_user) {
-			if ($viewing_user->id === $profile->id) {
-				$its_me = 1;
-			}
-		}
-
 		$save_message                = (isset( $_GET['save_message']) ? $_GET['save_message'] : null);
 		$number_people               = $profile->number_people;
 		$gender                      = $profile->gender;
@@ -62,7 +54,50 @@ class ProfileController extends Controller
 			'hoping_to_find_love'         => $hoping_to_find_love,
 			'hoping_to_find_lost'         => $hoping_to_find_lost,
 			'hoping_to_find_enemy'        => $hoping_to_find_enemy,
-			'its_me'                      => $its_me,
+		]);
+	}
+
+	public function edit()
+	{
+		$profile = Auth::user();
+		if ($profile) {
+			// All good
+		} else {
+			abort(404);
+		}
+
+		$wasteland_name = $profile->name;
+
+		$save_message                = (isset( $_GET['save_message']) ? $_GET['save_message'] : null);
+		$profile_id                  = $profile->id;
+		$number_people               = $profile->number_people;
+		$gender                      = $profile->gender;
+		$gender_of_match             = $profile->gender_of_match;
+		$height                      = $profile->height;
+		$birth_year                  = $profile->birth_year;
+		$description                 = $profile->description;
+		$how_to_find_me              = $profile->how_to_find_me;
+		$number_photos               = $profile->number_photos;
+		$hoping_to_find_friend       = $profile->hoping_to_find_friend;
+		$hoping_to_find_love         = $profile->hoping_to_find_love;
+		$hoping_to_find_lost         = $profile->hoping_to_find_lost;
+		$hoping_to_find_enemy        = $profile->hoping_to_find_enemy;
+		return view('auth/register', [
+			'save_message'                => $save_message,
+			'profile_id'                  => $profile_id,
+			'wasteland_name'              => $wasteland_name,
+			'number_people'               => $number_people,
+			'gender'                      => $gender,
+			'gender_of_match'             => $gender_of_match,
+			'height'                      => $height,
+			'birth_year'                  => $birth_year,
+			'description'                 => $description,
+			'how_to_find_me'              => $how_to_find_me,
+			'number_photos'               => $number_photos,
+			'hoping_to_find_friend'       => $hoping_to_find_friend,
+			'hoping_to_find_love'         => $hoping_to_find_love,
+			'hoping_to_find_lost'         => $hoping_to_find_lost,
+			'hoping_to_find_enemy'        => $hoping_to_find_enemy,
 		]);
 	}
 
