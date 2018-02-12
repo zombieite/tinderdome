@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@if ($save_message)
-<h1 style="color:red;">Profile created.</h1>
-@endif
 <h2>Profile for {{ $wasteland_name }}</h2>
 @if ($gender or $gender_of_match)
 	<p>
