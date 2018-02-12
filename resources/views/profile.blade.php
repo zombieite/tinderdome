@@ -46,7 +46,7 @@
 	@endif
 	@if ($hoping_to_find_enemy)
 		@if ($hoping_to_find_love or $hoping_to_find_friend)
-			Or
+			or
 		@endif
 		making an enemy
 	@endif
