@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
+use Image;
+use File;
 
 class ProfileController extends Controller
 {
@@ -143,6 +145,7 @@ class ProfileController extends Controller
 		$attending_ball         = isset($_POST['attending_ball']);
 		$attending_detonation   = isset($_POST['attending_detonation']);
 		$attending_wasteland    = isset($_POST['attending_wasteland']);
+		$ip                     = request()->ip() or die("No ip");
 
 		if (strlen($password) > 0) {
 			if ($password !== $password_confirmation) {
@@ -150,7 +153,28 @@ class ProfileController extends Controller
 			}
 		}
 
-// TODO PROCESS IMAGES
+		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+		$max_images                = 5;
+		$image_height              = 500;
+		$number_photos             = 0;
+		for ($i = 1; $i <= $max_images; $i++) {
+			$uploaded_file = $_FILES["image$i"]['tmp_name'];
+			if ($uploaded_file) {
+				$number_photos++;
+			}
+		}
+		for ($i = 1; $i <= $max_images; $i++) {
+			$uploaded_file = $_FILES["image$i"]['tmp_name'];
+			if ($uploaded_file) {
+				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name_hyphenated-$i.jpg";
+				File::copy($uploaded_file, $destination);
+				$img = Image::make($destination);
+				$img->orientate();
+				$img->heighten($image_height);
+				$img->encode('jpg');
+				$img->save($destination);
+			}
+		}
 
 		if ($update_errors) {
 			// Don't update
@@ -159,23 +183,28 @@ class ProfileController extends Controller
 				$profile->password = bcrypt($password);
 			}
 
-			$profile->name = $wasteland_name;
-			$profile->number_people = $number_people;
-			$profile->gender = $gender;
-			$profile->gender_of_match = $gender_of_match;
-			$profile->height = $height;
-			$profile->birth_year = $birth_year;
-			$profile->description = $description;
-			$profile->how_to_find_me = $how_to_find_me;
-			$profile->random_ok = $random_ok;
-			$profile->hoping_to_find_friend = $hoping_to_find_friend;
-			$profile->hoping_to_find_love = $hoping_to_find_love;
-			$profile->hoping_to_find_lost = $hoping_to_find_lost;
-			$profile->hoping_to_find_enemy = $hoping_to_find_enemy;
+			if ($number_photos > 0) {
+				$profile->number_photos = $number_photos;
+			}
+
+			$profile->name                   = $wasteland_name;
+			$profile->number_people          = $number_people;
+			$profile->gender                 = $gender;
+			$profile->gender_of_match        = $gender_of_match;
+			$profile->height                 = $height;
+			$profile->birth_year             = $birth_year;
+			$profile->description            = $description;
+			$profile->how_to_find_me         = $how_to_find_me;
+			$profile->random_ok              = $random_ok;
+			$profile->hoping_to_find_friend  = $hoping_to_find_friend;
+			$profile->hoping_to_find_love    = $hoping_to_find_love;
+			$profile->hoping_to_find_lost    = $hoping_to_find_lost;
+			$profile->hoping_to_find_enemy   = $hoping_to_find_enemy;
 			$profile->attending_winter_games = $attending_winter_games;
-			$profile->attending_ball = $attending_ball;
-			$profile->attending_detonation = $attending_detonation;
-			$profile->attending_wasteland = $attending_wasteland;
+			$profile->attending_ball         = $attending_ball;
+			$profile->attending_detonation   = $attending_detonation;
+			$profile->attending_wasteland    = $attending_wasteland;
+			$profile->ip                     = $ip;
 
 			$profile->save();
 		}

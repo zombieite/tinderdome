@@ -6,8 +6,10 @@
 <h2>Edit profile for {{ $email }}</h2>
 @endguest
 
-@if ($update_errors)
-<h2>Error updating profile: {{ $update_errors }}</h2>
+@if (isset($update_errors))
+	@if ($update_errors)
+		<h2>Error updating profile: {{ $update_errors }}</h2>
+	@endif
 @endif
 
 <form method="POST" action="@guest {{ route('register') }} @endguest" enctype="multipart/form-data">
