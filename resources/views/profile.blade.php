@@ -4,7 +4,7 @@
 @if ($gender or $gender_of_match)
 	<p>
 	@if ($gender)
-		{{ $gender === 'M' ? 'Male' : 'Female' }}
+		Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}
 		@if ($gender_of_match)
 			looking
 		@endif

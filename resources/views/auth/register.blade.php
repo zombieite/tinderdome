@@ -112,6 +112,7 @@ Upload images
 	<option value="">No answer</option>
 	<option value="M" @guest @else @if ($gender === 'M') selected @endif @endguest>M</option>
 	<option value="F" @guest @else @if ($gender === 'F') selected @endif @endguest>F</option>
+	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
 </select>
 <br>
 <label for="gender_of_match">Match me with a person of gender</label>
@@ -119,6 +120,7 @@ Upload images
 	<option value="">Any</option>
 	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>M</option>
 	<option value="F" @guest @else @if ($gender_of_match === 'F') selected @endif @endguest>F</option>
+	<option value="O" @guest @else @if ($gender_of_match === 'O') selected @endif @endguest>Other</option>
 </select>
 
 <br>
