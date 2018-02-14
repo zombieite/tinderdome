@@ -5,14 +5,15 @@
 	<p>
 	@if ($gender)
 		Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}
+		<br>
 		@if ($gender_of_match)
-			looking
+			Looking
 		@endif
 	@else
 		Looking
 	@endif
 	@if ($gender_of_match)
-		to be matched with a {{ $gender_of_match === 'M' ? 'male' : 'female' }}
+		to be matched with a person of gender: {{ $gender_of_match === 'M' ? 'Male' : ($gender_of_match === 'F' ? 'Female' : 'Other') }}
 	@endif
 	</p>
 @endif
