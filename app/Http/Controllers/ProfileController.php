@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use Image;
 use File;
@@ -252,6 +253,30 @@ class ProfileController extends Controller
 
 	public function compatible()
 	{
-		return view('compatible');
+		$chooser_user = Auth::user();
+		$chooser_user_id = $chooser_user->id;
+
+		$users = DB::select('
+			select
+				id,
+				name
+			from
+				users
+			left join choose on (
+				users.id=chosen_id
+				and chooser_id=?
+			)
+			where
+				id<>?
+				and (
+					chosen_id is null
+					or chosen_id=0
+				)
+		',
+		[$chooser_user_id, $chooser_user_id]);
+
+		return view('compatible', [
+			'users' => $users,
+		]);
 	}
 }
