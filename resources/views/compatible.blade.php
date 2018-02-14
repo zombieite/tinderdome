@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-<h2>Coming soon: Marking other profiles as favorites</h2>
+<h2>Coming soon: Choose potential matches here</h2>
 @endsection
