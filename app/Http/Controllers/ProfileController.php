@@ -253,13 +253,19 @@ class ProfileController extends Controller
 
 	public function compatible()
 	{
-		$chooser_user = Auth::user();
-		$chooser_user_id = $chooser_user->id;
+		$chooser_user       = Auth::user();
+		$chooser_user_id    = $chooser_user->id;
+		$has_photos         = $chooser_user->number_photos;
+		$photos_clause      = $has_photos ? '' : 'and (number_photos is null or number_photos = 0)';
+		$has_description    = $chooser_user->description;;
+		$description_clause = $has_description ? '' : 'and (description is null or length(description) < 50)';
 
-		$unchosen_users = DB::select('
+		$unchosen_users = DB::select("
 			select
 				id,
-				name
+				name,
+				number_photos,
+				description
 			from
 				users
 			left join choose on (
@@ -273,11 +279,18 @@ class ProfileController extends Controller
 					choice is null
 					or choice=0
 				)
-		',
+				$photos_clause
+				$description_clause
+			order by
+				number_photos desc,
+				length(description) desc
+		",
 		[$chooser_user_id, $chooser_user_id]);
 
 		return view('compatible', [
-			'users' => $unchosen_users,
+			'users'           => $unchosen_users,
+			'has_photos'      => $has_photos,
+			'has_description' => $has_description,
 		]);
 	}
 }
