@@ -21,5 +21,5 @@
 		@endif
 	</li>
 @endforeach
-</u3l>
+</ul>
 @endsection
