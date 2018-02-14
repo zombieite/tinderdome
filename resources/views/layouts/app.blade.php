@@ -25,6 +25,8 @@
 	&middot;
 	<a href="/profile/edit">Edit profile</a>
 	&middot;
+	<a href="/profile/compatible">Choose potential matches</a>
+	&middot;
 	<input type="submit" value="Log out">
 	</form>
 @endguest
