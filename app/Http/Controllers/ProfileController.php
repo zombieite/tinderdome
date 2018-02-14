@@ -256,7 +256,7 @@ class ProfileController extends Controller
 		$chooser_user = Auth::user();
 		$chooser_user_id = $chooser_user->id;
 
-		$users = DB::select('
+		$unchosen_users = DB::select('
 			select
 				id,
 				name
@@ -264,19 +264,20 @@ class ProfileController extends Controller
 				users
 			left join choose on (
 				users.id=chosen_id
-				and chooser_id=?
+				and chosen_id=7
+				and chooser_id=1
 			)
 			where
 				id<>?
 				and (
-					chosen_id is null
-					or chosen_id=0
+					choice is null
+					or choice=0
 				)
 		',
 		[$chooser_user_id, $chooser_user_id]);
 
 		return view('compatible', [
-			'users' => $users,
+			'users' => $unchosen_users,
 		]);
 	}
 }
