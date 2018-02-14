@@ -157,7 +157,7 @@ Upload images
 </select>
 
 <br><br>
-<label for="description">Tell other users about yourself. Do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
+<label for="description">Tell other users about yourself. Do say where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
 <br>
 <input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
