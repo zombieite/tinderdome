@@ -31,4 +31,8 @@ Route::post('profile/edit', 'ProfileController@update', function () {
 	return view('auth/register');
 })->middleware('auth');
 
+Route::get('profile/compatible', 'ProfileController@compatible', function () {
+	return view('profile');
+})->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');

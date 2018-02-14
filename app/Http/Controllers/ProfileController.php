@@ -249,4 +249,9 @@ class ProfileController extends Controller
 		}
 		abort(403);
 	}
+
+	public function compatible()
+	{
+		return view('compatible');
+	}
 }
