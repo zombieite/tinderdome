@@ -90,7 +90,7 @@ Check as many as possible. I am/we are...
 
 <h3>Suggested</h3>
 
-Upload images
+Upload images. No nudity. If you don't include a picture of your face you that's fine, but you will be assigned a lower ranking in search results.
 @guest 
 @else
 (To remove old images just upload new ones)

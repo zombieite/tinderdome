@@ -35,4 +35,8 @@ Route::get('profile/compatible', 'ProfileController@compatible', function () {
 	return view('profile');
 })->middleware('auth');
 
+Route::post('profile/compatible', 'ProfileController@compatible', function () {
+	return view('profile');
+})->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');

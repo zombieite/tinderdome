@@ -1,5 +1,15 @@
 @extends('layouts.app')
 @section('content')
+@if ($unchosen_user_id)
+	<h3>Would you like to add this user to the list of users you'd be willing to meet at the next event?</h3>
+	<form action="" method="POST">
+		{{ csrf_field() }}
+		<input type="hidden" name="choose" value="{{ $unchosen_user_id }}">
+		<input type="submit" value="Yes">
+		<input type="submit" value="Maybe">
+		<input type="submit" value="No">
+	</form>
+@endif
 <h2>Profile for {{ $wasteland_name }}</h2>
 @if ($gender or $gender_of_match)
 	<p>
@@ -7,10 +17,10 @@
 		Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}
 		<br>
 		@if ($gender_of_match)
-			Looking
+			Preferring
 		@endif
 	@else
-		Looking
+		Preferring
 	@endif
 	@if ($gender_of_match)
 		to be matched with a person of gender: {{ $gender_of_match === 'M' ? 'Male' : ($gender_of_match === 'F' ? 'Female' : 'Other') }}
