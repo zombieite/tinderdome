@@ -150,6 +150,11 @@ class ProfileController extends Controller
 		$attending_wasteland    = isset($_POST['attending_wasteland']);
 		$ip                     = request()->ip() or die("No ip");
 
+		if (isset($_POST['delete'])) {
+			DB::delete('delete from users where id=? limit 1', [$profile_id]);
+			return redirect('/');
+		}
+
 		if (strlen($password) > 0) {
 			if ($password !== $password_confirmation) {
 				$update_errors .= 'Passwords do not match';
@@ -262,6 +267,8 @@ class ProfileController extends Controller
 		$has_description                  = $chooser_user->description;
 		$description_clause               = $has_description ? '' : 'and (description is null or length(description) < 50)';
 		$gender_of_match                  = $chooser_user->gender_of_match;
+		$next_event                       = 'winter_games';
+		$next_event_clause                = "and attending_$next_event=true";
 
 		if ($gender_of_match) {
 			if (in_array($gender_of_match, ['M', 'F', 'O'])) {
@@ -300,6 +307,7 @@ class ProfileController extends Controller
 				$photos_clause
 				$description_clause
 				$are_they_my_wanted_gender_clause
+				$next_event_clause
 			order by
 				seen,
 				number_photos desc,
