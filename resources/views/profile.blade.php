@@ -4,10 +4,10 @@
 	<h3>Would you like to add this user to the list of users you'd be willing to meet at the next event?</h3>
 	<form action="" method="POST">
 		{{ csrf_field() }}
-		<input type="hidden" name="choose" value="{{ $unchosen_user_id }}">
-		<input type="submit" value="Yes">
-		<input type="submit" value="Maybe">
-		<input type="submit" value="No">
+		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
+		<input type="submit" name="Yes" value="Yes">
+		<input type="submit" name="Maybe" value="Maybe">
+		<input type="submit" name="No" value="No">
 	</form>
 @endif
 <h2>Profile for {{ $wasteland_name }}</h2>

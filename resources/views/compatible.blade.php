@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<h2>Coming soon: Choose potential matches here</h2>
+<h2>You have rated all current users. The next step is to check back here on the day before the event to find out if we were able to match you with another user.</h2>
+
+{{--
 <h3>List of current users:</h3>
 @if ($has_photos)
 @else
@@ -22,4 +24,6 @@
 	</li>
 @endforeach
 </ul>
+--}}
+
 @endsection

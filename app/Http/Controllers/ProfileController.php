@@ -271,6 +271,22 @@ class ProfileController extends Controller
 			}
 		}
 
+		if (isset($_POST['chosen'])) {
+			if (isset($_POST['Maybe'])) {
+				// Do nothing
+			} else {
+				$chosen_id    = $_POST['chosen'];
+				$choose_value = null;
+				if (isset($_POST['Yes'])) {
+					$choose_value = true;
+				} elseif (isset($_POST['No'])) {
+					$choose_value = false;
+				}
+				$update = 'update choose set choice=? where chooser_id=? and chosen_id=?';
+				DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
+			}
+		}
+
 		$are_they_my_wanted_gender_clause = $gender_of_match ? "and gender='" . $gender_of_match ."'" : '';
 
 		$unchosen_users = DB::select("
@@ -284,10 +300,7 @@ class ProfileController extends Controller
 			)
 			where
 				id<>?
-				and (
-					choice is null
-					or choice=0
-				)
+				and choice is null
 				$photos_clause
 				$description_clause
 				$are_they_my_wanted_gender_clause
@@ -299,22 +312,25 @@ class ProfileController extends Controller
 		",
 		[$chooser_user_id, $chooser_user_id]);
 		$unchosen_user    = array_shift($unchosen_users);
-		$unchosen_user_id = $unchosen_user->id;
 
-		if ($unchosen_user->seen) {
-			// Already marked as seen
-		} else {
-			DB::insert('
-				insert into choose (chooser_id, chosen_id, seen) values (?, ?, ?)
-			', [ $chooser_user_id, $unchosen_user_id, true ]);
+		if ($unchosen_user) {
+			$unchosen_user_id = $unchosen_user->id;
+
+			if ($unchosen_user->seen) {
+				// Already marked as seen
+			} else {
+				DB::insert('
+					insert into choose (chooser_id, chosen_id, seen) values (?, ?, ?)
+				', [ $chooser_user_id, $unchosen_user_id, true ]);
+			}
+
+			return $this->show($unchosen_user_id, $unchosen_user->name, $unchosen_user);
 		}
 
-		return $this->show($unchosen_user_id, $unchosen_user->name, $unchosen_user);
-
-		//return view('compatible', [
-		//	'users'           => $unchosen_users,
-		//	'has_photos'      => $has_photos,
-		//	'has_description' => $has_description,
-		//]);
+		return view('compatible', [
+			'users'           => $unchosen_users,
+			'has_photos'      => $has_photos,
+			'has_description' => $has_description,
+		]);
 	}
 }
