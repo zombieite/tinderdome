@@ -6,7 +6,6 @@
 		{{ csrf_field() }}
 		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
 		<input type="submit" name="Yes" value="Yes">
-		<input type="submit" name="Maybe" value="Maybe">
 		<input type="submit" name="No" value="No">
 	</form>
 @endif
