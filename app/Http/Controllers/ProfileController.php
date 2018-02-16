@@ -327,10 +327,6 @@ class ProfileController extends Controller
 			return $this->show($unchosen_user_id, $unchosen_user->name, $unchosen_user);
 		}
 
-		return view('compatible', [
-			'users'           => $unchosen_users,
-			'has_photos'      => $has_photos,
-			'has_description' => $has_description,
-		]);
+		return redirect('/home');
 	}
 }
