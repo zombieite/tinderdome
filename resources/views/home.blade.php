@@ -10,5 +10,5 @@
 @endif
 <h3>3. Find out who you've been matched with. Next matching run will be complete Feb 22.</h3>
 <h3>4. Seek out the person or group you've been matched with. Next event is The Wasteland Winter Games.</h3>
-<h3>5. Get your caps</h3>
+<h3>5. Find <a href="/profile/Firebird">Firebird</a> and get your caps</h3>
 @endsection
