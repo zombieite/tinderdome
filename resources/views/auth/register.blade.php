@@ -17,7 +17,7 @@
 
 <h3>Required</h3>
 
-<label for="name">Wasteland nickname (English letters, numbers, spaces only)</label>
+<label for="name">Wasteland nickname. English letters, numbers, spaces only.</label>
 <input id="name" type="text" name="name" value="@guest{{ old('name') }}@else{{ $wasteland_name }}@endguest" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
 @if ($errors->has('name'))
 <strong>{{ $errors->first('name') }}</strong>
@@ -33,7 +33,7 @@
 @endguest
 
 <br>
-<label for="password">Password (English letters, numbers, spaces only)</label>
+<label for="password">Password. English letters, numbers, spaces only.</label>
 <input id="password" type="password" name="password" pattern="^[A-Za-z0-9 ]+$" @guest required @endguest>
 @if ($errors->has('password'))
 <strong>{{ $errors->first('password') }}</strong>
@@ -74,7 +74,7 @@ Check at least one. I/we will be attending the next...
 Check at least one. I am/we are...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
-<label for="random_ok">Open to a random match (if unchecked you are less likely to get a match)</label>
+<label for="random_ok">Open to a random match. If unchecked you are less likely to get a match.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
 <label for="hoping_to_find_friend">Open to making a new friend</label>
@@ -90,10 +90,10 @@ Check at least one. I am/we are...
 
 <h3>Suggested</h3>
 
-Upload images. No nudity. If you don't include a picture of your face you that's fine, but you will be assigned a lower ranking in search results.
+Upload images. No nudity. If you don't include a picture of your face that's ok, but you might be assigned a lower ranking in search results.
 @guest 
 @else
-(To remove old images just upload new ones)
+To remove old images just upload new ones.
 @endguest
 <br>
 <input type="file" name="image1" value="image">
