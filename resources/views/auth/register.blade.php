@@ -56,25 +56,25 @@
 @endif
 
 <br><br>
-Check at least one. I/we...
+Check at least one. I/we will be attending the next...
 <br>
 <input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
-<label for="attending_winter_games">Will be attending the next Wasteland Winter Games</label>
+<label for="attending_winter_games">Wasteland Winter Games</label>
 <br>
 <input type="checkbox" name="attending_ball" id="attending_ball" @guest @else @if ($attending_ball) checked @endif @endguest>
-<label for="attending_ball">Will be attending the next Wastelanders Ball</label>
+<label for="attending_ball">Wastelanders Ball</label>
 <br>
 <input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
-<label for="attending_detonation">Will be attending the next Detonation Uranium Springs</label>
+<label for="attending_detonation">Detonation Uranium Springs</label>
 <br>
 <input type="checkbox" name="attending_wasteland" id="attending_wasteland" @guest checked @else @if ($attending_wasteland) checked @endif @endguest>
-<label for="attending_wasteland">Will be attending the next Wasteland Weekend</label>
+<label for="attending_wasteland">Wasteland Weekend</label>
 
 <br><br>
-Check as many as possible. I am/we are...
+Check at least one. I am/we are...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
-<label for="random_ok">Open to a random match (if unchecked you must come back later to mark some profiles as favorites, and even then you might not get a mutual match)</label>
+<label for="random_ok">Open to a random match (if unchecked you are less likely to get a match)</label>
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
 <label for="hoping_to_find_friend">Open to making a new friend</label>
@@ -115,7 +115,7 @@ Upload images. No nudity. If you don't include a picture of your face you that's
 	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
 </select>
 <br>
-<label for="gender_of_match">Match me with a person of gender</label>
+<label for="gender_of_match">I would prefer to be matched with a person of gender</label>
 <select name="gender_of_match" id="gender_of_match">
 	<option value="">Any</option>
 	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>M</option>
@@ -157,7 +157,7 @@ Upload images. No nudity. If you don't include a picture of your face you that's
 </select>
 
 <br><br>
-<label for="description">Tell other users about yourself. Do say where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
+<label for="description">Tell other users about yourself. Feel free to give your age and where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
 <br>
 <input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
