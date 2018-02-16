@@ -11,9 +11,9 @@ use File;
 
 class ProfileController extends Controller
 {
-	public function show($profile_id, $wasteland_name_from_url)
+	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null)
 	{
-		$profile                 = \App\User::find( $profile_id );
+		$profile                 = $unchosen_user ? $unchosen_user : \App\User::find( $profile_id );
 		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
 
 		if ($profile) {
@@ -40,6 +40,7 @@ class ProfileController extends Controller
 		$hoping_to_find_love    = $profile->hoping_to_find_love;
 		$hoping_to_find_lost    = $profile->hoping_to_find_lost;
 		$hoping_to_find_enemy   = $profile->hoping_to_find_enemy;
+		$unchosen_user_id       = $unchosen_user ? $unchosen_user->id : '';
 		return view('profile', [
 			'profile_id'             => $profile_id,
 			'wasteland_name'         => $wasteland_name,
@@ -55,6 +56,7 @@ class ProfileController extends Controller
 			'hoping_to_find_love'    => $hoping_to_find_love,
 			'hoping_to_find_lost'    => $hoping_to_find_lost,
 			'hoping_to_find_enemy'   => $hoping_to_find_enemy,
+			'unchosen_user_id'       => $unchosen_user_id,
 		]);
 	}
 
@@ -253,25 +255,32 @@ class ProfileController extends Controller
 
 	public function compatible()
 	{
-		$chooser_user       = Auth::user();
-		$chooser_user_id    = $chooser_user->id;
-		$has_photos         = $chooser_user->number_photos;
-		$photos_clause      = $has_photos ? '' : 'and (number_photos is null or number_photos = 0)';
-		$has_description    = $chooser_user->description;;
-		$description_clause = $has_description ? '' : 'and (description is null or length(description) < 50)';
+		$chooser_user                     = Auth::user();
+		$chooser_user_id                  = $chooser_user->id;
+		$has_photos                       = $chooser_user->number_photos;
+		$photos_clause                    = $has_photos ? '' : 'and (number_photos is null or number_photos = 0)';
+		$has_description                  = $chooser_user->description;
+		$description_clause               = $has_description ? '' : 'and (description is null or length(description) < 50)';
+		$gender_of_match                  = $chooser_user->gender_of_match;
+
+		if ($gender_of_match) {
+			if (in_array($gender_of_match, ['M', 'F', 'O'])) {
+				// All good
+			} else {
+				abort(500, "Invalid value found for gender of match: '$gender_of_match'");
+			}
+		}
+
+		$are_they_my_wanted_gender_clause = $gender_of_match ? "and gender='" . $gender_of_match ."'" : '';
 
 		$unchosen_users = DB::select("
 			select
-				id,
-				name,
-				number_photos,
-				description
+				*
 			from
 				users
 			left join choose on (
 				users.id=chosen_id
-				and chosen_id=7
-				and chooser_id=1
+				and chooser_id=$chooser_user_id
 			)
 			where
 				id<>?
@@ -281,16 +290,31 @@ class ProfileController extends Controller
 				)
 				$photos_clause
 				$description_clause
+				$are_they_my_wanted_gender_clause
 			order by
+				seen,
 				number_photos desc,
 				length(description) desc
+			limit 1
 		",
 		[$chooser_user_id, $chooser_user_id]);
+		$unchosen_user    = array_shift($unchosen_users);
+		$unchosen_user_id = $unchosen_user->id;
 
-		return view('compatible', [
-			'users'           => $unchosen_users,
-			'has_photos'      => $has_photos,
-			'has_description' => $has_description,
-		]);
+		if ($unchosen_user->seen) {
+			// Already marked as seen
+		} else {
+			DB::insert('
+				insert into choose (chooser_id, chosen_id, seen) values (?, ?, ?)
+			', [ $chooser_user_id, $unchosen_user_id, true ]);
+		}
+
+		return $this->show($unchosen_user_id, $unchosen_user->name, $unchosen_user);
+
+		//return view('compatible', [
+		//	'users'           => $unchosen_users,
+		//	'has_photos'      => $has_photos,
+		//	'has_description' => $has_description,
+		//]);
 	}
 }
