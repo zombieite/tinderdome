@@ -32,6 +32,8 @@ class HomeController extends Controller
         $has_description                  = $chooser_user->description;
         $description_clause               = $has_description ? '' : 'and (description is null or length(description) < 50)';
         $gender_of_match                  = $chooser_user->gender_of_match;
+        $next_event                       = 'winter_games';
+        $next_event_clause                = "and attending_$next_event=true";
 
         if ($gender_of_match) {
             if (in_array($gender_of_match, ['M', 'F', 'O'])) {
@@ -58,6 +60,7 @@ class HomeController extends Controller
                 $photos_clause
                 $description_clause
                 $are_they_my_wanted_gender_clause
+				 $next_event_clause
             order by
                 seen,
                 number_photos desc,

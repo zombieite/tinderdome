@@ -179,6 +179,14 @@ Submit changes
 @endguest
 </button>
 
+@guest
+@else
+<br><br><br><br>
+<button type="submit" name="delete">
+Delete profile
+</button>
+@endguest
+
 </form>
 
 
