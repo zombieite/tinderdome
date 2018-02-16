@@ -272,19 +272,15 @@ class ProfileController extends Controller
 		}
 
 		if (isset($_POST['chosen'])) {
-			if (isset($_POST['Maybe'])) {
-				// Do nothing
-			} else {
-				$chosen_id    = $_POST['chosen'];
-				$choose_value = null;
-				if (isset($_POST['Yes'])) {
-					$choose_value = true;
-				} elseif (isset($_POST['No'])) {
-					$choose_value = false;
-				}
-				$update = 'update choose set choice=? where chooser_id=? and chosen_id=?';
-				DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
+			$chosen_id    = $_POST['chosen'];
+			$choose_value = null;
+			if (isset($_POST['Yes'])) {
+				$choose_value = true;
+			} elseif (isset($_POST['No'])) {
+				$choose_value = false;
 			}
+			$update = 'update choose set choice=? where chooser_id=? and chosen_id=?';
+			DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
 		}
 
 		$are_they_my_wanted_gender_clause = $gender_of_match ? "and gender='" . $gender_of_match ."'" : '';
@@ -320,7 +316,7 @@ class ProfileController extends Controller
 				// Already marked as seen
 			} else {
 				DB::insert('
-					insert into choose (chooser_id, chosen_id, seen) values (?, ?, ?)
+					insert into choose (chooser_id, chosen_id) values (?, ?)
 				', [ $chooser_user_id, $unchosen_user_id, true ]);
 			}
 
