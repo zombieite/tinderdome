@@ -311,7 +311,8 @@ class ProfileController extends Controller
 			order by
 				seen,
 				number_photos desc,
-				length(description) desc
+				length(description) desc,
+				id
 			limit 1
 		",
 		[$chooser_user_id, $chooser_user_id]);
