@@ -3,7 +3,7 @@ body {
 	background-image: url("/images/awaited_bg.jpg");
 	background-color: #000000;
 	background-repeat: no-repeat;
-	font-family: sans-serif;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	margin: 30px;
 }
 a {
