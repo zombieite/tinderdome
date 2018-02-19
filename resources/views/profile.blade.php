@@ -2,6 +2,7 @@
 @section('content')
 @if ($unchosen_user_id)
 	<h3>Would you like to add this user to the list of users you'd be willing to meet at the next event?</h3>
+	@if ($count_left)<h4>{{$count_left}} profiles left to view</h4>@endif
 	<form action="" method="POST">
 		{{ csrf_field() }}
 		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
