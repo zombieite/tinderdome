@@ -9,7 +9,11 @@ config/
 database/
 package.json
 phpunit.xml
-public/
+public/uploads
+public/.htaccess
+public/index.php
+public/robots.txt
+public/web.config
 readme.md
 server.php
 storage/
