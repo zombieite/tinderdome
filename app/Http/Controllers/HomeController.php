@@ -57,12 +57,12 @@ class HomeController extends Controller
             where
                 id<>?
                 and choice is null
+				and seen is null
                 $photos_clause
                 $description_clause
                 $are_they_my_wanted_gender_clause
 				 $next_event_clause
             order by
-                seen,
                 number_photos desc,
                 length(description) desc
             limit 1
