@@ -17,7 +17,7 @@
 
 <h3>Required</h3>
 
-<label for="name">Wasteland nickname. English letters, numbers, spaces only.</label>
+<label for="name"><b>Wasteland nickname</b>. If you don't have one, make one up. English letters, numbers, spaces only.</label>
 <input id="name" type="text" name="name" value="@guest{{ old('name') }}@else{{ $wasteland_name }}@endguest" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
 @if ($errors->has('name'))
 <strong>{{ $errors->first('name') }}</strong>
@@ -25,7 +25,7 @@
 
 @guest
 <br>
-<label for="email">Email. It will not be shown or given out to anyone, not even your mutual matches.</label>
+<label for="email"><b>Email</b>. It will not be shown or given out to anyone, not even your mutual matches.</label>
 <input id="email" type="email" name="email" value="{{ old('email') }}" maxlength="50" required>
 @if ($errors->has('email'))
 <strong>{{ $errors->first('email') }}</strong>
@@ -33,18 +33,18 @@
 @endguest
 
 <br>
-<label for="password">Password. English letters, numbers, spaces only.</label>
+<label for="password"><b>Password</b>. English letters, numbers, spaces only.</label>
 <input id="password" type="password" name="password" pattern="^[A-Za-z0-9 ]+$" @guest required @endguest>
 @if ($errors->has('password'))
 <strong>{{ $errors->first('password') }}</strong>
 @endif
 
 <br>
-<label for="password-confirm">Confirm Password</label>
+<label for="password-confirm"><b>Confirm password.</b></label>
 <input id="password-confirm" type="password" name="password_confirmation" pattern="^[A-Za-z0-9 ]+$" @guest required @endguest>
 
 <br>
-<label for="number_people">Number of people in this profile</label>
+<label for="number_people"><b>Number of people</b> in this profile.</label>
 <select name="number_people" id="number_people">
 <option value="1" @guest @else @if ($number_people === 1) selected @endif @endguest>1</option>
 <option value="2" @guest @else @if ($number_people === 2) selected @endif @endguest>2 people</option>
@@ -56,41 +56,41 @@
 @endif
 
 <br><br>
-Check at least one. I/we will be attending the next...
+Check at least one. <b>I/we will be attending</b> the next...
 <br>
 <input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
-<label for="attending_winter_games">Wasteland Winter Games</label>
+<label for="attending_winter_games">Wasteland Winter Games.</label>
 <br>
 <input type="checkbox" name="attending_ball" id="attending_ball" @guest @else @if ($attending_ball) checked @endif @endguest>
-<label for="attending_ball">Wastelanders Ball</label>
+<label for="attending_ball">Wastelanders Ball.</label>
 <br>
 <input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
-<label for="attending_detonation">Detonation Uranium Springs</label>
+<label for="attending_detonation">Detonation Uranium Springs.</label>
 <br>
 <input type="checkbox" name="attending_wasteland" id="attending_wasteland" @guest checked @else @if ($attending_wasteland) checked @endif @endguest>
-<label for="attending_wasteland">Wasteland Weekend</label>
+<label for="attending_wasteland">Wasteland Weekend.</label>
 
 <br><br>
-Check at least one. I am/we are...
+Check at least one. <b>I am/we are</b>...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
-<label for="random_ok">Open to a random match. If unchecked you are less likely to get a match.</label>
+<label for="random_ok">Open to a random match. If unchecked, you are less likely to get a match. If checked, we may disregard your ratings of others' profiles if we can't find you a mutual match.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
-<label for="hoping_to_find_friend">Open to making a new friend</label>
+<label for="hoping_to_find_friend">Open to making a new friend.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_love" id="hoping_to_find_love" @guest @else @if ($hoping_to_find_love) checked @endif @endguest>
-<label for="hoping_to_find_love">Open to making a new friend or romantic partner</label>
+<label for="hoping_to_find_love">Open to making a new friend or romantic partner.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_lost" id="hoping_to_find_lost" @guest @else @if ($hoping_to_find_lost) checked @endif @endguest>
-<label for="hoping_to_find_lost">Looking for someone specific, a missed connection, or someone I once knew but have lost</label>
+<label for="hoping_to_find_lost">Looking for someone specific, a missed connection, or someone I once knew but have lost.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_enemy" id="hoping_to_find_enemy" @guest @else @if ($hoping_to_find_enemy) checked @endif @endguest>
-<label for="hoping_to_find_enemy">Looking for an enemy</label>
+<label for="hoping_to_find_enemy">Looking for an enemy.</label>
 
 <h3>Suggested</h3>
 
-Upload images. No nudity. If you don't include a picture of your face that's ok, but you might be assigned a lower ranking in search results.
+<b>Upload images</b>. No nudity. If you don't include a picture of your face that's ok, but you might be assigned a lower ranking in search results.
 @guest 
 @else
 To remove old images just upload new ones.
@@ -107,7 +107,7 @@ To remove old images just upload new ones.
 <input type="file" name="image5" value="image">
 
 <br><br>
-<label for="gender">Gender</label>
+<label for="gender"><b>Gender.</b></label>
 <select name="gender" id="gender">
 	<option value="">No answer</option>
 	<option value="M" @guest @else @if ($gender === 'M') selected @endif @endguest>M</option>
@@ -115,7 +115,7 @@ To remove old images just upload new ones.
 	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
 </select>
 <br>
-<label for="gender_of_match">I would prefer to be matched with a person of gender</label>
+<label for="gender_of_match"><b>I would prefer to be matched with</b> a person of gender...</label>
 <select name="gender_of_match" id="gender_of_match">
 	<option value="">Any</option>
 	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>M</option>
@@ -124,7 +124,7 @@ To remove old images just upload new ones.
 </select>
 
 <br>
-<label for="height">Height</label>
+<label for="height"><b>Height.</b></label>
 <select name="height" id="height">
 	<option value="">No answer</option>
 	<option value="59" @guest @else @if ($height === 59) selected @endif @endguest>Under 5&apos;</option>
@@ -145,7 +145,7 @@ To remove old images just upload new ones.
 </select>
 
 <br>
-<label for="birth_year">Birth decade</label>
+<label for="birth_year"><b>Birth decade.</b></label>
 <select name="birth_year" id="birth_year">
 	<option value="">No answer</option>
 	<option value="1959" @guest @else @if ($birth_year === 1959) selected @endif @endguest>Before 1960</option>
@@ -157,12 +157,12 @@ To remove old images just upload new ones.
 </select>
 
 <br><br>
-<label for="description">Tell other users about yourself. Feel free to give your age and where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
+<label for="description"><b>Tell other users about yourself.</b> Feel free to give your age and where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
 <br>
 <input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
 <br><br>
-<label for="how_to_find_me">Give other users a hint how they can find you at the event. Do not include real names, emails, phone numbers, or addresses. 200 characters max.</label>
+<label for="how_to_find_me"><b>Give other users a hint how they will be able to find you</b> at the event. Do not include real names, emails, phone numbers, or addresses. 200 characters max.</label>
 <br>
 <input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
