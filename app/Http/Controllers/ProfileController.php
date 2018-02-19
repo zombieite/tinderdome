@@ -11,7 +11,7 @@ use File;
 
 class ProfileController extends Controller
 {
-	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null)
+	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null)
 	{
 		$profile                 = $unchosen_user ? $unchosen_user : \App\User::find( $profile_id );
 		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
@@ -57,6 +57,7 @@ class ProfileController extends Controller
 			'hoping_to_find_lost'    => $hoping_to_find_lost,
 			'hoping_to_find_enemy'   => $hoping_to_find_enemy,
 			'unchosen_user_id'       => $unchosen_user_id,
+			'count_left'             => $count_left,
 		]);
 	}
 
@@ -304,32 +305,37 @@ class ProfileController extends Controller
 			where
 				id<>?
 				and choice is null
+				and seen is null
 				$photos_clause
 				$description_clause
 				$are_they_my_wanted_gender_clause
 				$next_event_clause
 			order by
-				seen,
 				number_photos desc,
 				length(description) desc,
 				id
-			limit 1
 		",
 		[$chooser_user_id, $chooser_user_id]);
-		$unchosen_user    = array_shift($unchosen_users);
+		$unchosen_user = array_shift($unchosen_users);
+		$count_left    = null;
+		foreach ($unchosen_users as $user_to_count) {
+			$count_left++;
+		}
 
 		if ($unchosen_user) {
 			$unchosen_user_id = $unchosen_user->id;
-
-			if ($unchosen_user->seen) {
-				// Already marked as seen
+			$choose_row_exists = DB::select('
+				select * from choose where chooser_id=? and chosen_id=?
+			', [$chooser_user_id, $unchosen_user_id]);
+			if ($choose_row_exists) {
+				// No need to insert another choose row
 			} else {
 				DB::insert('
 					insert into choose (chooser_id, chosen_id) values (?, ?)
-				', [ $chooser_user_id, $unchosen_user_id, true ]);
+				', [ $chooser_user_id, $unchosen_user_id ]);
 			}
 
-			return $this->show($unchosen_user_id, $unchosen_user->name, $unchosen_user);
+			return $this->show($unchosen_user_id, $unchosen_user->name, $unchosen_user, $count_left);
 		}
 
 		return redirect('/home');
