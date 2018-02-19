@@ -1,0 +1,12 @@
+body {
+	color: #ffffff;
+	background-image: url("/images/awaited_bg.jpg");
+	background-color: #000000;
+	background-repeat: no-repeat;
+	font-family: sans-serif;
+	margin: 30px;
+}
+a {
+	color: #aaaaaa;
+	text-decoration: none;
+}
