@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<h3>Next matches will be run Wed, Feb 21, 2018 for missions during the Wasteland Winter Games. Sign in on Feb 22 to find out who you're matched with.</h3>
 <h2>Find thems you're looking for and thems you've lost</h2>
 <p>
 Since The Apocalypse, Wasteland has become known the world over as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, without telephones or a reliable post office we need a designated meeting place. That's Wasteland.
