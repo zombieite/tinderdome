@@ -12,9 +12,9 @@
 
 <body>
 @guest
-<h1><a href="{{ url('/') }}">You Are Awaited</a></h1>
+<h1><a href="{{ url('/') }}">You Are Awaited 2018</a></h1>
 @else
-<h1><a href="{{ url('/home') }}">You Are Awaited</a></h1>
+<h1><a href="{{ url('/home') }}">You Are Awaited 2018</a></h1>
 @endguest
 
 @guest
