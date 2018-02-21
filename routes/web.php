@@ -40,3 +40,5 @@ Route::post('profile/compatible', 'ProfileController@compatible', function () {
 })->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
+Route::get('/match', 'MatchController@match')->name('match')->middleware('auth');

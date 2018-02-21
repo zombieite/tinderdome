@@ -1,6 +1,5 @@
 USE tinderdome;
-
-DROP TABLE IF EXISTS choose;
+USE tinderdome;
 
 CREATE TABLE choose (
 	choose_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
