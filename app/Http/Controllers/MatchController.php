@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class MatchController extends Controller
 {
-    public function match()
-    {
+	public function match()
+	{
 		$user = Auth::user();
 		if ($user->name !== 'Firebird') {
 			abort(403);
@@ -19,21 +19,25 @@ class MatchController extends Controller
 		$users_attending_next_event = DB::select("
 			select
 				name,
-				count(distinct chooser_id) liked_count
+				gender,
+				count(distinct chooser_id) popularity
 			from
 				users
 			left join choose on
 				users.id = choose.chosen_id
+				and choice = true
 			where
 				attending_$next_event_name
 			group by
-				name
+				name,
+				gender
 			order by
-				liked_count desc
+				gender,
+				popularity desc
 		");
 
 		return view('match', [
 			'users' => $users_attending_next_event,
 		]);
-    }
+	}
 }
