@@ -41,6 +41,7 @@ class ProfileController extends Controller
 		$hoping_to_find_lost    = $profile->hoping_to_find_lost;
 		$hoping_to_find_enemy   = $profile->hoping_to_find_enemy;
 		$unchosen_user_id       = $unchosen_user ? $unchosen_user->id : '';
+		$success_message        = isset($_GET['created']);
 		return view('profile', [
 			'profile_id'             => $profile_id,
 			'wasteland_name'         => $wasteland_name,
@@ -58,6 +59,7 @@ class ProfileController extends Controller
 			'hoping_to_find_enemy'   => $hoping_to_find_enemy,
 			'unchosen_user_id'       => $unchosen_user_id,
 			'count_left'             => $count_left,
+			'success_message'        => $success_message,
 		]);
 	}
 

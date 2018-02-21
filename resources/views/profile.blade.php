@@ -10,7 +10,12 @@
 		<input type="submit" name="No" value="No">
 	</form>
 @endif
-<h2>Profile for {{ $wasteland_name }}</h2>
+<h2>Profile
+@if ($success_message)
+	successfully created
+@endif
+	for {{ $wasteland_name }}
+</h2>
 @if ($gender or $gender_of_match)
 	<p>
 	@if ($gender)
