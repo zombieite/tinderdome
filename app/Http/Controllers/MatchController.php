@@ -11,8 +11,9 @@ class MatchController extends Controller
 	// Prioritize this user's mutual matches by
 	private static function sortMatches($a, $b) {
 
-		// 1. Whether they are user's preferred match gender
-		$desired_gender_of_chooser = $a->desired_gender_of_chooser; // Should be same for both $a and $b
+		// 1. Whether they are this user's preferred match gender
+		$gender_of_chooser         = $a->gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
+		$desired_gender_of_chooser = $a->desired_gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
 		if ($desired_gender_of_chooser) {
 			if (($a->gender === $desired_gender_of_chooser) && ($b->gender !== $desired_gender_of_chooser)) {
 				return -1;
@@ -20,7 +21,7 @@ class MatchController extends Controller
 				return 1;
 			}
 
-		// 2. If preferred match gender is unspecified, male first (only because there's a 3:1 ratio of M to F/Other so match up M first and save F/Other until they are requested as matches)
+		// 2. If preferred match gender is unspecified, male first (because there's a 3:1 ratio of M to F/Other so match up M first and save F/Other until they are requested as matches)
 		} else {
 			if (($a->gender === 'M') && ($b->gender !== 'M')) {
 				return -1;
@@ -33,12 +34,21 @@ class MatchController extends Controller
 		if ($b->popularity - $a->popularity !== 0) {
 			return $b->popularity - $a->popularity;
 		}
-		
+
 		// 4. Has photos (prioritize more complete profiles)
+		if ($b->number_photos - $a->number_photos !== 0) {
+			return $b->number_photos - $a->number_photos;
+		}
+
 		// 5. Length of description (prioritize more complete profiles)
+		if (strlen($b->description) - strlen($a->description) !== 0) {
+			return strlen($b->description) - strlen($a->description);
+		}
+
 		// 6. Random ok (prioritize random-ok users just as a perk to them)
-
-
+		if ($b->random_ok - $a->random_ok !== 0) {
+			return $b->random_ok - $a->random_ok;
+		}
 
 		// 7. Id (prioritize early signups just as a perk to them)
 		return $a->id - $b->id; // intcmp
@@ -96,6 +106,8 @@ class MatchController extends Controller
 					name,
 					gender,
 					gender_of_match,
+					number_photos,
+					description,
 					random_ok
 				from
 					users
@@ -114,8 +126,9 @@ class MatchController extends Controller
 
 			// Can't figure out a better way to pass params to sort
 			foreach ($mutual_matches as $match) {
+				$match->gender_of_chooser         = $user->gender;
 				$match->desired_gender_of_chooser = $user->gender_of_match;
-				$match->popularity = $matched_users_hash[$match->id]->popularity;
+				$match->popularity                = $matched_users_hash[$match->id]->popularity;
 			}
 
 			usort($mutual_matches, array($this, 'sortMatches'));
