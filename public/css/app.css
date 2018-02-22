@@ -7,6 +7,9 @@ body {
 	margin: 30px;
 }
 a {
-	color: #aaaaaa;
+	color: #ccaa33;
 	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
 }

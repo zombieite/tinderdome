@@ -11,9 +11,12 @@
 	</form>
 @endif
 @if ($is_my_match)
-<h1>{{ $auth_user->name }}, you are awaited by {{ $wasteland_name }}!</h1>
-<h2>Your mission is to seek them out and merge the backstories of your wasteland personas. How to find {{ $wasteland_name }}:</h2>
-<h2>&quot;{{ $how_to_find_me }}&quot;</h2>
+<h1>{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
+<h2>Your mission is to seek them out and merge the backstories of your wasteland personas.</h2>
+	@if ($how_to_find_me)
+	<h3>How to find {{ $wasteland_name }}:</h3>
+	<h3>&quot;{{ $how_to_find_me }}&quot;</h3>
+	@endif
 @else
 <h2>Profile
 @if ($success_message)
