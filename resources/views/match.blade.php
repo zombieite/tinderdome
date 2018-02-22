@@ -11,7 +11,7 @@
 		<th><b>Popularity</b></th>
 		<th><b>Random ok</b></th>
 		<th><b>Mutual matches</b></th>
-		<th><b>Match</b></th>
+		<th><b>Best match</b></th>
 	</tr>
 @foreach ($users as $user)
 	<tr>
@@ -26,7 +26,7 @@
 				{{ $mutual_match->name }},
 			@endforeach
 		</td>
-		<td>{{ $user->match }}</td>
+		<td>{{ $matched_users_hash[$user->id]->taken }}</td>
 	</tr>
 @endforeach
 </table>

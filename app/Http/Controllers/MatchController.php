@@ -99,7 +99,7 @@ class MatchController extends Controller
 			$matched_users_hash[$user->id] = $user;
 		}
 
-		// Iterate through users in order of popularity and see who their mutuals are
+		// Iterate through users in order of popularity and get them a mutual match if possible
 		foreach ($users_attending_next_event as $user) {
 			$mutual_matches = DB::select("
 				select
@@ -136,21 +136,21 @@ class MatchController extends Controller
 
 			$user->mutual_matches = $mutual_matches;
 
-			// Ugh this was the only way I could figure out how to get the first one, array_shift was giving me something weird that couldn't be accessed as an object but also couldn't be accessed as an array?!
 			$user->match = null;
 			foreach ($mutual_matches as $match) {
 				if (!$user->match) {
 					if (!$matched_users_hash[$match->id]->taken) {
 						$user->match = $match->name;
-						$matched_users_hash[$user->id]->taken = 1;
-						$matched_users_hash[$match->id]->taken = 1;
+						$matched_users_hash[$user->id]->taken  = $match->id;
+						$matched_users_hash[$match->id]->taken = $user->id;
 					}
 				}
 			}
 		}
 
 		return view('match', [
-			'users' => $users_attending_next_event,
+			'users'              => $users_attending_next_event,
+			'matched_users_hash' => $matched_users_hash,
 		]);
 	}
 }
