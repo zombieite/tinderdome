@@ -26,7 +26,7 @@
 				{{ $mutual_match->name }},
 			@endforeach
 		</td>
-		<td>{{ $matched_users_hash[$user->id]->taken }}</td>
+		<td>{{ $matched_users_hash[$user->id]->taken ? $matched_users_hash[$user->id]->taken : '' }}</td>
 	</tr>
 @endforeach
 </table>

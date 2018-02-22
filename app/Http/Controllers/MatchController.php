@@ -146,6 +146,16 @@ class MatchController extends Controller
 					}
 				}
 			}
+
+			// If no mutual match, then go with a random match, if they're ok with that
+			if ($user->random_ok) {
+				foreach ($matched_users_hash as $random_user) {
+					if (!$random_user->taken && $random_user->random_ok) {
+			//			$matched_users_hash[$user->id]->taken        = $random_user->id;
+			//			$matched_users_hash[$random_user->id]->taken = $user->id;
+					}
+				}
+			}
 		}
 
 		return view('match', [
