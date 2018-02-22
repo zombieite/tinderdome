@@ -12,6 +12,7 @@
 		<th><b>Random ok</b></th>
 		<th><b>Mutual matches</b></th>
 		<th><b>Best match</b></th>
+		<th><b>Random match</b></th>
 	</tr>
 @foreach ($users as $user)
 	<tr>
@@ -27,6 +28,7 @@
 			@endforeach
 		</td>
 		<td>{{ $matched_users_hash[$user->id]->taken ? $matched_users_hash[$user->id]->taken : '' }}</td>
+		<td>{{ $user->random_match }}</td>
 	</tr>
 @endforeach
 </table>
