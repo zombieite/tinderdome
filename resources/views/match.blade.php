@@ -11,20 +11,22 @@
 		<th><b>Popularity</b></th>
 		<th><b>Random ok</b></th>
 		<th><b>Mutual matches</b></th>
+		<th><b>Match</b></th>
 	</tr>
 @foreach ($users as $user)
 	<tr>
 		<td>{{ $user->id }}</td>
 		<td>{{ $user->name }}</td>
-		<td>{{ $user->gender }} </td>
-		<td>{{ $user->gender_of_match }} </td>
+		<td>{{ $user->gender }}</td>
+		<td>{{ $user->gender_of_match }}</td>
 		<td>{{ $user->popularity }}</td>
-		<td>{{ $user->random_ok}} </td>
+		<td>{{ $user->random_ok }}</td>
 		<td>
 			@foreach ($user->mutual_matches as $mutual_match)
 				{{ $mutual_match->name }},
 			@endforeach
 		</td>
+		<td>{{ $user->match }}</td>
 	</tr>
 @endforeach
 </table>
