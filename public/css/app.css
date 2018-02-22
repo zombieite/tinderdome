@@ -1,5 +1,5 @@
 body {
-	color: #ffffff;
+	color: #eeffff;
 	background-image: url("/images/awaited_bg.jpg");
 	background-color: #000000;
 	background-repeat: no-repeat;
@@ -7,7 +7,7 @@ body {
 	margin: 30px;
 }
 a {
-	color: #ccaa33;
+	color: #dedbbc;
 	text-decoration: none;
 }
 a:hover {
