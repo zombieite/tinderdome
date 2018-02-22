@@ -11,10 +11,11 @@ use File;
 
 class ProfileController extends Controller
 {
-	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null)
+	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null)
 	{
 		$profile                 = $unchosen_user ? $unchosen_user : \App\User::find( $profile_id );
 		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
+		$auth_user               = Auth::user();
 
 		if ($profile) {
 			// All good
@@ -60,6 +61,8 @@ class ProfileController extends Controller
 			'unchosen_user_id'       => $unchosen_user_id,
 			'count_left'             => $count_left,
 			'success_message'        => $success_message,
+			'is_my_match'            => $is_my_match,
+			'auth_user'              => $auth_user,
 		]);
 	}
 
@@ -290,7 +293,7 @@ class ProfileController extends Controller
 			$match_id   = $match->user_1;
 			$match_name = $match->user_1_name;
 		}
-		return $this->show($match_id, $match_name);
+		return $this->show($match_id, $match_name, null, null, 1);
 	}
 
 	public function compatible()

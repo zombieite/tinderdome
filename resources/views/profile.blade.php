@@ -10,12 +10,18 @@
 		<input type="submit" name="No" value="No">
 	</form>
 @endif
+@if ($is_my_match)
+<h1>{{ $auth_user->name }}, you are awaited by {{ $wasteland_name }}!</h1>
+<h2>Your mission is to seek them out and merge the backstories of your wasteland personas. How to find {{ $wasteland_name }}:</h2>
+<h2>&quot;{{ $how_to_find_me }}&quot;</h2>
+@else
 <h2>Profile
 @if ($success_message)
 	successfully created
 @endif
 	for {{ $wasteland_name }}
 </h2>
+@endif
 @if ($gender or $gender_of_match)
 	<p>
 	@if ($gender)
