@@ -143,16 +143,32 @@ class MatchController extends Controller
 						$user->match = $match->name;
 						$matched_users_hash[$user->id]->taken  = $match->id;
 						$matched_users_hash[$match->id]->taken = $user->id;
+						$already_inserted = DB::select("
+							select * from matching where event='winter_games' and year=2018 and (user_1=? or user_2=?)
+						", [$user->id, $user->id]);
+						if (!$already_inserted) {
+							DB::insert("
+								insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
+							", ['winter_games', 2018, $user->id, $match->id]);
+						}
 					}
 				}
 			}
 
 			// If no mutual match, then go with a random match, if they're ok with that
-			if ($user->random_ok) {
-				foreach ($matched_users_hash as $random_user) {
-					if (!$random_user->taken && $random_user->random_ok) {
-			//			$matched_users_hash[$user->id]->taken        = $random_user->id;
-			//			$matched_users_hash[$random_user->id]->taken = $user->id;
+			$user->random_match = 0;
+			if (!$user->match && !$matched_users_hash[$user->id]->taken) {
+				if ($user->random_ok) {
+					foreach ($matched_users_hash as $random_user) {
+						if ($user->id !== $random_user->id) {
+							if ((!$random_user->taken) && $random_user->random_ok) {
+								$user->random_match = 1;
+								//$user->match                                 = $random_user->name;
+								//$random_user->match                          = $user->name;
+								//$matched_users_hash[$user->id]->taken        = $random_user->id;
+								//$matched_users_hash[$random_user->id]->taken = $user->id;
+							}
+						}
 					}
 				}
 			}
