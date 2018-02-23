@@ -25,15 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-		$chooser_user = Auth::user();
-		$chooser_user_id = $chooser_user->id;
-        $has_photos                       = $chooser_user->number_photos;
-        $photos_clause                    = $has_photos ? '' : 'and (number_photos is null or number_photos = 0)';
-        $has_description                  = $chooser_user->description;
-        $description_clause               = $has_description ? '' : 'and (description is null or length(description) < 50)';
+		$chooser_user                     = Auth::user();
+		$chooser_user_id                  = $chooser_user->id;
         $gender_of_match                  = $chooser_user->gender_of_match;
-        $next_event                       = 'winter_games';
-        $next_event_clause                = "and attending_$next_event=true";
 
         if ($gender_of_match) {
             if (in_array($gender_of_match, ['M', 'F', 'O'])) {
@@ -58,10 +52,7 @@ class HomeController extends Controller
                 id<>?
                 and choice is null
 				and seen is null
-                $photos_clause
-                $description_clause
                 $are_they_my_wanted_gender_clause
-				 $next_event_clause
             order by
                 number_photos desc,
                 length(description) desc
@@ -70,6 +61,8 @@ class HomeController extends Controller
         [$chooser_user_id, $chooser_user_id]);
         $unchosen_user    = array_shift($unchosen_users);
 
+		$matched = DB::select('select * from matching where user_1=? or user_2=?', [$chooser_user_id, $chooser_user_id]);
+
 		$all_seen = true;
 		if ($unchosen_user) {
 			$all_seen = false;
@@ -77,6 +70,7 @@ class HomeController extends Controller
 
 		return view('home', [
 			'all_seen' => $all_seen,
+			'matched'  => $matched,
 		]);
     }
 }

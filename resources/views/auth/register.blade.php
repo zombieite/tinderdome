@@ -183,9 +183,8 @@ Submit changes
 
 @guest
 @else
-<br><br><br><br>
-<button type="submit" name="delete">
-Delete profile
+<button type="submit" name="delete" style="margin-left: 200px; background-color: red;">
+DELETE PROFILE
 </button>
 @endguest
 
