@@ -17,7 +17,7 @@
 
 <h3>Required</h3>
 
-<label for="name"><b>Wasteland nickname</b>. If you don't have one, make one up. English letters, numbers, spaces only.</label>
+<label for="name"><b>Nickname</b>. If you don't have one, make one up. English letters, numbers, spaces only.</label>
 <input id="name" type="text" name="name" value="@guest{{ old('name') }}@else{{ $wasteland_name }}@endguest" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
 @if ($errors->has('name'))
 <strong>{{ $errors->first('name') }}</strong>
@@ -56,7 +56,7 @@
 @endif
 
 <br><br>
-Check at least one. <b>I/we will be attending</b> the next...
+Check all that apply. <b>I/we will be attending</b> the next...
 {{--
 <br>
 <input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
@@ -73,7 +73,7 @@ Check at least one. <b>I/we will be attending</b> the next...
 <label for="attending_wasteland">Wasteland Weekend.</label>
 
 <br><br>
-Check at least one. <b>I am/we are</b>...
+Check all that apply. <b>I am/we are</b>...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
 <label for="random_ok">Open to a random match. If unchecked, you are less likely to get a match. If checked, we may disregard your ratings of others' profiles if we can't find you a mutual match.</label>
