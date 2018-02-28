@@ -33,15 +33,15 @@
 @endguest
 
 <br>
-<label for="password"><b>Password</b>. English letters, numbers, spaces only.</label>
-<input id="password" type="password" name="password" pattern="^[A-Za-z0-9 ]+$" @guest required @endguest>
+<label for="password"><b>Password</b></label>
+<input id="password" type="password" name="password" @guest required @endguest>
 @if ($errors->has('password'))
 <strong>{{ $errors->first('password') }}</strong>
 @endif
 
 <br>
 <label for="password-confirm"><b>Confirm password.</b></label>
-<input id="password-confirm" type="password" name="password_confirmation" pattern="^[A-Za-z0-9 ]+$" @guest required @endguest>
+<input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>
 
 <br>
 <label for="number_people"><b>Number of people</b> in this profile.</label>

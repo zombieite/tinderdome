@@ -9,11 +9,11 @@
 @else
 <h4>2. <a href="/profile/compatible">Choose potential matches</a>.</h4>
 @endif
-@if ($matched)
+@if ($matched && false)
 <h4>3. <a href="/profile/match">COMPLETE: You are awaited! Click here to go to your match page to see who you're matched with.</a></h4>
 @else
 <h4>3. Check back shortly before the next event to see who you are matched with.</h4>
 @endif
-<h4>4. At the event, seek out the person or group you've been matched with. When you find them, the topic of conversation will be the merging of the backstories of your wasteland personas.</h4>
+<h4>4. At the event, seek out the person or group you've been matched with.</h4>
 <h4>5. Find <a href="/profile/Firebird">Firebird</a>, tell him your stories, and get your caps.</h4>
 @endsection
