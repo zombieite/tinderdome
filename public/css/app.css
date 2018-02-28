@@ -8,7 +8,6 @@ body {
 }
 a {
 	color: #dedbbc;
-	text-decoration: none;
 }
 a:hover {
 	text-decoration: underline;
