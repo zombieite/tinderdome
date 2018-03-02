@@ -2,7 +2,11 @@
 
 // Visible to everyone
 
-Route::get('/', function () {
+Route::get('/', 'HomeController@index', function () {
+	return view('intro');
+});
+
+Route::get('/home', 'HomeController@index', function () {
 	return view('intro');
 });
 
@@ -42,7 +46,5 @@ Route::post('profile/compatible', 'ProfileController@compatible', function () {
 Route::get('profile/match', 'ProfileController@match', function () {
 	return view('profile');
 })->middleware('auth');
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::get('/match', 'MatchController@match')->name('match')->middleware('auth');

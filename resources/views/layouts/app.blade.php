@@ -13,11 +13,7 @@
 </head>
 
 <body>
-@guest
 <h1><a href="{{ url('/') }}" style="text-decoration:none;">You Are Awaited 2018</a></h1>
-@else
-<h1><a href="{{ url('/home') }}" style="text-decoration:none;">You Are Awaited 2018</a></h1>
-@endguest
 
 @guest
 	<a href="{{ route('register') }}">Create a profile</a> &middot; <a href="{{ route('login') }}">Log in</a>
@@ -27,8 +23,6 @@
 	You are logged in as <a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>
 	&middot;
 	<a href="/profile/edit">Edit profile</a>
-	&middot;
-	<a href="/profile/compatible">Choose potential matches</a>
 	&middot;
 	<input type="submit" value="Log out">
 	</form>
