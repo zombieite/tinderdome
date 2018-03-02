@@ -8,24 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
 		$chooser_user                     = Auth::user();
+
+		if (!$chooser_user) {
+			return view('intro');
+		}
+
 		$chooser_user_id                  = $chooser_user->id;
         $gender_of_match                  = $chooser_user->gender_of_match;
 

@@ -5,7 +5,7 @@
 <h3>Mission steps</h3>
 <h4>1. COMPLETE: Profile created.</h4>
 @if ($all_seen)
-<h4> 2. COMPLETE: Other profiles rated. Come back later to rate new arrivals. Next event is Wastelanders Ball.</h4>
+<h4> 2. COMPLETE: You have rated all other profiles. Check back later to rate new arrivals. Next event is Wastelanders Ball.</h4>
 @else
 <h4>2. <a href="/profile/compatible">Choose potential matches</a>.</h4>
 @endif
