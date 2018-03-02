@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+<p>
+Since The Apocalypse, Wasteland has become known the world over as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, without telephones or a reliable post office we need a designated meeting place. That's Wasteland.
+</p>
 <h2>Mission steps</h2>
 <h3>1.
 @guest<a href="{{ route('register') }}">@endguest
