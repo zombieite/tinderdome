@@ -143,9 +143,9 @@ class MatchController extends Controller
 							select * from matching where event='winter_games' and year=2018 and (user_1=? or user_2=?)
 						", [$user->id, $user->id]);
 						if (!$already_inserted) {
-							DB::insert("
-								insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
-							", ['winter_games', 2018, $user->id, $match->id]);
+							//DB::insert("
+							//	insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
+							//", ['winter_games', 2018, $user->id, $match->id]);
 						}
 					}
 				}
