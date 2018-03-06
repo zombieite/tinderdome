@@ -23,7 +23,7 @@
 		<td>{{ $user->popularity }}</td>
 		<td>{{ $user->random_ok }}</td>
 		<td>
-			@foreach ($user->mutual_matches as $mutual_match)
+			@foreach ($user->mutual_unmet_matches as $mutual_match)
 				{{ $mutual_match->name }},
 			@endforeach
 		</td>

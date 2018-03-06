@@ -223,7 +223,7 @@ class MatchController extends Controller
 
 		// Iterate through users in order of popularity and get them a mutual match if possible
 		foreach ($users_to_match as $user) {
-			$mutual_matches = DB::select("
+			$mutual_unmet_matches = DB::select("
 				select
 					id,
 					name,
@@ -254,18 +254,18 @@ class MatchController extends Controller
 			", [ $user->id, $user->id, $user->id, $user->id ]);
 
 			// Can't figure out a better way to pass params to sort
-			foreach ($mutual_matches as $match) {
+			foreach ($mutual_unmet_matches as $match) {
 				$match->gender_of_chooser         = $user->gender;
 				$match->desired_gender_of_chooser = $user->gender_of_match;
 				$match->popularity                = $matched_users_hash[$match->id]->popularity;
 			}
 
-			usort($mutual_matches, array($this, 'sortMatches'));
+			usort($mutual_unmet_matches, array($this, 'sortMatches'));
 
-			$user->mutual_matches = $mutual_matches;
+			$user->mutual_unmet_matches = $mutual_unmet_matches;
 
 			$user->match = null;
-			foreach ($mutual_matches as $match) {
+			foreach ($mutual_unmet_matches as $match) {
 				if (!$user->match) {
 					if (!$matched_users_hash[$match->id]->taken) {
 						$user->match = $match->name;
