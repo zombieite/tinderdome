@@ -15,7 +15,7 @@
 		<th><b>Random match</b></th>
 	</tr>
 @foreach ($users as $user)
-	<tr>
+	<tr @if ($user->cant_match) style="background-color:red;" @endif>
 		<td>{{ $user->id }}</td>
 		<td>{{ $user->name }}</td>
 		<td>{{ $user->gender }}</td>
