@@ -28,7 +28,7 @@
 			@endforeach
 		</td>
 		<td>{{ $matched_users_hash[$user->id]->taken ? $matched_users_hash[$user->id]->taken : '' }}</td>
-		<td>{{ $user->random_match }}</td>
+		<td>{{ $user->random_match ? 'Yes' : '' }}</td>
 	</tr>
 @endforeach
 </table>

@@ -9,6 +9,9 @@ body {
 a {
 	color: #dedbbc;
 }
-a:hover {
-	text-decoration: underline;
+table {
+	border-collapse: collapse;
+}
+td {
+	border: 1px solid #333333;
 }
