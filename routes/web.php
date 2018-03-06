@@ -47,5 +47,4 @@ Route::get('profile/match', 'ProfileController@match', function () {
 	return view('profile');
 })->middleware('auth');
 
-Route::get('/match_v1', 'MatchController@match_v1')->middleware('auth');
-Route::get('/match_v2', 'MatchController@match_v2')->middleware('auth');
+Route::get('/match', 'MatchController@match')->middleware('auth');
