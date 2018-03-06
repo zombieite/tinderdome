@@ -17,7 +17,7 @@
 
 <h3>Required</h3>
 
-<label for="name"><b>Nickname</b>. If you don't have one, make one up. English letters, numbers, spaces only.</label>
+<label for="name">Nickname. If you don't have one, make one up. English letters, numbers, spaces only.</label>
 <input id="name" type="text" name="name" value="@guest{{ old('name') }}@else{{ $wasteland_name }}@endguest" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
 @if ($errors->has('name'))
 <strong>{{ $errors->first('name') }}</strong>
@@ -25,7 +25,7 @@
 
 @guest
 <br>
-<label for="email"><b>Email</b>. It will not be shown or given out to anyone, not even your mutual matches.</label>
+<label for="email">Email. It will not be shown or given out to anyone, not even your mutual matches.</label>
 <input id="email" type="email" name="email" value="{{ old('email') }}" maxlength="50" required>
 @if ($errors->has('email'))
 <strong>{{ $errors->first('email') }}</strong>
@@ -33,18 +33,18 @@
 @endguest
 
 <br>
-<label for="password"><b>Password</b></label>
+<label for="password">Password</label>
 <input id="password" type="password" name="password" @guest required @endguest>
 @if ($errors->has('password'))
 <strong>{{ $errors->first('password') }}</strong>
 @endif
 
 <br>
-<label for="password-confirm"><b>Confirm password.</b></label>
+<label for="password-confirm">Confirm password.</label>
 <input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>
 
 <br>
-<label for="number_people"><b>Number of people</b> in this profile.</label>
+<label for="number_people">Number of people in this profile.</label>
 <select name="number_people" id="number_people">
 <option value="1" @guest @else @if ($number_people === 1) selected @endif @endguest>1</option>
 <option value="2" @guest @else @if ($number_people === 2) selected @endif @endguest>2 people</option>
@@ -56,7 +56,7 @@
 @endif
 
 <br><br>
-Check all that apply. <b>I/we will be attending</b> the next...
+Check all that apply. I/we will be attending the next...
 {{--
 <br>
 <input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
@@ -73,7 +73,7 @@ Check all that apply. <b>I/we will be attending</b> the next...
 <label for="attending_wasteland">Wasteland Weekend.</label>
 
 <br><br>
-Check all that apply. <b>I am/we are</b>...
+Check all that apply. I am/we are...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
 <label for="random_ok">Open to a random match. If unchecked, you are less likely to get a match. If checked, we may disregard your ratings of others' profiles if we can't find you a mutual match.</label>
@@ -92,7 +92,7 @@ Check all that apply. <b>I am/we are</b>...
 
 <h3>Suggested</h3>
 
-<b>Upload images</b>. No nudity. If you don't include a picture of your face that's ok, but you might be assigned a lower ranking in search results.
+Upload images. No nudity. If you don't include a picture of your face that's ok, but you might be assigned a lower ranking in search results.
 @guest 
 @else
 To remove old images just upload new ones.
@@ -109,7 +109,7 @@ To remove old images just upload new ones.
 <input type="file" name="image5" value="image">
 
 <br><br>
-<label for="gender"><b>Gender.</b></label>
+<label for="gender">Gender.</label>
 <select name="gender" id="gender">
 	<option value="">No answer</option>
 	<option value="M" @guest @else @if ($gender === 'M') selected @endif @endguest>M</option>
@@ -117,7 +117,7 @@ To remove old images just upload new ones.
 	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
 </select>
 <br>
-<label for="gender_of_match"><b>I would prefer to be matched with</b> a person of gender...</label>
+<label for="gender_of_match">I would prefer to be matched with a person of gender...</label>
 <select name="gender_of_match" id="gender_of_match">
 	<option value="">Any</option>
 	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>M</option>
@@ -126,7 +126,7 @@ To remove old images just upload new ones.
 </select>
 
 <br>
-<label for="height"><b>Height.</b></label>
+<label for="height">Height.</label>
 <select name="height" id="height">
 	<option value="">No answer</option>
 	<option value="59" @guest @else @if ($height === 59) selected @endif @endguest>Under 5&apos;</option>
@@ -147,7 +147,7 @@ To remove old images just upload new ones.
 </select>
 
 <br>
-<label for="birth_year"><b>Birth decade.</b></label>
+<label for="birth_year">Birth decade.</label>
 <select name="birth_year" id="birth_year">
 	<option value="">No answer</option>
 	<option value="1959" @guest @else @if ($birth_year === 1959) selected @endif @endguest>Before 1960</option>
@@ -159,12 +159,12 @@ To remove old images just upload new ones.
 </select>
 
 <br><br>
-<label for="description"><b>Tell other users about yourself.</b> What makes you weird? Feel free to give your age and where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
+<label for="description">Tell other users about yourself. What makes you weird? Feel free to give your age and where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
 <br>
 <input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
 <br><br>
-<label for="how_to_find_me"><b>Give other users a hint how they will be able to find you</b> at the event. Do not include real names, emails, phone numbers, or addresses. 200 characters max.</label>
+<label for="how_to_find_me">Give other users a hint how they will be able to find you at the event. Do not include real names, emails, phone numbers, or addresses. 200 characters max.</label>
 <br>
 <input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
