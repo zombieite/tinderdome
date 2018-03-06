@@ -54,7 +54,7 @@ class MatchController extends Controller
 		return $a->id - $b->id; // intcmp
 	}
 
-	public function match()
+	public function match_v1()
 	{
 		$user = Auth::user();
 		if ($user->name !== 'Firebird') {
@@ -177,4 +177,135 @@ class MatchController extends Controller
 			'matched_users_hash' => $matched_users_hash,
 		]);
 	}
+
+	public function match_v2()
+	{
+		$user = Auth::user();
+		if ($user->name !== 'Firebird') {
+			abort(403);
+		}
+
+		$next_event_name = 'ball';
+
+		$users_to_match = DB::select("
+			select
+				id,
+				name,
+				gender,
+				gender_of_match,
+				random_ok,
+				count(distinct chooser_id) popularity
+			from
+				users
+			left join choose on
+				users.id = choose.chosen_id
+				and choice = true
+			where
+				attending_$next_event_name
+				and name != 'Firebird'
+			group by
+				id,
+				name,
+				gender,
+				gender_of_match,
+				random_ok
+			order by
+				popularity desc,
+				random_ok,
+				id
+		");
+
+		$matched_users_hash = null;
+		foreach ($users_to_match as $user) {
+			$user->taken = 0;
+			$matched_users_hash[$user->id] = $user;
+		}
+
+		// Iterate through users in order of popularity and get them a mutual match if possible
+		foreach ($users_to_match as $user) {
+			$mutual_matches = DB::select("
+				select
+					id,
+					name,
+					gender,
+					gender_of_match,
+					number_photos,
+					description,
+					random_ok
+				from
+					users
+				join choose chose_this_user on
+					users.id = chose_this_user.chooser_id
+					and chose_this_user.chosen_id = ?
+					and chose_this_user.choice = true
+				join choose this_user_chose on
+					this_user_chose.chooser_id = ?
+					and this_user_chose.chosen_id = users.id
+					and this_user_chose.choice = true
+				left join matching on (
+					(user_1=users.id and user_2=?)
+					or
+					(user_2=users.id and user_1=?)
+				)
+				where
+					attending_$next_event_name
+					and matching_id is null
+					and name != 'Firebird'
+			", [ $user->id, $user->id, $user->id, $user->id ]);
+
+			// Can't figure out a better way to pass params to sort
+			foreach ($mutual_matches as $match) {
+				$match->gender_of_chooser         = $user->gender;
+				$match->desired_gender_of_chooser = $user->gender_of_match;
+				$match->popularity                = $matched_users_hash[$match->id]->popularity;
+			}
+
+			usort($mutual_matches, array($this, 'sortMatches'));
+
+			$user->mutual_matches = $mutual_matches;
+
+			$user->match = null;
+			foreach ($mutual_matches as $match) {
+				if (!$user->match) {
+					if (!$matched_users_hash[$match->id]->taken) {
+						$user->match = $match->name;
+						$matched_users_hash[$user->id]->taken  = $match->id;
+						$matched_users_hash[$match->id]->taken = $user->id;
+						$already_inserted = DB::select("
+							select * from matching where event='winter_games' and year=2018 and (user_1=? or user_2=?)
+						", [$user->id, $user->id]);
+						if (!$already_inserted) {
+							//DB::insert("
+							//	insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
+							//", ['winter_games', 2018, $user->id, $match->id]);
+						}
+					}
+				}
+			}
+
+			// If no mutual match, then go with a random match, if they're ok with that
+			$user->random_match = 0;
+			if (!$user->match && !$matched_users_hash[$user->id]->taken) {
+				if ($user->random_ok) {
+					foreach ($matched_users_hash as $random_user) {
+						if ($user->id !== $random_user->id) {
+							if ((!$random_user->taken) && $random_user->random_ok) {
+								$user->random_match = 1;
+								//$user->match                                 = $random_user->name;
+								//$random_user->match                          = $user->name;
+								//$matched_users_hash[$user->id]->taken        = $random_user->id;
+								//$matched_users_hash[$random_user->id]->taken = $user->id;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return view('match', [
+			'users'              => $users_to_match,
+			'matched_users_hash' => $matched_users_hash,
+		]);
+	}
+
 }
