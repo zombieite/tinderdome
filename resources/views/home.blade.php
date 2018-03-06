@@ -15,5 +15,5 @@
 <h4>3. Check back after March 6 to see who you are matched with for the Wastelanders Ball.</h4>
 @endif
 <h4>4. At the event, seek out the person or group you've been matched with.</h4>
-<h4>5. Find <a href="/profile/Firebird">Firebird</a>, tell him your stories, and get your caps.</h4>
+<h4>5. Find <a href="/profile/Firebird">Firebird</a> and get your caps.</h4>
 @endsection
