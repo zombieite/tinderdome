@@ -268,6 +268,7 @@ class ProfileController extends Controller
 	{
 		$user        = Auth::user();
 		$user_id     = $user->id;
+		$next_event  = 'ball';
 		$match_array = DB::select("
 			select
 				user_1,
@@ -279,13 +280,16 @@ class ProfileController extends Controller
 				join users users_1 on (user_1=users_1.id)
 				join users users_2 on (user_2=users_2.id)
 			where
-				event='winter_games'
+				event=?
 				and year=2018
 				and (user_1=? or user_2=?)
-		", [$user_id, $user_id]);
+		", [$next_event, $user_id, $user_id]);
 		$match = array_shift($match_array);
 		$match_name = null;
 		$match_id   = null;
+		if (!$match) {
+			return view('nomatch');
+		}
 		if ($match->user_1 === $user_id) {
 			$match_id   = $match->user_2;
 			$match_name = $match->user_2_name;

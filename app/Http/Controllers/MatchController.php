@@ -61,7 +61,9 @@ class MatchController extends Controller
 			abort(403);
 		}
 
-		$users_to_rate = DB::select("
+		$next_event_name = 'ball';
+
+		$users_to_match = DB::select("
 			select
 				id,
 				name,
@@ -75,7 +77,8 @@ class MatchController extends Controller
 				users.id = choose.chosen_id
 				and choice = true
 			where
-				name != 'Firebird'
+				attending_$next_event_name
+				and name != 'Firebird'
 			group by
 				id,
 				name,
@@ -83,20 +86,19 @@ class MatchController extends Controller
 				gender_of_match,
 				random_ok
 			order by
-				gender,
-				random_ok,
 				popularity desc,
+				random_ok,
 				id
 		");
 
 		$matched_users_hash = null;
-		foreach ($users_to_rate as $user) {
+		foreach ($users_to_match as $user) {
 			$user->taken = 0;
 			$matched_users_hash[$user->id] = $user;
 		}
 
 		// Iterate through users in order of popularity and get them a mutual match if possible
-		foreach ($users_to_rate as $user) {
+		foreach ($users_to_match as $user) {
 			$mutual_matches = DB::select("
 				select
 					id,
@@ -171,7 +173,7 @@ class MatchController extends Controller
 		}
 
 		return view('match', [
-			'users'              => $users_to_rate,
+			'users'              => $users_to_match,
 			'matched_users_hash' => $matched_users_hash,
 		]);
 	}
