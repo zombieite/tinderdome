@@ -12,6 +12,7 @@
 		<th><b>Random ok</b></th>
 		<th><b>Gender</b></th>
 		<th><b>DGOM</b></th>
+		<th><b>Match's gender</b></th>
 		<th><b>Popularity</b></th>
 		<th><b>Mutual matches</b></th>
 	</tr>
@@ -25,6 +26,7 @@
 		<td>{{ $user->random_ok }}</td>
 		<td>{{ $user->gender }}</td>
 		<td>{{ $user->gender_of_match }}</td>
+		<td>{{ $matched_users_hash[$user->id] ? $id_to_gender_hash[$matched_users_hash[$user->id]] : '' }}</td>
 		<td>{{ $user->popularity }}</td>
 		<td>
 			@foreach ($user->mutual_unmet_matches as $mutual_match)
