@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @if ($unchosen_user_id)
-	<h3>Would you be willing to meet this user at the next event?</h3>
+	<h3>Would you enjoy meeting this user at the next event?</h3>
 	@if ($count_left)<h4>{{$count_left}} profiles left to view</h4>@endif
 	<form action="" method="POST">
 		{{ csrf_field() }}
