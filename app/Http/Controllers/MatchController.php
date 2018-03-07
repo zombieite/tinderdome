@@ -97,18 +97,20 @@ class MatchController extends Controller
 				id
 		");
 
-		$id_to_name_hash    = null;
-		$id_to_gender_hash  = null;
-		$matched_users_hash = null;
+		// These hashes are redundant but are simple and help me keep my thoughts straight
+		$id_to_name_hash       = null;
+		$id_to_gender_hash     = null;
+		$id_to_popularity_hash = null;
+		$matched_users_hash    = null;
 		foreach ($users_to_match as $user) {
-			$matched_users_hash[$user->id] = '';
+			$id_to_name_hash[$user->id]       = $user->name;
+			$id_to_gender_hash[$user->id]     = $user->gender;
+			$id_to_popularity_hash[$user->id] = $user->popularity;
+			$matched_users_hash[$user->id]    = '';
 		}
 
 		// Iterate through users in order of popularity and get them a mutual match if possible
 		foreach ($users_to_match as $user) {
-
-			$id_to_name_hash[$user->id]   = $user->name;
-			$id_to_gender_hash[$user->id] = $user->gender;
 
 			$mutual_unmet_matches = DB::select("
 				select
@@ -144,10 +146,7 @@ class MatchController extends Controller
 			foreach ($mutual_unmet_matches as $match) {
 				$match->gender_of_chooser         = $user->gender;
 				$match->desired_gender_of_chooser = $user->gender_of_match;
-
-// TODO Make match popularity actually work, for sorting purposes
-
-				$match->popularity                = 1;
+				$match->popularity                = $id_to_popularity_hash[$match->id];
 			}
 
 			// Where the magic happens
@@ -198,10 +197,11 @@ class MatchController extends Controller
 		}
 
 		return view('match', [
-			'users'              => $users_to_match,
-			'matched_users_hash' => $matched_users_hash,
-			'id_to_name_hash'    => $id_to_name_hash,
-			'id_to_gender_hash'  => $id_to_gender_hash,
+			'users'                  => $users_to_match,
+			'matched_users_hash'     => $matched_users_hash,
+			'id_to_name_hash'        => $id_to_name_hash,
+			'id_to_gender_hash'      => $id_to_gender_hash,
+			'id_to_popularity_hash' => $id_to_popularity_hash,
 		]);
 	}
 
