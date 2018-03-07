@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use Image;
 use File;
+use Log;
 
 class ProfileController extends Controller
 {
@@ -268,7 +269,13 @@ class ProfileController extends Controller
 	{
 		$user        = Auth::user();
 		$user_id     = $user->id;
-		$next_event  = 'wasteland';
+
+		if ($user_id === 1 && isset($_GET['masquerade'])) {
+			$user_id = $_GET['masquerade']+0;
+			Log::debug("Masquerading as $user_id");
+		}
+
+		$next_event  = 'ball';
 		$year        = 2018;
 		$match_array = DB::select("
 			select
@@ -292,12 +299,18 @@ class ProfileController extends Controller
 			return view('nomatch');
 		}
 		if ($match->user_1 === $user_id) {
+			//Log::debug("User 1 '".$match->user_1."' === user id '$user_id'");
 			$match_id   = $match->user_2;
 			$match_name = $match->user_2_name;
-		} else {
+		} else if ($match->user_2 === $user_id) {
+			//Log::debug("User 2 '".$match->user_2."' === user id '$user_id'");
 			$match_id   = $match->user_1;
 			$match_name = $match->user_1_name;
+		} else {
+			die("Could not look up match for user '$user_id'");
 		}
+		//Log::debug("Match found for user '$user_id' is '$match_name' id '$match_id'");
+
 		return $this->show($match_id, $match_name, null, null, 1);
 	}
 
@@ -371,6 +384,6 @@ class ProfileController extends Controller
 			return $this->show($unchosen_user_id, $unchosen_user->name, $unchosen_user, $count_left);
 		}
 
-		return redirect('/home');
+		return redirect('/');
 	}
 }
