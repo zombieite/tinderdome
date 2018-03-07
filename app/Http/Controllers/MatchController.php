@@ -170,12 +170,7 @@ class MatchController extends Controller
 						$user->random_match             = false;
 						$user->cant_match               = false;
 
-					//	$user->match                           = $match->name;
-					//	$match->match                          = $user->name;
-					//	$matched_users_hash[$user->id]->taken  = $match->id;
-					//	$matched_users_hash[$match->id]->taken = $user->id;
-					//	$user->cant_match                      = false;
-					//	$already_inserted                      = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
+						$already_inserted               = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
 					//	if (!$already_inserted) {
 					//		//DB::insert("
 					//		//	insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
