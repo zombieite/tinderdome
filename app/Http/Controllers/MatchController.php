@@ -341,35 +341,20 @@ class MatchController extends Controller
 
 			// If we found a match for this user in the match process above
 			if ($matched_users_hash[$user->id]) {
-				$user->cant_match   = false;
-			// else if no mutual match was found above, then go with a random match, if they're ok with that
-			} else {
-				if ($user->random_ok) {
-
-//TODO Make random match actually work
-
-					$user->cant_match   = false;
-				} else {
-					// No match
+				$matched_user_id  = $matched_users_hash[$user->id];
+				$user->cant_match = false;
+//TODO: THIS IS BROKEN				$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
+				if (!$already_inserted) {
+//					DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$next_event, $year, $user->id, $matched_user_id]);
 				}
 			}
-
-// TODO inserts
-
-			$already_inserted               = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
-			if (!$already_inserted) {
-				//		//DB::insert("
-				//		//	insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
-				//		//", [$next_event, $year, $user->id, $match->id]);
-			}
-
 		}
 
 		return view('match', [
-			'users'                  => $users_to_match,
-			'matched_users_hash'     => $matched_users_hash,
-			'id_to_name_hash'        => $id_to_name_hash,
-			'id_to_gender_hash'      => $id_to_gender_hash,
+			'users'                 => $users_to_match,
+			'matched_users_hash'    => $matched_users_hash,
+			'id_to_name_hash'       => $id_to_name_hash,
+			'id_to_gender_hash'     => $id_to_gender_hash,
 			'id_to_popularity_hash' => $id_to_popularity_hash,
 		]);
 	}
