@@ -170,13 +170,6 @@ class MatchController extends Controller
 
 						$user->random_match             = false;
 						$user->cant_match               = false;
-
-						$already_inserted               = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
-					//	if (!$already_inserted) {
-					//		//DB::insert("
-					//		//	insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
-					//		//", [$next_event, $year, $user->id, $match->id]);
-
 					}
 				}
 			}
@@ -194,6 +187,14 @@ class MatchController extends Controller
 					$user->cant_match   = false;
 				}
 			}
+
+			$already_inserted               = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
+			if (!$already_inserted) {
+				//		//DB::insert("
+				//		//	insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
+				//		//", [$next_event, $year, $user->id, $match->id]);
+			}
+
 		}
 
 		return view('match', [
