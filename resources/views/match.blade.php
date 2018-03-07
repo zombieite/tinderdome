@@ -7,8 +7,6 @@
 		<th style="width:4%;"><b>Id</b></th>
 		<th style="width:4%;"><b>Matched to id</b></th>
 		<th style="width:10%;"><b>Matched to name</b></th>
-		<th style="width:4%;"><b>Random match</b></th>
-		<th style="width:4%;"><b>Random ok</b></th>
 		<th style="width:4%;"><b>Gender</b></th>
 		<th style="width:4%;"><b>DGOM</b></th>
 		<th style="width:4%;"><b>Match's gender</b></th>
@@ -22,8 +20,6 @@
 		<td>{{ $user->id }}</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
 		<td>{{ $matched_users_hash[$user->id] ? $id_to_name_hash[$matched_users_hash[$user->id]] : '' }}</td>
-		<td>{{ $user->random_match ? 'Random' : '' }}</td>
-		<td>{{ $user->random_ok }}</td>
 		<td>{{ $user->gender }}</td>
 		<td>{{ $user->gender_of_match }}</td>
 		<td>{{ $matched_users_hash[$user->id] ? $id_to_gender_hash[$matched_users_hash[$user->id]] : '' }}</td>
