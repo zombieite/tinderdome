@@ -98,6 +98,7 @@ class MatchController extends Controller
 		");
 
 		$id_to_name_hash    = null;
+		$id_to_gender_hash  = null;
 		$matched_users_hash = null;
 		foreach ($users_to_match as $user) {
 			$matched_users_hash[$user->id] = '';
@@ -106,7 +107,8 @@ class MatchController extends Controller
 		// Iterate through users in order of popularity and get them a mutual match if possible
 		foreach ($users_to_match as $user) {
 
-			$id_to_name_hash[$user->id] = $user->name;
+			$id_to_name_hash[$user->id]   = $user->name;
+			$id_to_gender_hash[$user->id] = $user->gender;
 
 			$mutual_unmet_matches = DB::select("
 				select
@@ -199,6 +201,7 @@ class MatchController extends Controller
 			'users'              => $users_to_match,
 			'matched_users_hash' => $matched_users_hash,
 			'id_to_name_hash'    => $id_to_name_hash,
+			'id_to_gender_hash'  => $id_to_gender_hash,
 		]);
 	}
 
