@@ -11,9 +11,9 @@ Create a profile
 <p>
 On this site you'll create a brief profile. Individuals, couples, or groups can create profiles. You may create more than one profile.
 </p>
-<h3>2. Let us know which profiles you'd be willing to meet</h3>
+<h3>2. Let us know which profiles you'd enjoy meeting</h3>
 <p>
-Once you've created your profile, you'll either accept a random match or choose some other profiles as ones you'd be open to searching for and meeting at the next event.
+Once you've created your profile, you'll either accept a random match or choose some other profiles as ones you'd enjoy searching for and meeting at the next event.
 </p>
 <h3>3. Find out which profile you've been matched with</h3>
 <p>

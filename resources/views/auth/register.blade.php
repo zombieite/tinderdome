@@ -76,7 +76,7 @@ Check all that apply. I/we will be attending the next...
 Check all that apply. I am/we are...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
-<label for="random_ok">Open to a random match. If unchecked, you are less likely to get a match. If checked, we may disregard your ratings of others' profiles if we can't find you a mutual match.</label>
+<label for="random_ok">Open to a random match. If checked, we may disregard your ratings of others' profiles in order to find you a match. If unchecked, you are less likely to get a match.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
 <label for="hoping_to_find_friend">Open to making a new friend.</label>
