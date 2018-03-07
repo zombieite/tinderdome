@@ -114,6 +114,7 @@ class MatchController extends Controller
 
 		// Iterate through users in order of popularity and get them a mutual match if possible
 		foreach ($users_to_match as $user) {
+Log::debug('Looking up mutuals for '.$user->name);
 
 			$mutual_unmet_matches = DB::select("
 				select
@@ -144,7 +145,7 @@ class MatchController extends Controller
 					and matching_id is null
 					and name != 'Firebird'
 			", [ $user->id, $user->id, $user->id, $user->id ]);
-
+if (!$mutual_unmet_matches) {Log::debug('No mutuals for '.$user->name);}
 			// Can't figure out a better way to pass params to sort
 			foreach ($mutual_unmet_matches as $match) {
 				$match->gender_of_chooser         = $user->gender;
@@ -162,10 +163,11 @@ class MatchController extends Controller
 
 				// If we still haven't found a match for this user...
 				if (!$matched_users_hash[$user->id]) {
+Log::debug('Looking for mutual match for user '.$user->name.', trying user '.$match->name);
 
 					// If the mutual match is still available...
 					if (!$matched_users_hash[$match->id]) {
-
+Log::debug('Found mutual match: '.$match->name);
 						$matched_users_hash[$user->id]  = $match->id;
 						$matched_users_hash[$match->id] = $user->id;
 						$user->cant_match               = false;
@@ -175,6 +177,7 @@ class MatchController extends Controller
 
 			// If no mutual match was found, look for a one-sided match
 			if (!$matched_users_hash[$user->id]) {
+Log::debug('Looking up one-sided for '.$user->name);
 				$one_sided_unmet_matches = DB::select("
 					select
 						id,
@@ -205,6 +208,7 @@ class MatchController extends Controller
 						and matching_id is null
 						and name != 'Firebird'
 				", [ $user->id, $user->id, $user->id, $user->id ]);
+if (!$mutual_unmet_matches) {Log::debug('No one-sided for '.$user->name);}
 
 				// Can't figure out a better way to pass params to sort
 				foreach ($one_sided_unmet_matches as $match) {
@@ -223,13 +227,14 @@ class MatchController extends Controller
 
 					// If we still haven't found a match for this user...
 					if (!$matched_users_hash[$user->id]) {
+Log::debug('Looking for one-sided match for user '.$user->name.', trying user '.$match->name);
 
 						// If the one-sided match is still available...
 						if (!$matched_users_hash[$match->id]) {
-
-//							$matched_users_hash[$user->id]  = $match->id;
-//							$matched_users_hash[$match->id] = $user->id;
-//							$user->cant_match               = false;
+Log::debug('Found one-sided match: '.$match->name);
+							$matched_users_hash[$user->id]  = $match->id;
+							$matched_users_hash[$match->id] = $user->id;
+							$user->cant_match               = false;
 						}
 					}
 				}
