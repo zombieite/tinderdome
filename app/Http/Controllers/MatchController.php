@@ -105,7 +105,6 @@ class MatchController extends Controller
 		$id_to_popularity_hash = null;
 		$matched_users_hash    = null;
 		foreach ($users_to_match as $user) {
-			$user->random_match               = true; # Will hopefully make false below
 			$user->cant_match                 = true; # Will hopefully make false below
 			$id_to_name_hash[$user->id]       = $user->name;
 			$id_to_gender_hash[$user->id]     = $user->gender;
@@ -169,8 +168,6 @@ class MatchController extends Controller
 
 						$matched_users_hash[$user->id]  = $match->id;
 						$matched_users_hash[$match->id] = $user->id;
-
-						$user->random_match             = false;
 						$user->cant_match               = false;
 					}
 				}
@@ -230,11 +227,9 @@ class MatchController extends Controller
 						// If the one-sided match is still available...
 						if (!$matched_users_hash[$match->id]) {
 
-							$matched_users_hash[$user->id]  = $match->id;
-							$matched_users_hash[$match->id] = $user->id;
-
-							$user->random_match             = false;
-							$user->cant_match               = false;
+//							$matched_users_hash[$user->id]  = $match->id;
+//							$matched_users_hash[$match->id] = $user->id;
+//							$user->cant_match               = false;
 						}
 					}
 				}
@@ -243,7 +238,6 @@ class MatchController extends Controller
 
 			// If we found a match for this user in the match process above
 			if ($matched_users_hash[$user->id]) {
-				$user->random_match = false;
 				$user->cant_match   = false;
 			// else if no mutual match was found above, then go with a random match, if they're ok with that
 			} else {
@@ -251,7 +245,6 @@ class MatchController extends Controller
 
 //TODO Make random match actually work
 
-					$user->random_match = true;
 					$user->cant_match   = false;
 				} else {
 					// No match
