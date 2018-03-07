@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Log;
 
 class MatchController extends Controller
 {
@@ -96,14 +97,17 @@ class MatchController extends Controller
 				id
 		");
 
+		$id_to_name_hash    = null;
 		$matched_users_hash = null;
 		foreach ($users_to_match as $user) {
-			$user->taken = 0;
-			$matched_users_hash[$user->id] = $user;
+			$matched_users_hash[$user->id] = '';
 		}
 
 		// Iterate through users in order of popularity and get them a mutual match if possible
 		foreach ($users_to_match as $user) {
+
+			$id_to_name_hash[$user->id] = $user->name;
+
 			$mutual_unmet_matches = DB::select("
 				select
 					id,
@@ -138,48 +142,60 @@ class MatchController extends Controller
 			foreach ($mutual_unmet_matches as $match) {
 				$match->gender_of_chooser         = $user->gender;
 				$match->desired_gender_of_chooser = $user->gender_of_match;
-				$match->popularity                = $matched_users_hash[$match->id]->popularity;
+
+// TODO Make match popularity actually work, for sorting purposes
+
+				$match->popularity                = 1;
 			}
 
+			// Where the magic happens
 			usort($mutual_unmet_matches, array($this, 'sortMatches'));
 
 			$user->mutual_unmet_matches = $mutual_unmet_matches;
+			$user->random_match         = true;
+			$user->cant_match           = true;
 
-			$user->cant_match = false;
-			$user->match      = null;
+			// For each of this user's mutual matches...
 			foreach ($mutual_unmet_matches as $match) {
-				if (!$user->match) {
-					if (!$matched_users_hash[$match->id]->taken) {
-						$user->match  = $match->name;
-						$matched_users_hash[$user->id]->taken  = $match->id;
-						$matched_users_hash[$match->id]->taken = $user->id;
-						$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
-						if (!$already_inserted) {
-							//DB::insert("
-							//	insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
-							//", [$next_event, $year, $user->id, $match->id]);
-						}
+
+				// If we still haven't found a match for this user...
+				if (!$matched_users_hash[$user->id]) {
+
+					// If the mutual match is still available...
+					if (!$matched_users_hash[$match->id]) {
+
+						$matched_users_hash[$user->id]  = $match->id;
+						$matched_users_hash[$match->id] = $user->id;
+
+						$user->random_match             = false;
+						$user->cant_match               = false;
+
+					//	$user->match                           = $match->name;
+					//	$match->match                          = $user->name;
+					//	$matched_users_hash[$user->id]->taken  = $match->id;
+					//	$matched_users_hash[$match->id]->taken = $user->id;
+					//	$user->cant_match                      = false;
+					//	$already_inserted                      = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
+					//	if (!$already_inserted) {
+					//		//DB::insert("
+					//		//	insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)
+					//		//", [$next_event, $year, $user->id, $match->id]);
+
 					}
 				}
 			}
 
-			// If no mutual match, then go with a random match, if they're ok with that
-			$user->random_match = 0;
-			if (!$user->match && !$matched_users_hash[$user->id]->taken) {
+//TODO Make this actually work
+
+			// If we found a mutual match for this user in the mutual match process above
+			if ($matched_users_hash[$user->id]) {
+				$user->random_match = false;
+				$user->cant_match   = false;
+			// else if no mutual match was found above, then go with a random match, if they're ok with that
+			} else {
 				if ($user->random_ok) {
-					foreach ($matched_users_hash as $random_user) {
-						if ($user->id !== $random_user->id) {
-							if ((!$random_user->taken) && $random_user->random_ok) {
-								$user->random_match = 1;
-								//$user->match                                 = $random_user->name;
-								//$random_user->match                          = $user->name;
-								//$matched_users_hash[$user->id]->taken        = $random_user->id;
-								//$matched_users_hash[$random_user->id]->taken = $user->id;
-							}
-						}
-					}
-				} else {
-					$user->cant_match = true;
+					$user->random_match = true;
+					$user->cant_match   = false;
 				}
 			}
 		}
@@ -187,6 +203,7 @@ class MatchController extends Controller
 		return view('match', [
 			'users'              => $users_to_match,
 			'matched_users_hash' => $matched_users_hash,
+			'id_to_name_hash'    => $id_to_name_hash,
 		]);
 	}
 
