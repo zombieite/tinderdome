@@ -51,7 +51,9 @@ class HomeController extends Controller
         [$chooser_user_id, $chooser_user_id]);
         $unchosen_user    = array_shift($unchosen_users);
 
-		$matched = DB::select('select * from matching where user_1=? or user_2=?', [$chooser_user_id, $chooser_user_id]);
+		$next_event = 'ball';
+		$year       = 2018;
+		$matched    = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$chooser_user_id, $chooser_user_id, $next_event, $year]);
 
 		$all_seen = true;
 		if ($unchosen_user) {

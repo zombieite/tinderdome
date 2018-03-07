@@ -9,10 +9,10 @@
 @else
 <h4>2. <a href="/profile/compatible">Choose potential matches</a>.</h4>
 @endif
-@if ($matched && false)
+@if ($matched)
 <h4>3. <a href="/profile/match">COMPLETE: You are awaited! Click here to go to your match page to see who you're matched with.</a></h4>
 @else
-<h4>3. Check back after March 6 to see who you are matched with for the Wastelanders Ball.</h4>
+<h4>3. <a href="/profile/match">No match was found for the Ball. Click here for more details.</a></h4>
 @endif
 <h4>4. At the event, seek out the person or group you've been matched with.</h4>
 <h4>5. Find <a href="/profile/Firebird">Firebird</a> and get your caps.</h4>
