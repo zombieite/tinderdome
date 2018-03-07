@@ -12,7 +12,7 @@ class MatchController extends Controller
 	// Prioritize this user's mutual matches by
 	private static function sortMatches($a, $b) {
 
-		// 1. Whether they are this user's preferred match gender
+		// Whether they are this user's preferred match gender
 		$gender_of_chooser         = $a->gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
 		$desired_gender_of_chooser = $a->desired_gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
 		if ($desired_gender_of_chooser) {
@@ -22,7 +22,7 @@ class MatchController extends Controller
 				return 1;
 			}
 
-		// 2. If preferred match gender is unspecified, male first, because (at the moment) there are many more men looking to be matched. Doing this drastically increases the number of mutual matches because it leaves more women in the matching pool to be matched with another user later in the matching process. An undesirable side effect is it does make it less likely for a bisexual woman to be matched with a another woman. But, if she does want to be matched to a woman, she can still set her desired gender of match to be female and that will be respected in the above conditional. Occasionally it also might make bisexual men MORE likely to be matched with a man than a woman.
+		// If preferred match gender is unspecified, male first, because (at the moment) there are many more men looking to be matched. Doing this drastically increases the number of mutual matches because it leaves more women in the matching pool to be matched with another user later in the matching process. An undesirable side effect is it does make it less likely for a bisexual woman to be matched with a another woman. But, if she does want to be matched to a woman, she can still set her desired gender of match to be female and that will be respected in the above conditional. Occasionally it also might make bisexual men MORE likely to be matched with a man than a woman.
 		} else {
 			if (($a->gender === 'M') && ($b->gender !== 'M')) {
 				return -1;
@@ -31,27 +31,36 @@ class MatchController extends Controller
 			}
 		}
 
-		// 3. Popularity descending (this matches popular to popular)
+		// Chosen user might have a preference for gender too
+		if ($a->gender_of_match !== $b->gender_of_match) {
+			if ($a->gender_of_match && $a->gender_of_match === $gender_of_chooser) {
+				return -1;
+			} else if ($b->gender_of_match && $b->gender_of_match === $gender_of_chooser) {
+				return 1;
+			}
+		}
+
+		// Popularity descending (this matches popular to popular)
 		if ($b->popularity - $a->popularity !== 0) {
 			return $b->popularity - $a->popularity;
 		}
 
-		// 4. Number of photos descending (prioritize more complete profiles)
+		// Number of photos descending (prioritize more complete profiles)
 		if ($b->number_photos - $a->number_photos !== 0) {
 			return $b->number_photos - $a->number_photos;
 		}
 
-		// 5. Length of description descending (prioritize more complete profiles)
+		// Length of description descending (prioritize more complete profiles)
 		if (strlen($b->description) - strlen($a->description) !== 0) {
 			return strlen($b->description) - strlen($a->description);
 		}
 
-		// 6. Random ok descending (prioritize random-ok users just as a small perk to them)
+		// Random ok descending (prioritize random-ok users just as a small perk to them)
 		if ($b->random_ok - $a->random_ok !== 0) {
 			return $b->random_ok - $a->random_ok;
 		}
 
-		// 7. Id ascending (prioritize early signups just as a small perk to them)
+		// Id ascending (prioritize early signups just as a small perk to them)
 		return $a->id - $b->id;
 	}
 
@@ -114,7 +123,8 @@ class MatchController extends Controller
 
 		// Iterate through users in order of popularity and get them a mutual match if possible
 		foreach ($users_to_match as $user) {
-Log::debug('Looking up mutuals for '.$user->name);
+
+			Log::debug('Looking up mutuals for '.$user->name);
 
 			$mutual_unmet_matches = DB::select("
 				select
@@ -145,7 +155,9 @@ Log::debug('Looking up mutuals for '.$user->name);
 					and matching_id is null
 					and name != 'Firebird'
 			", [ $user->id, $user->id, $user->id, $user->id ]);
-if (!$mutual_unmet_matches) {Log::debug('No mutuals for '.$user->name);}
+
+			if (!$mutual_unmet_matches) {Log::debug('No mutuals for '.$user->name);}
+
 			// Can't figure out a better way to pass params to sort
 			foreach ($mutual_unmet_matches as $match) {
 				$match->gender_of_chooser         = $user->gender;
@@ -163,11 +175,14 @@ if (!$mutual_unmet_matches) {Log::debug('No mutuals for '.$user->name);}
 
 				// If we still haven't found a match for this user...
 				if (!$matched_users_hash[$user->id]) {
-Log::debug('Looking for mutual match for user '.$user->name.', trying user '.$match->name);
+
+					Log::debug('Looking for mutual match for user '.$user->name.', trying user '.$match->name);
 
 					// If the mutual match is still available...
 					if (!$matched_users_hash[$match->id]) {
-Log::debug('Found mutual match: '.$match->name);
+
+						Log::debug('Found mutual match: '.$match->name);
+
 						$matched_users_hash[$user->id]  = $match->id;
 						$matched_users_hash[$match->id] = $user->id;
 						$user->cant_match               = false;
@@ -177,7 +192,9 @@ Log::debug('Found mutual match: '.$match->name);
 
 			// If no mutual match was found, look for a one-sided match
 			if (!$matched_users_hash[$user->id]) {
-Log::debug('Looking up one-sided for '.$user->name);
+
+				Log::debug('Looking up one-sided for '.$user->name);
+
 				$one_sided_unmet_matches = DB::select("
 					select
 						id,
@@ -208,7 +225,8 @@ Log::debug('Looking up one-sided for '.$user->name);
 						and matching_id is null
 						and name != 'Firebird'
 				", [ $user->id, $user->id, $user->id, $user->id ]);
-if (!$mutual_unmet_matches) {Log::debug('No one-sided for '.$user->name);}
+
+				if (!$mutual_unmet_matches) {Log::debug('No one-sided for '.$user->name);}
 
 				// Can't figure out a better way to pass params to sort
 				foreach ($one_sided_unmet_matches as $match) {
@@ -227,11 +245,14 @@ if (!$mutual_unmet_matches) {Log::debug('No one-sided for '.$user->name);}
 
 					// If we still haven't found a match for this user...
 					if (!$matched_users_hash[$user->id]) {
-Log::debug('Looking for one-sided match for user '.$user->name.', trying user '.$match->name);
+
+						Log::debug('Looking for one-sided match for user '.$user->name.', trying user '.$match->name);
 
 						// If the one-sided match is still available...
 						if (!$matched_users_hash[$match->id]) {
-Log::debug('Found one-sided match: '.$match->name);
+
+							Log::debug('Found one-sided match: '.$match->name);
+
 							$matched_users_hash[$user->id]  = $match->id;
 							$matched_users_hash[$match->id] = $user->id;
 							$user->cant_match               = false;
