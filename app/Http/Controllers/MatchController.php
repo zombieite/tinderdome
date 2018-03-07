@@ -121,7 +121,7 @@ class MatchController extends Controller
 			$matched_users_hash[$user->id]    = '';
 		}
 
-		// Iterate through users in order of popularity and get them a mutual match if possible
+		// Iterate through users in order of popularity and get them a mutual match or one-sided match if possible
 		foreach ($users_to_match as $user) {
 
 			Log::debug('Looking up mutuals for '.$user->name);
@@ -154,7 +154,8 @@ class MatchController extends Controller
 					attending_$next_event
 					and matching_id is null
 					and name != 'Firebird'
-			", [ $user->id, $user->id, $user->id, $user->id ]);
+					and id != ?
+			", [ $user->id, $user->id, $user->id, $user->id, $user->id ]);
 
 			if (!$mutual_unmet_matches) {Log::debug('No mutuals for '.$user->name);}
 
@@ -224,9 +225,10 @@ class MatchController extends Controller
 						and attending_$next_event
 						and matching_id is null
 						and name != 'Firebird'
-				", [ $user->id, $user->id, $user->id, $user->id ]);
+						and id != ?
+				", [ $user->id, $user->id, $user->id, $user->id, $user->id ]);
 
-				if (!$mutual_unmet_matches) {Log::debug('No one-sided for '.$user->name);}
+				if (!$one_sided_unmet_matches) {Log::debug('No one-sided for '.$user->name);}
 
 				// Can't figure out a better way to pass params to sort
 				foreach ($one_sided_unmet_matches as $match) {
@@ -260,7 +262,82 @@ class MatchController extends Controller
 					}
 				}
 			}
+		}
 
+		// Iterate through unmatched users in order of popularity and get them a random match if possible
+		foreach ($users_to_match as $user) {
+
+			// If no one-sided match was found, look for a random match
+			if (!$matched_users_hash[$user->id] && $user->random_ok) {
+
+				Log::debug('Looking up random for '.$user->name);
+
+				$random_unmet_matches = DB::select("
+					select
+						id,
+						name,
+						gender,
+						gender_of_match,
+						number_photos,
+						description,
+						random_ok
+					from
+						users
+					left join choose chose_this_user on
+						users.id = chose_this_user.chooser_id
+						and chose_this_user.chosen_id = ?
+					left join matching on (
+						(user_1=users.id and user_2=?)
+						or
+						(user_2=users.id and user_1=?)
+					)
+					where
+						chose_this_user.chosen_id is null
+						and random_ok
+						and attending_$next_event
+						and matching_id is null
+						and name != 'Firebird'
+						and id != ?
+				", [ $user->id, $user->id, $user->id, $user->id, $user->id ]);
+
+				if (!$random_unmet_matches) {Log::debug('No random for '.$user->name);}
+
+				// Can't figure out a better way to pass params to sort
+				foreach ($random_unmet_matches as $match) {
+					$match->gender_of_chooser         = $user->gender;
+					$match->desired_gender_of_chooser = $user->gender_of_match;
+					$match->popularity                = $id_to_popularity_hash[$match->id];
+				}
+
+				// Where the magic happens
+				usort($random_unmet_matches, array($this, 'sortMatches'));
+
+				$user->random_unmet_matches = $random_unmet_matches;
+
+				// For each of this user's random matches...
+				foreach ($random_unmet_matches as $match) {
+
+					// If we still haven't found a match for this user...
+					if (!$matched_users_hash[$user->id]) {
+
+						Log::debug('Looking for random match for user '.$user->name.', trying user '.$match->name);
+
+						// If the random match is still available...
+						if (!$matched_users_hash[$match->id]) {
+
+							Log::debug('Found random match: '.$match->name);
+
+							$matched_users_hash[$user->id]  = $match->id;
+							$matched_users_hash[$match->id] = $user->id;
+							$user->cant_match               = false;
+						}
+					}
+				}
+			}
+		}
+
+		// Iterate through users and do inserts
+		foreach ($users_to_match as $user) {
 
 			// If we found a match for this user in the match process above
 			if ($matched_users_hash[$user->id]) {
