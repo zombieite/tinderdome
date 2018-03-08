@@ -71,17 +71,21 @@ class RegisterController extends Controller
 
 		$user_id = $user->id;
 
-		for ($i = 1; $i <= $max_images; $i++) {
-			$uploaded_file = $_FILES["image$i"]['tmp_name'];
-			if ($uploaded_file) {
-				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$user_id-$wasteland_name_hyphenated-$i.jpg";
-				File::copy($uploaded_file, $destination);
-				$img = Image::make($destination);
-				$img->orientate();
-				$img->heighten($image_height);
-				$img->encode('jpg');
-				$img->save($destination);
+		try {
+			for ($i = 1; $i <= $max_images; $i++) {
+				$uploaded_file = $_FILES["image$i"]['tmp_name'];
+				if ($uploaded_file) {
+					$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$user_id-$wasteland_name_hyphenated-$i.jpg";
+					File::copy($uploaded_file, $destination);
+					$img = Image::make($destination);
+					$img->orientate();
+					$img->heighten($image_height);
+					$img->encode('jpg');
+					$img->save($destination);
+				}
 			}
+		} catch (Exception $e) {
+			// TODO Report image upload/resize errors
 		}
 
 		return $user;
