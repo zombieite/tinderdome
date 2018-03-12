@@ -61,10 +61,10 @@ Check all that apply. I/we will be attending the next...
 <br>
 <input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
 <label for="attending_winter_games">Wasteland Winter Games.</label>
---}}
 <br>
 <input type="checkbox" name="attending_ball" id="attending_ball" @guest @else @if ($attending_ball) checked @endif @endguest>
 <label for="attending_ball">Wastelanders Ball.</label>
+--}}
 <br>
 <input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
 <label for="attending_detonation">Detonation Uranium Springs.</label>
@@ -92,7 +92,7 @@ Check all that apply. I am/we are...
 
 <h3>Suggested</h3>
 
-Upload images. No nudity. If you don't include a picture of your face that's ok, but you might be assigned a lower ranking in search results.
+Upload images. No nudity. Shrink them to around 300-1000 pixels in height before uploading, or just upload one big one.
 @guest 
 @else
 To remove old images just upload new ones.
