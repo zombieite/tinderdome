@@ -21,7 +21,7 @@ Shortly before the next event the matching algorithm will run and you'll come ba
 </p>
 <h3>4. At the next event, seek out the person or group you've been matched with</h3>
 <p>
-Your mission is to find them at the event. They'll be looking for you, too. 
+Your mission is to find them at the event. They'll be looking for you, too. Optional: take this opportunity to merge the backstories of your Wasteland personas. How did your personas meet?
 </p>
 <h3>5. Get your caps</h3>
 <p>
