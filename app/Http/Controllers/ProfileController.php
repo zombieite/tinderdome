@@ -357,8 +357,6 @@ class ProfileController extends Controller
 				and seen is null
 				$are_they_my_wanted_gender_clause
 			order by
-				number_photos desc,
-				length(description) desc,
 				id
 		",
 		[$chooser_user_id, $chooser_user_id]);
