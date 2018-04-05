@@ -92,7 +92,7 @@ Check all that apply. I am/we are...
 
 <h3>Suggested</h3>
 
-Upload images. No nudity. Shrink them to around 300-1000 pixels in height before uploading, or just upload one big one.
+Upload images. No nudity. Please resize them to around 300-1000 pixels in height before uploading.
 @guest 
 @else
 To remove old images just upload new ones.
