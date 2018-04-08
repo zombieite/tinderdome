@@ -45,7 +45,12 @@ class RegisterController extends Controller
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 		$ip                        = request()->ip() or die("No ip");
 
-		$user =  User::create([
+		if (preg_match('/irebird/', $wasteland_name)) {
+			$wasteland_name = NULL;
+			abort(403, 'Invalid username');
+		}
+
+		$user = User::create([
 			'name'                        => $wasteland_name,
 			'email'                       => $data['email'],
 			'password'                    => bcrypt($data['password']),
