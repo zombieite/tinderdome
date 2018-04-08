@@ -43,7 +43,7 @@
 <input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>
 
 <br><br>
-Check all that apply. I/we will be attending the next...
+Check all that apply. I will be attending the next...
 {{--
 <br>
 <input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
@@ -60,7 +60,7 @@ Check all that apply. I/we will be attending the next...
 <label for="attending_wasteland">Wasteland Weekend.</label>
 
 <br><br>
-Check all that apply. I am/we are...
+Check all that apply. I am...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
 <label for="random_ok">Open to a random match if a mutual match can't be found.</label>
@@ -91,7 +91,7 @@ To remove old images just upload new ones.
 <input type="file" name="image3" value="image">
 
 <br><br>
-<label for="gender">Gender.</label>
+<label for="gender">Gender</label>
 <select name="gender" id="gender">
 	<option value="">No answer</option>
 	<option value="M" @guest @else @if ($gender === 'M') selected @endif @endguest>M</option>
@@ -109,7 +109,7 @@ To remove old images just upload new ones.
 </select>
 
 <br><br>
-<label for="height">Height.</label>
+<label for="height">Height</label>
 <select name="height" id="height">
 	<option value="">No answer</option>
 	<option value="59" @guest @else @if ($height === 59) selected @endif @endguest>Under 5&apos;</option>
@@ -130,7 +130,7 @@ To remove old images just upload new ones.
 </select>
 
 <br><br>
-<label for="birth_year">Birth decade.</label>
+<label for="birth_year">Birth decade</label>
 <select name="birth_year" id="birth_year">
 	<option value="">No answer</option>
 	<option value="1959" @guest @else @if ($birth_year === 1959) selected @endif @endguest>Before 1960</option>

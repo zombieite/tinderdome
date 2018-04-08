@@ -14,6 +14,6 @@
 @else
 <h4>3. Check back here before the next event you'll be attending to find your match.</h4>
 @endif
-<h4>4. At the event, seek out the person or group you've been matched with.</h4>
+<h4>4. At the event, seek out the person you've been matched with.</h4>
 <h4>5. Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</h4>
 @endsection

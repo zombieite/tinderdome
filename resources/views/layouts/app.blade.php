@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta property="og:image" content="http://youareawaited.com:8080/images/awaited.jpg">
-<meta property=”og:description” content="Since The Apocalypse, Wasteland has become known the world over as the place we come to find thems we're looking for and thems we've lost. Sign up now to find a new friend, enemy, or romantic partner.">
-<meta name="description" content="Since The Apocalypse, Wasteland has become known the world over as the place we come to find thems we're looking for and thems we've lost. Sign up now to find a new friend, enemy, or romantic partner.">
+<meta property=”og:description” content="Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Sign up now to find a new friend, enemy, or romantic partner.">
+<meta name="description" content="Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Sign up now to find a new friend, enemy, or romantic partner.">
 <title>You Are Awaited</title>
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
