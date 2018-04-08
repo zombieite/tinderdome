@@ -12,7 +12,7 @@
 @if ($matched)
 <h4>3. <a href="/profile/match">COMPLETE: You are awaited! Click here to go to your match page to see who you're matched with.</a></h4>
 @else
-<h4>3. Check back here before the next event you'll be attending to find your match.</h4>
+<h4>3. Check back here before the next event to find your match.</h4>
 @endif
 <h4>4. At the event, seek out the person you've been matched with.</h4>
 <h4>5. Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</h4>
