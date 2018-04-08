@@ -159,13 +159,16 @@ Sign up
 Submit changes
 @endguest
 </button>
+</form>
 
 @guest
 @else
-<button type="submit" name="delete" style="margin-left: 200px; background-color: red;">
+<form method="POST" action="" style="width:100%;text-align:right;">
+{{ csrf_field() }}
+<button type="submit" name="delete" style="background-color:red;">
 DELETE PROFILE
 </button>
+</form>
 @endguest
 
-</form>
 @endsection

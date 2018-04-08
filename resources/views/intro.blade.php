@@ -15,11 +15,11 @@ You'll create a profile that tells everyone a little bit about you.
 <p>
 Once you've created your profile, you can either accept a random match, or you can browse other profiles and choose who you'd enjoy meeting at the next event.
 </p>
-<h3>3. Find out which profile you've been matched with</h3>
+<h3>3. Find out who you're matched with</h3>
 <p>
 Shortly before each event, the matching algorithm will run. You'll come back here to see who you've been matched with.
 </p>
-<h3>4. Seek out the person or group you've been matched with</h3>
+<h3>4. Seek out the person you're matched with</h3>
 <p>
 Your mission is to find them at the event. They'll be looking for you, too. When you find them, you can use this as an opportunity to merge the backstories of your Wasteland personas. How did you two meet?
 </p>

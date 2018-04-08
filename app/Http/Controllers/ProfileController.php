@@ -127,9 +127,14 @@ class ProfileController extends Controller
 			abort(403);
 		}
 
-		$update_errors = '';
-
+		$update_errors          = '';
 		$profile_id             = $profile->id;
+
+		if (isset($_POST['delete'])) {
+			DB::delete('delete from users where id=? limit 1', [$profile_id]);
+			return redirect('/');
+		}
+
 		$email                  = $profile->email;
 		$number_photos          = $profile->number_photos;
 		$wasteland_name         = $_POST['name'];
@@ -152,15 +157,15 @@ class ProfileController extends Controller
 		$attending_wasteland    = isset($_POST['attending_wasteland']);
 		$ip                     = request()->ip() or die("No ip");
 
-		if (isset($_POST['delete'])) {
-			DB::delete('delete from users where id=? limit 1', [$profile_id]);
-			return redirect('/');
-		}
-
 		if (strlen($password) > 0) {
 			if ($password !== $password_confirmation) {
 				$update_errors .= 'Passwords do not match';
 			}
+		}
+
+		if ($profile_id != 1 && preg_match('/irebird/', $wasteland_name)) {
+			$wasteland_name = NULL;
+			$update_errors .= 'Invalid username';
 		}
 
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
