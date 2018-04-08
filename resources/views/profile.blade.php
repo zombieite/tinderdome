@@ -1,9 +1,12 @@
 @extends('layouts.app')
 @section('content')
+@if ($success_message)
+	<h1><a href="/profile/me">Your profile</a> has been created. Now take a look at these other users.</h1>
+@endif
 @if ($unchosen_user_id)
 	<h3>Would you enjoy meeting this user at the next event?</h3>
 	@if ($count_left)<h4>{{$count_left}} profiles left to view</h4>@endif
-	<form action="" method="POST">
+	<form action="?" method="POST">
 		{{ csrf_field() }}
 		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
 		<input type="submit" name="Yes" value="Yes">
@@ -19,9 +22,6 @@
 	@endif
 @else
 <h2>Profile
-@if ($success_message)
-	successfully created
-@endif
 	for {{ $wasteland_name }}
 </h2>
 @endif
