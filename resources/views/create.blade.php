@@ -16,14 +16,6 @@
 	<input type="password" size="12" maxlength="12" name="password" id="password" pattern="^[A-Za-z0-9 ]+$" required>
 
 	<br><br>
-	<label for="number_people">Number of people in this profile</label>
-	<select name="number_people" id="number_people">
-		<option value="1" selected>1</option>
-		<option value="2">2 people</option>
-		<option value="3">A group of 3 or more</option>
-	</select>
-
-	<br><br>
 	Check at least one. I/we...
 	<br>
 	<input type="checkbox" name="attending_winter_games" id="attending_winter_games">

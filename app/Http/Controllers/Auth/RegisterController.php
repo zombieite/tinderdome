@@ -31,7 +31,7 @@ class RegisterController extends Controller
 
 	protected function create(array $data)
 	{
-		$max_images    = 5;
+		$max_images    = 3;
 		$image_height  = 500;
 		$number_photos = 0;
 		for ($i = 1; $i <= $max_images; $i++) {
@@ -49,7 +49,6 @@ class RegisterController extends Controller
 			'name'                        => $wasteland_name,
 			'email'                       => $data['email'],
 			'password'                    => bcrypt($data['password']),
-			'number_people'               => $data['number_people'],
 			'gender'                      => $data['gender'],
 			'gender_of_match'             => $data['gender_of_match'],
 			'height'                      => $data['height'],

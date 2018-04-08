@@ -15,24 +15,22 @@
 <form method="POST" action="@guest {{ route('register') }} @endguest" enctype="multipart/form-data">
 {{ csrf_field() }}
 
-<h3>Required</h3>
-
-<label for="name">Nickname. If you don't have one, make one up. English letters, numbers, spaces only.</label>
+<label for="name">Nickname</label>
 <input id="name" type="text" name="name" value="@guest{{ old('name') }}@else{{ $wasteland_name }}@endguest" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
 @if ($errors->has('name'))
 <strong>{{ $errors->first('name') }}</strong>
 @endif
 
 @guest
-<br>
-<label for="email">Email. It will not be shown or given out to anyone, not even your mutual matches.</label>
+<br><br>
+<label for="email">Email</label>
 <input id="email" type="email" name="email" value="{{ old('email') }}" maxlength="50" required>
 @if ($errors->has('email'))
 <strong>{{ $errors->first('email') }}</strong>
 @endif
 @endguest
 
-<br>
+<br><br>
 <label for="password">Password</label>
 <input id="password" type="password" name="password" @guest required @endguest>
 @if ($errors->has('password'))
@@ -40,20 +38,9 @@
 @endif
 
 <br>
-<label for="password-confirm">Confirm password.</label>
-<input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>
-
 <br>
-<label for="number_people">Number of people in this profile.</label>
-<select name="number_people" id="number_people">
-<option value="1" @guest @else @if ($number_people === 1) selected @endif @endguest>1</option>
-<option value="2" @guest @else @if ($number_people === 2) selected @endif @endguest>2 people</option>
-<option value="3" @guest @else @if ($number_people === 3) selected @endif @endguest>A group of 3 or more</option>
-</select>
-
-@if ($errors->has('number_people'))
-<strong>{{ $errors->first('number_people') }}</strong>
-@endif
+<label for="password-confirm">Confirm password</label>
+<input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>
 
 <br><br>
 Check all that apply. I/we will be attending the next...
@@ -76,7 +63,7 @@ Check all that apply. I/we will be attending the next...
 Check all that apply. I am/we are...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
-<label for="random_ok">Open to a random match. If checked, we may disregard your ratings of others' profiles in order to find you a match. If unchecked, you are less likely to get a match.</label>
+<label for="random_ok">Open to a random match if a mutual match can't be found.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
 <label for="hoping_to_find_friend">Open to making a new friend.</label>
@@ -90,10 +77,9 @@ Check all that apply. I am/we are...
 <input type="checkbox" name="hoping_to_find_enemy" id="hoping_to_find_enemy" @guest @else @if ($hoping_to_find_enemy) checked @endif @endguest>
 <label for="hoping_to_find_enemy">Looking for an enemy.</label>
 
-<h3>Suggested</h3>
-
-Upload images. No nudity. Please resize them to around 300-1000 pixels in height before uploading.
-@guest 
+<br><br>
+Upload images. No nudity. Please resize them to around 300 - 1000 pixels in height before uploading.
+@guest
 @else
 To remove old images just upload new ones.
 @endguest
@@ -103,10 +89,6 @@ To remove old images just upload new ones.
 <input type="file" name="image2" value="image">
 <br>
 <input type="file" name="image3" value="image">
-<br>
-<input type="file" name="image4" value="image">
-<br>
-<input type="file" name="image5" value="image">
 
 <br><br>
 <label for="gender">Gender.</label>
@@ -116,7 +98,8 @@ To remove old images just upload new ones.
 	<option value="F" @guest @else @if ($gender === 'F') selected @endif @endguest>F</option>
 	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
 </select>
-<br>
+
+<br><br>
 <label for="gender_of_match">I would prefer to be matched with a person of gender...</label>
 <select name="gender_of_match" id="gender_of_match">
 	<option value="">Any</option>
@@ -125,7 +108,7 @@ To remove old images just upload new ones.
 	<option value="O" @guest @else @if ($gender_of_match === 'O') selected @endif @endguest>Other</option>
 </select>
 
-<br>
+<br><br>
 <label for="height">Height.</label>
 <select name="height" id="height">
 	<option value="">No answer</option>
@@ -146,7 +129,7 @@ To remove old images just upload new ones.
 	<option value="73" @guest @else @if ($height === 73) selected @endif @endguest>Over 6&apos;</option>
 </select>
 
-<br>
+<br><br>
 <label for="birth_year">Birth decade.</label>
 <select name="birth_year" id="birth_year">
 	<option value="">No answer</option>
@@ -159,20 +142,16 @@ To remove old images just upload new ones.
 </select>
 
 <br><br>
-<label for="description">Tell other users about yourself. What makes you weird? Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters max.</label>
+<label for="description">Tell other users about yourself. What makes you weird? Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses.</label>
 <br>
 <input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
 <br><br>
-<label for="how_to_find_me">Give other users a hint how they will be able to find you at the event. Do not include real names, emails, phone numbers, or addresses. 200 characters max.</label>
+<label for="how_to_find_me">Give other users a hint how they will be able to find you at the event. Do not include real names, emails, phone numbers, or addresses.</label>
 <br>
 <input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
-<h3>Submit your profile</h3>
-
-<label for="submit">Everything you submit on this page, except your email, will be publicly visible.</label>
 <br><br>
-
 <button id="submit" type="submit">
 @guest
 Sign up
@@ -189,20 +168,4 @@ DELETE PROFILE
 @endguest
 
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
