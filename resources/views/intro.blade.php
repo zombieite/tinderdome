@@ -9,7 +9,7 @@ Since The Apocalypse, Wasteland has become known as the place we come to find th
 Create a profile
 @guest</a>@endguest</h3>
 <p>
-You'll create a profile that tells everyone a little bit about you.
+You'll create a profile that tells everyone a little bit about you. <a href="/profile/Firebird">Here's mine</a>.
 </p>
 <h3>2. Let us know who you'd enjoy meeting</h3>
 <p>
