@@ -351,6 +351,7 @@ class ProfileController extends Controller
 			)
 			where
 				id<>?
+				and id<>1
 				and choice is null
 				and seen is null
 				$are_they_my_wanted_gender_clause
