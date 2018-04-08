@@ -13,7 +13,6 @@ class User extends Authenticatable
 		'name',
 		'email',
 		'password',
-		'number_people',
 		'gender',
 		'gender_of_match',
 		'height',

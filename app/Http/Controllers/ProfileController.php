@@ -30,7 +30,6 @@ class ProfileController extends Controller
 			abort(404);
 		}
 
-		$number_people          = $profile->number_people;
 		$gender                 = $profile->gender;
 		$gender_of_match        = $profile->gender_of_match;
 		$height                 = $profile->height;
@@ -47,7 +46,6 @@ class ProfileController extends Controller
 		return view('profile', [
 			'profile_id'             => $profile_id,
 			'wasteland_name'         => $wasteland_name,
-			'number_people'          => $number_people,
 			'gender'                 => $gender,
 			'gender_of_match'        => $gender_of_match,
 			'height'                 => $height,
@@ -80,7 +78,6 @@ class ProfileController extends Controller
 		$email                  = $profile->email;
 		$wasteland_name         = $profile->name;
 		$profile_id             = $profile->id;
-		$number_people          = $profile->number_people;
 		$gender                 = $profile->gender;
 		$gender_of_match        = $profile->gender_of_match;
 		$height                 = $profile->height;
@@ -101,7 +98,6 @@ class ProfileController extends Controller
 			'email'                  => $email,
 			'wasteland_name'         => $wasteland_name,
 			'profile_id'             => $profile_id,
-			'number_people'          => $number_people,
 			'gender'                 => $gender,
 			'gender_of_match'        => $gender_of_match,
 			'height'                 => $height,
@@ -139,7 +135,6 @@ class ProfileController extends Controller
 		$wasteland_name         = $_POST['name'];
 		$password               = $_POST['password'];
 		$password_confirmation  = $_POST['password_confirmation'];
-		$number_people          = intval($_POST['number_people']);
 		$gender                 = $_POST['gender'];
 		$gender_of_match        = $_POST['gender_of_match'];
 		$height                 = intval($_POST['height']);
@@ -169,7 +164,7 @@ class ProfileController extends Controller
 		}
 
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
-		$max_images                = 5;
+		$max_images                = 3;
 		$image_height              = 500;
 		$number_photos             = 0;
 		for ($i = 1; $i <= $max_images; $i++) {
@@ -203,7 +198,6 @@ class ProfileController extends Controller
 			}
 
 			$profile->name                   = $wasteland_name;
-			$profile->number_people          = $number_people;
 			$profile->gender                 = $gender;
 			$profile->gender_of_match        = $gender_of_match;
 			$profile->height                 = $height;
@@ -230,7 +224,6 @@ class ProfileController extends Controller
 			'email'                  => $email,
 			'wasteland_name'         => $wasteland_name,
 			'profile_id'             => $profile_id,
-			'number_people'          => $number_people,
 			'gender'                 => $gender,
 			'gender_of_match'        => $gender_of_match,
 			'height'                 => $height,
