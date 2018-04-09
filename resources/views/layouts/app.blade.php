@@ -34,7 +34,7 @@
 
 <hr>
 
-Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> to report bugs or abusive profiles. <a href="/profile/Firebird">Or come find me</a>.
+Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive profiles.
 
 <script src="{{ asset('js/app.js') }}"></script>
 </body>

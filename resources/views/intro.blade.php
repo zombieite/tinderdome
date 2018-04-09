@@ -9,7 +9,7 @@ Since The Apocalypse, Wasteland has become known as the place we come to find th
 Create a profile
 @guest</a>@endguest</h3>
 <p>
-You'll create a profile that tells everyone a little bit about you. <a href="/profile/Firebird">Here's mine</a>.
+You'll create a profile that tells everyone a little bit about you. <a href="/profile/Firebird">Here's an example</a>.
 </p>
 <h3>2. Let us know who you'd enjoy meeting</h3>
 <p>
@@ -25,7 +25,7 @@ Your mission is to find them at the event. They'll be looking for you, too. When
 </p>
 <h3>5. Get your caps</h3>
 <p>
-If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, he'll reward you with a cap. Every mission you complete earns you a different cap. The more missions you complete, the higher priority your profile will be given by the matching algorithm.
+If you find <a href="/profile/Firebird">Firebird</a> and tell him your stories, you'll be rewarded with caps. Every mission you complete earns you a different cap. The more missions you complete, the higher priority your profile will be given by the matching algorithm.
 </p>
 @guest
 <h2><a href="{{ route('register') }}">Get started by creating your profile</a>.</h2>
