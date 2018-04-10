@@ -9,8 +9,10 @@
 	<form action="?" method="POST">
 		{{ csrf_field() }}
 		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
-		<input type="submit" name="Yes" value="Yes">
-		<input type="submit" name="No" value="No">
+		<input type="submit" name="YesYesYes" value="YES YES YES" class="yes">
+		<input type="submit" name="YesYes" value="Yes YES" class="yes">
+		<input type="submit" name="Yes" value="Yes" class="yes">
+		<input type="submit" name="No" value="No" class="no">
 	</form>
 @endif
 @if ($is_my_match)

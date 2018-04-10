@@ -86,7 +86,7 @@ class MatchController extends Controller
 				users
 			left join choose on
 				users.id = choose.chosen_id
-				and choice = true
+				and choice > 0
 			where
 				attending_$next_event
 				and name != 'Firebird'
@@ -114,7 +114,7 @@ class MatchController extends Controller
 		$id_to_popularity_hash = null;
 		$matched_users_hash    = null;
 		foreach ($users_to_match as $user) {
-			$user->cant_match                 = true; # Will hopefully make false below
+			$user->cant_match                 =true; # Will hopefully make false below
 			$id_to_name_hash[$user->id]       = $user->name;
 			$id_to_gender_hash[$user->id]     = $user->gender;
 			$id_to_popularity_hash[$user->id] = $user->popularity;
@@ -140,11 +140,11 @@ class MatchController extends Controller
 				join choose chose_this_user on
 					users.id = chose_this_user.chooser_id
 					and chose_this_user.chosen_id = ?
-					and chose_this_user.choice = true
+					and chose_this_user.choice > 0
 				join choose this_user_chose on
 					this_user_chose.chooser_id = ?
 					and this_user_chose.chosen_id = users.id
-					and this_user_chose.choice = true
+					and this_user_chose.choice > 0
 				left join matching on (
 					(user_1=users.id and user_2=?)
 					or
@@ -213,7 +213,7 @@ class MatchController extends Controller
 					join choose this_user_chose on
 						this_user_chose.chooser_id = ?
 						and this_user_chose.chosen_id = users.id
-						and this_user_chose.choice = true
+						and this_user_chose.choice > 0
 					left join matching on (
 						(user_1=users.id and user_2=?)
 						or
@@ -345,6 +345,7 @@ class MatchController extends Controller
 				$user->cant_match = false;
 //TODO: THIS IS BROKEN				$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
 				if (!$already_inserted) {
+// UNCOMMENT THIS TO WRITE MATCHES. TODO: Make this work better maybe just a URL param
 //					DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$next_event, $year, $user->id, $matched_user_id]);
 				}
 			}

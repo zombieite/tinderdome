@@ -15,3 +15,9 @@ table {
 td {
 	border: 1px solid #333333;
 }
+.yes {
+	background-color: #00ff00;
+}
+.no {
+	background-color: #ff0000;
+}

@@ -329,10 +329,14 @@ class ProfileController extends Controller
 		if (isset($_POST['chosen'])) {
 			$chosen_id    = $_POST['chosen'];
 			$choose_value = null;
-			if (isset($_POST['Yes'])) {
-				$choose_value = true;
+			if (isset($_POST['YesYesYes'])) {
+				$choose_value = 3;
+			} elseif (isset($_POST['YesYes'])) {
+				$choose_value = 2;
+			} elseif (isset($_POST['Yes'])) {
+				$choose_value = 1;
 			} elseif (isset($_POST['No'])) {
-				$choose_value = false;
+				$choose_value = 0;
 			}
 			$update = 'update choose set choice=? where chooser_id=? and chosen_id=?';
 			DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
