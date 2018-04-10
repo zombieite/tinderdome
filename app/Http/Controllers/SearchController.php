@@ -36,23 +36,25 @@ class SearchController extends Controller
 				id
 		', [ $user_id ]);
 		foreach ($all_users as $profile) {
-			$profile_id             = $profile->id;;
-			$wasteland_name         = $profile->name;
-			$gender                 = $profile->gender;
-			$height                 = $profile->height;
-			$birth_year             = $profile->birth_year;
-			$description            = $profile->description;
-			$number_photos          = $profile->number_photos;
-			$choice                 = $profile->choice;
-			$profile                = [
-				'profile_id'             => $profile_id,
-				'wasteland_name'         => $wasteland_name,
-				'gender'                 => $gender,
-				'height'                 => $height,
-				'birth_year'             => $birth_year,
-				'description'            => $description,
-				'number_photos'          => $number_photos,
-				'choice'                 => $choice,
+			$profile_id                = $profile->id;;
+			$wasteland_name            = $profile->name;
+			$gender                    = $profile->gender;
+			$height                    = $profile->height;
+			$birth_year                = $profile->birth_year;
+			$description               = $profile->description;
+			$number_photos             = $profile->number_photos;
+			$choice                    = $profile->choice;
+			$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+			$profile                   = [
+				'profile_id'                => $profile_id,
+				'wasteland_name'            => $wasteland_name,
+				'wasteland_name_hyphenated' => $wasteland_name_hyphenated,
+				'gender'                    => $gender,
+				'height'                    => $height,
+				'birth_year'                => $birth_year,
+				'description'               => $description,
+				'number_photos'             => $number_photos,
+				'choice'                    => $choice,
 			];
 			array_push($profiles, $profile);
 		}
