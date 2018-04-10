@@ -152,7 +152,7 @@ To remove old images just upload new ones.
 <input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
 <br><br>
-<button id="submit" type="submit">
+<button id="submit" type="submit" class="yes">
 @guest
 Sign up
 @else
@@ -165,7 +165,7 @@ Submit changes
 @else
 <form method="POST" action="" style="width:100%;text-align:right;">
 {{ csrf_field() }}
-<button type="submit" name="delete" style="background-color:red;">
+<button type="submit" name="delete" class="no">
 DELETE PROFILE
 </button>
 </form>
