@@ -3,7 +3,8 @@
 @php ($last_profile = 0)
 @foreach ($profiles as $profile)
 	<p>
-		<a name="profile{{ $profile['profile_id'] }}">{{ $profile['wasteland_name'] }}</a>
+		<a name="profile{{ $profile['profile_id'] }}"></a>
+		<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
 		@if ($profile['gender'])
 			&middot; {{ $profile['gender'] === 'M' ? 'Male' : ($profile['gender'] === 'F' ? 'Female' : 'Other') }}
 		@endif
@@ -28,7 +29,7 @@
 	</p>
 	<p>
 		@for ($i = 1; $i <= $profile['number_photos']; $i++)
-			<a target="_blank" href="/uploads/image-{{ $profile['profile_id'] }}-{{ preg_replace('/\s/', '-', $profile['wasteland_name']) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile['profile_id'] }}-{{ preg_replace('/\s/', '-', $profile['wasteland_name']) }}-{{ $i }}.jpg" style="height:100px;"></a>
+			<a target="_blank" href="/uploads/image-{{ $profile['profile_id'] }}-{{ preg_replace('/\s/', '-', $profile['wasteland_name']) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile['profile_id'] }}-{{ preg_replace('/\s/', '-', $profile['wasteland_name']) }}-{{ $i }}.jpg" style="height:100px;" alt="{{ $profile['description'] }}"></a>
 		@endfor
 	</p>
 	<form action="#profile{{ $last_profile }}" method="POST">
