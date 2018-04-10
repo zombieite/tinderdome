@@ -48,4 +48,6 @@ Route::get('profile/match', 'ProfileController@match', function () {
 
 Route::get('/search', 'SearchController@search')->middleware('auth');
 
+Route::post('/search', 'SearchController@update_rating')->middleware('auth');
+
 Route::get('/match', 'MatchController@match')->middleware('auth');
