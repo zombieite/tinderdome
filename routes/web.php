@@ -22,7 +22,6 @@ Route::get('profile/{profile_id}/{wasteland_name}', 'ProfileController@show', fu
 	return view('profile');
 })->middleware('auth');;
 
-
 Route::get('profile/me', 'ProfileController@showMe', function () {
 	return view('profile');
 })->middleware('auth');
@@ -46,5 +45,7 @@ Route::post('profile/compatible', 'ProfileController@compatible', function () {
 Route::get('profile/match', 'ProfileController@match', function () {
 	return view('profile');
 })->middleware('auth');
+
+Route::get('/search', 'SearchController@search')->middleware('auth');
 
 Route::get('/match', 'MatchController@match')->middleware('auth');
