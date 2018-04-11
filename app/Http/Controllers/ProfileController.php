@@ -343,7 +343,7 @@ class ProfileController extends Controller
 				users
 			left join choose on (
 				users.id=chosen_id
-				and chooser_id=$chooser_user_id
+				and chooser_id=?
 			)
 			where
 				id<>?
