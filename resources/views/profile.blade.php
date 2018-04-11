@@ -13,7 +13,11 @@
 		<input type="submit" name="YesYes" value="Yes YES" class="yes">
 		<input type="submit" name="Yes" value="Yes" class="yes">
 		<input type="submit" name="Met" value="I've already met this person" class="met">
-		<input type="submit" name="No" value="No" class="no">
+		@if ($nos_left > 0)
+			<input type="submit" name="No" value="No ({{ $nos_left }} left)" class="no">
+		@else
+			<br><br><span class="no">To mark more users as no, you must <a href="/search">change some of your previous ratings to yes</a>.</span>
+		@endif
 	</form>
 @endif
 @if ($is_my_match)
