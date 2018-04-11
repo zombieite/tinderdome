@@ -17,17 +17,6 @@ class HomeController extends Controller
 		}
 
 		$chooser_user_id                  = $chooser_user->id;
-        $gender_of_match                  = $chooser_user->gender_of_match;
-
-        if ($gender_of_match) {
-            if (in_array($gender_of_match, ['M', 'F', 'O'])) {
-                // All good
-            } else {
-                abort(500, "Invalid value found for gender of match: '$gender_of_match'");
-            }
-        }
-
-        $are_they_my_wanted_gender_clause = $gender_of_match ? "and gender='" . $gender_of_match ."'" : '';
 
         $unchosen_users = DB::select("
             select
@@ -36,13 +25,13 @@ class HomeController extends Controller
                 users
             left join choose on (
                 users.id=chosen_id
-                and chooser_id=$chooser_user_id
+                and chooser_id=?
             )
             where
-                id<>?
+				id<>1
+                and id<>?
                 and choice is null
 				and seen is null
-                $are_they_my_wanted_gender_clause
             order by
                 number_photos desc,
                 length(description) desc
@@ -51,7 +40,7 @@ class HomeController extends Controller
         [$chooser_user_id, $chooser_user_id]);
         $unchosen_user    = array_shift($unchosen_users);
 
-		$next_event = 'ball';
+		$next_event = 'detonation';
 		$year       = 2018;
 		$matched    = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$chooser_user_id, $chooser_user_id, $next_event, $year]);
 
