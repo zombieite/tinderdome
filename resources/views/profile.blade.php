@@ -12,6 +12,7 @@
 		<input type="submit" name="YesYesYes" value="YES YES YES" class="yes">
 		<input type="submit" name="YesYes" value="Yes YES" class="yes">
 		<input type="submit" name="Yes" value="Yes" class="yes">
+		<input type="submit" name="Met" value="I've already met this person" class="met">
 		<input type="submit" name="No" value="No" class="no">
 	</form>
 @endif
