@@ -360,11 +360,20 @@ class ProfileController extends Controller
 			$count_left++;
 		}
 
-		$nos_left = 5;
-		$nos_used = 0;
+		$nos_left   = 0;
+		$nos_used   = 0;
+		$popularity = 0;
 		$nos_used_results = DB::select('select count(*) nos_used from choose where choice=0 and chooser_id=?', [$chooser_user_id]);
 		foreach ($nos_used_results as $nos_used_result) {
 			$nos_used = $nos_used_result->nos_used;
+		}
+		$popularity_results = DB::select('select count(*) popularity from choose where choice>0 and chosen_id=? and chooser_id<>?', [$chooser_user_id, $chooser_user_id]);
+		foreach ($popularity_results as $popularity_result) {
+			$popularity = $popularity_result->popularity;
+		}
+		$nos_left += $popularity; // If you're popular you can be pickier and still get a match
+		if ($nos_left < 10) {
+			$nos_left = 10;
 		}
 		$nos_left -= $nos_used;
 
