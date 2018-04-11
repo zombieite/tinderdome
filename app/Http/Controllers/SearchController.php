@@ -74,6 +74,8 @@ class SearchController extends Controller
 				$choose_value = 2;
 			} elseif (isset($_POST['Yes'])) {
 				$choose_value = 1;
+			} elseif (isset($_POST['Met'])) {
+				$choose_value = -1;
 			} elseif (isset($_POST['No'])) {
 				$choose_value = 0;
 			}
