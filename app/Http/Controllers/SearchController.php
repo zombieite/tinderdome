@@ -58,6 +58,11 @@ class SearchController extends Controller
 			];
 			array_push($profiles, $profile);
 		}
+
+		if (!count($profiles)) {
+			return redirect('/profile/compatible?');
+		}
+
 		return view('search', [
 			'profiles'               => $profiles,
 		]);
