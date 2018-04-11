@@ -360,9 +360,10 @@ class ProfileController extends Controller
 			$count_left++;
 		}
 
-		$nos_left   = 0;
-		$nos_used   = 0;
-		$popularity = 0;
+		$nos_left          = 0;
+		$nos_used          = 0;
+		$popularity        = 0;
+		$min_available_nos = 25;
 		$nos_used_results = DB::select('select count(*) nos_used from choose where choice=0 and chooser_id=?', [$chooser_user_id]);
 		foreach ($nos_used_results as $nos_used_result) {
 			$nos_used = $nos_used_result->nos_used;
@@ -372,8 +373,8 @@ class ProfileController extends Controller
 			$popularity = $popularity_result->popularity;
 		}
 		$nos_left += $popularity; // If you're popular you can be pickier and still get a match
-		if ($nos_left < 10) {
-			$nos_left = 10;
+		if ($nos_left < $min_available_nos) {
+			$nos_left = $min_available_nos;
 		}
 		$nos_left -= $nos_used;
 

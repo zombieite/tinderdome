@@ -9,8 +9,8 @@
 	<form action="?" method="POST">
 		{{ csrf_field() }}
 		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
-		<input type="submit" name="YesYesYes" value="YES YES YES" class="yes">
-		<input type="submit" name="YesYes" value="Yes YES" class="yes">
+		<input type="submit" name="YesYesYes" value="Yes Yes Yes" class="yes">
+		<input type="submit" name="YesYes" value="Yes Yes" class="yes">
 		<input type="submit" name="Yes" value="Yes" class="yes">
 		<input type="submit" name="Met" value="I've already met this person" class="met">
 		@if ($nos_left > 0)
