@@ -16,11 +16,14 @@ td {
 	border: 1px solid #333333;
 }
 .yes {
+	color: black;
 	background-color: #00ff00;
 }
 .no {
+	color: black;
 	background-color: #ff0000;
 }
 .met {
+	color: black;
 	background-color: #9999ff;
 }
