@@ -336,6 +336,12 @@ class ProfileController extends Controller
 			DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
 		}
 
+		$user_count = 0;
+		$user_count_results = DB::select('select count(*) user_count from users');
+		foreach ($user_count_results as $user_count_result) {
+			$user_count = $user_count_result->user_count;
+		}
+
 		$unchosen_users = DB::select("
 			select
 				*
@@ -349,7 +355,6 @@ class ProfileController extends Controller
 				id<>?
 				and id<>1
 				and choice is null
-				and seen is null
 			order by
 				id
 		",
@@ -363,7 +368,7 @@ class ProfileController extends Controller
 		$nos_left          = 0;
 		$nos_used          = 0;
 		$popularity        = 0;
-		$min_available_nos = 25;
+		$min_available_nos = intdiv($user_count, 4);
 		$nos_used_results = DB::select('select count(*) nos_used from choose where choice=0 and chooser_id=?', [$chooser_user_id]);
 		foreach ($nos_used_results as $nos_used_result) {
 			$nos_used = $nos_used_result->nos_used;
