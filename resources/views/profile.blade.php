@@ -4,8 +4,7 @@
 	<h1><a href="/profile/me">Your profile</a> has been created. Now take a look at these other users.</h1>
 @endif
 @if ($unchosen_user_id)
-	<h3>Would you enjoy meeting this user at the next event?</h3>
-	@if ($count_left)<h4>{{$count_left}} profiles left to view</h4>@endif
+	<h3>Would you enjoy meeting this user at the next event? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
 	<form action="?" method="POST">
 		{{ csrf_field() }}
 		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
@@ -16,7 +15,7 @@
 		@if ($nos_left > 0)
 			<input type="submit" name="No" value="No ({{ $nos_left }} left)" class="no">
 		@else
-			<br><br><span class="no">To mark more users as no, you must <a href="/search">change some of your previous ratings to yes</a>.</span>
+			<br><br><span class="no">To mark more users as no, you must <a href="/search">change {{ -$nos_left+1 }} of your previous no ratings to yes</a>.</span>
 		@endif
 	</form>
 @endif
@@ -32,57 +31,38 @@
 	for {{ $wasteland_name }}
 </h2>
 @endif
-@if ($gender or $gender_of_match)
-	<p>
-	@if ($gender)
-		Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}
-		<br>
-		@if ($gender_of_match)
-			Preferring
-		@endif
-	@else
-		Preferring
-	@endif
-	@if ($gender_of_match)
-		to be matched with a person of gender: {{ $gender_of_match === 'M' ? 'Male' : ($gender_of_match === 'F' ? 'Female' : 'Other') }}
-	@endif
-	</p>
+@if ($gender)
+	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.
 @endif
 @if ($birth_year)
-	<p>
 	@if ($birth_year === 1959)
-		Born before 1960
+		Born before 1960.
 	@else
-		Born in the {{ intval($birth_year / 10) * 10 }}s
+		Born in the {{ intval($birth_year / 10) * 10 }}s.
 	@endif
-	</p>
 @endif
 @if ($height)
-	<p>
 	@if ($height < 60)
-		Height: Under 5 feet
+		Height: Under 5 feet.
 	@elseif ($height > 72)
-		Height: Over 6 feet
+		Height: Over 6 feet.
 	@else
-		Height: {{ floor($height / 12) }}&apos;{{ $height % 12 }}&quot;
+		Height: {{ floor($height / 12) }}&apos;{{ $height % 12 }}&quot;.
 	@endif
-	</p>
 @endif
 @if ($hoping_to_find_love or $hoping_to_find_friend or $hoping_to_find_enemy)
-	<p>
 	Open to
 	@if ($hoping_to_find_love)
-		finding a new friend or romantic partner
+		finding a new friend or romantic partner.
 	@elseif ($hoping_to_find_friend)
-		making a new friend
+		making a new friend.
 	@endif
 	@if ($hoping_to_find_enemy)
 		@if ($hoping_to_find_love or $hoping_to_find_friend)
-			or
+			Or
 		@endif
-		making an enemy
+		making an enemy.
 	@endif
-	</p>
 @endif
 @if ($description)
 <p>
