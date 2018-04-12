@@ -25,9 +25,6 @@ Your mission is to find them at the event. They'll be looking for you, too. When
 </p>
 <h3>5. Get your caps</h3>
 <p>
-If you find <a href="/profile/Firebird">Firebird</a> and tell him your stories, you'll be rewarded with caps. Every mission you complete earns you a different cap. The more missions you complete, the higher priority your profile will be given by the matching algorithm.
+If you find <a href="/profile/Firebird">Firebird</a> and tell him your stories, you'll be rewarded with caps. Every mission you complete earns you a different cap. The sooner you sign up and the more missions you complete, the higher priority your preferences will be given by the matching algorithm. So get started by <a href="{{ route('register') }}">creating your profile</a>.
 </p>
-@guest
-<h2><a href="{{ route('register') }}">Get started by creating your profile</a>.</h2>
-@endguest
 @endsection
