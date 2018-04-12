@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <p>
-Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, we need a designated meeting place. That's Wasteland.
+Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, we need a designated meeting place. That's Wasteland. You Are Awaited is a very simple unofficial mission that is conducted during Wasteland Weekend and other Wasteland-inspired events.
 </p>
 <h2>Mission steps</h2>
 <h3>1.
@@ -13,7 +13,7 @@ You'll create a profile that tells everyone a little bit about you. <a href="/pr
 </p>
 <h3>2. Let us know who you'd enjoy meeting</h3>
 <p>
-Once you've created your profile, you can either accept a random match, or you can browse other profiles and choose those you'd enjoy meeting at the next event.
+Once you've created your profile, you can just accept a random match, or you can browse other profiles and choose those you'd enjoy meeting at the next event.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
@@ -21,7 +21,7 @@ Shortly before each event, the matching algorithm will run. You'll come back her
 </p>
 <h3>4. Seek out your match</h3>
 <p>
-Your mission is to find them at the event. They'll be looking for you, too. When you find them, you can use this as an opportunity to merge the backstories of your Wasteland personas. How did you two meet?
+Your mission is to find your match at the event. They'll be looking for you, too. When you find them, you can use this as an opportunity to merge the backstories of your Wasteland personas. How did you two meet?
 </p>
 <h3>5. Get your caps</h3>
 <p>
