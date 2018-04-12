@@ -31,7 +31,6 @@ class HomeController extends Controller
 				id<>1
                 and id<>?
                 and choice is null
-				and seen is null
             order by
                 number_photos desc,
                 length(description) desc
