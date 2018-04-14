@@ -78,7 +78,7 @@ Check all that apply. I am...
 <label for="hoping_to_find_enemy">Looking for an enemy.</label>
 
 <br><br>
-Upload images. No nudity. Please resize them to around 300 - 1000 pixels in height before uploading.
+Upload images. No nudity. Please resize them to around 500 pixels in height before uploading.
 @guest
 @else
 To remove old images just upload new ones.
@@ -89,24 +89,6 @@ To remove old images just upload new ones.
 <input type="file" name="image2" value="image">
 <br>
 <input type="file" name="image3" value="image">
-
-<br><br>
-<label for="gender">Gender</label>
-<select name="gender" id="gender">
-	<option value="">No answer</option>
-	<option value="M" @guest @else @if ($gender === 'M') selected @endif @endguest>M</option>
-	<option value="F" @guest @else @if ($gender === 'F') selected @endif @endguest>F</option>
-	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
-</select>
-
-<br><br>
-<label for="gender_of_match">I would prefer to be matched with a person of gender...</label>
-<select name="gender_of_match" id="gender_of_match">
-	<option value="">Any</option>
-	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>M</option>
-	<option value="F" @guest @else @if ($gender_of_match === 'F') selected @endif @endguest>F</option>
-	<option value="O" @guest @else @if ($gender_of_match === 'O') selected @endif @endguest>Other</option>
-</select>
 
 <br><br>
 <label for="height">Height</label>
@@ -139,6 +121,24 @@ To remove old images just upload new ones.
 	<option value="1980" @guest @else @if ($birth_year === 1980) selected @endif @endguest>1980s</option>
 	<option value="1990" @guest @else @if ($birth_year === 1990) selected @endif @endguest>1990s</option>
 	<option value="2000" @guest @else @if ($birth_year === 2000) selected @endif @endguest>2000s</option>
+</select>
+
+<br><br>
+<label for="gender">Gender</label>
+<select name="gender" id="gender">
+	<option value="">No answer</option>
+	<option value="M" @guest @else @if ($gender === 'M') selected @endif @endguest>M</option>
+	<option value="F" @guest @else @if ($gender === 'F') selected @endif @endguest>F</option>
+	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
+</select>
+
+<br><br>
+<label for="gender_of_match">I would prefer to be matched with a person of gender...</label>
+<select name="gender_of_match" id="gender_of_match">
+	<option value="">Any</option>
+	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>M</option>
+	<option value="F" @guest @else @if ($gender_of_match === 'F') selected @endif @endguest>F</option>
+	<option value="O" @guest @else @if ($gender_of_match === 'O') selected @endif @endguest>Other</option>
 </select>
 
 <br><br>
