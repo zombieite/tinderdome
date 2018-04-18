@@ -47,12 +47,15 @@ class ProfileController extends Controller
 		$nos_left          = 0;
 		$nos_used          = 0;
 		$popularity        = 0;
+		$choice            = null;
 		if ($profile_id != 1 && !$is_me) {
 			$choose_row_exists = DB::select('
 				select * from choose where chooser_id=? and chosen_id=?
 			', [$auth_user_id, $profile_id]);
 			if ($choose_row_exists) {
-				// No need to insert another choose row
+				foreach ($choose_row_exists as $choose_row) {
+					$choice = $choose_row->choice;
+				}
 			} else {
 				DB::insert('
 					insert into choose (chooser_id, chosen_id) values (?, ?)
@@ -111,6 +114,7 @@ class ProfileController extends Controller
 			'success_message'        => $success_message,
 			'is_my_match'            => $is_my_match,
 			'is_me'                  => $is_me,
+			'choice'                 => $choice,
 			'nos_left'               => $nos_left,
 			'auth_user'              => $auth_user,
 		]);
