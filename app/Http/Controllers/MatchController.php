@@ -66,8 +66,9 @@ class MatchController extends Controller
 
 	public function match()
 	{
-		$user = Auth::user();
-		if ($user->name !== 'Firebird') {
+		$auth_user    = Auth::user();
+		$auth_user_id = Auth::id();
+		if (($auth_user->name !== 'Firebird') || ($auth_user_id != 1)) {
 			abort(403);
 		}
 

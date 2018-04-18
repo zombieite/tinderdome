@@ -12,11 +12,19 @@ use Log;
 
 class ProfileController extends Controller
 {
-	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null, $nos_left = null)
+	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null)
 	{
-		$profile                 = $unchosen_user ? $unchosen_user : \App\User::find( $profile_id );
+		$profile = null;
+		if ($unchosen_user) {
+			$profile    = $unchosen_user;
+			$profile_id = $profile->id;
+		} else {
+			$profile = \App\User::find( $profile_id );
+		}
+
 		$wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
 		$auth_user               = Auth::user();
+		$auth_user_id            = Auth::id();
 
 		if ($profile) {
 			// All good
@@ -30,6 +38,47 @@ class ProfileController extends Controller
 			abort(404);
 		}
 
+		$is_me = false;
+		if ($auth_user_id == $profile_id) {
+			$is_me = true;
+		}
+
+		$user_count        = 0;
+		$nos_left          = 0;
+		$nos_used          = 0;
+		$popularity        = 0;
+		if ($profile_id != 1 && !$is_me) {
+			$choose_row_exists = DB::select('
+				select * from choose where chooser_id=? and chosen_id=?
+			', [$auth_user_id, $profile_id]);
+			if ($choose_row_exists) {
+				// No need to insert another choose row
+			} else {
+				DB::insert('
+					insert into choose (chooser_id, chosen_id) values (?, ?)
+				', [ $auth_user_id, $profile_id ]);
+			}
+
+			$user_count_results = DB::select('select count(*) user_count from users');
+			foreach ($user_count_results as $user_count_result) {
+				$user_count = $user_count_result->user_count;
+			}
+			$min_available_nos = intdiv($user_count, 5);
+			$nos_used_results = DB::select('select count(*) nos_used from choose where choice=0 and chooser_id=?', [$auth_user_id]);
+			foreach ($nos_used_results as $nos_used_result) {
+				$nos_used = $nos_used_result->nos_used;
+			}
+			$popularity_results = DB::select('select count(*) popularity from choose where choice>0 and chosen_id=? and chooser_id<>?', [$auth_user_id, $auth_user_id]);
+			foreach ($popularity_results as $popularity_result) {
+				$popularity = $popularity_result->popularity;
+			}
+			$nos_left += $popularity; // If you're popular you can be pickier and still get a match
+			if ($nos_left < $min_available_nos) {
+				$nos_left = $min_available_nos;
+			}
+			$nos_left -= $nos_used;
+		}
+
 		$gender                 = $profile->gender;
 		$gender_of_match        = $profile->gender_of_match;
 		$height                 = $profile->height;
@@ -41,7 +90,7 @@ class ProfileController extends Controller
 		$hoping_to_find_love    = $profile->hoping_to_find_love;
 		$hoping_to_find_lost    = $profile->hoping_to_find_lost;
 		$hoping_to_find_enemy   = $profile->hoping_to_find_enemy;
-		$unchosen_user_id       = $unchosen_user ? $unchosen_user->id : '';
+		$unchosen_user_id       = $profile_id;
 		$success_message        = isset($_GET['created']);
 		return view('profile', [
 			'profile_id'             => $profile_id,
@@ -61,6 +110,7 @@ class ProfileController extends Controller
 			'count_left'             => $count_left,
 			'success_message'        => $success_message,
 			'is_my_match'            => $is_my_match,
+			'is_me'                  => $is_me,
 			'nos_left'               => $nos_left,
 			'auth_user'              => $auth_user,
 		]);
@@ -266,6 +316,7 @@ class ProfileController extends Controller
 
 	public function match()
 	{
+abort(404); // TODO XXX FIXME
 		$user        = Auth::user();
 		$user_id     = Auth::id();
 
@@ -336,12 +387,6 @@ class ProfileController extends Controller
 			DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
 		}
 
-		$user_count = 0;
-		$user_count_results = DB::select('select count(*) user_count from users');
-		foreach ($user_count_results as $user_count_result) {
-			$user_count = $user_count_result->user_count;
-		}
-
 		$unchosen_users = DB::select("
 			select
 				*
@@ -365,38 +410,8 @@ class ProfileController extends Controller
 			$count_left++;
 		}
 
-		$nos_left          = 0;
-		$nos_used          = 0;
-		$popularity        = 0;
-		$min_available_nos = intdiv($user_count, 4);
-		$nos_used_results = DB::select('select count(*) nos_used from choose where choice=0 and chooser_id=?', [$chooser_user_id]);
-		foreach ($nos_used_results as $nos_used_result) {
-			$nos_used = $nos_used_result->nos_used;
-		}
-		$popularity_results = DB::select('select count(*) popularity from choose where choice>0 and chosen_id=? and chooser_id<>?', [$chooser_user_id, $chooser_user_id]);
-		foreach ($popularity_results as $popularity_result) {
-			$popularity = $popularity_result->popularity;
-		}
-		$nos_left += $popularity; // If you're popular you can be pickier and still get a match
-		if ($nos_left < $min_available_nos) {
-			$nos_left = $min_available_nos;
-		}
-		$nos_left -= $nos_used;
-
 		if ($unchosen_user) {
-			$unchosen_user_id = $unchosen_user->id;
-			$choose_row_exists = DB::select('
-				select * from choose where chooser_id=? and chosen_id=?
-			', [$chooser_user_id, $unchosen_user_id]);
-			if ($choose_row_exists) {
-				// No need to insert another choose row
-			} else {
-				DB::insert('
-					insert into choose (chooser_id, chosen_id) values (?, ?)
-				', [ $chooser_user_id, $unchosen_user_id ]);
-			}
-
-			return $this->show($unchosen_user_id, $unchosen_user->name, $unchosen_user, $count_left, null, $nos_left);
+			return $this->show($unchosen_user->id, $unchosen_user->name, $unchosen_user, $count_left, null);
 		}
 
 		return redirect('/');
