@@ -40,7 +40,7 @@
 			<input type="submit" name="YesYes" value="Yes Yes"@if ($profile['choice'] == 2) class="yes"@endif>
 			<input type="submit" name="Yes" value="Yes"@if ($profile['choice'] == 1) class="yes"@endif>
 			<input type="submit" name="Met" value="Already met them"@if ($profile['choice'] == -1) class="met"@endif>
-			<input type="submit" name="No" value="No"@if ($profile['choice'] == 0) class="no"@endif>
+			<input type="submit" name="No" value="No"@if ($profile['choice'] === 0) class="no"@endif>
 		</form>
 		@php ($last_profile = $profile['profile_id'])
 	</div>

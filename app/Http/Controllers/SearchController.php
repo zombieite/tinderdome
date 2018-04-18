@@ -28,7 +28,7 @@ class SearchController extends Controller
 				choose.created_at
 			from
 				users
-				join choose on (chooser_id = ? and chosen_id = users.id and choice is not null)
+				left join choose on (chooser_id = ? and chosen_id = users.id and choice is not null)
 			where
 				id != 1
 			order by
@@ -81,7 +81,7 @@ class SearchController extends Controller
 				$choose_value = 0;
 			}
 
-			$choose_row_exists = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$auth_user_id, $profile_id]);
+			$choose_row_exists = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$chooser_user_id, $chosen_id]);
 			if ($choose_row_exists) {
 				// No need to insert another choose row
 			} else {

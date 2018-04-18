@@ -8,12 +8,12 @@
 	<form action="/profile/compatible?" method="POST">
 		{{ csrf_field() }}
 		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
-		<input type="submit" name="YesYesYes" value="Yes Yes Yes" class="yes">
-		<input type="submit" name="YesYes" value="Yes Yes" class="yes">
-		<input type="submit" name="Yes" value="Yes" class="yes">
-		<input type="submit" name="Met" value="Already met them" class="met">
+		<input type="submit" name="YesYesYes" value="Yes Yes Yes"@if (($choice == 3) || !isset($choice)) class="yes"@endif>
+		<input type="submit" name="YesYes" value="Yes Yes"@if (($choice == 2) || !isset($choice)) class="yes"@endif>
+		<input type="submit" name="Yes" value="Yes"@if (($choice == 1) || !isset($choice)) class="yes"@endif>
+		<input type="submit" name="Met" value="Already met them"@if (($choice == -1) || !isset($choice)) class="met"@endif>
 		@if ($nos_left > 0)
-			<input type="submit" name="No" value="No ({{ $nos_left }} left)" class="no">
+			<input type="submit" name="No" value="No ({{ $nos_left }} left)"@if (($choice == 0) || !isset($choice)) class="no"@endif>
 		@else
 			<br><br><span class="no">To mark more users as no, you must <a href="/search">change {{ -$nos_left+1 }} of your previous no ratings to yes</a>.</span>
 		@endif
@@ -61,6 +61,9 @@
 		@endif
 		making an enemy.
 	@endif
+@endif
+@if ($gender_of_match)
+	Prefers to meet gender: {{ $gender_of_match === 'M' ? 'Male' : ($gender_of_match === 'F' ? 'Female' : 'Other') }}.
 @endif
 @if ($description)
 <p>
