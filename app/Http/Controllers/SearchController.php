@@ -31,10 +31,11 @@ class SearchController extends Controller
 				left join choose on (chooser_id = ? and chosen_id = users.id and choice is not null)
 			where
 				id != 1
+				and id != ?
 			order by
 				choice desc,
 				id
-		', [ $user_id ]);
+		', [ $user_id, $user_id ]);
 		foreach ($all_users as $profile) {
 			$profile_id                = $profile->id;;
 			$wasteland_name            = $profile->name;
