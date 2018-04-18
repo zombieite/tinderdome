@@ -3,15 +3,15 @@
 @if ($success_message)
 	<h1><a href="/profile/me">Your profile</a> has been created. Now take a look at these other users.</h1>
 @endif
-@if ($unchosen_user_id)
+@if (!$is_me && $unchosen_user_id != 1 )
 	<h3>Would you enjoy meeting this user at the next event? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
-	<form action="?" method="POST">
+	<form action="/profile/compatible?" method="POST">
 		{{ csrf_field() }}
 		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
 		<input type="submit" name="YesYesYes" value="Yes Yes Yes" class="yes">
 		<input type="submit" name="YesYes" value="Yes Yes" class="yes">
 		<input type="submit" name="Yes" value="Yes" class="yes">
-		<input type="submit" name="Met" value="I've already met this person" class="met">
+		<input type="submit" name="Met" value="Already met them" class="met">
 		@if ($nos_left > 0)
 			<input type="submit" name="No" value="No ({{ $nos_left }} left)" class="no">
 		@else
@@ -27,9 +27,7 @@
 	<h3>&quot;{{ $how_to_find_me }}&quot;</h3>
 	@endif
 @else
-<h2>Profile
-	for {{ $wasteland_name }}
-</h2>
+<h2>{{ $wasteland_name }}</h2>
 @endif
 @if ($gender)
 	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.
