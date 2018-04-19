@@ -17,7 +17,7 @@ Once you've created your profile, you can just accept a random match, or you can
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-Shortly before each event, the matching algorithm will run. You'll come back here to see who you've been matched with.
+Shortly before each event, the matching algorithm will run. You'll come back here to see who you've been matched with. Upcoming events are Detonation Uranium Springs 2018 and Wasteland Weekend 2018.
 </p>
 <h3>4. Seek out your match</h3>
 <p>
