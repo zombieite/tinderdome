@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<h1><a href="{{ url('/') }}" style="text-decoration:none;">You Are Awaited 2018</a></h1>
+<h1><a href="{{ url('/') }}" style="text-decoration:none;">You Are Awaited</a></h1>
 
 @guest
 	<a href="{{ route('register') }}">Create a profile</a> &middot; <a href="{{ route('login') }}">Log in</a>
