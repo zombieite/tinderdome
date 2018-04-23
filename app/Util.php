@@ -69,7 +69,7 @@ class Util
 			$birth_year = $gender_result->birth_year;
 		}
 
-		# Everyone gets this many
+		// Everyone gets this many
 		$min_available_nos = intdiv($user_count, 5);
 		$nos = $min_available_nos;
 
