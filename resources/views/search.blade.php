@@ -26,6 +26,10 @@
 				{{ floor($profile['height'] / 12) }}&apos;{{ $profile['height'] % 12 }}&quot;
 			@endif
 		@endif
+		@if ($profile['missions_completed']['points'])
+			&middot;
+			Completed missions: {{ $profile['missions_completed']['points'] }}
+		@endif
 		<br>
 		<br>
 		@for ($i = 1; $i <= $profile['number_photos']; $i++)
