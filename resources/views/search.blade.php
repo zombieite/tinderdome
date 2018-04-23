@@ -47,7 +47,11 @@
 			<input type="submit" name="YesYes" value="Yes Yes"@if ($profile['choice'] == 2) class="yes"@endif>
 			<input type="submit" name="Yes" value="Yes"@if ($profile['choice'] == 1) class="yes"@endif>
 			<input type="submit" name="Met" value="I have met them"@if ($profile['choice'] == -1) class="met"@endif>
-			<input type="submit" name="No" value="No"@if ($profile['choice'] === 0) class="no"@endif>
+			@if ($nos_left > 0)
+				<input type="submit" name="No" value="No ({{ $nos_left }} left)"@if ($profile['choice'] === 0) class="no"@endif>
+			@else
+				<br><br><span class="no">To mark more users as no, you must<br>change {{ -$nos_left+1 }} of your previous no ratings to yes.</span>
+			@endif
 		</form>
 		@endif
 		@php ($last_profile = $profile['profile_id'])
