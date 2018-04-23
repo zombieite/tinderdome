@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Util;
 use Image;
 use File;
 use Log;
@@ -44,7 +45,7 @@ class ProfileController extends Controller
 		}
 
 		$user_count        = 0;
-		$nos_left          = 0;
+		$nos_left          = \App\Util::nos_left_for_user( $auth_user_id );
 		$nos_used          = 0;
 		$popularity        = 0;
 		$choice            = null;
@@ -61,25 +62,6 @@ class ProfileController extends Controller
 					insert into choose (chooser_id, chosen_id) values (?, ?)
 				', [ $auth_user_id, $profile_id ]);
 			}
-
-			$user_count_results = DB::select('select count(*) user_count from users');
-			foreach ($user_count_results as $user_count_result) {
-				$user_count = $user_count_result->user_count;
-			}
-			$min_available_nos = intdiv($user_count, 5);
-			$nos_used_results = DB::select('select count(*) nos_used from choose where choice=0 and chooser_id=?', [$auth_user_id]);
-			foreach ($nos_used_results as $nos_used_result) {
-				$nos_used = $nos_used_result->nos_used;
-			}
-			$popularity_results = DB::select('select count(*) popularity from choose where choice>0 and chosen_id=? and chooser_id<>?', [$auth_user_id, $auth_user_id]);
-			foreach ($popularity_results as $popularity_result) {
-				$popularity = $popularity_result->popularity;
-			}
-			$nos_left += $popularity; // If you're popular you can be pickier and still get a match
-			if ($nos_left < $min_available_nos) {
-				$nos_left = $min_available_nos;
-			}
-			$nos_left -= $nos_used;
 		}
 
 		$gender                 = $profile->gender;
@@ -94,6 +76,7 @@ class ProfileController extends Controller
 		$hoping_to_find_lost    = $profile->hoping_to_find_lost;
 		$hoping_to_find_enemy   = $profile->hoping_to_find_enemy;
 		$unchosen_user_id       = $profile_id;
+		$missions_completed     = \App\Util::missions_completed( $profile_id );
 		$success_message        = isset($_GET['created']);
 		return view('profile', [
 			'profile_id'             => $profile_id,
@@ -117,6 +100,7 @@ class ProfileController extends Controller
 			'choice'                 => $choice,
 			'nos_left'               => $nos_left,
 			'auth_user'              => $auth_user,
+			'missions_completed'     => $missions_completed,
 		]);
 	}
 

@@ -27,7 +27,7 @@
 	<h3>&quot;{{ $how_to_find_me }}&quot;</h3>
 	@endif
 @else
-<h2>{{ $wasteland_name }}</h2>
+	<h2>{{ $wasteland_name }}@if ($missions_completed['points']) &middot; <span class="score">Missions completed: {{ $missions_completed['points'] }}</span> @endif</h2>
 @endif
 @if ($gender)
 	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.

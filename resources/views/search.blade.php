@@ -28,7 +28,7 @@
 		@endif
 		@if ($profile['missions_completed']['points'])
 			&middot;
-			<span class="score">Completed missions: {{ $profile['missions_completed']['points'] }}</span>
+			<span class="score">Missions completed: {{ $profile['missions_completed']['points'] }}</span>
 		@endif
 		<br>
 		<br>

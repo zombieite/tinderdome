@@ -57,4 +57,42 @@ class Util
 			'points'   => $points,
 		];
 	}
+
+	public static function nos_left_for_user( $user_id ) {
+		$user_count_results = DB::select('select count(*) user_count from users');
+		foreach ($user_count_results as $user_count_result) {
+			$user_count = $user_count_result->user_count;
+		}
+		$nos_used_results = DB::select('select count(*) nos_used from choose where choice=0 and chooser_id=?', [$user_id]);
+		foreach ($nos_used_results as $nos_used_result) {
+			$nos_used = $nos_used_result->nos_used;
+		}
+		$popularity_results = DB::select('select count(*) popularity from choose where choice>0 and chosen_id=? and chooser_id<>?', [$user_id, $user_id]);
+		foreach ($popularity_results as $popularity_result) {
+			$popularity = $popularity_result->popularity;
+		}
+
+		# Everyone gets this many
+		$min_available_nos = intdiv($user_count, 5);
+		$nos = $min_available_nos;
+
+		// If you're popular you can be pickier and still get a match
+		$nos += $popularity;
+
+		// Double check everyone gets the minimum
+		if ($nos < $min_available_nos) {
+			$nos = $min_available_nos;
+		}
+
+		// Check no one goes beyond the maximum
+		$max_fraction_nos = .6;
+		if ($nos > $user_count * $max_fraction_nos) {
+			$nos = floor($user_count * $max_fraction_nos);
+		}
+
+		// Remove ones already used
+		$nos -= $nos_used;
+
+		return $nos;
+	}
 }
