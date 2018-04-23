@@ -37,19 +37,6 @@ class Util
 			if ($user_claims_known) {
 				$points += 1;
 			}
-			#$other_user_acknowledges_known = DB::select('
-			#	select
-			#		1
-			#	from
-			#		choose
-			#	where
-			#		chooser_id    = ?
-			#		and chosen_id = ?
-			#		and choice    = -1
-			#', [ $other_user_id, $user_id ]);
-			#if ($other_user_acknowledges_known) {
-			#	$points += 1;
-			#}
 		}
 
 		return [
@@ -59,17 +46,27 @@ class Util
 	}
 
 	public static function nos_left_for_user( $user_id ) {
+		$user_count = 0;
 		$user_count_results = DB::select('select count(*) user_count from users');
 		foreach ($user_count_results as $user_count_result) {
 			$user_count = $user_count_result->user_count;
 		}
-		$nos_used_results = DB::select('select count(*) nos_used from choose where choice=0 and chooser_id=?', [$user_id]);
+		$nos_used = 0;
+		$nos_used_results = DB::select('select count(*) nos_used from choose where choice = 0 and chooser_id = ?', [$user_id]);
 		foreach ($nos_used_results as $nos_used_result) {
 			$nos_used = $nos_used_result->nos_used;
 		}
-		$popularity_results = DB::select('select count(*) popularity from choose where choice>0 and chosen_id=? and chooser_id<>?', [$user_id, $user_id]);
+		$popularity = 0;
+		$popularity_results = DB::select('select count(*) popularity from choose where choice > 0 and chosen_id = ? and chooser_id <> ?', [$user_id, $user_id]);
 		foreach ($popularity_results as $popularity_result) {
 			$popularity = $popularity_result->popularity;
+		}
+		$gender = '';
+		$birth_year = 1970;
+		$gender_results = DB::select('select gender, birth_year from users where id = ?', [$user_id]);
+		foreach ($gender_results as $gender_result) {
+			$gender     = $gender_result->gender;
+			$birth_year = $gender_result->birth_year;
 		}
 
 		# Everyone gets this many
@@ -78,6 +75,16 @@ class Util
 
 		// If you're popular you can be pickier and still get a match
 		$nos += $popularity;
+
+		// If you're a female you can be pickier
+		if ($gender == 'F') {
+			$nos += 5;
+		}
+
+		// If you're young you can be picker
+		if ($birth_year >= 1980) {
+			$nos += 5;
+		}
 
 		// Double check everyone gets the minimum
 		if ($nos < $min_available_nos) {
