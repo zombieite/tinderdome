@@ -6,12 +6,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Util;
 use Image;
 use File;
 use Log;
 
 class SearchController extends Controller
 {
+	private static function sort_search($a, $b) {
+		if ($b['missions_completed']['points'] - $a['missions_completed']['points'] !== 0) {
+			return $b['missions_completed']['points'] - $a['missions_completed']['points'];
+		}
+		return $a['profile_id'] - $b['profile_id'];
+	}
+
 	public function search() {
 		$user_id    = Auth::id();
 		$profiles  = [];
@@ -45,6 +53,7 @@ class SearchController extends Controller
 			$description               = $profile->description;
 			$number_photos             = $profile->number_photos;
 			$choice                    = $profile->choice;
+			$missions_completed        = \App\Util::missions_completed( $profile_id );
 			$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 			$profile                   = [
 				'profile_id'                => $profile_id,
@@ -56,9 +65,12 @@ class SearchController extends Controller
 				'description'               => $description,
 				'number_photos'             => $number_photos,
 				'choice'                    => $choice,
+				'missions_completed'        => $missions_completed,
 			];
 			array_push($profiles, $profile);
 		}
+
+		usort($profiles, array($this, 'sort_search'));
 
 		return view('search', [
 			'profiles'               => $profiles,
