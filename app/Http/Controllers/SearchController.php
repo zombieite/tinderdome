@@ -46,6 +46,7 @@ class SearchController extends Controller
 				choice desc,
 				id
 		', [ $user_id, $user_id ]);
+		$nos_left = \App\Util::nos_left_for_user( $user_id );
 		foreach ($all_users as $profile) {
 			$profile_id                = $profile->id;;
 			$wasteland_name            = $profile->name;
@@ -76,6 +77,7 @@ class SearchController extends Controller
 
 		return view('search', [
 			'profiles'          => $profiles,
+			'nos_left'          => $nos_left,
 			'logged_in_user_id' => $user_id,
 		]);
 	}
