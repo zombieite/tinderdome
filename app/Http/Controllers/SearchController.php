@@ -17,6 +17,9 @@ class SearchController extends Controller
 		if ($b['missions_completed']['points'] - $a['missions_completed']['points'] !== 0) {
 			return $b['missions_completed']['points'] - $a['missions_completed']['points'];
 		}
+		if ($b['choice'] - $a['choice'] !== 0) {
+			return $b['choice'] - $a['choice'];
+		}
 		return $a['profile_id'] - $b['profile_id'];
 	}
 
