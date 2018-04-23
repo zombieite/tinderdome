@@ -11,7 +11,7 @@
 		<input type="submit" name="YesYesYes" value="Yes Yes Yes"@if (($choice == 3) || !isset($choice)) class="yes"@endif>
 		<input type="submit" name="YesYes" value="Yes Yes"@if (($choice == 2) || !isset($choice)) class="yes"@endif>
 		<input type="submit" name="Yes" value="Yes"@if (($choice == 1) || !isset($choice)) class="yes"@endif>
-		<input type="submit" name="Met" value="Already met them"@if (($choice == -1) || !isset($choice)) class="met"@endif>
+		<input type="submit" name="Met" value="I have met them"@if (($choice == -1) || !isset($choice)) class="met"@endif>
 		@if ($nos_left > 0)
 			<input type="submit" name="No" value="No ({{ $nos_left }} left)"@if (($choice == 0) || !isset($choice)) class="no"@endif>
 		@else

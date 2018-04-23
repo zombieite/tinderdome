@@ -39,7 +39,6 @@ class SearchController extends Controller
 				left join choose on (chooser_id = ? and chosen_id = users.id and choice is not null)
 			where
 				id != 1
-				and id != ?
 			order by
 				choice desc,
 				id
@@ -73,7 +72,8 @@ class SearchController extends Controller
 		usort($profiles, array($this, 'sort_search'));
 
 		return view('search', [
-			'profiles'               => $profiles,
+			'profiles'          => $profiles,
+			'logged_in_user_id' => $user_id,
 		]);
 	}
 

@@ -28,7 +28,7 @@
 		@endif
 		@if ($profile['missions_completed']['points'])
 			&middot;
-			Completed missions: {{ $profile['missions_completed']['points'] }}
+			<span class="score">Completed missions: {{ $profile['missions_completed']['points'] }}</span>
 		@endif
 		<br>
 		<br>
@@ -37,15 +37,19 @@
 		@endfor
 		<br>
 		<br>
+		@if ($logged_in_user_id == $profile['profile_id'])
+			(You)
+		@else
 		<form action="#profile{{ $last_profile }}" method="POST">
 			{{ csrf_field() }}
 			<input type="hidden" name="chosen" value="{{ $profile['profile_id'] }}">
 			<input type="submit" name="YesYesYes" value="Yes Yes Yes"@if ($profile['choice'] == 3) class="yes"@endif>
 			<input type="submit" name="YesYes" value="Yes Yes"@if ($profile['choice'] == 2) class="yes"@endif>
 			<input type="submit" name="Yes" value="Yes"@if ($profile['choice'] == 1) class="yes"@endif>
-			<input type="submit" name="Met" value="Already met them"@if ($profile['choice'] == -1) class="met"@endif>
+			<input type="submit" name="Met" value="I have met them"@if ($profile['choice'] == -1) class="met"@endif>
 			<input type="submit" name="No" value="No"@if ($profile['choice'] === 0) class="no"@endif>
 		</form>
+		@endif
 		@php ($last_profile = $profile['profile_id'])
 	</div>
 @endforeach
