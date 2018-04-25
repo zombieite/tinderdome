@@ -1,9 +1,21 @@
 @extends('layouts.app')
 @section('content')
 <p>
-Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, we need a designated meeting place. That's Wasteland. You Are Awaited is a very simple unofficial mission that is conducted during Wasteland Weekend and other Wasteland-inspired events.
+Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, we need a designated meeting place. That's Wasteland.
 </p>
-<h2>Mission steps</h2>
+<p>
+You Are Awaited is a simple mission that is conducted during Wasteland Weekend and other post-apocalyptic events. Signups are year-round, there's no need to wait for the next event. There are no in-person signups, all signups must be done online. Money is useless nowadays so participation is free.
+</p>
+<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others</h2>
+@foreach ($leaderboard as $leader)
+<div class="profile_search_block">
+	@if ($leader['number_photos'])
+		<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}-1.jpg" style="height:100px;"></a>
+	@endif
+	<br>
+	{{ $leader['wasteland_name'] }} &middot; <span class="score">{{ $leader['missions_completed']['points'] }}</span>
+</div>
+@endforeach
 <h3>1.
 @guest<a href="{{ route('register') }}">@endguest
 Create a profile
@@ -11,17 +23,17 @@ Create a profile
 <p>
 You'll create a profile that tells everyone a little bit about you. <a href="/profile/Firebird">Here's an example</a>.
 </p>
-<h3>2. Let us know who you'd enjoy meeting</h3>
+<h3>2. Let us know who you'd enjoy meeting at the next event</h3>
 <p>
-Once you've created your profile, you can just accept a random match, or you can browse other profiles and choose those you'd enjoy meeting at the next event.
+Once you've created your profile, you can browse other profiles and choose the people you'd enjoy meeting at the next event.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-Shortly before each event, the matching algorithm will run. You'll come back here to see who you've been matched with. Upcoming events are Detonation Uranium Springs 2018 and Wasteland Weekend 2018.
+Shortly before each event, the matching algorithm will run. You will be matched with one other person. You'll come back to this site to see who you've been matched with. Upcoming events are Detonation Uranium Springs 2018 and Wasteland Weekend 2018.
 </p>
 <h3>4. Seek out your match</h3>
 <p>
-Your mission is to find your match at the event. They'll be looking for you, too. When you find them, you can use this as an opportunity to merge the backstories of your Wasteland personas. How did you two meet?
+Your mission is to find your match at the event. They'll be looking for you, too. You can use this opportunity to merge the backstories of your Wasteland personas. How did you two meet?
 </p>
 <h3>5. Get your caps</h3>
 <p>
