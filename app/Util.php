@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Support\Facades\DB;
+use Log;
 
 class Util
 {
 	public static function unrated_users( $chooser_user_id ) {
+
 		$unrated_users = DB::select("
 			select
 				*
@@ -21,11 +23,10 @@ class Util
 				and id<>?
 				and choice is null
 			order by
-				number_photos desc,
-				length(description) desc
-			limit 1
+				id
 		",
 		[$chooser_user_id, $chooser_user_id]);
+
 		return $unrated_users;
 	}
 
