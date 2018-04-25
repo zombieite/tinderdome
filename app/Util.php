@@ -69,6 +69,56 @@ class Util
 		];
 	}
 
+	private static function sort_leaderboard($a, $b) {
+		if ($b['missions_completed']['points'] - $a['missions_completed']['points'] !== 0) {
+			return $b['missions_completed']['points'] - $a['missions_completed']['points'];
+		}
+		return $a['profile_id'] - $b['profile_id'];
+	}
+
+	public static function leaderboard( $number_of_leaders ) {
+
+		$leaderboard = [];
+		$all_users = DB::select('
+			select
+				id,
+				name,
+				number_photos
+			from
+				users
+			where
+				id != 1
+		');
+		foreach ($all_users as $profile) {
+			$profile_id                = $profile->id;;
+			$wasteland_name            = $profile->name;
+			$number_photos             = $profile->number_photos;
+			$missions_completed        = \App\Util::missions_completed( $profile_id );
+			$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+			$profile                   = [
+				'profile_id'                => $profile_id,
+				'wasteland_name'            => $wasteland_name,
+				'wasteland_name_hyphenated' => $wasteland_name_hyphenated,
+				'number_photos'             => $number_photos,
+				'missions_completed'        => $missions_completed,
+			];
+			array_push($leaderboard, $profile);
+		}
+
+		usort($leaderboard, ['\App\Util', 'sort_leaderboard']);
+
+		$nonleader_count = 1; // Count Firebird too
+		while (count($leaderboard) > $number_of_leaders) {
+			array_pop($leaderboard);
+			$nonleader_count++;
+		}
+
+		return [
+			'leaderboard'     => $leaderboard,
+			'nonleader_count' => $nonleader_count,
+		];
+	}
+
 	public static function nos_left_for_user( $user_id ) {
 		$user_count = 0;
 		$user_count_results = DB::select('select count(*) user_count from users');

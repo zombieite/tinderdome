@@ -73,7 +73,7 @@ class SearchController extends Controller
 			array_push($profiles, $profile);
 		}
 
-		usort($profiles, array($this, 'sort_search'));
+		usort($profiles, [$this, 'sort_search']);
 
 		return view('search', [
 			'profiles'          => $profiles,
