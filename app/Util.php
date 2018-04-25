@@ -6,6 +6,29 @@ use Illuminate\Support\Facades\DB;
 
 class Util
 {
+	public static function unrated_users( $chooser_user_id ) {
+		$unrated_users = DB::select("
+			select
+				*
+			from
+				users
+			left join choose on (
+				users.id=chosen_id
+				and chooser_id=?
+			)
+			where
+				id<>1
+				and id<>?
+				and choice is null
+			order by
+				number_photos desc,
+				length(description) desc
+			limit 1
+		",
+		[$chooser_user_id, $chooser_user_id]);
+		return $unrated_users;
+	}
+
 	public static function missions_completed( $user_id ) {
 
 		$missions = DB::select('

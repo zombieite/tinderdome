@@ -2,7 +2,7 @@
 
 @section('content')
 <h4>1. COMPLETE: Profile created.</h4>
-@if ($all_seen)
+@if (!$unrated_users)
 <h4> 2. COMPLETE: You have rated every profile. Check back later to rate new arrivals. Or you can <a href="/search">revisit profiles</a> you've already viewed.</h4>
 @else
 <h4>2. <a href="/profile/compatible?">Choose potential matches</a>.</h4>
