@@ -375,31 +375,15 @@ abort(404); // TODO XXX FIXME
 			DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
 		}
 
-		$unchosen_users = DB::select("
-			select
-				*
-			from
-				users
-			left join choose on (
-				users.id=chosen_id
-				and chooser_id=?
-			)
-			where
-				id<>?
-				and id<>1
-				and choice is null
-			order by
-				id
-		",
-		[$chooser_user_id, $chooser_user_id]);
-		$unchosen_user = array_shift($unchosen_users);
-		$count_left    = null;
-		foreach ($unchosen_users as $user_to_count) {
+		$unrated_users = \App\Util::unrated_users( $chooser_user_id );
+		$unrated_user  = array_shift($unrated_users);
+		$count_left    = 0;
+		foreach ($unrated_users as $user_to_count) {
 			$count_left++;
 		}
 
-		if ($unchosen_user) {
-			return $this->show($unchosen_user->id, $unchosen_user->name, $unchosen_user, $count_left, null);
+		if ($unrated_user) {
+			return $this->show($unrated_user->id, $unrated_user->name, $unrated_user, $count_left, null);
 		}
 
 		return redirect('/');
