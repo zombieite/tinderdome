@@ -47,7 +47,7 @@ class RegisterController extends Controller
 
 		if (preg_match('/irebird/', $wasteland_name)) {
 			$wasteland_name = NULL;
-			abort(403, 'Invalid username');
+			abort(403, 'Only the site owner can be named Firebird');
 		}
 
 		$user = User::create([
