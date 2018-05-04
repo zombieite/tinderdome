@@ -4,7 +4,7 @@ body {
 	background-color: #000000;
 	background-repeat: no-repeat;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	margin: 30px;
+	margin: 1.5em;
 }
 a {
 	color: #dedbbc;
@@ -13,7 +13,14 @@ table {
 	border-collapse: collapse;
 }
 td {
-	border: 1px solid #333333;
+	border: 1px solid #666666;
+}
+hr {
+	border-color: #666666;
+}
+li {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 h1, h2, h3, h4, h5, h6 {
 	color: #dedbbc;
@@ -31,12 +38,14 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #9999ff;
 }
 .score {
-	color: #ffff00;
+	color: #ff9900;
 }
 .profile_search_block {
 	display: inline-block;
-	border: 1px solid;
-	margin: 5px;
-	padding: 10px;
+	border: 1px solid #666666;
+	margin-top: .2em;
+	margin-bottom: .2em;
+	margin-right: .1em;
+	padding: .5em;
 }
 
