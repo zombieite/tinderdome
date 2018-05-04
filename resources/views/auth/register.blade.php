@@ -15,14 +15,12 @@
 <strong>{{ $errors->first('name') }}</strong>
 @endif
 
-@guest
 <br><br>
 <label for="email">Email</label>
-<input id="email" type="email" name="email" value="{{ old('email') }}" maxlength="50" required>
+<input id="email" type="email" name="email" value="@guest{{ old('email') }}@else{{ $email }}@endguest" maxlength="50" required>
 @if ($errors->has('email'))
 <strong>{{ $errors->first('email') }}</strong>
 @endif
-@endguest
 
 <br><br>
 <label for="password">Password</label>

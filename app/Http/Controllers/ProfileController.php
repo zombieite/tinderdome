@@ -159,7 +159,8 @@ class ProfileController extends Controller
 
 	public function update()
 	{
-		$profile = Auth::user();
+		$profile    = Auth::user();
+		$profile_id = Auth::id();
 		if ($profile) {
 			// All good
 		} else {
@@ -167,14 +168,13 @@ class ProfileController extends Controller
 		}
 
 		$update_errors          = '';
-		$profile_id             = $profile->id;
 
 		if (isset($_POST['delete'])) {
 			DB::delete('delete from users where id=? limit 1', [$profile_id]);
 			return redirect('/');
 		}
 
-		$email                  = $profile->email;
+		$email                  = $_POST['email'];
 		$number_photos          = $profile->number_photos;
 		$wasteland_name         = $_POST['name'];
 		$password               = $_POST['password'];
@@ -195,6 +195,11 @@ class ProfileController extends Controller
 		$attending_detonation   = isset($_POST['attending_detonation']);
 		$attending_wasteland    = isset($_POST['attending_wasteland']);
 		$ip                     = request()->ip() or die("No ip");
+
+		$email_exists = DB::select('select id,email from users where email=? and id<>?', [$email, $profile_id]);
+		if ($email_exists) {
+			$update_errors .= 'Email already in use.';
+		}
 
 		if (strlen($password) > 0) {
 			if ($password !== $password_confirmation) {
@@ -246,6 +251,7 @@ class ProfileController extends Controller
 			}
 
 			$profile->name                   = $wasteland_name;
+			$profile->email                  = $email;
 			$profile->gender                 = $gender;
 			$profile->gender_of_match        = $gender_of_match;
 			$profile->height                 = $height;
