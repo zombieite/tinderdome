@@ -66,21 +66,20 @@ Check all that apply. I am...
 <label for="random_ok">Open to a random match if a mutual match can't be found.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
-<label for="hoping_to_find_friend">Open to making a new friend.</label>
+<label for="hoping_to_find_friend">Open to finding a new friend.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_love" id="hoping_to_find_love" @guest @else @if ($hoping_to_find_love) checked @endif @endguest>
-<label for="hoping_to_find_love">Open to making a new friend or romantic partner.</label>
-<br>
-<input type="checkbox" name="hoping_to_find_lost" id="hoping_to_find_lost" @guest @else @if ($hoping_to_find_lost) checked @endif @endguest>
-<label for="hoping_to_find_lost">Looking for someone specific, a missed connection, or someone I once knew but have lost.</label>
-<br>
-<input type="checkbox" name="hoping_to_find_enemy" id="hoping_to_find_enemy" @guest @else @if ($hoping_to_find_enemy) checked @endif @endguest>
-<label for="hoping_to_find_enemy">Looking for an enemy.</label>
+<label for="hoping_to_find_love">Open to finding a new friend or romantic partner.</label>
 
 <br><br>
 Upload images. No nudity. Please resize them to around 500 pixels in height before uploading.
 @guest
 @else
+<br>
+@for ($i = 1; $i <= $number_photos; $i++)
+	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg" style="height:50px;"></a>
+@endfor
+<br>
 To remove old images just upload new ones.
 @endguest
 <br>
@@ -89,6 +88,14 @@ To remove old images just upload new ones.
 <input type="file" name="image2" value="image">
 <br>
 <input type="file" name="image3" value="image">
+@if ($number_photos > 3)
+<br>
+<input type="file" name="image4" value="image">
+@endif
+@if ($number_photos > 4)
+<br>
+<input type="file" name="image5" value="image">
+@endif
 
 <br><br>
 <label for="height">Height</label>

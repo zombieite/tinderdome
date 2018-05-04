@@ -33,7 +33,7 @@
 		<br>
 		<br>
 		@for ($i = 1; $i <= $profile['number_photos']; $i++)
-			<a target="_blank" href="/uploads/image-{{ $profile['profile_id'] }}-{{ preg_replace('/\s/', '-', $profile['wasteland_name']) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile['profile_id'] }}-{{ preg_replace('/\s/', '-', $profile['wasteland_name']) }}-{{ $i }}.jpg" style="height:100px;" alt="{{ $profile['description'] }}"></a>
+			<a target="_blank" href="/uploads/image-{{ $profile['profile_id'] }}-{{ preg_replace('/\s/', '-', $profile['wasteland_name']) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile['profile_id'] }}-{{ preg_replace('/\s/', '-', $profile['wasteland_name']) }}-{{ $i }}.jpg" style="height:100px;"></a>
 		@endfor
 		<br>
 		<br>
