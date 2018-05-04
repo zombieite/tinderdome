@@ -1,11 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@guest
-<h2>Create profile</h2>
-@else
-<h2>Edit profile for {{ $email }}</h2>
-@endguest
-
 @if (isset($update_errors))
 	@if ($update_errors)
 		<h2>Error updating profile: {{ $update_errors }}</h2>
@@ -75,12 +69,11 @@ Check all that apply. I am...
 Upload images. No nudity. Please resize them to around 500 pixels in height before uploading.
 @guest
 @else
+To remove old images just upload new ones.
 <br>
 @for ($i = 1; $i <= $number_photos; $i++)
 	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg" style="height:50px;"></a>
 @endfor
-<br>
-To remove old images just upload new ones.
 @endguest
 <br>
 <input type="file" name="image1" value="image">
@@ -88,6 +81,7 @@ To remove old images just upload new ones.
 <input type="file" name="image2" value="image">
 <br>
 <input type="file" name="image3" value="image">
+@if (isset($number_photos))
 @if ($number_photos > 3)
 <br>
 <input type="file" name="image4" value="image">
@@ -95,6 +89,7 @@ To remove old images just upload new ones.
 @if ($number_photos > 4)
 <br>
 <input type="file" name="image5" value="image">
+@endif
 @endif
 
 <br><br>
