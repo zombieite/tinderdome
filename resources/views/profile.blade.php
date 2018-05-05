@@ -20,14 +20,17 @@
 	</form>
 @endif
 @if ($is_my_match)
-<h1>{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
-<h2>Your mission is to seek them out and merge the backstories of your wasteland personas.</h2>
+<h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
+<h2 class="bright">Your mission is to seek them out and merge the backstories of your wasteland personas.</h2>
 	@if ($how_to_find_me)
-	<h3>How to find {{ $wasteland_name }}:</h3>
-	<h3>&quot;{{ $how_to_find_me }}&quot;</h3>
+	<h3 class="bright">How to find {{ $wasteland_name }}:</h3>
+	<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
 	@endif
 @else
-	<h2>{{ $wasteland_name }}@if ($missions_completed['points']) &middot; <span class="score">Missions completed: {{ $missions_completed['points'] }}</span> @endif</h2>
+	<h2>{{ $wasteland_name }}@if ($missions_completed['points']) &middot; <span class="bright">Missions completed: {{ $missions_completed['points'] }}</span> @endif</h2>
+@endif
+@if ($share_info)
+	<h3 class="bright">{{ $share_info }}</h3>
 @endif
 @if ($gender)
 	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.

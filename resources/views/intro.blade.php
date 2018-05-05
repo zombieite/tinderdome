@@ -13,7 +13,7 @@ You Are Awaited is a simple mission that is conducted during Wasteland Weekend a
 		<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}-1.jpg" style="height:100px;"></a>
 	@endif
 	<br>
-	{{ $leader['wasteland_name'] }} &middot; <span class="score">{{ $leader['missions_completed']['points'] }}</span>
+	{{ $leader['wasteland_name'] }} &middot; <span class="bright">{{ $leader['missions_completed']['points'] }}</span>
 </div>
 @endforeach
 <h3>1.

@@ -39,28 +39,45 @@ class ProfileController extends Controller
 			abort(404);
 		}
 
-		$is_me = false;
-		if ($auth_user_id == $profile_id) {
-			$is_me = true;
-		}
-
+		$is_me             = false;
 		$user_count        = 0;
-		$nos_left          = \App\Util::nos_left_for_user( $auth_user_id );
+		$nos_left          = 0;
 		$nos_used          = 0;
 		$popularity        = 0;
 		$choice            = null;
-		if ($profile_id != 1 && !$is_me) {
-			$choose_row_exists = DB::select('
-				select * from choose where chooser_id=? and chosen_id=?
-			', [$auth_user_id, $profile_id]);
-			if ($choose_row_exists) {
-				foreach ($choose_row_exists as $choose_row) {
-					$choice = $choose_row->choice;
+		$share_info        = null;
+
+		// If we have a logged in user (not someone looking at Firebird's profile)
+		if ($auth_user_id) {
+
+			$nos_left          = \App\Util::nos_left_for_user( $auth_user_id );
+
+			// Figure out if user is looking at their own profile (hide buttons in that case)
+			if ($auth_user_id == $profile_id) {
+				$is_me = true;
+			}
+
+			// Find or create a choose row so the logged in user can rate the profile being viewed
+			if ($profile_id != 1 && !$is_me) {
+				$choose_row_exists = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$auth_user_id, $profile_id]);
+				if ($choose_row_exists) {
+					foreach ($choose_row_exists as $choose_row) {
+						$choice = $choose_row->choice;
+					}
+				} else {
+					DB::insert('insert into choose (chooser_id, chosen_id) values (?, ?)', [ $auth_user_id, $profile_id ]);
 				}
-			} else {
-				DB::insert('
-					insert into choose (chooser_id, chosen_id) values (?, ?)
-				', [ $auth_user_id, $profile_id ]);
+			}
+
+			// Figure out if we should share this user's email with a mutual favorite
+			if ($auth_user->share_info_with_favorites) { // The logged in user must share info to be able to see others' shared info
+				// Figure out if the logged in user and the profile being viewed are mutual favorites
+				if ($choice == 3) {
+					$this_profile_likes_logged_in_user = DB::select('select * from choose where chooser_id=? and chosen_id=? and choice=3', [$profile_id, $auth_user_id]);
+					if ($this_profile_likes_logged_in_user) {
+						$share_info = $profile->email;
+					}
+				}
 			}
 		}
 
@@ -101,6 +118,7 @@ class ProfileController extends Controller
 			'nos_left'               => $nos_left,
 			'auth_user'              => $auth_user,
 			'missions_completed'     => $missions_completed,
+			'share_info'             => $share_info,
 		]);
 	}
 
