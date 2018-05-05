@@ -21,6 +21,8 @@
 @if ($errors->has('email'))
 <strong>{{ $errors->first('email') }}</strong>
 @endif
+<input type="checkbox" name="share_info_with_favorites" id="share_info_with_favorites" @guest @else @if ($share_info_with_favorites) checked @endif @endguest>
+<label for="share_info_with_favorites">Share my email address with mutual favorites</label>
 
 <br><br>
 <label for="password">Password</label>
@@ -29,7 +31,6 @@
 <strong>{{ $errors->first('password') }}</strong>
 @endif
 
-<br>
 <br>
 <label for="password-confirm">Confirm password</label>
 <input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>

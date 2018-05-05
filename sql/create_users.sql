@@ -25,5 +25,6 @@ CREATE TABLE users (
 	attending_wasteland BOOLEAN,
 	ip VARCHAR(50) NOT NULL,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	share_info_with_favorites BOOLEAN
 );

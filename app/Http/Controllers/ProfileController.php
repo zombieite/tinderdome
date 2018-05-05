@@ -113,47 +113,49 @@ class ProfileController extends Controller
 			abort(403);
 		}
 
-		$update_errors          = '';
-		$email                  = $profile->email;
-		$wasteland_name         = $profile->name;
-		$profile_id             = $profile->id;
-		$gender                 = $profile->gender;
-		$gender_of_match        = $profile->gender_of_match;
-		$height                 = $profile->height;
-		$birth_year             = $profile->birth_year;
-		$description            = $profile->description;
-		$how_to_find_me         = $profile->how_to_find_me;
-		$number_photos          = $profile->number_photos;
-		$random_ok              = $profile->random_ok;
-		$hoping_to_find_friend  = $profile->hoping_to_find_friend;
-		$hoping_to_find_love    = $profile->hoping_to_find_love;
-		$hoping_to_find_lost    = $profile->hoping_to_find_lost;
-		$hoping_to_find_enemy   = $profile->hoping_to_find_enemy;
-		$attending_winter_games = $profile->attending_winter_games;
-		$attending_ball         = $profile->attending_ball;
-		$attending_detonation   = $profile->attending_detonation;
-		$attending_wasteland    = $profile->attending_wasteland;
+		$update_errors             = '';
+		$email                     = $profile->email;
+		$share_info_with_favorites = $profile->share_info_with_favorites;
+		$wasteland_name            = $profile->name;
+		$profile_id                = $profile->id;
+		$gender                    = $profile->gender;
+		$gender_of_match           = $profile->gender_of_match;
+		$height                    = $profile->height;
+		$birth_year                = $profile->birth_year;
+		$description               = $profile->description;
+		$how_to_find_me            = $profile->how_to_find_me;
+		$number_photos             = $profile->number_photos;
+		$random_ok                 = $profile->random_ok;
+		$hoping_to_find_friend     = $profile->hoping_to_find_friend;
+		$hoping_to_find_love       = $profile->hoping_to_find_love;
+		$hoping_to_find_lost       = $profile->hoping_to_find_lost;
+		$hoping_to_find_enemy      = $profile->hoping_to_find_enemy;
+		$attending_winter_games    = $profile->attending_winter_games;
+		$attending_ball            = $profile->attending_ball;
+		$attending_detonation      = $profile->attending_detonation;
+		$attending_wasteland       = $profile->attending_wasteland;
 		return view('auth/register', [
-			'email'                  => $email,
-			'wasteland_name'         => $wasteland_name,
-			'profile_id'             => $profile_id,
-			'gender'                 => $gender,
-			'gender_of_match'        => $gender_of_match,
-			'height'                 => $height,
-			'birth_year'             => $birth_year,
-			'description'            => $description,
-			'how_to_find_me'         => $how_to_find_me,
-			'number_photos'          => $number_photos,
-			'random_ok'              => $random_ok,
-			'hoping_to_find_friend'  => $hoping_to_find_friend,
-			'hoping_to_find_love'    => $hoping_to_find_love,
-			'hoping_to_find_lost'    => $hoping_to_find_lost,
-			'hoping_to_find_enemy'   => $hoping_to_find_enemy,
-			'attending_winter_games' => $attending_winter_games,
-			'attending_ball'         => $attending_ball,
-			'attending_detonation'   => $attending_detonation,
-			'attending_wasteland'    => $attending_wasteland,
-			'update_errors'          => $update_errors,
+			'email'                     => $email,
+			'share_info_with_favorites' => $share_info_with_favorites,
+			'wasteland_name'            => $wasteland_name,
+			'profile_id'                => $profile_id,
+			'gender'                    => $gender,
+			'gender_of_match'           => $gender_of_match,
+			'height'                    => $height,
+			'birth_year'                => $birth_year,
+			'description'               => $description,
+			'how_to_find_me'            => $how_to_find_me,
+			'number_photos'             => $number_photos,
+			'random_ok'                 => $random_ok,
+			'hoping_to_find_friend'     => $hoping_to_find_friend,
+			'hoping_to_find_love'       => $hoping_to_find_love,
+			'hoping_to_find_lost'       => $hoping_to_find_lost,
+			'hoping_to_find_enemy'      => $hoping_to_find_enemy,
+			'attending_winter_games'    => $attending_winter_games,
+			'attending_ball'            => $attending_ball,
+			'attending_detonation'      => $attending_detonation,
+			'attending_wasteland'       => $attending_wasteland,
+			'update_errors'             => $update_errors,
 		]);
 	}
 
@@ -174,27 +176,28 @@ class ProfileController extends Controller
 			return redirect('/');
 		}
 
-		$email                  = $_POST['email'];
-		$number_photos          = $profile->number_photos;
-		$wasteland_name         = $_POST['name'];
-		$password               = $_POST['password'];
-		$password_confirmation  = $_POST['password_confirmation'];
-		$gender                 = $_POST['gender'];
-		$gender_of_match        = $_POST['gender_of_match'];
-		$height                 = intval($_POST['height']);
-		$birth_year             = intval($_POST['birth_year']);
-		$description            = $_POST['description'];
-		$how_to_find_me         = $_POST['how_to_find_me'];
-		$random_ok              = isset($_POST['random_ok']);
-		$hoping_to_find_friend  = isset($_POST['hoping_to_find_friend']);
-		$hoping_to_find_love    = isset($_POST['hoping_to_find_love']);
-		$hoping_to_find_lost    = isset($_POST['hoping_to_find_lost']);
-		$hoping_to_find_enemy   = isset($_POST['hoping_to_find_enemy']);
-		$attending_winter_games = isset($_POST['attending_winter_games']);
-		$attending_ball         = isset($_POST['attending_ball']);
-		$attending_detonation   = isset($_POST['attending_detonation']);
-		$attending_wasteland    = isset($_POST['attending_wasteland']);
-		$ip                     = request()->ip() or die("No ip");
+		$email                     = $_POST['email'];
+		$number_photos             = $profile->number_photos;
+		$wasteland_name            = $_POST['name'];
+		$password                  = $_POST['password'];
+		$password_confirmation     = $_POST['password_confirmation'];
+		$gender                    = $_POST['gender'];
+		$gender_of_match           = $_POST['gender_of_match'];
+		$height                    = intval($_POST['height']);
+		$birth_year                = intval($_POST['birth_year']);
+		$description               = $_POST['description'];
+		$how_to_find_me            = $_POST['how_to_find_me'];
+		$share_info_with_favorites = isset($_POST['share_info_with_favorites']);
+		$random_ok                 = isset($_POST['random_ok']);
+		$hoping_to_find_friend     = isset($_POST['hoping_to_find_friend']);
+		$hoping_to_find_love       = isset($_POST['hoping_to_find_love']);
+		$hoping_to_find_lost       = isset($_POST['hoping_to_find_lost']);
+		$hoping_to_find_enemy      = isset($_POST['hoping_to_find_enemy']);
+		$attending_winter_games    = isset($_POST['attending_winter_games']);
+		$attending_ball            = isset($_POST['attending_ball']);
+		$attending_detonation      = isset($_POST['attending_detonation']);
+		$attending_wasteland       = isset($_POST['attending_wasteland']);
+		$ip                        = request()->ip() or die("No ip");
 
 		$email_exists = DB::select('select id,email from users where email=? and id<>?', [$email, $profile_id]);
 		if ($email_exists) {
@@ -250,24 +253,25 @@ class ProfileController extends Controller
 				$profile->number_photos = $number_photos;
 			}
 
-			$profile->name                   = $wasteland_name;
-			$profile->email                  = $email;
-			$profile->gender                 = $gender;
-			$profile->gender_of_match        = $gender_of_match;
-			$profile->height                 = $height;
-			$profile->birth_year             = $birth_year;
-			$profile->description            = $description;
-			$profile->how_to_find_me         = $how_to_find_me;
-			$profile->random_ok              = $random_ok;
-			$profile->hoping_to_find_friend  = $hoping_to_find_friend;
-			$profile->hoping_to_find_love    = $hoping_to_find_love;
-			$profile->hoping_to_find_lost    = $hoping_to_find_lost;
-			$profile->hoping_to_find_enemy   = $hoping_to_find_enemy;
-			$profile->attending_winter_games = $attending_winter_games;
-			$profile->attending_ball         = $attending_ball;
-			$profile->attending_detonation   = $attending_detonation;
-			$profile->attending_wasteland    = $attending_wasteland;
-			$profile->ip                     = $ip;
+			$profile->name                      = $wasteland_name;
+			$profile->email                     = $email;
+			$profile->share_info_with_favorites = $share_info_with_favorites;
+			$profile->gender                    = $gender;
+			$profile->gender_of_match           = $gender_of_match;
+			$profile->height                    = $height;
+			$profile->birth_year                = $birth_year;
+			$profile->description               = $description;
+			$profile->how_to_find_me            = $how_to_find_me;
+			$profile->random_ok                 = $random_ok;
+			$profile->hoping_to_find_friend     = $hoping_to_find_friend;
+			$profile->hoping_to_find_love       = $hoping_to_find_love;
+			$profile->hoping_to_find_lost       = $hoping_to_find_lost;
+			$profile->hoping_to_find_enemy      = $hoping_to_find_enemy;
+			$profile->attending_winter_games    = $attending_winter_games;
+			$profile->attending_ball            = $attending_ball;
+			$profile->attending_detonation      = $attending_detonation;
+			$profile->attending_wasteland       = $attending_wasteland;
+			$profile->ip                        = $ip;
 
 			$profile->save();
 
@@ -275,26 +279,27 @@ class ProfileController extends Controller
 		}
 
 		return view('auth/register', [
-			'email'                  => $email,
-			'wasteland_name'         => $wasteland_name,
-			'profile_id'             => $profile_id,
-			'gender'                 => $gender,
-			'gender_of_match'        => $gender_of_match,
-			'height'                 => $height,
-			'birth_year'             => $birth_year,
-			'description'            => $description,
-			'how_to_find_me'         => $how_to_find_me,
-			'number_photos'          => $number_photos,
-			'random_ok'              => $random_ok,
-			'hoping_to_find_friend'  => $hoping_to_find_friend,
-			'hoping_to_find_love'    => $hoping_to_find_love,
-			'hoping_to_find_lost'    => $hoping_to_find_lost,
-			'hoping_to_find_enemy'   => $hoping_to_find_enemy,
-			'attending_winter_games' => $attending_winter_games,
-			'attending_ball'         => $attending_ball,
-			'attending_detonation'   => $attending_detonation,
-			'attending_wasteland'    => $attending_wasteland,
-			'update_errors'          => $update_errors,
+			'email'                     => $email,
+			'share_info_with_favorites' => $share_info_with_favorites,
+			'wasteland_name'            => $wasteland_name,
+			'profile_id'                => $profile_id,
+			'gender'                    => $gender,
+			'gender_of_match'           => $gender_of_match,
+			'height'                    => $height,
+			'birth_year'                => $birth_year,
+			'description'               => $description,
+			'how_to_find_me'            => $how_to_find_me,
+			'number_photos'             => $number_photos,
+			'random_ok'                 => $random_ok,
+			'hoping_to_find_friend'     => $hoping_to_find_friend,
+			'hoping_to_find_love'       => $hoping_to_find_love,
+			'hoping_to_find_lost'       => $hoping_to_find_lost,
+			'hoping_to_find_enemy'      => $hoping_to_find_enemy,
+			'attending_winter_games'    => $attending_winter_games,
+			'attending_ball'            => $attending_ball,
+			'attending_detonation'      => $attending_detonation,
+			'attending_wasteland'       => $attending_wasteland,
+			'update_errors'             => $update_errors,
 		]);
 	}
 
