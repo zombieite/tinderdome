@@ -25,6 +25,12 @@ class SearchController extends Controller
 
 	public function search() {
 		$user_id    = Auth::id();
+
+		if ($user_id === 1 && isset($_GET['masquerade'])) {
+			$user_id = $_GET['masquerade']+0;
+			Log::debug("Masquerading as $user_id");
+		}
+
 		$profiles  = [];
 		$all_users = DB::select('
 			select

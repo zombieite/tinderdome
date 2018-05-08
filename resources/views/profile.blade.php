@@ -30,7 +30,7 @@
 	<h2>{{ $wasteland_name }}@if ($missions_completed['points']) &middot; <span class="bright">Missions completed: {{ $missions_completed['points'] }}</span> @endif</h2>
 @endif
 @if ($share_info)
-	<h3 class="bright">{{ $share_info }}</h3>
+	<h3><a href="mailto:{{ $share_info }}">{{ $share_info }}</a></h3>
 @endif
 @if ($gender)
 	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.
