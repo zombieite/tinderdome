@@ -47,6 +47,10 @@ class ProfileController extends Controller
 		$choice            = null;
 		$share_info        = null;
 
+		if ($profile_id == 1) {
+			$share_info = $profile->email;
+		}
+
 		// If we have a logged in user (not someone looking at Firebird's profile)
 		if ($auth_user_id) {
 
