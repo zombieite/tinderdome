@@ -40,6 +40,14 @@ h1, h2, h3, h4, h5, h6 {
 .bright {
 	color: #ff9900;
 }
+.profile_search_block_mutual {
+	display: inline-block;
+	border: 3px solid #ff9900;
+	margin-top: .2em;
+	margin-bottom: .2em;
+	margin-right: .1em;
+	padding: .5em;
+}
 .profile_search_block {
 	display: inline-block;
 	border: 1px solid #666666;
