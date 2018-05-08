@@ -2,7 +2,7 @@
 @section('content')
 @php ($last_profile = 0)
 @foreach ($profiles as $profile)
-	<div class="profile_search_block">
+	<div class="@if ($profile['mutual_favorite']) profile_search_block_mutual @else profile_search_block @endif">
 		<a name="profile{{ $profile['profile_id'] }}"></a>
 		<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
 		@if ($profile['gender'])
@@ -28,7 +28,7 @@
 		@endif
 		@if ($profile['missions_completed']['points'])
 			&middot;
-			<span class="bright">Missions completed: {{ $profile['missions_completed']['points'] }}</span>
+			<span>Missions completed: {{ $profile['missions_completed']['points'] }}</span>
 		@endif
 		<br>
 		<br>

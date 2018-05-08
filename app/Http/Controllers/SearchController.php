@@ -24,11 +24,11 @@ class SearchController extends Controller
 	}
 
 	public function search() {
-		$user_id    = Auth::id();
+		$logged_in_user_id    = Auth::id();
 
-		if ($user_id === 1 && isset($_GET['masquerade'])) {
-			$user_id = $_GET['masquerade']+0;
-			Log::debug("Masquerading as $user_id");
+		if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
+			$logged_in_user_id = $_GET['masquerade']+0;
+			Log::debug("Masquerading as $logged_in_user_id");
 		}
 
 		$profiles  = [];
@@ -41,18 +41,19 @@ class SearchController extends Controller
 				birth_year,
 				description,
 				number_photos,
-				choice,
-				choose.created_at
+				c1.choice logged_in_user_choice,
+				c2.choice their_choice
 			from
 				users
-				left join choose on (chooser_id = ? and chosen_id = users.id and choice is not null)
+				left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
+				left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
 			where
 				id != 1
 			order by
-				choice desc,
+				c1.choice desc,
 				id
-		', [ $user_id, $user_id ]);
-		$nos_left = \App\Util::nos_left_for_user( $user_id );
+		', [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+		$nos_left = \App\Util::nos_left_for_user( $logged_in_user_id );
 		foreach ($all_users as $profile) {
 			$profile_id                = $profile->id;;
 			$wasteland_name            = $profile->name;
@@ -61,9 +62,17 @@ class SearchController extends Controller
 			$birth_year                = $profile->birth_year;
 			$description               = $profile->description;
 			$number_photos             = $profile->number_photos;
-			$choice                    = $profile->choice;
+			$choice                    = $profile->logged_in_user_choice;
+			$mutual_favorite           = null;
 			$missions_completed        = \App\Util::missions_completed( $profile_id );
 			$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+
+			if ( $choice == 3 ) {
+				if ( $profile->their_choice == 3 ) {
+					$mutual_favorite = true;
+				}
+			}
+
 			$profile                   = [
 				'profile_id'                => $profile_id,
 				'wasteland_name'            => $wasteland_name,
@@ -74,17 +83,18 @@ class SearchController extends Controller
 				'description'               => $description,
 				'number_photos'             => $number_photos,
 				'choice'                    => $choice,
+				'mutual_favorite'           => $mutual_favorite,
 				'missions_completed'        => $missions_completed,
 			];
 			array_push($profiles, $profile);
 		}
 
-		usort($profiles, [$this, 'sort_search']);
+		#usort($profiles, [$this, 'sort_search']);
 
 		return view('search', [
 			'profiles'          => $profiles,
 			'nos_left'          => $nos_left,
-			'logged_in_user_id' => $user_id,
+			'logged_in_user_id' => $logged_in_user_id,
 		]);
 	}
 
