@@ -85,44 +85,46 @@ class ProfileController extends Controller
 			}
 		}
 
-		$gender                 = $profile->gender;
-		$gender_of_match        = $profile->gender_of_match;
-		$height                 = $profile->height;
-		$birth_year             = $profile->birth_year;
-		$description            = $profile->description;
-		$how_to_find_me         = $profile->how_to_find_me;
-		$number_photos          = $profile->number_photos;
-		$hoping_to_find_friend  = $profile->hoping_to_find_friend;
-		$hoping_to_find_love    = $profile->hoping_to_find_love;
-		$hoping_to_find_lost    = $profile->hoping_to_find_lost;
-		$hoping_to_find_enemy   = $profile->hoping_to_find_enemy;
-		$unchosen_user_id       = $profile_id;
-		$missions_completed     = \App\Util::missions_completed( $profile_id );
-		$success_message        = isset($_GET['created']);
+		$gender                             = $profile->gender;
+		$gender_of_match                    = $profile->gender_of_match;
+		$height                             = $profile->height;
+		$birth_year                         = $profile->birth_year;
+		$description                        = $profile->description;
+		$how_to_find_me                     = $profile->how_to_find_me;
+		$number_photos                      = $profile->number_photos;
+		$hoping_to_find_friend              = $profile->hoping_to_find_friend;
+		$hoping_to_find_love                = $profile->hoping_to_find_love;
+		$hoping_to_find_lost                = $profile->hoping_to_find_lost;
+		$hoping_to_find_enemy               = $profile->hoping_to_find_enemy;
+		$unchosen_user_id                   = $profile_id;
+		$missions_completed                 = \App\Util::missions_completed( $profile_id );
+		$success_message                    = isset($_GET['created']);
+		$logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
 		return view('profile', [
-			'profile_id'             => $profile_id,
-			'wasteland_name'         => $wasteland_name,
-			'gender'                 => $gender,
-			'gender_of_match'        => $gender_of_match,
-			'height'                 => $height,
-			'birth_year'             => $birth_year,
-			'description'            => $description,
-			'how_to_find_me'         => $how_to_find_me,
-			'number_photos'          => $number_photos,
-			'hoping_to_find_friend'  => $hoping_to_find_friend,
-			'hoping_to_find_love'    => $hoping_to_find_love,
-			'hoping_to_find_lost'    => $hoping_to_find_lost,
-			'hoping_to_find_enemy'   => $hoping_to_find_enemy,
-			'unchosen_user_id'       => $unchosen_user_id,
-			'count_left'             => $count_left,
-			'success_message'        => $success_message,
-			'is_my_match'            => $is_my_match,
-			'is_me'                  => $is_me,
-			'choice'                 => $choice,
-			'nos_left'               => $nos_left,
-			'auth_user'              => $auth_user,
-			'missions_completed'     => $missions_completed,
-			'share_info'             => $share_info,
+			'profile_id'                         => $profile_id,
+			'wasteland_name'                     => $wasteland_name,
+			'gender'                             => $gender,
+			'gender_of_match'                    => $gender_of_match,
+			'height'                             => $height,
+			'birth_year'                         => $birth_year,
+			'description'                        => $description,
+			'how_to_find_me'                     => $how_to_find_me,
+			'number_photos'                      => $number_photos,
+			'hoping_to_find_friend'              => $hoping_to_find_friend,
+			'hoping_to_find_love'                => $hoping_to_find_love,
+			'hoping_to_find_lost'                => $hoping_to_find_lost,
+			'hoping_to_find_enemy'               => $hoping_to_find_enemy,
+			'unchosen_user_id'                   => $unchosen_user_id,
+			'count_left'                         => $count_left,
+			'success_message'                    => $success_message,
+			'is_my_match'                        => $is_my_match,
+			'is_me'                              => $is_me,
+			'choice'                             => $choice,
+			'nos_left'                           => $nos_left,
+			'auth_user'                          => $auth_user,
+			'missions_completed'                 => $missions_completed,
+			'share_info'                         => $share_info,
+			'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
 		]);
 	}
 

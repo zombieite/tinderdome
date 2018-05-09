@@ -5,19 +5,7 @@
 @endif
 @if (!$is_me && $unchosen_user_id != 1 )
 	<h3>Would you enjoy meeting this user at the next event? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
-	<form action="/profile/compatible?" method="POST">
-		{{ csrf_field() }}
-		<input type="hidden" name="chosen" value="{{ $unchosen_user_id }}">
-		<input type="submit" name="YesYesYes" value="Yes Yes Yes"@if (($choice == 3) || !isset($choice)) class="yes"@endif>
-		<input type="submit" name="YesYes" value="Yes Yes"@if (($choice == 2) || !isset($choice)) class="yes"@endif>
-		<input type="submit" name="Yes" value="Yes"@if (($choice == 1) || !isset($choice)) class="yes"@endif>
-		<input type="submit" name="Met" value="I have met them"@if (($choice == -1) || !isset($choice)) class="met"@endif>
-		@if ($nos_left > 0)
-			<input type="submit" name="No" value="No ({{ $nos_left }} left)"@if (($choice == 0) || !isset($choice)) class="no"@endif>
-		@else
-			<br><br><span class="no">To mark more users as no, you must <a href="/search">change {{ -$nos_left+1 }} of your previous no ratings to yes</a>.</span>
-		@endif
-	</form>
+	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
 @endif
 @if ($is_my_match)
 <h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
