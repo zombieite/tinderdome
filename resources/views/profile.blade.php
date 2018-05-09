@@ -4,7 +4,7 @@
 	<h1><a href="/profile/me">Your profile</a> has been created. Now take a look at these other users.</h1>
 @endif
 @if (!$is_me && $unchosen_user_id != 1 )
-	<h3>Would you enjoy meeting this user at the next event? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
+	<h3>Would you enjoy meeting this user? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
 	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
 @endif
 @if ($is_my_match)
@@ -15,7 +15,7 @@
 	<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
 	@endif
 @else
-	<h2>{{ $wasteland_name }}@if ($missions_completed['points']) &middot; <span class="bright">Missions completed: {{ $missions_completed['points'] }}</span> @endif</h2>
+	<h2>{{ $wasteland_name }}@if ($missions_completed['points']) &middot; Missions completed: {{ $missions_completed['points'] }} @endif</h2>
 @endif
 @if ($share_info)
 	<h3><a href="mailto:{{ $share_info }}">{{ $share_info }}</a></h3>
