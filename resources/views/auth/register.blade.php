@@ -153,7 +153,7 @@ To remove old images just upload new ones.
 <input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
 <br><br>
-<button id="submit" type="submit" class="yes">
+<button id="submit" type="submit" class="yesyes">
 @guest
 Sign up
 @else
