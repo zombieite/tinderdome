@@ -14,10 +14,10 @@ class Util
 				*
 			from
 				users
-			left join choose on (
-				users.id=chosen_id
-				and chooser_id=?
-			)
+				left join choose on (
+					users.id=chosen_id
+					and chooser_id=?
+				)
 			where
 				id<>1
 				and id<>?
