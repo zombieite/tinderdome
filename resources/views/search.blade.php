@@ -40,19 +40,7 @@
 		@if ($logged_in_user_id == $profile['profile_id'])
 			(You)
 		@else
-		<form action="#profile{{ $last_profile }}" method="POST">
-			{{ csrf_field() }}
-			<input type="hidden" name="chosen" value="{{ $profile['profile_id'] }}">
-			<input type="submit" name="YesYesYes" value="Yes Yes Yes"@if ($profile['choice'] == 3) class="yes"@endif>
-			<input type="submit" name="YesYes" value="Yes Yes"@if ($profile['choice'] == 2) class="yes"@endif>
-			<input type="submit" name="Yes" value="Yes"@if ($profile['choice'] == 1) class="yes"@endif>
-			<input type="submit" name="Met" value="I have met them"@if ($profile['choice'] == -1) class="met"@endif>
-			@if ($nos_left > 0)
-				<input type="submit" name="No" value="No ({{ $nos_left }} left)"@if ($profile['choice'] === 0) class="no"@endif>
-			@else
-				<br><br><span class="no">To mark more users as no, you must<br>change {{ -$nos_left+1 }} of your previous no ratings to yes.</span>
-			@endif
-		</form>
+			@include('rating_form', ['action' => "#profile{{ $last_profile }}", 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice']])
 		@endif
 		@php ($last_profile = $profile['profile_id'])
 	</div>
