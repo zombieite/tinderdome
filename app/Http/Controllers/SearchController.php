@@ -24,7 +24,8 @@ class SearchController extends Controller
 	}
 
 	public function search() {
-		$logged_in_user_id    = Auth::id();
+		$logged_in_user_id = Auth::id();
+		$logged_in_user    = Auth::user();
 
 		if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
 			$logged_in_user_id = $_GET['masquerade']+0;
@@ -53,7 +54,10 @@ class SearchController extends Controller
 				c1.choice desc,
 				id
 		', [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
-		$nos_left = \App\Util::nos_left_for_user( $logged_in_user_id );
+
+		$nos_left                           = \App\Util::nos_left_for_user( $logged_in_user_id );
+		$logged_in_user_hoping_to_find_love = $logged_in_user->hoping_to_find_love;
+
 		foreach ($all_users as $profile) {
 			$profile_id                = $profile->id;;
 			$wasteland_name            = $profile->name;
@@ -92,9 +96,10 @@ class SearchController extends Controller
 		#usort($profiles, [$this, 'sort_search']);
 
 		return view('search', [
-			'profiles'          => $profiles,
-			'nos_left'          => $nos_left,
-			'logged_in_user_id' => $logged_in_user_id,
+			'profiles'                           => $profiles,
+			'nos_left'                           => $nos_left,
+			'logged_in_user_id'                  => $logged_in_user_id,
+			'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
 		]);
 	}
 
