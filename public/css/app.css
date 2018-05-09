@@ -28,26 +28,32 @@ h1, h2, h3, h4, h5, h6 {
 input, button, select {
 	color: #000000;
 	background-color: #dedbbc;
+	border: none;
 }
 .yesyesyes {
 	color: black;
 	background-color: #00ff00;
+	border: 3px solid #666666;
 }
 .yesyes {
 	color: black;
 	background-color: #00ff00;
+	border: 3px solid #666666;
 }
 .yes {
 	color: black;
 	background-color: #779977;
+	border: 3px solid #666666;
 }
 .no {
 	color: black;
 	background-color: #ff0000;
+	border: 3px solid #666666;
 }
 .met {
 	color: black;
 	background-color: #9999ff;
+	border: 3px solid #666666;
 }
 .bright {
 	color: #ff9900;
