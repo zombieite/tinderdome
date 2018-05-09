@@ -25,9 +25,21 @@ li {
 h1, h2, h3, h4, h5, h6 {
 	color: #dedbbc;
 }
-.yes {
+input, button, select {
+	color: #000000;
+	background-color: #dedbbc;
+}
+.yesyesyes {
 	color: black;
 	background-color: #00ff00;
+}
+.yesyes {
+	color: black;
+	background-color: #00ff00;
+}
+.yes {
+	color: black;
+	background-color: #779977;
 }
 .no {
 	color: black;

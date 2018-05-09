@@ -135,8 +135,8 @@ class Util
 		foreach ($popularity_results as $popularity_result) {
 			$popularity = $popularity_result->popularity;
 		}
-		$gender = '';
-		$birth_year = 1970;
+		$gender     = null;
+		$birth_year = null;
 		$gender_results = DB::select('select gender, birth_year from users where id = ?', [$user_id]);
 		foreach ($gender_results as $gender_result) {
 			$gender     = $gender_result->gender;
@@ -144,7 +144,7 @@ class Util
 		}
 
 		// Everyone gets this many
-		$min_available_nos = intdiv($user_count, 5);
+		$min_available_nos = intdiv($user_count, 6);
 		$nos = $min_available_nos;
 
 		// If you're popular you can be pickier and still get a match
@@ -166,7 +166,7 @@ class Util
 		}
 
 		// Check no one goes beyond the maximum
-		$max_fraction_nos = .6;
+		$max_fraction_nos = .5;
 		if ($nos > $user_count * $max_fraction_nos) {
 			$nos = floor($user_count * $max_fraction_nos);
 		}
