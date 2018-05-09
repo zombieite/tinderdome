@@ -40,7 +40,7 @@
 		@if ($logged_in_user_id == $profile['profile_id'])
 			(You)
 		@else
-			@include('rating_form', ['action' => "#profile{{ $last_profile }}", 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice']])
+			@include('rating_form', ['action' => "#profile$last_profile", 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice']])
 		@endif
 		@php ($last_profile = $profile['profile_id'])
 	</div>
