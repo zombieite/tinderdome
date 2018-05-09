@@ -52,7 +52,7 @@ class SearchController extends Controller
 				id != 1
 			order by
 				c1.choice desc,
-				id
+				name
 		', [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
 		$nos_left                           = \App\Util::nos_left_for_user( $logged_in_user_id );
