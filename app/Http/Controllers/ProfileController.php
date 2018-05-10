@@ -35,7 +35,9 @@ class ProfileController extends Controller
 
 		$wasteland_name = $profile->name;
 
-		if ($wasteland_name_from_url !== $wasteland_name) {
+		// If the name in database has hyphens we have to drop them because we dropped them all from the URL name
+		$wasteland_name_no_hyphens = preg_replace('/-/', ' ', $wasteland_name);
+		if ($wasteland_name_from_url !== $wasteland_name_no_hyphens) {
 			abort(404);
 		}
 
