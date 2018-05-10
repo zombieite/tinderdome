@@ -101,7 +101,11 @@ class ProfileController extends Controller
 		$unchosen_user_id                   = $profile_id;
 		$missions_completed                 = \App\Util::missions_completed( $profile_id );
 		$success_message                    = isset($_GET['created']);
-		$logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
+		$logged_in_user_hoping_to_find_love = null;
+		if ($auth_user) {
+			$logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
+		}
+
 		return view('profile', [
 			'profile_id'                         => $profile_id,
 			'wasteland_name'                     => $wasteland_name,
