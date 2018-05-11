@@ -23,6 +23,7 @@ class Util
 				and id<>?
 				and choice is null
 			order by
+				attending_detonation desc,
 				id
 		",
 		[$chooser_user_id, $chooser_user_id]);
@@ -175,5 +176,19 @@ class Util
 		$nos -= $nos_used;
 
 		return $nos;
+	}
+
+	public static function pretty_event_names() {
+		$year = 2018;
+		return [
+			'winter_games' => "The Winter Games $year",
+			'ball'         => "The Wastelanders Ball $year",
+			'detonation'   => "Uranium Springs Detonation $year",
+			'wasteland'    => "Wasteland Weekend $year",
+		];
+	}
+
+	public static function upcoming_events() {
+		return ['detonation', 'wasteland'];
 	}
 }

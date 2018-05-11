@@ -102,6 +102,12 @@ class ProfileController extends Controller
 		$missions_completed                 = \App\Util::missions_completed( $profile_id );
 		$success_message                    = isset($_GET['created']);
 		$logged_in_user_hoping_to_find_love = null;
+		$attending['winter_games']          = $profile->attending_winter_games;
+		$attending['ball']                  = $profile->attending_ball;
+		$attending['detonation']            = $profile->attending_detonation;
+		$attending['wasteland']             = $profile->attending_wasteland;
+		$pretty_event_names                 = \App\Util::pretty_event_names();
+		$events_to_show                     = \App\Util::upcoming_events();
 		if ($auth_user) {
 			$logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
 		}
@@ -120,6 +126,7 @@ class ProfileController extends Controller
 			'hoping_to_find_love'                => $hoping_to_find_love,
 			'hoping_to_find_lost'                => $hoping_to_find_lost,
 			'hoping_to_find_enemy'               => $hoping_to_find_enemy,
+			'events_to_show'                     => $events_to_show,
 			'unchosen_user_id'                   => $unchosen_user_id,
 			'count_left'                         => $count_left,
 			'success_message'                    => $success_message,
@@ -131,6 +138,8 @@ class ProfileController extends Controller
 			'missions_completed'                 => $missions_completed,
 			'share_info'                         => $share_info,
 			'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
+			'attending'                          => $attending,
+			'pretty_event_names'                 => $pretty_event_names,
 		]);
 	}
 
