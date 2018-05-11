@@ -17,16 +17,16 @@
 @else
 	<h2>{{ $wasteland_name }}@if ($missions_completed['points']) &middot; Missions completed: {{ $missions_completed['points'] }} @endif</h2>
 @endif
+@if ($share_info)
+	<h3 class="bright"><a href="mailto:{{ $share_info }}">{{ $share_info }}</a></h3>
+@endif
 @foreach ($events_to_show as $event)
 	@if (isset($attending[$event]))
 		@if ($attending[$event])
-			<h3 class="bright">Attending {{ $pretty_event_names[$event] }}</h3>
+			<h3>Attending {{ $pretty_event_names[$event] }}</h3>
 		@endif
 	@endif
 @endforeach
-@if ($share_info)
-	<h3><a href="mailto:{{ $share_info }}">{{ $share_info }}</a></h3>
-@endif
 @if ($gender)
 	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.
 @endif

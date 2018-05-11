@@ -9,6 +9,12 @@ class Util
 {
 	public static function unrated_users( $chooser_user_id ) {
 
+		$upcoming_events = \App\Util::upcoming_events();
+		$upcoming_order_bys = '';
+		foreach ($upcoming_events as $event) {
+			$upcoming_order_bys .= "attending_$event desc,";
+		}
+
 		$unrated_users = DB::select("
 			select
 				*
@@ -23,7 +29,7 @@ class Util
 				and id<>?
 				and choice is null
 			order by
-				attending_detonation desc,
+				$upcoming_order_bys
 				id
 		",
 		[$chooser_user_id, $chooser_user_id]);
