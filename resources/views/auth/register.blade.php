@@ -45,7 +45,7 @@ Check all that apply. I will be attending the next...
 <label for="attending_ball">Wastelanders Ball.</label>
 <br>
 <input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
-<label for="attending_detonation">Detonation Uranium Springs.</label>
+<label for="attending_detonation">Uranium Springs Detonation.</label>
 <br>
 <input type="checkbox" name="attending_wasteland" id="attending_wasteland" @guest checked @else @if ($attending_wasteland) checked @endif @endguest>
 <label for="attending_wasteland">Wasteland Weekend.</label>
