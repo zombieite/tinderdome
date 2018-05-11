@@ -185,7 +185,7 @@ class Util
 	}
 
 	public static function pretty_event_names() {
-		$year = 2018;
+		$year = date("Y");
 		return [
 			'winter_games' => "The Winter Games $year",
 			'ball'         => "The Wastelanders Ball $year",
