@@ -21,8 +21,6 @@
 @if ($errors->has('email'))
 <strong>{{ $errors->first('email') }}</strong>
 @endif
-<input type="checkbox" name="share_info_with_favorites" id="share_info_with_favorites" @guest @else @if ($share_info_with_favorites) checked @endif @endguest>
-<label for="share_info_with_favorites">Share my email address with mutual favorites</label>
 
 <br><br>
 <label for="password">Password</label>
@@ -61,8 +59,11 @@ Check all that apply. I am...
 <br>
 <input type="checkbox" name="hoping_to_find_love" id="hoping_to_find_love" @guest @else @if ($hoping_to_find_love) checked @endif @endguest>
 <label for="hoping_to_find_love">Open to finding a new friend or romantic partner.</label>
-
-<br><br>
+<p style="margin-left: 2em; margin-top: 0em; margin-bottom: 0em;">
+	<input type="checkbox" name="share_info_with_favorites" id="share_info_with_favorites" @guest @else @if ($share_info_with_favorites) checked @endif @endguest>
+	<label for="share_info_with_favorites">Share my email address with mutual romantic favorites.</label>
+</p>
+<br>
 Upload images. No nudity. Please resize them to around 500 pixels in height before uploading.
 @guest
 @else

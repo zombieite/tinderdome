@@ -54,7 +54,7 @@ class ProfileController extends Controller
 		}
 
 		// If we have a logged in user (not someone looking at Firebird's profile)
-		if ($auth_user_id) {
+		if ($auth_user_id && $auth_user) {
 
 			$nos_left          = \App\Util::nos_left_for_user( $auth_user_id );
 
@@ -358,7 +358,6 @@ class ProfileController extends Controller
 
 	public function match()
 	{
-abort(404); // TODO XXX FIXME
 		$user        = Auth::user();
 		$user_id     = Auth::id();
 
