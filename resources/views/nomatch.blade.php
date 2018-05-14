@@ -17,7 +17,7 @@
 
 @else
 
-<h2>Matches have not yet been run for {{ $event }} {{ $year }}</h2>
+<h2>Matches have not yet been run for {{ $pretty_event_names[$event] }} {{ $year }}</h2>
 
 @endif
 
