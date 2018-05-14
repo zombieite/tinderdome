@@ -25,7 +25,7 @@ class Util
 					and chooser_id=?
 				)
 			where
-				id<>1
+				id > 2
 				and id<>?
 				and choice is null
 			order by
@@ -94,7 +94,7 @@ class Util
 			from
 				users
 			where
-				id != 1
+				id > 2
 		');
 		foreach ($all_users as $profile) {
 			$profile_id                = $profile->id;;
