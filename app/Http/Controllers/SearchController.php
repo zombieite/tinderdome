@@ -26,6 +26,22 @@ class SearchController extends Controller
 	public function search() {
 		$logged_in_user_id = Auth::id();
 		$logged_in_user    = Auth::user();
+		$event             = isset($_GET['event']) ? $_GET['event'] : null;
+		$events            = \App\Util::upcoming_events();
+		$event_clause      = '';
+
+		if ($event) {
+			if (preg_match('/^[a-z]+$/', $event)) {
+				// Regex check looks ok
+			} else {
+				abort(403, 'Invalid event regex');
+			}
+			if (in_array($event, $events)) {
+				$event_clause = "and attending_$event";
+			} else {
+				abort(403, 'Invalid event');
+			}
+		}
 
 		if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
 			$logged_in_user_id = $_GET['masquerade']+0;
@@ -33,7 +49,7 @@ class SearchController extends Controller
 		}
 
 		$profiles  = [];
-		$all_users = DB::select('
+		$all_users = DB::select("
 			select
 				id,
 				name,
@@ -49,11 +65,12 @@ class SearchController extends Controller
 				left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
 				left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
 			where
-				id != 1
+				id > 2
+				$event_clause
 			order by
 				c1.choice desc,
 				name
-		', [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+		", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
 		$nos_left                           = \App\Util::nos_left_for_user( $logged_in_user_id );
 		$logged_in_user_hoping_to_find_love = $logged_in_user->hoping_to_find_love;
