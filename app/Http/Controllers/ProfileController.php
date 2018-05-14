@@ -41,16 +41,18 @@ class ProfileController extends Controller
 			abort(404);
 		}
 
-		$is_me             = false;
-		$user_count        = 0;
-		$nos_left          = 0;
-		$nos_used          = 0;
-		$popularity        = 0;
-		$choice            = null;
-		$share_info        = null;
+		$is_me               = false;
+		$user_count          = 0;
+		$nos_left            = 0;
+		$nos_used            = 0;
+		$popularity          = 0;
+		$choice              = null;
+		$share_info          = null;
+		$show_how_to_find_me = $is_my_match;
 
 		if ($profile_id == 1) {
 			$share_info = $profile->email;
+			$show_how_to_find_me = true;
 		}
 
 		// If we have a logged in user (not someone looking at Firebird's profile)
@@ -122,6 +124,7 @@ class ProfileController extends Controller
 			'birth_year'                         => $birth_year,
 			'description'                        => $description,
 			'how_to_find_me'                     => $how_to_find_me,
+			'show_how_to_find_me'                => $show_how_to_find_me,
 			'number_photos'                      => $number_photos,
 			'hoping_to_find_friend'              => $hoping_to_find_friend,
 			'hoping_to_find_love'                => $hoping_to_find_love,
@@ -360,14 +363,16 @@ class ProfileController extends Controller
 
 	public function match()
 	{
-		$user               = Auth::user();
-		$user_id            = Auth::id();
-		$event              = $_GET['event'];
-		$year               = $_GET['year'];
-		$match_name         = null;
-		$match_id           = null;
-		$events             = \App\Util::upcoming_events();
-		$pretty_event_names = \App\Util::pretty_event_names();
+		$user                   = Auth::user();
+		$user_id                = Auth::id();
+		$event                  = $_GET['event'];
+		$year                   = $_GET['year'];
+		$match_name             = null;
+		$match_id               = null;
+		$events                 = \App\Util::upcoming_events();
+		$pretty_event_names     = \App\Util::pretty_event_names();
+		$attending_function     = "attending_$event";
+		$logged_in_is_signed_up = $user->$attending_function;
 
 		if ($user_id === 1 && isset($_GET['masquerade'])) {
 			$user_id = $_GET['masquerade']+0;
