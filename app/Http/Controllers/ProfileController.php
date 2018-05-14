@@ -108,6 +108,7 @@ class ProfileController extends Controller
 		$attending['wasteland']             = $profile->attending_wasteland;
 		$pretty_event_names                 = \App\Util::pretty_event_names();
 		$events_to_show                     = \App\Util::upcoming_events();
+		$year                               = date("Y");
 		if ($auth_user) {
 			$logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
 		}
@@ -140,6 +141,7 @@ class ProfileController extends Controller
 			'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
 			'attending'                          => $attending,
 			'pretty_event_names'                 => $pretty_event_names,
+			'year'                               => $year,
 		]);
 	}
 
@@ -358,13 +360,14 @@ class ProfileController extends Controller
 
 	public function match()
 	{
-		$user       = Auth::user();
-		$user_id    = Auth::id();
-		$event      = $_GET['event'];
-		$year       = $_GET['year'];
-		$match_name = null;
-		$match_id   = null;
-		$events     = \App\Util::upcoming_events();
+		$user               = Auth::user();
+		$user_id            = Auth::id();
+		$event              = $_GET['event'];
+		$year               = $_GET['year'];
+		$match_name         = null;
+		$match_id           = null;
+		$events             = \App\Util::upcoming_events();
+		$pretty_event_names = \App\Util::pretty_event_names();
 
 		if ($user_id === 1 && isset($_GET['masquerade'])) {
 			$user_id = $_GET['masquerade']+0;
@@ -406,9 +409,10 @@ class ProfileController extends Controller
 
 		if (!$match) {
 			return view('nomatch', [
-				'matches_done' => $matches_done,
-				'event'        => $event,
-				'year'         => $year,
+				'matches_done'       => $matches_done,
+				'event'              => $event,
+				'year'               => $year,
+				'pretty_event_names' => $pretty_event_names,
 			]);
 		}
 

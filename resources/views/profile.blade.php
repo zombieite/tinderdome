@@ -23,7 +23,7 @@
 @foreach ($events_to_show as $event)
 	@if (isset($attending[$event]))
 		@if ($attending[$event])
-			<h3>Attending {{ $pretty_event_names[$event] }}</h3>
+			<h3>Attending {{ $pretty_event_names[$event] }} {{ $year }}</h3>
 		@endif
 	@endif
 @endforeach
