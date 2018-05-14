@@ -414,10 +414,11 @@ class ProfileController extends Controller
 
 		if (!$match) {
 			return view('nomatch', [
-				'matches_done'       => $matches_done,
-				'event'              => $event,
-				'year'               => $year,
-				'pretty_event_names' => $pretty_event_names,
+				'matches_done'           => $matches_done,
+				'event'                  => $event,
+				'year'                   => $year,
+				'pretty_event_names'     => $pretty_event_names,
+				'logged_in_is_signed_up' => $logged_in_is_signed_up,
 			]);
 		}
 
