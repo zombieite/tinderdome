@@ -90,7 +90,7 @@ class MatchController extends Controller
 				and choice > 0
 			where
 				attending_$next_event
-				and name != 'Firebird'
+				and id>2
 			group by
 				id,
 				name,
@@ -154,7 +154,7 @@ class MatchController extends Controller
 				where
 					attending_$next_event
 					and matching_id is null
-					and name != 'Firebird'
+					and id > 2
 					and id != ?
 			", [ $user->id, $user->id, $user->id, $user->id, $user->id ]);
 
@@ -225,7 +225,7 @@ class MatchController extends Controller
 						and random_ok
 						and attending_$next_event
 						and matching_id is null
-						and name != 'Firebird'
+						and id > 2
 						and id != ?
 				", [ $user->id, $user->id, $user->id, $user->id, $user->id ]);
 
@@ -297,7 +297,7 @@ class MatchController extends Controller
 						and random_ok
 						and attending_$next_event
 						and matching_id is null
-						and name != 'Firebird'
+						and id > 2
 						and id != ?
 				", [ $user->id, $user->id, $user->id, $user->id, $user->id ]);
 
@@ -344,10 +344,9 @@ class MatchController extends Controller
 			if ($matched_users_hash[$user->id]) {
 				$matched_user_id  = $matched_users_hash[$user->id];
 				$user->cant_match = false;
-//TODO: THIS IS BROKEN				$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
-				if (!$already_inserted) {
-// UNCOMMENT THIS TO WRITE MATCHES. TODO: Make this work better maybe just a URL param
-//					DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$next_event, $year, $user->id, $matched_user_id]);
+				$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user->id, $user->id]);
+				if (!$already_inserted && isset($_GET['WRITE'])) {
+					DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$next_event, $year, $user->id, $matched_user_id]);
 				}
 			}
 		}
