@@ -3,30 +3,34 @@
 @if ($success_message)
 	<h1><a href="/profile/me">Your profile</a> has been created. Now take a look at these other users.</h1>
 @endif
-@if (!$is_me && $unchosen_user_id != 1 )
-	<h3>Would you enjoy meeting this user? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
-	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
-@endif
 @if ($is_my_match)
 	<h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
-	<h2 class="bright">Your mission is to seek them out and merge the backstories of your wasteland personas.</h2>
-	@if ($how_to_find_me)
-		<h3 class="bright">How to find {{ $wasteland_name }}:</h3>
-		<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
-	@endif
+	<h2 class="bright">Your mission is to seek them out at {{ $pretty_event_names[$events_to_show[0]] }}. They'll be looking for you, too.</h2>
 @else
+	@if (!$is_me && $unchosen_user_id != 1 )
+		<h3>Would you enjoy meeting this user? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
+		@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
+	@endif
 	<h2 class="bright">{{ $wasteland_name }}@if ($missions_completed['points']) &middot; Missions completed: {{ $missions_completed['points'] }} @endif</h2>
+@endif
+@if ($show_how_to_find_me)
+	<h3 class="bright">How to find {{ $wasteland_name }}:</h3>
+	<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
 @endif
 @if ($share_info)
 	<h3><a href="mailto:{{ $share_info }}" class="bright">{{ $share_info }}</a></h3>
 @endif
-@foreach ($events_to_show as $event)
-	@if (isset($attending[$event]))
-		@if ($attending[$event])
-			<h3>Attending {{ $pretty_event_names[$event] }} {{ $year }}</h3>
+@if ($is_my_match)
+
+@else
+	@foreach ($events_to_show as $event)
+		@if (isset($attending[$event]))
+			@if ($attending[$event])
+				<h3>Attending {{ $pretty_event_names[$event] }} {{ $year }}</h3>
+			@endif
 		@endif
-	@endif
-@endforeach
+	@endforeach
+@endif
 @if ($gender)
 	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.
 @endif
@@ -66,11 +70,6 @@
 @if ($description)
 <p>
 	{{ $description }}
-</p>
-@endif
-@if ($wasteland_name === 'Firebird')
-<p>
-	How to find me: {{ $how_to_find_me }}
 </p>
 @endif
 <br>
