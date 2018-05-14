@@ -366,8 +366,8 @@ class ProfileController extends Controller
 			Log::debug("Masquerading as $user_id");
 		}
 
-		$next_event  = 'detonation';
-		$year        = 2018;
+		$next_event  = $_GET['event'];
+		$year        = $_GET['year'];
 		$match_array = DB::select("
 			select
 				user_1,

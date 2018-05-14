@@ -72,8 +72,8 @@ class MatchController extends Controller
 			abort(403);
 		}
 
-		$next_event = 'ball';
-		$year       = 2018;
+		$next_event = $_GET['event'];
+		$year       = $_GET['year'];
 
 		$users_to_match = DB::select("
 			select
