@@ -358,17 +358,36 @@ class ProfileController extends Controller
 
 	public function match()
 	{
-		$user        = Auth::user();
-		$user_id     = Auth::id();
+		$user       = Auth::user();
+		$user_id    = Auth::id();
+		$event      = $_GET['event'];
+		$year       = $_GET['year'];
+		$match_name = null;
+		$match_id   = null;
+		$events     = \App\Util::upcoming_events();
 
 		if ($user_id === 1 && isset($_GET['masquerade'])) {
 			$user_id = $_GET['masquerade']+0;
 			Log::debug("Masquerading as $user_id");
 		}
 
-		$next_event  = $_GET['event'];
-		$year        = $_GET['year'];
-		$match_array = DB::select("
+		if (in_array($event, $events)) {
+			// All good
+		} else {
+			abort(403, 'Invalid event');
+		}
+
+		if (preg_match('/^[0-9]+$/', $year)) {
+			// All good
+		} else {
+			abort(403, 'Invalid year');
+		}
+
+		$matches_done = DB::select('
+			select * from matching where event=? and year=?
+		', [$event, $year]);
+
+		$match_array = DB::select('
 			select
 				user_1,
 				user_2,
@@ -382,13 +401,17 @@ class ProfileController extends Controller
 				event=?
 				and year=?
 				and (user_1=? or user_2=?)
-		", [$next_event, $year, $user_id, $user_id]);
+		', [$event, $year, $user_id, $user_id]);
 		$match = array_shift($match_array);
-		$match_name = null;
-		$match_id   = null;
+
 		if (!$match) {
-			return view('nomatch');
+			return view('nomatch', [
+				'matches_done' => $matches_done,
+				'event'        => $event,
+				'year'         => $year,
+			]);
 		}
+
 		if ($match->user_1 === $user_id) {
 			//Log::debug("User 1 '".$match->user_1."' === user id '$user_id'");
 			$match_id   = $match->user_2;
