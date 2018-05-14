@@ -100,8 +100,8 @@ class MatchController extends Controller
 				number_photos,
 				description
 			order by
-				gender,
 				popularity desc,
+				gender,
 				random_ok,
 				number_photos desc,
 				length(description) desc,
