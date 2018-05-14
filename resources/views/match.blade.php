@@ -17,11 +17,11 @@
 @foreach ($users as $user)
 	<tr
 		@if ($user->cant_match)
-		style="background-color:red;"
+			style="background-color:red;"
 		@elseif ($user->gender === 'F' && $user->gender_of_match && $matched_users_hash[$user->id] && ($user->gender_of_match !== $id_to_gender_hash[$matched_users_hash[$user->id]]))
-		style="background-color:orange;"
+			style="background-color:orange;"
 		@endif
-		>
+	>
 		<td>{{ $user->name }}</td>
 		<td>{{ $user->id }}</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
