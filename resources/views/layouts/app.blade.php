@@ -24,6 +24,8 @@
 	&middot;
 	<a href="/profile/edit">Edit profile</a>
 	&middot;
+	<a href="/search">See all users</a>
+	&middot;
 	<input type="submit" value="Log out">
 	</form>
 @endguest
