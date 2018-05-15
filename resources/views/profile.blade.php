@@ -13,7 +13,7 @@
 	@endif
 	<h2 class="bright">{{ $wasteland_name }}@if ($missions_completed['points']) &middot; Missions completed: {{ $missions_completed['points'] }} @endif</h2>
 @endif
-@if ($show_how_to_find_me)
+@if ($show_how_to_find_me || $share_info)
 	<h3 class="bright">How to find {{ $wasteland_name }}:</h3>
 	<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
 @endif
