@@ -31,7 +31,7 @@ class RegisterController extends Controller
 
 	protected function create(array $data)
 	{
-		$max_images    = 3;
+		$max_images    = 1;
 		$image_height  = 500;
 		$number_photos = 0;
 		for ($i = 1; $i <= $max_images; $i++) {
