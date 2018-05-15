@@ -142,16 +142,18 @@ class Util
 		foreach ($popularity_results as $popularity_result) {
 			$popularity = $popularity_result->popularity;
 		}
-		$gender     = null;
-		$birth_year = null;
-		$gender_results = DB::select('select gender, birth_year from users where id = ?', [$user_id]);
+		$gender              = null;
+		$birth_year          = null;
+		$hoping_to_find_love = null;
+		$gender_results = DB::select('select gender, birth_year, hoping_to_find_love from users where id = ?', [$user_id]);
 		foreach ($gender_results as $gender_result) {
 			$gender     = $gender_result->gender;
 			$birth_year = $gender_result->birth_year;
+			$hoping_to_find_love = $gender_result->hoping_to_find_love;
 		}
 
 		// Everyone gets this many
-		$min_available_nos = intdiv($user_count, 6);
+		$min_available_nos = intdiv($user_count, 7);
 		$nos = $min_available_nos;
 
 		// If you're popular you can be pickier and still get a match
@@ -159,12 +161,17 @@ class Util
 
 		// If you're a female you can be pickier
 		if ($gender == 'F') {
-			$nos += 5;
+			$nos += 10;
 		}
 
 		// If you're young you can be picker
 		if ($birth_year >= 1980) {
 			$nos += 5;
+		}
+
+		// If you're hoping for love you have to be pickier
+		if ($hoping_to_find_love) {
+			$nos += 10;
 		}
 
 		// Double check everyone gets the minimum

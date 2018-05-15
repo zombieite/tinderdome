@@ -93,6 +93,11 @@ class RegisterController extends Controller
 			// TODO Report image upload/resize errors
 		}
 
+		// TODO: this doesn't work
+		//if (isset($data['random_ok'])) {
+		//	$redirectTo = '/';
+		//}
+
 		return $user;
 	}
 }
