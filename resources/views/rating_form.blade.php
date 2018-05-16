@@ -9,9 +9,10 @@
 	@endif
 	<input type="submit" name="Yes" value="Neutral"@if (($current_choice == 1) || !isset($current_choice)) class="yes"@endif>
 	<input type="submit" name="Met" value="I have met them"@if (($current_choice == -1) || !isset($current_choice)) class="met"@endif>
-	@if ($nos_left > 0)
-		<input type="submit" name="No" value="No ({{ $nos_left }} left)"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
-	@else
-		<br><br><span class="no">To mark more users as no, you must <a href="/search">change {{ -$nos_left+1 }} of your previous no ratings to yes</a>.</span>
+	@if (($current_choice == 0) || ($nos_left > 0))
+		<input type="submit" name="No" value="No ({{ $nos_left >= 0 ? $nos_left : 0 }} left)"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
+	@endif
+	@if ($nos_left <= 0)
+		<br><br><span class="no">To mark more users as No, you must <a href="/search">change {{ -$nos_left+1 }} of your previous No ratings to Neutral</a>.</span>
 	@endif
 </form>

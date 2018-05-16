@@ -34,17 +34,16 @@
 <input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>
 
 <br><br>
-Upload an image.
+<label for="image1">Upload an image.</label>
 @guest
 @else
 To remove old images just upload new ones.
-<br>
 @for ($i = 1; $i <= $number_photos; $i++)
 	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg" style="height:50px;"></a>
 @endfor
 @endguest
 <br>
-<input type="file" name="image1" value="image">
+<input type="file" name="image1" value="image" id="image1">
 @if (isset($number_photos))
 @if ($number_photos > 1)
 <br>
@@ -155,12 +154,12 @@ I am...
 
 <hr>
 
-<label for="description">Tell other users about yourself. What makes you weird? Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses.</label>
+<label for="description">Tell other users about yourself.</label> What makes you weird? Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses.
 <br>
 <input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
 <br><br>
-<label for="how_to_find_me">Give other users a hint how they will be able to find you at the event. Do not include real names, emails, phone numbers, or addresses.</label>
+<label for="how_to_find_me">Tell other users how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses.
 <br>
 <input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 

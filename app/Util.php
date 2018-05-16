@@ -5,8 +5,21 @@ namespace App;
 use Illuminate\Support\Facades\DB;
 use Log;
 
-class Util
-{
+class Util {
+
+	public static function pretty_event_names() {
+		return [
+			'winter_games' => "The Winter Games",
+			'ball'         => "The Wastelanders Ball",
+			'detonation'   => "Uranium Springs Detonation",
+			'wasteland'    => "Wasteland Weekend",
+		];
+	}
+
+	public static function upcoming_events() {
+		return ['detonation', 'wasteland'];
+	}
+
 	public static function unrated_users( $chooser_user_id ) {
 
 		$upcoming_events = \App\Util::upcoming_events();
@@ -145,62 +158,65 @@ class Util
 		$gender              = null;
 		$birth_year          = null;
 		$hoping_to_find_love = null;
-		$gender_results = DB::select('select gender, birth_year, hoping_to_find_love from users where id = ?', [$user_id]);
-		foreach ($gender_results as $gender_result) {
-			$gender     = $gender_result->gender;
-			$birth_year = $gender_result->birth_year;
-			$hoping_to_find_love = $gender_result->hoping_to_find_love;
+		$random_ok           = null;
+		$nos_info_results = DB::select('select gender, birth_year, hoping_to_find_love, random_ok from users where id = ?', [$user_id]);
+		foreach ($nos_info_results as $nos_info_result) {
+			$gender              = $nos_info_result->gender;
+			$birth_year          = $nos_info_result->birth_year;
+			$hoping_to_find_love = $nos_info_result->hoping_to_find_love;
+			$random_ok           = $nos_info_result->random_ok;
 		}
 
+		$min_available_nos = intdiv($user_count, 8);
+		$max_available_nos = intdiv($user_count, 2);
+
 		// Everyone gets this many
-		$min_available_nos = intdiv($user_count, 7);
 		$nos = $min_available_nos;
+
+		// Bonus amount to give below
+		$bonus_nos_amount = intdiv($user_count, 20);
 
 		// If you're popular you can be pickier and still get a match
 		$nos += $popularity;
 
-		// If you're a female you can be pickier
-		if ($gender == 'F') {
-			$nos += 10;
+		// If you'll allow a random match from unrated users you get to choose more nos for rated users
+		if ($random_ok) {
+			$nos += $bonus_nos_amount;
 		}
 
-		// If you're young you can be picker
-		if ($birth_year >= 1980) {
-			$nos += 5;
-		}
-
-		// If you're hoping for love you have to be pickier
+		// If you're hoping for love you might want to be pickier, even if you don't get a match
 		if ($hoping_to_find_love) {
-			$nos += 10;
+			$nos += $bonus_nos_amount;
 		}
 
-		// Double check everyone gets the minimum
+		// If you're a female you can be pickier and still get a match
+		if ($gender == 'F') {
+			$nos += $bonus_nos_amount;
+		}
+
+		// If you're young you can be picker and still get a match
+		if ($birth_year >= date("Y")-40) {
+			$nos += $bonus_nos_amount;
+		}
+
+		// If you are very young AND female you can be even pickier and still get a match
+		if (($gender == 'F') && ($birth_year >= date("Y")-35)) {
+			$nos += $bonus_nos_amount;
+		}
+
+		// Check everyone gets the minimum
 		if ($nos < $min_available_nos) {
 			$nos = $min_available_nos;
 		}
 
 		// Check no one goes beyond the maximum
-		$max_fraction_nos = .5;
-		if ($nos > $user_count * $max_fraction_nos) {
-			$nos = floor($user_count * $max_fraction_nos);
+		if ($nos > $max_available_nos) {
+			$nos = $max_available_nos;
 		}
 
 		// Remove ones already used
 		$nos -= $nos_used;
 
 		return $nos;
-	}
-
-	public static function pretty_event_names() {
-		return [
-			'winter_games' => "The Winter Games",
-			'ball'         => "The Wastelanders Ball",
-			'detonation'   => "Uranium Springs Detonation",
-			'wasteland'    => "Wasteland Weekend",
-		];
-	}
-
-	public static function upcoming_events() {
-		return ['detonation', 'wasteland'];
 	}
 }

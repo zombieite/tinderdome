@@ -30,33 +30,33 @@ li {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, label {
 	color: var(--special);
 }
 input[type="submit"] {
 	color: black;
 	background-color: var(--special);
-	border: none;
+	border: 1px solid var(--subtle);
 }
 button.yesyesyes, input[type="submit"].yesyesyes {
 	background-color: var(--yes);
-	border: 3px solid var(--subtle);
+	border: 1px solid var(--subtle);
 }
 button.yesyes, input[type="submit"].yesyes {
 	background-color: var(--yes);
-	border: 3px solid var(--subtle);
+	border: 1px solid var(--subtle);
 }
 button.yes, input[type="submit"].yes {
 	background-color: var(--neutral);
-	border: 3px solid var(--subtle);
+	border: 1px solid var(--subtle);
 }
-button.no, input[type="submit"].no {
+.no, button.no, input[type="submit"].no {
 	background-color: red;
-	border: 3px solid var(--subtle);
+	border: 1px solid var(--subtle);
 }
 button.met, input[type="submit"].met {
 	background-color: var(--met);
-	border: 3px solid var(--subtle);
+	border: 1px solid var(--subtle);
 }
 .bright {
 	color: var(--bright);
