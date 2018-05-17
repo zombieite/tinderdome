@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
+@php $counter = 1; @endphp
 <table style="font-size:small;">
 	<tr>
+		<th style="width:2%;">&nbsp;</th>
 		<th style="width:10%;"><b>Name</b></th>
 		<th style="width:4%;"><b>Id</b></th>
 		<th style="width:4%;"><b>Matched to id</b></th>
@@ -12,7 +13,7 @@
 		<th style="width:4%;"><b>Match's gender</b></th>
 		<th style="width:4%;"><b>Popularity</b></th>
 		<th style="width:4%;"><b>Match's popularity</b></th>
-		<th style="width:44%;"><b>Mutual matches</b></th>
+		<th><b>Mutual matches</b></th>
 	</tr>
 @foreach ($users as $user)
 	<tr
@@ -22,6 +23,7 @@
 			style="background-color:orange;"
 		@endif
 	>
+		<td>{{ $counter++ }}</td>
 		<td>{{ $user->name }}</td>
 		<td>{{ $user->id }}</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
