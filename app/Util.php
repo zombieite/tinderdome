@@ -38,7 +38,7 @@ class Util {
 					and chooser_id=?
 				)
 			where
-				id > 2
+				id > 10
 				and id<>?
 				and choice is null
 			order by
@@ -107,7 +107,7 @@ class Util {
 			from
 				users
 			where
-				id > 2
+				id > 10
 		');
 		foreach ($all_users as $profile) {
 			$profile_id                = $profile->id;;

@@ -65,7 +65,7 @@ class SearchController extends Controller
 				left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
 				left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
 			where
-				id > 2
+				id > 10
 				$event_clause
 			order by
 				c1.choice desc,
