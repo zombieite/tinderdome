@@ -6,7 +6,7 @@
 @if (!$unrated_users)
 <li>COMPLETE: You have rated every profile. Check back later to rate new arrivals. Or you can <a href="/search">revisit profiles</a> you've already viewed.</li>
 @else
-<li><a href="/profile/compatible?">Choose potential matches</a>.</li>
+<li><a href="/profile/compatible?">Choose who you'd like to meet</a>.</li>
 @endif
 @if ($matched)
 <li><a href="/profile/match">COMPLETE: You are awaited! Click here to see who you're matched with.</a></li>
