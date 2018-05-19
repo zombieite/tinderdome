@@ -50,6 +50,6 @@
 @endforeach
 </table>
 
-<h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched, {{ floor($unmatched / $counter * 100) }}% unmatched</h4>
+<h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
 
 @endsection
