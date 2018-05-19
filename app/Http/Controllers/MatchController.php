@@ -226,6 +226,10 @@ class MatchController extends Controller
 				}
 			}
 			$user_to_be_matched->mutual_unmet_match_names = $mutual_unmet_match_names;
+		}
+
+		// Now that we've gone through all users once, if any remain unmatched, let's try random matches
+		foreach ($users_to_match as $user_to_be_matched) {
 
 			// If this user is still not matched, aand they are ok with a random match, let's try that
 			if (!$matched_users_hash[$user_to_be_matched->id] && $user_to_be_matched->random_ok) {
