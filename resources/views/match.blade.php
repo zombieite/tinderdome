@@ -7,7 +7,6 @@
 		<th style="width:2%;">&nbsp;</th>
 		<th style="width:10%;"><b>Name</b></th>
 		<th style="width:4%;"><b>Id</b></th>
-		<th style="width:4%;"><b>Scores</b></th>
 		<th style="width:4%;"><b>Matched to id</b></th>
 		<th style="width:10%;"><b>Matched to name</b></th>
 		<th style="width:4%;"><b>Gender</b></th>
@@ -35,7 +34,6 @@
 			@endif
 		">{{ $user->name }}</td>
 		<td>{{ $user->id }}</td>
-		<td>{{ $user->scores }}</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
 		<td>{{ $matched_users_hash[$user->id] ? $id_to_name_hash[$matched_users_hash[$user->id]] : '' }}</td>
 		<td>{{ $user->gender }}</td>

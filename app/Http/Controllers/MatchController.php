@@ -139,85 +139,79 @@ class MatchController extends Controller
 			$mutual_unmet_match_names = [];
 
 			// Start with this user's enthusiastic yes votes and go down
-			for ($this_user_scores_that_user = 3; $this_user_scores_that_user > 0; $this_user_scores_that_user--) {
+			for ($user_to_be_matched_scores_that_user = 3; $user_to_be_matched_scores_that_user > 0; $user_to_be_matched_scores_that_user--) {
 
-				// Start with that user's enthusiastic yes votes and go down
-				for ($that_user_scores_this_user = 3; $that_user_scores_this_user > 0; $that_user_scores_this_user--) {
+				Log::debug("Looking for mutuals for ".$user_to_be_matched->name." with this user's score of $user_to_be_matched_scores_that_user");
 
-					Log::debug("Looking for mutuals for ".$user_to_be_matched->name." with this user's score of $this_user_scores_that_user and that user's score of $that_user_scores_this_user");
+				$mutual_unmet_matches = DB::select("
+					select
+						id,
+						name,
+						gender,
+						gender_of_match,
+						number_photos,
+						description,
+						random_ok
+					from
+						users
+					join choose this_user_chose on
+						this_user_chose.chooser_id = ?
+						and this_user_chose.chosen_id = users.id
+						and this_user_chose.choice = ?
+					join choose chose_this_user on
+						users.id = chose_this_user.chooser_id
+						and chose_this_user.chosen_id = ?
+						and chose_this_user.choice > 0
+					left join matching on (
+						(user_1=users.id and user_2=?)
+						or
+						(user_2=users.id and user_1=?)
+					)
+					where
+						attending_$next_event
+						and matching_id is null
+						and id > 10
+						and id != ?
+				", [ $user_to_be_matched->id, $user_to_be_matched_scores_that_user, $user_to_be_matched->id, $user_to_be_matched->id, $user_to_be_matched->id, $user_to_be_matched->id ]);
 
-					$mutual_unmet_matches = DB::select("
-						select
-							id,
-							name,
-							gender,
-							gender_of_match,
-							number_photos,
-							description,
-							random_ok
-						from
-							users
-						join choose this_user_chose on
-							this_user_chose.chooser_id = ?
-							and this_user_chose.chosen_id = users.id
-							and this_user_chose.choice = ?
-						join choose chose_this_user on
-							users.id = chose_this_user.chooser_id
-							and chose_this_user.chosen_id = ?
-							and chose_this_user.choice = ?
-						left join matching on (
-							(user_1=users.id and user_2=?)
-							or
-							(user_2=users.id and user_1=?)
-						)
-						where
-							attending_$next_event
-							and matching_id is null
-							and id > 10
-							and id != ?
-					", [ $user_to_be_matched->id, $this_user_scores_that_user, $user_to_be_matched->id, $that_user_scores_this_user, $user_to_be_matched->id, $user_to_be_matched->id, $user_to_be_matched->id ]);
-
-					if ($mutual_unmet_matches) {
-						$string = '';
-						foreach ($mutual_unmet_matches as $mutual) {
-							$string .= $mutual->name . '  ';
-						}
-						Log::debug('Mutuals for '.$user_to_be_matched->name.": $string");
-					} else {
-						Log::debug('No mutuals for '.$user_to_be_matched->name." with this user's score of $this_user_scores_that_user and that user's score of $that_user_scores_this_user");
+				if ($mutual_unmet_matches) {
+					$string = '';
+					foreach ($mutual_unmet_matches as $mutual) {
+						$string .= $mutual->name . '  ';
 					}
+					Log::debug('Mutuals for '.$user_to_be_matched->name.": $string");
+				} else {
+					Log::debug('No mutuals for '.$user_to_be_matched->name." with this user's score of $user_to_be_matched_scores_that_user");
+				}
 
-					// Can't figure out a better way to pass params to sort
-					foreach ($mutual_unmet_matches as $match) {
-						$match->gender_of_chooser         = $user_to_be_matched->gender;
-						$match->desired_gender_of_chooser = $user_to_be_matched->gender_of_match;
-						$match->popularity                = $id_to_popularity_hash[$match->id];
-					}
+				// Can't figure out a better way to pass params to sort
+				foreach ($mutual_unmet_matches as $match) {
+					$match->gender_of_chooser         = $user_to_be_matched->gender;
+					$match->desired_gender_of_chooser = $user_to_be_matched->gender_of_match;
+					$match->popularity                = $id_to_popularity_hash[$match->id];
+				}
 
-					// Where the magic happens
-					usort($mutual_unmet_matches, array($this, 'sortMatches'));
+				// Where the magic happens
+				usort($mutual_unmet_matches, array($this, 'sortMatches'));
 
-					// For each of this user's mutual matches...
-					foreach ($mutual_unmet_matches as $match) {
+				// For each of this user's mutual matches...
+				foreach ($mutual_unmet_matches as $match) {
 
-						$mutual_unmet_match_names[$match->name] = true;
+					$mutual_unmet_match_names[$match->name] = true;
 
-						// If we haven't already found a match for this user...
-						if (!$matched_users_hash[$user_to_be_matched->id]) {
+					// If we haven't already found a match for this user...
+					if (!$matched_users_hash[$user_to_be_matched->id]) {
 
-							Log::debug('Looking for match for user '.$user_to_be_matched->name." with this user's score of $this_user_scores_that_user and that user's score of $that_user_scores_this_user, trying user ".$match->name.' '.$match->id);
+						Log::debug('Looking for match for user '.$user_to_be_matched->name." with this user's score of $user_to_be_matched_scores_that_user, trying user ".$match->name.' '.$match->id);
 
-							// If the mutual match is still available...
-							if (!$matched_users_hash[$match->id]) {
+						// If the mutual match is still available...
+						if (!$matched_users_hash[$match->id]) {
 
-								Log::debug('Found match: '.$match->name." with ".$user_to_be_matched->name."'s score of $this_user_scores_that_user and ".$match->name."'s score of $that_user_scores_this_user");
+							Log::debug('Found match: '.$match->name." with ".$user_to_be_matched->name."'s score of $user_to_be_matched_scores_that_user");
 
-								$user_to_be_matched->scores                  = "$this_user_scores_that_user / $that_user_scores_this_user";
-
-								$matched_users_hash[$user_to_be_matched->id] = $match->id;
-								$matched_users_hash[$match->id]              = $user_to_be_matched->id;
-								$user_to_be_matched->cant_match              = false;
-							}
+							$matched_users_hash[$user_to_be_matched->id] = $match->id;
+							$matched_users_hash[$match->id]              = $user_to_be_matched->id;
+							$user_to_be_matched->cant_match              = false;
 						}
 					}
 				}
