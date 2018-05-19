@@ -131,12 +131,9 @@ class MatchController extends Controller
 		}
 
 		// Iterate through users in order of popularity desc
-		Log::debug("\n");
-		Log::debug("\n");
-		Log::debug("\n");
+		Log::debug("\n\n\n\n\nMUTUAL MATCHES\n");
 		foreach ($users_to_match as $user_to_be_matched) {
 
-			Log::debug("\n");
 			Log::debug("Trying to find a $next_event match for ".$user_to_be_matched->name.' '.$user_to_be_matched->id);
 
 			$mutual_unmet_match_names = [];
@@ -226,12 +223,15 @@ class MatchController extends Controller
 				}
 			}
 			$user_to_be_matched->mutual_unmet_match_names = $mutual_unmet_match_names;
+
+			Log::debug("\n");
 		}
 
-		// Now that we've gone through all users once, if any remain unmatched, let's try random matches
+		// Now that we've gone through all users once, looking for mutuals, if any remain unmatched, let's try random matches
+		Log::debug("\n\nRANDOM MATCHES\n");
 		foreach ($users_to_match as $user_to_be_matched) {
 
-			// If this user is still not matched, aand they are ok with a random match, let's try that
+			// If this user is still not matched, and they are ok with a random match, let's try that
 			if (!$matched_users_hash[$user_to_be_matched->id] && $user_to_be_matched->random_ok) {
 
 				Log::debug('Looking up random for '.$user_to_be_matched->name);
@@ -305,15 +305,10 @@ class MatchController extends Controller
 					}
 				}
 			}
-
-			if ($matched_users_hash[$user_to_be_matched->id]) {
-				Log::debug('Matched: '.$user_to_be_matched->id." with ".$matched_users_hash[$user_to_be_matched->id]);
-			} else {
-				Log::debug('NO MATCH FOR '.$user_to_be_matched->id);
-			}
 		}
 
 		// Iterate through users and do inserts
+		Log::debug("\n\nFINAL RESULTS\n");
 		foreach ($users_to_match as $user_to_be_matched) {
 
 			// If we found a match for this user in the match process above
