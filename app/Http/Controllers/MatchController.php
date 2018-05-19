@@ -131,8 +131,12 @@ class MatchController extends Controller
 		}
 
 		// Iterate through users in order of popularity desc
+		Log::debug("\n");
+		Log::debug("\n");
+		Log::debug("\n");
 		foreach ($users_to_match as $user_to_be_matched) {
 
+			Log::debug("\n");
 			Log::debug("Trying to find a $next_event match for ".$user_to_be_matched->name.' '.$user_to_be_matched->id);
 
 			$mutual_unmet_match_names = [];
@@ -176,7 +180,15 @@ class MatchController extends Controller
 							and id != ?
 					", [ $user_to_be_matched->id, $this_user_scores_that_user, $user_to_be_matched->id, $that_user_scores_this_user, $user_to_be_matched->id, $user_to_be_matched->id, $user_to_be_matched->id ]);
 
-					if (!$mutual_unmet_matches) {Log::debug('No mutuals for '.$user_to_be_matched->name." with this user's score of $this_user_scores_that_user and that user's score of $that_user_scores_this_user");}
+					if ($mutual_unmet_matches) {
+						$string = '';
+						foreach ($mutual_unmet_matches as $mutual) {
+							$string .= $mutual->name . '  ';
+						}
+						Log::debug('Mutuals for '.$user_to_be_matched->name.": $string");
+					} else {
+						Log::debug('No mutuals for '.$user_to_be_matched->name." with this user's score of $this_user_scores_that_user and that user's score of $that_user_scores_this_user");
+					}
 
 					// Can't figure out a better way to pass params to sort
 					foreach ($mutual_unmet_matches as $match) {
@@ -201,7 +213,7 @@ class MatchController extends Controller
 							// If the mutual match is still available...
 							if (!$matched_users_hash[$match->id]) {
 
-								Log::debug('Found match: '.$match->name." with ".$user_to_be_matched->name."'s score of $this_user_scores_that_user and ".$match->name."'s score of $that_user_scores_this_user\n");
+								Log::debug('Found match: '.$match->name." with ".$user_to_be_matched->name."'s score of $this_user_scores_that_user and ".$match->name."'s score of $that_user_scores_this_user");
 
 								$user_to_be_matched->scores                  = "$this_user_scores_that_user / $that_user_scores_this_user";
 
@@ -278,7 +290,7 @@ class MatchController extends Controller
 							// If the mutual match is still available...
 							if (!$matched_users_hash[$match->id]) {
 
-								Log::debug('Found match: '.$match->name." with ".$user_to_be_matched->name."'s score of $this_user_scores_that_user and ".$match->name." ok with random match\n");
+								Log::debug('Found match: '.$match->name." with ".$user_to_be_matched->name."'s score of $this_user_scores_that_user and ".$match->name." ok with random match");
 
 								$matched_users_hash[$user_to_be_matched->id]  = $match->id;
 								$matched_users_hash[$match->id] = $user_to_be_matched->id;
@@ -356,12 +368,18 @@ class MatchController extends Controller
 
 							Log::debug('Found random match: '.$match->name);
 
-							$matched_users_hash[$user_to_be_matched->id]  = $match->id;
-							$matched_users_hash[$match->id] = $user_to_be_matched->id;
-							$user_to_be_matched->cant_match               = false;
+							$matched_users_hash[$user_to_be_matched->id] = $match->id;
+							$matched_users_hash[$match->id]              = $user_to_be_matched->id;
+							$user_to_be_matched->cant_match              = false;
 						}
 					}
 				}
+			}
+
+			if ($matched_users_hash[$user_to_be_matched->id]) {
+				Log::debug('Matched: '.$user_to_be_matched->id." with ".$matched_users_hash[$user_to_be_matched->id]);
+			} else {
+				Log::debug('NO MATCH FOR '.$user_to_be_matched->id);
 			}
 		}
 
@@ -374,13 +392,25 @@ class MatchController extends Controller
 				$user_to_be_matched->cant_match = false;
 
 				// Last minute double-check that no one said no to meeting
-				$last_minute_no_check_results = DB::select('select choice from choose where chooser_id in (?,?) and chosen_id in (?,?)', [$user_to_be_matched->id, $matched_user_id, $user_to_be_matched->id, $matched_user_id]);
+				$last_minute_no_check_results = DB::select('select chooser_id, choice from choose where chooser_id in (?,?) and chosen_id in (?,?)', [$user_to_be_matched->id, $matched_user_id, $user_to_be_matched->id, $matched_user_id]);
 				foreach ($last_minute_no_check_results as $last_minute_no_check_result) {
 					if (($last_minute_no_check_result->choice == 0) || ($last_minute_no_check_result->choice == -1)) {
 						die("Found score of '".$last_minute_no_check_result->choice."' between users ".$user_to_be_matched->id." and $matched_user_id");
 					}
+					$random_status_results = DB::select('select random_ok from users where id=?', [$last_minute_no_check_result->chooser_id]);
+					foreach ($random_status_results as $random_status_result) {
+						if ($last_minute_no_check_result->choice === null) {
+							Log::debug('Random match for user '.$last_minute_no_check_result->chooser_id." because their preferences allow it");
+							if ($random_status_result->random_ok) {
+								// All good
+							} else {
+								die("Found a random match when random not ok between users ".$user_to_be_matched->id." and $matched_user_id");
+							}
+						}
+					}
 				}
 
+				Log::debug('Matched: '.$user_to_be_matched->id." with ".$matched_users_hash[$user_to_be_matched->id]);
 				$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user_to_be_matched->id, $user_to_be_matched->id]);
 				if (!$already_inserted && isset($_GET['WRITE'])) {
 					DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$next_event, $year, $user_to_be_matched->id, $matched_user_id]);
