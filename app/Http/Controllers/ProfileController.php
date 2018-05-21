@@ -260,29 +260,19 @@ class ProfileController extends Controller
 		}
 
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
-		$max_images                = 5;
 		$image_height              = 500;
 		$number_photos             = 0;
-		for ($i = 1; $i <= $max_images; $i++) {
-			if (isset($_FILES["image$i"])) {
-				$uploaded_file = $_FILES["image$i"]['tmp_name'];
-				if ($uploaded_file) {
-					$number_photos++;
-				}
-			}
-		}
-		for ($i = 1; $i <= $max_images; $i++) {
-			if (isset($_FILES["image$i"])) {
-				$uploaded_file = $_FILES["image$i"]['tmp_name'];
-				if ($uploaded_file) {
-					$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name_hyphenated-$i.jpg";
-					File::copy($uploaded_file, $destination);
-					$img = Image::make($destination);
-					$img->orientate();
-					$img->heighten($image_height);
-					$img->encode('jpg');
-					$img->save($destination);
-				}
+		if (isset($_FILES["image1"])) {
+			$uploaded_file = $_FILES["image1"]['tmp_name'];
+			if ($uploaded_file) {
+				$number_photos++;
+				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name_hyphenated-1.jpg";
+				File::copy($uploaded_file, $destination);
+				$img = Image::make($destination);
+				$img->orientate();
+				$img->heighten($image_height);
+				$img->encode('jpg');
+				$img->save($destination);
 			}
 		}
 

@@ -31,14 +31,11 @@ class RegisterController extends Controller
 
 	protected function create(array $data)
 	{
-		$max_images    = 1;
 		$image_height  = 500;
 		$number_photos = 0;
-		for ($i = 1; $i <= $max_images; $i++) {
-			$uploaded_file = $_FILES["image$i"]['tmp_name'];
-			if ($uploaded_file) {
-				$number_photos++;
-			}
+		$uploaded_file = $_FILES["image1"]['tmp_name'];
+		if ($uploaded_file) {
+			$number_photos++;
 		}
 
 		$wasteland_name            = $data['name'];
@@ -76,24 +73,17 @@ class RegisterController extends Controller
 
 		$user_id = $user->id;
 
-		try {
-			for ($i = 1; $i <= $max_images; $i++) {
-				$uploaded_file = $_FILES["image$i"]['tmp_name'];
-				if ($uploaded_file) {
-					$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$user_id-$wasteland_name_hyphenated-$i.jpg";
-					File::copy($uploaded_file, $destination);
-					$img = Image::make($destination);
-					$img->orientate();
-					$img->heighten($image_height);
-					$img->encode('jpg');
-					$img->save($destination);
-				}
-			}
-		} catch (Exception $e) {
-			// TODO Report image upload/resize errors
+		if ($uploaded_file) {
+			$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$user_id-$wasteland_name_hyphenated-1.jpg";
+			File::copy($uploaded_file, $destination);
+			$img = Image::make($destination);
+			$img->orientate();
+			$img->heighten($image_height);
+			$img->encode('jpg');
+			$img->save($destination);
 		}
 
-		// TODO: this doesn't work
+		// TODO: redirect to home if random ok, but this doesn't work
 		//if (isset($data['random_ok'])) {
 		//	$redirectTo = '/';
 		//}

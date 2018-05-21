@@ -46,26 +46,9 @@
 @else
 To remove old images just upload new ones.
 @endguest
+If you get an error, please try a smaller image.
 <br>
 <input type="file" name="image1" value="image" id="image1">
-@if (isset($number_photos))
-@if ($number_photos > 1)
-<br>
-<input type="file" name="image2" value="image">
-@endif
-@if ($number_photos > 2)
-<br>
-<input type="file" name="image3" value="image">
-@endif
-@if ($number_photos > 3)
-<br>
-<input type="file" name="image4" value="image">
-@endif
-@if ($number_photos > 4)
-<br>
-<input type="file" name="image5" value="image">
-@endif
-@endif
 
 <hr>
 
@@ -99,7 +82,7 @@ I am...
 <label for="hoping_to_find_love">Open to finding a new romantic partner.</label>
 <p style="margin-left: 2em; margin-top: 0em; margin-bottom: 0em;">
 	<input type="checkbox" name="share_info_with_favorites" id="share_info_with_favorites" @guest @else @if ($share_info_with_favorites) checked @endif @endguest>
-	<label for="share_info_with_favorites">Share my email address and how to find me info with mutual romantic favorites.</label>
+	<label for="share_info_with_favorites">Share my email address with mutual romantic favorites.</label>
 </p>
 
 <hr>
