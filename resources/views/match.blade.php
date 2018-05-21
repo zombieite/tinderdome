@@ -52,4 +52,6 @@
 
 <h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
 
+@php //phpinfo() @endphp
+
 @endsection
