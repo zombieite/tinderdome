@@ -26,16 +26,22 @@
 		@endif
 	">
 		<td>{{ ++$counter }}</td>
-		<td style="
+		<td><a href="/profile/{{ $user->id }}/{{ preg_replace('/-/', ' ', $user->name) }}" target="_blank" style="
 			@if ($user->random_ok)
 				color:#00ff00;
 			@else
 				color:#ff00ff;
 			@endif
-		">{{ $user->name }}</td>
+		">{{ $user->name }}</a></td>
 		<td>{{ $user->id }}</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
-		<td>{{ $matched_users_hash[$user->id] ? $id_to_name_hash[$matched_users_hash[$user->id]] : '' }}</td>
+		<td>
+			@if ($matched_users_hash[$user->id]) 
+				<a href="/profile/{{ $matched_users_hash[$user->id] }}/{{ preg_replace('/-/', ' ', $id_to_name_hash[$matched_users_hash[$user->id]]) }}" target="_blank">{{ $id_to_name_hash[$matched_users_hash[$user->id]] }}</a>
+			@else
+				&nbsp;
+			@endif
+		</td>
 		<td>{{ $user->gender }}</td>
 		<td>{{ $user->gender_of_match }}</td>
 		<td>{{ $matched_users_hash[$user->id] ? $id_to_gender_hash[$matched_users_hash[$user->id]] : '' }}</td>
