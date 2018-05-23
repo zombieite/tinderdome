@@ -70,7 +70,7 @@ I will be attending the next...
 I am...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
-<label for="random_ok">Open to a random match if a mutual match can't be found.</label>
+<label for="random_ok">(Recommended) Open to a random match if a mutual match can't be found.</label>
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
 <label for="hoping_to_find_friend">Open to finding a new friend.</label>
