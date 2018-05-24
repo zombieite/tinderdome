@@ -6,6 +6,8 @@
 @if ($is_my_match)
 	<h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
 	<h2 class="bright">Your mission is to seek them out at {{ $pretty_event_names[$events_to_show[0]] }} {{ $year }}. They'll be looking for you, too.</h2>
+	If you've found them, let us know!
+	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
 @else
 	@if (!$is_me && $unchosen_user_id != 1 )
 		<h3>Would you enjoy meeting this user? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
