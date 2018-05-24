@@ -122,6 +122,12 @@ class MatchController extends Controller
 		$id_to_popularity_hash = null;
 		$matched_users_hash    = null;
 		$match_rating_hash     = null;
+
+		$matches_complete = DB::select("select * from matching where event=? and year=?", [$next_event, $year]);
+		if ($matches_complete) {
+			die('already done');
+		}
+
 		foreach ($users_to_match as $user_to_be_matched) {
 			$user_to_be_matched->cant_match                 = true; # Will hopefully make false below
 			$user_to_be_matched->scores                     = '';
@@ -335,7 +341,9 @@ class MatchController extends Controller
 				if ($triple_check_results) {
 					foreach ($triple_check_results as $triple_check_result) {
 						$choice = $triple_check_result->choice;
+						$match_rating_hash[$user_to_be_matched->id] = $choice;
 						if ($choice === null) {
+							$match_rating_hash[$user_to_be_matched->id] = 'NULL';
 							if ($user_to_be_matched->random_ok) {
 								#Log::debug("Triple checked match ".$user_to_be_matched->id." with $matched_user_id");
 							} else {
@@ -350,6 +358,7 @@ class MatchController extends Controller
 						}
 					}
 				} else {
+					$match_rating_hash[$user_to_be_matched->id] = 'NULL';
 					if ($user_to_be_matched->random_ok) {
 						#Log::debug("Triple checked match ".$user_to_be_matched->id." with $matched_user_id");
 					} else {
@@ -358,9 +367,13 @@ class MatchController extends Controller
 				}
 
 				Log::debug('Matched: '.$user_to_be_matched->id." with ".$matched_users_hash[$user_to_be_matched->id]);
-				$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=?)", [$next_event, $year, $user_to_be_matched->id, $user_to_be_matched->id]);
-				if (!$already_inserted && isset($_GET['WRITE'])) {
-					DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$next_event, $year, $user_to_be_matched->id, $matched_user_id]);
+				$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=? or user_1=? or user_2=?)", [$next_event, $year, $user_to_be_matched->id, $user_to_be_matched->id, $matched_user_id, $matched_user_id]);
+				if ($already_inserted) {
+					// Don't do anything
+				} else {
+					if (isset($_POST['WRITE'])) {
+						DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$next_event, $year, $user_to_be_matched->id, $matched_user_id]);
+					}
 				}
 			}
 		}
@@ -371,6 +384,9 @@ class MatchController extends Controller
 			'id_to_name_hash'       => $id_to_name_hash,
 			'id_to_gender_hash'     => $id_to_gender_hash,
 			'id_to_popularity_hash' => $id_to_popularity_hash,
+			'match_rating_hash'     => $match_rating_hash,
+			'event'                 => $next_event,
+			'year'                  => $year,
 		]);
 	}
 

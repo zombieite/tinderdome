@@ -55,3 +55,5 @@ Route::get('/search', 'SearchController@search')->middleware('auth');
 Route::post('/search', 'SearchController@update_rating')->middleware('auth');
 
 Route::get('/match', 'MatchController@match')->middleware('auth');
+
+Route::post('/match', 'MatchController@match')->middleware('auth');

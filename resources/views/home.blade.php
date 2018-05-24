@@ -3,17 +3,25 @@
 @section('content')
 <ol>
 <li>COMPLETE: Profile created.</li>
-@if (!$unrated_users)
-<li>COMPLETE: You have rated every profile. Check back later to rate new arrivals. Or you can <a href="/search">revisit profiles</a> you've already viewed.</li>
+@if ($unrated_users)
+	@if ($random_ok) 
+		<li>COMPLETE: <a href="/profile/edit">Your preferences</a> indicate you are ok with a random match, so you don't have to rate other profiles. <a href="/profile/compatible?">But you can if you want to</a>.</li>
+	@else
+		<li><a href="/profile/compatible?">Choose who you'd like to meet</a>.</li>
+	@endif
 @else
-<li><a href="/profile/compatible?">Choose who you'd like to meet</a>.</li>
+	<li>COMPLETE: You have rated every profile. Check back later to rate new arrivals. Or you can <a href="/search">revisit profiles</a> you've already viewed.</li>
 @endif
-@if ($matched)
-<li><a href="/profile/match">COMPLETE: You are awaited! Click here to see who you're matched with.</a></li>
+@if ($attending_next_event)
+	@if ($matched)
+		<li><a href="/profile/match?event={{ $next_event }}&year={{ $year }}">COMPLETE: YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event]) }} {{ $year }}! Find out who you're matched with</a>.</li>
+	@else
+		<li>Matches are complete for {{ $pretty_names[$next_event] }} {{ $year }}, but you were not matched. <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Find out why</a>.</li>
+	@endif
 @else
-<li>Next matching run will happen on the night of May 23 for Detonation Uranium Springs 2018. If you'll be attending <a href="/profile/edit">be sure your profile has the appropriate box checked</a>. Check back here just before the event to see who you're matched with.</li>
+	<li>Check back here a few days before the next event you'll be attending to find out who you've been matched with. Let us know what events you'll be attending by <a href="/profile/edit">updating your profile</a>.</li>
 @endif
-<li>At the event, seek out your match.</li>
+<li>At the event, seek out your match. If you've found your match, <a href="/search">let us know that you've met them by updating their profile rating</a>.</li>
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
 @endsection
