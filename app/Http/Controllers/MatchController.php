@@ -121,6 +121,7 @@ class MatchController extends Controller
 		$id_to_gender_hash     = null;
 		$id_to_popularity_hash = null;
 		$matched_users_hash    = null;
+		$match_rating_hash     = null;
 		foreach ($users_to_match as $user_to_be_matched) {
 			$user_to_be_matched->cant_match                 = true; # Will hopefully make false below
 			$user_to_be_matched->scores                     = '';
@@ -313,7 +314,7 @@ class MatchController extends Controller
 				// Last minute double-check that no one said no to meeting
 				$last_minute_no_check_results = DB::select('select chooser_id, choice from choose where chooser_id in (?,?) and chosen_id in (?,?)', [$user_to_be_matched->id, $matched_user_id, $user_to_be_matched->id, $matched_user_id]);
 				foreach ($last_minute_no_check_results as $last_minute_no_check_result) {
-					if (($last_minute_no_check_result->choice == 0) || ($last_minute_no_check_result->choice == -1)) {
+					if ($last_minute_no_check_result->choice <= 0) {
 						die("Found score of '".$last_minute_no_check_result->choice."' between users ".$user_to_be_matched->id." and $matched_user_id");
 					}
 					$random_status_results = DB::select('select random_ok from users where id=?', [$last_minute_no_check_result->chooser_id]);
@@ -326,6 +327,33 @@ class MatchController extends Controller
 								die("Found a random match when random not ok between users ".$user_to_be_matched->id." and $matched_user_id");
 							}
 						}
+					}
+				}
+
+				// Last minute triple-check that no one said no to meeting
+				$triple_check_results = DB::select('select * from choose where chooser_id = ? and chosen_id = ?', [$user_to_be_matched->id, $matched_user_id]);
+				if ($triple_check_results) {
+					foreach ($triple_check_results as $triple_check_result) {
+						$choice = $triple_check_result->choice;
+						if ($choice === null) {
+							if ($user_to_be_matched->random_ok) {
+								#Log::debug("Triple checked match ".$user_to_be_matched->id." with $matched_user_id");
+							} else {
+								die("Found no choice row and random is not ok for user ".$user_to_be_matched->id);
+							}
+						} else {
+							if ($choice > 0) {
+								#Log::debug("Triple checked match ".$user_to_be_matched->id." with $matched_user_id");
+							} else {
+								die("User ".$user_to_be_matched->id." made choice $choice for user $matched_user_id so should not have been matched");
+							}
+						}
+					}
+				} else {
+					if ($user_to_be_matched->random_ok) {
+						#Log::debug("Triple checked match ".$user_to_be_matched->id." with $matched_user_id");
+					} else {
+						die("Found no choice row and random is not ok for user ".$user_to_be_matched->id);
 					}
 				}
 
