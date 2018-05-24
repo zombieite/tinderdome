@@ -25,7 +25,7 @@ You'll create a profile that tells everyone a little bit about you. <a href="/pr
 </p>
 <h3>2. Let us know who you'd enjoy meeting at the next event</h3>
 <p>
-Once you've created your profile, you can browse other profiles and choose who you'd enjoy meeting.
+Browse other profiles and choose who you'd enjoy meeting.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
