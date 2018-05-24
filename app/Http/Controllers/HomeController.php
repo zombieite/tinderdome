@@ -18,7 +18,11 @@ class HomeController extends Controller
 		$leaderboard           = $leaderboard_and_count['leaderboard'];
 		$nonleader_count       = $leaderboard_and_count['nonleader_count'];
 
-		if (!$chooser_user) {
+		if ($chooser_user) {
+			if ($chooser_user_id == 1 and isset($_GET['masquerade'])) {
+				$chooser_user_id = $_GET['masquerade'];
+			}
+		} else {
 			return view('intro', [
 				'leaderboard'     => $leaderboard,
 				'leader_count'    => $leader_count,
@@ -26,14 +30,25 @@ class HomeController extends Controller
 			]);
 		}
 
-		$unrated_users = \App\Util::unrated_users( $chooser_user_id );
-		$next_event    = 'detonation';
-		$year          = 2018;
-		$matched       = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$chooser_user_id, $chooser_user_id, $next_event, $year]);
+		$unrated_users        = \App\Util::unrated_users( $chooser_user_id );
+		$upcoming_events      = \App\Util::upcoming_events();
+		$pretty_names         = \App\Util::pretty_event_names();
+		$year                 = date('Y');
+		$next_event           = array_shift($upcoming_events);
+		$matched              = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$chooser_user_id, $chooser_user_id, $next_event, $year]);
+		$matches_done         = DB::select('select * from matching where event=? and year=?', [$next_event, $year]);
+		$attending_next_event = DB::select("select * from users where id=? and attending_$next_event", [$chooser_user_id]);
+		$random_ok            = DB::select("select * from users where id=? and random_ok", [$chooser_user_id]);
 
 		return view('home', [
-			'unrated_users'   => $unrated_users,
-			'matched'         => $matched,
+			'unrated_users'        => $unrated_users,
+			'matched'              => $matched,
+			'next_event'           => $next_event,
+			'year'                 => $year,
+			'matches_done'         => $matches_done,
+			'attending_next_event' => $attending_next_event,
+			'random_ok'            => $random_ok,
+			'pretty_names'         => $pretty_names,
 		]);
 	}
 }

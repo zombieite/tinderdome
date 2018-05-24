@@ -361,12 +361,16 @@ class ProfileController extends Controller
 		$match_id               = null;
 		$events                 = \App\Util::upcoming_events();
 		$pretty_event_names     = \App\Util::pretty_event_names();
-		$attending_function     = "attending_$event";
-		$logged_in_is_signed_up = $user->$attending_function;
 
 		if ($user_id === 1 && isset($_GET['masquerade'])) {
 			$user_id = $_GET['masquerade']+0;
 			Log::debug("Masquerading as $user_id");
+		}
+
+		if (preg_match('/^[_a-z]+$/', $event)) {
+			// All good
+		} else {
+			die('Invalid event');
 		}
 
 		if (in_array($event, $events)) {
@@ -380,6 +384,8 @@ class ProfileController extends Controller
 		} else {
 			abort(403, 'Invalid year');
 		}
+
+		$logged_in_is_signed_up = DB::select("select * from users where id=? and attending_$event", [$user_id]);
 
 		$matches_done = DB::select('
 			select * from matching where event=? and year=?

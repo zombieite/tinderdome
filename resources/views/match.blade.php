@@ -2,15 +2,17 @@
 @section('content')
 @php $counter   = 0; @endphp
 @php $unmatched = 0; @endphp
+<h1>{{ $event }} matches {{ $year }}</h1>
+<hr>
 <table style="font-size:small;">
 	<tr>
 		<th style="width:2%;">&nbsp;</th>
-		<th style="width:10%;"><b>Name</b></th>
+		<th style="width:9%;"><b>Name</b></th>
 		<th style="width:4%;"><b>Id</b></th>
 		<th style="width:4%;"><b>Rating of match</b></th>
 		<th style="width:4%;"><b>Match's rating of</b></th>
 		<th style="width:4%;"><b>Matched to id</b></th>
-		<th style="width:10%;"><b>Matched to name</b></th>
+		<th style="width:9%;"><b>Matched to name</b></th>
 		<th style="width:4%;"><b>Gender</b></th>
 		<th style="width:4%;"><b>DGOM</b></th>
 		<th style="width:4%;"><b>Match's gender</b></th>
@@ -36,8 +38,8 @@
 			@endif
 		">{{ $user->name }}</a></td>
 		<td>{{ $user->id }}</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td>{{ isset($match_rating_hash[$user->id]) ? $match_rating_hash[$user->id] : '&nbsp;' }}</td>
+		<td>{{ isset($match_rating_hash[$matched_users_hash[$user->id]]) ? $match_rating_hash[$matched_users_hash[$user->id]] : '&nbsp;' }}</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
 		<td>
 			@if ($matched_users_hash[$user->id]) 
@@ -61,6 +63,11 @@
 </table>
 
 <h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
+
+<form method="POST">
+	{{ csrf_field() }}
+	<input type="submit" value="Finalize matches" name="WRITE">
+</form>
 
 @php //phpinfo() @endphp
 
