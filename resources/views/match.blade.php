@@ -7,6 +7,8 @@
 		<th style="width:2%;">&nbsp;</th>
 		<th style="width:10%;"><b>Name</b></th>
 		<th style="width:4%;"><b>Id</b></th>
+		<th style="width:4%;"><b>Rating of match</b></th>
+		<th style="width:4%;"><b>Match's rating of</b></th>
 		<th style="width:4%;"><b>Matched to id</b></th>
 		<th style="width:10%;"><b>Matched to name</b></th>
 		<th style="width:4%;"><b>Gender</b></th>
@@ -34,6 +36,8 @@
 			@endif
 		">{{ $user->name }}</a></td>
 		<td>{{ $user->id }}</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
 		<td>
 			@if ($matched_users_hash[$user->id]) 
