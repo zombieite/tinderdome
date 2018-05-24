@@ -21,7 +21,17 @@
 @else
 	<li>Check back here a few days before the next event you'll be attending to find out who you've been matched with. Let us know what events you'll be attending by <a href="/profile/edit">updating your profile</a>.</li>
 @endif
-<li>At the event, seek out your match. If you've found your match, <a href="/search">let us know that you've met them by updating their profile rating</a>.</li>
+<li>
+	@if ($attending_next_event && $matched)
+		@if ($found_my_match)
+			COMPLETE: You found your match!
+		@else
+			Did you find your match? <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Let us know</a>!
+		@endif
+	@else
+		At the event, seek out your match. If you found your match, <a href="/search">let us know that you've met them by updating their profile rating</a>.
+	@endif
+</li>
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Util;
+use Log;
 
 class HomeController extends Controller
 {
@@ -35,10 +36,23 @@ class HomeController extends Controller
 		$pretty_names         = \App\Util::pretty_event_names();
 		$year                 = date('Y');
 		$next_event           = array_shift($upcoming_events);
-		$matched              = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$chooser_user_id, $chooser_user_id, $next_event, $year]);
 		$matches_done         = DB::select('select * from matching where event=? and year=?', [$next_event, $year]);
 		$attending_next_event = DB::select("select * from users where id=? and attending_$next_event", [$chooser_user_id]);
 		$random_ok            = DB::select("select * from users where id=? and random_ok", [$chooser_user_id]);
+		$matched              = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$chooser_user_id, $chooser_user_id, $next_event, $year]);
+		$found_my_match       = null;
+
+		foreach ($matched as $match_result) {
+			//Log::debug("Checking match search results");
+			$matchs_id = null;
+			if ($match_result->user_1 == $chooser_user_id) {
+				$matchs_id = $match_result->user_2;
+			} else {
+				$matchs_id = $match_result->user_1;
+			}
+			//Log::debug("Found match assigned to $chooser_user_id, match id is $matchs_id");
+			$found_my_match = DB::select('select * from choose where chooser_id = ? and chosen_id = ? and choice = -1', [$chooser_user_id, $matchs_id]);
+		}
 
 		return view('home', [
 			'unrated_users'        => $unrated_users,
@@ -49,6 +63,7 @@ class HomeController extends Controller
 			'attending_next_event' => $attending_next_event,
 			'random_ok'            => $random_ok,
 			'pretty_names'         => $pretty_names,
+			'found_my_match'       => $found_my_match,
 		]);
 	}
 }
