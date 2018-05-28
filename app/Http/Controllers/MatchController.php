@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Util;
 use Log;
 
 class MatchController extends Controller
@@ -117,21 +118,23 @@ class MatchController extends Controller
 
 		// Imitialize stuff
 		// These hashes are redundant but are simple and help me keep my thoughts straight
-		$id_to_name_hash       = null;
-		$id_to_gender_hash     = null;
-		$id_to_popularity_hash = null;
-		$id_to_cant_match_hash = null;
-		$matched_users_hash    = null;
-		$match_rating_hash     = null;
+		$id_to_name_hash               = null;
+		$id_to_gender_hash             = null;
+		$id_to_popularity_hash         = null;
+		$id_to_cant_match_hash         = null;
+		$id_to_missions_completed_hash = null;
+		$matched_users_hash            = null;
+		$match_rating_hash             = null;
 
 		foreach ($users_to_match as $user_to_be_matched) {
 			$id_to_cant_match_hash[$user_to_be_matched->id] = true; # Will hopefully make false below
-			$user_to_be_matched->scores                     = '';
-			$user_to_be_matched->mutual_unmet_match_names   = [];
-			$id_to_name_hash[$user_to_be_matched->id]       = $user_to_be_matched->name;
-			$id_to_gender_hash[$user_to_be_matched->id]     = $user_to_be_matched->gender;
-			$id_to_popularity_hash[$user_to_be_matched->id] = $user_to_be_matched->popularity;
-			$matched_users_hash[$user_to_be_matched->id]    = '';
+			$user_to_be_matched->scores                             = '';
+			$user_to_be_matched->mutual_unmet_match_names           = [];
+			$id_to_name_hash[$user_to_be_matched->id]               = $user_to_be_matched->name;
+			$id_to_gender_hash[$user_to_be_matched->id]             = $user_to_be_matched->gender;
+			$id_to_popularity_hash[$user_to_be_matched->id]         = $user_to_be_matched->popularity;
+			$matched_users_hash[$user_to_be_matched->id]            = '';
+			$id_to_missions_completed_hash[$user_to_be_matched->id] = \App\Util::missions_completed( $user_to_be_matched->id );
 		}
 
 		$matches_complete = DB::select("select * from matching where event=? and year=?", [$next_event, $year]);
@@ -422,16 +425,17 @@ class MatchController extends Controller
 		}
 
 		return view('match', [
-			'users'                 => $users_to_match,
-			'matched_users_hash'    => $matched_users_hash,
-			'id_to_name_hash'       => $id_to_name_hash,
-			'id_to_gender_hash'     => $id_to_gender_hash,
-			'id_to_popularity_hash' => $id_to_popularity_hash,
-			'id_to_cant_match_hash' => $id_to_cant_match_hash,
-			'match_rating_hash'     => $match_rating_hash,
-			'event'                 => $next_event,
-			'year'                  => $year,
-			'matches_complete'      => $matches_complete,
+			'users'                          => $users_to_match,
+			'matched_users_hash'             => $matched_users_hash,
+			'id_to_name_hash'                => $id_to_name_hash,
+			'id_to_gender_hash'              => $id_to_gender_hash,
+			'id_to_popularity_hash'          => $id_to_popularity_hash,
+			'id_to_cant_match_hash'          => $id_to_cant_match_hash,
+			'id_to_missions_completed_hash' => $id_to_missions_completed_hash,
+			'match_rating_hash'              => $match_rating_hash,
+			'event'                          => $next_event,
+			'year'                           => $year,
+			'matches_complete'               => $matches_complete,
 		]);
 	}
 
