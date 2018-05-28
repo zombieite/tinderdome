@@ -2,27 +2,36 @@
 @section('content')
 @php $counter   = 0; @endphp
 @php $unmatched = 0; @endphp
-<h1>{{ $event }} matches {{ $year }}</h1>
+<h1>
+	@if ($matches_complete)
+		FINALIZED: 
+	@endif
+	{{ $event }} matches {{ $year }}
+</h1>
 <hr>
 <table style="font-size:small;">
 	<tr>
-		<th style="width:2%;">&nbsp;</th>
-		<th style="width:9%;"><b>Name</b></th>
-		<th style="width:4%;"><b>Id</b></th>
-		<th style="width:4%;"><b>Rating of match</b></th>
-		<th style="width:4%;"><b>Match's rating of</b></th>
-		<th style="width:4%;"><b>Matched to id</b></th>
-		<th style="width:9%;"><b>Matched to name</b></th>
-		<th style="width:4%;"><b>Gender</b></th>
-		<th style="width:4%;"><b>DGOM</b></th>
-		<th style="width:4%;"><b>Match's gender</b></th>
-		<th style="width:4%;"><b>Popularity</b></th>
-		<th style="width:4%;"><b>Match's popularity</b></th>
-		<th><b>Mutual matches</b></th>
+		<th>&nbsp;</th>
+		<th><b>Name</b></th>
+		<th><b>Id</b></th>
+		<th><b>Rating<br>of match</b></th>
+		<th><b>Match's<br>rating of</b></th>
+		<th><b>Matched<br>to id</b></th>
+		<th><b>Matched<br>to name</b></th>
+		<th><b>Gender</b></th>
+		<th><b>DGOM</b></th>
+		<th><b>Match's<br>gender</b></th>
+		<th><b>Popularity</b></th>
+		<th><b>Match's<br>popularity</b></th>
+		@if ($matches_complete)
+
+		@else
+			<th><b>Mutual matches</b></th>
+		@endif
 	</tr>
 @foreach ($users as $user)
 	<tr style="
-		@if ($user->cant_match)
+		@if ($id_to_cant_match_hash[$user->id])
 			@php $unmatched++ @endphp
 			background-color:red;
 		@elseif ($user->gender === 'F' && $user->gender_of_match && $matched_users_hash[$user->id] && ($user->gender_of_match !== $id_to_gender_hash[$matched_users_hash[$user->id]]))
@@ -53,21 +62,29 @@
 		<td>{{ $matched_users_hash[$user->id] ? $id_to_gender_hash[$matched_users_hash[$user->id]] : '' }}</td>
 		<td>{{ $user->popularity }}</td>
 		<td>{{ $matched_users_hash[$user->id] ? $id_to_popularity_hash[$matched_users_hash[$user->id]] : '' }}</td>
-		<td>
-			@foreach (array_keys($user->mutual_unmet_match_names) as $mutual_match_name)
-				{{ $mutual_match_name }},
-			@endforeach
-		</td>
+		@if ($matches_complete)
+
+		@else
+			<td>
+				@foreach (array_keys($user->mutual_unmet_match_names) as $mutual_match_name)
+					{{ $mutual_match_name }},
+				@endforeach
+			</td>
+		@endif
 	</tr>
 @endforeach
 </table>
 
 <h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
 
-<form method="POST">
-	{{ csrf_field() }}
-	<input type="submit" value="Finalize matches" name="WRITE">
-</form>
+@if ($matches_complete)
+	
+@else
+	<form method="POST">
+		{{ csrf_field() }}
+		<input type="submit" value="Finalize matches" name="WRITE">
+	</form>
+@endif
 
 @php //phpinfo() @endphp
 
