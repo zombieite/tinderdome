@@ -39,13 +39,20 @@
 		@endif
 	">
 		<td>{{ ++$counter }}</td>
-		<td><a href="/profile/{{ $user->id }}/{{ preg_replace('/-/', ' ', $user->name) }}" target="_blank" style="
+		<td>
+			<a href="/profile/{{ $user->id }}/{{ preg_replace('/-/', ' ', $user->name) }}" target="_blank" style="
 			@if ($user->random_ok)
 				color:#00ff00;
 			@else
 				color:#ff00ff;
 			@endif
-		">{{ $user->name }}</a></td>
+			">
+				{{ $user->name }}
+			</a>
+			@if ($id_to_missions_completed_hash[$user->id]['points'])
+				({{ $id_to_missions_completed_hash[$user->id]['points'] }})
+			@endif
+		</td>
 		<td>{{ $user->id }}</td>
 		<td>{{ isset($match_rating_hash[$user->id]) ? $match_rating_hash[$user->id] : '&nbsp;' }}</td>
 		<td>{{ isset($match_rating_hash[$matched_users_hash[$user->id]]) ? $match_rating_hash[$matched_users_hash[$user->id]] : '&nbsp;' }}</td>
