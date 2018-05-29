@@ -11,6 +11,7 @@
 	@else
 		If you've found them, let us know!
 		@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
+		<br>
 	@endif
 @else
 	@if (!$is_me && $unchosen_user_id != 1 )
