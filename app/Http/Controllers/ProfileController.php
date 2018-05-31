@@ -102,7 +102,6 @@ class ProfileController extends Controller
 		$hoping_to_find_enemy               = $profile->hoping_to_find_enemy;
 		$unchosen_user_id                   = $profile_id;
 		$missions_completed                 = \App\Util::missions_completed( $profile_id );
-		$success_message                    = isset($_GET['created']);
 		$logged_in_user_hoping_to_find_love = null;
 		$attending['winter_games']          = $profile->attending_winter_games;
 		$attending['ball']                  = $profile->attending_ball;
@@ -133,7 +132,6 @@ class ProfileController extends Controller
 			'events_to_show'                     => $events_to_show,
 			'unchosen_user_id'                   => $unchosen_user_id,
 			'count_left'                         => $count_left,
-			'success_message'                    => $success_message,
 			'is_my_match'                        => $is_my_match,
 			'is_me'                              => $is_me,
 			'choice'                             => $choice,
