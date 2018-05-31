@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
 	use RegistersUsers;
 
-	protected $redirectTo = '/profile/compatible?created=1';
+	protected $redirectTo = '/';
 
 	public function __construct()
 	{
@@ -82,11 +82,6 @@ class RegisterController extends Controller
 			$img->encode('jpg');
 			$img->save($destination);
 		}
-
-		// TODO: redirect to home if random ok, but this doesn't work
-		//if (isset($data['random_ok'])) {
-		//	$redirectTo = '/';
-		//}
 
 		return $user;
 	}

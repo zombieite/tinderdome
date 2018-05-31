@@ -1,10 +1,14 @@
 @extends('layouts.app')
 @section('content')
+<h2>Wasteland's simplest and most beautiful mission.</h2>
 <p>
 Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, we need a designated meeting place. That's Wasteland.
 </p>
 <p>
-You Are Awaited is a simple mission that is conducted during Wasteland Weekend and other post-apocalyptic events. Signups can be done year-round. There are no in-person signups. All signups are done online. Money is useless nowadays so participation is free. There's no punishment for failure, but there are rewards for victory.
+You Are Awaited is a simple mission that is conducted during Wasteland Weekend and other post-apocalyptic events. There are no in-person signups. <a href="{{ route('register') }}">Signups are done on this site, year-round</a>. Money is useless nowadays so participation is free. There's no punishment for failure, but there are rewards for victory.
+</p>
+<p>
+Rebuilding the world from its ashes, one conversation at a time.
 </p>
 <h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
@@ -17,7 +21,7 @@ You Are Awaited is a simple mission that is conducted during Wasteland Weekend a
 </div>
 @endforeach
 <h3>1.
-@guest<a href="{{ route('register') }}">@endguest
+@guest<a href="{{ route('register') }}" class="bright">@endguest
 Create a profile
 @guest</a>@endguest</h3>
 <p>
@@ -37,6 +41,6 @@ Your mission is to find your match at the event. They'll be looking for you, too
 </p>
 <h3>5. Get your caps</h3>
 <p>
-If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. Get started now by <a href="{{ route('register') }}">creating your profile</a>.
+If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started now by creating your profile</a>.
 </p>
 @endsection
