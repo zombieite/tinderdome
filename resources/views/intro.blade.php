@@ -10,14 +10,14 @@ You Are Awaited is a simple mission that is conducted during Wasteland Weekend a
 <p>
 Rebuilding the world from its ashes, one conversation at a time.
 </p>
-<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others. Here's how.</h2>
+<h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
 <div class="profile_search_block">
 	@if ($leader['number_photos'])
 		<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}-1.jpg" style="height:100px;"></a>
 	@endif
 	<br>
-	{{ $leader['wasteland_name'] }} &middot; <span class="bright">{{ $leader['missions_completed']['points'] }}</span>
+	{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
 </div>
 @endforeach
 <h3>1.
@@ -43,4 +43,5 @@ Your mission is to find your match at the event. They'll be looking for you, too
 <p>
 If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started now by creating your profile</a>.
 </p>
+<p><sup id="RATT" class="bright">*</sup> RATT BOY prefers to be known as a VILLAIN</p>
 @endsection
