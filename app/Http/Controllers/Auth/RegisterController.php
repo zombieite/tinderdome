@@ -74,7 +74,7 @@ class RegisterController extends Controller
 		$user_id = $user->id;
 
 		if ($uploaded_file) {
-			$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$user_id-$wasteland_name_hyphenated-1.jpg";
+			$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$user_id-1.jpg";
 			File::copy($uploaded_file, $destination);
 			$img = Image::make($destination);
 			$img->orientate();

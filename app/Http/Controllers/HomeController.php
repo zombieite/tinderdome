@@ -64,6 +64,9 @@ class HomeController extends Controller
 			'random_ok'            => $random_ok,
 			'pretty_names'         => $pretty_names,
 			'found_my_match'       => $found_my_match,
+			'leaderboard'          => $leaderboard,
+			'leader_count'         => $leader_count,
+			'nonleader_count'      => $nonleader_count,
 		]);
 	}
 }

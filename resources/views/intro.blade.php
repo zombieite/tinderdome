@@ -14,7 +14,7 @@ Rebuilding the world from its ashes, one conversation at a time.
 @foreach ($leaderboard as $leader)
 <div class="profile_search_block">
 	@if ($leader['number_photos'])
-		<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}-1.jpg" style="height:100px;"></a>
+		<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a>
 	@endif
 	<br>
 	{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}

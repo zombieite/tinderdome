@@ -127,7 +127,7 @@ class Util {
 
 		usort($leaderboard, ['\App\Util', 'sort_leaderboard']);
 
-		$nonleader_count = 1; // Count Firebird too
+		$nonleader_count = 0;
 		while (count($leaderboard) > $number_of_leaders) {
 			array_pop($leaderboard);
 			$nonleader_count++;

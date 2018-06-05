@@ -37,7 +37,7 @@
 @guest
 @else
 @for ($i = 1; $i <= $number_photos; $i++)
-	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ preg_replace('/\s/', '-', $wasteland_name) }}-{{ $i }}.jpg" style="height:50px;"></a>
+	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg" style="height:50px;"></a>
 @endfor
 <br>
 @endguest
