@@ -264,7 +264,7 @@ class ProfileController extends Controller
 			$uploaded_file = $_FILES["image1"]['tmp_name'];
 			if ($uploaded_file) {
 				$number_photos++;
-				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$wasteland_name_hyphenated-1.jpg";
+				$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-1.jpg";
 				File::copy($uploaded_file, $destination);
 				$img = Image::make($destination);
 				$img->orientate();

@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others.</h2>
+@foreach ($leaderboard as $leader)
+<div class="profile_search_block">
+	@if ($leader['number_photos'])
+		<a href="/profile/{{ $leader['profile_id'] }}/{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
+	<br>
+	{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+</div>
+@endforeach
 <ol>
 <li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>
 @if ($unrated_users)
@@ -34,4 +43,5 @@
 </li>
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
+<p><sup id="RATT" class="bright">*</sup> RATT BOY prefers to be known as a VILLAIN</p>
 @endsection
