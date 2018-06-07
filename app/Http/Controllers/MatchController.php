@@ -146,13 +146,19 @@ class MatchController extends Controller
 					$user_2 = $_POST['user_2'];
 					$has_choose_row = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$user_1, $user_2]);
 					if ($has_choose_row) {
-						// Update it
+						foreach ($has_choose_row as $choose_row) {
+							// Yes we allow them to leave their choice as 0 and still count mission complete
+							DB::update('update choose set choice=-1 where choose_id=? and choice>0 limit 1', [$choose_row->choose_id]);
+						}
 					} else {
 						DB::insert('insert into choose (chooser_id, chosen_id, choice) values (?, ?, ?)', [$user_1, $user_2, -1]);
 					}
 					$has_choose_row = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$user_2, $user_1]);
 					if ($has_choose_row) {
-						// Update it
+						foreach ($has_choose_row as $choose_row) {
+							// Yes we allow them to leave their choice as 0 and still count mission complete
+							DB::update('update choose set choice=-1 where choose_id=? and choice>0 limit 1', [$choose_row->choose_id]);
+						}
 					} else {
 						DB::insert('insert into choose (chooser_id, chosen_id, choice) values (?, ?, ?)', [$user_2, $user_1, -1]);
 					}
