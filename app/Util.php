@@ -68,6 +68,10 @@ class Util {
 		$points = 0;
 		foreach ($missions as $mission) {
 			$other_user_id = $mission->user_1 == $user_id ? $mission->user_2 : $mission->user_1;
+
+			// Yes, we are giving them the point if they marked the user as No instead of Met.
+			// This allows them to hide users they have already met and did not like at all
+			// and still get credit fora the mission.
 			$user_claims_known = DB::select('
 				select
 					1
@@ -76,8 +80,9 @@ class Util {
 				where
 					chooser_id    = ?
 					and chosen_id = ?
-					and choice    = -1
+					and choice    <= 0
 			', [ $user_id, $other_user_id ]);
+
 			if ($user_claims_known) {
 				$points += 1;
 			}

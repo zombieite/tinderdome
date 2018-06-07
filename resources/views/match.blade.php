@@ -24,7 +24,7 @@
 		<th><b>Popularity</b></th>
 		<th><b>Match's<br>popularity</b></th>
 		@if ($matches_complete)
-
+			<th><b>Mark found</b></th>
 		@else
 			<th><b>Mutual matches</b></th>
 		@endif
@@ -70,6 +70,12 @@
 		<td>{{ $user->popularity }}</td>
 		<td>{{ $matched_users_hash[$user->id] ? $id_to_popularity_hash[$matched_users_hash[$user->id]] : '' }}</td>
 		@if ($matches_complete)
+			<td>
+				@if ((isset($match_rating_hash[$user->id]) && $match_rating_hash[$user->id] <= 0) || !$matched_users_hash[$user->id])
+				@else
+					<form method="POST"><input type="hidden" name="user_1" value="{{ $user->id }}"><input type="hidden" name="user_2" value="{{ $matched_users_hash[$user->id] }}"><input type="submit" name="found" value="Mark found"></form>
+				@endif
+			</td>
 
 		@else
 			<td>

@@ -140,6 +140,25 @@ class MatchController extends Controller
 		$matches_complete = DB::select("select * from matching where event=? and year=?", [$next_event, $year]);
 		if ($matches_complete) {
 
+			if (isset($_POST['user_1']) && isset($_POST['user_2'])) {
+				if ($_POST['user_1'] && $_POST['user_2']) {
+					$user_1 = $_POST['user_1'];
+					$user_2 = $_POST['user_2'];
+					$has_choose_row = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$user_1, $user_2]);
+					if ($has_choose_row) {
+						// Update it
+					} else {
+						DB::insert('insert into choose (chooser_id, chosen_id, choice) values (?, ?, ?)', [$user_1, $user_2, -1]);
+					}
+					$has_choose_row = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$user_2, $user_1]);
+					if ($has_choose_row) {
+						// Update it
+					} else {
+						DB::insert('insert into choose (chooser_id, chosen_id, choice) values (?, ?, ?)', [$user_2, $user_1, -1]);
+					}
+				}
+			}
+
 			Log::debug("MATCHES COMPLETE");
 
 			foreach ($matches_complete as $already_matched) {
