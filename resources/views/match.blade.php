@@ -71,9 +71,24 @@
 		<td>{{ $matched_users_hash[$user->id] ? $id_to_popularity_hash[$matched_users_hash[$user->id]] : '' }}</td>
 		@if ($matches_complete)
 			<td>
-				@if ((isset($match_rating_hash[$user->id]) && $match_rating_hash[$user->id] <= 0) || !$matched_users_hash[$user->id])
-				@else
-					<form method="POST"><input type="hidden" name="user_1" value="{{ $user->id }}"><input type="hidden" name="user_2" value="{{ $matched_users_hash[$user->id] }}"><input type="submit" name="found" value="Mark found"></form>
+				@if (
+					$matched_users_hash[$user->id]
+					&&
+					(
+						(
+							($match_rating_hash[$user->id] === 'NULL')
+							||
+							($match_rating_hash[$matched_users_hash[$user->id]] === 'NULL')
+						)
+						||
+						(
+							($match_rating_hash[$user->id] > 0)
+							||
+							($match_rating_hash[$matched_users_hash[$user->id]] > 0)
+						)
+					)
+				)
+					<form method="POST">{{ csrf_field() }}<input type="hidden" name="user_1" value="{{ $user->id }}"><input type="hidden" name="user_2" value="{{ $matched_users_hash[$user->id] }}"><input type="submit" name="found" value="Mark {{ $user->name }}/{{ $id_to_name_hash[$matched_users_hash[$user->id]] }} found"></form>
 				@endif
 			</td>
 
