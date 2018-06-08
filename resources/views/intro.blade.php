@@ -33,7 +33,7 @@ Browse other profiles and choose who you'd enjoy meeting.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-Shortly before each event, the matching algorithm will run. You will be matched with one other person. You'll come back to this site to see who you've been matched with. Upcoming events are Detonation Uranium Springs 2018 and Wasteland Weekend 2018.
+Shortly before each event, the matching algorithm will run. You will be matched with one other person. Come back to this site to see who you've been matched with, or just ask Firebird at the event. Next event: Wasteland Weekend 2018!
 </p>
 <h3>4. Seek out your match</h3>
 <p>
