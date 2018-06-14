@@ -42,6 +42,8 @@ class HomeController extends Controller
 		$matched              = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$chooser_user_id, $chooser_user_id, $next_event, $year]);
 		$found_my_match       = null;
 
+		//Log::debug("Next event '$next_event' year '$year'");
+
 		foreach ($matched as $match_result) {
 			//Log::debug("Checking match search results");
 			$matchs_id = null;

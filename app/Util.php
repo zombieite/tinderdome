@@ -17,7 +17,7 @@ class Util {
 	}
 
 	public static function upcoming_events() {
-		return ['detonation', 'wasteland'];
+		return ['wasteland'];
 	}
 
 	public static function unrated_users( $chooser_user_id ) {
