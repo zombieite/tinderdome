@@ -2,8 +2,15 @@
 @section('content')
 @php ($last_profile = 0)
 @if ($show_nos)
+	@if ($profiles_found_count)
+		{{ $profiles_found_count }} users marked as No
+		<hr>
+	@else
+		No users marked as No
+		<hr>
+	@endif
 @else
-	<a href="/search?show_nos=1">Show users I've marked as No</a>
+	<a href="/search?show_nos=1">See users I've marked as No</a>
 	<hr>
 @endif
 @foreach ($profiles as $profile)
