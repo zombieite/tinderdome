@@ -16,11 +16,11 @@
 	@if (isset($is_my_match) && $is_my_match)
 
 	@else
-		@if (($current_choice == 0) || ($nos_left > 0))
+		@if (($current_choice === 0) || ($nos_left > 0))
 			<input type="submit" name="No" value="No ({{ $nos_left >= 0 ? $nos_left : 0 }} left)"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
 		@endif
 		@if ($nos_left <= 0)
-			<br><br><span class="no">To mark more users as No, you must <a href="/search">change {{ -$nos_left+1 }} of your previous No ratings to Neutral</a>.</span>
+			<br><br><span class="no">To mark more users as No, you must <a href="/search?show_nos=1">change {{ -$nos_left+1 }} of your previous No ratings to Neutral</a>.</span>
 		@endif
 	@endif
 </form>
