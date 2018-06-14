@@ -64,13 +64,20 @@ class SearchController extends Controller
 				users
 				left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
 				left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
+				left join choose c3 on (c3.chooser_id = users.id and c3.chosen_id = ?)
 			where
 				id > 10
+				and
+				(
+					c3.choice is null
+					or
+					c3.choice != 0
+				)
 				$event_clause
 			order by
 				c1.choice desc,
 				name
-		", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+		", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
 		$nos_left                           = \App\Util::nos_left_for_user( $logged_in_user_id );
 		$logged_in_user_hoping_to_find_love = $logged_in_user->hoping_to_find_love;
