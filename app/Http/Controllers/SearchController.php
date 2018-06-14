@@ -125,7 +125,10 @@ class SearchController extends Controller
 			array_push($profiles, $profile);
 		}
 
-		#usort($profiles, [$this, 'sort_search']);
+		$profiles_found_count = count($profiles);
+		//Log::debug("Found $profiles_found_count profiles");
+
+		//usort($profiles, [$this, 'sort_search']);
 
 		return view('search', [
 			'profiles'                           => $profiles,
@@ -133,6 +136,7 @@ class SearchController extends Controller
 			'logged_in_user_id'                  => $logged_in_user_id,
 			'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
 			'show_nos'                           => $show_nos,
+			'profiles_found_count'               => $profiles_found_count,
 		]);
 	}
 
