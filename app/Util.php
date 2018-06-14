@@ -28,24 +28,35 @@ class Util {
 			$upcoming_order_bys .= "attending_$event desc,";
 		}
 
+		// The second choose join hides users who have already said no to you so you don't even get to see them
 		$unrated_users = DB::select("
 			select
 				*
 			from
 				users
-				left join choose on (
-					users.id=chosen_id
+				left join choose my_choice on (
+					users.id=my_choice.chosen_id
 					and chooser_id=?
+				)
+				left join choose their_choice on (
+					users.id=their_choice.chooser_id
+					and their_choice.chosen_id=?
 				)
 			where
 				id > 10
 				and id<>?
-				and choice is null
+				and my_choice.choice is null
+				and
+				(
+					their_choice.choice is null
+					or
+					their_choice.choice != 0
+				)
 			order by
 				$upcoming_order_bys
 				id
 		",
-		[$chooser_user_id, $chooser_user_id]);
+		[$chooser_user_id, $chooser_user_id, $chooser_user_id]);
 
 		return $unrated_users;
 	}
@@ -115,7 +126,7 @@ class Util {
 				id > 10
 		');
 		foreach ($all_users as $profile) {
-			$profile_id                = $profile->id;;
+			$profile_id                = $profile->id;
 			$wasteland_name            = $profile->name;
 			$number_photos             = $profile->number_photos;
 			$missions_completed        = \App\Util::missions_completed( $profile_id );
