@@ -58,11 +58,20 @@ class ProfileController extends Controller
 		// If we have a logged in user (not someone looking at Firebird's profile)
 		if ($auth_user_id && $auth_user) {
 
-			$nos_left          = \App\Util::nos_left_for_user( $auth_user_id );
+			$nos_left = \App\Util::nos_left_for_user( $auth_user_id );
 
 			// Figure out if user is looking at their own profile (hide buttons in that case)
 			if ($auth_user_id == $profile_id) {
 				$is_me = true;
+			} else {
+				// If they're trying to look at someone who is not Firebird
+				if ($profile_id != 1) {
+					// Make sure the person they're trying to look at hasn't said no to them
+					$they_said_no = DB::select('select * from choose where chooser_id=? and chosen_id=? and choice=0', [$profile_id, $auth_user_id]);
+					if ($they_said_no) {
+						abort(404);
+					}
+				}
 			}
 
 			// Find or create a choose row so the logged in user can rate the profile being viewed

@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
 @php ($last_profile = 0)
-{{ count($profiles) }} users total
-<hr>
 @foreach ($profiles as $profile)
 	<div class="@if ($profile['mutual_favorite']) profile_search_block_mutual @else profile_search_block @endif">
 		<a name="profile{{ $profile['profile_id'] }}"></a>
