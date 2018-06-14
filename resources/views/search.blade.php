@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
 @php ($last_profile = 0)
+@if ($show_nos)
+@else
+	<a href="/search?show_nos=1">Show users I've marked as No</a>
+	<hr>
+@endif
 @foreach ($profiles as $profile)
 	<div class="@if ($profile['mutual_favorite']) profile_search_block_mutual @else profile_search_block @endif">
 		<a name="profile{{ $profile['profile_id'] }}"></a>

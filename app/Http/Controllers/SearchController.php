@@ -48,6 +48,13 @@ class SearchController extends Controller
 			Log::debug("Masquerading as $logged_in_user_id");
 		}
 
+		$nos_clause = 'and ( c1.choice is null or c1.choice != 0 )';
+		$show_nos = false;
+		if (isset($_GET['show_nos']) && $_GET['show_nos']) {
+			$show_nos = true;
+			$nos_clause = 'and c1.choice = 0';
+		}
+
 		$profiles  = [];
 		$all_users = DB::select("
 			select
@@ -67,6 +74,7 @@ class SearchController extends Controller
 				left join choose c3 on (c3.chooser_id = users.id and c3.chosen_id = ?)
 			where
 				id > 10
+				$nos_clause
 				and
 				(
 					c3.choice is null
@@ -124,6 +132,7 @@ class SearchController extends Controller
 			'nos_left'                           => $nos_left,
 			'logged_in_user_id'                  => $logged_in_user_id,
 			'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
+			'show_nos'                           => $show_nos,
 		]);
 	}
 
