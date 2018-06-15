@@ -15,7 +15,7 @@
 	{{ csrf_field() }}
 	<br>
 	<label for="submit">Upload an image.</label>
-	Please make sure your image file is a maximum of 2MB.
+	Please make sure your image file is a maximum of 2MB in size.
 	<br><br>
 	<select name="imagenum">
 		@if ($number_photos < $max_photos)
