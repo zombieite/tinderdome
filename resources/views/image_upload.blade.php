@@ -1,33 +1,42 @@
 @extends('layouts.app')
 @section('content')
-@if (isset($update_errors))
-	@if ($update_errors)
-		<h2>Error updating images: {{ $update_errors }}</h2>
-	@endif
+@if ($errors)
+	<h2>Error updating images: {{ $errors }}</h2>
 @endif
 
-<form method="POST" action="" enctype="multipart/form-data">
-{{ csrf_field() }}
-
-@for ($i = 1; $i <= $max_photos; $i++)
-	@if ($i <= $number_photos)
-		<div class="image_upload_block">
-			<img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg" style="height:150px;">
-			<br>{{ $i }}
-		</div>
-	@else
-	@endif
+@for ($i = 1; $i <= $number_photos; $i++)
+	<div class="profile_search_block">
+		<img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg?time={{ $time }}" style="height:150px;">
+		<br>Image {{ $i }}
 	</div>
 @endfor
-<br>
-<label for="image1">Upload an image.</label>
-Please make sure your image file is a maximum of 2MB, or you might get an error.
-<br><br>
-<input type="file" name="image1" value="image" id="image1">
-<br><br>
-<button id="submit" type="submit" class="yesyes">
-Submit changes
-</button>
+
+<form method="POST" action="" enctype="multipart/form-data">
+	{{ csrf_field() }}
+	<br>
+	<label for="submit">Upload an image.</label>
+	Please make sure your image file is a maximum of 2MB.
+	<br><br>
+	<select name="imagenum">
+		@if ($number_photos < $max_photos)
+			<option value="new">New image</option>
+		@endif
+		@for ($i = 1; $i <= $number_photos; $i++)
+			<option value="{{ $i }}">Replace image {{ $i }}</option>
+		@endfor
+	</select>
+	<br><br>
+	<input type="file" name="image" value="image" id="image">
+	<br><br>
+	<button id="submit" name="upload" value="1" type="submit" class="yesyes">
+		Submit changes
+	</button>
+	<br><br>
+	<div style="width:100%;text-align:right;">
+		<button id="submit" name="delete" value="1" type="submit" class="no">
+			Delete all images
+		</button>
+	</div>
 </form>
 
 @endsection
