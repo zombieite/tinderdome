@@ -46,7 +46,7 @@
 @else
 To remove old images just upload new ones.
 @endguest
-Please make sure your image file is a maxium of 2MB, or you might get an error.
+Please make sure your image file is a maximum of 2MB, or you might get an error.
 <br>
 <input type="file" name="image1" value="image" id="image1">
 

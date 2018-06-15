@@ -77,4 +77,10 @@ button.met, input[type="submit"].met {
 	margin-right: .1em;
 	padding: .5em;
 }
-
+.image_upload_block {
+	display: inline-block;
+	border: 1px solid var(--subtle);
+	margin: .2em;
+	padding: .5em;
+	text-align: center;
+}

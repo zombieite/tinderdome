@@ -50,6 +50,8 @@ Route::get('profile/match', 'ProfileController@match', function () {
 	return view('profile');
 })->middleware('auth');
 
+Route::get('/image/upload', 'ImageController@upload')->middleware('auth');
+
 Route::get('/search', 'SearchController@search')->middleware('auth');
 
 Route::post('/search', 'SearchController@update_rating')->middleware('auth');
