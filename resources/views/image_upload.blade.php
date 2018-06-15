@@ -6,7 +6,7 @@
 
 @for ($i = 1; $i <= $number_photos; $i++)
 	<div class="profile_search_block">
-		<img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg?time={{ $time }}" style="height:150px;">
+		<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg?time={{ $time }}"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg?time={{ $time }}" style="height:150px;"></a>
 		<br>Image {{ $i }}
 	</div>
 @endfor
