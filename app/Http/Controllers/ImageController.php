@@ -78,12 +78,18 @@ class ImageController extends Controller
 
 		$time = time();
 
+		$new_user = false;
+		if (isset($_GET['new_user'])) {
+			$new_user = true;
+		}
+
 		return view('image_upload', [
 			'profile_id'     => $profile_id,
 			'max_photos'     => $max_photos,
 			'number_photos'  => $number_photos,
 			'errors'         => $errors,
 			'time'           => $time,
+			'new_user'       => $new_user,
 		]);
 	}
 }
