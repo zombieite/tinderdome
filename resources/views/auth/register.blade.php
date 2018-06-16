@@ -33,23 +33,6 @@
 <label for="password-confirm">Confirm password</label>
 <input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>
 
-<br><br>
-@guest
-@else
-@for ($i = 1; $i <= $number_photos; $i++)
-	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg" style="height:50px;"></a>
-@endfor
-<br>
-@endguest
-<label for="image1">Upload an image.</label>
-@guest
-@else
-To remove old images just upload new ones.
-@endguest
-Please make sure your image file is a maximum of 2MB, or you might get an error.
-<br>
-<input type="file" name="image1" value="image" id="image1">
-
 <hr>
 
 I will be attending the next...

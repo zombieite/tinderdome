@@ -17,15 +17,19 @@
 	<label for="submit">Upload an image.</label>
 	Please make sure your image file is a maximum of 2MB in size.
 	<br><br>
-	<select name="imagenum">
-		@if ($number_photos < $max_photos)
-			<option value="new">New image</option>
-		@endif
-		@for ($i = 1; $i <= $number_photos; $i++)
-			<option value="{{ $i }}">Replace image {{ $i }}</option>
-		@endfor
-	</select>
-	<br><br>
+	@if ($number_photos == 0)
+		<input type="hidden" name="imagenum" value="new">
+	@else
+		<select name="imagenum">
+			@if ($number_photos < $max_photos)
+				<option value="new">New image</option>
+			@endif
+			@for ($i = 1; $i <= $number_photos; $i++)
+				<option value="{{ $i }}">Replace image {{ $i }}</option>
+			@endfor
+		</select>
+		<br><br>
+	@endif
 	<input type="file" name="image" value="image" id="image">
 	<br><br>
 	<button id="submit" name="upload" value="1" type="submit" class="yesyes">

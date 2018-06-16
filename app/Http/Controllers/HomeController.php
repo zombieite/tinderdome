@@ -31,6 +31,7 @@ class HomeController extends Controller
 			]);
 		}
 
+		$number_photos        = $chooser_user->number_photos;
 		$unrated_users        = \App\Util::unrated_users( $chooser_user_id );
 		$upcoming_events      = \App\Util::upcoming_events();
 		$pretty_names         = \App\Util::pretty_event_names();
@@ -57,6 +58,7 @@ class HomeController extends Controller
 		}
 
 		return view('home', [
+			'number_photos'        => $number_photos,
 			'unrated_users'        => $unrated_users,
 			'matched'              => $matched,
 			'next_event'           => $next_event,

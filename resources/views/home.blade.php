@@ -11,13 +11,13 @@
 </div>
 @endforeach
 <ol>
-<li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>
+@if ($number_photos)
+	<li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>
+@else
+	<li><a href="/image/upload">Upload photos</a>.</li>
+@endif
 @if ($unrated_users)
-	@if ($random_ok) 
-		<li>COMPLETE: Your preferences indicate you are ok with a random match, so you don't have to rate other profiles. <a href="/profile/compatible?">But you can if you want to</a>.</li>
-	@else
-		<li><a href="/profile/compatible?">Choose who you'd like to meet</a>.</li>
-	@endif
+	<li><a href="/profile/compatible?">Choose who you'd like to meet</a>.</li>
 @else
 	<li>COMPLETE: You have rated every profile. Check back later to rate new arrivals. Or you can <a href="/search">revisit profiles</a> you've already viewed.</li>
 @endif

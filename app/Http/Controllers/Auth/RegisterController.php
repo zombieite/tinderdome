@@ -6,14 +6,13 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Image;
 use File;
 
 class RegisterController extends Controller
 {
 	use RegistersUsers;
 
-	protected $redirectTo = '/';
+	protected $redirectTo = '/image/upload';
 
 	public function __construct()
 	{
@@ -31,13 +30,6 @@ class RegisterController extends Controller
 
 	protected function create(array $data)
 	{
-		$image_height  = 500;
-		$number_photos = 0;
-		$uploaded_file = $_FILES["image1"]['tmp_name'];
-		if ($uploaded_file) {
-			$number_photos++;
-		}
-
 		$wasteland_name            = $data['name'];
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 		$ip                        = request()->ip() or die("No ip");
@@ -67,21 +59,11 @@ class RegisterController extends Controller
 			'attending_ball'              => isset($data['attending_ball'])            ? true : false,
 			'attending_detonation'        => isset($data['attending_detonation'])      ? true : false,
 			'attending_wasteland'         => isset($data['attending_wasteland'])       ? true : false,
-			'number_photos'               => $number_photos,
+			'number_photos'               => 0,
 			'ip'                          => $ip,
 		]);
 
 		$user_id = $user->id;
-
-		if ($uploaded_file) {
-			$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$user_id-1.jpg";
-			File::copy($uploaded_file, $destination);
-			$img = Image::make($destination);
-			$img->orientate();
-			$img->heighten($image_height);
-			$img->encode('jpg');
-			$img->save($destination);
-		}
 
 		return $user;
 	}
