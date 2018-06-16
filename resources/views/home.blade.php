@@ -3,7 +3,7 @@
 @section('content')
 <h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others.</h2>
 @foreach ($leaderboard as $leader)
-<div class="profile_search_block">
+<div class="centered_block">
 	@if ($leader['number_photos'])
 		<a href="/profile/{{ $leader['profile_id'] }}/{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
 	<br>
