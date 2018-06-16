@@ -146,12 +146,15 @@ Submit changes
 
 @guest
 @else
-<form method="POST" action="" style="width:100%;text-align:right;">
-{{ csrf_field() }}
-<button type="submit" name="delete" class="no">
-DELETE PROFILE
-</button>
-</form>
+	@if ($wasteland_name === 'Firebird')
+	@else
+		<form method="POST" action="" style="width:100%;text-align:right;">
+			{{ csrf_field() }}
+			<button type="submit" name="delete" class="no">
+				DELETE PROFILE
+			</button>
+		</form>
+	@endif
 @endguest
 
 @endsection

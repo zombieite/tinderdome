@@ -14,7 +14,7 @@
 @if ($number_photos)
 	<li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>
 @else
-	<li><a href="/image/upload">Upload photos</a>.</li>
+	<li><a href="/image/upload" class="bright">PROFILE INCOMPLETE: Upload photos</a>.</li>
 @endif
 @if ($unrated_users)
 	<li><a href="/profile/compatible?">Choose who you'd like to meet</a>.</li>
