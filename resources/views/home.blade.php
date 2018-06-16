@@ -28,7 +28,7 @@
 		@if ($matches_done)
 			<li>Matches are complete for {{ $pretty_names[$next_event] }} {{ $year }}, but you were not matched. <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Find out why</a>.</li>
 		@else
-			<li>Matches have not yet been run for {{ $pretty_names[$next_event] }} {{ $year }}. Check back here a few days before to find out who you've been matched with.</li>
+			<li>Matches have not yet been run for {{ $pretty_names[$next_event] }} {{ $year }}. Check back here a few days before the event to find out who you're matched with.</li>
 		@endif
 	@endif
 @else
