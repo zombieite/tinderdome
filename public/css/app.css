@@ -78,3 +78,12 @@ button.met, input[type="submit"].met {
 	padding: .5em;
 	text-align: left;
 }
+.centered_block {
+	display: inline-block;
+	border: 1px solid var(--subtle);
+	margin-top: .2em;
+	margin-bottom: .2em;
+	margin-right: .1em;
+	padding: .5em;
+	text-align: center;
+}
