@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
 	use RegistersUsers;
 
-	protected $redirectTo = '/image/upload';
+	protected $redirectTo = '/image/upload?new_user=1';
 
 	public function __construct()
 	{

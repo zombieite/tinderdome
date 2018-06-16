@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+@if ($new_user && $number_photos > 0)
+	<h2>Signup complete! You can upload more photos... or <a href="/profile/compatible?">choose who you'd like to meet</a>.</h2>
+@endif
+
 @if ($errors)
 	<h2>Error updating images: {{ $errors }}</h2>
 @endif
