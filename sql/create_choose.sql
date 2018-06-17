@@ -7,3 +7,4 @@ CREATE TABLE choose (
 	choice INT,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+alter table choose add unique `unique_chooser_chosen`(`chooser_id`, `chosen_id`);

@@ -12,7 +12,7 @@ Rebuilding the world from its ashes, one conversation at a time.
 </p>
 <h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
-<div class="profile_search_block">
+<div class="centered_block">
 	@if ($leader['number_photos'])
 		<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a>
 	@endif
