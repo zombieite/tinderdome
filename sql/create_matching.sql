@@ -8,3 +8,4 @@ CREATE TABLE matching (
 	user_2 INT NOT NULL,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+alter table matching add unique `unique_user_1_user_2`(`user_1`, `user_2`);
