@@ -42,6 +42,7 @@ class ProfileController extends Controller
 		}
 
 		$is_me               = false;
+		$image_query_string  = '';
 		$user_count          = 0;
 		$nos_left            = 0;
 		$nos_used            = 0;
@@ -63,6 +64,7 @@ class ProfileController extends Controller
 			// Figure out if user is looking at their own profile (hide buttons in that case)
 			if ($auth_user_id == $profile_id) {
 				$is_me = true;
+				$image_query_string = '?t=' . time();
 			} else {
 				// If they're trying to look at someone who is not Firebird
 				if ($profile_id != 1) {
@@ -152,6 +154,7 @@ class ProfileController extends Controller
 			'attending'                          => $attending,
 			'pretty_event_names'                 => $pretty_event_names,
 			'year'                               => $year,
+			'image_query_string'                 => $image_query_string,
 		]);
 	}
 

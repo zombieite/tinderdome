@@ -78,6 +78,6 @@
 @endif
 <br>
 @for ($i = 1; $i <= $number_photos; $i++)
-<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg" style="height:250px;"></a>
+	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}" style="height:250px;"></a>
 @endfor
 @endsection
