@@ -139,13 +139,14 @@ class SearchController extends Controller
 		//usort($profiles, [$this, 'sort_search']);
 
 		return view('search', [
-			'profiles'                           => $profiles,
-			'nos_left'                           => $nos_left,
-			'logged_in_user_id'                  => $logged_in_user_id,
-			'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
-			'show_nos'                           => $show_nos,
-			'show_mutuals'                       => $show_mutuals,
-			'profiles_found_count'               => $profiles_found_count,
+			'profiles'                                 => $profiles,
+			'nos_left'                                 => $nos_left,
+			'logged_in_user_id'                        => $logged_in_user_id,
+			'logged_in_user_hoping_to_find_love'       => $logged_in_user_hoping_to_find_love,
+			'logged_in_user_share_info_with_favorites' => $logged_in_user_share_info_with_favorites,
+			'show_nos'                                 => $show_nos,
+			'show_mutuals'                             => $show_mutuals,
+			'profiles_found_count'                     => $profiles_found_count,
 		]);
 	}
 
