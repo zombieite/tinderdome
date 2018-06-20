@@ -107,7 +107,7 @@ class SearchController extends Controller
 			$description               = $profile->description;
 			$number_photos             = $profile->number_photos;
 			$choice                    = $profile->logged_in_user_choice;
-			$mutual_favorite           = null;
+			$mutual_favorite           = false;
 			$missions_completed        = \App\Util::missions_completed( $profile_id );
 			$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 
@@ -130,7 +130,10 @@ class SearchController extends Controller
 				'mutual_favorite'           => $mutual_favorite,
 				'missions_completed'        => $missions_completed,
 			];
-			array_push($profiles, $profile);
+
+			if ($mutual_favorite || !$show_mutuals) {
+				array_push($profiles, $profile);
+			}
 		}
 
 		$profiles_found_count = count($profiles);
