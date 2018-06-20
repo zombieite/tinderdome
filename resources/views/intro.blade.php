@@ -37,7 +37,7 @@ Shortly before each event, the matching algorithm will run. You will be matched 
 </p>
 <h3>4. Seek out your match</h3>
 <p>
-Your mission is to find your match at the event. They'll be looking for you, too. Optionally, when you meet, you can use this opportunity to merge the backstories of your Wasteland personas. Come up with a real or fictionalized account of how you met.
+Your mission is to find your match at the event. They'll be looking for you, too. If you like, you can merge the backstories of your Wasteland personas. Come up with a real or fictionalized account of how you met.
 </p>
 <h3>5. Get your caps</h3>
 <p>
