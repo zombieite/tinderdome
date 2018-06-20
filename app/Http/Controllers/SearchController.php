@@ -29,6 +29,8 @@ class SearchController extends Controller
 		$event             = isset($_GET['event']) ? $_GET['event'] : null;
 		$events            = \App\Util::upcoming_events();
 		$event_clause      = '';
+		$show_nos          = false;
+		$show_mutuals      = false;
 
 		if ($event) {
 			if (preg_match('/^[a-z]+$/', $event)) {
@@ -49,7 +51,6 @@ class SearchController extends Controller
 		}
 
 		$nos_clause = 'and ( c1.choice is null or c1.choice != 0 )';
-		$show_nos = false;
 		if (isset($_GET['show_nos']) && $_GET['show_nos']) {
 			$show_nos = true;
 			$nos_clause = 'and c1.choice = 0';
@@ -65,6 +66,8 @@ class SearchController extends Controller
 				birth_year,
 				description,
 				number_photos,
+				hoping_to_find_love,
+				share_info_with_favorites,
 				c1.choice logged_in_user_choice,
 				c2.choice their_choice
 			from
@@ -87,8 +90,9 @@ class SearchController extends Controller
 				name
 		", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
-		$nos_left                           = \App\Util::nos_left_for_user( $logged_in_user_id );
-		$logged_in_user_hoping_to_find_love = $logged_in_user->hoping_to_find_love;
+		$nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
+		$logged_in_user_hoping_to_find_love       = $logged_in_user->hoping_to_find_love;
+		$logged_in_user_share_info_with_favorites = $logged_in_user->share_info_with_favorites;
 
 		foreach ($all_users as $profile) {
 			$profile_id                = $profile->id;;
@@ -103,8 +107,8 @@ class SearchController extends Controller
 			$missions_completed        = \App\Util::missions_completed( $profile_id );
 			$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 
-			if ( $choice == 3 ) {
-				if ( $profile->their_choice == 3 ) {
+			if ( $logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites && $choice == 3 ) {
+				if ( $profile->hoping_to_find_love && $profile->share_info_with_favorites && $profile->their_choice == 3 ) {
 					$mutual_favorite = true;
 				}
 			}
@@ -136,6 +140,7 @@ class SearchController extends Controller
 			'logged_in_user_id'                  => $logged_in_user_id,
 			'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
 			'show_nos'                           => $show_nos,
+			'show_mutuals'                       => $show_mutuals,
 			'profiles_found_count'               => $profiles_found_count,
 		]);
 	}
