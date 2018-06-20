@@ -94,6 +94,10 @@ class SearchController extends Controller
 		$logged_in_user_hoping_to_find_love       = $logged_in_user->hoping_to_find_love;
 		$logged_in_user_share_info_with_favorites = $logged_in_user->share_info_with_favorites;
 
+		if (isset($_GET['show_mutuals']) && $_GET['show_mutuals'] && $logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites) {
+			$show_mutuals = true;
+		}
+
 		foreach ($all_users as $profile) {
 			$profile_id                = $profile->id;;
 			$wasteland_name            = $profile->name;
