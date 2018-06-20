@@ -1,17 +1,25 @@
 @extends('layouts.app')
 @section('content')
 @php ($last_profile = 0)
-@if ($show_nos)
+@if ($show_mutuals)
 	@if ($profiles_found_count)
-		{{ $profiles_found_count }} users marked as No
-		<hr>
+		{{ $profiles_found_count }} mutuals found<br><br>
 	@else
-		No users marked as No
-		<hr>
+		No mutuals found yet<br><br>
 	@endif
 @else
-	<a href="/search?show_nos=1">See users I've marked as No</a>
-	<hr>
+	@if ($logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites)
+		<a href="/search?show_mutuals=1">See mutuals</a><br><br>
+	@endif
+@endif
+@if ($show_nos)
+	@if ($profiles_found_count)
+		{{ $profiles_found_count }} users marked as No<br><br>
+	@else
+		No users marked as No<br><br>
+	@endif
+@else
+	<a href="/search?show_nos=1">See users I've marked as No</a><br><br>
 @endif
 @foreach ($profiles as $profile)
 	@if ($profile['mutual_favorite'] || !$show_mutuals)
