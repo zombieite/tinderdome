@@ -29,15 +29,21 @@ class Util {
 		}
 
 		#Log::debug("Gender of match: $gender_of_match");
-		$gender_order_by = ''; 
-		$gender_order_by = "
-			case gender
-				when 'O' then 1
-				when '$gender_of_match' then 2
-				else 3
-			end
-			,
-		";
+		$gender_order_by = '';
+		if ($gender_of_match) {
+			if (time() % 5 == 0) {
+				// Sometimes, you just gotta rate your non-preferred gender
+			} else {
+				$gender_order_by = "
+					case gender
+						when 'O' then 1
+						when '$gender_of_match' then 2
+						else 3
+					end
+					,
+				";
+			}
+		}
 
 		// The second choose join hides users who have already said no to you so you don't even get to see them
 		$unrated_users = DB::select("
