@@ -470,9 +470,10 @@ class ProfileController extends Controller
 			DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
 		}
 
-		$unrated_users = \App\Util::unrated_users( $chooser_user_id );
-		$unrated_user  = array_shift($unrated_users);
-		$count_left    = 0;
+		$gender_of_match  = $chooser_user->gender_of_match;
+		$unrated_users    = \App\Util::unrated_users( $chooser_user_id, $gender_of_match );
+		$unrated_user     = array_shift($unrated_users);
+		$count_left       = 0;
 		foreach ($unrated_users as $user_to_count) {
 			$count_left++;
 		}
