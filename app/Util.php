@@ -32,8 +32,9 @@ class Util {
 		$gender_order_by = ''; 
 		$gender_order_by = "
 			case gender
-				when '$gender_of_match' then 1
-				else 2
+				when 'O' then 1
+				when '$gender_of_match' then 2
+				else 3
 			end
 			,
 		";
