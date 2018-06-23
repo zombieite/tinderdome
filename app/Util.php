@@ -20,13 +20,23 @@ class Util {
 		return ['wasteland'];
 	}
 
-	public static function unrated_users( $chooser_user_id ) {
+	public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
 
 		$upcoming_events = \App\Util::upcoming_events();
 		$upcoming_order_bys = '';
 		foreach ($upcoming_events as $event) {
 			$upcoming_order_bys .= "attending_$event desc,";
 		}
+
+		#Log::debug("Gender of match: $gender_of_match");
+		$gender_order_by = ''; 
+		$gender_order_by = "
+			case gender
+				when '$gender_of_match' then 1
+				else 2
+			end
+			,
+		";
 
 		// The second choose join hides users who have already said no to you so you don't even get to see them
 		$unrated_users = DB::select("
@@ -53,6 +63,7 @@ class Util {
 					their_choice.choice != 0
 				)
 			order by
+				$gender_order_by
 				$upcoming_order_bys
 				id
 		",
