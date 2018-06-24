@@ -390,7 +390,7 @@ class MatchController extends Controller
 					// Last minute double-check that no one said no to meeting
 					$last_minute_no_check_results = DB::select('select chooser_id, choice from choose where chooser_id in (?,?) and chosen_id in (?,?)', [$user_to_be_matched->id, $matched_user_id, $user_to_be_matched->id, $matched_user_id]);
 					foreach ($last_minute_no_check_results as $last_minute_no_check_result) {
-						if ($last_minute_no_check_result->choice <= 0) {
+						if (($last_minute_no_check_result->choice !== null) && ($last_minute_no_check_result->choice <= 0)) {
 							die("Found score of '".$last_minute_no_check_result->choice."' between users ".$user_to_be_matched->id." and $matched_user_id");
 						}
 						$random_status_results = DB::select('select random_ok from users where id=?', [$last_minute_no_check_result->chooser_id]);
