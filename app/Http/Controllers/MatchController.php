@@ -251,16 +251,6 @@ class MatchController extends Controller
 							and id != ?
 					", [ $user_to_be_matched->id, $user_to_be_matched_scores_that_user, $user_to_be_matched->id, $user_to_be_matched->id, $user_to_be_matched->id, $user_to_be_matched->id ]);
 
-					if ($mutual_unmet_matches) {
-						$string = '';
-						foreach ($mutual_unmet_matches as $mutual) {
-							$string .= $mutual->name . '  ';
-						}
-						Log::debug('Mutuals for '.$user_to_be_matched->name.": $string");
-					} else {
-						Log::debug('No mutuals for '.$user_to_be_matched->name." with this user's score of $user_to_be_matched_scores_that_user");
-					}
-
 					// Can't figure out a better way to pass params to sort
 					foreach ($mutual_unmet_matches as $match) {
 						$match->gender_of_chooser         = $user_to_be_matched->gender;
@@ -270,6 +260,17 @@ class MatchController extends Controller
 
 					// Where the magic happens
 					usort($mutual_unmet_matches, array($this, 'sortMatches'));
+
+					if ($mutual_unmet_matches) {
+						$string = '';
+						foreach ($mutual_unmet_matches as $mutual) {
+							$string .= $mutual->name . ', ';
+						}
+						$string = substr($string, 0, -2); // Take off last comma and space
+						Log::debug('Sorted mutuals for '.$user_to_be_matched->name." with this user's score of $user_to_be_matched_scores_that_user: $string");
+					} else {
+						Log::debug('No mutuals for '.$user_to_be_matched->name." with this user's score of $user_to_be_matched_scores_that_user");
+					}
 
 					// For each of this user's mutual matches...
 					foreach ($mutual_unmet_matches as $match) {
@@ -297,6 +298,8 @@ class MatchController extends Controller
 
 				Log::debug("\n");
 			}
+
+			// One-sided matches? (Chosen => random)? Seems like we don't need to bother?
 
 			// Now that we've gone through all users once, looking for mutuals, if any remain unmatched, let's try random matches
 			Log::debug("\n\nRANDOM MATCHES\n");
