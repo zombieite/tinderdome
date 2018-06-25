@@ -31,7 +31,7 @@ class Util {
 		#Log::debug("Gender of match: $gender_of_match");
 		$gender_order_by = '';
 		if ($gender_of_match) {
-			if (time() % 5 == 0) {
+			if (time() % 4 == 0) {
 				// Sometimes, you just gotta rate your non-preferred gender
 			} else {
 				$gender_order_by = "
