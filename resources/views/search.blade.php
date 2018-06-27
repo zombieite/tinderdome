@@ -3,13 +3,13 @@
 @php ($last_profile = 0)
 @if ($show_mutuals)
 	@if ($profiles_found_count)
-		{{ $profiles_found_count }} mutuals found<br><br>
+		{{ $profiles_found_count }} mutuals have shared their contact info with you<br><br>
 	@else
-		No mutuals found yet<br><br>
+		No mutuals have shared their contact info with you yet<br><br>
 	@endif
 @else
 	@if ($logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites)
-		<a href="/search?show_mutuals=1">See mutuals</a><br><br>
+		<a href="/search?show_mutuals=1">See mutuals who have shared their contact info with you</a><br><br>
 	@endif
 @endif
 @if ($show_nos)
