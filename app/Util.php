@@ -72,7 +72,7 @@ class Util {
 			order by
 				$gender_order_by
 				$upcoming_order_bys
-				id
+				id desc
 		",
 		[$chooser_user_id, $chooser_user_id, $chooser_user_id]);
 
