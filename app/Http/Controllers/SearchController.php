@@ -71,41 +71,42 @@ class SearchController extends Controller
 			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
 		}
 
-		if (isset($_GET['show_all'])) {
-			$show_all  = true;
-			$all_users = DB::select("
-				select
-					id,
-					name,
-					gender,
-					height,
-					birth_year,
-					description,
-					number_photos,
-					hoping_to_find_love,
-					share_info_with_favorites,
-					c1.choice logged_in_user_choice,
-					c2.choice their_choice
-				from
-					users
-					left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
-					left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
-					left join choose c3 on (c3.chooser_id = users.id and c3.chosen_id = ?)
-				where
-					id > 10
-					$nos_clause
-					and
-					(
-						c3.choice is null
-						or
-						c3.choice != 0
-					)
-					$event_clause
-				order by
-					c1.choice desc,
-					name
-			", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+		if (($_GET['show_all'])) {
+			$show_all = true;
 		}
+
+		$all_users = DB::select("
+			select
+				id,
+				name,
+				gender,
+				height,
+				birth_year,
+				description,
+				number_photos,
+				hoping_to_find_love,
+				share_info_with_favorites,
+				c1.choice logged_in_user_choice,
+				c2.choice their_choice
+			from
+				users
+				left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
+				left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
+				left join choose c3 on (c3.chooser_id = users.id and c3.chosen_id = ?)
+			where
+				id > 10
+				$nos_clause
+				and
+				(
+					c3.choice is null
+					or
+					c3.choice != 0
+				)
+				$event_clause
+			order by
+				c1.choice desc,
+				name
+		", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
 		if (isset($_GET['show_mutuals']) && $_GET['show_mutuals'] && $logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites) {
 			$show_mutuals = true;
