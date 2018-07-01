@@ -35,10 +35,11 @@ class Util {
 				// Sometimes, you just gotta rate your non-preferred gender
 			} else {
 				$gender_order_by = "
-					case gender
-						when 'O' then 1
-						when '$gender_of_match' then 2
-						else 3
+					case
+						when gender is null then 1
+						when gender='O' then 2
+						when gender='$gender_of_match' then 3
+						else 4
 					end
 					,
 				";
