@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@php ($last_profile = 0)
 @if ($show_all)
 	All users<br><br>
 @else
@@ -66,9 +65,8 @@
 			@if ($logged_in_user_id == $profile['profile_id'])
 				(You)
 			@else
-				@include('rating_form', ['action' => "#profile$last_profile", 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice']])
+				@include('rating_form', ['action' => "#profile".$profile['profile_id'], 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice']])
 			@endif
-			@php ($last_profile = $profile['profile_id'])
 		</div>
 	@endif
 @endforeach
