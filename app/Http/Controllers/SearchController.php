@@ -24,13 +24,21 @@ class SearchController extends Controller
 	}
 
 	public function search() {
-		$logged_in_user_id = Auth::id();
-		$logged_in_user    = Auth::user();
-		$event             = isset($_GET['event']) ? $_GET['event'] : null;
-		$events            = \App\Util::upcoming_events();
-		$event_clause      = '';
-		$show_nos          = false;
-		$show_mutuals      = false;
+		$logged_in_user_id                        = Auth::id();
+		$logged_in_user                           = Auth::user();
+		$event                                    = isset($_GET['event']) ? $_GET['event'] : null;
+		$events                                   = \App\Util::upcoming_events();
+		$event_clause                             = '';
+		$show_nos                                 = false;
+		$show_mutuals                             = false;
+		$profiles                                 = [];
+		$all_users                                = [];
+		$show_all                                 = false;
+		$nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
+		$logged_in_user_hoping_to_find_love       = $logged_in_user->hoping_to_find_love;
+		$logged_in_user_share_info_with_favorites = $logged_in_user->share_info_with_favorites;
+		$logged_in_user_random_ok                 = $logged_in_user->random_ok;
+		$users_who_must_be_rated                  = 0;
 
 		if ($event) {
 			if (preg_match('/^[a-z]+$/', $event)) {
@@ -55,15 +63,6 @@ class SearchController extends Controller
 			$show_nos = true;
 			$nos_clause = 'and c1.choice = 0';
 		}
-
-		$profiles                                 = [];
-		$all_users                                = [];
-		$show_all                                 = false;
-		$nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
-		$logged_in_user_hoping_to_find_love       = $logged_in_user->hoping_to_find_love;
-		$logged_in_user_share_info_with_favorites = $logged_in_user->share_info_with_favorites;
-		$logged_in_user_random_ok                 = $logged_in_user->random_ok;
-		$users_who_must_be_rated                  = 0;
 
 		if (isset($_GET['show_all'])) {
 			$show_all = true;
