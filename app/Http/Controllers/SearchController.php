@@ -71,7 +71,7 @@ class SearchController extends Controller
 			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
 		}
 
-		if (($_GET['show_all'])) {
+		if (isset($_GET['show_all'])) {
 			$show_all = true;
 		}
 
