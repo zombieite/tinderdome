@@ -28,9 +28,12 @@ class SearchController extends Controller
 		$logged_in_user                           = Auth::user();
 		$event                                    = isset($_GET['event']) ? $_GET['event'] : null;
 		$events                                   = \App\Util::upcoming_events();
+		$nos_clause                               = 'and ( c1.choice is null or c1.choice != 0 )';
 		$event_clause                             = '';
+		$gender_clause                            = '';
 		$show_nos                                 = false;
 		$show_mutuals                             = false;
+		$show_preferred_gender                    = false;
 		$profiles                                 = [];
 		$all_users                                = [];
 		$show_all                                 = false;
@@ -38,6 +41,7 @@ class SearchController extends Controller
 		$logged_in_user_hoping_to_find_love       = $logged_in_user->hoping_to_find_love;
 		$logged_in_user_share_info_with_favorites = $logged_in_user->share_info_with_favorites;
 		$logged_in_user_random_ok                 = $logged_in_user->random_ok;
+		$logged_in_user_preferred_gender_of_match = $logged_in_user->gender_of_match;
 		$users_who_must_be_rated                  = 0;
 
 		if ($event) {
@@ -58,7 +62,13 @@ class SearchController extends Controller
 			Log::debug("Masquerading as $logged_in_user_id");
 		}
 
-		$nos_clause = 'and ( c1.choice is null or c1.choice != 0 )';
+		if (isset($_GET['show_preferred_gender']) && $logged_in_user_preferred_gender_of_match) {
+			$show_preferred_gender = true;
+			if (preg_match('/^M|F|O$/', $logged_in_user_preferred_gender_of_match)) {
+				$gender_clause = "and (gender='$logged_in_user_preferred_gender_of_match' or gender is null or gender='' or gender='O')";
+			}
+		}
+
 		if (isset($_GET['show_nos']) && $_GET['show_nos']) {
 			$show_nos = true;
 			$nos_clause = 'and c1.choice = 0';
@@ -78,7 +88,7 @@ class SearchController extends Controller
 			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
 		}
 
-		if ($show_all || $show_mutuals || $show_nos) {
+		if ($show_all || $show_mutuals || $show_nos || $show_preferred_gender) {
 			$all_users = DB::select("
 				select
 					id,
@@ -100,6 +110,7 @@ class SearchController extends Controller
 				where
 					id > 10
 					$nos_clause
+					$gender_clause
 					and
 					(
 						c3.choice is null
@@ -162,9 +173,11 @@ class SearchController extends Controller
 			'logged_in_user_id'                        => $logged_in_user_id,
 			'logged_in_user_hoping_to_find_love'       => $logged_in_user_hoping_to_find_love,
 			'logged_in_user_share_info_with_favorites' => $logged_in_user_share_info_with_favorites,
+			'logged_in_user_preferred_gender_of_match' => $logged_in_user_preferred_gender_of_match,
 			'show_nos'                                 => $show_nos,
 			'show_mutuals'                             => $show_mutuals,
 			'show_all'                                 => $show_all,
+			'show_preferred_gender'                    => $show_preferred_gender,
 			'profiles_found_count'                     => $profiles_found_count,
 			'users_who_must_be_rated'                  => $users_who_must_be_rated,
 		]);
