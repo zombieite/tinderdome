@@ -56,9 +56,21 @@ class SearchController extends Controller
 			$nos_clause = 'and c1.choice = 0';
 		}
 
-		$profiles  = [];
-		$all_users = [];
-		$show_all  = false;
+		$profiles                                 = [];
+		$all_users                                = [];
+		$show_all                                 = false;
+		$nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
+		$logged_in_user_hoping_to_find_love       = $logged_in_user->hoping_to_find_love;
+		$logged_in_user_share_info_with_favorites = $logged_in_user->share_info_with_favorites;
+		$logged_in_user_random_ok                 = $logged_in_user->random_ok;
+		$users_who_must_be_rated                  = 0;
+
+		if ($logged_in_user_random_ok) {
+			// All good
+		} else {
+			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
+		}
+
 		if (isset($_GET['show_all'])) {
 			$show_all  = true;
 			$all_users = DB::select("
@@ -94,10 +106,6 @@ class SearchController extends Controller
 					name
 			", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 		}
-
-		$nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
-		$logged_in_user_hoping_to_find_love       = $logged_in_user->hoping_to_find_love;
-		$logged_in_user_share_info_with_favorites = $logged_in_user->share_info_with_favorites;
 
 		if (isset($_GET['show_mutuals']) && $_GET['show_mutuals'] && $logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites) {
 			$show_mutuals = true;
@@ -156,6 +164,7 @@ class SearchController extends Controller
 			'show_mutuals'                             => $show_mutuals,
 			'show_all'                                 => $show_all,
 			'profiles_found_count'                     => $profiles_found_count,
+			'users_who_must_be_rated'                  => $users_who_must_be_rated,
 		]);
 	}
 
