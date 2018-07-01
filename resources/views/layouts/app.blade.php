@@ -26,7 +26,7 @@
 	&middot;
 	<a href="/image/upload">Upload images</a>
 	&middot;
-	<a href="/search">See all users</a>
+	<a href="/search">Search</a>
 	&middot;
 	<input type="submit" value="Log out">
 	</form>

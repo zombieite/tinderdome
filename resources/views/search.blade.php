@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
 @php ($last_profile = 0)
+@if ($show_all)
+	All users<br><br>
+@else
+	<a href="/search?show_all=1">Show all users</a><br><br>
+@endif
 @if ($show_mutuals)
 	@if ($profiles_found_count)
 		{{ $profiles_found_count }} mutuals have shared their contact info with you<br><br>
