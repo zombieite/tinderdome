@@ -147,7 +147,7 @@ class SearchController extends Controller
 				'missions_completed'        => $missions_completed,
 			];
 
-			if (!$users_who_must_be_rated && ($mutual_favorite || !$show_mutuals)) {
+			if ($show_nos || (!$users_who_must_be_rated && ($mutual_favorite || !$show_mutuals))) {
 				array_push($profiles, $profile);
 			}
 		}
