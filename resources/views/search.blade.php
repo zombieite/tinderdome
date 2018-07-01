@@ -24,6 +24,17 @@
 		<a href="/search?show_mutuals=1">See mutuals who have shared their contact info with you</a><br><br>
 	@endif
 @endif
+@if ($show_preferred_gender)
+	@if ($users_who_must_be_rated)
+		<a href="/profile/compatible?" class="bright">You must rate all users before you can view users of your preferred gender</a>.<br><br>
+	@else
+		All users of your preferred gender, gender Other, and gender unspecified<br><br>
+	@endif
+@else
+	@if ($logged_in_user_preferred_gender_of_match)
+		<a href="/search?show_preferred_gender=1">Show users of my preferred_gender, gender Other, and gender unspecified</a><br><br>
+	@endif
+@endif
 @if ($show_nos)
 	@if ($profiles_found_count)
 		{{ $profiles_found_count }} users marked as No<br><br>
@@ -31,7 +42,7 @@
 		No users marked as No<br><br>
 	@endif
 @else
-	<a href="/search?show_nos=1">See users I've marked as No</a><br><br>
+	<a href="/search?show_nos=1">See users you've marked as No</a><br><br>
 @endif
 @foreach ($profiles as $profile)
 	@if ($profile['mutual_favorite'] || !$show_mutuals)
