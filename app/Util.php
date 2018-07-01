@@ -37,9 +37,10 @@ class Util {
 				$gender_order_by = "
 					case
 						when gender is null then 1
-						when gender='O' then 2
-						when gender='$gender_of_match' then 3
-						else 4
+						when gender='' then 2
+						when gender='O' then 3
+						when gender='$gender_of_match' then 4
+						else 5
 					end
 					,
 				";
@@ -71,8 +72,8 @@ class Util {
 					their_choice.choice != 0
 				)
 			order by
-				$gender_order_by
 				$upcoming_order_bys
+				$gender_order_by
 				id desc
 		",
 		[$chooser_user_id, $chooser_user_id, $chooser_user_id]);
