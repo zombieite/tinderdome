@@ -52,7 +52,6 @@ class ProfileController extends Controller
 		$show_how_to_find_me = $is_my_match;
 
 		if ($profile_id == 1) {
-			$share_info = $profile->email;
 			$show_how_to_find_me = true;
 		}
 
