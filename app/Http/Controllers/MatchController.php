@@ -74,7 +74,7 @@ class MatchController extends Controller
 	{
 		$auth_user    = Auth::user();
 		$auth_user_id = Auth::id();
-		if (($auth_user->name !== 'Firebird') || ($auth_user_id != 1)) {
+		if (($auth_user_id != 1 && $auth_user_id != 50)) {
 			abort(403);
 		}
 
