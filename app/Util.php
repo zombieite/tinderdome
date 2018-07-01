@@ -31,19 +31,21 @@ class Util {
 		#Log::debug("Gender of match: $gender_of_match");
 		$gender_order_by = '';
 		if ($gender_of_match) {
-			if (time() % 4 == 0) {
-				// Sometimes, you just gotta rate your non-preferred gender
-			} else {
-				$gender_order_by = "
-					case
-						when gender is null then 1
-						when gender='' then 2
-						when gender='O' then 3
-						when gender='$gender_of_match' then 4
-						else 5
-					end
-					,
-				";
+			if (preg_match('/^M|F|O$/', $gender_of_match)) {
+				if (time() % 4 == 0) {
+					// Sometimes, you just gotta rate your non-preferred gender
+				} else {
+					$gender_order_by = "
+						case
+							when gender is null then 1
+							when gender='' then 2
+							when gender='O' then 3
+							when gender='$gender_of_match' then 4
+							else 5
+						end
+						,
+					";
+				}
 			}
 		}
 
