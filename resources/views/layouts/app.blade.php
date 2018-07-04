@@ -16,7 +16,7 @@
 <h1><a href="{{ url('/') }}" style="text-decoration:none;">You Are Awaited</a></h1>
 
 @guest
-	<a href="{{ route('register') }}">Create a profile</a> &middot; <a href="{{ route('login') }}">Log in</a>
+	<a href="{{ route('register') }}">Create a profile</a> &middot; <a href="{{ route('login') }}">Log in</a> &middot; <a href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
 @else
 	<form action="{{ route('logout') }}" method="POST">
 	{{ csrf_field() }}
