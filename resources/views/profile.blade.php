@@ -74,10 +74,11 @@
 	Prefers to meet gender: {{ $gender_of_match === 'M' ? 'Male' : ($gender_of_match === 'F' ? 'Female' : 'Other') }}.
 @endif
 @if ($description)
-<p>
+	<br>
+	<br>
 	{{ $description }}
-</p>
 @endif
+<br>
 <br>
 @for ($i = 1; $i <= $number_photos; $i++)
 	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}" style="height:250px;"></a>
