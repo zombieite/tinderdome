@@ -47,38 +47,43 @@
 @foreach ($profiles as $profile)
 	@if ($profile['mutual_favorite'] || !$show_mutuals)
 		<div class="@if ($profile['mutual_favorite']) profile_search_block_mutual @else profile_search_block @endif">
-			<a name="profile{{ $profile['profile_id'] }}"></a>
-			<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
-			@if ($profile['gender'])
-				&middot; {{ $profile['gender'] === 'M' ? 'Male' : ($profile['gender'] === 'F' ? 'Female' : 'Other') }}
-			@endif
-			@if ($profile['birth_year'])
-				&middot;
-				@if ($profile['birth_year'] === 1959)
-					Born before 1960
-				@else
-					Born in the {{ intval($profile['birth_year'] / 10) * 10 }}s
+			<div style="display:inline-block;">
+				@if ($profile['number_photos'])
+					<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">
+						<img src="/uploads/image-{{ $profile['profile_id'] }}-1.jpg" style="height:100px;">
+					</a>
 				@endif
-			@endif
-			@if ($profile['height'])
-				&middot;
-				@if ($profile['height'] < 60)
-					Under 5 feet
-				@elseif ($profile['height'] > 72)
-					Over 6 feet
-				@else
-					{{ floor($profile['height'] / 12) }}&apos;{{ $profile['height'] % 12 }}&quot;
+			</div>
+			<div style="display:inline-block;">
+				<a name="profile{{ $profile['profile_id'] }}"></a>
+				<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
+				@if ($profile['birth_year'])
+					<br>
+					@if ($profile['birth_year'] === 1959)
+						Born before 1960
+					@else
+						Born in the {{ intval($profile['birth_year'] / 10) * 10 }}s
+					@endif
 				@endif
-			@endif
-			@if ($profile['missions_completed']['points'])
-				&middot;
-				<span>Missions completed: {{ $profile['missions_completed']['points'] }}</span>
-			@endif
-			<br>
-			<br>
-			@for ($i = 1; $i <= $profile['number_photos']; $i++)
-				<a target="_blank" href="/uploads/image-{{ $profile['profile_id'] }}-{{ $i }}.jpg"><img src="/uploads/image-{{ $profile['profile_id'] }}-{{ $i }}.jpg" style="height:100px;"></a>
-			@endfor
+				@if ($profile['height'])
+					@if ($profile['birth_year'])
+						&middot;
+					@else
+						<br>
+					@endif
+					@if ($profile['height'] < 60)
+						Under 5 feet
+					@elseif ($profile['height'] > 72)
+						Over 6 feet
+					@else
+						{{ floor($profile['height'] / 12) }}&apos;{{ $profile['height'] % 12 }}&quot;
+					@endif
+				@endif
+				<br>
+				@if ($profile['missions_completed']['points'])
+					<span>Missions completed: {{ $profile['missions_completed']['points'] }}</span>
+				@endif
+			</div>
 			<br>
 			<br>
 			@if ($logged_in_user_id == $profile['profile_id'])
