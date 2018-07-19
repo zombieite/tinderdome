@@ -184,12 +184,12 @@ class Util {
 			$user_count = $user_count_result->user_count;
 		}
 		$nos_used = 0;
-		$nos_used_results = DB::select('select count(*) nos_used from choose where choice = 0 and chooser_id = ?', [$user_id]);
+		$nos_used_results = DB::select('select count(*) nos_used from choose join users on choose.chosen_id = users.id where choice = 0 and chooser_id = ?', [$user_id]);
 		foreach ($nos_used_results as $nos_used_result) {
 			$nos_used = $nos_used_result->nos_used;
 		}
 		$popularity = 0;
-		$popularity_results = DB::select('select count(*) popularity from choose where choice > 0 and chosen_id = ? and chooser_id <> ?', [$user_id, $user_id]);
+		$popularity_results = DB::select('select count(*) popularity from choose join users on choose.chooser_id = users.id where choice > 0 and chosen_id = ? and chooser_id <> ?', [$user_id, $user_id]);
 		foreach ($popularity_results as $popularity_result) {
 			$popularity = $popularity_result->popularity;
 		}
