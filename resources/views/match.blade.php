@@ -26,7 +26,7 @@
 		@if ($matches_complete)
 			<th><b>Mark found</b></th>
 		@else
-			<th><b>Mutual matches</b></th>
+			<th><b>&nbsp;</b></th>
 		@endif
 	</tr>
 @foreach ($users as $user)
@@ -61,7 +61,6 @@
 			@if ($matched_users_hash[$user->id]) 
 				<a href="/profile/{{ $matched_users_hash[$user->id] }}/{{ preg_replace('/-/', ' ', $id_to_name_hash[$matched_users_hash[$user->id]]) }}" target="_blank">{{ $id_to_name_hash[$matched_users_hash[$user->id]] }}</a>
 			@else
-				&nbsp;
 			@endif
 		</td>
 		<td>{{ $user->gender }}</td>
@@ -93,11 +92,6 @@
 			</td>
 
 		@else
-			<td>
-				@foreach (array_keys($user->mutual_unmet_match_names) as $mutual_match_name)
-					{{ $mutual_match_name }},
-				@endforeach
-			</td>
 		@endif
 	</tr>
 @endforeach
