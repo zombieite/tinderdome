@@ -70,6 +70,19 @@ class MatchController extends Controller
 		return $a->id - $b->id;
 	}
 
+	private static function rankUsers($a, $b) {
+		$missions_completed_rank_boost_multiplier = 20;
+		$a_rank = $a->popularity;
+		$b_rank = $b->popularity;
+		if ($a->missions_completed_count) {
+			$a_rank += $a->missions_completed_count * $missions_completed_rank_boost_multiplier;
+		}
+		if ($b->missions_completed_count) {
+			$b_rank += $b->missions_completed_count * $missions_completed_rank_boost_multiplier;
+		}
+		return $b_rank - $a_rank;
+	}
+
 	public function match()
 	{
 		$auth_user    = Auth::user();
@@ -134,8 +147,12 @@ class MatchController extends Controller
 			$id_to_gender_hash[$user_to_be_matched->id]             = $user_to_be_matched->gender;
 			$id_to_popularity_hash[$user_to_be_matched->id]         = $user_to_be_matched->popularity;
 			$matched_users_hash[$user_to_be_matched->id]            = '';
-			$id_to_missions_completed_hash[$user_to_be_matched->id] = \App\Util::missions_completed( $user_to_be_matched->id );
+			$missions_completed                                     = \App\Util::missions_completed( $user_to_be_matched->id );
+			$id_to_missions_completed_hash[$user_to_be_matched->id] = $missions_completed;
+			$user_to_be_matched->missions_completed_count           = $missions_completed['points'];
 		}
+
+		usort($users_to_match, array($this, 'rankUsers'));
 
 		$matches_complete = DB::select("select * from matching where event=? and year=?", [$next_event, $year]);
 		if ($matches_complete) {
