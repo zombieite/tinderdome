@@ -27,9 +27,11 @@ class ProfileController extends Controller
 		$auth_user               = Auth::user();
 		$auth_user_id            = Auth::id();
 
+		//Log::debug("Looking for user $auth_user_id");
 		if ($profile) {
 			// All good
 		} else {
+			Log::debug("Could not find user $auth_user_id");
 			abort(404);
 		}
 
@@ -38,6 +40,7 @@ class ProfileController extends Controller
 		// If the name in database has hyphens we have to drop them because we dropped them all from the URL name
 		$wasteland_name_no_hyphens = preg_replace('/-/', ' ', $wasteland_name);
 		if ($wasteland_name_from_url !== $wasteland_name_no_hyphens) {
+			Log::debug("URL name '$wasteland_name_from_url' does not match no-hyphens name '$wasteland_name_no_hyphens'");
 			abort(404);
 		}
 

@@ -31,6 +31,7 @@ class RegisterController extends Controller
 	protected function create(array $data)
 	{
 		$wasteland_name            = $data['name'];
+		$wasteland_name            = trim($wasteland_name);
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 		$ip                        = request()->ip() or die("No ip");
 
