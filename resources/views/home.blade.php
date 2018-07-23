@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+{{--
 <h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others.</h2>
 @foreach ($leaderboard as $leader)
 <div class="centered_block">
@@ -10,6 +12,7 @@
 	{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
 </div>
 @endforeach
+--}}
 <ol>
 @if ($number_photos)
 	<li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>

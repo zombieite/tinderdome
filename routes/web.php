@@ -54,6 +54,8 @@ Route::get('/image/upload', 'ImageController@upload')->middleware('auth');
 
 Route::post('/image/upload', 'ImageController@upload')->middleware('auth');
 
+Route::get('/photosearch', 'PhotoSearchController@photosearch')->middleware('auth');
+
 Route::get('/search', 'SearchController@search')->middleware('auth');
 
 Route::post('/search', 'SearchController@update_rating')->middleware('auth');
