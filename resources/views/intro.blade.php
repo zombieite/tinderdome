@@ -33,11 +33,11 @@ Browse other profiles and choose who you'd enjoy meeting.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-Shortly before each event, the matching algorithm will run. You will be matched with one other person. Come back to this site to see who you've been matched with, or just ask Firebird at the event. Next event: Wasteland Weekend 2018!
+One week before each event, the matching algorithm will run. You will be matched with one other person. Check your email or come back to this site to see who you've been matched with. Next event: Wasteland Weekend 2018!
 </p>
 <h3>4. Seek out your match</h3>
 <p>
-Your mission is to find your match at the event. They'll be looking for you, too. If you like, you can merge the backstories of your Wasteland personas. Come up with a real or fictionalized account of how you met.
+Your mission is to find your match at the event. They'll be looking for you, too. Suggested conversation topic: merging the backstories of your Wasteland personas. Come up with a real or fictionalized account of how you met.
 </p>
 <h3>5. Get your caps</h3>
 <p>
