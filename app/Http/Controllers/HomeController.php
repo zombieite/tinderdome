@@ -36,6 +36,7 @@ class HomeController extends Controller
 		$min_fraction_to_count_as_rated_enough_users = .75;
 		$number_photos        = $chooser_user->number_photos;
 		$unrated_users        = \App\Util::unrated_users( $chooser_user_id );
+		$matched_to_users     = \App\Util::matched_to_users( $chooser_user_id );
 		$upcoming_events      = \App\Util::upcoming_events();
 		$pretty_names         = \App\Util::pretty_event_names();
 		$year                 = date('Y');
@@ -76,6 +77,7 @@ class HomeController extends Controller
 		return view('home', [
 			'number_photos'        => $number_photos,
 			'unrated_users'        => $unrated_users,
+			'matched_to_users'     => $matched_to_users,
 			'matched'              => $matched,
 			'next_event'           => $next_event,
 			'year'                 => $year,

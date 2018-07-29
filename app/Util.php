@@ -24,8 +24,18 @@ class Util {
 		return ['wasteland', 'winter_games', 'ball', 'detonation'];
 	}
 
-	public static function matched_users( $chooser_user_id ) {
-
+	public static function matched_to_users( $chooser_user_id ) {
+		// Left join in case account has been deleted
+		$matched_to_users = DB::select('
+			select
+				*
+			from
+				matching
+				left join users on ((matching.user_1 = users.id or matching.user_2 = users.id) and users.id != ?)
+			where
+				(user_1 = ? or user_2 = ?)
+		', [$chooser_user_id, $chooser_user_id, $chooser_user_id]);
+		return $matched_to_users;
 	}
 
 	public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
