@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h2>Wasteland's simplest and most beautiful mission.</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <p>
 Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, we need a designated meeting place. That's Wasteland.
 </p>

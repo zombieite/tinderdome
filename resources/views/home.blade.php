@@ -3,23 +3,42 @@
 @section('content')
 @if ($matched_to_users)
 	@foreach ($matched_to_users as $matched_to_user)
-		@if ($matched_to_user->name && $matched_to_user->choice != 0)
-			<div class="@if ($matched_to_user->choice == -1) profile_search_block_mutual @else profile_search_block @endif">
-					@if ($matched_to_user->number_photos)
-						<a href="{{ $matched_to_user->url }}">
-							<img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;">
-						</a>
-						<br>
-					@endif
-					@if ($matched_to_user->choice == -1)
-						Found
-					@else
-						Matched to
-					@endif
-					<a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a> at
-					<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
-			</div>
+		@if ($matched_to_user->choice !== 0)
+			@if ($matched_to_user->name)
+				<div class="@if ($matched_to_user->choice == -1) profile_search_block_mutual @else profile_search_block @endif">
+						@if ($matched_to_user->number_photos)
+							<a href="{{ $matched_to_user->url }}">
+								<img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;">
+							</a>
+							<br>
+						@endif
+						@if ($matched_to_user->choice == -1)
+							Found
+						@else
+							Matched to
+						@endif
+						<a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a> at
+						<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+				</div>
+			@else
+				@if ($matched_to_user->choice == -1)
+					<div class="profile_search_block_mutual">
+						Found match at
+						<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+					</div>
+				@endif
+			@endif
 		@endif
+	@endforeach
+@else
+	<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
+	@foreach ($leaderboard as $leader)
+	<div class="centered_block">
+		@if ($leader['number_photos'])
+			<a href="/profile/{{ $leader['profile_id'] }}/{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
+		<br>
+		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+	</div>
 	@endforeach
 @endif
 <ol>
@@ -67,19 +86,4 @@
 </li>
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-{{--
-<h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others.</h2>
-@foreach ($leaderboard as $leader)
-<div class="centered_block">
-	@if ($leader['number_photos'])
-		<a href="/profile/{{ $leader['profile_id'] }}/{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
-	<br>
-	{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
-</div>
-@endforeach
---}}
-{{--
-<p><sup id="RATT" class="bright">*</sup> RATT BOY prefers to be known as a VILLAIN</p>
---}}
 @endsection
