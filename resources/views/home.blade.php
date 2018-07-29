@@ -6,7 +6,7 @@
 		@if ($matched_to_user->name && $matched_to_user->choice != 0)
 			<div class="@if ($matched_to_user->choice == -1) profile_search_block_mutual @else profile_search_block @endif">
 					@if ($matched_to_user->number_photos)
-						<a href="/profile/match?event={{ $matched_to_user->event }}&year={{ $matched_to_user->year }}">
+						<a href="{{ $matched_to_user->url }}">
 							<img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;">
 						</a>
 						<br>
@@ -16,7 +16,7 @@
 					@else
 						Matched to
 					@endif
-					<a href="/profile/match?event={{ $matched_to_user->event }}&year={{ $matched_to_user->year }}">{{ $matched_to_user->name }}</a> at
+					<a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a> at
 					<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 			</div>
 		@endif

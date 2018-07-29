@@ -38,6 +38,15 @@ class Util {
 			order by
 				matching.created_at
 		', [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
+		foreach ($matched_to_users as $user) {
+			$name = $user->name;
+			$user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $name);
+			if ($user->choice == -1) {
+				$user->url = '/profile/'.$user->id.'/'.$user->wasteland_name_hyphenated;
+			} else {
+				$user->url = '/profile/match?event='.$user->event.'&year='.$user->year;
+			}
+		}
 		return $matched_to_users;
 	}
 
