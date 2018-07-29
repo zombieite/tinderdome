@@ -3,7 +3,23 @@
 @section('content')
 @if ($matched_to_users)
 	@foreach ($matched_to_users as $matched_to_user)
-
+		@if ($matched_to_user->name && $matched_to_user->choice != 0)
+			<div class="@if ($matched_to_user->choice == -1) profile_search_block_mutual @else profile_search_block @endif">
+					@if ($matched_to_user->number_photos)
+						<a href="/profile/match?event={{ $matched_to_user->event }}&year={{ $matched_to_user->year }}">
+							<img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;">
+						</a>
+						<br>
+					@endif
+					@if ($matched_to_user->choice == -1)
+						Found
+					@else
+						Matched to
+					@endif
+					<a href="/profile/match?event={{ $matched_to_user->event }}&year={{ $matched_to_user->year }}">{{ $matched_to_user->name }}</a> at
+					<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+			</div>
+		@endif
 	@endforeach
 @endif
 <ol>
