@@ -32,13 +32,14 @@ class Util {
 			from
 				matching
 				left join users on ((matching.user_1 = users.id or matching.user_2 = users.id) and users.id != ?)
-				left join choose on chooser_id = ? and chosen_id = users.id
+				left join choose on (chooser_id = ? and chosen_id in (matching.user_1, matching.user_2) and chosen_id != ?)
 			where
 				(user_1 = ? or user_2 = ?)
 			order by
 				matching.created_at
-		', [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
+		', [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 		foreach ($matched_to_users as $user) {
+Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
 			$name = $user->name;
 			$user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $name);
 			if ($user->choice == -1) {
