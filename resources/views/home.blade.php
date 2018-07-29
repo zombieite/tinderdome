@@ -1,18 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-{{--
-<h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others.</h2>
-@foreach ($leaderboard as $leader)
-<div class="centered_block">
-	@if ($leader['number_photos'])
-		<a href="/profile/{{ $leader['profile_id'] }}/{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
-	<br>
-	{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
-</div>
-@endforeach
---}}
 <ol>
 @if ($number_photos)
 	<li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>
@@ -53,10 +41,24 @@
 			Did you find your match? <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Let us know</a>!
 		@endif
 	@else
-		At the event, seek out your match. When you find your match, <a href="/search">let us know that you've met them</a>.
+		At the event, seek out your match. When you find your match, <a href="/search?show_all=1">let us know that you've met them</a>.
 	@endif
 </li>
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+{{--
+<h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others.</h2>
+@foreach ($leaderboard as $leader)
+<div class="centered_block">
+	@if ($leader['number_photos'])
+		<a href="/profile/{{ $leader['profile_id'] }}/{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
+	<br>
+	{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+</div>
+@endforeach
+--}}
+{{--
 <p><sup id="RATT" class="bright">*</sup> RATT BOY prefers to be known as a VILLAIN</p>
+--}}
 @endsection

@@ -20,6 +20,10 @@ class Util {
 		return ['wasteland'];
 	}
 
+	public static function matched_users( $chooser_user_id ) {
+
+	}
+
 	public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
 
 		$upcoming_events = \App\Util::upcoming_events();
