@@ -374,7 +374,7 @@ class ProfileController extends Controller
 		$year                   = $_GET['year'];
 		$match_name             = null;
 		$match_id               = null;
-		$events                 = \App\Util::upcoming_events();
+		$events                 = \App\Util::all_events();
 		$pretty_event_names     = \App\Util::pretty_event_names();
 
 		if ($user_id === 1 && isset($_GET['masquerade'])) {

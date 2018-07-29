@@ -20,6 +20,10 @@ class Util {
 		return ['wasteland'];
 	}
 
+	public static function all_events() {
+		return ['wasteland', 'winter_games', 'ball', 'detonation'];
+	}
+
 	public static function matched_users( $chooser_user_id ) {
 
 	}

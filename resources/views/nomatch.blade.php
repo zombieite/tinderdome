@@ -5,7 +5,7 @@
 
 	@if ($matches_done)
 
-	<h2>You do not have a match for the next event.</h2>
+	<h2>We did not find you a match for {{ $pretty_event_names[$event] }} {{ $year }}.</h2>
 	<p>
 		There are a few possible reasons for this.
 		<ul>
