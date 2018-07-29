@@ -32,9 +32,12 @@ class Util {
 			from
 				matching
 				left join users on ((matching.user_1 = users.id or matching.user_2 = users.id) and users.id != ?)
+				left join choose on chooser_id = ? and chosen_id = users.id
 			where
 				(user_1 = ? or user_2 = ?)
-		', [$chooser_user_id, $chooser_user_id, $chooser_user_id]);
+			order by
+				matching.created_at
+		', [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 		return $matched_to_users;
 	}
 
