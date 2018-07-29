@@ -39,7 +39,7 @@ class Util {
 				matching.created_at
 		', [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 		foreach ($matched_to_users as $user) {
-Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
+			//Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
 			$name = $user->name;
 			$user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $name);
 			if ($user->choice == -1) {
