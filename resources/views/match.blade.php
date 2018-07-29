@@ -58,16 +58,30 @@
 		<td>{{ isset($match_rating_hash[$matched_users_hash[$user->id]]) ? $match_rating_hash[$matched_users_hash[$user->id]] : '&nbsp;' }}</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
 		<td>
-			@if ($matched_users_hash[$user->id]) 
+		@if ($matched_users_hash[$user->id])
+			@if (isset($id_to_name_hash[$matched_users_hash[$user->id]]))
 				<a href="/profile/{{ $matched_users_hash[$user->id] }}/{{ preg_replace('/-/', ' ', $id_to_name_hash[$matched_users_hash[$user->id]]) }}" target="_blank">{{ $id_to_name_hash[$matched_users_hash[$user->id]] }}</a>
 			@else
+				DELETED
 			@endif
+		@else
+		@endif
 		</td>
 		<td>{{ $user->gender }}</td>
 		<td>{{ $user->gender_of_match }}</td>
-		<td>{{ $matched_users_hash[$user->id] ? $id_to_gender_hash[$matched_users_hash[$user->id]] : '' }}</td>
+		<td>
+		@if (isset($id_to_name_hash[$matched_users_hash[$user->id]]))
+			{{ $matched_users_hash[$user->id] ? $id_to_gender_hash[$matched_users_hash[$user->id]] : '' }}
+		@else
+			&nbsp;
+		@endif
+		</td>
 		<td>{{ $user->popularity }}</td>
-		<td>{{ $matched_users_hash[$user->id] ? $id_to_popularity_hash[$matched_users_hash[$user->id]] : '' }}</td>
+		<td>
+		@if (isset($id_to_name_hash[$matched_users_hash[$user->id]]))
+			{{ $matched_users_hash[$user->id] ? $id_to_popularity_hash[$matched_users_hash[$user->id]] : '' }}
+		@endif
+		</td>
 		@if ($matches_complete)
 			<td>
 				@if (
@@ -87,7 +101,9 @@
 						)
 					)
 				)
-					<form method="POST">{{ csrf_field() }}<input type="hidden" name="user_1" value="{{ $user->id }}"><input type="hidden" name="user_2" value="{{ $matched_users_hash[$user->id] }}"><input type="submit" name="found" value="Mark {{ $user->name }}/{{ $id_to_name_hash[$matched_users_hash[$user->id]] }} found"></form>
+					@if (isset($id_to_name_hash[$matched_users_hash[$user->id]]))
+						<form method="POST">{{ csrf_field() }}<input type="hidden" name="user_1" value="{{ $user->id }}"><input type="hidden" name="user_2" value="{{ $matched_users_hash[$user->id] }}"><input type="submit" name="found" value="Mark {{ $user->name }}/{{ $id_to_name_hash[$matched_users_hash[$user->id]] }} found"></form>
+					@endif
 				@endif
 			</td>
 
