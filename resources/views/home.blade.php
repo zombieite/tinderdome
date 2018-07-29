@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@if ($matched_to_users)
+	@foreach ($matched_to_users as $matched_to_user)
+
+	@endforeach
+@endif
 <ol>
 @if ($number_photos)
 	<li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>
@@ -18,7 +23,7 @@
 		@endif
 	@endif
 @else
-	<li>COMPLETE: You have rated every profile. Check back later to rate new arrivals. Or you can <a href="/search">revisit profiles</a> you've already viewed.</li>
+	<li>COMPLETE: You have rated every profile. Check back later to rate new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
 @endif
 @if ($attending_next_event)
 	@if ($matched)
