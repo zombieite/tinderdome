@@ -13,7 +13,7 @@ use Log;
 
 class ProfileController extends Controller
 {
-	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null)
+	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null, $event = null, $year = null)
 	{
 		$profile = null;
 		if ($unchosen_user) {
@@ -149,6 +149,8 @@ class ProfileController extends Controller
 			'unchosen_user_id'                   => $unchosen_user_id,
 			'count_left'                         => $count_left,
 			'is_my_match'                        => $is_my_match,
+			'event'                              => $event,
+			'year'                               => $year,
 			'is_me'                              => $is_me,
 			'choice'                             => $choice,
 			'nos_left'                           => $nos_left,
@@ -446,7 +448,7 @@ class ProfileController extends Controller
 		}
 		//Log::debug("Match found for user '$user_id' is '$match_name' id '$match_id'");
 
-		return $this->show($match_id, $match_name, null, null, 1);
+		return $this->show($match_id, $match_name, null, null, 1, $event, $year);
 	}
 
 	public function compatible()
