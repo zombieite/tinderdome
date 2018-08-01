@@ -49,10 +49,10 @@
 @endif
 @if ($unrated_users)
 	@if ($random_ok)
-		<li><a href="/profile/compatible?">Choose who you'd like to meet</a>.</li>
+		<li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
 	@else
 		@if ($rated_enough)
-			<li><a href="/profile/compatible?">Choose who you'd like to meet</a>.</li>
+			<li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
 		@else
 			<li><a href="/profile/compatible?" class="bright">INCOMPLETE: Since you are not ok with a random match, you must rate {{ $min_percent_to_count_as_rated_enough_users }}% of our users</a>. You have rated {{ $rated_percent }}%.</li>
 		@endif
