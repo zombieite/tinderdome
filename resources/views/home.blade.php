@@ -35,7 +35,7 @@
 	@foreach ($leaderboard as $leader)
 	<div class="centered_block">
 		@if ($leader['number_photos'])
-			<a href="/profile/{{ $leader['profile_id'] }}/{{ preg_replace('/\s/', '-', $leader['wasteland_name']) }}"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
+			<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
 		<br>
 		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
 	</div>
