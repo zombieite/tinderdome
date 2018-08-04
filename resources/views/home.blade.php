@@ -45,7 +45,7 @@
 @if ($number_photos)
 	<li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>
 @else
-	<li><a href="/image/upload" class="bright">INCOMPLETE: Upload photos</a>.</li>
+	<li><a href="/image/upload" class="bright">INCOMPLETE: You must upload a photo of yourself</a>.</li>
 @endif
 @if ($unrated_users)
 	@if ($random_ok)
