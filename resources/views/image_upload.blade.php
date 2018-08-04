@@ -19,7 +19,8 @@
 	{{ csrf_field() }}
 	<br>
 	<label for="submit">Upload an image.</label>
-	Please make sure your image file is a maximum of 2MB in size.
+	<br><br>
+	Your first image must be a picture of you, but you can wear a mask or crop out your face. Your file must be no more than 2MB.
 	<br><br>
 	@if ($number_photos == 0)
 		<input type="hidden" name="imagenum" value="new">
