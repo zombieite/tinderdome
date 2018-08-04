@@ -18,7 +18,7 @@
 		<input type="submit" name="No" value="I found them but did not like them"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
 	@else
 		<input type="submit" name="Met" value="I have met them"@if (($current_choice == -1) || !isset($current_choice)) class="met"@endif>
-		@if (($current_choice === 0) || ($nos_left > 0))
+		@if (($current_choice === 0) || ($nos_left > 0) || (!$number_photos))
 			<input type="submit" name="No" value="No ({{ $nos_left >= 0 ? $nos_left : 0 }} left)"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
 		@endif
 		@if ($nos_left <= 0)
