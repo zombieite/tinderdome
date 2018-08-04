@@ -26,5 +26,6 @@ CREATE TABLE users (
 	ip VARCHAR(50) NOT NULL,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	share_info_with_favorites BOOLEAN
+	share_info_with_favorites BOOLEAN,
+	last_active timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
