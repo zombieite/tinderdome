@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+@if ($auth_user->id === 1)
+	<form method="POST">
+		{{ csrf_field() }}
+		<input type="submit" name="reset_password" value="(ADMIN ONLY) Reset password">
+		<input type="hidden" name="user_id_to_reset" value="{{ $profile_id }}">
+	</form>
+@endif
 @if ($is_my_match)
 	<h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
 	<h2 class="bright">Your mission is to seek them out at {{ $pretty_event_names[$event] }} {{ $year }}. They'll be looking for you, too.</h2>

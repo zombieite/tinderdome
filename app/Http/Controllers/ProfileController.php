@@ -456,6 +456,14 @@ class ProfileController extends Controller
 		$chooser_user                     = Auth::user();
 		$chooser_user_id                  = Auth::id();
 
+		# Allow admin to reset password
+		if ($chooser_user_id === 1 and isset($_POST['reset_password']) and isset($_POST['user_id_to_reset'])) {
+			$user_id_to_reset = $_POST['user_id_to_reset'];
+			if ($user_id_to_reset) {
+				DB::update('update users set password = "$2y$10$Lqfw/e9CpIh0eWWo55hoaOan4Z.887KidHjPEEP3Z3PfDRIKSWvQK" where id = ? limit 1', [$user_id_to_reset]);
+			}
+		}
+
 		if (isset($_POST['chosen'])) {
 			$chosen_id    = $_POST['chosen'];
 			$choose_value = null;
