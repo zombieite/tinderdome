@@ -44,6 +44,10 @@
 @else
 	<a href="/search?show_nos=1">See users you've marked as No</a><br><br>
 @endif
+<a href="/photosearch">Show a random pile of photos</a><br><br>
+<a href="/photosearch?gender=o">Show a random pile of photos of gender other and unspecified</a><br><br>
+<a href="/photosearch?gender=f">Show a random pile of photos_of women</a><br><br>
+<a href="/photosearch?gender=m">Show a random pile of photos_of men</a><br><br>
 @foreach ($profiles as $profile)
 	@if ($profile['mutual_favorite'] || !$show_mutuals)
 		<div class="@if ($profile['mutual_favorite']) profile_search_block_mutual @else profile_search_block @endif">
