@@ -36,7 +36,7 @@ class Util {
 			where
 				(user_1 = ? or user_2 = ?)
 			order by
-				matching.created_at
+				matching.created_at desc
 		', [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 		foreach ($matched_to_users as $user) {
 			//Log::debug("Found matched user ".$user->name.' choice '.$user->choice);

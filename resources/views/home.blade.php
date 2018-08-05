@@ -7,9 +7,7 @@
 			@if ($matched_to_user->name)
 				<div class="@if ($matched_to_user->choice == -1) profile_search_block_mutual @else profile_search_block @endif">
 						@if ($matched_to_user->number_photos)
-							<a href="{{ $matched_to_user->url }}">
-								<img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;">
-							</a>
+							<a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;"></a>
 							<br>
 						@endif
 						@if ($matched_to_user->choice == -1)
