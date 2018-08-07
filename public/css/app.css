@@ -61,7 +61,7 @@ button.met, input[type="submit"].met {
 .bright {
 	color: var(--bright);
 }
-.profile_search_block_mutual {
+.profile_search_block_bright {
 	display: inline-block;
 	border: 3px solid var(--bright);
 	margin-top: .2em;

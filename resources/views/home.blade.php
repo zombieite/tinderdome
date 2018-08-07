@@ -1,43 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-@if ($matched_to_users)
-	@foreach ($matched_to_users as $matched_to_user)
-		@if ($matched_to_user->choice !== 0)
-			@if ($matched_to_user->name)
-				<div class="@if ($matched_to_user->choice == -1) profile_search_block_mutual @else profile_search_block @endif">
-						@if ($matched_to_user->number_photos)
-							<a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;"></a>
-							<br>
-						@endif
-						@if ($matched_to_user->choice == -1)
-							Found
-						@else
-							Matched to
-						@endif
-						<a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a> at
-						<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
-				</div>
-			@else
-				@if ($matched_to_user->choice == -1)
-					<div class="profile_search_block_mutual">
-						Found match at
-						<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+@if (count($unrated_users) >= 5)
+	<h2><a href="/profile/compatible?">Let us know if you would enjoy meeting these users</a>.</h2>
+	@for ($i = 0; $i < 5; $i++)
+		<div class="profile_search_block">
+		@if ($unrated_users[$i]->number_photos)
+			<a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a> @endif
+			<br>
+		</div>
+	@endfor
+@else
+	@if ($matched_to_users)
+		@foreach ($matched_to_users as $matched_to_user)
+			@if ($matched_to_user->choice !== 0)
+				@if ($matched_to_user->name)
+					<div class="@if ($matched_to_user->choice == -1) profile_search_block_mutual @else profile_search_block @endif">
+							@if ($matched_to_user->number_photos)
+								<a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;"></a>
+								<br>
+							@endif
+							@if ($matched_to_user->choice == -1)
+								Found
+							@else
+								Matched to
+							@endif
+							<a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a> at
+							<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 					</div>
+				@else
+					@if ($matched_to_user->choice == -1)
+						<div class="profile_search_block_mutual">
+							Found match at
+							<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+						</div>
+					@endif
 				@endif
 			@endif
-		@endif
-	@endforeach
-@else
-	<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
-	@foreach ($leaderboard as $leader)
-	<div class="centered_block">
-		@if ($leader['number_photos'])
-			<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
-		<br>
-		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
-	</div>
-	@endforeach
+		@endforeach
+	@else
+		<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
+		@foreach ($leaderboard as $leader)
+		<div class="centered_block">
+			@if ($leader['number_photos'])
+				<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
+			<br>
+			{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+		</div>
+		@endforeach
+	@endif
 @endif
 <ol>
 @if ($number_photos)
