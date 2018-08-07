@@ -50,7 +50,7 @@
 <a href="/photosearch?gender=m">Show all photos of men</a><br><br>
 @foreach ($profiles as $profile)
 	@if ($profile['mutual_favorite'] || !$show_mutuals)
-		<div class="@if ($profile['mutual_favorite']) profile_search_block_mutual @else profile_search_block @endif">
+		<div class="@if ($profile['mutual_favorite']) profile_search_block_bright @else profile_search_block @endif">
 			<div style="display:inline-block;">
 				@if ($profile['number_photos'])
 					<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">

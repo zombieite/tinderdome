@@ -1,12 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@if ($auth_user->id === 1)
-	<form method="POST">
-		{{ csrf_field() }}
-		<input type="submit" name="reset_password" value="(ADMIN ONLY) Reset password">
-		<input type="hidden" name="user_id_to_reset" value="{{ $profile_id }}">
-	</form>
-@endif
 @if ($is_my_match)
 	<h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
 	<h2 class="bright">Your mission is to seek them out at {{ $pretty_event_names[$event] }} {{ $year }}. They'll be looking for you, too.</h2>
@@ -86,4 +79,14 @@
 @for ($i = 1; $i <= $number_photos; $i++)
 	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}" style="height:250px;"></a>
 @endfor
+@if ($auth_user->id === 1)
+	<br><br>
+	<form method="POST" style="width:100%;text-align:right;">
+		{{ csrf_field() }}
+		<button type="submit" name="reset_password" class="no">
+			(ADMIN ONLY) Reset password
+		</button>
+		<input type="hidden" name="user_id_to_reset" value="{{ $profile_id }}">
+	</form>
+@endif
 @endsection
