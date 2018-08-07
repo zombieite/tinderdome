@@ -25,7 +25,7 @@
 							@else
 								Matched to
 							@endif
-							<a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a> at
+							<a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a>
 							<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 					</div>
 				@else
