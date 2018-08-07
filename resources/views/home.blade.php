@@ -15,7 +15,7 @@
 		@foreach ($matched_to_users as $matched_to_user)
 			@if ($matched_to_user->choice !== 0)
 				@if ($matched_to_user->name)
-					<div class="@if ($matched_to_user->choice == -1) profile_search_block_mutual @else profile_search_block @endif">
+					<div class="centered_block">
 							@if ($matched_to_user->number_photos)
 								<a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:150px;"></a>
 								<br>
@@ -30,7 +30,7 @@
 					</div>
 				@else
 					@if ($matched_to_user->choice == -1)
-						<div class="profile_search_block_mutual">
+						<div class="centered_block">
 							Found match at
 							<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 						</div>
