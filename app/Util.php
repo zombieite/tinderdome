@@ -142,7 +142,7 @@ class Util {
 
 			// Yes, we are giving them the point if they marked the user as No instead of Met.
 			// This allows them to hide users they have already met and did not like at all
-			// and still get credit fora the mission.
+			// and still get credit for the mission.
 			$user_claims_known = DB::select('
 				select
 					1
@@ -154,7 +154,18 @@ class Util {
 					and choice    <= 0
 			', [ $user_id, $other_user_id ]);
 
-			if ($user_claims_known) {
+			$other_user_claims_knows_this_user = DB::select('
+				select
+					1
+				from
+					choose
+				where
+					chooser_id    = ?
+					and chosen_id = ?
+					and choice    <= 0
+			', [ $other_user_id, $user_id ]);
+
+			if ($user_claims_known or $other_user_claims_knows_this_user) {
 				$points += 1;
 			}
 		}
