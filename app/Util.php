@@ -40,6 +40,13 @@ class Util {
 		', [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 		foreach ($matched_to_users as $user) {
 			//Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
+			$user->they_said_no = false;
+			$their_choice = DB::select('select choice from choose where chooser_id = ? and chosen_id = ?', [$user->id, $chooser_user_id]);
+			if ($their_choice) {
+				if ($their_choice[0]->choice === 0) {
+					$user->they_said_no = true;
+				}
+			}
 			$name = $user->name;
 			$user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $name);
 			if ($user->choice == -1) {
