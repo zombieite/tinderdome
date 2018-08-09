@@ -114,6 +114,7 @@ class Util {
 			order by
 				$upcoming_order_bys
 				$gender_order_by
+				number_photos desc,
 				id desc
 		",
 		[$chooser_user_id, $chooser_user_id, $chooser_user_id]);
