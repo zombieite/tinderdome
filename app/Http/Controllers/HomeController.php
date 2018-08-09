@@ -36,7 +36,7 @@ class HomeController extends Controller
 		DB::update('update users set last_active=now() where id=?', [$chooser_user_id]);
 		$min_fraction_to_count_as_rated_enough_users = .75;
 		$number_photos        = $chooser_user->number_photos;
-		$unrated_users        = \App\Util::unrated_users( $chooser_user_id );
+		$unrated_users        = \App\Util::unrated_users( $chooser_user_id, $chooser_user->gender_of_match );
 		$matched_to_users     = \App\Util::matched_to_users( $chooser_user_id );
 		$upcoming_events      = \App\Util::upcoming_events();
 		$pretty_names         = \App\Util::pretty_event_names();
