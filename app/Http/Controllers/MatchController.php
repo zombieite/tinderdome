@@ -94,7 +94,7 @@ class MatchController extends Controller
 		$next_event = $_GET['event'];
 		$year       = $_GET['year'];
 
-		if (preg_match('/^[a-z]+$/', $next_event)) {
+		if (preg_match('/^[a-z_]+$/', $next_event)) {
 			// All good
 		} else {
 			abort(403, "Invalid event");
