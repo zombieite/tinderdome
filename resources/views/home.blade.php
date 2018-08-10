@@ -4,23 +4,26 @@
 @if (count($unrated_users) >= 3)
 	<h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these new users</a>.</h2>
 	@for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
-		<div class="profile_search_block">
 			@if ($unrated_users[$i]->number_photos)
-				<a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
+				<div class="profile_search_block">
+					<a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
+				</div>
 			@endif
-		<br>
-		</div>
 	@endfor
 @else
-	<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
-	@foreach ($leaderboard as $leader)
-	<div class="centered_block">
-		@if ($leader['number_photos'])
-			<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
-		<br>
-		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
-	</div>
-	@endforeach
+	@if (count($leaderboard))
+		<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
+		@foreach ($leaderboard as $leader)
+		<div class="centered_block">
+			@if ($leader['number_photos'])
+				<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
+			<br>
+			{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+		</div>
+		@endforeach
+	@else
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	@endif
 @endif
 <ol>
 @if ($number_photos)
