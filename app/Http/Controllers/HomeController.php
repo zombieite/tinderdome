@@ -15,7 +15,7 @@ class HomeController extends Controller
 		$chooser_user          = Auth::user();
 		$chooser_user_id       = Auth::id();
 		$leader_count          = 5;
-		$leaderboard_and_count = \App\Util::leaderboard( $leader_count );
+		$leaderboard_and_count = \App\Util::leaderboard( $leader_count, $chooser_user_id );
 		$leaderboard           = $leaderboard_and_count['leaderboard'];
 		$nonleader_count       = $leaderboard_and_count['nonleader_count'];
 		$total_user_count      = $leader_count + $nonleader_count;

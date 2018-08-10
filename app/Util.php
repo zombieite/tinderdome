@@ -184,7 +184,7 @@ class Util {
 		return $a['profile_id'] - $b['profile_id'];
 	}
 
-	public static function leaderboard( $number_of_leaders ) {
+	public static function leaderboard( $number_of_leaders, $auth_user_id = null ) {
 
 		$leaderboard = [];
 		$all_users = DB::select('
@@ -219,6 +219,20 @@ class Util {
 		while (count($leaderboard) > $number_of_leaders) {
 			array_pop($leaderboard);
 			$nonleader_count++;
+		}
+
+		// Make sure leaders are ok showing their face to the logged in user.
+		// Yes, the user could still see them if they logged out but this is
+		// the price of fame.
+		if ($auth_user_id) {
+			foreach ($leaderboard as $leader) {
+				$leader_id = $leader['profile_id'];
+				$this_leader_blocked_me = DB::select('select choice from choose where choice=0 and chooser_id=? and chosen_id=?', [$leader_id, $auth_user_id]);
+				if ($this_leader_blocked_me) {
+					// If one leader has blocked them, don't show any
+					$leaderboard = [];
+				}
+			}
 		}
 
 		return [
