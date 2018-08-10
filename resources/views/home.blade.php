@@ -91,11 +91,13 @@
 					<a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a>
 					<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 				@else
+					{{-- Match deleted account --}}
 					@if ($matched_to_user->choice === -1 or $matched_to_user->choice === 0)
 						Found match
 						<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 					@else
-
+						Match not found
+						<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 					@endif
 				@endif
 			@endif
