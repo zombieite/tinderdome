@@ -42,7 +42,7 @@
 		@endif
 	@endif
 @else
-	<li>COMPLETE: You have rated every profile. Check back later to rate new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
+	<li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
 @endif
 @if ($attending_next_event)
 	@if ($matched)
