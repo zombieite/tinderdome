@@ -23,6 +23,7 @@ class ImageController extends Controller
 		}
 
 		$number_photos = $profile->number_photos;
+		$random_ok     = $profile->random_ok;
 		$image_height  = 500;
 		$max_photos    = 5;
 		$errors        = '';
@@ -87,6 +88,7 @@ class ImageController extends Controller
 			'profile_id'     => $profile_id,
 			'max_photos'     => $max_photos,
 			'number_photos'  => $number_photos,
+			'random_ok'      => $random_ok,
 			'errors'         => $errors,
 			'time'           => $time,
 			'new_user'       => $new_user,
