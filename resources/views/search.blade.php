@@ -4,10 +4,10 @@
 	@if ($users_who_must_be_rated)
 		<a href="/profile/compatible?" class="bright">You must rate all users before you can view all users</a>.<br><br>
 	@else
-		All users except those marked as No<br><br>
+		All users<br><br>
 	@endif
 @else
-	<a href="/search?show_all=1">Show all users except those marked as No</a><br><br>
+	<a href="/search?show_all=1">Show all users</a><br><br>
 @endif
 @if ($show_mutuals)
 	@if ($users_who_must_be_rated)
