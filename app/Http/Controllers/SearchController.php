@@ -44,6 +44,8 @@ class SearchController extends Controller
 		$logged_in_user_preferred_gender_of_match = $logged_in_user->gender_of_match;
 		$users_who_must_be_rated                  = 0;
 
+		DB::update('update users set last_active=now() where id=?', [$logged_in_user_id]);
+
 		if ($event) {
 			if (preg_match('/^[a-z]+$/', $event)) {
 				// Regex check looks ok
