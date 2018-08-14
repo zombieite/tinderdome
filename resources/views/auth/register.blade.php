@@ -124,12 +124,12 @@ I am...
 
 <hr>
 
-<label for="description">Tell other users about yourself.</label> What makes you weird? Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses.
+<label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Plain text only, emojis are not supported.
 <br>
 <input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
 <br><br>
-<label for="how_to_find_me">Tell other users how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses.
+<label for="how_to_find_me">Tell other users how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Plain text only, emojis are not supported.
 <br>
 <input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
