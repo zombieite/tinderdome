@@ -27,6 +27,8 @@ class ProfileController extends Controller
 		$auth_user               = Auth::user();
 		$auth_user_id            = Auth::id();
 
+		DB::update('update users set last_active=now() where id=?', [$auth_user_id]);
+
 		//Log::debug("Looking for user $auth_user_id");
 		if ($profile) {
 			// All good
@@ -229,6 +231,8 @@ class ProfileController extends Controller
 		} else {
 			abort(403);
 		}
+
+		DB::update('update users set last_active=now() where id=?', [$profile_id]);
 
 		$update_errors          = '';
 
