@@ -23,6 +23,7 @@
 		<th><b>Match's<br>gender</b></th>
 		<th><b>Popularity</b></th>
 		<th><b>Match's<br>popularity</b></th>
+		<th><b>Photos</b></th>
 		@if ($matches_complete)
 			<th><b>Mark found</b></th>
 		@else
@@ -30,14 +31,16 @@
 		@endif
 	</tr>
 @foreach ($users as $user)
-	<tr style="
+	<tr 
 		@if ($id_to_cant_match_hash[$user->id])
 			@php $unmatched++ @endphp
-			background-color:red;
+			style="background-color:#660000;"
+		@elseif (!$user->number_photos)
+			style="background-color:#666666;"
 		@elseif ($user->gender === 'F' && $user->gender_of_match && $matched_users_hash[$user->id] && ($user->gender_of_match !== $id_to_gender_hash[$matched_users_hash[$user->id]]))
-			background-color:orange;
+			style="background-color:#CC6600;"
 		@endif
-	">
+	>
 		<td>{{ ++$counter }}</td>
 		<td>
 			<a href="/profile/{{ $user->id }}/{{ preg_replace('/-/', ' ', $user->name) }}" target="_blank" style="
@@ -82,6 +85,7 @@
 			{{ $matched_users_hash[$user->id] ? $id_to_popularity_hash[$matched_users_hash[$user->id]] : '' }}
 		@endif
 		</td>
+		<td>{{ $user->number_photos }}</td>
 		@if ($matches_complete)
 			<td>
 				@if (
