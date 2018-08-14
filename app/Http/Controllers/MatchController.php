@@ -13,6 +13,11 @@ class MatchController extends Controller
 	// Prioritize this user's mutual matches by
 	private static function sortMatches($a, $b) {
 
+		// Put users with zero photos at the bottom
+		if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
+			return $b->number_photos - $a->number_photos;
+		}
+
 		// Whether they are this user's preferred match gender
 		$gender_of_chooser         = $a->gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
 		$desired_gender_of_chooser = $a->desired_gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
@@ -46,10 +51,6 @@ class MatchController extends Controller
 		if ($b->popularity - $a->popularity !== 0) {
 			return $b->popularity - $a->popularity;
 		}
-		// ASC
-		//if ($a->popularity - $b->popularity !== 0) {
-		//	return $a->popularity - $b->popularity;
-		//}
 
 		// Number of photos descending (prioritize more complete profiles)
 		if ($b->number_photos - $a->number_photos !== 0) {
@@ -71,6 +72,13 @@ class MatchController extends Controller
 	}
 
 	private static function rankUsers($a, $b) {
+
+		// Put users with zero photos at the bottom
+		if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
+			return $b->number_photos - $a->number_photos;
+		}
+
+		// Popularity and missions completed combined
 		$missions_completed_rank_boost_multiplier = 20;
 		$a_rank = $a->popularity;
 		$b_rank = $b->popularity;
@@ -80,7 +88,20 @@ class MatchController extends Controller
 		if ($b->missions_completed_count) {
 			$b_rank += $b->missions_completed_count * $missions_completed_rank_boost_multiplier;
 		}
-		return $b_rank - $a_rank;
+		if ($b_rank - $a_rank !== 0) {
+			return $b_rank - $a_rank;
+		}
+
+		// Deprioritize men a little because we have too many
+		if ($a->gender != $b->gender) {
+			if ($a->gender == 'M') {
+				return 1;
+			} else if ($b->gender == 'M') {
+				return -1;
+			}
+		}
+
+		return ($a->id - $b->id);
 	}
 
 	public function match()
@@ -108,6 +129,7 @@ class MatchController extends Controller
 				gender,
 				gender_of_match,
 				random_ok,
+				number_photos,
 				count(distinct chooser_id) popularity
 			from
 				users
@@ -122,11 +144,8 @@ class MatchController extends Controller
 				name,
 				gender,
 				gender_of_match,
-				random_ok
-			order by
-				popularity desc,
-				gender,
-				id
+				random_ok,
+				number_photos
 		");
 
 		// Imitialize stuff
