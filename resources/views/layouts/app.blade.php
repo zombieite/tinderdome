@@ -22,6 +22,8 @@
 	{{ csrf_field() }}
 	Logged in as <a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>
 	&middot;
+	<a href="/">Home</a>
+	&middot;
 	<a href="/profile/edit">Edit profile</a>
 	&middot;
 	<a href="/image/upload">Upload images</a>
