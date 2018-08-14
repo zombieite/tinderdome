@@ -75,10 +75,10 @@ class Util {
 				} else {
 					$gender_order_by = "
 						case
-							when gender is null then 1
-							when gender='' then 2
-							when gender='O' then 3
-							when gender='$gender_of_match' then 4
+							when gender='$gender_of_match' then 1
+							when gender is null then 2
+							when gender='' then 3
+							when gender='O' then 4
 							else 5
 						end
 						,
