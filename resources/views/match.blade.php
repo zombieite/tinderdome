@@ -38,7 +38,7 @@
 		@elseif (!$user->number_photos)
 			style="background-color:#666666;"
 		@elseif ($user->gender === 'F' && $user->gender_of_match && $matched_users_hash[$user->id] && ($user->gender_of_match !== $id_to_gender_hash[$matched_users_hash[$user->id]]))
-			style="background-color:#CC6600;"
+			style="background-color:#886600;"
 		@endif
 	>
 		<td>{{ ++$counter }}</td>
@@ -47,7 +47,7 @@
 			@if ($user->random_ok)
 				color:#00ff00;
 			@else
-				color:#ff00ff;
+				color:#ff0000;
 			@endif
 			">
 				{{ $user->name }}

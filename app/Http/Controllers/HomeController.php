@@ -21,6 +21,7 @@ class HomeController extends Controller
 		$total_user_count      = $leader_count + $nonleader_count;
 
 		if ($chooser_user) {
+			DB::update('update users set last_active=now() where id=?', [$chooser_user_id]);
 			if ($chooser_user_id == 1 and isset($_GET['masquerade'])) {
 				$chooser_user_id = $_GET['masquerade'];
 				$chooser_user    = DB::select('select * from users where id=?', [$chooser_user_id])[0];
@@ -33,7 +34,6 @@ class HomeController extends Controller
 			]);
 		}
 
-		DB::update('update users set last_active=now() where id=?', [$chooser_user_id]);
 		$min_fraction_to_count_as_rated_enough_users = .75;
 		$number_photos        = $chooser_user->number_photos;
 		$unrated_users        = \App\Util::unrated_users( $chooser_user_id, $chooser_user->gender_of_match );
