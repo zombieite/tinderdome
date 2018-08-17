@@ -18,6 +18,11 @@ class MatchController extends Controller
 			return $b->number_photos - $a->number_photos;
 		}
 
+		// Move greylist users to the bottom
+		if ($a->greylist - $b->greylist !== 0) {
+			return $a->greylist - $b->greylist;
+		}
+
 		// Whether they are this user's preferred match gender
 		$gender_of_chooser         = $a->gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
 		$desired_gender_of_chooser = $a->desired_gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
@@ -271,7 +276,8 @@ class MatchController extends Controller
 							gender_of_match,
 							number_photos,
 							description,
-							random_ok
+							random_ok,
+							greylist
 						from
 							users
 						join choose this_user_chose on
@@ -361,7 +367,8 @@ class MatchController extends Controller
 							gender_of_match,
 							number_photos,
 							description,
-							random_ok
+							random_ok,
+							greylist
 						from
 							users
 						left join choose this_user_chose on
