@@ -3,7 +3,7 @@
 @section('content')
 @if ($number_photos)
 	@if (count($unrated_users) >= 3)
-		<h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these new users</a>.</h2>
+		<h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
 		@for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
 				@if ($unrated_users[$i]->number_photos)
 					<div class="profile_search_block">
