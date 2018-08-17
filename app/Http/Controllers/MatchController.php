@@ -78,8 +78,13 @@ class MatchController extends Controller
 			return $b->number_photos - $a->number_photos;
 		}
 
+		// Move greylist users to the bottom
+		if ($a->greylist - $b->greylist !== 0) {
+			return $a->greylist - $b->greylist;
+		}
+
 		// Popularity and missions completed combined
-		$missions_completed_rank_boost_multiplier = 20;
+		$missions_completed_rank_boost_multiplier = 25;
 		$a_rank = $a->popularity;
 		$b_rank = $b->popularity;
 		if ($a->missions_completed_count) {
@@ -130,6 +135,7 @@ class MatchController extends Controller
 				gender_of_match,
 				random_ok,
 				number_photos,
+				greylist,
 				count(distinct chooser_id) popularity
 			from
 				users
@@ -145,7 +151,8 @@ class MatchController extends Controller
 				gender,
 				gender_of_match,
 				random_ok,
-				number_photos
+				number_photos,
+				greylist
 		");
 
 		// Imitialize stuff
