@@ -31,7 +31,7 @@
 @endif
 <ol>
 @if ($number_photos)
-	<li>COMPLETE: <a href="/profile/me">Profile</a> created.</li>
+	<li>COMPLETE: <a href="/profile/{{ $auth_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.</li>
 @else
 	<li><a href="/image/upload" class="bright">INCOMPLETE: You must upload a photo of yourself</a>.</li>
 @endif
