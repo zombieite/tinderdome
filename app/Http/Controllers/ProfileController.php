@@ -330,7 +330,7 @@ class ProfileController extends Controller
 
 			$profile->save();
 
-			return redirect('/profile/me');
+			return redirect("/profile/$profile_id/$wasteland_name_hyphenated");
 		}
 
 		return view('auth/register', [
@@ -361,26 +361,6 @@ class ProfileController extends Controller
 	public function showFirebird()
 	{
 		return $this->show(1, 'Firebird');
-	}
-
-	public function showMe()
-	{
-		$user      = Auth::user();
-		$user_id   = $user->id;
-		$user_name = $user->name;
-		if ($user_id === 1 && isset($_GET['masquerade'])) {
-			$user_id = $_GET['masquerade']+0;
-			$user_name = '';
-			$user_name_result = DB::select("select name from users where id=?", [$user_id]);
-			if ($user_name_result) {
-				$user_name = $user_name_result[0]->name;
-			}
-			Log::debug("Masquerading as $user_id");
-		}
-		if ($user) {
-			return $this->show($user_id, $user_name);
-		}
-		abort(403);
 	}
 
 	public function match()

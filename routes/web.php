@@ -26,10 +26,6 @@ Route::post('profile/{profile_id}/{wasteland_name}', 'ProfileController@compatib
 	return view('profile');
 })->middleware('auth');;
 
-Route::get('profile/me', 'ProfileController@showMe', function () {
-	return view('profile');
-})->middleware('auth');
-
 Route::get('profile/edit', 'ProfileController@edit', function () {
 	return view('auth/register');
 })->middleware('auth');
