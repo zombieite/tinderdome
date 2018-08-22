@@ -14,14 +14,18 @@
 		<a href="/profile/compatible?" class="bright">You must rate all users before you can see your mutuals</a>.<br><br>
 	@else
 		@if ($profiles_found_count)
-			{{ $profiles_found_count }} mutuals have shared their contact info with you<br><br>
+			@if ($profiles_found_count === 1)
+				You have a mutual favorite who has shared their contact info with you!<br><br>
+			@else
+				{{ $profiles_found_count }} mutuals have shared their contact info with you<br><br>
+			@endif
 		@else
 			No mutuals have shared their contact info with you yet<br><br>
 		@endif
 	@endif
 @else
 	@if ($logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites)
-		<a href="/search?show_mutuals=1">See mutuals who have shared their contact info with you</a><br><br>
+		<a href="/search?show_mutuals=1">See mutual favorites who have shared their contact info with you</a><br><br>
 	@endif
 @endif
 @if ($show_preferred_gender)
@@ -32,12 +36,16 @@
 	@endif
 @else
 	@if ($logged_in_user_preferred_gender_of_match)
-		<a href="/search?show_preferred_gender=1">Show users of my preferred_gender, gender Other, and gender unspecified</a><br><br>
+		<a href="/search?show_preferred_gender=1">Show users of your preferred gender to meet, gender Other, and gender unspecified</a><br><br>
 	@endif
 @endif
 @if ($show_nos)
 	@if ($profiles_found_count)
-		{{ $profiles_found_count }} users marked as No<br><br>
+		@if ($profiles_found_count === 1)
+			One user marked as No<br><br>
+		@else
+			{{ $profiles_found_count }} users marked as No<br><br>
+		@endif
 	@else
 		No users marked as No<br><br>
 	@endif
