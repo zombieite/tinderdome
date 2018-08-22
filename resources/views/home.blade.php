@@ -19,6 +19,9 @@
 				@if ($leader['number_photos'])
 					<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
 				<br>
+				@if ($leader['missions_completed']['points'] > 0)
+					{{ $leader['missions_completed']['title'] }}
+				@endif
 				{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
 			</div>
 			@endforeach

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h2>Wasteland's simplest and most beautiful mission.</h2>
+<h2>A simple but profound mission.</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <p>
 Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, we need a designated meeting place. That's Wasteland.
@@ -13,13 +13,16 @@ Rebuilding the world from its ashes, one conversation at a time.
 </p>
 <h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
-<div class="centered_block">
-	@if ($leader['number_photos'])
-		<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a>
-	@endif
-	<br>
-	{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
-</div>
+	<div class="centered_block">
+		@if ($leader['number_photos'])
+			<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a>
+		@endif
+		<br>
+		@if ($leader['missions_completed']['points'] > 0)
+			{{ $leader['missions_completed']['title'] }}
+		@endif
+		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+	</div>
 @endforeach
 <h3>1.
 @guest<a href="{{ route('register') }}" class="bright">@endguest
@@ -44,5 +47,5 @@ Your mission is to find your match at the event. They'll be looking for you, too
 <p>
 If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started now by creating your profile</a>.
 </p>
-<p><sup id="RATT" class="bright">*</sup> RATT BOY prefers to be known as a VILLAIN</p>
+<p><sup id="RATT" class="bright">*</sup> RATT BOY is currently a HERO but aspires to be a VILLAIN</p>
 @endsection
