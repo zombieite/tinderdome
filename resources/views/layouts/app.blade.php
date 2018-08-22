@@ -39,8 +39,12 @@
 @yield('content')
 
 <hr>
-
 Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive profiles.
+<br>
+<br>
+@if ($active_count >= 10)
+	{{ $active_count }} users active in the past 24 hours
+@endif
 
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
