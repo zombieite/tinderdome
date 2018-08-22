@@ -171,9 +171,31 @@ class Util {
 			}
 		}
 
+		$title = '';
+		if ($points > 0) {
+			$title = 'HERO';
+			if ($points === 1) {
+				$title = 'PARTICIPANT';
+			} else if ($points === 2) {
+				$title = 'FBIRD';
+			} else if ($points === 3) {
+				$title = 'HERO';
+			} else if ($points === 4) {
+				$title = 'VILLAIN';
+			} else if ($points === 5) {
+				$title = 'ANTIHERO';
+			} else if ($points === 6) {
+				$title = '';
+			}
+		}
+		if ($user_id == 1) {
+			$title = 'TYRANT';
+		}
+
 		return [
 			'missions' => $missions,
 			'points'   => $points,
+			'title'    => $title,
 		];
 	}
 

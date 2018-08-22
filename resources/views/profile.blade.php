@@ -11,7 +11,11 @@
 		<h3>Would you enjoy meeting this user? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
 		@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
 	@endif
-	<h2 class="bright">{{ $wasteland_name }}@if ($missions_completed['points']) &middot; Missions completed: {{ $missions_completed['points'] }} @endif</h2>
+	@if ($missions_completed['points'])
+		<h2>{{ $missions_completed['title'] }} <span class="bright">{{ $wasteland_name }}</span> &middot; Missions completed: {{ $missions_completed['points'] }}</h2>
+	@else
+		<h2 class="bright">{{ $wasteland_name }}</h2>
+	@endif
 @endif
 @if ((($show_how_to_find_me || $share_info)) || $is_me)
 	@if ($how_to_find_me)

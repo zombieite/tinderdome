@@ -68,6 +68,9 @@
 			</div>
 			<div style="display:inline-block;">
 				<a name="profile{{ $profile['profile_id'] }}"></a>
+				@if ($profile['missions_completed']['points'])
+					{{ $profile['missions_completed']['title'] }}
+				@endif
 				<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
 				@if ($profile['birth_year'])
 					<br>
