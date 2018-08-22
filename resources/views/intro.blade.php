@@ -11,7 +11,7 @@ You Are Awaited is a simple mission that is conducted during Wasteland Weekend a
 <p>
 Rebuilding the world from its ashes, one conversation at a time.
 </p>
-<h2>Meet our top {{ $leader_count }} heroes<a class="bright" style="text-decoration:none;" href="#RATT"><sup>*</sup></a>... and {{ $nonleader_count }} others. Here's how.</h2>
+<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
 	<div class="centered_block">
 		@if ($leader['number_photos'])
@@ -47,5 +47,4 @@ Your mission is to find your match at the event. They'll be looking for you, too
 <p>
 If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started now by creating your profile</a>.
 </p>
-<p><sup id="RATT" class="bright">*</sup> RATT BOY is currently a HERO but aspires to be a VILLAIN</p>
 @endsection
