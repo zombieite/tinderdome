@@ -13,14 +13,14 @@ class MatchController extends Controller
 	// Prioritize this user's mutual matches by
 	private static function sortMatches($a, $b) {
 
-		// Put users with zero photos at the bottom
-		if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
-			return $b->number_photos - $a->number_photos;
-		}
-
 		// Move greylist users to the bottom
 		if ($a->greylist - $b->greylist !== 0) {
 			return $a->greylist - $b->greylist;
+		}
+
+		// Put users with zero photos at the bottom
+		if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
+			return $b->number_photos - $a->number_photos;
 		}
 
 		// Whether they are this user's preferred match gender
@@ -78,14 +78,14 @@ class MatchController extends Controller
 
 	private static function rankUsers($a, $b) {
 
-		// Put users with zero photos at the bottom
-		if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
-			return $b->number_photos - $a->number_photos;
-		}
-
 		// Move greylist users to the bottom
 		if ($a->greylist - $b->greylist !== 0) {
 			return $a->greylist - $b->greylist;
+		}
+
+		// Put users with zero photos at the bottom
+		if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
+			return $b->number_photos - $a->number_photos;
 		}
 
 		// Popularity and missions completed combined
