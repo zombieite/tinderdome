@@ -76,9 +76,9 @@ class Util {
 					$gender_order_by = "
 						case
 							when gender='$gender_of_match' then 1
-							when gender is null then 2
-							when gender='' then 3
-							when gender='O' then 4
+							when gender='O' then 2
+							when gender is null then 3
+							when gender='' then 4
 							else 5
 						end
 						,
