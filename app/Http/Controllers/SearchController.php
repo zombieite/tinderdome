@@ -42,6 +42,7 @@ class SearchController extends Controller
 		$logged_in_user_share_info_with_favorites = $logged_in_user->share_info_with_favorites;
 		$logged_in_user_random_ok                 = $logged_in_user->random_ok;
 		$logged_in_user_preferred_gender_of_match = $logged_in_user->gender_of_match;
+		$logged_in_user_number_photos             = $logged_in_user->number_photos;
 		$users_who_must_be_rated                  = 0;
 
 		DB::update('update users set last_active=now() where id=?', [$logged_in_user_id]);
@@ -159,7 +160,7 @@ class SearchController extends Controller
 				'missions_completed'        => $missions_completed,
 			];
 
-			if ($show_nos || (!$users_who_must_be_rated && ($mutual_favorite || !$show_mutuals))) {
+			if ($show_nos || (!$users_who_must_be_rated && $logged_in_user_number_photos && ($mutual_favorite || !$show_mutuals))) {
 				array_push($profiles, $profile);
 			}
 		}
@@ -176,6 +177,7 @@ class SearchController extends Controller
 			'logged_in_user_hoping_to_find_love'       => $logged_in_user_hoping_to_find_love,
 			'logged_in_user_share_info_with_favorites' => $logged_in_user_share_info_with_favorites,
 			'logged_in_user_preferred_gender_of_match' => $logged_in_user_preferred_gender_of_match,
+			'logged_in_user_number_photos'             => $logged_in_user_number_photos,
 			'show_nos'                                 => $show_nos,
 			'show_mutuals'                             => $show_mutuals,
 			'show_all'                                 => $show_all,

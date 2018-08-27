@@ -39,14 +39,18 @@
 	<li><a href="/image/upload" class="bright">INCOMPLETE: You must upload a photo of yourself</a>.</li>
 @endif
 @if ($unrated_users)
-	@if ($random_ok)
-		<li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
-	@else
-		@if ($rated_enough)
+	@if ($number_photos)
+		@if ($random_ok)
 			<li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
 		@else
-			<li><a href="/profile/compatible?" class="bright">INCOMPLETE: Since you are not ok with a random match, you must rate {{ $min_percent_to_count_as_rated_enough_users }}% of our users</a>. You have rated {{ $rated_percent }}%.</li>
+			@if ($rated_enough)
+				<li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
+			@else
+				<li><a href="/profile/compatible?" class="bright">INCOMPLETE: Since you are not ok with a random match, you must rate {{ $min_percent_to_count_as_rated_enough_users }}% of our users</a>. You have rated {{ $rated_percent }}%.</li>
+			@endif
 		@endif
+	@else
+		<li>Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.</li>
 	@endif
 @else
 	<li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
@@ -72,7 +76,11 @@
 			Did you find your match? <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Let us know</a>!
 		@endif
 	@else
-		At the event, seek out your match. When you find your match, <a href="/search?show_all=1">let us know that you've met them</a>.
+		@if ($number_photos)
+			At the event, seek out your match. When you find your match, <a href="/search?show_all=1">let us know that you've met them</a>.
+		@else
+			At the event, seek out your match.
+		@endif
 	@endif
 </li>
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>

@@ -1,10 +1,14 @@
 @extends('layouts.app')
 @section('content')
 @if ($show_all)
-	@if ($users_who_must_be_rated)
-		<a href="/profile/compatible?" class="bright">You must rate all users before you can view all users</a>.<br><br>
+	@if ($logged_in_user_number_photos)
+		@if ($users_who_must_be_rated)
+			<a href="/profile/compatible?" class="bright">You must rate all users before you can view all users</a>.<br><br>
+		@else
+			All users<br><br>
+		@endif
 	@else
-		All users<br><br>
+		<a href="/image/upload">You must upload an image of yourself before you can view all users</a>.<br><br>
 	@endif
 @else
 	<a href="/search?show_all=1">Show all users</a><br><br>

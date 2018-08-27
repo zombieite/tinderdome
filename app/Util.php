@@ -105,6 +105,7 @@ class Util {
 				id > 10
 				and id<>?
 				and my_choice.choice is null
+				and (number_photos > 0 or users.created_at < now() - interval 1 day)
 				and
 				(
 					their_choice.choice is null
