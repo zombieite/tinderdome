@@ -42,7 +42,7 @@
 	<input type="file" name="image" value="image" id="image">
 	<br><br>
 	<button id="submit" name="upload" value="1" type="submit" class="yesyes">
-		Submit changes
+		Upload photo
 	</button>
 	<br><br>
 	<div style="width:100%;text-align:right;">
