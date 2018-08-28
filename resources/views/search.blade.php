@@ -14,18 +14,22 @@
 	<a href="/search?show_all=1">Show all users</a><br><br>
 @endif
 @if ($show_mutuals)
-	@if ($users_who_must_be_rated)
-		<a href="/profile/compatible?" class="bright">You must rate all users before you can see your mutuals</a>.<br><br>
-	@else
-		@if ($profiles_found_count)
-			@if ($profiles_found_count === 1)
-				You have a mutual favorite who has shared their contact info with you!<br><br>
-			@else
-				{{ $profiles_found_count }} mutuals have shared their contact info with you<br><br>
-			@endif
+	@if ($logged_in_user_number_photos)
+		@if ($users_who_must_be_rated)
+			<a href="/profile/compatible?" class="bright">You must rate all users before you can see your mutual favorites</a>.<br><br>
 		@else
-			No mutuals have shared their contact info with you yet<br><br>
+			@if ($profiles_found_count)
+				@if ($profiles_found_count === 1)
+					You have a mutual favorite who has shared their contact info with you!<br><br>
+				@else
+					{{ $profiles_found_count }} mutuals have shared their contact info with you<br><br>
+				@endif
+			@else
+				No mutuals have shared their contact info with you yet<br><br>
+			@endif
 		@endif
+	@else
+		<a href="/image/upload">You must upload an image of yourself before you can see mutual favorites</a>.<br><br>
 	@endif
 @else
 	@if ($logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites)
@@ -33,10 +37,14 @@
 	@endif
 @endif
 @if ($show_preferred_gender)
-	@if ($users_who_must_be_rated)
-		<a href="/profile/compatible?" class="bright">You must rate all users before you can view users of your preferred gender</a>.<br><br>
+	@if ($logged_in_user_number_photos)
+		@if ($users_who_must_be_rated)
+			<a href="/profile/compatible?" class="bright">You must rate all users before you can view users of your preferred gender</a>.<br><br>
+		@else
+			All users of your preferred gender, gender Other, and gender unspecified<br><br>
+		@endif
 	@else
-		All users of your preferred gender, gender Other, and gender unspecified<br><br>
+		<a href="/image/upload">You must upload an image of yourself before you can search users</a>.<br><br>
 	@endif
 @else
 	@if ($logged_in_user_preferred_gender_of_match)
@@ -56,10 +64,12 @@
 @else
 	<a href="/search?show_nos=1">See users you've marked as No</a><br><br>
 @endif
-<a href="/photosearch">Show all photos</a><br><br>
-<a href="/photosearch?gender=o">Show all photos of users of gender other and unspecified</a><br><br>
-<a href="/photosearch?gender=f">Show all photos of women</a><br><br>
-<a href="/photosearch?gender=m">Show all photos of men</a><br><br>
+@if ($logged_in_user_number_photos)
+	<a href="/photosearch">Show all photos</a><br><br>
+	<a href="/photosearch?gender=o">Show all photos of users of gender other and unspecified</a><br><br>
+	<a href="/photosearch?gender=f">Show all photos of women</a><br><br>
+	<a href="/photosearch?gender=m">Show all photos of men</a><br><br>
+@endif
 @foreach ($profiles as $profile)
 	@if ($profile['mutual_favorite'] || !$show_mutuals)
 		<div class="@if ($profile['mutual_favorite']) profile_search_block_bright @else profile_search_block @endif">
