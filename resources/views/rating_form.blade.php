@@ -13,9 +13,9 @@
 		<input type="submit" name="Yes" value="Neutral"@if (($current_choice == 1) || !isset($current_choice)) class="yes"@endif>
 	@endif
 	@if (isset($is_my_match) && $is_my_match)
-		<input type="submit" name="Met" value="I found them!"@if (($current_choice == -1) || !isset($current_choice)) class="met"@endif>
+		<input type="submit" name="Met" value="I found them"@if (($current_choice == -1) || !isset($current_choice)) class="met"@endif>
 		&nbsp;&nbsp;&nbsp;
-		<input type="submit" name="No" value="I found them but did not like them"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
+		<input type="submit" name="No" value="I found them but did not enjoy meeting them"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
 	@else
 		<input type="submit" name="Met" value="I have met them"@if (($current_choice == -1) || !isset($current_choice)) class="met"@endif>
 		@if (($current_choice === 0) || ($nos_left > 0) || (!$number_photos))
