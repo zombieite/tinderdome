@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @if ($users_who_must_be_rated)
-	<a href="/profile/compatible?" class="bright">You must rate all users before you can view all users</a>.<br><br>
+	You must <a href="/profile/compatible?">rate all users</a> before you can view all users.<br><br>
 @else
 	@foreach ($photos as $photo)
 		<a href="/profile/{{ $photo['profile_id'] }}/{{ $photo['wasteland_name_hyphenated'] }}">
