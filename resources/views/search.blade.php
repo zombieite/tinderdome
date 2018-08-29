@@ -3,12 +3,12 @@
 @if ($show_all)
 	@if ($logged_in_user_number_photos)
 		@if ($users_who_must_be_rated)
-			<a href="/profile/compatible?" class="bright">You must rate all users before you can view all users</a>.<br><br>
+			You must <a href="/profile/compatible?">rate all users</a> before you can view all users.<br><br>
 		@else
 			All users<br><br>
 		@endif
 	@else
-		<a href="/image/upload">You must upload an image of yourself before you can view all users</a>.<br><br>
+		You must <a href="/image/upload">upload a photo</a> before you can view all users.<br><br>
 	@endif
 @else
 	<a href="/search?show_all=1">Show all users</a><br><br>
@@ -16,7 +16,7 @@
 @if ($show_mutuals)
 	@if ($logged_in_user_number_photos)
 		@if ($users_who_must_be_rated)
-			<a href="/profile/compatible?" class="bright">You must rate all users before you can see your mutual favorites</a>.<br><br>
+			You must <a href="/profile/compatible?">rate all users</a> before you can see your mutual favorites.<br><br>
 		@else
 			@if ($profiles_found_count)
 				@if ($profiles_found_count === 1)
@@ -29,7 +29,7 @@
 			@endif
 		@endif
 	@else
-		<a href="/image/upload">You must upload an image of yourself before you can see mutual favorites</a>.<br><br>
+		You must <a href="/image/upload">upload a photo</a> before you can see mutual favorites.<br><br>
 	@endif
 @else
 	@if ($logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites)
@@ -39,12 +39,12 @@
 @if ($show_preferred_gender)
 	@if ($logged_in_user_number_photos)
 		@if ($users_who_must_be_rated)
-			<a href="/profile/compatible?" class="bright">You must rate all users before you can view users of your preferred gender</a>.<br><br>
+			You must <a href="/profile/compatible?">rate all users</a> before you can view users of your preferred gender.<br><br>
 		@else
 			All users of your preferred gender, gender Other, and gender unspecified<br><br>
 		@endif
 	@else
-		<a href="/image/upload">You must upload an image of yourself before you can search users</a>.<br><br>
+		You must <a href="/image/upload">upload a photo</a> before you can search users.<br><br>
 	@endif
 @else
 	@if ($logged_in_user_preferred_gender_of_match)
