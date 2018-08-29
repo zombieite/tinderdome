@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@if ($attending_next_event)
+	You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.
+@endif
 @if ($number_photos)
 	@if (count($unrated_users) >= 3)
 		<h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
@@ -36,7 +39,7 @@
 @if ($number_photos)
 	<li>COMPLETE: <a href="/profile/{{ $auth_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.</li>
 @else
-	<li><a href="/image/upload" class="bright">INCOMPLETE: You must upload a photo of yourself</a>.</li>
+	<li><a href="/image/upload" class="bright">INCOMPLETE: You must upload a photo</a>.</li>
 @endif
 @if ($unrated_users)
 	@if ($number_photos)
