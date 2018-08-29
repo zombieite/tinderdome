@@ -189,7 +189,7 @@ class Util {
 			}
 		}
 		if ($user_id == 1) {
-			$title = 'TYRANT';
+			$title = '';
 		}
 
 		return [
