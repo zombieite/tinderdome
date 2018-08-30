@@ -420,13 +420,28 @@ class ProfileController extends Controller
 		', [$event, $year, $user_id, $user_id]);
 		$match = array_shift($match_array);
 
-		if (!$match) {
+		$deleted_match_or_match_said_no = DB::select('
+			select
+				users.id matched_to_user,
+				choice
+			from
+				matching
+				left join choose on ((user_1=chooser_id and user_2=?) or (user_2=chooser_id and user_1=?))
+				left join users on ((user_1=users.id and user_2=?) or (user_2=users.id and user_1=?))
+			where
+				(users.id is null or choice=0)
+				and event=?
+				and year=?
+				and (user_1=? or user_2=?)
+		', [$user_id, $user_id,$user_id, $user_id, $event, $year, $user_id, $user_id]);
+		if ($deleted_match_or_match_said_no) {
 			return view('nomatch', [
-				'matches_done'           => $matches_done,
-				'event'                  => $event,
-				'year'                   => $year,
-				'pretty_event_names'     => $pretty_event_names,
-				'logged_in_is_signed_up' => $logged_in_is_signed_up,
+				'matches_done'                   => $matches_done,
+				'event'                          => $event,
+				'year'                           => $year,
+				'pretty_event_names'             => $pretty_event_names,
+				'logged_in_is_signed_up'         => $logged_in_is_signed_up,
+				'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
 			]);
 		}
 
