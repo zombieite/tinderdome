@@ -117,7 +117,7 @@
 						Found match
 						<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 					@else
-						Match not found
+						Matched to deleted user; mission incomplete
 						<br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
 					@endif
 				@endif
