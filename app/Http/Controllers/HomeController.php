@@ -50,6 +50,8 @@ class HomeController extends Controller
 		$attending_next_event      = DB::select("select * from users where id=? and attending_$next_event", [$auth_user_id]);
 		$random_ok                 = DB::select("select * from users where id=? and random_ok", [$auth_user_id]);
 		$matched                   = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$auth_user_id, $auth_user_id, $next_event, $year]);
+		$recent_good_ratings       = DB::select('select count(*) interested from choose where created_at>now()-interval 1 week and choice>1 and chosen_id=?', [$auth_user_id]);
+		$recent_good_ratings_count = $recent_good_ratings[0]->interested;
 		$found_my_match            = null;
 		$rated_fraction            = ($total_user_count - count($unrated_users)) / $total_user_count;
 		$rated_enough              = true;
@@ -98,6 +100,7 @@ class HomeController extends Controller
 			'nonleader_count'           => $nonleader_count,
 			'rated_enough'              => $rated_enough,
 			'rated_percent'             => $rated_percent,
+			'recent_good_ratings_count' => $recent_good_ratings_count,
 			'min_percent_to_count_as_rated_enough_users' => $min_percent_to_count_as_rated_enough_users,
 		]);
 	}
