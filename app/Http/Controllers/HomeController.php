@@ -21,17 +21,19 @@ class HomeController extends Controller
 		$total_user_count      = $leader_count + $nonleader_count;
 
 		if ($auth_user) {
-			DB::update('update users set last_active=now() where id=?', [$auth_user_id]);
-			if ($auth_user_id == 1 and isset($_GET['masquerade'])) {
-				$auth_user_id = $_GET['masquerade'];
-				$auth_user    = DB::select('select * from users where id=?', [$auth_user_id])[0];
-			}
+			// All good
 		} else {
 			return view('intro', [
 				'leaderboard'     => $leaderboard,
 				'leader_count'    => $leader_count,
 				'nonleader_count' => $nonleader_count,
 			]);
+		}
+
+		DB::update('update users set last_active=now() where id=?', [$auth_user_id]);
+		if ($auth_user_id == 1 and isset($_GET['masquerade'])) {
+			$auth_user_id = $_GET['masquerade'];
+			$auth_user    = DB::select('select * from users where id=?', [$auth_user_id])[0];
 		}
 
 		$min_fraction_to_count_as_rated_enough_users = .75;
