@@ -22,9 +22,15 @@
 <form method="POST" action="" enctype="multipart/form-data">
 	{{ csrf_field() }}
 	<br>
-	<label for="submit">Upload an image.</label>
+	<label for="submit">
+		@if ($number_photos > 0)
+			You have successfully uploaded {{ $number_photos }} image(s). You can upload up to 5.
+		@else
+			Upload an image. Your first image must be a picture of you, but you can wear a mask if you want to be mysterious.
+		@endif
+	</label>
 	<br><br>
-	Your first image must be a picture of you, but you can wear a mask if you want to be mysterious. Your file must be no more than 2MB.
+	Image files must be no more than 2MB.
 	<br><br>
 	@if ($number_photos == 0)
 		<input type="hidden" name="imagenum" value="new">
