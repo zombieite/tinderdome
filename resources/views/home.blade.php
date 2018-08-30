@@ -4,7 +4,7 @@
 @if ($attending_next_event)
 	<p>You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
 @endif
-@if ($recent_good_ratings_count > 5)
+@if ($recent_good_ratings_count > 4)
 	<p>{{ $recent_good_ratings_count }} new users have said they'd enjoy meeting you in the past week.</p>
 @endif
 @if ($number_photos)
