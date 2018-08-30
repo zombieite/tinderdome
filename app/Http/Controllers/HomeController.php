@@ -54,6 +54,8 @@ class HomeController extends Controller
 		$recent_good_ratings_count = $recent_good_ratings[0]->interested;
 		$good_ratings              = DB::select('select count(*) interested from choose where choice>1 and chosen_id=?', [$auth_user_id]);
 		$good_ratings_count        = $good_ratings[0]->interested;
+		$mutual_ok_ratings         = DB::select('select count(*) possible_matches from choose their_choice join choose my_choice on my_choice.chooser_id=? and their_choice.chooser_id=my_choice.chosen_id where their_choice.choice>0 and my_choice.choice>0 and their_choice.chosen_id=?', [$auth_user_id, $auth_user_id]);
+		$mutual_ok_ratings_count   = $mutual_ok_ratings[0]->possible_matches;
 		$ratings                   = DB::select('select count(*) rated from choose where choice>-1 and chosen_id=?', [$auth_user_id]);
 		$ratings_count             = $ratings[0]->rated;
 		$good_ratings_percent      = 0;
@@ -112,6 +114,7 @@ class HomeController extends Controller
 			'rated_percent'             => $rated_percent,
 			'recent_good_ratings_count' => $recent_good_ratings_count,
 			'good_ratings_count'        => $good_ratings_count,
+			'mutual_ok_ratings_count'   => $mutual_ok_ratings_count,
 			'good_ratings_percent'      => $good_ratings_percent,
 			'min_percent_to_count_as_rated_enough_users' => $min_percent_to_count_as_rated_enough_users,
 		]);
