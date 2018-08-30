@@ -26,6 +26,8 @@ class PhotoSearchController extends Controller
 		$gender_to_show            = isset($_GET['gender']) ? $_GET['gender'] : null;
 		$gender_clause             = '';
 
+		DB::update('update users set last_active=now() where id=?', [$logged_in_user_id]);
+
 		if ($logged_in_user_random_ok) {
 			// All good
 		} else {
