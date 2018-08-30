@@ -4,8 +4,16 @@
 @if ($attending_next_event)
 	<p>You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
 @endif
-@if ($recent_good_ratings_count > 4)
-	<p>{{ $recent_good_ratings_count }} new users have said they'd enjoy meeting you in the past week.</p>
+@if ($good_ratings_percent > 50)
+	<p>{{ $good_ratings_percent }}% of users who have rated you have said they'd enjoy meeting you.</p>
+@else
+	@if ($recent_good_ratings_count >= 10)
+		<p>{{ $recent_good_ratings_count }} users have said they'd enjoy meeting you in the past week.</p>
+	@else
+		@if ($good_ratings_count >= 50)
+			<p>{{ $good_ratings_count }} users have said they'd enjoy meeting you.</p>
+		@endif
+	@endif
 @endif
 @if ($number_photos)
 	@if (count($unrated_users) >= 3)
