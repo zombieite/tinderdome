@@ -63,6 +63,31 @@ class HomeController extends Controller
 		$rated_fraction            = ($total_user_count - count($unrated_users)) / $total_user_count;
 		$rated_enough              = true;
 
+		$recently_updated_users    = DB::select('
+			select
+				id,
+				name,
+				number_photos,
+				updated_at,
+				my_choice.choice my_choice_choice,
+				their_choice.choice their_choice_choice
+			from
+				users
+				join choose my_choice on (my_choice.chooser_id = ? and my_choice.chosen_id = users.id)
+				left join choose their_choice on (their_choice.chooser_id = users.id and their_choice.chosen_id = ?)
+			where
+				(their_choice.choice is null or their_choice.choice > 0)
+				and (my_choice.choice is not null and my_choice.choice > 0)
+				and updated_at > now() - interval 1 day
+				and id > 10
+				and number_photos > 0
+			order by
+				id
+		', [$auth_user_id, $auth_user_id]);
+		foreach ($recently_updated_users as $recently_updated_user) {
+			$recently_updated_user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $recently_updated_user->name);
+		}
+
 		if ($good_ratings_count && $ratings_count) {
 			$good_ratings_percent = round( $good_ratings_count / $ratings_count * 100 );
 			//Log::debug("good ratings count '$good_ratings_count' ratings count '$ratings_count' percent '$good_ratings_percent'");
@@ -94,28 +119,29 @@ class HomeController extends Controller
 		}
 
 		return view('home', [
-			'auth_user_id'              => $auth_user_id,
-			'wasteland_name_hyphenated' => $wasteland_name_hyphenated,
-			'number_photos'             => $number_photos,
-			'unrated_users'             => $unrated_users,
-			'matched_to_users'          => $matched_to_users,
-			'matched'                   => $matched,
-			'next_event'                => $next_event,
-			'year'                      => $year,
-			'matches_done'              => $matches_done,
-			'attending_next_event'      => $attending_next_event,
-			'random_ok'                 => $random_ok,
-			'pretty_names'              => $pretty_names,
-			'found_my_match'            => $found_my_match,
-			'leaderboard'               => $leaderboard,
-			'leader_count'              => $leader_count,
-			'nonleader_count'           => $nonleader_count,
-			'rated_enough'              => $rated_enough,
-			'rated_percent'             => $rated_percent,
-			'recent_good_ratings_count' => $recent_good_ratings_count,
-			'good_ratings_count'        => $good_ratings_count,
-			'mutual_ok_ratings_count'   => $mutual_ok_ratings_count,
-			'good_ratings_percent'      => $good_ratings_percent,
+			'auth_user_id'                               => $auth_user_id,
+			'wasteland_name_hyphenated'                  => $wasteland_name_hyphenated,
+			'number_photos'                              => $number_photos,
+			'unrated_users'                              => $unrated_users,
+			'matched_to_users'                           => $matched_to_users,
+			'matched'                                    => $matched,
+			'next_event'                                 => $next_event,
+			'year'                                       => $year,
+			'matches_done'                               => $matches_done,
+			'attending_next_event'                       => $attending_next_event,
+			'random_ok'                                  => $random_ok,
+			'pretty_names'                               => $pretty_names,
+			'found_my_match'                             => $found_my_match,
+			'leaderboard'                                => $leaderboard,
+			'leader_count'                               => $leader_count,
+			'nonleader_count'                            => $nonleader_count,
+			'rated_enough'                               => $rated_enough,
+			'rated_percent'                              => $rated_percent,
+			'recent_good_ratings_count'                  => $recent_good_ratings_count,
+			'good_ratings_count'                         => $good_ratings_count,
+			'mutual_ok_ratings_count'                    => $mutual_ok_ratings_count,
+			'good_ratings_percent'                       => $good_ratings_percent,
+			'recently_updated_users'                     => $recently_updated_users,
 			'min_percent_to_count_as_rated_enough_users' => $min_percent_to_count_as_rated_enough_users,
 		]);
 	}

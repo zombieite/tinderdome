@@ -75,7 +75,7 @@ class ImageController extends Controller
 
 		} else {
 			if (isset($_POST['delete']) || isset($_POST['upload'])) {
-				DB::update('update users set number_photos=? where id=? limit 1', [$number_photos, $profile_id]);
+				DB::update('update users set number_photos=?, updated_at=now() where id=? limit 1', [$number_photos, $profile_id]);
 			}
 		}
 
