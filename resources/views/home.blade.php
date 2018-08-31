@@ -38,7 +38,7 @@
 				<div class="centered_block">
 					<a href="/profile/{{ $recently_updated_user->id }}/{{ $recently_updated_user->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $recently_updated_user->id }}-1.jpg" style="height:100px;"></a>
 					<br>
-					{{ $recently_updated_user->name }}
+					<a href="/profile/{{ $recently_updated_user->id }}/{{ $recently_updated_user->wasteland_name_hyphenated }}">{{ $recently_updated_user->name }}</a>
 				</div>
 			@endforeach
 		@else
