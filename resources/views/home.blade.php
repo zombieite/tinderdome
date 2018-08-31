@@ -32,21 +32,32 @@
 				@endif
 		@endfor
 	@else
-		@if (count($leaderboard))
-			<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
-			@foreach ($leaderboard as $leader)
-			<div class="centered_block">
-				@if ($leader['number_photos'])
-					<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
-				<br>
-				@if ($leader['missions_completed']['points'] > 0)
-					{{ $leader['missions_completed']['title'] }}
-				@endif
-				{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
-			</div>
+		@if ($recently_updated_users && count($recently_updated_users >= 3))
+			<h2>These users updated their profiles today. See what's new.</h2>
+			@foreach ($recently_updated_users as $recently_updated_user)
+				<div class="centered_block">
+					<a href="/profile/{{ $recently_updated_user->id }}/{{ $recently_updated_user->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $recently_updated_user->id }}-1.jpg" style="height:100px;"></a>
+					<br>
+					{{ $recently_updated_user->name }}
+				</div>
 			@endforeach
 		@else
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			@if (count($leaderboard))
+				<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
+				@foreach ($leaderboard as $leader)
+				<div class="centered_block">
+					@if ($leader['number_photos'])
+						<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
+					<br>
+					@if ($leader['missions_completed']['points'] > 0)
+						{{ $leader['missions_completed']['title'] }}
+					@endif
+					{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+				</div>
+				@endforeach
+			@else
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			@endif
 		@endif
 	@endif
 @else
