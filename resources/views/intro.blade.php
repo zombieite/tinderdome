@@ -37,14 +37,14 @@ Browse other profiles and choose who you'd enjoy meeting.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-One week before each event, the matching algorithm will run. You will be matched with one other person. Check your email or come back to this site to see who you've been matched with. Next event: Wasteland Weekend 2018!
+One week before each event, the matching algorithm will run. You will be matched with one other person at the event. Check your email or come back to this site to see who you've been matched to. Next event: {{ $pretty_names[$next_event] }} {{ $year }}!
 </p>
 <h3>4. Seek out your match</h3>
 <p>
-Your mission is to find your match at the event. They'll be looking for you, too. Suggested conversation topic: merging the backstories of your Wasteland personas. Come up with a real or fictionalized account of how you met.
+Your mission is to find your match at the event. They'll be looking for you, too. Suggested conversation topic: merge the backstories of your Wasteland personas. Come up with a real or fictionalized account of how you met.
 </p>
 <h3>5. Get your caps</h3>
 <p>
-If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started now by creating your profile</a>.
+If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
 </p>
 @endsection

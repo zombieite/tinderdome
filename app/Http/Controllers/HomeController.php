@@ -19,6 +19,10 @@ class HomeController extends Controller
 		$leaderboard           = $leaderboard_and_count['leaderboard'];
 		$nonleader_count       = $leaderboard_and_count['nonleader_count'];
 		$total_user_count      = $leader_count + $nonleader_count;
+		$upcoming_events       = \App\Util::upcoming_events();
+		$pretty_names          = \App\Util::pretty_event_names();
+		$year                  = date('Y');
+		$next_event            = array_shift($upcoming_events);
 
 		if ($auth_user) {
 			// All good
@@ -27,6 +31,9 @@ class HomeController extends Controller
 				'leaderboard'     => $leaderboard,
 				'leader_count'    => $leader_count,
 				'nonleader_count' => $nonleader_count,
+				'next_event'      => $next_event,
+				'year'            => $year,
+				'pretty_names'    => $pretty_names,
 			]);
 		}
 
@@ -42,10 +49,6 @@ class HomeController extends Controller
 		$number_photos             = $auth_user->number_photos;
 		$unrated_users             = \App\Util::unrated_users( $auth_user_id, $auth_user->gender_of_match );
 		$matched_to_users          = \App\Util::matched_to_users( $auth_user_id );
-		$upcoming_events           = \App\Util::upcoming_events();
-		$pretty_names              = \App\Util::pretty_event_names();
-		$year                      = date('Y');
-		$next_event                = array_shift($upcoming_events);
 		$matches_done              = DB::select('select * from matching where event=? and year=?', [$next_event, $year]);
 		$attending_next_event      = DB::select("select * from users where id=? and attending_$next_event", [$auth_user_id]);
 		$random_ok                 = DB::select("select * from users where id=? and random_ok", [$auth_user_id]);
@@ -78,7 +81,7 @@ class HomeController extends Controller
 			where
 				(their_choice.choice is null or their_choice.choice > 0)
 				and (my_choice.choice is not null and my_choice.choice > 0)
-				and updated_at > now() - interval 1 day
+				and updated_at > now() - interval 12 hour
 				and id > 10
 				and number_photos > 0
 			order by
