@@ -37,6 +37,7 @@ input[type="submit"] {
 	color: black;
 	background-color: var(--special);
 	border: 1px solid var(--subtle);
+	margin: 0.5em;
 }
 button.yesyesyes, input[type="submit"].yesyesyes {
 	background-color: var(--yes);
@@ -64,26 +65,26 @@ button.met, input[type="submit"].met {
 .profile_search_block_bright {
 	display: inline-block;
 	border: 3px solid var(--bright);
-	margin-top: .2em;
-	margin-bottom: .2em;
-	margin-right: .1em;
-	padding: .5em;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	margin-right: 0.1em;
+	padding: 0.5em;
 }
 .profile_search_block {
 	display: inline-block;
 	border: 1px solid var(--subtle);
-	margin-top: .2em;
-	margin-bottom: .2em;
-	margin-right: .1em;
-	padding: .5em;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	margin-right: 0.1em;
+	padding: 0.5em;
 	text-align: left;
 }
 .centered_block {
 	display: inline-block;
 	border: 1px solid var(--subtle);
-	margin-top: .2em;
-	margin-bottom: .2em;
-	margin-right: .1em;
-	padding: .5em;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	margin-right: 0.1em;
+	padding: 0.5em;
 	text-align: center;
 }
