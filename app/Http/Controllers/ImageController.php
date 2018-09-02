@@ -22,12 +22,13 @@ class ImageController extends Controller
 			abort(403);
 		}
 
-		$number_photos = $profile->number_photos;
-		$random_ok     = $profile->random_ok;
-		$image_height  = 500;
-		$max_photos    = 5;
-		$errors        = '';
-		$max_filesize  = 2000000;
+		$number_photos             = $profile->number_photos;
+		$wasteland_name            = $profile->name;
+		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+		$image_height              = 500;
+		$max_photos                = 5;
+		$errors                    = '';
+		$max_filesize              = 2000000;
 
 		if (isset($_POST['delete'])) {
 			$number_photos = 0;
@@ -87,13 +88,13 @@ class ImageController extends Controller
 		}
 
 		return view('image_upload', [
-			'profile_id'     => $profile_id,
-			'max_photos'     => $max_photos,
-			'number_photos'  => $number_photos,
-			'random_ok'      => $random_ok,
-			'errors'         => $errors,
-			'time'           => $time,
-			'new_user'       => $new_user,
+			'profile_id'                => $profile_id,
+			'wasteland_name_hyphenated' => $wasteland_name_hyphenated,
+			'max_photos'                => $max_photos,
+			'number_photos'             => $number_photos,
+			'errors'                    => $errors,
+			'time'                      => $time,
+			'new_user'                  => $new_user,
 		]);
 	}
 }
