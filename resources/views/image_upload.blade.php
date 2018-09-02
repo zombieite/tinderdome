@@ -3,11 +3,6 @@
 @if ($new_user && $number_photos > 0)
 	<h2>Signup complete! You can upload more photos or <a href="/profile/compatible?">choose who you'd like to meet</a>.</h2>
 @endif
-@if ($random_ok)
-
-@else
-
-@endif
 @if ($errors)
 	<h2>Error updating images: {{ $errors }}</h2>
 @endif
@@ -24,7 +19,15 @@
 	<br>
 	<label for="submit">
 		@if ($number_photos > 0)
-			You have successfully uploaded {{ $number_photos }} image(s). You can upload up to 5.
+			@if ($number_photos === 1)
+				You have uploaded 1 image. You can upload up to 5.
+			@else
+				@if ($number_photos === 5)
+					You have uploaded the maximum number of images. You can replace them with new images if you like.
+				@else
+					You have uploaded {{ $number_photos }} images. You can upload up to 5.
+				@endif
+			@endif
 		@else
 			Upload an image. Your first image must be a picture of you, but you can wear a mask if you want to be mysterious.
 		@endif
@@ -57,5 +60,8 @@
 		</button>
 	</div>
 </form>
+@if ($number_photos > 0)
+	<a href="/profile/{{ $profile_id }}/{{ $wasteland_name_hyphenated }}">View my profile page</a>
+@endif
 
 @endsection
