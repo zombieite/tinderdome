@@ -32,7 +32,7 @@
 				@endif
 		@endfor
 	@else
-		@if ($recently_updated_users && count($recently_updated_users >= 5))
+		@if ( $recently_updated_users && count($recently_updated_users) >= 3 )
 			<h2>These users updated their profiles today. See what's new.</h2>
 			@foreach ($recently_updated_users as $recently_updated_user)
 				<div class="centered_block">
