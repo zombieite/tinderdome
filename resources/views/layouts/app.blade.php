@@ -43,7 +43,7 @@ Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com
 <br>
 <br>
 @if ($active_count >= 10)
-	{{ $active_count }} users active in the past 24 hours
+	{{ $total_count }} total users, {{ $active_count }} active in the past 24 hours.
 @endif
 
 <script src="{{ asset('js/app.js') }}"></script>
