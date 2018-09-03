@@ -16,7 +16,13 @@ class AppServiceProvider extends ServiceProvider
 			if ($active_count_result) {
 				$active_count = $active_count_result[0]->active_count;
 			}
+			$total_count_result = DB::select('select count(*) total_count from users where id>10');
+			$total_count = 0;
+			if ($total_count_result) {
+				$total_count = $total_count_result[0]->total_count;
+			}
 			$view->with('active_count', $active_count);
+			$view->with('total_count',  $total_count);
 		});
 	}
 }
