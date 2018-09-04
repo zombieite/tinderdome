@@ -87,6 +87,7 @@ class HomeController extends Controller
 				and number_photos > 0
 			order by
 				updated_at desc
+				limit 7
 		', [$auth_user_id, $auth_user_id, $hours_to_count_as_recent]);
 		foreach ($recently_updated_users as $recently_updated_user) {
 			$recently_updated_user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $recently_updated_user->name);
