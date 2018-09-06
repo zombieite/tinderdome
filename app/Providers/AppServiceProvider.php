@@ -21,8 +21,14 @@ class AppServiceProvider extends ServiceProvider
 			if ($total_count_result) {
 				$total_count = $total_count_result[0]->total_count;
 			}
-			$view->with('active_count', $active_count);
-			$view->with('total_count',  $total_count);
+			$wasteland_count_result = DB::select('select count(*) wasteland_count from users where id>10 and attending_wasteland');
+			$wasteland_count = 0;
+			if ($wasteland_count_result) {
+				$wasteland_count = $wasteland_count_result[0]->wasteland_count;
+			}
+			$view->with('active_count',    $active_count);
+			$view->with('total_count',     $total_count);
+			$view->with('wasteland_count', $wasteland_count);
 		});
 	}
 }
