@@ -42,8 +42,9 @@
 Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
 <br>
 <br>
+{{ $total_count }} total users &middot; {{ $wasteland_count }} signed up for missions during Wasteland Weekend
 @if ($active_count >= 10)
-	{{ $total_count }} total users, {{ $active_count }} active in the past 24 hours.
+	&middot; {{ $active_count }} active in the past 24 hours
 @endif
 
 <script src="{{ asset('js/app.js') }}"></script>
