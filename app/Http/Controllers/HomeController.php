@@ -101,7 +101,7 @@ class HomeController extends Controller
 		if ($random_ok) {
 			// All good
 		} else {
-			if ($rated_fraction < $min_fraction_to_count_as_rated_enough_users) {
+			if ($rated_fraction < ($min_fraction_to_count_as_rated_enough_users - 0.01)) {
 				$rated_enough = false;
 			}
 		}
