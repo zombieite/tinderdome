@@ -35,7 +35,7 @@ class RegisterController extends Controller
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 		$ip                        = request()->ip() or die("No ip");
 
-		if (preg_match('/irebird/', $wasteland_name)) {
+		if (preg_match('/irebird/i', $wasteland_name)) {
 			$wasteland_name = NULL;
 			abort(403, 'Only the site owner can be named Firebird');
 		}
