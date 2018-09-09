@@ -366,7 +366,7 @@ class ProfileController extends Controller
 	public function match()
 	{
 		$user                   = Auth::user();
-		$user_id                = Auth::id();
+		$logged_in_user_id      = Auth::id();
 		$event                  = $_GET['event'];
 		$year                   = $_GET['year'];
 		$match_name             = null;
@@ -374,9 +374,9 @@ class ProfileController extends Controller
 		$events                 = \App\Util::all_events();
 		$pretty_event_names     = \App\Util::pretty_event_names();
 
-		if ($user_id === 1 && isset($_GET['masquerade'])) {
-			$user_id = $_GET['masquerade']+0;
-			Log::debug("Masquerading as $user_id");
+		if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
+			$logged_in_user_id = $_GET['masquerade']+0;
+			Log::debug("Masquerading as $logged_in_user_id");
 		}
 
 		if (preg_match('/^[_a-z]+$/', $event)) {
@@ -397,9 +397,9 @@ class ProfileController extends Controller
 			abort(403, 'Invalid year');
 		}
 
-		$logged_in_is_signed_up = DB::select("select * from users where id=? and attending_$event", [$user_id]);
-
-		$matches_done = DB::select('
+		$logged_in_is_signed_up         = DB::select("select * from users where id=? and attending_$event", [$logged_in_user_id]);
+		$deleted_match_or_match_said_no = false;
+		$matches_done                   = DB::select('
 			select * from matching where event=? and year=?
 		', [$event, $year]);
 
@@ -411,30 +411,18 @@ class ProfileController extends Controller
 				users_2.name user_2_name
 			from
 				matching
-				join users users_1 on (user_1=users_1.id)
-				join users users_2 on (user_2=users_2.id)
+				left join users users_1 on (user_1=users_1.id)
+				left join users users_2 on (user_2=users_2.id)
 			where
 				event=?
 				and year=?
 				and (user_1=? or user_2=?)
-		', [$event, $year, $user_id, $user_id]);
+		', [$event, $year, $logged_in_user_id, $logged_in_user_id]);
 		$match = array_shift($match_array);
 
-		$deleted_match_or_match_said_no = DB::select('
-			select
-				users.id matched_to_user,
-				choice
-			from
-				matching
-				left join choose on ((user_1=chooser_id and user_2=?) or (user_2=chooser_id and user_1=?))
-				left join users on ((user_1=users.id and user_2=?) or (user_2=users.id and user_1=?))
-			where
-				(users.id is null or choice=0)
-				and event=?
-				and year=?
-				and (user_1=? or user_2=?)
-		', [$user_id, $user_id,$user_id, $user_id, $event, $year, $user_id, $user_id]);
-		if ($deleted_match_or_match_said_no) {
+		if ($match) {
+			// All good
+		} else {
 			return view('nomatch', [
 				'matches_done'                   => $matches_done,
 				'event'                          => $event,
@@ -445,18 +433,46 @@ class ProfileController extends Controller
 			]);
 		}
 
-		if ($match->user_1 === $user_id) {
-			//Log::debug("User 1 '".$match->user_1."' === user id '$user_id'");
+		// Figure out who their match is because the table might have them as user_1 or user_2
+		if ($match->user_1 === $logged_in_user_id) {
+			//Log::debug("User 1 '".$match->user_1."' === user id '$logged_in_user_id'");
 			$match_id   = $match->user_2;
 			$match_name = $match->user_2_name;
-		} else if ($match->user_2 === $user_id) {
-			//Log::debug("User 2 '".$match->user_2."' === user id '$user_id'");
+		} else if ($match->user_2 === $logged_in_user_id) {
+			//Log::debug("User 2 '".$match->user_2."' === user id '$logged_in_user_id'");
 			$match_id   = $match->user_1;
 			$match_name = $match->user_1_name;
 		} else {
-			die("Could not look up match for user '$user_id'");
+			die("Could not look up match for user '$logged_in_user_id'");
 		}
-		//Log::debug("Match found for user '$user_id' is '$match_name' id '$match_id'");
+		//Log::debug("Match found for user '$logged_in_user_id' is '$match_name' id '$match_id'");
+
+		if ($match_id) {
+			$matched_user = DB::select('select * from users where id=?', [$match_id]);
+			if ($matched_user) {
+				$matched_users_current_choice = DB::select('select choice from choose where chooser_id=? and chosen_id=?', [$match_id, $logged_in_user_id]);
+				if ($matched_users_current_choice) {
+					if ($matched_users_current_choice[0]->choice === 0) {
+						$deleted_match_or_match_said_no = true;
+					}
+				}
+			} else {
+				$deleted_match_or_match_said_no = true;
+			}
+		} else {
+			$deleted_match_or_match_said_no = true;
+		}
+
+		if ($deleted_match_or_match_said_no) {
+			return view('nomatch', [
+				'matches_done'                   => $matches_done,
+				'event'                          => $event,
+				'year'                           => $year,
+				'pretty_event_names'             => $pretty_event_names,
+				'logged_in_is_signed_up'         => $logged_in_is_signed_up,
+				'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
+			]);
+		}
 
 		return $this->show($match_id, $match_name, null, null, 1, $event, $year);
 	}
