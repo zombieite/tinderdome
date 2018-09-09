@@ -13,7 +13,7 @@ use Log;
 
 class ProfileController extends Controller
 {
-	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null, $event = null, $year = null)
+	public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null, $event = null, $year = null, $count_with_same_name = 0)
 	{
 		$profile = null;
 		if ($unchosen_user) {
@@ -164,6 +164,7 @@ class ProfileController extends Controller
 			'pretty_event_names'                 => $pretty_event_names,
 			'year'                               => $year,
 			'image_query_string'                 => $image_query_string,
+			'count_with_same_name'               => $count_with_same_name,
 		]);
 	}
 
@@ -474,7 +475,10 @@ class ProfileController extends Controller
 			]);
 		}
 
-		return $this->show($match_id, $match_name, null, null, 1, $event, $year);
+		$users_with_same_name = DB::select('select * from users where name = ? and id != ?', [$match_name, $match_id]);
+		$count_with_same_name  = count($users_with_same_name);
+
+		return $this->show($match_id, $match_name, null, null, 1, $event, $year, $count_with_same_name);
 	}
 
 	public function compatible()
