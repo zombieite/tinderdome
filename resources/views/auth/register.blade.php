@@ -12,21 +12,21 @@
 <label for="name">Nickname</label>
 <input id="name" type="text" name="name" value="@guest{{ old('name') }}@else{{ $wasteland_name }}@endguest" pattern="^[A-Za-z0-9 ]+$" maxlength="50" required autofocus>
 @if ($errors->has('name'))
-<strong>{{ $errors->first('name') }}</strong>
+<strong class="bright">{{ $errors->first('name') }}</strong>
 @endif
 
 <br><br>
 <label for="email">Email</label>
 <input id="email" type="email" name="email" value="@guest{{ old('email') }}@else{{ $email }}@endguest" maxlength="50" required>
 @if ($errors->has('email'))
-<strong>{{ $errors->first('email') }}</strong>
+<strong class="bright">{{ $errors->first('email') }}</strong>
 @endif
 
 <br><br>
 <label for="password">Password</label>
 <input id="password" type="password" name="password" @guest required @endguest>
 @if ($errors->has('password'))
-<strong>{{ $errors->first('password') }}</strong>
+<strong class="bright">{{ $errors->first('password') }}</strong>
 @endif
 
 <br>
