@@ -2,8 +2,18 @@
 @section('content')
 @if ($is_my_match)
 	<h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
-	<h2 class="bright">Your mission is to seek them out at {{ $pretty_event_names[$event] }} {{ $year }}. They'll be looking for you, too.</h2>
+	@if ($count_with_same_name)
+		@if ($count_with_same_name == 1)
+			Another user also goes by the name {{ $wasteland_name }}. Be sure to find the right one.
+		@else
+			{{ $count_with_same_name }} other users go by the name {{ $wasteland_name }}. Be sure to find the right one.
+		@endif
+	@endif
+	<h2 class="bright">Your mission is to seek out {{ $wasteland_name }} at {{ $pretty_event_names[$event] }} {{ $year }}.</h2>
+	{{ $wasteland_name }} will be looking for you, too.
 	If you've found them and met them in person, during or after the event, let us know. This will mark your mission as complete.
+	<br>
+	<br>
 	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
 	<br>
 @else
