@@ -275,7 +275,7 @@ class ProfileController extends Controller
 			}
 		}
 
-		if ($profile_id != 1 && preg_match('/irebird/', $wasteland_name)) {
+		if ($profile_id != 1 && preg_match('/irebird/i', $wasteland_name)) {
 			$wasteland_name = NULL;
 			$update_errors .= 'Invalid username';
 		}

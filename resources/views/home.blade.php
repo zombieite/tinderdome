@@ -3,6 +3,8 @@
 @section('content')
 @if ($attending_next_event)
 	<p>You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
+@else
+	<p>You are NOT signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you will be attending, please <a href="/profile/edit">let us know</a>.</p>
 @endif
 @if ($good_ratings_percent >= 50)
 	<p>{{ $good_ratings_percent }}% of users who have rated you have said they'd enjoy meeting you.</p>
