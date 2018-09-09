@@ -65,7 +65,6 @@ class HomeController extends Controller
 		$found_my_match            = null;
 		$rated_fraction            = ($total_user_count - count($unrated_users)) / $total_user_count;
 		$rated_enough              = true;
-		$hours_to_count_as_recent  = 24;
 
 		$recently_updated_users    = DB::select('
 			select
@@ -82,13 +81,12 @@ class HomeController extends Controller
 			where
 				(their_choice.choice is null or their_choice.choice > 0)
 				and (my_choice.choice is not null and my_choice.choice > 0)
-				and updated_at > now() - interval ? hour
 				and id > 10
 				and number_photos > 0
 			order by
 				updated_at desc
 				limit 7
-		', [$auth_user_id, $auth_user_id, $hours_to_count_as_recent]);
+		', [$auth_user_id, $auth_user_id]);
 		foreach ($recently_updated_users as $recently_updated_user) {
 			$recently_updated_user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $recently_updated_user->name);
 		}
