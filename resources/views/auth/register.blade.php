@@ -2,7 +2,7 @@
 @section('content')
 @if (isset($update_errors))
 	@if ($update_errors)
-		<h2>Error updating profile: {{ $update_errors }}</h2>
+		<h2 class="bright">Error updating profile: {{ $update_errors }}</h2>
 	@endif
 @endif
 
