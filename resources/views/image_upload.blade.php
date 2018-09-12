@@ -4,7 +4,7 @@
 	<h2>Signup complete! You can upload more photos or <a href="/profile/compatible?">choose who you'd like to meet</a>.</h2>
 @endif
 @if ($errors)
-	<h2 class="bright">Error updating images: {{ $errors }}</h2>
+	<h2 class="bright">Error updating images: {{ $errors }} Problems? You can also just email the images to Firebird.</h2>
 @endif
 
 @for ($i = 1; $i <= $number_photos; $i++)
