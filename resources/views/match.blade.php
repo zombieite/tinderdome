@@ -35,6 +35,8 @@
 		@if ($id_to_cant_match_hash[$user->id])
 			@php $unmatched++ @endphp
 			style="background-color:#660000;"
+		@elseif (isset($match_rating_hash[$user->id]) && isset($match_rating_hash[$matched_users_hash[$user->id]]) && $match_rating_hash[$user->id] === 3 && $match_rating_hash[$matched_users_hash[$user->id]] === 3)
+			style="background-color:#003300;"
 		@elseif ($user->greylist)
 			style="background-color:#333333;"
 		@elseif (!$user->number_photos)

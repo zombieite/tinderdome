@@ -89,7 +89,7 @@ class MatchController extends Controller
 		}
 
 		// Popularity and missions completed combined
-		$missions_completed_rank_boost_multiplier = 25;
+		$missions_completed_rank_boost_multiplier = 35;
 		$a_rank = $a->popularity;
 		$b_rank = $b->popularity;
 		if ($a->missions_completed_count) {
