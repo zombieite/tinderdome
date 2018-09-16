@@ -80,8 +80,8 @@
 @if ($logged_in_user_number_photos)
 	<a href="/photosearch">Show all photos</a><br><br>
 	<a href="/photosearch?gender=o">Show all photos of users of gender other and unspecified</a><br><br>
-	<a href="/photosearch?gender=f">Show all photos of women</a><br><br>
 	<a href="/photosearch?gender=m">Show all photos of men</a><br><br>
+	<a href="/photosearch?gender=f">Show all photos of women</a><br><br>
 @endif
 @foreach ($profiles as $profile)
 	@if ($profile['mutual_favorite'] || !$show_mutuals)
