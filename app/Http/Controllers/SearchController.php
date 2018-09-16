@@ -31,6 +31,7 @@ class SearchController extends Controller
 		$nos_clause                               = 'and ( c1.choice is null or c1.choice != 0 )';
 		$event_clause                             = '';
 		$gender_clause                            = '';
+		$show_yeses                               = false;
 		$show_nos                                 = false;
 		$show_mutuals                             = false;
 		$show_preferred_gender                    = false;
@@ -72,6 +73,11 @@ class SearchController extends Controller
 			}
 		}
 
+		if (isset($_GET['show_yeses']) && $_GET['show_yeses']) {
+			$show_yeses = true;
+			$nos_clause = 'and c1.choice >= 2';
+		}
+
 		if (isset($_GET['show_nos']) && $_GET['show_nos']) {
 			$show_nos = true;
 			$nos_clause = 'and c1.choice = 0';
@@ -91,7 +97,7 @@ class SearchController extends Controller
 			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
 		}
 
-		if ($show_all || $show_mutuals || $show_nos || $show_preferred_gender) {
+		if ($show_all || $show_mutuals || $show_yeses || $show_nos || $show_preferred_gender) {
 			$all_users = DB::select("
 				select
 					id,
@@ -178,6 +184,7 @@ class SearchController extends Controller
 			'logged_in_user_share_info_with_favorites' => $logged_in_user_share_info_with_favorites,
 			'logged_in_user_preferred_gender_of_match' => $logged_in_user_preferred_gender_of_match,
 			'logged_in_user_number_photos'             => $logged_in_user_number_photos,
+			'show_yeses'                               => $show_yeses,
 			'show_nos'                                 => $show_nos,
 			'show_mutuals'                             => $show_mutuals,
 			'show_all'                                 => $show_all,
