@@ -51,6 +51,19 @@
 		<a href="/search?show_preferred_gender=1">Show users of your preferred gender to meet, gender Other, and gender unspecified</a><br><br>
 	@endif
 @endif
+@if ($show_yeses)
+	@if ($profiles_found_count)
+		@if ($profiles_found_count === 1)
+			You have said you would enjoy meeting just one user.<br><br>
+		@else
+			You have said you would enjoy meeting {{ $profiles_found_count }} users.<br><br>
+		@endif
+	@else
+		You have not let us know that you would enjoy meeting any users yet.<br><br>
+	@endif
+@else
+	<a href="/search?show_yeses=1">See users you've said you would enjoy meeting</a><br><br>
+@endif
 @if ($show_nos)
 	@if ($profiles_found_count)
 		@if ($profiles_found_count === 1)
@@ -80,45 +93,53 @@
 					</a>
 				@endif
 			</div>
-			<div style="display:inline-block;">
-				<a name="profile{{ $profile['profile_id'] }}"></a>
-				@if ($profile['missions_completed']['points'])
-					{{ $profile['missions_completed']['title'] }}
-				@endif
-				<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
-				@if ($profile['birth_year'])
-					<br>
-					@if ($profile['birth_year'] === 1959)
-						Born before 1960
-					@else
-						Born in the {{ intval($profile['birth_year'] / 10) * 10 }}s
-					@endif
-				@endif
-				@if ($profile['height'])
-					@if ($profile['birth_year'])
-						&middot;
-					@else
-						<br>
-					@endif
-					@if ($profile['height'] < 60)
-						Under 5 feet
-					@elseif ($profile['height'] > 72)
-						Over 6 feet
-					@else
-						{{ floor($profile['height'] / 12) }}&apos;{{ $profile['height'] % 12 }}&quot;
-					@endif
-				@endif
+			@if ($show_yeses)
 				<br>
-				@if ($profile['missions_completed']['points'])
-					<span>Missions completed: {{ $profile['missions_completed']['points'] }}</span>
-				@endif
-			</div>
-			<br>
-			<br>
-			@if ($logged_in_user_id == $profile['profile_id'])
-				(You)
+				<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
 			@else
-				@include('rating_form', ['action' => "#profile".$profile['profile_id'], 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice'], 'number_photos' => $profile['number_photos']])
+				<div style="display:inline-block;">
+					<a name="profile{{ $profile['profile_id'] }}"></a>
+					@if ($profile['missions_completed']['points'])
+						{{ $profile['missions_completed']['title'] }}
+					@endif
+					<a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
+					@if ($profile['birth_year'])
+						<br>
+						@if ($profile['birth_year'] === 1959)
+							Born before 1960
+						@else
+							Born in the {{ intval($profile['birth_year'] / 10) * 10 }}s
+						@endif
+					@endif
+					@if ($profile['height'])
+						@if ($profile['birth_year'])
+							&middot;
+						@else
+							<br>
+						@endif
+						@if ($profile['height'] < 60)
+							Under 5 feet
+						@elseif ($profile['height'] > 72)
+							Over 6 feet
+						@else
+							{{ floor($profile['height'] / 12) }}&apos;{{ $profile['height'] % 12 }}&quot;
+						@endif
+					@endif
+					<br>
+					@if ($profile['missions_completed']['points'])
+						<span>Missions completed: {{ $profile['missions_completed']['points'] }}</span>
+					@endif
+				</div>
+			@endif
+			@if ($show_yeses)
+			@else
+				<br>
+				<br>
+				@if ($logged_in_user_id == $profile['profile_id'])
+					(You)
+				@else
+					@include('rating_form', ['action' => "#profile".$profile['profile_id'], 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice'], 'number_photos' => $profile['number_photos']])
+				@endif
 			@endif
 		</div>
 	@endif
