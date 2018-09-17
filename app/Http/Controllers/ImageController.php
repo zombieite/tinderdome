@@ -28,7 +28,7 @@ class ImageController extends Controller
 		$image_height              = 500;
 		$max_photos                = 5;
 		$errors                    = '';
-		$max_filesize              = 2000000;
+		$max_filesize              = 2500000;
 
 		if (isset($_POST['delete'])) {
 			$number_photos = 0;
