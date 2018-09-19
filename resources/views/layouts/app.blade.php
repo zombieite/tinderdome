@@ -36,7 +36,24 @@
 
 <hr>
 
-@yield('content')
+{{--
+@guest
+@else
+	@if ((Auth::user()->id === 1) || (Auth::user()->id === 50))
+--}}
+
+		@yield('content')
+
+{{--
+	@else
+		<h1>TRUST THE ALGORITHM</h1>
+		Matches are being run right now.<br><br>
+		@for ($i = 1; $i <=30; $i++)
+			<div style="display:inline-block;padding:2em;"><a href="/images/fun/{{ $i }}.jpg">{{ $i }}</a></div>
+		@endfor
+	@endif
+@endguest
+--}}
 
 <hr>
 Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.

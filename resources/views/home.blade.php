@@ -1,69 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
-@if ($attending_next_event)
-	<p>You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
+@if ($matched && $attending_next_event)
+	<h1>YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event]) }} {{ $year }}!</h1>
 @else
-	<p>You are NOT signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you will be attending, please <a href="/profile/edit">let us know</a>.</p>
-@endif
-@if ($good_ratings_percent >= 50)
-	<p>{{ $good_ratings_percent }}% of users who have rated you have said they'd enjoy meeting you.</p>
-@else
-	@if ($recent_good_ratings_count >= 10)
-		<p>{{ $recent_good_ratings_count }} users have said they'd enjoy meeting you in the past week.</p>
+	{{--
+	@if ($attending_next_event)
+		<p>You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
 	@else
-		@if ($good_ratings_count >= 50)
-			<p>{{ $good_ratings_count }} users have said they'd enjoy meeting you.</p>
+		<p>You are NOT signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you will be attending, please <a href="/profile/edit">let us know</a>.</p>
+	@endif
+	--}}
+	@if ($good_ratings_percent >= 50)
+		<p>{{ $good_ratings_percent }}% of users who have rated you have said they'd enjoy meeting you.</p>
+	@else
+		@if ($recent_good_ratings_count >= 10)
+			<p>{{ $recent_good_ratings_count }} users have said they'd enjoy meeting you in the past week.</p>
 		@else
-			@if ($mutual_ok_ratings_count >= 3)
-				<p>
-					{{ $mutual_ok_ratings_count }} users you've chosen would be interested in meeting you, too.
-				</p>
+			@if ($good_ratings_count >= 50)
+				<p>{{ $good_ratings_count }} users have said they'd enjoy meeting you.</p>
+			@else
+				@if ($mutual_ok_ratings_count >= 3)
+					<p>
+						{{ $mutual_ok_ratings_count }} users you've chosen would be interested in meeting you, too.
+					</p>
+				@endif
 			@endif
 		@endif
 	@endif
-@endif
-@if ($number_photos)
-	@if (count($unrated_users) >= 3)
-		<h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
-		@for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
-				@if ($unrated_users[$i]->number_photos)
-					<div class="profile_search_block">
-						<a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
-					</div>
-				@endif
-		@endfor
-	@else
-		@if ( $recently_updated_users && count($recently_updated_users) >= 3 )
-			<h2>These users updated their profiles today. See what's new.</h2>
-			@foreach ($recently_updated_users as $recently_updated_user)
-				<div class="centered_block">
-					<a href="/profile/{{ $recently_updated_user->id }}/{{ $recently_updated_user->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $recently_updated_user->id }}-1.jpg" style="height:100px;"></a>
-					<br>
-					<a href="/profile/{{ $recently_updated_user->id }}/{{ $recently_updated_user->wasteland_name_hyphenated }}">{{ $recently_updated_user->name }}</a>
-				</div>
-			@endforeach
-		@else
-			@if (count($leaderboard))
-				<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
-				@foreach ($leaderboard as $leader)
-				<div class="centered_block">
-					@if ($leader['number_photos'])
-						<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
-					<br>
-					@if ($leader['missions_completed']['points'] > 0)
-						{{ $leader['missions_completed']['title'] }}
+	@if ($number_photos)
+		@if (count($unrated_users) >= 3)
+			<h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
+			@for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
+					@if ($unrated_users[$i]->number_photos)
+						<div class="profile_search_block">
+							<a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
+						</div>
 					@endif
-					{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
-				</div>
+			@endfor
+		@else
+			@if ( $recently_updated_users && count($recently_updated_users) >= 3 )
+				<h2>These users updated their profiles today. See what's new.</h2>
+				@foreach ($recently_updated_users as $recently_updated_user)
+					<div class="centered_block">
+						<a href="/profile/{{ $recently_updated_user->id }}/{{ $recently_updated_user->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $recently_updated_user->id }}-1.jpg" style="height:100px;"></a>
+						<br>
+						<a href="/profile/{{ $recently_updated_user->id }}/{{ $recently_updated_user->wasteland_name_hyphenated }}">{{ $recently_updated_user->name }}</a>
+					</div>
 				@endforeach
 			@else
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				@if (count($leaderboard))
+					<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others.</h2>
+					@foreach ($leaderboard as $leader)
+					<div class="centered_block">
+						@if ($leader['number_photos'])
+							<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a> @endif
+						<br>
+						@if ($leader['missions_completed']['points'] > 0)
+							{{ $leader['missions_completed']['title'] }}
+						@endif
+						{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+					</div>
+					@endforeach
+				@else
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				@endif
 			@endif
 		@endif
-	@endif
-@else
+	@else
 
+	@endif
 @endif
 <ol>
 @if ($number_photos)
@@ -90,7 +96,7 @@
 @endif
 @if ($attending_next_event)
 	@if ($matched)
-		<li><b><a class="bright" href="/profile/match?event={{ $next_event }}&year={{ $year }}">COMPLETE: YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event]) }} {{ $year }}! Find out who you're matched with.</a></b></li>
+		<li><b><a class="bright" href="/profile/match?event={{ $next_event }}&year={{ $year }}">COMPLETE: YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event]) }} {{ $year }}! Here's your match.</a></b></li>
 	@else
 		@if ($matches_done)
 			<li>Matches are complete for {{ $pretty_names[$next_event] }} {{ $year }}, but you were not matched. <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Find out why</a>.</li>
