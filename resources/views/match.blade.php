@@ -61,8 +61,16 @@
 			@endif
 		</td>
 		<td>{{ $user->id }}</td>
-		<td>{{ isset($match_rating_hash[$user->id]) ? $match_rating_hash[$user->id] : '&nbsp;' }}</td>
-		<td>{{ isset($match_rating_hash[$matched_users_hash[$user->id]]) ? $match_rating_hash[$matched_users_hash[$user->id]] : '&nbsp;' }}</td>
+		<td>
+			@if (isset($match_rating_hash[$user->id]) && (($match_rating_hash[$user->id] === 0) || ($match_rating_hash[$user->id] == -1))) <span class="error"> @endif
+			{{ isset($match_rating_hash[$user->id]) ? $match_rating_hash[$user->id] : '&nbsp;' }}
+			@if (isset($match_rating_hash[$user->id]) && (($match_rating_hash[$user->id] === 0) || ($match_rating_hash[$user->id] == -1))) </span> @endif
+		</td>
+		<td>
+			@if (isset($match_rating_hash[$matched_users_hash[$user->id]]) && (($match_rating_hash[$matched_users_hash[$user->id]] === 0) || ($match_rating_hash[$matched_users_hash[$user->id]] == -1))) <span class="error"> @endif
+			{{ isset($match_rating_hash[$matched_users_hash[$user->id]]) ? $match_rating_hash[$matched_users_hash[$user->id]] : '&nbsp;' }}
+			@if (isset($match_rating_hash[$matched_users_hash[$user->id]]) && (($match_rating_hash[$matched_users_hash[$user->id]] === 0) || ($match_rating_hash[$matched_users_hash[$user->id]] == -1))) </span> @endif
+		</td>
 		<td>{{ $matched_users_hash[$user->id] }}</td>
 		<td>
 		@if ($matched_users_hash[$user->id])
