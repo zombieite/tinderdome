@@ -62,6 +62,11 @@ button.met, input[type="submit"].met {
 .bright {
 	color: var(--bright);
 }
+.error {
+	color: var(--bright);
+	font-size: 2em;
+	font-weight: bold;
+}
 .profile_search_block_bright {
 	display: inline-block;
 	border: 3px solid var(--bright);
