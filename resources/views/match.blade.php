@@ -77,7 +77,7 @@
 			@if (isset($id_to_name_hash[$matched_users_hash[$user->id]]))
 				<a href="/profile/{{ $matched_users_hash[$user->id] }}/{{ preg_replace('/-/', ' ', $id_to_name_hash[$matched_users_hash[$user->id]]) }}" target="_blank">{{ $id_to_name_hash[$matched_users_hash[$user->id]] }}</a>
 			@else
-				DELETED
+				<span class="error">DELETED</span>
 			@endif
 		@else
 		@endif
