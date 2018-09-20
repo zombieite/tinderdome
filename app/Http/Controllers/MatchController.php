@@ -114,6 +114,10 @@ class MatchController extends Controller
 		return ($a->id - $b->id);
 	}
 
+	private static function alpha_sort($a, $b) {
+		return strcmp(strtolower($a->name), strtolower($b->name));
+	}
+
 	public function match()
 	{
 		$auth_user    = Auth::user();
@@ -500,6 +504,10 @@ class MatchController extends Controller
 					}
 				}
 			}
+		}
+
+		if ($matches_complete) {
+			usort($users_to_match, array($this, 'alpha_sort'));
 		}
 
 		return view('match', [
