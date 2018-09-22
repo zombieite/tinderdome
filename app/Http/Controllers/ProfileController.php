@@ -27,6 +27,11 @@ class ProfileController extends Controller
 		$auth_user               = Auth::user();
 		$auth_user_id            = Auth::id();
 
+		if ($auth_user_id === 1 && isset($_GET['masquerade'])) {
+			$auth_user_id = $_GET['masquerade']+0;
+			Log::debug("Masquerading as $auth_user_id");
+		}
+
 		DB::update('update users set last_active=now() where id=?', [$auth_user_id]);
 
 		//Log::debug("Looking for user $auth_user_id");

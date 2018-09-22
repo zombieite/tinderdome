@@ -315,7 +315,7 @@ class Util {
 
 		// If you're a female you can be pickier and still get a match
 		if ($gender == 'F') {
-			$nos += $bonus_nos_amount;
+			$nos += (2 * $bonus_nos_amount);
 		}
 
 		// If you're young you can be picker and still get a match
@@ -325,7 +325,7 @@ class Util {
 
 		// If you are very young AND female you can be even pickier and still get a match
 		if (($gender == 'F') && ($birth_year >= date("Y")-35)) {
-			$nos += $bonus_nos_amount;
+			$nos += (2 * $bonus_nos_amount);
 		}
 
 		// Check everyone gets the minimum
