@@ -31,8 +31,7 @@
 	@if ($how_to_find_me)
 		@if ($profile_id === 1)
 		@else
-			<h3>DO NOT POST SCREENSHOTS OF THIS PAGE.</h3>
-			This information is shared confidentially with only you.  How to find {{ $wasteland_name }}:
+			Do not post screenshots of this page. This information is shared confidentially with only you. How to find {{ $wasteland_name }}:
 		@endif
 		<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
 	@endif
