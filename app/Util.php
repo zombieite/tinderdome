@@ -313,19 +313,29 @@ class Util {
 			$nos += $bonus_nos_amount;
 		}
 
+		// If you're young you can be picker and still get a match
+		if ($birth_year >= date("Y")-45) {
+			$nos += $bonus_nos_amount;
+		}
+
 		// If you're a female you can be pickier and still get a match
 		if ($gender == 'F') {
 			$nos += (2 * $bonus_nos_amount);
 		}
 
-		// If you're young you can be picker and still get a match
-		if ($birth_year >= date("Y")-40) {
+		// If you are young AND female you can be even pickier and still get a match
+		if (($gender == 'F') && ($birth_year >= date("Y")-25)) {
 			$nos += $bonus_nos_amount;
 		}
 
-		// If you are very young AND female you can be even pickier and still get a match
+		// If you are young AND female you can be even pickier and still get a match
 		if (($gender == 'F') && ($birth_year >= date("Y")-35)) {
-			$nos += (2 * $bonus_nos_amount);
+			$nos += $bonus_nos_amount;
+		}
+
+		// If you are young AND female you can be even pickier and still get a match
+		if (($gender == 'F') && ($birth_year >= date("Y")-45)) {
+			$nos += $bonus_nos_amount;
 		}
 
 		// Check everyone gets the minimum
