@@ -9,7 +9,7 @@
 			{{ $count_with_same_name }} other users go by the name {{ $wasteland_name }}. Be sure to find the right one.
 		@endif
 	@endif
-	<h2 class="bright">Your mission is to seek out {{ $wasteland_name }} at {{ $pretty_event_names[$event] }} {{ $year }}.</h2>
+	Your mission is to seek out {{ $wasteland_name }} at {{ $pretty_event_names[$event] }} {{ $year }}.
 	{{ $wasteland_name }} will be looking for you, too.
 	If you've found them and met them in person, during or after the event, let us know. This will mark your mission as complete.
 	<br>
@@ -29,7 +29,11 @@
 @endif
 @if ((($show_how_to_find_me || $share_info)) || $is_me)
 	@if ($how_to_find_me)
-		<h3 class="bright">How to find {{ $wasteland_name }}:</h3>
+		@if ($profile_id === 1)
+		@else
+			<h3>DO NOT POST SCREENSHOTS OF THIS PAGE.</h3>
+			This information is shared confidentially with only you.  How to find {{ $wasteland_name }}:
+		@endif
 		<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
 	@endif
 @endif
