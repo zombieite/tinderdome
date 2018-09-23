@@ -83,6 +83,7 @@ class HomeController extends Controller
 				and (my_choice.choice is not null and my_choice.choice > 0)
 				and id > 10
 				and number_photos > 0
+				and updated_at > now() - interval 24 hour
 			order by
 				updated_at desc
 				limit 7
