@@ -22,6 +22,7 @@ CREATE TABLE users (
 	attending_winter_games BOOLEAN,
 	attending_ball BOOLEAN,
 	attending_detonation BOOLEAN,
+	attending_atomic_falls BOOLEAN,
 	attending_wasteland BOOLEAN,
 	ip VARCHAR(50) NOT NULL,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
