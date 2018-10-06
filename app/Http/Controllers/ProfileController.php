@@ -132,15 +132,14 @@ class ProfileController extends Controller
 		$attending['wasteland']             = $profile->attending_wasteland;
 		$pretty_event_names                 = \App\Util::pretty_event_names();
 		$next_event                         = null;
-		$next_event_year                    = null;
+		$year                               = null;
 		$upcoming_events_with_year          = \App\Util::upcoming_events_with_year();
-		foreach ($upcoming_events_with_year as $event => $year) {
-			$next_event      = $event;
-			$next_event_year = $year;
+		foreach ($upcoming_events_with_year as $event => $event_year) {
+			$next_event = $event;
+			$year       = $event_year;
 			break;
 		}
 		$events_to_show                     = [$next_event];
-		$year                               = $next_event_year;
 		if ($auth_user) {
 			$logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
 		}

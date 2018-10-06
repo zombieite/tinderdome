@@ -20,13 +20,12 @@ class HomeController extends Controller
 		$nonleader_count           = $leaderboard_and_count['nonleader_count'];
 		$total_user_count          = $leader_count + $nonleader_count;
 		$pretty_names              = \App\Util::pretty_event_names();
-		$year                      = date('Y');
 		$next_event                = null;
-		$next_event_year           = null;
+		$year                      = null;
 		$upcoming_events_with_year = \App\Util::upcoming_events_with_year();
-		foreach ($upcoming_events_with_year as $event => $year) {
-			$next_event      = $event;
-			$next_event_year = $year;
+		foreach ($upcoming_events_with_year as $event => $event_year) {
+			$next_event = $event;
+			$year       = $event_year;
 			break;
 		}
 
