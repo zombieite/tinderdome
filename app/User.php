@@ -29,6 +29,7 @@ class User extends Authenticatable
 		'attending_winter_games',
 		'attending_ball',
 		'attending_detonation',
+		'attending_atomic_falls',
 		'attending_wasteland',
 		'ip',
 	];

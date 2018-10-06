@@ -59,6 +59,7 @@ class RegisterController extends Controller
 			'attending_winter_games'      => isset($data['attending_winter_games'])    ? true : false,
 			'attending_ball'              => isset($data['attending_ball'])            ? true : false,
 			'attending_detonation'        => isset($data['attending_detonation'])      ? true : false,
+			'attending_atomic_falls'      => isset($data['attending_atomic_falls'])    ? true : false,
 			'attending_wasteland'         => isset($data['attending_wasteland'])       ? true : false,
 			'number_photos'               => 0,
 			'ip'                          => $ip,
