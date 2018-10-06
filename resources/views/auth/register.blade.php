@@ -46,7 +46,7 @@ I will be attending...
 <input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
 <label for="attending_detonation">Uranium Springs Detonation 2019.</label>
 <br>
-<input type="checkbox" name="attending_wasteland" id="attending_wasteland" @guest checked @else @if ($attending_wasteland) checked @endif @endguest>
+<input type="checkbox" name="attending_wasteland" id="attending_wasteland" @guest @else @if ($attending_wasteland) checked @endif @endguest>
 <label for="attending_wasteland">Wasteland Weekend 2019.</label>
 
 <br><br>
