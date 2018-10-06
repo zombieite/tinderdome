@@ -37,14 +37,17 @@
 
 I will be attending...
 <br>
-<input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
-<label for="attending_winter_games">Wasteland Winter Games 2019.</label>
-<br>
 <input type="checkbox" name="attending_ball" id="attending_ball" @guest @else @if ($attending_ball) checked @endif @endguest>
 <label for="attending_ball">Wastelanders Ball 2019.</label>
 <br>
+<input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
+<label for="attending_winter_games">Wasteland Winter Games 2019.</label>
+<br>
 <input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
 <label for="attending_detonation">Uranium Springs Detonation 2019.</label>
+<br>
+<input type="checkbox" name="attending_atomic_falls" id="attending_atomic_falls" @guest @else @if ($attending_atomic_falls) checked @endif @endguest>
+<label for="attending_atomic_falls">Atomic Falls 2019.</label>
 <br>
 <input type="checkbox" name="attending_wasteland" id="attending_wasteland" @guest @else @if ($attending_wasteland) checked @endif @endguest>
 <label for="attending_wasteland">Wasteland Weekend 2019.</label>
