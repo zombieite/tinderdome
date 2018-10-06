@@ -20,6 +20,12 @@ class Util {
 		return ['wasteland'];
 	}
 
+	public static function upcoming_events_with_year() {
+		return [
+			'ball' => 2019,
+		];
+	}
+
 	public static function all_events() {
 		return ['wasteland', 'winter_games', 'ball', 'detonation'];
 	}
