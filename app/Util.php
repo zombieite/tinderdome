@@ -16,10 +16,6 @@ class Util {
 		];
 	}
 
-	public static function upcoming_events() {
-		return ['wasteland'];
-	}
-
 	public static function upcoming_events_with_year() {
 		return [
 			'ball' => 2019,
@@ -66,9 +62,9 @@ class Util {
 
 	public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
 
-		$upcoming_events = \App\Util::upcoming_events();
 		$upcoming_order_bys = '';
-		foreach ($upcoming_events as $event) {
+		$upcoming_events = \App\Util::upcoming_events_with_year();
+		foreach ($upcoming_events as $event => $event_year) {
 			$upcoming_order_bys .= "attending_$event desc,";
 		}
 
