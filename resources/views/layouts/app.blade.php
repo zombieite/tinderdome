@@ -21,8 +21,6 @@
 	<a href="{{ route('login') }}">Log in</a>
 	&middot;
 	<a href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
-	&middot;
-	<a href="/save-deadline" class="bright">SAVE DEADLINE</a>
 @else
 	<form action="{{ route('logout') }}" method="POST">
 	{{ csrf_field() }}
