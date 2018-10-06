@@ -12,17 +12,23 @@ class HomeController extends Controller
 {
 	public function index()
 	{
-		$auth_user             = Auth::user();
-		$auth_user_id          = Auth::id();
-		$leader_count          = 10;
-		$leaderboard_and_count = \App\Util::leaderboard( $leader_count, $auth_user_id );
-		$leaderboard           = $leaderboard_and_count['leaderboard'];
-		$nonleader_count       = $leaderboard_and_count['nonleader_count'];
-		$total_user_count      = $leader_count + $nonleader_count;
-		$upcoming_events       = \App\Util::upcoming_events();
-		$pretty_names          = \App\Util::pretty_event_names();
-		$year                  = date('Y');
-		$next_event            = array_shift($upcoming_events);
+		$auth_user                 = Auth::user();
+		$auth_user_id              = Auth::id();
+		$leader_count              = 10;
+		$leaderboard_and_count     = \App\Util::leaderboard( $leader_count, $auth_user_id );
+		$leaderboard               = $leaderboard_and_count['leaderboard'];
+		$nonleader_count           = $leaderboard_and_count['nonleader_count'];
+		$total_user_count          = $leader_count + $nonleader_count;
+		$pretty_names              = \App\Util::pretty_event_names();
+		$year                      = date('Y');
+		$next_event                = null;
+		$next_event_year           = null;
+		$upcoming_events_with_year = \App\Util::upcoming_events_with_year();
+		foreach ($upcoming_events_with_year as $event => $year) {
+			$next_event      = $event;
+			$next_event_year = $year;
+			break;
+		}
 
 		if ($auth_user) {
 			// All good
