@@ -28,6 +28,7 @@ class SearchController extends Controller
 		$logged_in_user                           = Auth::user();
 		$event                                    = isset($_GET['event']) ? $_GET['event'] : null;
 		$events                                   = \App\Util::all_events();
+		$pretty_event_names                       = \App\Util::pretty_event_names();
 		$nos_clause                               = 'and ( c1.choice is null or c1.choice != 0 )';
 		$event_clause                             = '';
 		$gender_clause                            = '';
@@ -49,7 +50,7 @@ class SearchController extends Controller
 		DB::update('update users set last_active=now() where id=?', [$logged_in_user_id]);
 
 		if ($event) {
-			if (preg_match('/^[a-z]+$/', $event)) {
+			if (preg_match('/^[a-z_]+$/', $event)) {
 				// Regex check looks ok
 			} else {
 				abort(403, 'Invalid event regex');
@@ -191,6 +192,9 @@ class SearchController extends Controller
 			'show_preferred_gender'                    => $show_preferred_gender,
 			'profiles_found_count'                     => $profiles_found_count,
 			'users_who_must_be_rated'                  => $users_who_must_be_rated,
+			'events'                                   => $events,
+			'event'                                    => $event,
+			'pretty_event_names'                       => $pretty_event_names,
 		]);
 	}
 
