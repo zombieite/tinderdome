@@ -5,13 +5,21 @@
 		@if ($users_who_must_be_rated)
 			You must <a href="/profile/compatible?">rate all users</a> before you can view all users.<br><br>
 		@else
-			All users<br><br>
+			@if (isset($event))
+				<a href="/search?show_all=1">Show all users</a><br><br>
+				All users attending {{ $pretty_event_names[$event] }}<br><br>
+			@else
+				All users<br><br>
+			@endif
 		@endif
 	@else
 		You must <a href="/image/upload">upload a photo</a> before you can view all users.<br><br>
 	@endif
 @else
 	<a href="/search?show_all=1">Show all users</a><br><br>
+	@foreach ($events as $event)
+		<a href="/search?show_all=1&event={{ $event }}">Show all users signed up for {{ $pretty_event_names[$event] }}</a><br><br>
+	@endforeach
 @endif
 @if ($show_mutuals)
 	@if ($logged_in_user_number_photos)
