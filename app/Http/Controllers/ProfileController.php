@@ -129,6 +129,7 @@ class ProfileController extends Controller
 		$attending['winter_games']          = $profile->attending_winter_games;
 		$attending['ball']                  = $profile->attending_ball;
 		$attending['detonation']            = $profile->attending_detonation;
+		$attending['atomic_falls']          = $profile->attending_atomic_falls;
 		$attending['wasteland']             = $profile->attending_wasteland;
 		$pretty_event_names                 = \App\Util::pretty_event_names();
 		$next_event                         = null;
@@ -209,6 +210,7 @@ class ProfileController extends Controller
 		$attending_winter_games    = $profile->attending_winter_games;
 		$attending_ball            = $profile->attending_ball;
 		$attending_detonation      = $profile->attending_detonation;
+		$attending_atomic_falls    = $profile->attending_atomic_falls;
 		$attending_wasteland       = $profile->attending_wasteland;
 		return view('auth/register', [
 			'email'                     => $email,
@@ -230,6 +232,7 @@ class ProfileController extends Controller
 			'attending_winter_games'    => $attending_winter_games,
 			'attending_ball'            => $attending_ball,
 			'attending_detonation'      => $attending_detonation,
+			'attending_atomic_falls'    => $attending_atomic_falls,
 			'attending_wasteland'       => $attending_wasteland,
 			'update_errors'             => $update_errors,
 		]);
@@ -274,6 +277,7 @@ class ProfileController extends Controller
 		$attending_winter_games    = isset($_POST['attending_winter_games']);
 		$attending_ball            = isset($_POST['attending_ball']);
 		$attending_detonation      = isset($_POST['attending_detonation']);
+		$attending_atomic_falls    = isset($_POST['attending_atomic_falls']);
 		$attending_wasteland       = isset($_POST['attending_wasteland']);
 		$ip                        = request()->ip() or die("No ip");
 
@@ -338,6 +342,7 @@ class ProfileController extends Controller
 			$profile->attending_winter_games    = $attending_winter_games;
 			$profile->attending_ball            = $attending_ball;
 			$profile->attending_detonation      = $attending_detonation;
+			$profile->attending_atomic_falls    = $attending_atomic_falls;
 			$profile->attending_wasteland       = $attending_wasteland;
 			$profile->ip                        = $ip;
 
@@ -366,6 +371,7 @@ class ProfileController extends Controller
 			'attending_winter_games'    => $attending_winter_games,
 			'attending_ball'            => $attending_ball,
 			'attending_detonation'      => $attending_detonation,
+			'attending_atomic_falls'    => $attending_atomic_falls,
 			'attending_wasteland'       => $attending_wasteland,
 			'update_errors'             => $update_errors,
 		]);
