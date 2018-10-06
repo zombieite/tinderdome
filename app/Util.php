@@ -9,10 +9,10 @@ class Util {
 
 	public static function pretty_event_names() {
 		return [
-			'winter_games' => "The Winter Games",
-			'ball'         => "The Wastelanders Ball",
-			'detonation'   => "Uranium Springs Detonation",
-			'wasteland'    => "Wasteland Weekend",
+			'winter_games' => 'The Winter Games',
+			'ball'         => 'The Wastelanders Ball',
+			'detonation'   => 'Uranium Springs Detonation',
+			'wasteland'    => 'Wasteland Weekend',
 		];
 	}
 

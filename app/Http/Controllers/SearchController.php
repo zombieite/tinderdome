@@ -27,7 +27,7 @@ class SearchController extends Controller
 		$logged_in_user_id                        = Auth::id();
 		$logged_in_user                           = Auth::user();
 		$event                                    = isset($_GET['event']) ? $_GET['event'] : null;
-		$events                                   = \App\Util::upcoming_events();
+		$events                                   = \App\Util::all_events();
 		$nos_clause                               = 'and ( c1.choice is null or c1.choice != 0 )';
 		$event_clause                             = '';
 		$gender_clause                            = '';

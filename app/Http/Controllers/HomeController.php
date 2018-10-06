@@ -14,7 +14,7 @@ class HomeController extends Controller
 	{
 		$auth_user             = Auth::user();
 		$auth_user_id          = Auth::id();
-		$leader_count          = 5;
+		$leader_count          = 10;
 		$leaderboard_and_count = \App\Util::leaderboard( $leader_count, $auth_user_id );
 		$leaderboard           = $leaderboard_and_count['leaderboard'];
 		$nonleader_count       = $leaderboard_and_count['nonleader_count'];
