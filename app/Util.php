@@ -13,6 +13,7 @@ class Util {
 			'ball'         => 'The Wastelanders Ball',
 			'detonation'   => 'Uranium Springs Detonation',
 			'wasteland'    => 'Wasteland Weekend',
+			'atomic_falls' => 'Atomic Falls',
 		];
 	}
 
@@ -23,7 +24,7 @@ class Util {
 	}
 
 	public static function all_events() {
-		return ['wasteland', 'winter_games', 'ball', 'detonation'];
+		return ['wasteland', 'winter_games', 'ball', 'detonation', 'atomic_falls'];
 	}
 
 	public static function matched_to_users( $chooser_user_id ) {
