@@ -21,6 +21,8 @@
 	<a href="{{ route('login') }}">Log in</a>
 	&middot;
 	<a href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
+	&middot;
+	<a href="/save-deadline">SAVE DEADLINE</a>
 @else
 	<form action="{{ route('logout') }}" method="POST">
 	{{ csrf_field() }}
@@ -33,6 +35,8 @@
 	<a href="/image/upload">Upload images</a>
 	&middot;
 	<a href="/search">Search</a>
+	&middot;
+	<a href="/save-deadline">SAVE DEADLINE</a>
 	&middot;
 	<input type="submit" value="Log out">
 	</form>
@@ -63,7 +67,7 @@
 Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
 <br>
 <br>
-{{ $total_count }} total users &middot; {{ $wasteland_count }} signed up for missions during Wasteland Weekend
+{{ $total_count }} total participants &middot; {{ $next_event_count }} signed up for missions during {{ $pretty_event_names[$next_event] }} {{ $year }}
 @if ($active_count >= 10)
 	&middot; {{ $active_count }} active in the past 24 hours
 @endif
