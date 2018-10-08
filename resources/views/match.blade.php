@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
-@php $counter   = 0; @endphp
-@php $unmatched = 0; @endphp
+@php $counter     = 0; @endphp
+@php $unmatched   = 0; @endphp
+@php $found_match = 0; @endphp
 <h1>
 	@if ($matches_complete)
 		FINALIZED: 
@@ -126,18 +127,12 @@
 	</tr>
 @endforeach
 </table>
-
-<h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
-
 @if ($matches_complete)
-	
 @else
+	<h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
 	<form method="POST">
 		{{ csrf_field() }}
 		<input type="submit" value="Finalize matches" name="WRITE">
 	</form>
 @endif
-
-@php //phpinfo() @endphp
-
 @endsection
