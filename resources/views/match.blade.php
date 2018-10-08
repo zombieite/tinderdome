@@ -70,6 +70,14 @@
 			{{ isset($match_rating_hash[$matched_users_hash[$user->id]]) ? $match_rating_hash[$matched_users_hash[$user->id]] : '&nbsp;' }}
 			@if (isset($match_rating_hash[$matched_users_hash[$user->id]]) && (($match_rating_hash[$matched_users_hash[$user->id]] === 0) || ($match_rating_hash[$matched_users_hash[$user->id]] == -1))) </span> @endif
 		</td>
+@php
+	if ((isset($match_rating_hash[$user->id]) && $match_rating_hash[$user->id] !== 'NULL' && $match_rating_hash[$user->id] <= 0) || (isset($match_rating_hash[$matched_users_hash[$user->id]]) && $match_rating_hash[$matched_users_hash[$user->id]] !== 'NULL' && $match_rating_hash[$matched_users_hash[$user->id]] <= 0)) {
+		Log::debug("incrementing found for ".$user->name." because rating is ".$match_rating_hash[$user->id]." and their rating is ".$match_rating_hash[$matched_users_hash[$user->id]]);
+		$found_match++;
+	} else {
+		Log::debug("NOT incrementing found for ".$user->name." because rating is ".$match_rating_hash[$user->id]." and their rating is ".$match_rating_hash[$matched_users_hash[$user->id]]);
+	}
+@endphp
 		<td>{{ $matched_users_hash[$user->id] }}</td>
 		<td>
 		@if ($matched_users_hash[$user->id])
@@ -128,6 +136,7 @@
 @endforeach
 </table>
 @if ($matches_complete)
+	<h4>{{ $found_match }}/{{ $counter }} ({{ floor($found_match / $counter * 100) }}%) found their match</h4>
 @else
 	<h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
 	<form method="POST">
