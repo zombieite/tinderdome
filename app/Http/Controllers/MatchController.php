@@ -135,37 +135,9 @@ class MatchController extends Controller
 			abort(403, "Invalid event");
 		}
 
-		// Find users attending the next event and start with most popular first
-		$users_to_match = DB::select("
-			select
-				id,
-				name,
-				gender,
-				gender_of_match,
-				random_ok,
-				number_photos,
-				greylist,
-				count(distinct chooser_id) popularity
-			from
-				users
-			left join choose on
-				users.id = choose.chosen_id
-				and choice > 0
-			where
-				attending_$next_event
-				and id > 10
-			group by
-				id,
-				name,
-				gender,
-				gender_of_match,
-				random_ok,
-				number_photos,
-				greylist
-		");
-
 		// Imitialize stuff
 		// These hashes are redundant but are simple and help me keep my thoughts straight
+		$users_to_match                = null;
 		$id_to_name_hash               = null;
 		$id_to_gender_hash             = null;
 		$id_to_popularity_hash         = null;
@@ -173,9 +145,69 @@ class MatchController extends Controller
 		$id_to_missions_completed_hash = null;
 		$matched_users_hash            = null;
 		$match_rating_hash             = null;
+		$matches_complete              = DB::select("select * from matching where event=? and year=?", [$next_event, $year]);
+
+		// Find users attending the next event and start with most popular first
+		if ($matches_complete) {
+			$users_to_match = DB::select("
+				select
+					id,
+					name,
+					gender,
+					gender_of_match,
+					random_ok,
+					number_photos,
+					greylist,
+					count(distinct chooser_id) popularity
+				from
+					users
+				left join choose on
+					users.id = choose.chosen_id
+					and choice > 0
+				where
+					attending_$next_event
+					and id > 10
+				group by
+					id,
+					name,
+					gender,
+					gender_of_match,
+					random_ok,
+					number_photos,
+					greylist
+			");
+		} else {
+			$users_to_match = DB::select("
+				select
+					id,
+					name,
+					gender,
+					gender_of_match,
+					random_ok,
+					number_photos,
+					greylist,
+					count(distinct chooser_id) popularity
+				from
+					users
+				left join choose on
+					users.id = choose.chosen_id
+					and choice > 0
+				where
+					attending_$next_event
+					and id > 10
+				group by
+					id,
+					name,
+					gender,
+					gender_of_match,
+					random_ok,
+					number_photos,
+					greylist
+			");
+		}
 
 		foreach ($users_to_match as $user_to_be_matched) {
-			$id_to_cant_match_hash[$user_to_be_matched->id] = true; # Will hopefully make false below
+			$id_to_cant_match_hash[$user_to_be_matched->id]         = true; # Will hopefully make false below
 			$user_to_be_matched->scores                             = '';
 			$user_to_be_matched->mutual_unmet_match_names           = [];
 			$id_to_name_hash[$user_to_be_matched->id]               = $user_to_be_matched->name;
@@ -189,7 +221,6 @@ class MatchController extends Controller
 
 		usort($users_to_match, array($this, 'rankUsers'));
 
-		$matches_complete = DB::select("select * from matching where event=? and year=?", [$next_event, $year]);
 		if ($matches_complete) {
 
 			if (isset($_POST['user_1']) && isset($_POST['user_2'])) {
