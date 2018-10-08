@@ -126,10 +126,10 @@ class MatchController extends Controller
 			abort(403);
 		}
 
-		$next_event = $_GET['event'];
+		$event = $_GET['event'];
 		$year       = $_GET['year'];
 
-		if (preg_match('/^[a-z_]+$/', $next_event)) {
+		if (preg_match('/^[a-z_]+$/', $event)) {
 			// All good
 		} else {
 			abort(403, "Invalid event");
@@ -145,7 +145,7 @@ class MatchController extends Controller
 		$id_to_missions_completed_hash = null;
 		$matched_users_hash            = null;
 		$match_rating_hash             = null;
-		$matches_complete              = DB::select("select * from matching where event=? and year=?", [$next_event, $year]);
+		$matches_complete              = DB::select("select * from matching where event=? and year=?", [$event, $year]);
 
 		// Find users attending the next event and start with most popular first
 		if ($matches_complete) {
@@ -162,11 +162,11 @@ class MatchController extends Controller
 				from
 					users
 				left join choose on
-					users.id = choose.chosen_id
-					and choice > 0
+					(users.id = choose.chosen_id and choice > 0)
+				join matching on
+					((users.id=matching.user_1 or users.id=matching.user_2) and event=? and year=?)
 				where
-					attending_$next_event
-					and id > 10
+					id > 10
 				group by
 					id,
 					name,
@@ -175,7 +175,7 @@ class MatchController extends Controller
 					random_ok,
 					number_photos,
 					greylist
-			");
+			", [$event, $year]);
 		} else {
 			$users_to_match = DB::select("
 				select
@@ -193,7 +193,7 @@ class MatchController extends Controller
 					users.id = choose.chosen_id
 					and choice > 0
 				where
-					attending_$next_event
+					attending_$event
 					and id > 10
 				group by
 					id,
@@ -294,7 +294,7 @@ class MatchController extends Controller
 			Log::debug("\n\n\n\n\nMUTUAL MATCHES\n");
 			foreach ($users_to_match as $user_to_be_matched) {
 
-				Log::debug("Trying to find a $next_event match for ".$user_to_be_matched->name.' '.$user_to_be_matched->id);
+				Log::debug("Trying to find a $event match for ".$user_to_be_matched->name.' '.$user_to_be_matched->id);
 
 				$mutual_unmet_match_names = [];
 
@@ -329,7 +329,7 @@ class MatchController extends Controller
 							(user_2=users.id and user_1=?)
 						)
 						where
-							attending_$next_event
+							attending_$event
 							and matching_id is null
 							and id > 10
 							and id != ?
@@ -422,7 +422,7 @@ class MatchController extends Controller
 							and ((this_user_chose.choice != 0 and this_user_chose.choice != -1) or (this_user_chose.choice is null))
 							and ((chose_this_user.choice != 0 and chose_this_user.choice != -1) or (chose_this_user.choice is null))
 							and random_ok
-							and attending_$next_event
+							and attending_$event
 							and matching_id is null
 							and id > 10
 							and id != ?
@@ -525,12 +525,12 @@ class MatchController extends Controller
 					}
 
 					Log::debug('Matched: '.$user_to_be_matched->id." with ".$matched_users_hash[$user_to_be_matched->id]);
-					$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=? or user_1=? or user_2=?)", [$next_event, $year, $user_to_be_matched->id, $user_to_be_matched->id, $matched_user_id, $matched_user_id]);
+					$already_inserted = DB::select("select * from matching where event=? and year=? and (user_1=? or user_2=? or user_1=? or user_2=?)", [$event, $year, $user_to_be_matched->id, $user_to_be_matched->id, $matched_user_id, $matched_user_id]);
 					if ($already_inserted) {
 						// Don't do anything
 					} else {
 						if (isset($_POST['WRITE'])) {
-							DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$next_event, $year, $user_to_be_matched->id, $matched_user_id]);
+							DB::insert("insert into matching (event, year, user_1, user_2) values (?, ?, ?, ?)", [$event, $year, $user_to_be_matched->id, $matched_user_id]);
 						}
 					}
 				}
@@ -550,7 +550,7 @@ class MatchController extends Controller
 			'id_to_cant_match_hash'          => $id_to_cant_match_hash,
 			'id_to_missions_completed_hash' => $id_to_missions_completed_hash,
 			'match_rating_hash'              => $match_rating_hash,
-			'event'                          => $next_event,
+			'event'                          => $event,
 			'year'                           => $year,
 			'matches_complete'               => $matches_complete,
 		]);
