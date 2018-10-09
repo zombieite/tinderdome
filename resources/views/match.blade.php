@@ -72,10 +72,8 @@
 		</td>
 @php
 	if ((isset($match_rating_hash[$user->id]) && $match_rating_hash[$user->id] !== 'NULL' && $match_rating_hash[$user->id] <= 0) || (isset($match_rating_hash[$matched_users_hash[$user->id]]) && $match_rating_hash[$matched_users_hash[$user->id]] !== 'NULL' && $match_rating_hash[$matched_users_hash[$user->id]] <= 0)) {
-		Log::debug("incrementing found for ".$user->name." because rating is ".$match_rating_hash[$user->id]." and their rating is ".$match_rating_hash[$matched_users_hash[$user->id]]);
 		$found_match++;
 	} else {
-		Log::debug("NOT incrementing found for ".$user->name." because rating is ".$match_rating_hash[$user->id]." and their rating is ".$match_rating_hash[$matched_users_hash[$user->id]]);
 	}
 @endphp
 		<td>{{ $matched_users_hash[$user->id] }}</td>
