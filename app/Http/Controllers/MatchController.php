@@ -11,7 +11,7 @@ use Log;
 class MatchController extends Controller
 {
 	// Prioritize this user's mutual matches by
-	private static function sortMatches($a, $b) {
+	private static function sort_matches($a, $b) {
 
 		// Move greylist users to the bottom
 		if ($a->greylist - $b->greylist !== 0) {
@@ -76,7 +76,7 @@ class MatchController extends Controller
 		return $a->id - $b->id;
 	}
 
-	private static function rankUsers($a, $b) {
+	private static function rank_users($a, $b) {
 
 		// Move greylist users to the bottom
 		if ($a->greylist - $b->greylist !== 0) {
@@ -88,10 +88,12 @@ class MatchController extends Controller
 			return $b->number_photos - $a->number_photos;
 		}
 
-		// Popularity and missions completed combined
-		$missions_completed_rank_boost_multiplier = 35;
+		// Popularity and missions completed and days since signup combined
+		$missions_completed_rank_boost_multiplier = 50;
 		$a_rank = $a->popularity;
 		$b_rank = $b->popularity;
+		$a_rank += $a->days_since_signup;
+		$b_rank += $b->days_since_signup;
 		if ($a->missions_completed_count) {
 			$a_rank += $a->missions_completed_count * $missions_completed_rank_boost_multiplier;
 		}
@@ -186,6 +188,7 @@ class MatchController extends Controller
 					random_ok,
 					number_photos,
 					greylist,
+					datediff(curdate(), users.created_at) days_since_signup,
 					count(distinct chooser_id) popularity
 				from
 					users
@@ -202,7 +205,8 @@ class MatchController extends Controller
 					gender_of_match,
 					random_ok,
 					number_photos,
-					greylist
+					greylist,
+					days_since_signup
 			");
 		}
 
@@ -219,7 +223,7 @@ class MatchController extends Controller
 			$user_to_be_matched->missions_completed_count           = $missions_completed['points'];
 		}
 
-		usort($users_to_match, array($this, 'rankUsers'));
+		usort($users_to_match, array($this, 'rank_users'));
 
 		if ($matches_complete) {
 
@@ -343,7 +347,7 @@ class MatchController extends Controller
 					}
 
 					// Where the magic happens
-					usort($mutual_unmet_matches, array($this, 'sortMatches'));
+					usort($mutual_unmet_matches, array($this, 'sort_matches'));
 
 					if ($mutual_unmet_matches) {
 						$string = '';
@@ -440,7 +444,7 @@ class MatchController extends Controller
 					}
 
 					// Where the magic happens
-					usort($random_unmet_matches, array($this, 'sortMatches'));
+					usort($random_unmet_matches, array($this, 'sort_matches'));
 
 					$user_to_be_matched->random_unmet_matches = $random_unmet_matches;
 
