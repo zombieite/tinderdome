@@ -3,12 +3,8 @@
 	<input type="hidden" name="chosen" value="{{ $user_id_to_rate }}">
 	@if (isset($is_my_match) && $is_my_match)
 	@else
-		@if ($logged_in_user_hoping_to_find_love)
-			<input type="submit" name="YesYesYes" value="YES 🖤"@if (($current_choice == 3) || !isset($current_choice)) class="yesyesyes"@else class="unselected_emoji_button" @endif>
-			<input type="submit" name="YesYes" value="Yes"@if (($current_choice == 2) || !isset($current_choice)) class="yesyes"@endif>
-		@else
-			<input type="submit" name="YesYes" value="Yes"@if (($current_choice >= 2) || !isset($current_choice)) class="yesyes"@endif>
-		@endif
+		<input type="submit" name="YesYesYes" value="Hell yes"@if (($current_choice == 3) || !isset($current_choice)) class="yesyesyes"@else class="unselected_emoji_button" @endif>
+		<input type="submit" name="YesYes" value="Yes"@if (($current_choice == 2) || !isset($current_choice)) class="yesyes"@endif>
 		<input type="submit" name="Yes" value="Neutral"@if (($current_choice == 1) || !isset($current_choice)) class="yes"@endif>
 	@endif
 	@if (isset($is_my_match) && $is_my_match)
