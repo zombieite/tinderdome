@@ -31,9 +31,12 @@
 	@if ($how_to_find_me || $share_info)
 		@if ($profile_id == 1)
 		@else
-			Do not post screenshots of this page. This information is confidential. How to find {{ $wasteland_name }}:
+			Do not post screenshots of this page. This information is confidential.
 		@endif
-		<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
+		@if ($how_to_find_me)
+			How to find {{ $wasteland_name }}:
+			<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
+		@endif
 	@endif
 @endif
 @if ($share_info)
