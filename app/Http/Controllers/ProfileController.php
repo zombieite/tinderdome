@@ -135,8 +135,8 @@ class ProfileController extends Controller
 		$next_event                         = null;
 		$year                               = null;
 		$upcoming_events_with_year          = \App\Util::upcoming_events_with_year();
-		foreach ($upcoming_events_with_year as $event => $event_year) {
-			$next_event = $event;
+		foreach ($upcoming_events_with_year as $upcoming_event => $event_year) {
+			$next_event = $upcoming_event;
 			$year       = $event_year;
 			break;
 		}
