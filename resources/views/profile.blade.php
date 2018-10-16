@@ -11,7 +11,7 @@
 	@endif
 	Your mission is to seek out {{ $wasteland_name }} at {{ $pretty_event_names[$event] }} {{ $year }}.
 	{{ $wasteland_name }} will be looking for you, too.
-	If you've found them and met them in person, during or after the event, let us know. This will mark your mission as complete.
+	If you find them and meet them in person let us know. This will mark your mission as complete. This mission won't expire until one of you deletes your profile. You can even find them after the event.
 	<br>
 	<br>
 	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
