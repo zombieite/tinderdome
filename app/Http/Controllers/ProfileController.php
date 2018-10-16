@@ -496,7 +496,7 @@ class ProfileController extends Controller
 		$users_with_same_name = DB::select('select * from users where name = ? and id != ?', [$match_name, $match_id]);
 		$count_with_same_name  = count($users_with_same_name);
 
-		return $this->show($match_id, $match_name, null, null, 1, $event, $year, $count_with_same_name);
+		return $this->show($match_id, $match_name, null, null, true, $event, $year, $count_with_same_name);
 	}
 
 	public function compatible()
