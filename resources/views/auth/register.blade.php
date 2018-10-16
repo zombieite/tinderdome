@@ -68,7 +68,7 @@ I am...
 <label for="hoping_to_find_love">Open to finding a new romantic partner.</label>
 <p style="margin-left: 2em; margin-top: 0em; margin-bottom: 0em;">
 	<input type="checkbox" name="share_info_with_favorites" id="share_info_with_favorites" @guest @else @if ($share_info_with_favorites) checked @endif @endguest>
-	<label for="share_info_with_favorites">Share my email address with mutual romantic favorites.</label>
+	<label for="share_info_with_favorites">Share my email address with mutual "Fuck yeah" ratings. You must also check "Open to finding a new romantic partner" above.</label>
 </p>
 
 <hr>
