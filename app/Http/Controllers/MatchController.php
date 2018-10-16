@@ -160,6 +160,7 @@ class MatchController extends Controller
 					random_ok,
 					number_photos,
 					greylist,
+					0 days_since_signup,
 					count(distinct chooser_id) popularity
 				from
 					users
@@ -176,7 +177,8 @@ class MatchController extends Controller
 					gender_of_match,
 					random_ok,
 					number_photos,
-					greylist
+					greylist,
+					days_since_signup
 			", [$event, $year]);
 		} else {
 			$users_to_match = DB::select("
