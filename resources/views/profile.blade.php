@@ -27,9 +27,9 @@
 		<h2 class="bright">{{ $wasteland_name }}</h2>
 	@endif
 @endif
-@if ((($show_how_to_find_me || $share_info)) || $is_me)
-	@if ($how_to_find_me)
-		@if ($profile_id === 1)
+@if ($show_how_to_find_me || $share_info || $is_me)
+	@if ($how_to_find_me || $share_info)
+		@if ($profile_id == 1)
 		@else
 			Do not post screenshots of this page. This information is confidential. How to find {{ $wasteland_name }}:
 		@endif
