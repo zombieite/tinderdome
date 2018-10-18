@@ -2,6 +2,19 @@
 
 @section('content')
 
+<style>
+body {
+    color: black;
+    background-image: none;
+    background-color: var(--special);
+    font-family: courier;
+    margin: 1.5em;
+}
+h1,h2,h3,h4,h5,h6,a {
+    color: black;
+}
+</style>
+
 <h1>I swore I wasn't going to take on any missions. But this one was different.</h1>
 
 <img src="/images/fun/save_deadline/article.jpg">
