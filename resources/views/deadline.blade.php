@@ -194,7 +194,7 @@ Yet another anonymous submission from the anonymous Kate.
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/kcdc.jpg"><img src="/images/fun/save_deadline/kcdc_s.jpg"></a>
-I received this clue in the mail on Oct 16. KC/DC is clearly trying to divert suspicion away from himself. How could he be confident Deadline will be found unless he knew where Deadline was?
+I received this clue in the mail on Oct 16. Yeah that's my real address. If you kidnapped Deadline, come knock on my door, motherfucker.
 </div>
 
 <h1>Theories</h1>
