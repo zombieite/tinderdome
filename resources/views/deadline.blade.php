@@ -13,6 +13,9 @@ body {
 h1,h2,h3,h4,h5,h6,a {
     color: black;
 }
+input {
+    font-family: courier;
+}
 </style>
 
 <h1>I swore I wasn't going to take on any missions. But this one was different.</h1>
