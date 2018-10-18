@@ -181,13 +181,20 @@ On Oct 13, for the purposes of maintaining order and spelling accuracy at The Wa
 <br>
 On Oct 17, I received three anonymous submissions from someone named Kate. This one clearly shows some suspects contaminating my crime scene.
 </div>
+
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/submission_2.jpg"><img src="/images/fun/save_deadline/submission_2_s.jpg"></a>
 Another anonymous submission from Kate.
 </div>
+
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/submission_3.jpg"><img src="/images/fun/save_deadline/submission_3_s.jpg"></a>
 Yet another anonymous submission from the anonymous Kate.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/kcdc.jpg"><img src="/images/fun/save_deadline/kcdc_s.jpg"></a>
+I received this clue in the mail on Oct 16. KC/DC is clearly trying to divert suspicion away from himself. How could he be confident Deadline will be found unless he knew where Deadline was?
 </div>
 
 <h1>Theories</h1>
