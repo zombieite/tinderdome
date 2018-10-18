@@ -18,7 +18,7 @@ Last known photo of Deadline, by Thomas Kerns. Presumed taken Wednesday, Septemb
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/evidence_001.jpg"><img src="/images/fun/save_deadline/evidence_001_s.jpg"></a>
 <br>
-10pm Friday, September 28. Suspect known only as "Dweller 6969", Deadline's fraternal twin, was seen cavorting shortly after his brother's disappearance.
+10pm Friday, September 28. Suspect known only as "Dweller 6969", Deadline's evil fraternal twin, was seen cavorting shortly after his brother's disappearance.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
