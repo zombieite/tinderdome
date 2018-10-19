@@ -176,7 +176,7 @@ Around noon on Oct 10, a member of the WCC who wished not to be named casually m
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/deadline_2point0.jpg"><img src="/images/fun/save_deadline/deadline_2point0_s.jpg"></a>
 <br>
-On Oct 13, for the purposes of maintaining order and spelling accuracy at The Wastelander, I whipped up a semi-interactive algorithm called Deadline 2.0. I don't know how helpful it's going to be but we have to do <i>something</i>.
+On Oct 13, for the purposes of maintaining order and spelling accuracy at The Wastelander, I whipped up a semi-interactive algorithm called Deadline 2.0. I don't know how helpful it's going to be but we've got to do <i>something</i>.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
