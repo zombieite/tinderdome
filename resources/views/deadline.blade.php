@@ -158,7 +158,9 @@ Civil Defense told me to talk to suspects Digits and Doc, pictured. I was told t
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-Someone at the WCC said the Rust Devils threw a grenade at them. I brought along Mad Skelli for security and I interviewed the Rust Devils under the pseudonym Thunderbird since they're no friends of mine for unrelated reasons. That interview also yielded nothing.
+<a target="_blank" href="/images/fun/save_deadline/madskelli.jpg"><img src="/images/fun/save_deadline/madskelli_s.jpg"></a>
+<br>
+Someone at the WCC claimed the Rust Devils threw a grenade at them. I brought along Mad Skelli for security and I interviewed the Rust Devils under the pseudonym Thunderbird since they're no friends of mine for unrelated reasons. That interview yielded nothing.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -166,17 +168,13 @@ Mad Skelli then asked some random person, "Where's Deadline?" They said he was i
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-On the evening of Sunday Oct 7, someone claiming to be Deadline signed up for a You Are Awaited mission at the Wastelanders Ball on January 5. It's quite possible Dweller 6969 is impersonating his brother again. If Deadline himself does show up, the next question will be: Will he have copies of the never-printed Wastelander vol. II no. 4? I'm dying to find out if the First Feral Family had sex with mutants. 
-</div>
-
-<div class="profile_search_block" style="width:200px;vertical-align:top;">
-Around noon on Oct 10, a member of the WCC who wished not to be named casually mentioned "a slogan for the newspaper next year." This implies that he knows the newspaper is coming back. How he knows, and who will be a the helm, is still anyone's guess.
-</div>
-
-<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/deadline_2point0.jpg"><img src="/images/fun/save_deadline/deadline_2point0_s.jpg"></a>
 <br>
-On Oct 13, for the purposes of maintaining order and spelling accuracy at The Wastelander, I whipped up a semi-interactive algorithm called Deadline 2.0. I don't know how helpful it's going to be but we've got to do <i>something</i>.
+On Oct 6, for the purposes of maintaining order and spelling accuracy at The Wastelander, I created a semi-interactive artificial intelligence called Deadline 2.0. I don't know how helpful it's going to be but we've got to do <i>something</i>.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+On the evening of Sunday Oct 7, someone claiming to be Deadline signed up for a You Are Awaited mission at the Wastelanders Ball on January 5. It's possible Dweller 6969 will show up instead, or the computer-generated Deadline 2.0 will make an appearance. If Deadline himself shows up, the next question will be: Will he have copies of the never-printed Wastelander vol. II no. 4? I'm dying to find out if the First Feral Family had sex with mutants.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -198,6 +196,11 @@ Yet another anonymous submission from the anonymous Kate.
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/kcdc.jpg"><img src="/images/fun/save_deadline/kcdc_s.jpg"></a>
 I received this clue in the mail on Oct 16. Yeah that's my real address. If you kidnapped Deadline, come knock on my door, motherfucker.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
+I will not rest until Deadline is found, or until I get sleepy again, whichever comes first!
 </div>
 
 <h1>Theories</h1>
