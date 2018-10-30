@@ -205,7 +205,7 @@ I will not rest until Deadline is found, or until I get sleepy again, whichever 
 
 <h1>Theories</h1>
 <div class="profile_search_block">
-One theory is he got sick of doing the Wastelander and wanted a night off to do karaoke, so he kidnapped himself and faked his own death and came back as his own evil twin.
+One theory is he got sick of doing the Wastelander and wanted a night off to do karaoke, so he kidnapped himself and faked his own death and came back as his own evil fraternal twin.
 <br><br>
 "Is he alive? Dead? Chained to a desk at the Bunker Bugle?"--Deadline 2.0
 <br><br>
