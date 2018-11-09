@@ -51,7 +51,7 @@ class ImageController extends Controller
 						$destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-$image_number.jpg";
 						$size = filesize($uploaded_file);
 						if ($size > $max_filesize) {
-							$errors .= 'Image file is too large, please resize it and retry.';
+							$errors .= 'Image file is too large. Please resize it and retry.';
 							if ( $_POST['imagenum'] == 'new' ) {
 								$number_photos--;
 							}
