@@ -4,9 +4,9 @@
 	<h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
 	@if ($count_with_same_name)
 		@if ($count_with_same_name == 1)
-			Another user also goes by the name {{ $wasteland_name }}. Be sure to find the right one.
+			Another wastelander also goes by the name {{ $wasteland_name }}. Be sure to find the right one.
 		@else
-			{{ $count_with_same_name }} other users go by the name {{ $wasteland_name }}. Be sure to find the right one.
+			{{ $count_with_same_name }} other wastelanders go by the name {{ $wasteland_name }}. Be sure to find the right one.
 		@endif
 	@endif
 	Your mission is to seek out {{ $wasteland_name }} at {{ $pretty_event_names[$event] }} {{ $year }}.
@@ -18,7 +18,7 @@
 	<br>
 @else
 	@if (!$is_me && $unchosen_user_id != 1 )
-		<h3>Would you enjoy meeting this user? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
+		<h3>Would you enjoy meeting this wastelander? @if ($count_left)({{$count_left}} profiles left to view) @endif</h3>
 		@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
 	@endif
 	@if ($missions_completed['points'])

@@ -24,7 +24,8 @@ class Util {
 	}
 
 	public static function all_events() {
-		return ['wasteland', 'winter_games', 'ball', 'detonation', 'atomic_falls'];
+		// TODO order these according to which ones are coming up next
+		return ['ball', 'winter_games', 'detonation', 'atomic_falls', 'wasteland'];
 	}
 
 	public static function matched_to_users( $chooser_user_id ) {
