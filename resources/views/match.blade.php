@@ -61,12 +61,12 @@
 		</td>
 		<td>{{ $user->id }}</td>
 		<td>
-			@if (isset($match_rating_hash[$user->id]) && (($match_rating_hash[$user->id] === 0) || ($match_rating_hash[$user->id] == -1))) <span class="error"> @endif
+			@if (isset($match_rating_hash[$user->id]) && (($match_rating_hash[$user->id] === 0) || ($match_rating_hash[$user->id] == -1))) <span class="bright"> @endif
 			{{ isset($match_rating_hash[$user->id]) ? $match_rating_hash[$user->id] : '&nbsp;' }}
 			@if (isset($match_rating_hash[$user->id]) && (($match_rating_hash[$user->id] === 0) || ($match_rating_hash[$user->id] == -1))) </span> @endif
 		</td>
 		<td>
-			@if (isset($match_rating_hash[$matched_users_hash[$user->id]]) && (($match_rating_hash[$matched_users_hash[$user->id]] === 0) || ($match_rating_hash[$matched_users_hash[$user->id]] == -1))) <span class="error"> @endif
+			@if (isset($match_rating_hash[$matched_users_hash[$user->id]]) && (($match_rating_hash[$matched_users_hash[$user->id]] === 0) || ($match_rating_hash[$matched_users_hash[$user->id]] == -1))) <span class="bright"> @endif
 			{{ isset($match_rating_hash[$matched_users_hash[$user->id]]) ? $match_rating_hash[$matched_users_hash[$user->id]] : '&nbsp;' }}
 			@if (isset($match_rating_hash[$matched_users_hash[$user->id]]) && (($match_rating_hash[$matched_users_hash[$user->id]] === 0) || ($match_rating_hash[$matched_users_hash[$user->id]] == -1))) </span> @endif
 		</td>
@@ -82,7 +82,7 @@
 			@if (isset($id_to_name_hash[$matched_users_hash[$user->id]]))
 				<a href="/profile/{{ $matched_users_hash[$user->id] }}/{{ preg_replace('/-/', ' ', $id_to_name_hash[$matched_users_hash[$user->id]]) }}" target="_blank">{{ $id_to_name_hash[$matched_users_hash[$user->id]] }}</a>
 			@else
-				<span class="error">DELETED</span>
+				<span class="bright">DELETED</span>
 			@endif
 		@else
 		@endif
