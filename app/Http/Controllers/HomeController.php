@@ -128,6 +128,34 @@ class HomeController extends Controller
 			$found_my_match = DB::select('select * from choose where chooser_id = ? and chosen_id = ? and choice = -1', [$auth_user_id, $matchs_id]);
 		}
 
+		$mutuals = [];
+		if ($auth_user->hoping_to_find_love && $auth_user->share_info_with_favorites) {
+			$mutuals = DB::select("
+				select
+					id,
+					name,
+					number_photos
+				from
+					choose they_chose_auth_user
+					join users on
+					(
+						they_chose_auth_user.chooser_id = users.id
+						and users.hoping_to_find_love
+						and users.share_info_with_favorites
+						and users.id > 10
+					)
+				where
+					they_chose_auth_user.choice = 3
+					and they_chose_auth_user.chosen_id = ?
+				order by
+					name,
+					id
+			", [ $auth_user_id ]);
+			foreach ($mutuals as $mutual) {
+				$mutual->wasteland_name_hyphenated = preg_replace('/\s/', '-', $mutual->name);
+			}
+		}
+
 		return view('home', [
 			'auth_user_id'                               => $auth_user_id,
 			'wasteland_name_hyphenated'                  => $wasteland_name_hyphenated,
@@ -154,6 +182,7 @@ class HomeController extends Controller
 			'recently_updated_users'                     => $recently_updated_users,
 			'min_percent_to_count_as_rated_enough_users' => $min_percent_to_count_as_rated_enough_users,
 			'why_not_share_email'                        => $why_not_share_email,
+			'mutuals'                                    => $mutuals,
 		]);
 	}
 }
