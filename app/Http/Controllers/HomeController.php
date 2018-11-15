@@ -70,6 +70,7 @@ class HomeController extends Controller
 		$found_my_match            = null;
 		$rated_fraction            = ($total_user_count - count($unrated_users)) / $total_user_count;
 		$rated_enough              = true;
+		$why_not_share_email       = $auth_user->hoping_to_find_love && !$auth_user->share_info_with_favorites;
 
 		$recently_updated_users    = DB::select('
 			select
@@ -152,6 +153,7 @@ class HomeController extends Controller
 			'good_ratings_percent'                       => $good_ratings_percent,
 			'recently_updated_users'                     => $recently_updated_users,
 			'min_percent_to_count_as_rated_enough_users' => $min_percent_to_count_as_rated_enough_users,
+			'why_not_share_email'                        => $why_not_share_email,
 		]);
 	}
 }

@@ -157,4 +157,7 @@
 		</div>
 	@endforeach
 @endif
+@if ($why_not_share_email)
+	<p>Looking for romance? You can get in touch with mutual fuck-yeahs between events by <a href="/profile/edit">sharing your email address with them</a>.</p>
+@endif
 @endsection
