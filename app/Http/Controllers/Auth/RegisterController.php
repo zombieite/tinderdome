@@ -40,6 +40,10 @@ class RegisterController extends Controller
 			abort(403, 'Only the site owner can be named Firebird');
 		}
 
+		if (isset($data['attending_detonation']) && isset($data['attending_atomic_falls'])) {
+			abort(403, "Can't attend both Detonation and Atomic Falls. They are on the same dates.");
+		}
+
 		$user = User::create([
 			'name'                        => $wasteland_name,
 			'email'                       => $data['email'],

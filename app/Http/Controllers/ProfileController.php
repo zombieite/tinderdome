@@ -281,6 +281,10 @@ class ProfileController extends Controller
 		$attending_wasteland       = isset($_POST['attending_wasteland']);
 		$ip                        = request()->ip() or die("No ip");
 
+		if ($attending_detonation && $attending_atomic_falls) {
+			$update_errors .= "Can't attend both Detonation and Atomic Falls. They are on the same dates.";
+		}
+
 		$email_exists = DB::select('select id,email from users where email=? and id<>?', [$email, $profile_id]);
 		if ($email_exists) {
 			$update_errors .= 'Email already in use.';
