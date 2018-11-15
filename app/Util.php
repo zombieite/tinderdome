@@ -69,6 +69,10 @@ class Util {
 		foreach ($upcoming_events as $event => $event_year) {
 			$upcoming_order_bys .= "attending_$event desc,";
 		}
+		$all_events = \App\Util::all_events();
+		foreach ($all_events as $event) {
+			$upcoming_order_bys .= "attending_$event desc,";
+		}
 
 		#Log::debug("Gender of match: $gender_of_match");
 		$gender_order_by = '';
