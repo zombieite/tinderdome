@@ -64,7 +64,7 @@ button.met, input[type="submit"].met {
 }
 .profile_search_block_bright {
 	display: inline-block;
-	border: 3px solid var(--bright);
+	border: 1px solid var(--bright);
 	margin-top: 0.2em;
 	margin-bottom: 0.2em;
 	margin-right: 0.1em;
@@ -88,3 +88,11 @@ button.met, input[type="submit"].met {
 	padding: 0.5em;
 	text-align: center;
 }
+.centered_block_bright {
+	display: inline-block;
+	border: 1px solid var(--bright);
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	margin-right: 0.1em;
+	padding: 0.5em;
+	text-align: center;

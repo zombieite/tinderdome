@@ -119,7 +119,22 @@
 </li>
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
+@if (count($mutuals))
+	<h2><a href="/search?show_mutuals=1">These users have shared their contact info with you</a>.</h2>
+	@foreach ($mutuals as $mutual)
+		<div class="centered_block_bright">
+			@if ($mutual->number_photos)
+				<a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $mutual->id }}-1.jpg" style="height:100px;"></a>
+				<br>
+			@endif
+			<a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}">{{ $mutual->name }}</a>
+		</div>
+	@endforeach
+@endif
 @if ($matched_to_users)
+	@if (count($mutuals))
+		<h2>Let us know when you find your mission matches.</h2>
+	@endif
 	@foreach ($matched_to_users as $matched_to_user)
 		<div class="centered_block">
 		@if ($matched_to_user->choice === 0)

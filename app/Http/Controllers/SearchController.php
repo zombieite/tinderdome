@@ -131,7 +131,7 @@ class SearchController extends Controller
 				order by
 					c1.choice desc,
 					name
-			", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+			", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 		}
 
 		foreach ($all_users as $profile) {
