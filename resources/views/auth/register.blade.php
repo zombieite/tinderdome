@@ -46,7 +46,7 @@ I will be attending...
 <input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
 <label for="attending_detonation">Uranium Springs Detonation 2019.</label>
 <br>
-Note: You can't attend both Detonation and Atomic Falls in 2019 because they are on the same dates. Please check only one.
+Note: You can't attend both Detonation and Atomic Falls in 2019 because they are on the same dates. Be sure to check only one.
 <br>
 <input type="checkbox" name="attending_atomic_falls" id="attending_atomic_falls" @guest @else @if ($attending_atomic_falls) checked @endif @endguest>
 <label for="attending_atomic_falls">Atomic Falls 2019.</label>
