@@ -144,13 +144,19 @@ class HomeController extends Controller
 						and users.share_info_with_favorites
 						and users.id > 10
 					)
+					join choose auth_user_chose on
+					(
+						users.id = auth_user_chose.chosen_id
+						and auth_user_chose.chooser_id = ?
+						and auth_user_chose.choice = 3
+					)
 				where
 					they_chose_auth_user.choice = 3
 					and they_chose_auth_user.chosen_id = ?
 				order by
 					name,
 					id
-			", [ $auth_user_id ]);
+			", [ $auth_user_id, $auth_user_id ]);
 			foreach ($mutuals as $mutual) {
 				$mutual->wasteland_name_hyphenated = preg_replace('/\s/', '-', $mutual->name);
 			}
