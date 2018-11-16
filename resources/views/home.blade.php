@@ -120,7 +120,7 @@
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
 @if (count($mutuals))
-	<h2><a href="/search?show_mutuals=1">These users have shared their contact info with you</a>.</h2>
+	<h2>These users have shared their contact info with you.</h2>
 	@foreach ($mutuals as $mutual)
 		<div class="centered_block_bright">
 			@if ($mutual->number_photos)
