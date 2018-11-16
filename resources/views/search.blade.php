@@ -72,6 +72,19 @@
 @else
 	<a href="/search?show_yeses=1">See users you've said you would enjoy meeting</a><br><br>
 @endif
+@if ($show_met)
+	@if ($profiles_found_count)
+		@if ($profiles_found_count === 1)
+			You've said you've met one user.<br><br>
+		@else
+			You've said you've met {{ $profiles_found_count }} users.<br><br>
+		@endif
+	@else
+		You have not let us know that you have met any users yet.<br><br>
+	@endif
+@else
+	<a href="/search?show_met=1">See users you've said you've met</a><br><br>
+@endif
 @if ($show_nos)
 	@if ($profiles_found_count)
 		@if ($profiles_found_count === 1)

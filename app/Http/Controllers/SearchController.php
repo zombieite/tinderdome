@@ -29,11 +29,12 @@ class SearchController extends Controller
 		$event                                    = isset($_GET['event']) ? $_GET['event'] : null;
 		$events                                   = \App\Util::all_events();
 		$pretty_event_names                       = \App\Util::pretty_event_names();
-		$nos_clause                               = 'and ( c1.choice is null or c1.choice != 0 )';
+		$rated_clause                             = 'and ( c1.choice is null or c1.choice != 0 )';
 		$event_clause                             = '';
 		$gender_clause                            = '';
 		$show_yeses                               = false;
 		$show_nos                                 = false;
+		$show_met                                 = false;
 		$show_mutuals                             = false;
 		$show_preferred_gender                    = false;
 		$profiles                                 = [];
@@ -76,12 +77,17 @@ class SearchController extends Controller
 
 		if (isset($_GET['show_yeses']) && $_GET['show_yeses']) {
 			$show_yeses = true;
-			$nos_clause = 'and c1.choice >= 2';
+			$rated_clause = 'and c1.choice >= 2';
+		}
+
+		if (isset($_GET['show_met']) && $_GET['show_met']) {
+			$show_met = true;
+			$rated_clause = 'and c1.choice = -1';
 		}
 
 		if (isset($_GET['show_nos']) && $_GET['show_nos']) {
 			$show_nos = true;
-			$nos_clause = 'and c1.choice = 0';
+			$rated_clause = 'and c1.choice = 0';
 		}
 
 		if (isset($_GET['show_all'])) {
@@ -98,7 +104,7 @@ class SearchController extends Controller
 			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
 		}
 
-		if ($show_all || $show_mutuals || $show_yeses || $show_nos || $show_preferred_gender) {
+		if ($show_all || $show_mutuals || $show_yeses || $show_nos || $show_met || $show_preferred_gender) {
 			$all_users = DB::select("
 				select
 					id,
@@ -119,7 +125,7 @@ class SearchController extends Controller
 					left join choose c3 on (c3.chooser_id = users.id and c3.chosen_id = ?)
 				where
 					id > 10
-					$nos_clause
+					$rated_clause
 					$gender_clause
 					and
 					(
@@ -187,6 +193,7 @@ class SearchController extends Controller
 			'logged_in_user_number_photos'             => $logged_in_user_number_photos,
 			'show_yeses'                               => $show_yeses,
 			'show_nos'                                 => $show_nos,
+			'show_met'                                 => $show_met,
 			'show_mutuals'                             => $show_mutuals,
 			'show_all'                                 => $show_all,
 			'show_preferred_gender'                    => $show_preferred_gender,
