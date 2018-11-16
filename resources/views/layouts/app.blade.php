@@ -8,6 +8,7 @@
 <meta property="og:image" content="http://youareawaited.com:8080/images/awaited_bw.jpg">
 <meta property=”og:description” content="Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Sign up now to find a new friend, enemy, or romantic partner.">
 <meta name="description" content="Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Sign up now to find a new friend, enemy, or romantic partner.">
+<meta name="robots" content="noindex">
 <title>You Are Awaited</title>
 <link href="/css/app.css?rev=3" rel="stylesheet">
 </head>
