@@ -54,6 +54,9 @@
 		@yield('content')
 
 {{--
+<img src="/images/fun/other/under_construction.gif"><br>
+<h1>UNDER CONSTRUCTION</h1>
+<h3>You Are Awaited will return to service on November 26</h3>
 	@else
 		<h1>TRUST THE ALGORITHM</h1>
 		Matches are being run right now.<br><br>
