@@ -35,7 +35,7 @@
 			@endfor
 		@else
 			@if ( $recently_updated_users && count($recently_updated_users) >= 3 )
-				<h2>These users updated their profiles today.</h2>
+				<h2>Recently updated profiles</h2>
 				@foreach ($recently_updated_users as $recently_updated_user)
 					<div class="centered_block">
 						<a href="/profile/{{ $recently_updated_user->id }}/{{ $recently_updated_user->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $recently_updated_user->id }}-1.jpg" style="height:100px;"></a>
