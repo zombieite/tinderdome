@@ -199,6 +199,12 @@ I received this clue in the mail on Oct 16. Yeah that's my real address. If you 
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/save_deadline.jpg"><img src="/images/fun/save_deadline/save_deadline_s.jpg"></a>
+<br>
+HOLY SHIT
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
 I will not rest until Deadline is found, or until I get sleepy again, whichever comes first!
 </div>
