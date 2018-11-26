@@ -68,13 +68,13 @@
 --}}
 
 <hr>
-Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
-<br>
-<br>
 {{ $total_count }} total participants &middot; {{ $next_event_count }} signed up for missions during {{ $pretty_event_names[$next_event] }} {{ $year }}
 @if ($active_count >= 10)
 	&middot; {{ $active_count }} active in the past 24 hours
 @endif
+<br>
+<br>
+For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on a social network</a>. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
 
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
