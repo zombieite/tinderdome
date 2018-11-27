@@ -205,6 +205,18 @@ HOLY SHIT A HIDDEN MESSAGE
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/ominous.jpg"><img src="/images/fun/save_deadline/ominous_s.jpg"></a>
+<br>
+Finding the hidden message on Nov 26 inspired me to check back issues of The Wastelander for clues. RRH stands for "Red Right Hand," some sort of evil mythical power.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/rrh.jpg"><img src="/images/fun/save_deadline/rrh_s.jpg"></a>
+<br>
+Critical Biggs (AKA Critical Biggz) of the Rust Devils (no friends of mine for unrelated reasons) is practically admitting he's RRH. And Deadline would never have published this crap unless he were under duress.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
 I will not rest until Deadline is found, or until I get sleepy again, whichever comes first!
 </div>
