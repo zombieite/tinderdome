@@ -46,10 +46,10 @@ I will be attending...
 <input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
 <label for="attending_detonation">Uranium Springs Detonation 2019.</label>
 <br>
-Note: You can't attend both Detonation and Atomic Falls in 2019 because they are on the same dates. Be sure to check only one.
-<br>
 <input type="checkbox" name="attending_atomic_falls" id="attending_atomic_falls" @guest @else @if ($attending_atomic_falls) checked @endif @endguest>
 <label for="attending_atomic_falls">Atomic Falls 2019.</label>
+<br>
+Be sure not to check both Detonation and Atomic Falls. You can't attend both Detonation and Atomic Falls in 2019 because they are on the same dates.
 <br>
 <input type="checkbox" name="attending_wasteland" id="attending_wasteland" @guest @else @if ($attending_wasteland) checked @endif @endguest>
 <label for="attending_wasteland">Wasteland Weekend 2019.</label>
@@ -126,15 +126,16 @@ I am...
 	<option value="F" @guest @else @if ($gender_of_match === 'F') selected @endif @endguest>F</option>
 	<option value="O" @guest @else @if ($gender_of_match === 'O') selected @endif @endguest>Other</option>
 </select>
+<br>Users of all genders will see your profile. You may be matched to another gender if we can't find you a match of your preferred gender.
 
 <hr>
 
-<label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Plain text only, emojis are not supported.
+<label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Plain text only. Emojis are not supported.
 <br>
 <input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
 
 <br><br>
-<label for="how_to_find_me">Tell other users how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Plain text only, emojis are not supported.
+<label for="how_to_find_me">Tell other users how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Plain text only. Emojis are not supported.
 <br>
 <input type="text" size="100" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
