@@ -106,7 +106,7 @@ Some kind of old timey machine with blood or ink beside it fuck this I am going 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/ryan_marlett.jpg"><img src="/images/fun/save_deadline/ryan_marlett_s.jpg"></a>
 <br>
-Evidence submission by Ryan Marlett, time unknown.
+Evidence submission by suspect Ryan Marlett, time unknown.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -118,7 +118,7 @@ Saturday morning, September 29. With a good night's sleep and a clear head, I am
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/evidence_013.jpg"><img src="/images/fun/save_deadline/evidence_013_s.jpg"></a>
 <br>
-Forager Pace of Civil Defense, trying to act innocent.
+Suspect Forager Pace of Civil Defense, trying to act innocent.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -130,7 +130,7 @@ A barrel with Wes Anderson fonts all over it!
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/evidence_015.jpg"><img src="/images/fun/save_deadline/evidence_015_s.jpg"></a>
 <br>
-Warden PeCo of Civil Defense, acting like he doesn't know where Deadline is. This guy can talk. He did mention Eaters and the Killtower Faction. Suspect Trav'lyn Ruze (not pictured) also mentioned "kill tower" so maybe there's something to this.
+Suspect Warden PeCo of Civil Defense, acting like he doesn't know where Deadline is. This guy can talk. He did mention Eaters and the Killtower Faction. Suspect Trav'lyn Ruze also mentioned "kill tower" via an electronic communique so maybe there's something to this.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -180,7 +180,7 @@ On the evening of Sunday Oct 7, someone claiming to be Deadline signed up for a 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/submission_1.jpg"><img src="/images/fun/save_deadline/submission_1_s.jpg"></a>
 <br>
-On Oct 17, I received three anonymous submissions from someone named Kate. This one clearly shows some suspects contaminating my crime scene.
+On Oct 17, I received three anonymous submissions from a suspect named Kate. This one clearly shows some suspects contaminating my crime scene.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -213,7 +213,19 @@ Finding the hidden message on Nov 26 inspired me to check back issues of The Was
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/rrh.jpg"><img src="/images/fun/save_deadline/rrh_s.jpg"></a>
 <br>
-Critical Biggs (AKA Critical Biggz) of the Rust Devils (no friends of mine for unrelated reasons) is practically admitting he's RRH. And Deadline would never have published this crap unless he were under duress.
+Suspect Critical Biggs (AKA Critical Biggz) of the Rust Devils (no friends of mine for unrelated reasons) is practically admitting he's RRH. And Deadline would never have published this crap unless he were under duress.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/ruze.jpg"><img src="/images/fun/save_deadline/ruze_s.jpg"></a>
+<br>
+On Dec 7 I finally got a chance to interview suspect Trav'lyn Ruze about the Killtower Faction. She said she had just heard Deadline was investigating it. She had heard that he had returned safely from the investigation. When I expressed dissatisfaction with the usefulness of this information, she simply said, "My name is Ruze, what did you expect?"
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/grotch.jpg"><img src="/images/fun/save_deadline/grotch_s.jpg"></a>
+<br>
+Suspect Grotch tries to deflect suspicion by loudly proclaiming her support for the cause with a SAVE DEADLINE t-shirt. If you want one, mail me a shirt and I'll mail it back with the design printed on it. My address is elsewhere on this page.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">

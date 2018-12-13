@@ -34,6 +34,8 @@
 					@endif
 			@endfor
 		@else
+<h2>Please follow us on <a href="https://www.facebook.com/YouAreAwaited" class="bright">Facebook</a> so we don't have to email you updates about random stuff.</h2>
+{{--
 			@if ( $recently_updated_users && count($recently_updated_users) >= 3 )
 				<h2>Recently updated profiles</h2>
 				@foreach ($recently_updated_users as $recently_updated_user)
@@ -61,6 +63,7 @@
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				@endif
 			@endif
+--}}
 		@endif
 	@else
 
