@@ -89,17 +89,16 @@ class MatchController extends Controller
 		}
 
 		// Popularity and missions completed and days since signup combined
-		$missions_completed_rank_boost_multiplier = 50;
-		$a_rank = $a->popularity;
-		$b_rank = $b->popularity;
+		$popularity_multiplier                    = 2;
+		$missions_completed_rank_boost_multiplier = 75;
+		$a_rank = 0;
+		$b_rank = 0;
 		$a_rank += $a->days_since_signup;
 		$b_rank += $b->days_since_signup;
-		if ($a->missions_completed_count) {
-			$a_rank += $a->missions_completed_count * $missions_completed_rank_boost_multiplier;
-		}
-		if ($b->missions_completed_count) {
-			$b_rank += $b->missions_completed_count * $missions_completed_rank_boost_multiplier;
-		}
+		$a_rank += $a->popularity * $popularity_multiplier;
+		$b_rank += $b->popularity * $popularity_multiplier;
+		$a_rank += $a->missions_completed_count * $missions_completed_rank_boost_multiplier;
+		$b_rank += $b->missions_completed_count * $missions_completed_rank_boost_multiplier;
 		if ($b_rank - $a_rank !== 0) {
 			return $b_rank - $a_rank;
 		}
@@ -113,6 +112,7 @@ class MatchController extends Controller
 			}
 		}
 
+		// Whoever signed up first
 		return ($a->id - $b->id);
 	}
 
