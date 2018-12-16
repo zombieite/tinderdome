@@ -34,7 +34,7 @@
 					@endif
 			@endfor
 		@else
-<h2>Follow You Are Awaited on <a href="https://www.facebook.com/YouAreAwaited" class="bright">Facebook</a> so we don't have to email you updates about random stuff.</h2>
+<h2><a href="https://www.facebook.com/YouAreAwaited" class="bright">Follow You Are Awaited on Facebook</a> so we don't have to email you updates about random stuff.</h2>
 {{--
 			@if ( $recently_updated_users && count($recently_updated_users) >= 3 )
 				<h2>Recently updated profiles</h2>
