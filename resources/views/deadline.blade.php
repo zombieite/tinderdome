@@ -229,6 +229,12 @@ Suspect Grotch tries to deflect suspicion by loudly proclaiming her support for 
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/fox.jpg"><img src="/images/fun/save_deadline/fox_s.jpg"></a>
+<br>
+Another suspect, Desert Fox, also clearly wants us to think she supports the cause. But I won't be fooled!
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
 I will not rest until Deadline is found, or until I get sleepy again, whichever comes first!
 </div>
