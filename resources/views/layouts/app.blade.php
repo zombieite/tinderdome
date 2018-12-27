@@ -15,7 +15,6 @@
 
 <body>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png"></a>
-<br><br>
 
 @guest
 	<a href="{{ route('register') }}">Create a profile</a>
