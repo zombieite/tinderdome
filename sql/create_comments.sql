@@ -1,9 +1,9 @@
 USE tinderdome;
 
-CREATE TABLE comments (
+CREATE TABLE comment (
     comment_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     commenter_user_id INT NOT NULL,
-    comment_on_user_id INT NOT NULL,
+    commented_on_user_id INT NOT NULL,
     approved BOOLEAN,
     created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
