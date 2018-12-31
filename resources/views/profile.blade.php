@@ -99,6 +99,9 @@
 @for ($i = 1; $i <= $number_photos; $i++)
 	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}" style="height:250px;"></a>
 @endfor
+@if ($we_know_each_other)
+    @include('comment_form', ['action' => '/profile/comment', 'user_id_to_rate' => $unchosen_user_id])
+@endif
 @if ($auth_user && $auth_user->id === 1)
 	<br><br>
 	<form method="POST" style="width:100%;text-align:right;">
