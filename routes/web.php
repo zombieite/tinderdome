@@ -16,6 +16,7 @@ Route::get( '/image/upload',                         'ImageController@upload')->
 Route::get( '/photosearch',                          'PhotoSearchController@photosearch')->middleware('auth');
 Route::get( '/search',                               'SearchController@search')->middleware(          'auth');
 Route::post('profile/compatible',                    'ProfileController@compatible')->middleware(     'auth');
+Route::post('profile/comment',                       'ProfileController@comment')->middleware(        'auth');
 Route::post('/image/upload',                         'ImageController@upload')->middleware(           'auth');
 Route::post('profile/edit',                          'ProfileController@update')->middleware(         'auth');
 Route::post('profile/{profile_id}/{wasteland_name}', 'ProfileController@compatible')->middleware(     'auth');
