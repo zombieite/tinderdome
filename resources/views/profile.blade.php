@@ -102,6 +102,42 @@
 @if ($we_know_each_other)
     @include('comment_form', ['action' => '/profile/comment', 'user_id_to_rate' => $unchosen_user_id])
 @endif
+@if ($comments)
+    <ul>
+    @foreach ($comments as $comment)
+        @if ($comment->approved)
+            <li>
+                <div class=" profile_search_block ">
+                    <div style="display:inline-block;">
+                        @if ($comment->user_number_photos)
+                            <a href="/profile/{{ $comment->commenting_user_id }}/{{ $comment->commenting_user_wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $comment->commenting_user_id }}-1.jpg" style="height:50px;"></a>
+                        @endif
+                    </div>
+                    <div style="display:inline-block;">
+                        <a href="/profile/{{ $comment->commenting_user_id }}/{{ $comment->commenting_user_wasteland_name_hyphenated }}">{{ $comment->name }}</a>:
+                        {{ $comment->comment_content }}
+                    </div>
+                </div>
+            </li>
+        @elseif ($auth_user && $comment->commenting_user_id === $auth_user->id)
+            <li>
+                <div class=" profile_search_block ">
+                    <div style="display:inline-block;">
+                        @if ($comment->user_number_photos)
+                            <a href="/profile/{{ $comment->commenting_user_id }}/{{ $comment->commenting_user_wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $comment->commenting_user_id }}-1.jpg" style="height:50px;"></a>
+                        @endif
+                    </div>
+                    <div style="display:inline-block;">
+                        <span class="bright">Your comment will not become visible until it is approved.</span>
+                        <a href="/profile/{{ $comment->commenting_user_id }}/{{ $comment->commenting_user_wasteland_name_hyphenated }}">{{ $comment->name }}</a>:
+                        {{ $comment->comment_content }}
+                    </div>
+                </div>
+            </li>
+        @endif
+    @endforeach
+    </ul>
+@endif
 @if ($auth_user && $auth_user->id === 1)
 	<br><br>
 	<form method="POST" style="width:100%;text-align:right;">
