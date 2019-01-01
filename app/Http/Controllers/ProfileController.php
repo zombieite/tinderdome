@@ -116,7 +116,7 @@ class ProfileController extends Controller
 
             // If the logged in user knows this user, and vice versa, show comment option
             $we_know_each_other = DB::select('select * from choose c1 join choose c2 on (c1.chosen_id=c2.chooser_id and c1.chooser_id=c2.chosen_id) where c1.chooser_id=? and c1.chosen_id=? and c1.choice=-1 and c2.choice=-1', [$logged_in_user_id, $profile_id]);
-            if ($profile_id == 1) {
+            if (($profile_id == 1) || ($profile_id == $logged_in_user_id)) {
                 $we_know_each_other = 1;
             }
 
@@ -593,10 +593,11 @@ class ProfileController extends Controller
         $commenting_user_id     = Auth::id();
         $commented_upon_user_id = $_POST['commented_upon_user_id'];
         $comment                = $_POST['comment'];
+        $logged_in_user_id      = Auth::id();
 
         // If the logged in user knows this user, and vice versa, allow comment to be submitted for approval
         $we_know_each_other = DB::select('select * from choose c1 join choose c2 on (c1.chosen_id=c2.chooser_id and c1.chooser_id=c2.chosen_id) where c1.chooser_id=? and c1.chosen_id=? and c1.choice=-1 and c2.choice=-1', [$commenting_user_id, $commented_upon_user_id]);
-        if ($commented_upon_user_id == 1) {
+        if ((($commented_upon_user_id == 1) && ($logged_in_user_id)) || (($commented_upon_user_id == $commenting_user_id) && ($commenting_user_id == $logged_in_user_id))) {
             $we_know_each_other = 1;
         }
 
