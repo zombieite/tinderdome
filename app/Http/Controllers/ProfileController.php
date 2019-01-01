@@ -61,6 +61,7 @@ class ProfileController extends Controller
         $share_info          = null;
         $show_how_to_find_me = $is_my_match;
         $we_know_each_other  = false;
+        $comments            = [];
 
         if ($profile_id == 1) {
             $show_how_to_find_me = true;
@@ -81,6 +82,7 @@ class ProfileController extends Controller
                     // Make sure the person they're trying to look at hasn't said no to them
                     $they_said_no = DB::select('select * from choose where chooser_id=? and chosen_id=? and choice=0', [$profile_id, $logged_in_user_id]);
                     if ($they_said_no) {
+                        Log::debug('They said no');
                         abort(404);
                     }
                 }
@@ -114,6 +116,33 @@ class ProfileController extends Controller
 
             // If the logged in user knows this user, and vice versa, show comment option
             $we_know_each_other = DB::select('select * from choose c1 join choose c2 on (c1.chosen_id=c2.chooser_id and c1.chooser_id=c2.chosen_id) where c1.chooser_id=? and c1.chosen_id=? and c1.choice=-1 and c2.choice=-1', [$logged_in_user_id, $profile_id]);
+
+            // Get the comments that are approved and that are from people we know and that we can show this logged in user
+            $comments = DB::select('
+                select
+                    comment.comment_id,
+                    comment.comment_content,
+                    comment.created_at,
+                    comment.number_photos comment_number_photos,
+                    comment.commenting_user_id,
+                    comment.approved,
+                    users.id,
+                    users.name,
+                    users.number_photos user_number_photos
+                from
+                    comment
+                    join users on commenting_user_id=users.id
+                    left join choose on (commenting_user_id=choose.chooser_id and choose.chosen_id=?)
+                where
+                    commented_on_user_id=?
+                    and (choose.choice<>0 or choose.choice is null)
+                order by
+                    comment.created_at desc
+                ', [$logged_in_user_id, $profile_id]
+            );
+            foreach ($comments as $comment) {
+                $comment->commenting_user_wasteland_name_hyphenated = preg_replace('/\s/', '-', $comment->name);
+            }
         }
 
         $gender                             = $profile->gender;
@@ -182,7 +211,8 @@ class ProfileController extends Controller
             'year'                               => $year,
             'image_query_string'                 => $image_query_string,
             'count_with_same_name'               => $count_with_same_name,
-            'we_know_each_other'                => $we_know_each_other,
+            'we_know_each_other'                 => $we_know_each_other,
+            'comments'                           => $comments,
         ]);
     }
 
@@ -561,7 +591,7 @@ class ProfileController extends Controller
         $commented_upon_user_id = $_POST['commented_upon_user_id'];
         $comment                = $_POST['comment'];
 
-        // If the logged in user knows this user, and vice versa, show comment option
+        // If the logged in user knows this user, and vice versa, allow comment to be submitted for approval
         $we_know_each_other = DB::select('select * from choose c1 join choose c2 on (c1.chosen_id=c2.chooser_id and c1.chooser_id=c2.chosen_id) where c1.chooser_id=? and c1.chosen_id=? and c1.choice=-1 and c2.choice=-1', [$commenting_user_id, $commented_upon_user_id]);
 
         if ($comment && $we_know_each_other && preg_match('/^[0-9]+$/', $commented_upon_user_id)) {

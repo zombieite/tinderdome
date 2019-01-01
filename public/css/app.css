@@ -26,6 +26,10 @@ td {
 hr {
 	border-color: var(--subtle);
 }
+ul {
+    padding-left: 0px;
+    list-style-type: none;
+}
 li {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;

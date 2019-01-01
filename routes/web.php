@@ -15,6 +15,7 @@ Route::get( 'profile/match',                         'ProfileController@match')-
 Route::get( '/image/upload',                         'ImageController@upload')->middleware(           'auth');
 Route::get( '/photosearch',                          'PhotoSearchController@photosearch')->middleware('auth');
 Route::get( '/search',                               'SearchController@search')->middleware(          'auth');
+Route::post('/',                                     'HomeController@index')->middleware(             'auth');
 Route::post('profile/compatible',                    'ProfileController@compatible')->middleware(     'auth');
 Route::post('profile/comment',                       'ProfileController@comment')->middleware(        'auth');
 Route::post('/image/upload',                         'ImageController@upload')->middleware(           'auth');
