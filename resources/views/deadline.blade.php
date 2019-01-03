@@ -235,6 +235,12 @@ Another suspect, Desert Fox, also clearly wants us to think she supports the cau
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/adept.jpg"><img src="/images/fun/save_deadline/adept_s.jpg"></a>
+<br>
+Adept is added to my list of suspects!
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
 I will not rest until Deadline is found, or until I get sleepy again, whichever comes first!
 </div>
