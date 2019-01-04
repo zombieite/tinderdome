@@ -37,7 +37,7 @@ Browse other profiles and choose who you'd enjoy meeting.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-One week before each event, the matching algorithm will run. You will be matched with one other person at the event. Check your email or come back to this site to see who you've been matched to. Next event: {{ $pretty_names[$next_event] }} {{ $year }}!
+Shortly before each event, the matching algorithm will run. You will be matched with one other person at the event. Check your email or come back to this site to see who you've been matched to. Next event: {{ $pretty_names[$next_event] }} {{ $year }}!
 </p>
 <h3>4. Seek out your match</h3>
 <p>
