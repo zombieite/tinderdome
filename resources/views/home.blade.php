@@ -130,11 +130,11 @@
         @if ($matches_done)
             <li>Matches are complete for {{ $pretty_names[$next_event] }} {{ $year }}, but you were not matched. <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Find out why</a>.</li>
         @else
-            <li>Matches have not yet been run for {{ $pretty_names[$next_event] }} {{ $year }}. Check back here before the event to find out who you're matched with.</li>
+            <li>Matches have not yet been run for {{ $pretty_names[$next_event] }} {{ $year }}. Check back here shortly before the event to find out who you're matched with.</li>
         @endif
     @endif
 @else
-    <li>Let us know what events you'll be attending by <a href="/profile/edit">updating your profile</a>. Check back here a few days before the next event to find out who you've been matched with.</li>
+    <li>Let us know what events you'll be attending by <a href="/profile/edit">updating your profile</a>. Check back here shortly before the next event to find out who you've been matched with.</li>
 @endif
 <li>
     @if ($attending_next_event && $matched)
