@@ -129,7 +129,7 @@ class MatchController extends Controller
         }
 
         $event = $_GET['event'];
-        $year       = $_GET['year'];
+        $year  = $_GET['year'];
 
         if (preg_match('/^[a-z_]+$/', $event)) {
             // All good
@@ -148,6 +148,7 @@ class MatchController extends Controller
         $matched_users_hash            = null;
         $match_rating_hash             = null;
         $matches_complete              = DB::select("select * from matching where event=? and year=?", [$event, $year]);
+        $event_attending_count         = null;
 
         // Find users attending the next event and start with most popular first
         if ($matches_complete) {
@@ -228,6 +229,12 @@ class MatchController extends Controller
         usort($users_to_match, array($this, 'rank_users'));
 
         if ($matches_complete) {
+
+            if ( isset($_POST['mark_event_complete']) ) {
+                DB::update("update users set attending_$event=0");
+            }
+            $event_complete_result = DB::select("select count(*) attending from users where attending_$event=1");
+            $event_attending_count = $event_complete_result[0]->attending;
 
             if (isset($_POST['user_1']) && isset($_POST['user_2'])) {
                 if ($_POST['user_1'] && $_POST['user_2']) {
@@ -555,11 +562,12 @@ class MatchController extends Controller
             'id_to_gender_hash'              => $id_to_gender_hash,
             'id_to_popularity_hash'          => $id_to_popularity_hash,
             'id_to_cant_match_hash'          => $id_to_cant_match_hash,
-            'id_to_missions_completed_hash' => $id_to_missions_completed_hash,
+            'id_to_missions_completed_hash'  => $id_to_missions_completed_hash,
             'match_rating_hash'              => $match_rating_hash,
             'event'                          => $event,
             'year'                           => $year,
             'matches_complete'               => $matches_complete,
+            'event_attending_count'          => $event_attending_count,
         ]);
     }
 

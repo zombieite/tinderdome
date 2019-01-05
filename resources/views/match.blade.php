@@ -5,7 +5,7 @@
 @php $found_match = 0; @endphp
 <h1>
 	@if ($matches_complete)
-		FINALIZED: 
+		FINALIZED:
 	@endif
 	{{ $event }} matches {{ $year }}
 </h1>
@@ -32,7 +32,7 @@
 		@endif
 	</tr>
 @foreach ($users as $user)
-	<tr 
+	<tr
 		@if ($id_to_cant_match_hash[$user->id])
 			@php $unmatched++ @endphp
 			style="background-color:#660000;"
@@ -141,5 +141,8 @@
 		{{ csrf_field() }}
 		<input type="submit" value="Finalize matches" name="WRITE">
 	</form>
+@endif
+@if ($event_attending_count > 0)
+<form method="POST">{{ csrf_field() }}<input type="hidden" name="event" value="{{ $event }}"><input type="hidden" name="year" value="{{ $year }}"><input class="no" type="submit" name="mark_event_complete" value="Mark event complete"></form>
 @endif
 @endsection
