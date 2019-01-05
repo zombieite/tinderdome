@@ -4,10 +4,13 @@
 @if ($matched && $attending_next_event)
     <h1>YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event]) }} {{ $year }}!</h1>
 @else
-    @if ($attending_next_event)
-        <p>You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
+    @if ($matches_done)
     @else
-        <p>If you will be attending {{ $pretty_names[$next_event] }} {{ $year }}, please <a href="/profile/edit">let us know</a>.</p>
+        @if ($attending_next_event)
+            <p>You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
+        @else
+            <p>If you will be attending {{ $pretty_names[$next_event] }} {{ $year }}, please <a href="/profile/edit">let us know</a>.</p>
+        @endif
     @endif
     @if ($good_ratings_percent >= 50)
         <p>{{ $good_ratings_percent }}% of users who have rated you have said they'd enjoy meeting you.</p>
