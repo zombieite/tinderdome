@@ -28,7 +28,7 @@ class Util {
         ];
         $events_that_havent_happened_yet = [];
         foreach ($events_and_years as $event => $event_year) {
-            $event_happened_already = DB::select('select * from matching where event=? and year=? limit 1', [$event, $event_year]);
+            $event_happened_already = DB::select('select * from matching where event=? and year=? and created_at<now()-interval 2 week limit 1', [$event, $event_year]);
             if ($event_happened_already) {
                 // Don't add it to list
             } else {
