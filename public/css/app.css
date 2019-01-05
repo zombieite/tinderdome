@@ -26,7 +26,7 @@ td {
 hr {
 	border-color: var(--subtle);
 }
-ul {
+ul.nobullet {
     padding-left: 0px;
     list-style-type: none;
 }

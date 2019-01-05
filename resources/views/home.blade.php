@@ -74,7 +74,7 @@
 @if ($comments_to_approve)
     <h2 class="bright">You have new comments from people you know.</h2>
     You can approve them or delete them. If you approve them they will appear on your profile. All comments are deleted after one year.
-    <ul>
+    <ul class="nobullet">
     @foreach ($comments_to_approve as $comment)
         <li>
             <div class=" profile_search_block ">
