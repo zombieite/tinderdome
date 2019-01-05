@@ -36,23 +36,12 @@
 <hr>
 
 I will be attending...
+(Note: You can't attend both Detonation and Atomic Falls in 2019 because they are on the same dates.)
+@foreach ($upcoming_events_with_year as $event => $event_year)
 <br>
-<input type="checkbox" name="attending_ball" id="attending_ball" @guest @else @if ($attending_ball) checked @endif @endguest>
-<label for="attending_ball">Wastelanders Ball 2019.</label>
-<br>
-<input type="checkbox" name="attending_winter_games" id="attending_winter_games" @guest @else @if ($attending_winter_games) checked @endif @endguest>
-<label for="attending_winter_games">Wasteland Winter Games 2019.</label>
-<br>
-Do not check both Detonation and Atomic Falls. You can't attend both Detonation and Atomic Falls in 2019 because they are on the same dates.
-<br>
-<input type="checkbox" name="attending_detonation" id="attending_detonation" @guest @else @if ($attending_detonation) checked @endif @endguest>
-<label for="attending_detonation">Uranium Springs Detonation 2019.</label>
-<br>
-<input type="checkbox" name="attending_atomic_falls" id="attending_atomic_falls" @guest @else @if ($attending_atomic_falls) checked @endif @endguest>
-<label for="attending_atomic_falls">Atomic Falls 2019.</label>
-<br>
-<input type="checkbox" name="attending_wasteland" id="attending_wasteland" @guest @else @if ($attending_wasteland) checked @endif @endguest>
-<label for="attending_wasteland">Wasteland Weekend 2019.</label>
+<input type="checkbox" name="attending_{{ $event }}" id="attending_{{ $event }}" @guest @else @if ($attending_event{$event}) checked @endif @endguest>
+<label for="attending_{{ $event }}">{{ $pretty_event_names{$event} }} {{ $event_year }}.</label>
+@endforeach
 
 <br><br>
 I am...
