@@ -15,7 +15,7 @@
 					<li>Random chance did not favor you this time. Part of our matching algorithm is pure luck.</li>
 					<li>You signed up late and not enough people had time to rate your profile. If that is the case, you are much more likely to get a match at the next event.</li>
 					<li>You signed up after matches had already been run.</li>
-					<li>You were matched to someone, but one of you dropped out by changing their rating to "I have met them" or "No" before the event began.</li>
+					<li>You were matched to someone, but one of you dropped out before the event began.</li>
 				</ul>
 			</p>
 		@endif

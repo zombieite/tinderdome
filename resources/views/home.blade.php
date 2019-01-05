@@ -144,7 +144,7 @@
         @if ($found_my_match)
             COMPLETE: You found your match!
         @else
-            Did you find your match? <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Let us know</a>!
+            Did you find your match? <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Let us know</a>.
         @endif
     @else
         @if ($number_photos)
