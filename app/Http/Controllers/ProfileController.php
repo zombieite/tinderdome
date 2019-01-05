@@ -228,51 +228,47 @@ class ProfileController extends Controller
             abort(403);
         }
 
-        $update_errors             = '';
-        $email                     = $profile->email;
-        $share_info_with_favorites = $profile->share_info_with_favorites;
-        $wasteland_name            = $profile->name;
-        $profile_id                = $profile->id;
-        $gender                    = $profile->gender;
-        $gender_of_match           = $profile->gender_of_match;
-        $height                    = $profile->height;
-        $birth_year                = $profile->birth_year;
-        $description               = $profile->description;
-        $how_to_find_me            = $profile->how_to_find_me;
-        $number_photos             = $profile->number_photos;
-        $random_ok                 = $profile->random_ok;
-        $hoping_to_find_friend     = $profile->hoping_to_find_friend;
-        $hoping_to_find_love       = $profile->hoping_to_find_love;
-        $hoping_to_find_lost       = $profile->hoping_to_find_lost;
-        $hoping_to_find_enemy      = $profile->hoping_to_find_enemy;
-        $attending_winter_games    = $profile->attending_winter_games;
-        $attending_ball            = $profile->attending_ball;
-        $attending_detonation      = $profile->attending_detonation;
-        $attending_atomic_falls    = $profile->attending_atomic_falls;
-        $attending_wasteland       = $profile->attending_wasteland;
+        $update_errors                   = '';
+        $email                           = $profile->email;
+        $share_info_with_favorites       = $profile->share_info_with_favorites;
+        $wasteland_name                  = $profile->name;
+        $profile_id                      = $profile->id;
+        $gender                          = $profile->gender;
+        $gender_of_match                 = $profile->gender_of_match;
+        $height                          = $profile->height;
+        $birth_year                      = $profile->birth_year;
+        $description                     = $profile->description;
+        $how_to_find_me                  = $profile->how_to_find_me;
+        $number_photos                   = $profile->number_photos;
+        $random_ok                       = $profile->random_ok;
+        $hoping_to_find_friend           = $profile->hoping_to_find_friend;
+        $hoping_to_find_love             = $profile->hoping_to_find_love;
+        $hoping_to_find_lost             = $profile->hoping_to_find_lost;
+        $hoping_to_find_enemy            = $profile->hoping_to_find_enemy;
+        $attending_event['winter_games'] = $profile->attending_winter_games;
+        $attending_event['ball']         = $profile->attending_ball;
+        $attending_event['detonation']   = $profile->attending_detonation;
+        $attending_event['atomic_falls'] = $profile->attending_atomic_falls;
+        $attending_event['wasteland']    = $profile->attending_wasteland;
         return view('auth/register', [
-            'email'                     => $email,
-            'share_info_with_favorites' => $share_info_with_favorites,
-            'wasteland_name'            => $wasteland_name,
-            'profile_id'                => $profile_id,
-            'gender'                    => $gender,
-            'gender_of_match'           => $gender_of_match,
-            'height'                    => $height,
-            'birth_year'                => $birth_year,
-            'description'               => $description,
-            'how_to_find_me'            => $how_to_find_me,
-            'number_photos'             => $number_photos,
-            'random_ok'                 => $random_ok,
-            'hoping_to_find_friend'     => $hoping_to_find_friend,
-            'hoping_to_find_love'       => $hoping_to_find_love,
-            'hoping_to_find_lost'       => $hoping_to_find_lost,
-            'hoping_to_find_enemy'      => $hoping_to_find_enemy,
-            'attending_winter_games'    => $attending_winter_games,
-            'attending_ball'            => $attending_ball,
-            'attending_detonation'      => $attending_detonation,
-            'attending_atomic_falls'    => $attending_atomic_falls,
-            'attending_wasteland'       => $attending_wasteland,
-            'update_errors'             => $update_errors,
+            'email'                      => $email,
+            'share_info_with_favorites'  => $share_info_with_favorites,
+            'wasteland_name'             => $wasteland_name,
+            'profile_id'                 => $profile_id,
+            'gender'                     => $gender,
+            'gender_of_match'            => $gender_of_match,
+            'height'                     => $height,
+            'birth_year'                 => $birth_year,
+            'description'                => $description,
+            'how_to_find_me'             => $how_to_find_me,
+            'number_photos'              => $number_photos,
+            'random_ok'                  => $random_ok,
+            'hoping_to_find_friend'      => $hoping_to_find_friend,
+            'hoping_to_find_love'        => $hoping_to_find_love,
+            'hoping_to_find_lost'        => $hoping_to_find_lost,
+            'hoping_to_find_enemy'       => $hoping_to_find_enemy,
+            'attending_event'            => $attending_event,
+            'update_errors'              => $update_errors,
         ]);
     }
 
@@ -393,6 +389,12 @@ class ProfileController extends Controller
             return redirect("/profile/$profile_id/$wasteland_name_hyphenated");
         }
 
+        $attending_event['winter_games'] = $attending_winter_games;
+        $attending_event['ball']         = $attending_ball;
+        $attending_event['detonation']   = $attending_detonation;
+        $attending_event['atomic_falls'] = $attending_atomic_falls;
+        $attending_event['wasteland']    = $attending_wasteland;
+
         return view('auth/register', [
             'email'                     => $email,
             'share_info_with_favorites' => $share_info_with_favorites,
@@ -410,11 +412,7 @@ class ProfileController extends Controller
             'hoping_to_find_love'       => $hoping_to_find_love,
             'hoping_to_find_lost'       => $hoping_to_find_lost,
             'hoping_to_find_enemy'      => $hoping_to_find_enemy,
-            'attending_winter_games'    => $attending_winter_games,
-            'attending_ball'            => $attending_ball,
-            'attending_detonation'      => $attending_detonation,
-            'attending_atomic_falls'    => $attending_atomic_falls,
-            'attending_wasteland'       => $attending_wasteland,
+            'attending_event'           => $attending_event,
             'update_errors'             => $update_errors,
         ]);
     }
