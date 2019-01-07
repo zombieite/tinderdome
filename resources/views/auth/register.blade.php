@@ -37,7 +37,7 @@
 
 I will be attending...
 (Note: You can't attend both Detonation and Atomic Falls in 2019 because they are on the same dates.)
-@foreach ($upcoming_events_with_year_minus_completed_events as $event => $event_year)
+@foreach ($upcoming_events_with_year as $event => $event_year)
 <br>
 <input type="checkbox" name="attending_{{ $event }}" id="attending_{{ $event }}" @guest @else @if ($attending_event{$event}) checked @endif @endguest>
 <label for="attending_{{ $event }}">{{ $pretty_event_names{$event} }} {{ $event_year }}.</label>

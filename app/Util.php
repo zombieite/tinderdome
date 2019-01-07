@@ -28,9 +28,9 @@ class Util {
         ];
         $events_that_havent_happened_yet = [];
         foreach ($events_and_years as $event => $event_year) {
-            $event_happened_already = DB::select('select * from matching where event=? and year=? and created_at<now()-interval 2 week limit 1', [$event, $event_year]);
-            if ($event_happened_already) {
-                // Don't add it to list
+            $event_attendance_result = DB::select("select count(*) attendance from users where attending_$event");
+            if ($event_attendance_result[0]->attendance == 0) {
+                // If event attendance preferences were erased, that means the event is over for this year, leave off list
             } else {
                 $events_that_havent_happened_yet[$event] = $event_year;
             }
