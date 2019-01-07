@@ -5,9 +5,13 @@
 @php $found_match = 0; @endphp
 <h1>
 	@if ($matches_complete)
-		FINALIZED:
+		FINALIZED
 	@endif
-	{{ $event }} matches {{ $year }}
+    @if ($event_attending_count == 0)
+        AND EVENT ATTENDANCE PREFERENCES RESET
+    @endif
+    <br>
+	{{ $pretty_event_names[$event] }} matches {{ $year }}
 </h1>
 <hr>
 <table style="font-size:small;">
@@ -133,16 +137,16 @@
 	</tr>
 @endforeach
 </table>
-@if ($matches_complete)
+@if ($matches_complete && $days_ago_matching < 14)
 	<h4>{{ $found_match }}/{{ $counter }} ({{ floor($found_match / $counter * 100) }}%) found their match</h4>
+    @if ($event_attending_count > 0)
+        <form method="POST">{{ csrf_field() }}<input type="hidden" name="event" value="{{ $event }}"><input type="hidden" name="year" value="{{ $year }}"><input class="no" type="submit" name="mark_event_complete" value="Mark event complete"></form>
+    @endif
 @else
 	<h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
 	<form method="POST">
 		{{ csrf_field() }}
 		<input type="submit" value="Finalize matches" name="WRITE">
 	</form>
-@endif
-@if ($event_attending_count > 0)
-<form method="POST">{{ csrf_field() }}<input type="hidden" name="event" value="{{ $event }}"><input type="hidden" name="year" value="{{ $year }}"><input class="no" type="submit" name="mark_event_complete" value="Mark event complete"></form>
 @endif
 @endsection

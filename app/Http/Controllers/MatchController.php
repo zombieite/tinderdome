@@ -149,6 +149,13 @@ class MatchController extends Controller
         $match_rating_hash             = null;
         $matches_complete              = DB::select("select * from matching where event=? and year=?", [$event, $year]);
         $event_attending_count         = null;
+        $pretty_event_names            = \App\Util::pretty_event_names();
+        $days_ago_matching_result      = DB::select('select DATEDIFF(now(), created_at) days_ago from matching where event=? and year=? order by created_at desc limit 1', [$event, $year]);
+        $days_ago_matching             = null;
+
+        if ($days_ago_matching_result) {
+            $days_ago_matching = $days_ago_matching_result[0]->days_ago;
+        }
 
         // Find users attending the next event and start with most popular first
         if ($matches_complete) {
@@ -568,6 +575,8 @@ class MatchController extends Controller
             'year'                           => $year,
             'matches_complete'               => $matches_complete,
             'event_attending_count'          => $event_attending_count,
+            'pretty_event_names'             => $pretty_event_names,
+            'days_ago_matching'              => $days_ago_matching,
         ]);
     }
 
