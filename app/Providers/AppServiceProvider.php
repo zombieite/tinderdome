@@ -26,14 +26,16 @@ class AppServiceProvider extends ServiceProvider
             $pretty_event_names        = \App\Util::pretty_event_names();
             $upcoming_events_with_year = \App\Util::upcoming_events_with_year();
             foreach ($upcoming_events_with_year as $event => $event_year) {
-                $next_event = $event;
-                $year       = $event_year;
-                break;
-            }
-            $next_event_count_result = DB::select("select count(*) next_event_count from users where id>10 and attending_$next_event");
-            $next_event_count = 0;
-            if ($next_event_count_result) {
-                $next_event_count = $next_event_count_result[0]->next_event_count;
+                $next_event              = $event;
+                $year                    = $event_year;
+                $next_event_count_result = DB::select("select count(*) next_event_count from users where id>10 and attending_$next_event");
+                $next_event_count        = 0;
+                if ($next_event_count_result) {
+                    $next_event_count    = $next_event_count_result[0]->next_event_count;
+                }
+                if ($next_event_count > 0) {
+                    break;
+                }
             }
             $view->with('active_count',              $active_count);
             $view->with('total_count',               $total_count);
