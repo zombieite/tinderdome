@@ -21,20 +21,22 @@ class AppServiceProvider extends ServiceProvider
             if ($total_count_result) {
                 $total_count = $total_count_result[0]->total_count;
             }
-            $next_event                = null;
-            $year                      = null;
-            $pretty_event_names        = \App\Util::pretty_event_names();
-            $upcoming_events_with_year = \App\Util::upcoming_events_with_year();
+            $next_event                                       = null;
+            $year                                             = null;
+            $pretty_event_names                               = \App\Util::pretty_event_names();
+            $upcoming_events_with_year                        = \App\Util::upcoming_events_with_year();
+            $upcoming_events_with_year_minus_completed_events = [];
             foreach ($upcoming_events_with_year as $event => $event_year) {
-                $next_event              = $event;
-                $year                    = $event_year;
-                $next_event_count_result = DB::select("select count(*) next_event_count from users where id>10 and attending_$next_event");
+                $maybe_next_event        = $event;
+                $maybe_year              = $event_year;
+                $next_event_count_result = DB::select("select count(*) next_event_count from users where id>10 and attending_$maybe_next_event");
                 $next_event_count        = 0;
                 if ($next_event_count_result) {
                     $next_event_count    = $next_event_count_result[0]->next_event_count;
-                }
-                if ($next_event_count > 0) {
-                    break;
+                    if ($next_event_count > 0 && !$next_event) { // If we've already found next event, we're done finding next event
+                        $next_event      = $maybe_next_event;
+                        $year            = $maybe_year;
+                    }
                 }
             }
             $view->with('active_count',              $active_count);
