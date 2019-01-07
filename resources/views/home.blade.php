@@ -169,9 +169,7 @@
     @endforeach
 @endif
 @if ($matched_to_users)
-    @if (count($mutuals))
-        <h2>Let us know when you find your mission matches.</h2>
-    @endif
+    <h2>Let us know when you find your mission matches.</h2>
     @foreach ($matched_to_users as $matched_to_user)
         <div class="centered_block">
         @if ($matched_to_user->choice === 0)
