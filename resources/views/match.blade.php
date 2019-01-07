@@ -140,7 +140,7 @@
 @if ($matches_complete && $days_ago_matching < 14)
 	<h4>{{ $found_match }}/{{ $counter }} ({{ floor($found_match / $counter * 100) }}%) found their match</h4>
     @if ($event_attending_count > 0)
-        <form method="POST">{{ csrf_field() }}<input type="hidden" name="event" value="{{ $event }}"><input type="hidden" name="year" value="{{ $year }}"><input class="no" type="submit" name="mark_event_complete" value="Mark event complete"></form>
+        <form method="POST">{{ csrf_field() }}<input type="hidden" name="event" value="{{ $event }}"><input type="hidden" name="year" value="{{ $year }}"><input class="no" type="submit" name="mark_event_complete" value="Reset event attendance preferences"></form>
     @endif
 @else
 	<h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
