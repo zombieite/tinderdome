@@ -69,7 +69,10 @@
 --}}
 
 <hr>
-{{ $total_count }} total participants &middot; {{ $next_event_count }} signed up for missions during {{ $pretty_event_names[$next_event] }} {{ $year }}
+{{ $total_count }} total participants
+@if ($next_event_count >= 20)
+    &middot; {{ $next_event_count }} signed up for missions during {{ $pretty_event_names[$next_event] }} {{ $year }}
+@endif
 @if ($active_count >= 10)
 	&middot; {{ $active_count }} active in the past 24 hours
 @endif
