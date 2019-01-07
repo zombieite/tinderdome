@@ -157,7 +157,7 @@
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
 @if (count($mutuals))
-    <h2>These users have shared their contact info with you.</h2>
+    <h2>Users who have shared their contact info</h2>
     @foreach ($mutuals as $mutual)
         <div class="centered_block_bright">
             @if ($mutual->number_photos)
@@ -169,7 +169,7 @@
     @endforeach
 @endif
 @if ($matched_to_users)
-    <h2>Let us know when you find your mission matches.</h2>
+    <h2>Previous mission matches</h2>
     @foreach ($matched_to_users as $matched_to_user)
         <div class="centered_block">
         @if ($matched_to_user->choice === 0)
