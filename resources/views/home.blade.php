@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if ($success_message)
+    <h2 class="bright">{{ $success_message }}</h2>
+@endif
+
 @if ($matched && $attending_next_event)
     <h1>YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event]) }} {{ $year }}!</h1>
 @else
@@ -13,7 +18,7 @@
         @endif
     @endif
     @if ($good_ratings_percent >= 50)
-        <p>{{ $good_ratings_percent }}% of users who have rated you have said they'd enjoy meeting you.</p>
+        <p>{{ $good_ratings_percent }}% of users who have rated you said they'd enjoy meeting you.</p>
     @else
         @if ($recent_good_ratings_count >= 10)
             <p>{{ $recent_good_ratings_count }} users have said they'd enjoy meeting you in the past week.</p>
@@ -68,12 +73,22 @@
             @endif
         @endif
     @else
-
     @endif
 @endif
-@if ($success_message)
-    <h2 class="bright">{{ $success_message }}</h2>
+
+@if (count($mutuals))
+    <h2>Users who have shared their contact info with you</h2>
+    @foreach ($mutuals as $mutual)
+        <div class="centered_block_bright">
+            @if ($mutual->number_photos)
+                <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $mutual->id }}-1.jpg" style="height:100px;"></a>
+                <br>
+            @endif
+            <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}">{{ $mutual->name }}</a>
+        </div>
+    @endforeach
 @endif
+
 @if ($comments_to_approve)
     <h2 class="bright">You have new comments from people you know.</h2>
     You can approve them or delete them. If you approve them they will appear on your profile. All comments are deleted after one year.
@@ -102,7 +117,13 @@
     @endforeach
     </ul>
 @endif
-<h2>Mission status</h2>
+
+<h2>
+Mission status
+@if ($attending_next_event)
+	for {{ $pretty_names[$next_event] }} {{ $year }}
+@endif
+</h2>
 <ol>
 @if ($number_photos)
     <li>COMPLETE: <a href="/profile/{{ $logged_in_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.</li>
@@ -156,18 +177,7 @@
 </li>
 <li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
 </ol>
-@if (count($mutuals))
-    <h2>Users who have shared their contact info</h2>
-    @foreach ($mutuals as $mutual)
-        <div class="centered_block_bright">
-            @if ($mutual->number_photos)
-                <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $mutual->id }}-1.jpg" style="height:100px;"></a>
-                <br>
-            @endif
-            <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}">{{ $mutual->name }}</a>
-        </div>
-    @endforeach
-@endif
+
 @if ($matched_to_users)
     <h2>Previous mission matches</h2>
     @foreach ($matched_to_users as $matched_to_user)
@@ -207,7 +217,9 @@
         </div>
     @endforeach
 @endif
+
 @if ($why_not_share_email)
-    <p>Looking for romance? You can get in touch with mutual fuck-yeahs between events by <a href="/profile/edit">sharing your email address with them</a>.</p>
+    <p>Looking for romance? You can get in touch with mutual Fuck-yeahs between events by <a href="/profile/edit">sharing your email address with them</a>.</p>
 @endif
+
 @endsection
