@@ -102,7 +102,12 @@
     @endforeach
     </ul>
 @endif
-<h2>Mission status</h2>
+<h2>
+Mission status
+@if ($attending_next_event)
+	for {{ $pretty_names[$next_event] }} {{ $year }}
+@endif
+</h2>
 <ol>
 @if ($number_photos)
     <li>COMPLETE: <a href="/profile/{{ $logged_in_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.</li>
