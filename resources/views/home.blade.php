@@ -215,7 +215,7 @@ Mission status
             @endif
         @endif
         </div>
-    @endoreach
+    @endforeach
 @endif
 
 @if ($why_not_share_email)
