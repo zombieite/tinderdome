@@ -18,7 +18,7 @@ input {
 }
 </style>
 
-<h1>I swore I wasn't going to take on any missions. But this one was different.</h1>
+<h1>I swore I wasn't going to take on any more missions. But this one was different.</h1>
 
 <img src="/images/fun/save_deadline/article.jpg">
 <br>
@@ -164,17 +164,9 @@ Someone at the WCC claimed the Rust Devils threw a grenade at them. I brought al
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-Mad Skelli then asked some random person, "Where's Deadline?" They said he was in Vault 77. But no one would tell us where that was. After threatening to shoot a few people in the kneecaps, Mad Skelli found out that the secret Vault 77 was either inside or around the Mushroom Cloud Lounge. But at this point it was Sunday. The Mushroom Cloud lounge had vanished from the site, along with the entire Gathering of the Tribes compound.
-</div>
-
-<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/deadline_2point0.jpg"><img src="/images/fun/save_deadline/deadline_2point0_s.jpg"></a>
 <br>
 On Oct 6, for the purposes of maintaining order and spelling accuracy at The Wastelander, I created a semi-interactive artificial intelligence called Deadline 2.0. I don't know how helpful it's going to be but we've got to do <i>something</i>.
-</div>
-
-<div class="profile_search_block" style="width:200px;vertical-align:top;">
-On the evening of Sunday Oct 7, someone claiming to be Deadline signed up for a You Are Awaited mission at the Wastelanders Ball on January 5. It's possible Dweller 6969 will show up instead, or the computer-generated Deadline 2.0 will make an appearance. If Deadline himself shows up, the next question will be: Will he have copies of the never-printed Wastelander vol. II no. 4? I'm dying to find out if the First Feral Family had sex with mutants.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -225,7 +217,7 @@ On Dec 7 I finally got a chance to interview suspect Trav'lyn Ruze about the Kil
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/grotch.jpg"><img src="/images/fun/save_deadline/grotch_s.jpg"></a>
 <br>
-Suspect Grotch tries to deflect suspicion by loudly proclaiming her support for the cause with a SAVE DEADLINE t-shirt. If you want one, mail me a shirt and I'll mail it back with the design printed on it. My address is elsewhere on this page.
+Suspect Grotch tries to deflect suspicion by loudly proclaiming her support for the cause with a SAVE DEADLINE t-shirt.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -239,6 +231,51 @@ Another suspect, Desert Fox, also clearly wants us to think she supports the cau
 <br>
 Adept is added to my list of suspects!
 </div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/bopit.jpg"><img src="/images/fun/save_deadline/bopit_s.jpg"></a>
+<br>
+Bopit puts on a convincing show.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/lobelia.jpg"><img src="/images/fun/save_deadline/lobelia_s.jpg"></a>
+<br>
+Lobelia pretending to support the cause.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/sam.jpg"><img src="/images/fun/save_deadline/sam_s.jpg"></a>
+<br>
+Sam attempts to draw suspicion away from herself.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/virgin.jpg"><img src="/images/fun/save_deadline/virgin_s.jpg"></a>
+<br>
+Virgin acting like she has no idea where Deadline is.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/deadline_hologram.jpg"><img src="/images/fun/save_deadline/deadline_hologram_s.jpg"></a>
+<br>
+At the Wastelanders Ball on Jan 5, 2019, I was shocked to discover that my creation, the machine intelligence known as Deadline 2.0, had escaped captivity and become an independent 3D projection.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/grotch_hat.jpg"><img src="/images/fun/save_deadline/grotch_hat_s.jpg"></a>
+<br>
+The WCC should really keep better track of this hat. I hope Grotch cleaned out the remnants of beef jerky stuck to that thing before she put it on.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+Why don't these clues make any sense? Is someone trying to throw me off the scent? Why would the WCC hire a corrupt sheriff and a lazy fuck with no experience to investigate the most important case in its history?
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+Murders are usually solved. There were four thousand people at The Gathering. If Deadline had been killed, somebody would have seen or heard something. But this investigation is turning up nothing.
+</div>
+
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
