@@ -1,102 +1,102 @@
 :root {
-	--special: #dedbbc;
-	--subtle:  #666666;
-	--yes:     #00ff00;
-	--neutral: #779977;
-	--met:     #9999ff;
-	--bright:  #ff9900;
+    --special: #dedbbc;
+    --subtle:  #666666;
+    --yes:     #00ff00;
+    --neutral: #779977;
+    --met:     #9999ff;
+    --bright:  #ff9900;
 }
 body {
-	color: white;
-	background-image: url("/images/fun/save_deadline/SAVE_DEADLINE_bg.png");
-	background-color: black;
-	background-repeat: no-repeat;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	margin: 1.5em;
+    color: white;
+    background-image: url("/images/fun/save_deadline/SAVE_DEADLINE_bg.png");
+    background-color: black;
+    background-repeat: no-repeat;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 1.5em;
 }
 a {
-	color: var(--special);
+    color: var(--special);
 }
 table {
-	border-collapse: collapse;
+    border-collapse: collapse;
 }
 td {
-	border: 1px solid var(--subtle);
+    border: 1px solid var(--subtle);
 }
 hr {
-	border-color: var(--subtle);
+    border-color: var(--subtle);
 }
 ul.nobullet {
     padding-left: 0px;
     list-style-type: none;
 }
 li {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 h1, h2, h3, h4, h5, h6, label {
-	color: var(--special);
+    color: var(--special);
 }
 input[type="submit"] {
-	color: black;
-	background-color: var(--special);
-	border: 1px solid var(--subtle);
-	margin: 0.5em;
+    color: black;
+    background-color: var(--special);
+    border: 1px solid var(--subtle);
+    margin: 0.5em;
 }
 button.yesyesyes, input[type="submit"].yesyesyes {
-	background-color: var(--yes);
-	border: 1px solid var(--subtle);
+    background-color: var(--yes);
+    border: 1px solid var(--subtle);
 }
 button.yesyes, input[type="submit"].yesyes {
-	background-color: var(--yes);
-	border: 1px solid var(--subtle);
+    background-color: var(--yes);
+    border: 1px solid var(--subtle);
 }
 button.yes, input[type="submit"].yes {
-	background-color: var(--neutral);
-	border: 1px solid var(--subtle);
+    background-color: var(--neutral);
+    border: 1px solid var(--subtle);
 }
 .no, button.no, input[type="submit"].no {
-	background-color: red;
-	border: 1px solid var(--subtle);
+    background-color: red;
+    border: 1px solid var(--subtle);
 }
 button.met, input[type="submit"].met {
-	background-color: var(--met);
-	border: 1px solid var(--subtle);
+    background-color: var(--met);
+    border: 1px solid var(--subtle);
 }
 .bright {
-	color: var(--bright);
+    color: var(--bright);
 }
 .profile_search_block_bright {
-	display: inline-block;
-	border: 1px solid var(--bright);
-	margin-top: 0.2em;
-	margin-bottom: 0.2em;
-	margin-right: 0.1em;
-	padding: 0.5em;
+    display: inline-block;
+    border: 1px solid var(--bright);
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-right: 0.1em;
+    padding: 0.5em;
 }
 .profile_search_block {
-	display: inline-block;
-	border: 1px solid var(--subtle);
-	margin-top: 0.2em;
-	margin-bottom: 0.2em;
-	margin-right: 0.1em;
-	padding: 0.5em;
-	text-align: left;
+    display: inline-block;
+    border: 1px solid var(--subtle);
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-right: 0.1em;
+    padding: 0.5em;
+    text-align: left;
 }
 .centered_block {
-	display: inline-block;
-	border: 1px solid var(--subtle);
-	margin-top: 0.2em;
-	margin-bottom: 0.2em;
-	margin-right: 0.1em;
-	padding: 0.5em;
-	text-align: center;
+    display: inline-block;
+    border: 1px solid var(--subtle);
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-right: 0.1em;
+    padding: 0.5em;
+    text-align: center;
 }
 .centered_block_bright {
-	display: inline-block;
-	border: 1px solid var(--bright);
-	margin-top: 0.2em;
-	margin-bottom: 0.2em;
-	margin-right: 0.1em;
-	padding: 0.5em;
-	text-align: center;
+    display: inline-block;
+    border: 1px solid var(--bright);
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-right: 0.1em;
+    padding: 0.5em;
+    text-align: center;
