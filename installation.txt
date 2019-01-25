@@ -1,0 +1,81 @@
+# FIRST: Install MAMP, start MAMP not MAMP Pro https://www.mamp.info/en/downloads/
+
+cd ~
+
+# Get composer (may need to get homebrew first)
+curl -sS https://getcomposer.org/installer | /usr/bin/php
+
+/Users/$USER/composer.phar global require "laravel/installer"
+
+PATH=$PATH:/Users/$USER/.composer/vendor/bin
+
+mkdir /Users/$USER/Desktop/local/web
+
+cd /Users/$USER/Desktop/local/web
+
+# Get this repo (may need to install git first)
+git clone git@github.com:zombieite/tinderdome.git
+
+laravel new tinderdome --force # force means who cares that there is stuff in there already
+
+chmod 777 tinderdome/storage
+
+chmod 777 tinderdome/bootstrap/cache
+
+mv tinderdome/.env.example tinderdome/.env
+
+cd tinderdome
+
+cp public/favicon.ico /Applications/MAMP/bin/favicon.ico
+
+/Users/$USER/composer.phar install
+
+php artisan key:generate
+
+# Remove default dir
+rm -rf /Applications/MAMP/htdocs
+
+# Symlink the php stuff to default place
+ln -s /Users/$USER/Desktop/local/web/tinderdome/public /Applications/MAMP/htdocs
+
+git checkout -- public/js/app.js
+
+git checkout -- public/css/app.css
+
+git diff # If you have time, check if anything important has been updated that should be incorporated into vendor files I've added to repo and modified
+
+git checkout -- . # Use my modifications instead of defaults
+
+vi .env # Set this stuff:
+# DB_DATABASE=tinderdome
+# DB_USERNAME=root # This should work on day 1 but change this
+# DB_PASSWORD=root # This should work on day 1 but change this
+
+# Run mysql (see password above)
+/Applications/MAMP/Library/bin/mysql -uroot -p
+
+create database tinderdome;
+
+^D
+
+# Populate DB with existing data
+/Applications/MAMP/Library/bin/mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/backups/server/web/backup/mysqldump.sql
+
+# Install image resizer
+/Users/$USER/composer.phar require intervention/image
+
+# Get all user images not in repo
+cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/uploads public/
+
+# Get all temporary images not in repo
+cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/images/fun public/images/
+
+# If you need to tail logs
+tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/logs/php_error.log
+tail -1000 storage/logs/laravel.log; tail -f storage/logs/laravel.log
+
+# Set MAMP Apache port to 80 and MySQL port to 3306 and start server
+
+# http://localhost/ should now work
+
+# Set up backup rsync script to sync files not in repo and keep mysql backed up
