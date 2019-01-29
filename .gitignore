@@ -1,6 +1,7 @@
 public/images/fun/
 public/uploads/
 .env
+.DS_Store
 vendor/
 .editorconfig
 .gitattributes
