@@ -43,7 +43,7 @@
             @endfor
         @else
             @if (!$comments_to_approve && !$success_message)
-                @if ( $recently_updated_users && count($recently_updated_users) >= 3 )
+                @if ( $recently_updated_users && count($recently_updated_users) >= 5 )
                     <h2>Recently updated profiles</h2>
                     @foreach ($recently_updated_users as $recently_updated_user)
                         <div class="centered_block">
