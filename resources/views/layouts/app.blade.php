@@ -5,9 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta property="og:title" content="You Are Awaited">
+<meta property="og:url" content="http://youareawaited.com">
 <meta property="og:image" content="http://youareawaited.com/images/awaited_bw.jpg">
-<meta property=”og:description” content="Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Sign up now to find a new friend, enemy, or romantic partner.">
-<meta name="description" content="Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Sign up now to find a new friend, enemy, or romantic partner.">
+<meta property="og:description" content="Find thems you're looking for and thems you've lost.">
+<meta name="description" content="Find thems you're looking for and thems you've lost.">
 <meta name="robots" content="noindex">
 <title>You Are Awaited</title>
 <link href="/css/app.css?rev=3" rel="stylesheet">
