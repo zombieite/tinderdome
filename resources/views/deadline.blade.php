@@ -269,6 +269,12 @@ The WCC should really keep better track of this hat. I hope Grotch cleaned out t
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/skelli_au.jpg"><img src="/images/fun/save_deadline/skelli_au_s.jpg"></a>
+<br>
+Skelli sending her support all the way from Australia.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
 Why don't these clues make any sense? Is someone trying to throw me off the scent? Why would the WCC hire a corrupt sheriff and a lazy fuck with no experience to investigate the most important case in its history?
 </div>
 
