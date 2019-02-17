@@ -43,7 +43,7 @@
             @endfor
         @else
             @if (!$comments_to_approve && !$success_message)
-                @if ( $recently_updated_users && count($recently_updated_users) >= 5 )
+{{--                @if ( $recently_updated_users && count($recently_updated_users) >= 5 )
                     <h2>Recently updated profiles</h2>
                     @foreach ($recently_updated_users as $recently_updated_user)
                         <div class="centered_block">
@@ -67,9 +67,12 @@
                         </div>
                         @endforeach
                     @else
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/pMKM1d0IsNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+--}}
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kdXWJ4crKkE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+{{--
                     @endif
                 @endif
+--}}
             @endif
         @endif
     @else
