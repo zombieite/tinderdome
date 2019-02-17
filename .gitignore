@@ -34,3 +34,7 @@ storage/
 tests/
 webpack.mix.js
 yarn.lock
+.env.example
+readme.md
+composer.phar
+resources/assets/
