@@ -140,7 +140,7 @@ class ProfileController extends Controller
                     commented_on_user_id=?
                     and (choose.choice<>0 or choose.choice is null)
                 order by
-                    comment.created_at asc
+                    comment.created_at desc
                 ', [$logged_in_user_id, $profile_id]
             );
             foreach ($comments as $comment) {
