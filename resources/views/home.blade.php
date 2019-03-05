@@ -178,7 +178,7 @@ Mission status
         @endif
     @endif
 </li>
-<li>Find <a href="/profile/Firebird">Firebird</a> to receive your reward.</li>
+<li>Find <a href="/profile/Firebird">Firebird</a> or, at Atomic Falls, <a href="/profile/34/Blank">Blank</a>, to receive your reward.</li>
 </ol>
 
 @if ($matched_to_users)

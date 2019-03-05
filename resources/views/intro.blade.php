@@ -45,6 +45,6 @@ Your mission is to find your match at the event. They'll be looking for you, too
 </p>
 <h3>5. Get your caps</h3>
 <p>
-If you find <a href="/profile/Firebird">Firebird</a> and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
+If you find <a href="/profile/Firebird">Firebird</a>, or, at Atomic Falls, <a href="/profile/34/Blank">Blank</a>, and tell him your story, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
 </p>
 @endsection
