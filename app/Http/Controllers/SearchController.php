@@ -37,7 +37,6 @@ class SearchController extends Controller
         $show_met                                 = false;
         $show_mutuals                             = false;
         $show_preferred_gender                    = false;
-        $show_villains                            = false;
         $profiles                                 = [];
         $all_users                                = [];
         $show_all                                 = false;
@@ -95,10 +94,6 @@ class SearchController extends Controller
             $show_all = true;
         }
 
-        if (isset($_GET['show_villains'])) {
-            $show_villains = true;
-        }
-
         if (isset($_GET['show_mutuals']) && $_GET['show_mutuals'] && $logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites) {
             $show_mutuals = true;
         }
@@ -109,7 +104,7 @@ class SearchController extends Controller
             $users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
         }
 
-        if ($show_all || $show_mutuals || $show_yeses || $show_nos || $show_met || $show_preferred_gender || $show_villains) {
+        if ($show_all || $show_mutuals || $show_yeses || $show_nos || $show_met || $show_preferred_gender) {
             $all_users = DB::select("
                 select
                     id,
@@ -179,9 +174,7 @@ class SearchController extends Controller
             ];
 
             if ($show_nos || (!$users_who_must_be_rated && $logged_in_user_number_photos && ($mutual_favorite || !$show_mutuals))) {
-                if (!$show_villains || ($missions_completed['points'] == 4)) {
-                    array_push($profiles, $profile);
-                }
+                array_push($profiles, $profile);
             }
         }
 
@@ -203,7 +196,6 @@ class SearchController extends Controller
             'show_met'                                 => $show_met,
             'show_mutuals'                             => $show_mutuals,
             'show_all'                                 => $show_all,
-            'show_villains'                            => $show_villains,
             'show_preferred_gender'                    => $show_preferred_gender,
             'profiles_found_count'                     => $profiles_found_count,
             'users_who_must_be_rated'                  => $users_who_must_be_rated,

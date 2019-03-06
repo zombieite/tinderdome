@@ -21,11 +21,6 @@
         <a href="/search?show_all=1&event={{ $event }}">Show all users signed up for {{ $pretty_event_names[$event] }}</a><br><br>
     @endforeach
 @endif
-@if ($show_villains)
-    Villains<br><br>
-@else
-    <a href="/search?show_villains=1">Show villains</a><br><br>
-@endif
 @if ($show_mutuals)
     @if ($logged_in_user_number_photos)
         @if ($users_who_must_be_rated)
