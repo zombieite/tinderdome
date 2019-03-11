@@ -92,7 +92,9 @@
 @if ($description)
 	<br>
 	<br>
-	{{ $description }}
+    <div class="profile_search_block">
+    	{!! nl2br(e($description)) !!}
+    </div>
 @endif
 <br>
 <br>
