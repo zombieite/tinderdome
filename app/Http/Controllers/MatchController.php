@@ -235,13 +235,15 @@ class MatchController extends Controller
 
         usort($users_to_match, array($this, 'rank_users'));
 
+        $event_complete_result = DB::select("select count(*) attending from users where attending_$event");
+        $event_attending_count = $event_complete_result[0]->attending;
+
         if ($matches_complete) {
 
             if ( isset($_POST['mark_event_complete']) ) {
                 DB::update("update users set attending_$event=0");
+                $event_attending_count = 0;
             }
-            $event_complete_result = DB::select("select count(*) attending from users where attending_$event=1");
-            $event_attending_count = $event_complete_result[0]->attending;
 
             if (isset($_POST['user_1']) && isset($_POST['user_2'])) {
                 if ($_POST['user_1'] && $_POST['user_2']) {
