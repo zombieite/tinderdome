@@ -141,9 +141,12 @@
     @endif
 @else
 	<h4>{{ floor(($counter - $unmatched) / $counter * 100) }}% matched</h4>
+    @if ($matches_complete)
+    @else
 	<form method="POST">
 		{{ csrf_field() }}
 		<input type="submit" value="Finalize matches" name="WRITE">
 	</form>
+    @endif
 @endif
 @endsection
