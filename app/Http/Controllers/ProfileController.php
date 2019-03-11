@@ -335,6 +335,10 @@ class ProfileController extends Controller
             $update_errors .= 'Invalid username';
         }
 
+        if (strlen($description) > 2000) {
+            $description = substr($description, 0, 2000);
+        }
+
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
         $image_height              = 500;
         $number_photos             = 0;
