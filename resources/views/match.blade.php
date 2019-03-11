@@ -3,16 +3,13 @@
 @php $counter     = 0; @endphp
 @php $unmatched   = 0; @endphp
 @php $found_match = 0; @endphp
-<h1>
-	@if ($matches_complete)
-		FINALIZED
-	@endif
-    @if ($event_attending_count == 0)
-        AND EVENT ATTENDANCE PREFERENCES RESET
-    @endif
-    <br>
-	{{ $pretty_event_names[$event] }} matches {{ $year }}
-</h1>
+@if ($matches_complete)
+	<h1>FINALIZED</h1>
+@endif
+@if ($event_attending_count == 0)
+    <h1>EVENT ATTENDANCE PREFERENCES RESET</h1>
+@endif
+<h1>{{ $pretty_event_names[$event] }} matches {{ $year }}</h1>
 <hr>
 <table style="font-size:small;">
 	<tr>
