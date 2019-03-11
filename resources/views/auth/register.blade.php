@@ -121,7 +121,7 @@ I am...
 
 <label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Plain text only. Emojis are not supported.
 <br>
-<input type="text" size="100" maxlength="2000" name="description" id="description" value="@guest{{ old('description') }}@else{{ $description }}@endguest">
+<textarea cols="100" rows="20" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
 
 <br><br>
 <label for="how_to_find_me">Tell other users how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Plain text only. Emojis are not supported.
