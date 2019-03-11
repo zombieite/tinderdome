@@ -3,6 +3,6 @@
     <input type="hidden" name="commented_upon_user_id" value="{{ $user_id_to_rate }}">
     <label for="comment">You can comment on this profile. Comments must be approved. All comments are deleted after one year.</label>
     <br>
-    <input type="text" name="comment" size="140" maxlength="140">
+    <input type="text" name="comment" size="100" maxlength="280">
     <input type="submit" value="Submit comment" class="yesyes">
 </form>

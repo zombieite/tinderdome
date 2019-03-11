@@ -2,7 +2,7 @@ USE tinderdome;
 
 CREATE TABLE comment (
     comment_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    comment_content VARCHAR(140) NOT NULL,
+    comment_content VARCHAR(280) NOT NULL,
     commenting_user_id INT NOT NULL,
     commented_on_user_id INT NOT NULL,
     approved BOOLEAN DEFAULT 0,
