@@ -22,9 +22,9 @@ class RegisterController extends Controller
 	protected function validator(array $data)
 	{
 		return Validator::make($data, [
-			'name'     => 'required|string|max:50',
-			'email'    => 'required|string|email|max:255|unique:users',
-			'password' => 'required|string|min:6|confirmed',
+			'name'        => 'required|string|max:50',
+			'email'       => 'required|string|email|max:255|unique:users',
+			'password'    => 'required|string|min:6|confirmed',
 		]);
 	}
 
@@ -43,6 +43,10 @@ class RegisterController extends Controller
 		if (isset($data['attending_detonation']) && isset($data['attending_atomic_falls'])) {
 			abort(403, "Can't attend both Detonation and Atomic Falls. They are on the same dates.");
 		}
+
+        if (strlen($data['description']) > 2000) {
+            $data['description'] = substr($data['description'], 0, 2000);
+        }
 
 		$user = User::create([
 			'name'                        => $wasteland_name,
