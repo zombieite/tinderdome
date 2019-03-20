@@ -31,7 +31,7 @@ class PhotoSearchController extends Controller
 		if ($logged_in_user_random_ok) {
 			// All good
 		} else {
-			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
+			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user );
 		}
 
 		if ($gender_to_show) {

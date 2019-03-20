@@ -170,16 +170,17 @@ class ProfileController extends Controller
         $pretty_event_names                 = \App\Util::pretty_event_names();
         $next_event                         = null;
         $year                               = null;
-        $upcoming_events_with_year          = \App\Util::upcoming_events_with_year();
+        $upcoming_events_with_year          = \App\Util::upcoming_events_with_year( $auth_user );
+        if ($auth_user) {
+            $upcoming_events_with_year          = \App\Util::upcoming_events_user_is_attending_with_year( $auth_user );
+            $logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
+        }
         foreach ($upcoming_events_with_year as $upcoming_event => $event_year) {
             $next_event = $upcoming_event;
             $year       = $event_year;
             break;
         }
         $events_to_show                     = [$next_event];
-        if ($auth_user) {
-            $logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
-        }
 
         return view('profile', [
             'profile_id'                         => $profile_id,
@@ -575,7 +576,7 @@ class ProfileController extends Controller
         }
 
         $gender_of_match  = $chooser_user->gender_of_match;
-        $unrated_users    = \App\Util::unrated_users( $chooser_user_id, $gender_of_match );
+        $unrated_users    = \App\Util::unrated_users( $chooser_user );
         $unrated_user     = array_shift($unrated_users);
         $count_left       = 0;
         foreach ($unrated_users as $user_to_count) {

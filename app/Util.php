@@ -7,6 +7,8 @@ use Log;
 
 class Util {
 
+    CONST MONTHS_FOR_PROFILE_TO_BE_INACTIVE = 6;
+
     public static function pretty_event_names() {
         return [
             'winter_games' => 'The Winter Games',
@@ -33,6 +35,30 @@ class Util {
                 // If event attendance preferences were erased, that means the event is over for this year, leave off list
             } else {
                 $events_that_havent_happened_yet[$event] = $event_year;
+            }
+        }
+        return $events_that_havent_happened_yet;
+    }
+
+    public static function upcoming_events_user_is_attending_with_year( $logged_in_user ) {
+        $year = date("Y");
+        $events_and_years = [
+            'ball'         => $year,
+            'winter_games' => $year,
+            'detonation'   => $year,
+            'atomic_falls' => $year,
+            'wasteland'    => $year,
+        ];
+        $events_that_havent_happened_yet = [];
+        foreach ($events_and_years as $event => $event_year) {
+            $event_attendance_result = DB::select("select count(*) attendance from users where attending_$event");
+            if ($event_attendance_result[0]->attendance == 0) {
+                // If event attendance preferences were erased, that means the event is over for this year, leave off list
+            } else {
+                $function_name = "attending_$event";
+                if ($logged_in_user->$function_name) {
+                    $events_that_havent_happened_yet[$event] = $event_year;
+                }
             }
         }
         return $events_that_havent_happened_yet;
@@ -77,18 +103,67 @@ class Util {
         return $matched_to_users;
     }
 
-    public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
+    public static function rated_users( $chooser_user ) {
+        $chooser_user_id = $chooser_user->id;
+        $next_event = null;
+        $upcoming_events = \App\Util::upcoming_events_user_is_attending_with_year( $chooser_user );
+        foreach ($upcoming_events as $event => $event_year) {
+            $next_event or ($next_event = $event);
+        }
+        $next_event or ($next_event = 'wasteland');
 
+        // The second choose join hides users who have already said no to you so you don't even get to see them
+        $rated_users = DB::select("
+            select
+                *
+            from
+                users
+                left join choose my_choice on (
+                    users.id=my_choice.chosen_id
+                    and chooser_id=?
+                )
+                left join choose their_choice on (
+                    users.id=their_choice.chooser_id
+                    and their_choice.chosen_id=?
+                )
+            where
+                id > 10
+                and id<>?
+                and my_choice.choice is not null
+                and
+                (
+                    their_choice.choice is null
+                    or
+                    their_choice.choice != 0
+                )
+                and
+                (
+                    attending_$next_event
+                    or
+                    last_active > now()-interval ? month
+                )
+        ",
+        [$chooser_user_id, $chooser_user_id, $chooser_user_id, Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE]);
+
+        return $rated_users;
+    }
+
+    public static function unrated_users( $chooser_user ) {
+        $gender_of_match = $chooser_user->gender_of_match;
+        $chooser_user_id = $chooser_user->id;
         $upcoming_order_bys = '';
-        $upcoming_events = \App\Util::upcoming_events_with_year();
+        $upcoming_events = \App\Util::upcoming_events_user_is_attending_with_year( $chooser_user );
+        $next_event = null;
+        foreach ($upcoming_events as $event => $event_year) {
+            $next_event or ($next_event = $event);
+            $upcoming_order_bys .= "attending_$event desc,";
+        }
+        $next_event or ($next_event = 'wasteland');
+        $all_events = \App\Util::all_events();
         foreach ($upcoming_events as $event => $event_year) {
             $upcoming_order_bys .= "attending_$event desc,";
         }
-        $all_events = \App\Util::all_events();
-        foreach ($all_events as $event) {
-            $upcoming_order_bys .= "attending_$event desc,";
-        }
-
+Log::debug("constant is Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE: ".Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE);
         #Log::debug("Gender of match: $gender_of_match");
         $gender_order_by = '';
         if ($gender_of_match) {
@@ -134,13 +209,19 @@ class Util {
                     or
                     their_choice.choice != 0
                 )
+                and
+                (
+                    attending_$next_event
+                    or
+                    last_active > now()-interval ? month
+                )
             order by
                 $upcoming_order_bys
                 $gender_order_by
                 number_photos desc,
                 id desc
         ",
-        [$chooser_user_id, $chooser_user_id, $chooser_user_id]);
+        [$chooser_user_id, $chooser_user_id, $chooser_user_id, Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE]);
 
         return $unrated_users;
     }

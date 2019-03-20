@@ -101,7 +101,7 @@ class SearchController extends Controller
         if ($logged_in_user_random_ok) {
             // All good
         } else {
-            $users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user_id );
+            $users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user );
         }
 
         if ($show_all || $show_mutuals || $show_yeses || $show_nos || $show_met || $show_preferred_gender) {

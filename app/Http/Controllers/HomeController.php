@@ -18,7 +18,6 @@ class HomeController extends Controller
         $leaderboard_and_count     = \App\Util::leaderboard( $leader_count, $logged_in_user_id );
         $leaderboard               = $leaderboard_and_count['leaderboard'];
         $nonleader_count           = $leaderboard_and_count['nonleader_count'];
-        $total_user_count          = $leader_count + $nonleader_count;
         $pretty_names              = \App\Util::pretty_event_names();
         $next_event                = null;
         $year                      = null;
@@ -63,7 +62,8 @@ class HomeController extends Controller
         $wasteland_name            = $logged_in_user->name;
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
         $number_photos             = $logged_in_user->number_photos;
-        $unrated_users             = \App\Util::unrated_users( $logged_in_user_id, $logged_in_user->gender_of_match );
+        $rated_users               = \App\Util::rated_users( $logged_in_user );
+        $unrated_users             = \App\Util::unrated_users( $logged_in_user );
         $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );
         $matches_done              = DB::select('select * from matching where event=? and year=?', [$next_event_attending, $next_event_attending_year]);
         $attending_next_event      = DB::select("select * from users where id=? and attending_$next_event", [$logged_in_user_id]);
@@ -79,7 +79,7 @@ class HomeController extends Controller
         $ratings_count             = $ratings[0]->rated;
         $good_ratings_percent      = 0;
         $found_my_match            = null;
-        $rated_fraction            = ($total_user_count - count($unrated_users)) / $total_user_count;
+        $rated_fraction            = count($rated_users) / (count($rated_users) + count($unrated_users));
         $rated_enough              = true;
         $why_not_share_email       = $logged_in_user->hoping_to_find_love && !$logged_in_user->share_info_with_favorites;
         $success_message           = '';
