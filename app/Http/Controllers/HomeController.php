@@ -48,16 +48,27 @@ class HomeController extends Controller
             $logged_in_user    = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
         }
 
+        $next_event_attending      = null;
+        $next_event_attending_year = null;
+        foreach ($upcoming_events_with_year as $event => $event_year) {
+            $function_name = "attending_$event";
+            if ($logged_in_user->$function_name) {
+                $next_event_attending      = $event;
+                $next_event_attending_year = $event_year;
+                break;
+            }
+        }
+
         $min_fraction_to_count_as_rated_enough_users = .75;
         $wasteland_name            = $logged_in_user->name;
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
         $number_photos             = $logged_in_user->number_photos;
         $unrated_users             = \App\Util::unrated_users( $logged_in_user_id, $logged_in_user->gender_of_match );
         $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );
-        $matches_done              = DB::select('select * from matching where event=? and year=?', [$next_event, $year]);
+        $matches_done              = DB::select('select * from matching where event=? and year=?', [$next_event_attending, $next_event_attending_year]);
         $attending_next_event      = DB::select("select * from users where id=? and attending_$next_event", [$logged_in_user_id]);
         $random_ok                 = DB::select("select * from users where id=? and random_ok", [$logged_in_user_id]);
-        $matched                   = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$logged_in_user_id, $logged_in_user_id, $next_event, $year]);
+        $matched                   = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$logged_in_user_id, $logged_in_user_id, $next_event_attending, $next_event_attending_year]);
         $recent_good_ratings       = DB::select('select count(*) interested from choose where created_at>now()-interval 1 week and choice>1 and chosen_id=?', [$logged_in_user_id]);
         $recent_good_ratings_count = $recent_good_ratings[0]->interested;
         $good_ratings              = DB::select('select count(*) interested from choose where choice>1 and chosen_id=?', [$logged_in_user_id]);
@@ -72,7 +83,6 @@ class HomeController extends Controller
         $rated_enough              = true;
         $why_not_share_email       = $logged_in_user->hoping_to_find_love && !$logged_in_user->share_info_with_favorites;
         $success_message           = '';
-
         $recently_updated_users    = DB::select('
             select
                 id,
@@ -114,8 +124,6 @@ class HomeController extends Controller
 
         $rated_percent                              = round($rated_fraction * 100);
         $min_percent_to_count_as_rated_enough_users = round($min_fraction_to_count_as_rated_enough_users * 100);
-
-        //Log::debug("Next event '$next_event' year '$year'");
 
         foreach ($matched as $match_result) {
             //Log::debug("Checking match search results");
@@ -229,6 +237,8 @@ class HomeController extends Controller
             'mutuals'                                    => $mutuals,
             'comments_to_approve'                        => $comments_to_approve,
             'success_message'                            => $success_message,
+            'next_event_attending'                       => $next_event_attending,
+            'next_event_attending_year'                  => $next_event_attending_year,
         ]);
     }
 }

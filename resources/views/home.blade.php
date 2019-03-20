@@ -6,8 +6,8 @@
     <h2 class="bright">{{ $success_message }}</h2>
 @endif
 
-@if ($matched && $attending_next_event)
-    <h1>YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event]) }} {{ $year }}!</h1>
+@if ($matched && $next_event_attending)
+    <h1>YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event_attending]) }} {{ $next_event_attending_year }}!</h1>
 @else
     @if ($matches_done)
     @else
@@ -123,8 +123,8 @@
 
 <h2>
 Mission status
-@if ($attending_next_event)
-	for {{ $pretty_names[$next_event] }} {{ $year }}
+@if ($next_event_attending)
+	for {{ $pretty_names[$next_event_attending] }} {{ $next_event_attending_year }}
 @endif
 </h2>
 <ol>
@@ -150,25 +150,25 @@ Mission status
 @else
     <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
 @endif
-@if ($attending_next_event)
+@if ($next_event_attending)
     @if ($matched)
-        <li><b><a class="bright" href="/profile/match?event={{ $next_event }}&year={{ $year }}">COMPLETE: YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event]) }} {{ $year }}! Here's your match.</a></b></li>
+        <li><b><a class="bright" href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">COMPLETE: YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event_attending]) }} {{ $next_event_attending_year }}! Here's your match.</a></b></li>
     @else
         @if ($matches_done)
-            <li>Matches are complete for {{ $pretty_names[$next_event] }} {{ $year }}, but you were not matched. <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Find out why</a>.</li>
+            <li>Matches are complete for {{ $pretty_names[$next_event_attending] }} {{ $next_event_attending_year }}, but you were not matched. <a href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">Find out why</a>.</li>
         @else
-            <li>Matches have not yet been run for {{ $pretty_names[$next_event] }} {{ $year }}. Check back here before the event to find out who you're matched with.</li>
+            <li>Matches have not yet been run for {{ $pretty_names[$next_event_attending] }} {{ $next_event_attending_year }}. Check back here before the event to find out who you're matched with.</li>
         @endif
     @endif
 @else
     <li>Let us know what events you'll be attending by <a href="/profile/edit">updating your profile</a>. Check back here before the next event to find out who you've been matched with.</li>
 @endif
 <li>
-    @if ($attending_next_event && $matched)
+    @if ($next_event_attending && $matched)
         @if ($found_my_match)
             COMPLETE: You found your match!
         @else
-            Did you find your match? <a href="/profile/match?event={{ $next_event }}&year={{ $year }}">Let us know</a>.
+            Did you find your match? <a href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">Let us know</a>.
         @endif
     @else
         @if ($number_photos)
@@ -182,7 +182,7 @@ Mission status
 </ol>
 
 @if ($matched_to_users)
-    <h2>Previous mission matches</h2>
+    <h2>Mission matches</h2>
     @foreach ($matched_to_users as $matched_to_user)
         <div class="centered_block">
         @if ($matched_to_user->choice === 0)
