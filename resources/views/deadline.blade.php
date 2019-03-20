@@ -275,13 +275,18 @@ Skelli sending her support all the way from Australia.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-Why don't these clues make any sense? Is someone trying to throw me off the scent? Why would the WCC hire a corrupt sheriff and a lazy fuck with no experience to investigate the most important case in its history?
+<a target="_blank" href="/images/fun/save_deadline/ap.jpg"><img src="/images/fun/save_deadline/ap_s.jpg"></a>
+<br>
+During the Winter Games, Almost Patton delivered this clue that proves Deadline did intend to release 4 issues of the Wastelander. There was no sign of Deadline 2.0. Maybe someone tripped over his power cord.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-Murders are usually solved. There were four thousand people at The Gathering. If Deadline had been killed, somebody would have seen or heard something. But this investigation is turning up nothing.
+People don't threaten to do shit. They just do it. People don't get murdered with 4000 people standing around and nobody seeing anything.
 </div>
 
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+Why don't these clues make any sense? Is someone trying to throw me off the scent? Why would the WCC hire a corrupt sheriff and a lazy fuck with no experience to investigate the most important case in its history?
+</div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
