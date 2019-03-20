@@ -1,3 +1,4 @@
+*.swp
 public/images/fun/
 public/uploads/
 .env
