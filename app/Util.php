@@ -163,7 +163,6 @@ class Util {
         foreach ($upcoming_events as $event => $event_year) {
             $upcoming_order_bys .= "attending_$event desc,";
         }
-Log::debug("constant is Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE: ".Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE);
         #Log::debug("Gender of match: $gender_of_match");
         $gender_order_by = '';
         if ($gender_of_match) {
@@ -289,7 +288,11 @@ Log::debug("constant is Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE: ".Util::MONTHS_
             } else if ($points === 5) {
                 $title = 'ANTIHERO';
             } else if ($points === 6) {
-                $title = '';
+                $title = 'SUPERHERO';
+            } else if ($points === 6) {
+                $title = 'SUPERVILLAIN';
+            } else {
+                $title = '???';
             }
         }
         if ($user_id == 1) {
