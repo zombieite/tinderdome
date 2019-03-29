@@ -20,30 +20,34 @@
 <br>
 
 @guest
-	<a href="{{ route('register') }}">Create a profile</a>
-	&middot;
-	<a href="{{ route('login') }}">Log in</a>
-	&middot;
-	<a href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
-	&middot;
-	<a href="/save-deadline">SAVE DEADLINE</a>
+    <a class="navbar" href="{{ route('register') }}">Create a profile</a>
+    &middot;
+    <a class="navbar" href="{{ route('login') }}">Log in</a>
+    &middot;
+    <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
+    &middot;
+    <a class="navbar" href="/save-deadline">SAVE DEADLINE</a>
+    &middot;
+    <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
 @else
-	<form action="{{ route('logout') }}" method="POST">
-	{{ csrf_field() }}
-	Logged in as <a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>
-	&middot;
-	<a href="/">Home</a>
-	&middot;
-	<a href="/profile/edit">Edit profile</a>
-	&middot;
-	<a href="/image/upload">Upload images</a>
-	&middot;
-	<a href="/search">Search</a>
-	&middot;
-	<a href="/save-deadline">SAVE DEADLINE</a>
-	&middot;
-	<input type="submit" value="Log out">
-	</form>
+    <form action="{{ route('logout') }}" method="POST">
+    {{ csrf_field() }}
+    Logged in as <a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>
+    &middot;
+    <a class="navbar" href="/">Home</a>
+    &middot;
+    <a class="navbar" href="/profile/edit">Edit profile</a>
+    &middot;
+    <a class="navbar" href="/image/upload">Upload images</a>
+    &middot;
+    <a class="navbar" href="/search">Search</a>
+    &middot;
+    <a class="navbar" href="/save-deadline">SAVE DEADLINE</a>
+    &middot;
+    <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
+    &middot;
+    <input type="submit" value="Log out">
+    </form>
 @endguest
 
 <hr>
@@ -51,22 +55,22 @@
 {{--
 @guest
 @else
-	@if ((Auth::user()->id === 1) || (Auth::user()->id === 50))
+    @if ((Auth::user()->id === 1) || (Auth::user()->id === 50))
 --}}
 
-		@yield('content')
+        @yield('content')
 
 {{--
 <img src="/images/fun/other/under_construction.gif"><br>
 <h1>UNDER CONSTRUCTION</h1>
 <h3>You Are Awaited will return to service on November 26</h3>
-	@else
-		<h1>TRUST THE ALGORITHM</h1>
-		Matches are being run right now.<br><br>
-		@for ($i = 1; $i <=30; $i++)
-			<div style="display:inline-block;padding:2em;"><a href="/images/fun/{{ $i }}.jpg">{{ $i }}</a></div>
-		@endfor
-	@endif
+    @else
+        <h1>TRUST THE ALGORITHM</h1>
+        Matches are being run right now.<br><br>
+        @for ($i = 1; $i <=30; $i++)
+            <div style="display:inline-block;padding:2em;"><a href="/images/fun/{{ $i }}.jpg">{{ $i }}</a></div>
+        @endfor
+    @endif
 @endguest
 --}}
 
@@ -76,7 +80,7 @@
     &middot; {{ $next_event_count }} signed up for missions during {{ $pretty_event_names[$next_event] }} {{ $year }}
 @endif
 @if ($active_count >= 10)
-	&middot; {{ $active_count }} active in the past 24 hours
+    &middot; {{ $active_count }} active in the past 24 hours
 @endif
 <br>
 <br>
