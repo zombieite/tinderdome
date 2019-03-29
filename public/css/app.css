@@ -17,6 +17,9 @@ body {
 a {
     color: var(--special);
 }
+textarea {
+    width: 100%;
+}
 table {
     border-collapse: collapse;
 }
@@ -66,6 +69,9 @@ button.met, input[type="submit"].met {
 .bright {
     color: var(--bright);
 }
+.navbar {
+    line-height: 2.5;
+}
 .profile_search_block_bright {
     display: inline-block;
     border: 1px solid var(--bright);
@@ -100,3 +106,5 @@ button.met, input[type="submit"].met {
     margin-right: 0.1em;
     padding: 0.5em;
     text-align: center;
+}
+
