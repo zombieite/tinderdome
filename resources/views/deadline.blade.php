@@ -277,7 +277,19 @@ Skelli sending her support all the way from Australia.
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/ap.jpg"><img src="/images/fun/save_deadline/ap_s.jpg"></a>
 <br>
-During the Winter Games, Almost Patton delivered this clue that proves Deadline did intend to release 4 issues of the Wastelander. There was no sign of Deadline 2.0. Maybe someone tripped over his power cord.
+During the Winter Games Almost Patton delivered this clue that proves Deadline did intend to release 4 issues of the Wastelander. There was no sign of Deadline 2.0. Maybe someone tripped over his power cord.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/cm.jpg"><img src="/images/fun/save_deadline/cm_s.jpg"></a>
+<br>
+I received a tip that Grotch might have seen Deadline even after Civil Defense "last" saw him. Here she is wearing a ceremonial headdress and screen printing some Save Deadline merchandise she probably plans to sell for a profit to support her <a href="https://cultofcatmeat.com">"church."</a>
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/sd.jpg"><img src="/images/fun/save_deadline/sd_s.jpg"></a>
+<br>
+The lady doth protest too much methinks. She who crows the most knows the most. She who makes the headlines kidnapped Deadline. Grotch is now the lead suspect in this case.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -290,7 +302,7 @@ Why don't these clues make any sense? Is someone trying to throw me off the scen
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
-I will not rest until Deadline is found, or until I get sleepy again, whichever comes first!
+I will not rest until Deadline is found or until I get sleepy again. Whichever comes first!
 </div>
 
 <h1>Theories</h1>
