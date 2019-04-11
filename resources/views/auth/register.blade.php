@@ -118,7 +118,7 @@ I am...
 <br>
 <label for="gender_of_match_2">Or gender...</label>
 <select name="gender_of_match_2" id="gender_of_match_2">
-	<option value="">Any</option>
+	<option value="">No answer</option>
 	<option value="M" @guest @else @if ($gender_of_match_2 === 'M') selected @endif @endguest>M</option>
 	<option value="F" @guest @else @if ($gender_of_match_2 === 'F') selected @endif @endguest>F</option>
 	<option value="O" @guest @else @if ($gender_of_match_2 === 'O') selected @endif @endguest>Other</option>
