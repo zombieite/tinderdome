@@ -23,6 +23,7 @@ class User extends Authenticatable
 		'description',
 		'how_to_find_me',
 		'random_ok',
+        'title_index',
 		'hoping_to_find_friend',
 		'hoping_to_find_love',
 		'hoping_to_find_lost',

@@ -29,6 +29,7 @@ class SearchController extends Controller
         $event                                    = isset($_GET['event']) ? $_GET['event'] : null;
         $events                                   = \App\Util::all_events();
         $pretty_event_names                       = \App\Util::pretty_event_names();
+        $titles                                   = \App\Util::titles();
         $rated_clause                             = 'and ( c1.choice is null or c1.choice != 0 )';
         $event_clause                             = '';
         $gender_clause                            = '';
@@ -104,6 +105,7 @@ class SearchController extends Controller
                     height,
                     birth_year,
                     description,
+                    title_index,
                     number_photos,
                     hoping_to_find_love,
                     share_info_with_favorites,
@@ -137,6 +139,7 @@ class SearchController extends Controller
             $gender                    = $profile->gender;
             $height                    = $profile->height;
             $birth_year                = $profile->birth_year;
+            $title_index               = isset($profile->title_index) ? $profile->title_index : 0;
             $description               = $profile->description;
             $number_photos             = $profile->number_photos;
             $choice                    = $profile->logged_in_user_choice;
@@ -156,6 +159,7 @@ class SearchController extends Controller
                 'wasteland_name_hyphenated' => $wasteland_name_hyphenated,
                 'gender'                    => $gender,
                 'height'                    => $height,
+                'title_index'               => $title_index,
                 'birth_year'                => $birth_year,
                 'description'               => $description,
                 'number_photos'             => $number_photos,
@@ -191,6 +195,7 @@ class SearchController extends Controller
             'events'                                   => $events,
             'event'                                    => $event,
             'pretty_event_names'                       => $pretty_event_names,
+            'titles'                                   => $titles,
         ]);
     }
 

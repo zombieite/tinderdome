@@ -151,6 +151,7 @@ class ProfileController extends Controller
         $gender                             = $profile->gender;
         $gender_of_match                    = $profile->gender_of_match;
         $gender_of_match_2                  = $profile->gender_of_match_2;
+        $title_index                        = isset($profile->title_index) ? $profile->title_index : 0;
         $height                             = $profile->height;
         $birth_year                         = $profile->birth_year;
         $description                        = $profile->description;
@@ -162,6 +163,7 @@ class ProfileController extends Controller
         $hoping_to_find_enemy               = $profile->hoping_to_find_enemy;
         $unchosen_user_id                   = $profile_id;
         $missions_completed                 = \App\Util::missions_completed( $profile_id );
+        $titles                             = \App\Util::titles();
         $logged_in_user_hoping_to_find_love = null;
         $attending['winter_games']          = $profile->attending_winter_games;
         $attending['ball']                  = $profile->attending_ball;
@@ -210,6 +212,8 @@ class ProfileController extends Controller
             'nos_left'                           => $nos_left,
             'auth_user'                          => $auth_user,
             'missions_completed'                 => $missions_completed,
+            'titles'                             => $titles,
+            'title_index'                        => $title_index,
             'share_info'                         => $share_info,
             'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
             'attending'                          => $attending,
@@ -239,12 +243,15 @@ class ProfileController extends Controller
         $gender                          = $profile->gender;
         $gender_of_match                 = $profile->gender_of_match;
         $gender_of_match_2               = $profile->gender_of_match_2;
+        $title_index                     = $profile->title_index;
+        $titles                          = \App\Util::titles();
         $height                          = $profile->height;
         $birth_year                      = $profile->birth_year;
         $description                     = $profile->description;
         $how_to_find_me                  = $profile->how_to_find_me;
         $number_photos                   = $profile->number_photos;
         $random_ok                       = $profile->random_ok;
+        $missions_completed              = \App\Util::missions_completed( $profile_id );
         $hoping_to_find_friend           = $profile->hoping_to_find_friend;
         $hoping_to_find_love             = $profile->hoping_to_find_love;
         $hoping_to_find_lost             = $profile->hoping_to_find_lost;
@@ -274,6 +281,9 @@ class ProfileController extends Controller
             'hoping_to_find_enemy'       => $hoping_to_find_enemy,
             'attending_event'            => $attending_event,
             'update_errors'              => $update_errors,
+            'title_index'                => $title_index,
+            'titles'                     => $titles,
+            'missions_completed'         => $missions_completed,
         ]);
     }
 
@@ -289,11 +299,18 @@ class ProfileController extends Controller
 
         DB::update('update users set last_active=now() where id=?', [$profile_id]);
 
-        $update_errors          = '';
+        $titles                    = \App\Util::titles();
+        $update_errors             = '';
 
         if (isset($_POST['delete'])) {
             DB::delete('delete from users where id=? limit 1', [$profile_id]);
             return redirect('/');
+        }
+
+        $missions_completed        = \App\Util::missions_completed( $profile_id );
+
+        if ($title_index > $missions_completed['points']) {
+            $update_errors = 'Illegal title choice';
         }
 
         $email                     = $_POST['email'];
@@ -308,6 +325,7 @@ class ProfileController extends Controller
         $birth_year                = intval($_POST['birth_year']);
         $description               = $_POST['description'];
         $how_to_find_me            = $_POST['how_to_find_me'];
+        $title_index               = $_POST['title_index'];
         $share_info_with_favorites = isset($_POST['share_info_with_favorites']);
         $random_ok                 = isset($_POST['random_ok']);
         $hoping_to_find_friend     = isset($_POST['hoping_to_find_friend']);
@@ -379,6 +397,7 @@ class ProfileController extends Controller
             $profile->gender                    = $gender;
             $profile->gender_of_match           = $gender_of_match;
             $profile->gender_of_match_2         = $gender_of_match_2;
+            $profile->title_index               = $title_index;
             $profile->height                    = $height;
             $profile->birth_year                = $birth_year;
             $profile->description               = $description;
@@ -405,7 +424,6 @@ class ProfileController extends Controller
         $attending_event['detonation']   = $attending_detonation;
         $attending_event['atomic_falls'] = $attending_atomic_falls;
         $attending_event['wasteland']    = $attending_wasteland;
-
         return view('auth/register', [
             'email'                     => $email,
             'share_info_with_favorites' => $share_info_with_favorites,
@@ -420,6 +438,9 @@ class ProfileController extends Controller
             'how_to_find_me'            => $how_to_find_me,
             'number_photos'             => $number_photos,
             'random_ok'                 => $random_ok,
+            'titles'                    => $titles,
+            'title_index'               => $title_index,
+            'missions_completed'        => $missions_completed,
             'hoping_to_find_friend'     => $hoping_to_find_friend,
             'hoping_to_find_love'       => $hoping_to_find_love,
             'hoping_to_find_lost'       => $hoping_to_find_lost,

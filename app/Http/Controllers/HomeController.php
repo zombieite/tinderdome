@@ -19,6 +19,7 @@ class HomeController extends Controller
         $leaderboard               = $leaderboard_and_count['leaderboard'];
         $nonleader_count           = $leaderboard_and_count['nonleader_count'];
         $pretty_names              = \App\Util::pretty_event_names();
+        $titles                    = \App\Util::titles();
         $next_event                = null;
         $year                      = null;
         $upcoming_events_with_year = \App\Util::upcoming_events_with_year();
@@ -38,6 +39,7 @@ class HomeController extends Controller
                 'next_event'      => $next_event,
                 'year'            => $year,
                 'pretty_names'    => $pretty_names,
+                'titles'          => $titles,
             ]);
         }
 
