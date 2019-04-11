@@ -43,6 +43,7 @@
             @endfor
         @else
             @if (!$comments_to_approve && !$success_message)
+{{--
                 @if ( $recently_updated_users && count($recently_updated_users) >= 5 )
                     <h2>Recently updated profiles</h2>
                     @foreach ($recently_updated_users as $recently_updated_user)
@@ -67,26 +68,16 @@
                         </div>
                         @endforeach
                     @else
+--}}
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/kdXWJ4crKkE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+{{--
                     @endif
                 @endif
+--}}
             @endif
         @endif
     @else
     @endif
-@endif
-
-@if (count($mutuals))
-    <h2>Users who have shared their contact info with you</h2>
-    @foreach ($mutuals as $mutual)
-        <div class="centered_block_bright">
-            @if ($mutual->number_photos)
-                <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $mutual->id }}-1.jpg" style="height:100px;"></a>
-                <br>
-            @endif
-            <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}">{{ $mutual->name }}</a>
-        </div>
-    @endforeach
 @endif
 
 @if ($comments_to_approve)
@@ -116,6 +107,19 @@
         </li>
     @endforeach
     </ul>
+@endif
+
+@if (count($mutuals))
+    <h2>Users who have shared their contact info with you</h2>
+    @foreach ($mutuals as $mutual)
+        <div class="centered_block_bright">
+            @if ($mutual->number_photos)
+                <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $mutual->id }}-1.jpg" style="height:100px;"></a>
+                <br>
+            @endif
+            <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}">{{ $mutual->name }}</a>
+        </div>
+    @endforeach
 @endif
 
 <h2>
