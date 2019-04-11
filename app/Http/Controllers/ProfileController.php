@@ -309,6 +309,7 @@ class ProfileController extends Controller
 
         $missions_completed        = \App\Util::missions_completed( $profile_id );
 
+        $title_index               = $_POST['title_index'];
         if ($title_index > $missions_completed['points']) {
             $update_errors = 'Illegal title choice';
         }
@@ -325,7 +326,6 @@ class ProfileController extends Controller
         $birth_year                = intval($_POST['birth_year']);
         $description               = $_POST['description'];
         $how_to_find_me            = $_POST['how_to_find_me'];
-        $title_index               = $_POST['title_index'];
         $share_info_with_favorites = isset($_POST['share_info_with_favorites']);
         $random_ok                 = isset($_POST['random_ok']);
         $hoping_to_find_friend     = isset($_POST['hoping_to_find_friend']);
