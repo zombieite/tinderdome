@@ -44,21 +44,6 @@
         <a href="/search?show_mutuals=1">See mutual fuck-yeahs who have shared their contact info with you</a><br><br>
     @endif
 @endif
-@if ($show_preferred_gender)
-    @if ($logged_in_user_number_photos)
-        @if ($users_who_must_be_rated)
-            You must <a href="/profile/compatible?">rate all users</a> before you can view users of your preferred gender.<br><br>
-        @else
-            All users of your preferred gender, gender Other, and gender unspecified<br><br>
-        @endif
-    @else
-        You must <a href="/image/upload">upload a photo</a> before you can search users.<br><br>
-    @endif
-@else
-    @if ($logged_in_user_preferred_gender_of_match)
-        <a href="/search?show_preferred_gender=1">Show users of your preferred gender to meet, gender Other, and gender unspecified</a><br><br>
-    @endif
-@endif
 @if ($show_yeses)
     @if ($profiles_found_count)
         @if ($profiles_found_count === 1)

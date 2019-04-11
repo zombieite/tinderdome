@@ -9,6 +9,7 @@ CREATE TABLE users (
 	number_people INT NOT NULL,
 	gender VARCHAR(1),
 	gender_of_match VARCHAR(1),
+	gender_of_match_2 VARCHAR(1),
 	height INT,
 	birth_year INT,
 	description VARCHAR(2000),
@@ -24,10 +25,11 @@ CREATE TABLE users (
 	attending_detonation BOOLEAN,
 	attending_atomic_falls BOOLEAN,
 	attending_wasteland BOOLEAN,
+	share_info_with_favorites BOOLEAN,
+    title_index INT,
 	ip VARCHAR(50) NOT NULL,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	share_info_with_favorites BOOLEAN,
 	last_active timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	greylist INT
 );
