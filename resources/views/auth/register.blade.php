@@ -115,6 +115,14 @@ I am...
 	<option value="F" @guest @else @if ($gender_of_match === 'F') selected @endif @endguest>F</option>
 	<option value="O" @guest @else @if ($gender_of_match === 'O') selected @endif @endguest>Other</option>
 </select>
+<br>
+<label for="gender_of_match_2">Or gender...</label>
+<select name="gender_of_match_2" id="gender_of_match_2">
+	<option value="">Any</option>
+	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>M</option>
+	<option value="F" @guest @else @if ($gender_of_match === 'F') selected @endif @endguest>F</option>
+	<option value="O" @guest @else @if ($gender_of_match === 'O') selected @endif @endguest>Other</option>
+</select>
 <br>Users of all genders will see your profile. You may be matched to another gender if we can't find you a match of your preferred gender.
 
 <hr>

@@ -150,6 +150,7 @@ class ProfileController extends Controller
 
         $gender                             = $profile->gender;
         $gender_of_match                    = $profile->gender_of_match;
+        $gender_of_match_2                  = $profile->gender_of_match_2;
         $height                             = $profile->height;
         $birth_year                         = $profile->birth_year;
         $description                        = $profile->description;
@@ -187,6 +188,7 @@ class ProfileController extends Controller
             'wasteland_name'                     => $wasteland_name,
             'gender'                             => $gender,
             'gender_of_match'                    => $gender_of_match,
+            'gender_of_match_2'                  => $gender_of_match_2,
             'height'                             => $height,
             'birth_year'                         => $birth_year,
             'description'                        => $description,
@@ -236,6 +238,7 @@ class ProfileController extends Controller
         $profile_id                      = $profile->id;
         $gender                          = $profile->gender;
         $gender_of_match                 = $profile->gender_of_match;
+        $gender_of_match_2               = $profile->gender_of_match_2;
         $height                          = $profile->height;
         $birth_year                      = $profile->birth_year;
         $description                     = $profile->description;
@@ -258,6 +261,7 @@ class ProfileController extends Controller
             'profile_id'                 => $profile_id,
             'gender'                     => $gender,
             'gender_of_match'            => $gender_of_match,
+            'gender_of_match_2'          => $gender_of_match_2,
             'height'                     => $height,
             'birth_year'                 => $birth_year,
             'description'                => $description,
@@ -299,6 +303,7 @@ class ProfileController extends Controller
         $password_confirmation     = $_POST['password_confirmation'];
         $gender                    = $_POST['gender'];
         $gender_of_match           = $_POST['gender_of_match'];
+        $gender_of_match_2         = $_POST['gender_of_match_2'];
         $height                    = intval($_POST['height']);
         $birth_year                = intval($_POST['birth_year']);
         $description               = $_POST['description'];
@@ -373,6 +378,7 @@ class ProfileController extends Controller
             $profile->share_info_with_favorites = $share_info_with_favorites;
             $profile->gender                    = $gender;
             $profile->gender_of_match           = $gender_of_match;
+            $profile->gender_of_match_2         = $gender_of_match_2;
             $profile->height                    = $height;
             $profile->birth_year                = $birth_year;
             $profile->description               = $description;
@@ -407,6 +413,7 @@ class ProfileController extends Controller
             'profile_id'                => $profile_id,
             'gender'                    => $gender,
             'gender_of_match'           => $gender_of_match,
+            'gender_of_match_2'         => $gender_of_match_2,
             'height'                    => $height,
             'birth_year'                => $birth_year,
             'description'               => $description,
@@ -575,7 +582,6 @@ class ProfileController extends Controller
             DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
         }
 
-        $gender_of_match  = $chooser_user->gender_of_match;
         $unrated_users    = \App\Util::unrated_users( $chooser_user );
         $unrated_user     = array_shift($unrated_users);
         $count_left       = 0;

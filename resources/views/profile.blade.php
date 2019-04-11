@@ -89,6 +89,9 @@
 @if ($gender_of_match)
 	Prefers to meet gender: {{ $gender_of_match === 'M' ? 'Male' : ($gender_of_match === 'F' ? 'Female' : 'Other') }}.
 @endif
+@if ($gender_of_match && $gender_of_match_2)
+	Or gender: {{ $gender_of_match_2 === 'M' ? 'Male' : ($gender_of_match_2 === 'F' ? 'Female' : 'Other') }}.
+@endif
 @if ($description)
 	<br>
 	<br>

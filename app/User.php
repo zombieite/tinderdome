@@ -16,6 +16,7 @@ class User extends Authenticatable
 		'password',
 		'gender',
 		'gender_of_match',
+		'gender_of_match_2',
 		'height',
 		'birth_year',
 		'number_photos',
