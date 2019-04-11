@@ -241,6 +241,7 @@ class HomeController extends Controller
             'success_message'                            => $success_message,
             'next_event_attending'                       => $next_event_attending,
             'next_event_attending_year'                  => $next_event_attending_year,
+            'titles'                                     => $titles,
         ]);
     }
 }
