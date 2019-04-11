@@ -22,7 +22,7 @@
 		@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
 	@endif
 	@if ($missions_completed['points'])
-		<h2>{{ $missions_completed['title'] }} <span class="bright">{{ $wasteland_name }}</span> &middot; Missions completed: {{ $missions_completed['points'] }}</h2>
+		<h2>{{ $titles[$title_index] }} <span class="bright">{{ $wasteland_name }}</span> &middot; Missions completed: {{ $missions_completed['points'] }}</h2>
 	@else
 		<h2 class="bright">{{ $wasteland_name }}</h2>
 	@endif

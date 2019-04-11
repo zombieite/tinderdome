@@ -274,35 +274,22 @@ class Util {
             }
         }
 
-        $title = '';
-        if ($points > 0) {
-            $title = 'HERO';
-            if ($points === 1) {
-                $title = 'PARTICIPANT';
-            } else if ($points === 2) {
-                $title = 'FBIRD';
-            } else if ($points === 3) {
-                $title = 'HERO';
-            } else if ($points === 4) {
-                $title = 'VILLAIN';
-            } else if ($points === 5) {
-                $title = 'ANTIHERO';
-            } else if ($points === 6) {
-                $title = 'SUPERHERO';
-            } else if ($points === 6) {
-                $title = 'SUPERVILLAIN';
-            } else {
-                $title = '???';
-            }
-        }
-        if ($user_id == 1) {
-            $title = '';
-        }
-
         return [
             'missions' => $missions,
             'points'   => $points,
-            'title'    => $title,
+        ];
+    }
+
+    public static function titles() {
+        return [
+            '',
+            'PARTICIPANT',
+            'FBIRD',
+            'HERO',
+            'VILLAIN',
+            'ANTIHERO',
+            'SUPERHERO',
+            'SUPERVILLAIN',
         ];
     }
 
@@ -320,7 +307,8 @@ class Util {
             select
                 id,
                 name,
-                number_photos
+                number_photos,
+                title_index
             from
                 users
             where
@@ -330,6 +318,7 @@ class Util {
             $profile_id                = $profile->id;
             $wasteland_name            = $profile->name;
             $number_photos             = $profile->number_photos;
+            $title_index               = isset($profile->title_index) ? $profile->title_index : 0;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
             $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
             $profile                   = [
@@ -338,6 +327,7 @@ class Util {
                 'wasteland_name_hyphenated' => $wasteland_name_hyphenated,
                 'number_photos'             => $number_photos,
                 'missions_completed'        => $missions_completed,
+                'title_index'               => $title_index,
             ];
             array_push($leaderboard, $profile);
         }

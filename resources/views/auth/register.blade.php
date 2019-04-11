@@ -64,6 +64,19 @@ I am...
 
 <hr>
 
+@guest
+@else
+@if (isset($missions_completed) && $missions_completed['points'] > 1)
+<label for="title_index">Title</label>
+<select name="title_index" id="title_index">
+    @for ($i = 0; $i <= $missions_completed['points']; $i++)
+        <option value="{{ $i }}" @if ($title_index === $i) selected @endif>{{ $titles[$i] }}</option>
+    @endfor
+</select>
+<br>
+@endif
+@endguest
+
 <label for="height">Height</label>
 <select name="height" id="height">
 	<option value="">No answer</option>

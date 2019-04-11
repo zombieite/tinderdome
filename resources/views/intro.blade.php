@@ -19,7 +19,7 @@ Rebuilding the world from its ashes, one conversation at a time.
 		@endif
 		<br>
 		@if ($leader['missions_completed']['points'] > 0)
-			{{ $leader['missions_completed']['title'] }}
+			{{ $titles[$leader['title_index']] }}
 		@endif
 		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
 	</div>
