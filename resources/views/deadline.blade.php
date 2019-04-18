@@ -20,7 +20,7 @@ input {
 
 <h1>I swore I wasn't going to take on any more missions. But this one was different.</h1>
 
-<img src="/images/fun/save_deadline/article.jpg">
+<img src="/images/fun/save_deadline/article.jpg" style="max-width:100%;">
 <br>
 
 <h1>We got more red herrings than a fish market.</h1>

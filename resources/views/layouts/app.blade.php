@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png"></a>
+<a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 
 @guest

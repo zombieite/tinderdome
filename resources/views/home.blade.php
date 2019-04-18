@@ -69,7 +69,7 @@
                         @endforeach
                     @else
 --}}
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kdXWJ4crKkE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe style="width:100%;max-width:720px;height:480px" src="https://www.youtube.com/embed/kdXWJ4crKkE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 {{--
                     @endif
                 @endif

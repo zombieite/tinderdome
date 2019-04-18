@@ -102,7 +102,7 @@
 <br>
 <br>
 @for ($i = 1; $i <= $number_photos; $i++)
-	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}" style="height:250px;"></a>
+	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}" style="max-width:100%;"></a>
 @endfor
 @if ($we_know_each_other)
     @include('comment_form', ['action' => '/profile/comment', 'user_id_to_rate' => $unchosen_user_id])
