@@ -66,7 +66,7 @@ I am...
 
 @guest
 @else
-@if (isset($missions_completed) && $missions_completed['points'] > 1)
+@if (isset($missions_completed) && $missions_completed['points'] > 0)
 <label for="title_index">Title</label>
 <select name="title_index" id="title_index">
     @for ($i = 0; $i <= $missions_completed['points']; $i++)
