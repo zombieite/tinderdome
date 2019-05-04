@@ -301,11 +301,6 @@ Why don't these clues make any sense? Is someone trying to throw me off the scen
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-May 2. I can't believe it's taken me so long to figure this out. There's a reason all these clues point in different directions. <i>They don't want Deadline to be found</i>.
-</div>
-
-
-<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
 I will not rest until Deadline is found or until I get sleepy again. Whichever comes first!
 </div>
