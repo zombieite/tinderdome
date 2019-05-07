@@ -1,8 +1,8 @@
 [John]
 
-My life was pretty boring, but I was happy.
+My life was boring, but I was happy.
 
-My name is John. I grew up in New Jersey, but spent most of my life in Texas.
+My name is John. I grew up in New Jersey, but I spent most of my life in Texas.
 
 Mom was a prominent economist. She was known as the "Chicago Gal" because she'd studied at the University of Chicago. She spent some time in Chile helping them get their economy off the ground. Dad's a retired radiologist. Nowadays he's a maker. I'd be more specific, but really, he can make anything.
 
