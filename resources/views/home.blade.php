@@ -179,7 +179,7 @@ Mission status
         @endif
     @endif
 </li>
-<li>Go to the WCC Post Office, or at Atomic Falls, find <a href="/profile/34/Blank">Blank</a>, to receive your reward.</li>
+<li>To receive your reward, go to the WCC Post Office, or at Atomic Falls, find <a href="/profile/34/Blank">Blank</a>.</li>
 </ol>
 
 @if ($matched_to_users)
