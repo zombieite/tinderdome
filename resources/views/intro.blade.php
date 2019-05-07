@@ -41,10 +41,10 @@ Shortly before each event, the matching algorithm will run. You will be matched 
 </p>
 <h3>4. Seek out your match</h3>
 <p>
-Your mission is to find your match at the event. They'll be looking for you, too. Suggested conversation topic: merge the backstories of your Wasteland personas. Come up with a real or fictionalized account of how you met.
+Your mission is to find your match at the event. They'll be looking for you, too.
 </p>
 <h3>5. Get your caps</h3>
 <p>
-If you go to the WCC Post Office, or at Atomic Falls, find <a href="/profile/34/Blank">Blank</a>, you'll be rewarded with caps. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
+You will be rewarded with caps. Upon mission completion, go to the WCC Post Office, or at Atomic Falls, find <a href="/profile/34/Blank">Blank</a>. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
 </p>
 @endsection
