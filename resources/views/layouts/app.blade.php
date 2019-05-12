@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<h6>THE WASTELAND COMMUNICATION CORPORATION PRESENTS THE WORLD'S FIRST SOCIAL NETWORK</h6>
+<h6>THE WASTELAND COMMUNICATION CORPORATION PROUDLY PRESENTS THE WORLD'S FIRST SOCIAL NETWORK</h6>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 
