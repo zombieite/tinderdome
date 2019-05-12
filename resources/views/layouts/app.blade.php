@@ -86,6 +86,6 @@
 <br>
 <br>
 For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
-<h6>All data submitted to this social network is property of and for sale by the Wasteland Communication Corporation</h6>
+<h6>All data submitted to this social network will be sold to the highest bidder by the Wasteland Communication Corporation</h6>
 </body>
 </html>
