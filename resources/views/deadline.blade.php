@@ -18,7 +18,7 @@ input {
 }
 </style>
 
-<h1>I swore I wasn't going to take on any more missions. But this one was different.</h1>
+<h1>THIS INVESTIGATION IS CLOSED.</h1>
 
 <img src="/images/fun/save_deadline/article.jpg" style="max-width:100%;">
 <br>
@@ -160,7 +160,7 @@ Civil Defense told me to talk to suspects Digits and Doc, pictured. I was told t
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/madskelli.jpg"><img src="/images/fun/save_deadline/madskelli_s.jpg"></a>
 <br>
-Someone at the WCC claimed the Rust Devils threw a grenade at them. I brought along Mad Skelli for security and I interviewed the Rust Devils under the pseudonym Thunderbird since they're no friends of mine for unrelated reasons. That interview yielded nothing.
+Someone at the WCC claimed the Rust Devils threw a grenade at them. I brought along Mad Kelli for security and I interviewed the Rust Devils under the pseudonym Thunderbird since they're no friends of mine for unrelated reasons. That interview yielded nothing.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -271,7 +271,7 @@ The WCC should really keep better track of this hat. I hope Grotch cleaned out t
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/skelli_au.jpg"><img src="/images/fun/save_deadline/skelli_au_s.jpg"></a>
 <br>
-Skelli sending her support all the way from Australia.
+Mad Kelli sending her support all the way from Australia.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -301,27 +301,11 @@ Why don't these clues make any sense? Is someone trying to throw me off the scen
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-Then it hit me. They don't want Deadline to be found.
+Then it hit me. They don't <i>want</i> Deadline to be found.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-<a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
-I will not rest until Deadline is found or until I get sleepy again. Whichever comes first!
-</div>
-
-<h1>Theories</h1>
-<div class="profile_search_block">
-One theory is he got sick of doing the Wastelander and wanted a night off to do karaoke, so he kidnapped himself and faked his own death and came back as his own evil fraternal twin.
-<br><br>
-"Is he alive? Dead? Chained to a desk at the Bunker Bugle?"--Deadline 2.0
-<br><br>
-"Dweller 6969 has nothing to do with this."--Dweller 6969
-<br><br>
-Another theory is that someone spilled a drink on Deadline's typewriter, rendering it useless, and the WCC decided to quickly come up with a more elaborate explanation that did not make them seem like they're a bunch of bumbling dolts.
-<br><br>
-Trav'lyn Ruze: "I keep saying that deadline is time traveling rn, but no one will listen."<br>
-Firebird: "How do you know this?"<br>
-Trav'lyn Ruze: "...kill tower."
+<b>THIS INVESTIGATION IS CLOSED.</b> FOR MORE INFORMATION SEE <b><i>ROADBLOCK</i></b> AT <a href="https://www.wastelandweekend.com/wasteland-film-festival/">THE WASTELAND</a> <a href="https://www.facebook.com/Wasteland-Film-Festival-202104576555906/">FILM FESTIVAL</a>. THEN COMPLETE A YOU ARE AWAITED MISSION AT WASTELAND WEEKEND. IF YOU COMPLETE YOUR MISSION YOU CAN REQUEST A FREE COPY OF <b><i>AWAITED: NONFICTIONAL DELUSION</i></b> AT THE WASTELAND COMMUNICATION CORPORATION POST OFFICE. WHILE SUPPLIES LAST.
 </div>
 
 @endsection

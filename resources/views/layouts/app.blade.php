@@ -27,6 +27,8 @@
     &middot;
     <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
     &middot;
+    <a class="navbar" href="/404">404</a>
+    &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
 @else
     <form action="{{ route('logout') }}" method="POST">
