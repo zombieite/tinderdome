@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<h6>THE WASTELAND COMMUNICATION CORPORATION PRESENTS THE WORLD'S FIRST SOCIAL NETWORK</h6>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 
@@ -25,8 +26,6 @@
     <a class="navbar" href="{{ route('login') }}">Log in</a>
     &middot;
     <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
-    &middot;
-    <a class="navbar" href="/save-deadline">SAVE DEADLINE</a>
     &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
 @else
@@ -42,7 +41,7 @@
     &middot;
     <a class="navbar" href="/search">Search</a>
     &middot;
-    <a class="navbar" href="/save-deadline">SAVE DEADLINE</a>
+    <a class="navbar" href="/404">404</a>
     &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
     &middot;
@@ -63,7 +62,7 @@
 {{--
 <img src="/images/fun/other/under_construction.gif"><br>
 <h1>UNDER CONSTRUCTION</h1>
-<h3>You Are Awaited will return to service on November 26</h3>
+<h3>You Are Awaited will return to service soon</h3>
     @else
         <h1>TRUST THE ALGORITHM</h1>
         Matches are being run right now.<br><br>
@@ -85,7 +84,6 @@
 <br>
 <br>
 For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
-
-<script src="{{ asset('js/app.js') }}"></script>
+<h6>All data submitted to this social network is property of and for sale by the Wasteland Communication Corporation</h6>
 </body>
 </html>

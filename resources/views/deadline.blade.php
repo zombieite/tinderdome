@@ -301,6 +301,10 @@ Why don't these clues make any sense? Is someone trying to throw me off the scen
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
+Then it hit me. They don't want Deadline to be found.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/firebird_on_the_case.jpg"><img src="/images/fun/save_deadline/firebird_on_the_case_s.jpg"></a>
 I will not rest until Deadline is found or until I get sleepy again. Whichever comes first!
 </div>
