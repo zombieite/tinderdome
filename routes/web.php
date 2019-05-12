@@ -3,6 +3,7 @@
 // Visible to everyone
 Route::get( '/',                                     'HomeController@index');
 Route::get( '/save-deadline',                        'DeadlineController@save_deadline');
+Route::get( '/404',                                  'DeadlineController@fourohfour');
 Route::get( 'profile/Firebird',                      'ProfileController@showFirebird');
 
 // Visible to logged in only ( add ->middleware('auth'); )

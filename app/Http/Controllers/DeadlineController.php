@@ -18,4 +18,13 @@ class DeadlineController extends Controller
 		return view('deadline', [
 		]);
 	}
+
+	public function fourohfour()
+	{
+		$auth_user             = Auth::user();
+		$auth_user_id          = Auth::id();
+
+		return view('fourohfour', [
+		]);
+	}
 }
