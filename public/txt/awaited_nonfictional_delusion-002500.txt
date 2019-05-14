@@ -50,13 +50,15 @@ The third and most difficult challenge is figuring out what people will value. A
 
 
 
-When I needed money I took on big logistical or repair projects. Sometimes that meant I was delivering something myself or wrenching underneath a car but only if the money was good enough. Usually I managed special projects for clients with deep pockets. You probably think that means gangsters or something. Yeah I'd work for them sometimes but I preferred to work for cunts like me who were rebuilding the world and making a profit doing it. My special skill was my long-cultivated ability to think systematically while knowing when to ignore the rules. I'd transport or fix just about anything for anyone as long as the rewards were worth the risk.
+When I needed money I took on big logistical or repair projects. Sometimes that meant I was delivering something myself or wrenching underneath a car but only if the money was good enough. Usually I managed larger projects for clients with deep pockets. You probably think that means gangsters or something. Yeah I'd work for them sometimes but I preferred to work for cunts like me who were rebuilding the world and making money doing it. My special skill was my long-cultivated ability to think systematically while knowing when to ignore the rules. I'd transport or fix just about anything for anyone as long as the rewards were worth the risk.
 
 In my spare time I worked on my homemade computer prototype.
 
-My computer shared the garage with the Firebird. It was about the size of a refrigerator. I was gonna make it even smaller. Once my computer was small enough to carry around I was gonna start selling em.
+My computer shared the garage with the Firebird. It was about the size of a refrigerator. It was already working great but I needed to make it smaller. Once my computer was small enough to carry around I was gonna start selling em.
 
-It's not like I was trying to turn sand into silicon. You can still buy resistors and capacitors and shit. You can still get integrated circuits made. It took time and money and knowing the right people. But what we did not have was new complex machines like cars and computers. Some of the old shit still worked but it was getting so expensive that I knew I could turn a massive profit if I could build brand new shit.
+It's not like I was trying to turn sand into silicon. You can still buy resistors and capacitors and shit. You can still get integrated circuits made. It took time and money and knowing the right people. 
+
+What we did not have was new complex machines like cars and computers. Some of the old shit still worked but it was getting so expensive that I knew I could turn a massive profit if I build some brand new shit people could buy instead.
 
 Tandy sold their year's supply of TRS-80s in the first two goddamn weeks. At the time they were selling three times as many computers as Apple. So we all knew what to build. Me and the other prewars remembered. The postwars had heard the stories and seen the broken artifacts. We'd had it all once. We could have it all again. We needed time and smarts. And we needed the assholes to fuck off.
 
