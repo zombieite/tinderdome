@@ -1,6 +1,6 @@
 [Firebird]
 
-Some of you ain't lived through anarchy so let me tell you about it. Throughout most of human history there was no government so anarchy is our natural state. Anarchy is not the absence of order. It's the absence of government. With anarchy you have some disorder but you also have something called spontaneous order. 
+Some of you ain't lived through anarchy so let me tell you about it. Anarchy isn't the absence of order. It's the absence of government. With anarchy you have some disorder but you also have something called spontaneous order. Anarchy is just freedom. Not the kind of freedom where other people have to give you something so you can be free. The kind of freedom where other people leave you the fuck alone. Throughout most of human history there was no government so anarchy is our natural state. 
 
 Yeah there is some fighting. But governments fighting is what got us here. Having a government ain't any better than not having one. People don't fight if they can avoid it. Von Mises said if the tailor kills the baker now the tailor's gotta learn how to bake bread. The gunfight at the OK Corral was big news in its day cuz most of the time all them people with guns on their hips got along just fine.
 
@@ -10,7 +10,7 @@ Conflict resolution keeps you alive and not kicking anyone. Not causing offense 
 
 Anarchy and government are not as different from one another as you might think. Government is whatever gang has the biggest pile of guns. When people take the big pile of guns away from one gang and give it to another gang they call that an election. When the gang grabs your money they call that taxes. A border is just a line in the sand you're capable of defending. Laws? Good people don't need em. Bad people don't follow em. Ammon Hennacy said that. Or maybe it was Playdoh. They're both dead so who gives a fuck. Firebird said it.
 
-You probably think we eat dog food out of fifty year old cans and bugs off the ground. Sometimes. But ask yourself where does your water come from? Where does your electricity come from? Where does your petrol come from? You don't know. It don't come from socialism. It don't come from capitalism. That shit comes from anarchy. Someone wants your money so they get the shit you need and they deliver it to you. We still got that here. That ain't never going away. We got food and petrol and electricity and all that shit. You don't know how to make it cuz you don't need to know. Everything is just expensive as fuck. 
+You probably think we eat dog food out of fifty year old cans and bugs off the ground. Sometimes. But ask yourself where does your water come from? Where does your electricity come from? Where does your petrol come from? You don't know. It don't come from communism or socialism or capitalism. That shit comes from anarchy. Someone wants your money so they get the shit you need and they deliver it to you. We still got that here. That ain't never going away. We got food and petrol and electricity and all that shit. You don't know how to make it cuz you don't need to know. Everything is just expensive as fuck.
 
 We have radios but you're lucky if you can find a station. We have TVs but there ain't nothing on. We don't have movies really. I miss movies. We don't have phone lines or power lines cuz them wires don't stay up long. We got guns but not much ammo. Motherfuckers carry around broken guns or fake guns. They mount em on their cars.
 
@@ -40,21 +40,37 @@ Create value for people you like. That's friendship.
 
 Create value for people you don't like. That's self-preservation.
 
-This rule ain't easy to live by. You got three things that will make it hard.
+This rule ain't easy to live by. Three things will make it hard.
 
-The first is tolerating people. That's hard.
+The first is tolerating people.
 
-The second is it's impossible to create value for everyone all the time. And you probably wouldn't want to. You gotta figure out when to create value and who to create it for. You gotta figure out when to charge for it and when not to. Some people don't appreciate it. Some people don't deserve it. Some people are worth pissing off. I wasn't about to create any damn value for Mohawk Asshole cuz fuck him.
+The second is it's impossible to create value for everyone all the time. And you probably wouldn't want to. You gotta figure out when to create value and who to create it for. You gotta figure out when to charge for it and when not to. Some people don't appreciate it. Some people don't deserve it. Some people are worth pissing off. I don't create any damn value for Mohawk Asshole cuz fuck him.
 
-The third and biggest challenge is figuring out what people will value. All value judgements are subjective. Most people don't know what they need so they won't be able to tell you. Henry Ford said people thought they needed faster horses. What they really needed was Ford Mustangs. People threw money at the guy. Ain't nothing wrong with that.
+The third and most difficult challenge is figuring out what people will value. All value judgements are subjective. Most people don't know what they need so they won't be able to tell you. Henry Ford said people thought they needed faster horses. What they really needed was Ford Mustangs. People threw money at the guy. Ain't nothing wrong with that.
 
 
 
-In postapocalyptic What's-Left-O'Sydney we had a radio station but everything they said was a joke. Mostly we had rumors. And advertisements.
+When I needed money I took on big logistical or repair projects. Sometimes that meant I was delivering something myself or wrenching underneath a car but only if the money was good enough. Usually I managed larger projects for clients with deep pockets. You probably think that means gangsters or something. Yeah I'd work for them sometimes but I preferred to work for cunts like me who were rebuilding the world and making money doing it. My special skill was my long-cultivated ability to think systematically while knowing when to ignore the rules. I'd transport or fix just about anything for anyone as long as the rewards were worth the risk.
 
-A company called Exotic Travels had this ad on the radio about how the USA was a green place where everything was better so everyone should go there. You might be wondering how do we cross oceans. Boats motherfucker. It's dangerous and expensive and it takes forever but we do it. Maybe somecunt will do it in a plane again someday but I don't give a shit. I hate planes.
+In my spare time I worked on my homemade computer prototype.
 
-For decades I'd been dreaming of getting back to the states. I decided to put all of my money into a big fucking box in the passenger seat and headed to Exotic Travels.
+My computer shared the garage with the Firebird. It was about the size of a refrigerator. It was already working great but I needed to make it smaller. Once my computer was small enough to carry around I was gonna start selling em.
+
+It's not like I was trying to turn sand into silicon. You can still buy resistors and capacitors and shit. You can still get integrated circuits made. It took time and money and knowing the right people. 
+
+What we did not have was new complex machines like cars and computers. Some of the old shit still worked but it was getting so expensive that I knew I could turn a massive profit if I offered people brand new shit they could buy instead.
+
+Tandy sold their year's supply of TRS-80s in the first two goddamn weeks. At the time they were selling three times as many computers as Apple. So we all knew what to build. Me and the other prewars remembered. The postwars had heard the stories and seen the broken artifacts. We'd had it all once. We could have it all again. We needed time and smarts. And we needed the assholes to fuck off.
+
+I was soldering a board for my computer when I flipped on the radio. They were playing Crawl Out Through The Fallout by Sheldon Allman. Yes that's a real song. It came out in 1960. In postapocalyptic What's-Left-O'Sydney we only had one radio station but the music was great.
+
+The news was a joke. There were heaps of rumors. And heaps of advertisements.
+
+An ad came on for a company called Exotic Travels. I'd heard of them before. They had a great reputation for getting you where you wanted to go. Once you're there you're on your own. But they'd get you there. Anywhere in the world. You might be wondering how do we cross oceans. Boats motherfucker. It's dangerous and expensive and it takes forever but we do it. Maybe somecunt will do it in a plane again someday but I don't give a shit. I hate planes.
+
+The ad said the USA was a green place where everything was better so everyone should go. I'd been dreaming of getting back to the states ever since the Big Bang. I put down the board and went to bed and dreamed about how beautiful New Jersey must be this time of year.
+
+The next day I put all of my money into a big fucking box in the passenger seat and headed to Exotic Travels.
 
 Exotic Travels was six hours west of O'Sydney and it's scary driving around with all that shrapnel but it's usually ok as long as nobody knows what you got. Problem is people know that if you're gonna buy a ticket across an ocean you must have something of value on you to buy it with. So there's a "police" roadblock out by Exotic Travels. They ain't real police. But your police ain't real neither. Your police are assholes with guns and so are mine.
 
@@ -68,7 +84,11 @@ I made it to Exotic Travels. This place had a wall around it with snipers and sh
 
 I dragged my big heavy box into the building. The ticket counter kinda reminded me of a shitty airport. I hate airports.
 
-There was a big sign that said NO REFUNDS. I dumped my life savings onto the counter. I made it clear to the cunt in charge that this ticket was for me and my car. I wasn't gonna leave my Firebird. The cunt gave me my ticket.
+There was a big sign that said NO REFUNDS. I dumped my life savings onto the counter.
+
+I made it clear to the cunt in charge that this ticket was for me and my car. I wasn't gonna leave my Firebird. I could build a new computer but there would never be a new Firebird. 
+
+The cunt gave me my ticket.
 
 He said no refunds. Yeah I got that.
 
@@ -176,13 +196,7 @@ I noticed that her ex boyfriend now ex person had on a badass cowboy hat. I grab
 
 We spent the next few weeks together at my place in O'Sydney.
 
-I showed Skelli a computer I'd built.
-
-My computer shared the garage with the Firebird. It was about the size of a refrigerator. I was gonna make it even smaller. I remembered messing around with TRS-80s when I was a kid so I knew it was possible. Once my computer was small enough to carry around I was gonna start selling em. Tandy sold their year's supply of TRS-80s in the first two goddamn weeks. At the time they were selling three times as many computers as Apple. 
-
-We all knew what to build. The kids had seen the broken artifacts. The older ones remembered. We'd had it all once before. We needed time and smarts. And we needed the assholes to fuck off.
-
-Skelli asked a lot of questions about the computer. I showed her how to write programs for it.
+I showed Skelli my homemade computer. She asked a lot of questions. I showed her how to write programs for it.
 
 Once she started she couldn't stop. She stayed up late every night and a week later she'd created a game called Alien Guzzaline Wars where people shoot at monsters. Compared to Atari's shit them graphics was like you were there in the trenches watching the blood splatter as you bumped off Nazi aliens. Damn she was sexy.
 
@@ -350,7 +364,7 @@ A little tyke walked up to me said "That was awesome."
 
 I tossed the kid a five cent piece. "Ain't no movie stars any more. Just us."
 
-"We're giving them back their heroes" Skelli said. 
+"We're giving em back their heroes" Skelli said. 
 
 We kissed. She jumped off the boat and swam back to the dock. 
 
