@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<h6>THE WASTELAND COMMUNICATION CORPORATION PROUDLY PRESENTS THE WORLD'S FIRST SOCIAL NETWORK</h6>
+<h6>THE <a href="https://www.facebook.com/WCCorp/">WASTELAND COMMUNICATION CORPORATION</a> PROUDLY PRESENTS THE WORLD'S FIRST SOCIAL NETWORK</h6>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 
@@ -28,6 +28,8 @@
     <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
     &middot;
     <a class="navbar" href="/404">404</a>
+    &middot;
+    <a class="navbar" href="https://www.facebook.com/WCCorp/">WCC</a>
     &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
 @else
@@ -44,6 +46,8 @@
     <a class="navbar" href="/search">Search</a>
     &middot;
     <a class="navbar" href="/404">404</a>
+    &middot;
+    <a class="navbar" href="https://www.facebook.com/WCCorp/">WCC</a>
     &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
     &middot;
@@ -86,6 +90,6 @@
 <br>
 <br>
 For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
-<h6>All data submitted to this social network will be sold to the highest bidder by the Wasteland Communication Corporation</h6>
+<h6>All users who submit data to this social network are property of the <a href="https://www.facebook.com/WCCorp/">Wasteland Communication Corporation</a> and will be auctioned off to the highest bidder</h6>
 </body>
 </html>
