@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<h6>THE <a href="https://www.facebook.com/WCCorp/">WASTELAND COMMUNICATION CORPORATION</a> PRESENTS THE WORLD'S FIRST SOCIAL NETWORK--WHERE FRIENDSHIP IS MANDATORY</h6>
+<h6>THE <a href="https://www.facebook.com/WCCorp/">WASTELAND COMMUNICATION CORPORATION</a> PRESENTS THE FIRST SOCIAL NETWORK OF THIS TIMELINE</h6>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 
