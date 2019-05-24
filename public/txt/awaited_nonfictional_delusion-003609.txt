@@ -50,10 +50,12 @@ We shook on it. I handed him the keys.
 
 I wrote down the ad copy:
 
-MAKE MONEY
-FIND LOVE
-TRUST THE ALGORITHM
-GET YOUR FIREBUDDY TODAY
+
+    MAKE MONEY
+    FIND LOVE
+    TRUST THE ALGORITHM
+    GET YOUR FIREBUDDY TODAY
+
 
 Deadline got a kick out of it. 
 
