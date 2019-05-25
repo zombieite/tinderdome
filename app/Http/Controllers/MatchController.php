@@ -564,6 +564,8 @@ class MatchController extends Controller
             usort($users_to_match, array($this, 'alpha_sort'));
         }
 
+        $titles = \App\Util::titles();
+
         return view('match', [
             'users'                          => $users_to_match,
             'matched_users_hash'             => $matched_users_hash,
@@ -579,6 +581,7 @@ class MatchController extends Controller
             'event_attending_count'          => $event_attending_count,
             'pretty_event_names'             => $pretty_event_names,
             'days_ago_matching'              => $days_ago_matching,
+            'titles'                         => $titles,
         ]);
     }
 

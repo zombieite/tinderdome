@@ -9,17 +9,19 @@
 @if ($event_attending_count == 0)
     <h1>EVENT ATTENDANCE PREFERENCES RESET</h1>
 @endif
+<style>body { background-image: none; }</style>
 <h1>{{ $pretty_event_names[$event] }} matches {{ $year }}</h1>
 <hr>
 <table style="font-size:small;">
 	<tr>
 		<th>&nbsp;</th>
 		<th><b>Name</b></th>
+		<th><b>Caps</b></th>
+		<th><b>Matched<br>to name</b></th>
 		<th><b>Id</b></th>
 		<th><b>Rating<br>of match</b></th>
 		<th><b>Match's<br>rating of</b></th>
 		<th><b>Matched<br>to id</b></th>
-		<th><b>Matched<br>to name</b></th>
 		<th><b>Gender</b></th>
 		<th><b>DGOM</b></th>
 		<th><b>Match's<br>gender</b></th>
@@ -49,16 +51,29 @@
 		<td>
 			<a href="/profile/{{ $user->id }}/{{ preg_replace('/-/', ' ', $user->name) }}" target="_blank" style="
 			@if ($user->random_ok)
-				color:#00ff00;
+				color:#99ff99;
 			@else
-				color:#ff0000;
+				color:#ff9999;
 			@endif
 			">
 				{{ $user->name }}
-			</a>
+            </a>
+        </td>
+        <td>
+            YEAR
 			@if ($id_to_missions_completed_hash[$user->id]['points'])
-				({{ $id_to_missions_completed_hash[$user->id]['points'] }})
+				+ {{ $titles[$id_to_missions_completed_hash[$user->id]['points']+1] }}
 			@endif
+		</td>
+		<td>
+		@if ($matched_users_hash[$user->id])
+			@if (isset($id_to_name_hash[$matched_users_hash[$user->id]]))
+				<a href="/profile/{{ $matched_users_hash[$user->id] }}/{{ preg_replace('/-/', ' ', $id_to_name_hash[$matched_users_hash[$user->id]]) }}" target="_blank">{{ $id_to_name_hash[$matched_users_hash[$user->id]] }}</a>
+			@else
+				<span class="bright">DELETED</span>
+			@endif
+		@else
+		@endif
 		</td>
 		<td>{{ $user->id }}</td>
 		<td>
@@ -78,16 +93,6 @@
 	}
 @endphp
 		<td>{{ $matched_users_hash[$user->id] }}</td>
-		<td>
-		@if ($matched_users_hash[$user->id])
-			@if (isset($id_to_name_hash[$matched_users_hash[$user->id]]))
-				<a href="/profile/{{ $matched_users_hash[$user->id] }}/{{ preg_replace('/-/', ' ', $id_to_name_hash[$matched_users_hash[$user->id]]) }}" target="_blank">{{ $id_to_name_hash[$matched_users_hash[$user->id]] }}</a>
-			@else
-				<span class="bright">DELETED</span>
-			@endif
-		@else
-		@endif
-		</td>
 		<td>{{ $user->gender }}</td>
 		<td>{{ $user->gender_of_match }}</td>
 		<td>
