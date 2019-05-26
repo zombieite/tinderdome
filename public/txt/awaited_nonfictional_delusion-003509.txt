@@ -1,6 +1,6 @@
-[John]
+[Narrator: John]
 
-My life was boring, but I was happy.
+My life was boring, but boredom is underrated. I was happy.
 
 My name is John. I grew up in New Jersey, but I spent most of my life in Texas.
 
@@ -58,7 +58,7 @@ His name was painted in large letters on rusty sheet metal.
 
 
     SCROOLOOSE
-    Lance A. Moore II
+    LANCE A. MOORE II
 
 
 I'd spent the past week playing a character looking for an old friend. I'd expected I'd either find him, or leave having not found him. Discovering his name on the memorial was a highly unexpected sort of closure. 
