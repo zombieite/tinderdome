@@ -1,8 +1,6 @@
 [Firebird]
 
-Some of you ain't lived through anarchy so let me tell you what it's like.
-
-Anarchy is just freedom. Not the kind of freedom where other people have to give you something so you can be free. The kind of freedom where other people leave you the fuck alone.
+Some of you haven't lived through anarchy so let me tell you what it's like.
 
 Anarchy isn't the absence of order. It's the absence of government. Throughout most of human history there was no government so anarchy is our natural state. With anarchy you have some disorder but you also have something called spontaneous order.
 
@@ -10,15 +8,17 @@ People don't fight if they can avoid it. Von Mises said if the tailor kills the 
 
 No matter how good you are at fighting there's always someone better. No matter how big you are there's always someone bigger. If you bring a knife they'll bring a gun. If you bring a gun they'll bring a bomb. If you bring a bomb they'll lay in wait and pick you off with a rifle. If you lay in wait for them you'll discover that they poisoned your brekkie. If your servants died tasting your brekkie for you you'll open the door and find an angry mob waiting for you. If you've disarmed the angry mob they'll keep coming until you run out of bullets.
 
-I'll fight when cornered. But my superpower has always been running away. Run away so you can live to run away another day. Conflict resolution keeps you alive and not kicking anyone. Not causing offense is the best defense. Peace without government. Harmonia absque imperio.
+I'll fight when cornered but my superpower has always been running away. Run away so you can live to run away another day. Conflict resolution keeps you alive and not kicking. Not causing offense is the best defense. Peace without government.
 
-Anarchy and government ain't as different from each another as you might think. Government is whatever gang has the biggest pile of guns. When people take the big pile of guns away from one gang and give it to another gang they call that an election. When the gang in charge grabs your money they call that taxes. A border is nothing but a line in the sand you're capable of defending. Laws? Good people don't need em. Bad people don't follow em. Ammon Hennacy said that. Or maybe it was Playdoh. They're both dead so who gives a fuck. Firebird said it.
+Anarchy and government aren't as different as you might think. Government is whatever gang has the biggest pile of guns. When people take the big pile of guns away from one gang and give it to another gang they call that an election. When the gang in charge grabs your money they call that taxes. A border is nothing but a line in the sand you're capable of defending. As for laws? Good people don't need em and bad people don't follow em. Ammon Hennacy said that. Or maybe it was Playdoh. They're both dead so who gives a fuck. Firebird said it.
 
-You probably think we eat dog food out of fifty year old cans and bugs off the ground. Sometimes. But ask yourself where does your water come from? Where does your electricity come from? Where does your petrol come from? You don't know. It don't come from communism or socialism or capitalism. That shit comes from anarchy. Someone wants your money so they get the shit you need and they deliver it to you. We still got that here. That ain't never going away. We got food and petrol and electricity and all that shit. You don't know how to make it cuz you don't need to know. Everything is just expensive as fuck.
+You probably think we eat dog food out of fifty year old cans and bugs off the ground. Sometimes. But ask yourself where does your water come from? Where does your electricity come from? Where does your petrol come from? You don't know. It don't come from communism or socialism or capitalism or any kind of government. That shit comes from anarchy. Someone wants your money so they get the shit you need and they deliver it to you. We still got that here. That ain't never going away. We got food and petrol and electricity and all that shit. You don't know how to make it cuz you don't need to know.
 
-We have radios but you're lucky if you can find a station. We have TVs but there ain't nothing on. We don't have movies. I miss movies. We don't have phone lines or power lines cuz them wires don't stay up long. We got guns but not much ammo. Motherfuckers carry around broken guns or fake guns. They mount em on their cars.
+Everything is just expensive as fuck.
 
-We don't go to school but if you think that means we don't learn nothing then let me learn you something. We learn what we need to learn and we learn what we wanna learn. I started learning the moment I stopped going to school.
+We have radios but you're lucky if you can find a station. We have TVs but there ain't nothing on em any more. We don't have movies. I miss movies. We got walkie talkies and generators but we don't have phone lines or power lines cuz them wires don't stay up long. We got guns but not much ammo. Motherfuckers carry around broken guns or fake guns. They mount em on their cars.
+
+We don't go to school but if you think that means we don't learn nothing then let me learn you something. We learn what we need to learn and we learn what we want to learn. I started learning the moment I stopped going to school.
 
 No we don't barter all the time. Sometimes. Money still works. People use money cuz it's convenient. Not cuz a government says it's worth anything. But with no more currency being produced and everyone being poor we got deflation instead of inflation. Bills crumpled to dust and coins went up in value. It takes all day to earn a 20 cent piece but a 20 cent piece buys you a hot meal. People sometimes use foreign coins and coins out of their antique coin collections and ball bearings and bottlecaps. Anything small and valuable. But just cuz you think something is valuable that don't mean someone else will. So shit like bottlecaps don't always work. Money stored on plastic cards is all gone but I bet somecunt out there is working on reinventing that shit right now. If they don't maybe I will.
 
@@ -26,13 +26,15 @@ Another question you might have is why don't everyone just steal shit from each 
 
 Clever cunts like me don't need to grab shit. We think of ways to give you what you need for a price. I'm a maker not a taker. I might be an asshole too sometimes but I am making the world spin.
 
-There is one rule you have to live by no matter what planet you live on or what government you live under. It might not even matter what species you are.
+There is one rule you have to live by no matter what planet you live on or what government you have to live with.
 
-This rule will make you a good person. This rule will make you money. This rule will make you friends. This rule will keep you alive.
+This rule will make you happy. This rule will make you a good person. This rule will make you money. This rule will make you friends. This rule will keep you alive.
 
 This rule isn't the golden rule. This rule isn't the platinum rule. This rule is the goddamn tippitytop best rule.
 
-Create value.
+
+    CREATE VALUE
+
 
 Create value for yourself. That's happiness.
 
@@ -44,15 +46,15 @@ Create value for people you like. That's friendship.
 
 Create value for people you don't like. That's self-preservation.
 
-This rule ain't easy to live by for a couple reasons.
+I'm not saying this rule is easy to live by.
 
-It's impossible to create value for everyone all the time. And you wouldn't want to. You gotta figure out when to create value and who to create it for. You gotta figure out when to charge for it and when not to. Some people don't appreciate it. Some people don't deserve it. Some people are just worth pissing off.
+It's impossible to create value for everyone all the time. And you wouldn't want to. You gotta figure out when to create value and who to create it for. You gotta figure out when to charge for it and when not to. Some people won't appreciate it. Some people don't deserve it. Some people are just worth pissing off.
 
 And it's hard to figure out what people will value. All value judgements are subjective. Most people don't know what they need so they won't be able to tell you. Henry Ford said people thought they needed faster horses. What they really needed was Ford Mustangs. People threw money at the guy. Ain't nothing wrong with that.
 
 
 
-Back then when I needed money I took on big logistical or repair projects. Sometimes that meant I was delivering something myself or wrenching underneath a car but that was only if the money was good enough. Usually I managed larger projects for clients with deep pockets. You probably think that means gangsters or something. Yeah I'd work for them sometimes but I preferred to work for cunts like me who were rebuilding the world and making money doing it. My special skills were my ability to think systematically and my knowledge of when to toss the rules out the window. I'd transport or fix just about anything for anyone as long as the rewards were worth the risk.
+Back in those days when I needed money I'd help people build things or fix things or transport things. Sometimes that meant I was delivering something or wrenching underneath a car but that was only if the money was good enough. Usually I managed larger projects for clients with deep pockets. You probably think that means gangsters or something. Yeah I'd work for them sometimes but I preferred to work for cunts like me who were rebuilding the world and making money doing it. I'd make or fix or move just about anything for anyone as long as the rewards were worth the risk.
 
 In my spare time I worked on my homemade computer prototype.
 
