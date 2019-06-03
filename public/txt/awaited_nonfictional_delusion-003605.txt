@@ -68,9 +68,15 @@ John built a social network called You Are Awaited that would let you stay in to
 
 He implemented a cryptocurrency and a mining program. It would let your computer print its own money. The computer created money out of nothing but electricity and maths. Everyone who bought one of my computers would have an instant revenue stream. The thing would pay for itself.
 
-I decided to call our currency the Firebuck. Firebucks are all just numbers stored on computers. But all the computers in the world have to agree on those numbers. So no one can fuck the system up. John knew people would still want to be able to carry their money around so he set it up so you could engrave some codes onto these special cards and you could use that as money too just like a goddamn Master Charge.
+I decided to call our currency the Firebuck. Firebucks are all just numbers stored on computers. But all the computers in the world have to agree on those numbers so no one can fuck the system up. John knew people would still want to be able to carry their money around so he set it up so you could engrave some codes onto these special cards and you could use that as money too just like a goddamn Master Charge.
 
-The best part was that my own personal machine had a massive head start on generating Firebucks. I was gonna have all the money in the world and you'd be super excited about pedaling your bike for an hour to power your generator long enough for your computer to make you 20 cents. Hell 20 cents is better than no fucking cents so fuck you. Yes I am making the world a better place no matter what you say.
+I chose the motto for the cards.
+
+
+    HARMONIA ABSQUE IMPERIO
+
+
+The best part was that my own personal computer had a massive head start on generating Firebucks. I was gonna have all the money in the world and you'd be super excited about pedaling your bike for an hour to power your generator long enough for your computer to make you 20 cents. Hell 20 cents is better than no fucking cents so fuck you. Yes I am making the world a better place no matter what you say.
 
 This would only work if I could get everyone to accept this new money. The only way I'd get everyone to accept it would be if everyone had some of it to spend. The only way everyone would have some of it to spend would be if everyone had one of my computers.
 
