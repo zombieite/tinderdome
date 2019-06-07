@@ -83,7 +83,7 @@ When John and I traded places I researched the social networking accounts of our
 
 When I came back I compared their Tomorrowland friends lists to their Epoxyclypse friends lists. For each of them I found someone in attendance at the Gathering who they'd never met before but who I was sure they'd be friends with in Epoxyclypse because they were friends with them in Tomorrowland. I gave each of their future friends one of the remaining Firebuddies for free. That way when they signed up for You Are Awaited they'd be sure to meet people they liked even though the social network consisted of just ten people. Of course I made it look like there were more than ten people on there by adding a heap of fake users.
 
-At every event like the Gathering or Cannibal Run or whatever I would run the You Are Awaited program that matched up everyone to their future friends. They'd go find each other during the event and shake hands or fuck or whatever. Right now we had a labor-intensive process that involved manually trying to find friends for people but eventually I'd get around to actually writing the "Algorithm" that would match people up.
+At every event like the Gathering or Cannibal Run or whatever I would run the You Are Awaited program that matched up everyone to their future friends. They'd go find each other during the event and shake hands or fuck or whatever. Right now we had a labor-intensive process that required timeline swapping but eventually I'd get around to actually writing the "Algorithm" that would match people up.
 
 The plan worked.
 
