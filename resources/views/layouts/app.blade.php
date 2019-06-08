@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<h6>THE <a href="https://www.facebook.com/WCCorp/">WASTELAND COMMUNICATION CORPORATION</a> PRESENTS THE FIRST SOCIAL NETWORK OF THE EPOXYCLYPSE</h6>
+<h6>friendship is mandatory</h6>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 
@@ -90,6 +90,6 @@
 <br>
 <br>
 For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
-<h6>All users who submit data to this social network are property of the <a href="https://www.facebook.com/WCCorp/">Wasteland Communication Corporation</a> and will be auctioned off to the highest bidder</h6>
+<h6>All users on this social network are property of the <a href="https://www.facebook.com/WCCorp/">Wasteland Communication Corporation</a></h6>
 </body>
 </html>
