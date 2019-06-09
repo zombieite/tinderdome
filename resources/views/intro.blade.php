@@ -45,6 +45,6 @@ Your mission is to find your match at the event. They'll be looking for you, too
 </p>
 <h3>5. Get your caps</h3>
 <p>
-Upon mission completion, you can both go, separately or together, to the WCC Post Office to pick up your caps. Or, at Atomic Falls, find <a href="/profile/34/Blank">Blank</a>. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
+Upon mission completion, you can go to the <a href="https://www.facebook.com/WCCorp/">Wasteland Communication Corporation</a> Post Office to pick up your bottlecap bounty. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
 </p>
 @endsection
