@@ -26,7 +26,7 @@
     &middot;
     <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
     &middot;
-    <a class="navbar" href="/404">404</a>
+    <a class="navbar" href="/save-deadline">WE SAVED DEADLINE</a>
     &middot;
     <a class="navbar" href="https://www.facebook.com/WCCorp/">WCC</a>
     &middot;
@@ -44,7 +44,7 @@
     &middot;
     <a class="navbar" href="/search">Search</a>
     &middot;
-    <a class="navbar" href="/404">404</a>
+    <a class="navbar" href="/save-deadline">WE SAVED DEADLINE</a>
     &middot;
     <a class="navbar" href="https://www.facebook.com/WCCorp/">WCC</a>
     &middot;
