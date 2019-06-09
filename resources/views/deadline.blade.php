@@ -18,12 +18,12 @@ input {
 }
 </style>
 
-<h1>THIS INVESTIGATION IS CLOSED.</h1>
+<h1>WE SAVED DEADLINE. WHAT THE HELL DID YOU EVER DO.</h1>
 
 <img src="/images/fun/save_deadline/article.jpg" style="max-width:100%;">
 <br>
 
-<h1>We got more red herrings than a fish market.</h1>
+<h1>We had more red herrings than a fish market.</h1>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/thomas_kerns_last_known_photo.jpg"><img style="width:200px;" src="/images/fun/save_deadline/thomas_kerns_last_known_photo.jpg"></a>
@@ -305,7 +305,75 @@ Then it hit me. They don't <i>want</i> Deadline to be found.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-<b>THIS INVESTIGATION IS CLOSED.</b> FOR MORE INFORMATION SEE <b><i>ROADBLOCK</i></b> AT <a href="https://www.wastelandweekend.com/wasteland-film-festival/">THE WASTELAND</a> <a href="https://www.facebook.com/Wasteland-Film-Festival-202104576555906/">FILM FESTIVAL</a>. THEN COMPLETE A YOU ARE AWAITED MISSION AT WASTELAND WEEKEND. IF YOU COMPLETE YOUR MISSION YOU CAN REQUEST A FREE COPY OF <b><i>AWAITED: NONFICTIONAL DELUSION</i></b> AT THE WASTELAND COMMUNICATION CORPORATION POST OFFICE. WHILE SUPPLIES LAST.
+At this point the investigation proceeded in secret. I did not want to reveal Deadline's whereabouts to the world if he did not want to be found. I posted on this site and elsewhere that I'd given up on the investigation.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/fc_on_the_case.jpg"><img src="/images/fun/save_deadline/fc_on_the_case_s.jpg"></a>
+Firecracker was matched to Deadline on You Are Awaited for Detonation 2019. She agreed to let us work with her to find her match. Pictured are Almost Patton, Firecracker, and Bad Liar.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/motormouth_and_ravage.jpg"><img src="/images/fun/save_deadline/motormouth_and_ravage_s.jpg"></a>
+We had one clue. Deadline's You Are Awaited profile read "potato" in Morse code. We asked everyone if they'd seen any potatoes. Motormouth and Ravage had seen one!
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/potato.jpg"><img src="/images/fun/save_deadline/potato_s.jpg"></a>
+<h1>POTATO!</h1>
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/bl_and_astro.jpg"><img src="/images/fun/save_deadline/bl_and_astro_s.jpg"></a>
+A path of potatoes led to a secret hovel. Bad Liar and Astro standing guard.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/more_twinkies.jpg"><img src="/images/fun/save_deadline/more_twinkies_s.jpg"></a>
+More fucking Twinkies.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/a_recorded_message.jpg"><img src="/images/fun/save_deadline/a_recorded_message_s.jpg"></a>
+A recorded message for Firecracker's ears only. I'm more interested in the machine it's recorded on. It doesn't use tapes.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/finding_the_hat.jpg"><img src="/images/fun/save_deadline/finding_the_hat_s.jpg"></a>
+Finding Deadline's fedora in the hovel.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/agreeing_to_drink_it.jpg"><img src="/images/fun/save_deadline/agreeing_to_drink_it_s.jpg"></a>
+The recording told us to find the Mad Scientist. The Mad Scientist had brainwashed Deadline with a potion. The Mad Scientist was the only one with the antidote. The Mad Scientist would only give up the cure if we agreed to find him a victim to drink the Dragon's Breath. Bad Liar bravely volunteered.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/recovering_from_the_spell.jpg"><img src="/images/fun/save_deadline/recovering_from_the_spell_s.jpg"></a>
+Deadline recovering after drinking the antidote. At this point he'd been missing for 8 months.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/returning_the_hat.jpg"><img src="/images/fun/save_deadline/returning_the_hat_s.jpg"></a>
+Firecracker returning Deadline's hat.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/opening_the_case.jpg"><img src="/images/fun/save_deadline/opening_the_case_s.jpg"></a>
+Digging up the missing edition of the Wastelander.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<a target="_blank" href="/images/fun/save_deadline/wastelander_missing_edition.jpg"><img src="/images/fun/save_deadline/wastelander_missing_edition_s.jpg"></a>
+The missing edition of the Wastelander: Vol. II No. 4!
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+There's more going on here. Why was the WCC trying to derail its own investigation? Why was this all set up like a wild goose chase? Where did the tapeless audio recorder come from? I have the answers to these questions and more. Find Firebird at Wasteland Weekend 2019.
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
+<b>THIS INVESTIGATION IS CLOSED.</b> FOR MORE INFORMATION YOU MUST COMPLETE A YOU ARE AWAITED MISSION AT WASTELAND WEEKEND. THEN YOU CAN REQUEST A FREE COPY OF <b><i>AWAITED: NONFICTIONAL DELUSION</i></b> AT THE WASTELAND COMMUNICATION CORPORATION POST OFFICE. WHILE SUPPLIES LAST. AFTER WASTELAND WEEKEND YOU'RE GONNA HAVE TO PAY FOR IT!
 </div>
 
 @endsection
