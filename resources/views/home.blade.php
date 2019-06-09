@@ -149,7 +149,7 @@ Mission status
         @endif
     @endif
 </li>
-<li>To receive your reward, go to the WCC Post Office, or at Atomic Falls, find <a href="/profile/34/Blank">Blank</a>.</li>
+<li>To receive your reward, go to the <a href="https://www.facebook.com/WCCorp/">Wasteland Communication Corporation</a> Post Office.</li>
 </ol>
 
 @if ($matched_to_users)
