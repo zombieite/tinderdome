@@ -1,16 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<h2>A simple but profound mission.</h2>
 <iframe style="width:100%;max-width:720px;height:480px" src="https://www.youtube.com/embed/C1KfykeThdI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<p>
-Since The Apocalypse, Wasteland has become known as the place we come to find thems we're looking for and thems we've lost. Whether you're looking for love, a friend you haven't met yet, an enemy you haven't battled yet, or someone you knew once and lost, we need a designated meeting place. That's Wasteland.
-</p>
-<p>
-You Are Awaited is a simple mission that is conducted during Wasteland Weekend and other post-apocalyptic events. There are no in-person signups. <a href="{{ route('register') }}">Signups are done on this site, year-round</a>. Money is useless nowadays so participation is free. There's no punishment for failure, but there are rewards for victory.
-</p>
-<p>
-Rebuilding the world from its ashes, one conversation at a time.
-</p>
+<p>You Are Awaited is a simple game that is played during Wasteland Weekend and other post-apocalyptic events. Participation is free. <a href="{{ route('register') }}">Signups are done on this site, year-round</a>.</p>
 <h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
 	<div class="centered_block">
@@ -37,11 +28,11 @@ Browse other profiles and choose who you'd enjoy meeting.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-Shortly before each event, the matching algorithm will run. You will be matched with one other person at the event. Check your email or come back to this site to see who you've been matched to. Next event: {{ $pretty_names[$next_event] }} {{ $year }}!
+Shortly before each event, the matching algorithm will run. You will be matched with one other person at the event. Check your email or come back to this site to see who you're matched with. Next event: {{ $pretty_names[$next_event] }} {{ $year }}!
 </p>
 <h3>4. Seek out your match</h3>
 <p>
-Your mission is to find your match at the event. They'll be looking for you, too.
+Your mission is to find your match at the event and introduce yourself. They'll be looking for you, too.
 </p>
 <h3>5. Get your caps</h3>
 <p>
