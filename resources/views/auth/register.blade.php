@@ -36,7 +36,6 @@
 <hr>
 
 I will be attending...
-(Note: You can't attend both Detonation and Atomic Falls in 2019 because they are on the same dates.)
 @foreach ($upcoming_events_with_year as $event => $event_year)
 <br>
 <input type="checkbox" name="attending_{{ $event }}" id="attending_{{ $event }}" @guest @else @if ($attending_event{$event}) checked @endif @endguest>
@@ -136,7 +135,7 @@ I am...
 	<option value="F" @guest @else @if ($gender_of_match_2 === 'F') selected @endif @endguest>F</option>
 	<option value="O" @guest @else @if ($gender_of_match_2 === 'O') selected @endif @endguest>Other</option>
 </select>
-<br>Users of all genders will see your profile. You may be matched to another gender if we can't find you a match of your preferred gender.
+<br>Users of all genders will see your profile. We will try to match you to a user of your preferred gender but you must be open to being matched to users of all genders.
 
 <hr>
 
