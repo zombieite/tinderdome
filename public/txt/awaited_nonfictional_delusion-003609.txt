@@ -1,16 +1,16 @@
 [Firebird]
 
-The Gathering had become known as the place we come to find thems we're looking for and thems we've lost. Didn't matter whether you were looking for love or a friend you haven't met yet or an enemy you haven't battled yet or someone you knew once and lost. Without phones or reliable mail service we needed a designated meeting place. That's the Gathering.
+The Gathering had become known as the place we come to find thems we're looking for and thems we've lost. Didn't matter whether you were looking for love or a friend you haven't met yet or an enemy you haven't battled yet or someone you knew once long ago. Without phones or a reliable mail service we needed a designated meeting place. That's the Gathering.
 
 Nowadays pretty much everyone in the world knew about the Gathering. There were lots of local gatherings too. But if the person you were looking for might have ended up anywhere in the world then your best hope was to look for them at the biggest gathering in the world. The Gathering in Damnation Valley California.
 
-They'd held a Gathering every year since Year Zero. I hadn't been to all of them of course. But now that I was living in the USA I'd been attending them every year.
+They'd held a Gathering every year since Year Zero. I hadn't been to all of them of course. But now that I was living in the USA I'd been attending every year.
 
-John knew I'd be at this year's Gathering and I knew John would be at this year's Wasteland Weekend. This time we were fully expecting that we'd trade places at some point. We just hoped it would happen at a reasonably opportune moment.
+John knew I'd be at this year's Gathering and I knew John would be at this year's Wasteland Weekend. This time we were fully expecting that we'd trade places at some point.
 
-Since the Cannibal Run I'd invested all of my money and time into hand-building ten more of my computers to sell at the Gathering. I could fit six in the back seat and four in the boot but I wouldn't call them "portable" yet.
+Since the Cannibal Run I'd invested all of my money and time into hand-building ten of my new smaller computers to sell at the Gathering. I could fit six in the back seat and four in the boot but I wouldn't call them portable yet.
 
-I'd decided to call my computer the Firebuddy. It should've been easy to sell a box that makes money and friends. But the Firebuddy would only really be useful to someone if lots of other people had them too. I was going to have to advertise.
+I'd decided to call my computer the Firebuddy. It should've been easy to sell a box that makes money and friends. But the Firebuddy would only be really useful to someone if lots of other people had them too. I was going to have to advertise.
 
 I decided to go see the cunt that ran the Gathering's newspaper. I pulled up in front of his office in my rumbling V8. The building had a big sign on it.
 
@@ -40,7 +40,7 @@ I did the math. "That's over four thousand people."
 
 I tried to pitch the idea of him doing an article on the Firebuddy. I ended up making my first sale instead! Nine to go.
 
-He wasn't gonna write an article about it until he saw what the thing could do. He wasn't gonna see what the thing could do until I'd sold a heap of them and he could use it to communicate and connect with people.
+He wasn't gonna write an article about it until he saw what the thing could do. He wasn't gonna see what the thing could do until I'd sold a heap of them and he'd be able to use it to communicate and connect with people.
 
 He said he'd be happy to sell me an ad. But I'd gone all in on building these fancy high tech machines and I couldn't afford an ad. I had nothing left to offer.
 
@@ -83,25 +83,27 @@ That night I slept under the stars on top of a pile of Firebuddies and dreamed o
 
 
 
-I'd only sold five of them. I was fucked.
+I only sold five of them. I was fucked.
 
 Or at least I was fucked until I figured out what to do with the other five.
 
 When John and I traded places I researched the social networking accounts of our five customers' doppelgangers to see if they had friends or spouses or whatever in Tomorrowland that they hadn't yet met in Epoxyclypse.
 
-When I came back I compared their Tomorrowland friends lists to their Epoxyclypse friends lists. For each of them I found someone in attendance at the Gathering who they'd never met before but who I was sure they'd be friends with in Epoxyclypse because they were friends with them in Tomorrowland. I gave each of their future friends one of the remaining Firebuddies for free. That way when they signed up for You Are Awaited they'd be sure to meet people they liked even though the social network consisted of just ten people. Of course I made it look like there were more than ten people on there by adding a heap of fake users.
+When I came back I compared their Tomorrowland friends lists to their Epoxyclypse friends lists. For each of them I found someone in attendance at the Gathering who they'd never met before but who I was sure they'd like because they were friends with them in Tomorrowland. I gave each of their future friends one of the remaining Firebuddies for free. That way when they signed up for You Are Awaited they'd be sure to meet people they liked even though the social network consisted of just ten people. Of course I made it look like there were more than ten people on there by adding a heap of fake users.
 
-At every event like the Gathering or Cannibal Run or whatever I would run the You Are Awaited program that matched up everyone to their future friends. They'd go find each other during the event and shake hands or fuck or whatever. Right now we had a labor-intensive process that required timeline swapping but eventually I'd get around to actually writing the "Algorithm" that would match people up.
+Once everyone had signed up for You Are Awaited I ran the matches. What that supposedly meant was I ran the magic algorithm that connected people to the new friends they were supposed to meet at the Gathering. What that really meant was I manually inserted some rows into a database. Right now this was a labor-intensive process that required timeline swapping but eventually I'd get around to writing that great algorithm. Hopefully before the next Cannibal Run.
+
+Anyway the idea was everyone would go find each other during the event and shake hands or fuck or whatever.
 
 The plan worked.
 
-They all got in touch and they all hit it off. I had five pairs of happy people that were shouting from the rooftops about the miracle that was the Firebuddy. "Trust the Algorithm" they said. I'd accidentally started a cult.
+They all got in touch and they all hit it off. I had five pairs of happy people that were shouting from the rooftops about the miraculous Firebuddy. "Trust the Algorithm" they said. I'd accidentally started a cult.
 
-People were throwing money at me. I frantically took orders and started putting together a gang of clever cunts that could mass produce Firebuddies. I bought a building in the middle of nowhere to use as a factory.
+People were throwing money at me. I frantically took orders and started putting together a gang of clever cunts that could mass produce the Firebuddy. I bought a building in the middle of nowhere to use as a factory.
 
 At that point if I'd had a door Deadline would have knocked it down to get an interview. He dropped off my car and gave me back the keys. He'd even washed the thing. The guy was a class act.
 
-The interview went off the rails when John and I accidentally switched places but that only served to generate more buzz. Everyone wanted to know more about the mad genius named Firebird and his magical Firebuddy.
+The interview went off the rails when John and I accidentally swapped places but that only served to generate more buzz. Everyone wanted to know more about the mad genius named Firebird and his magical Firebuddy.
 
 
 
@@ -110,8 +112,6 @@ I stopped in to pick up a copy of Deadline's paper with my interview in it. I wa
 But Deadline was gone. His door was open and his office was trashed. I found his crumpled hat on the floor and picked it up.
 
 Swede saw me poking around and came out to talk to me.
-
-"Howdy mate. Good to see you again." I said.
 
 "Hey John what's going on? How'd it go?"
 
@@ -129,11 +129,11 @@ Swede explained they'd received a series of threats to Deadline's life.
 
 People don't threaten to do shit. They just do it. People don't get murdered with four thousand people standing around and nobody seeing nothing.
 
-There were rumors that Deadline been looking into election fraud. Rumors he'd been investigating a corrupt casino. Rumors he'd been kidnapped and brainwashed. Rumors he was time traveling. 
+There were rumors that Deadline been looking into election fraud. Or he'd been investigating a corrupt casino. Or he'd been kidnapped and brainwashed. Or he was time traveling. 
 
 It all sounded like a bunch of bullshit to me. I figured he was alive but I had no clue where to look for him. Ok I had clues but they were super shitty ones. None of it made any sense but I promised Swede I'd do what I could.
 
-Deadline had been last seen at the Civil Defense outpost so I threw Deadline's hat in my car and headed over there.
+Deadline had last been seen at the Civil Defense outpost so I threw Deadline's hat in the car and headed over there.
 
 I asked Civil Defense about Deadline and they said they'd seen him. He'd mentioned he was going to do a story on the Cult Of Catmeat.
 
@@ -141,15 +141,17 @@ The Cult Of Catmeat was a bunch of idiots who worshipped a cat. Their leader was
 
 I found Grotch and a bunch of its followers in an abandoned christian church which was now looking more like a satanic one. I sat down in back and watched their antics.
 
-Grotch had on a three foot tall punk rock pope hat that was all black. The altar of the Cult Of Catmeat was covered with stuffed cats. I hoped they were all stuffed toys and not actual taxidermied cats but I didn't look too closely. Catmeat himself was there lying in a cardboard box and paying no attention to his adoring minions. The cult members were lined up to receive their communion or baptism or whatever and Grotch was spitting blood or wine or something into each of their faces.
+Grotch had on a three foot tall punk rock pope hat that was all black. The altar of the Cult Of Catmeat was covered with stuffed cats. I hoped they were all stuffed toys and not actual taxidermied cats but I didn't wanna look that close. Catmeat himself was there lying in a cardboard box and paying no attention to his adoring minions. The cult members were lined up to receive their communion or baptism or whatever and Grotch was spitting blood or wine or something into each of their faces.
 
-When the bullshit was over I introduced myself to Grotch and told it I was looking for a cunt named Deadline who owed me money.
+When the bullshit was over I introduced myself to Grotch and told it I was looking for a cunt named Deadline who owed me some money.
 
-Grotch spoke slowly like it assumed I'd be hanging on its every word. "He interviewed several of us at the Gathering. Being a good journalist he participated in our ceremony."
+Grotch spoke slowly like it assumed I'd be hanging on its every word.
+
+"He interviewed several of us at the Gathering. Being a good journalist he participated in our ceremony."
 
 "He let you spit on him."
 
-"Baptize him. Yes. Then a man with a mohawk appeared and stabbed him. Deadline is one of us now. We threw the evil man out. Then Catmeat healed Deadline."
+"Baptize him. Then a man with a mohawk appeared and stabbed him. Deadline is one of us now. We threw the evil man out. Then Catmeat healed Deadline."
 
 "Uh huh. I hope you put a couple stitches in him just to be sure. Did the asshole with the mohawk say anything?"
 
