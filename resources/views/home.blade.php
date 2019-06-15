@@ -16,9 +16,7 @@
         @else
             <p>If you will be attending {{ $pretty_names[$next_event] }} {{ $year }}, please <a href="/profile/edit">let us know</a>.</p>
         @endif
-        @if (!$comments_to_approve && !$success_message)
-            @include('home_promo_stuff', ['recently_updated_users' => $recently_updated_users, 'leaderboard' => $leaderboard, 'leader_count' => $leader_count, 'nonleader_count' => $nonleader_count])
-        @endif
+        @include('home_promo_stuff', ['recently_updated_users' => $recently_updated_users, 'leaderboard' => $leaderboard, 'leader_count' => $leader_count, 'nonleader_count' => $nonleader_count])
     @endif
 {{--
     @if ($good_ratings_percent >= 50)
