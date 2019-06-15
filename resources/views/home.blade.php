@@ -16,7 +16,11 @@
         @else
             <p>If you will be attending {{ $pretty_names[$next_event] }} {{ $year }}, please <a href="/profile/edit">let us know</a>.</p>
         @endif
+        @if (!$comments_to_approve && !$success_message)
+            @include('home_promo_stuff', ['recently_updated_users' => $recently_updated_users, 'leaderboard' => $leaderboard, 'leader_count' => $leader_count, 'nonleader_count' => $nonleader_count])
+        @endif
     @endif
+{{--
     @if ($good_ratings_percent >= 50)
         <p>{{ $good_ratings_percent }}% of users who have rated you said they'd enjoy meeting you.</p>
     @else
@@ -31,6 +35,7 @@
             @endif
         @endif
     @endif
+--}}
     @if ($number_photos)
         @if (count($unrated_users) >= 3)
             <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
@@ -41,10 +46,6 @@
                         </div>
                     @endif
             @endfor
-        @else
-            @if (!$comments_to_approve && !$success_message)
-                @include('home_promo_stuff', ['recently_updated_users' => $recently_updated_users, 'leaderboard' => $leaderboard, 'leader_count' => $leader_count, 'nonleader_count' => $nonleader_count])
-            @endif
         @endif
     @else
     @endif
