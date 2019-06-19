@@ -74,6 +74,8 @@ cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/images/fun publi
 tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/logs/php_error.log
 tail -1000 storage/logs/laravel.log; tail -f storage/logs/laravel.log
 
+# I think Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
+
 # Set MAMP Apache port to 80 and MySQL port to 3306 and start server
 
 # http://localhost/ should now work
