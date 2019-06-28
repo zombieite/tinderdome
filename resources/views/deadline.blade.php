@@ -314,8 +314,12 @@ Firecracker was matched to Deadline on You Are Awaited for Detonation 2019. She 
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
+We had one clue. Deadline's You Are Awaited profile was a long sentence in Morse code. Coyote Snack figured out that the first letter of every word spelled "potato."
+</div>
+
+<div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/motormouth_and_ravage.jpg"><img src="/images/fun/save_deadline/motormouth_and_ravage_s.jpg"></a>
-We had one clue. Deadline's You Are Awaited profile read "potato" in Morse code. We asked everyone if they'd seen any potatoes. Motormouth and Ravage had seen one!
+So we asked everyone if they'd seen any potatoes. Motormouth and Ravage had seen one!
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
