@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-000008.txt">Chapter 1: 000008</a><br>
+<a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-000000.txt">Chapter 1: 000000</a><br>
 <br>
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-002502.txt">Chapter 2: 002502</a><br>
 <br>
