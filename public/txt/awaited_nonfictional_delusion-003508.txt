@@ -4,7 +4,7 @@ NARRATOR: JOHN
 
 My life was boring, but boring is underrated. I was happy.
 
-My name is John. I grew up in New Jersey, but I spent most of my adult life in Texas.
+My name is John. I grew up in New Jersey, but I spent most of my adult life in Texas. Nowadays I live in Phoenix. I'm a software engineer.
 
 Mom was a prominent economist. She spent some time in Chile helping them get their economy off the ground. She was known as the "Chicago Gal" because she'd studied at the University of Chicago.
 
@@ -12,13 +12,7 @@ Dad's a retired radiologist. He's into cars. He taught me to drive as soon as I 
 
 On my sixteenth birthday I got my driver's license and a week later I had my first job. I was videotaping weddings and church services for a tiny video production company. My friends and I shot and edited six skateboarding videos. In college I majored in Computer Science, and minored in Film. I've always been a film buff.
 
-Some people are into Star Wars. Some people are into Indiana Jones. Some people are into Back to the Future. For me, it was always Mad Max.
-
-Shortly after taking a job as a software engineer in Phoenix, I heard about an event called Wasteland Weekend. Wasteland Weekend is an annual festival in California that looks and feels like a Mad Max movie. Everyone crafts intimidating costumes. A lot of people come up with a character to play. Most characters have detailed backstories. The goal is "immersion." When you're there, you feel like you've entered a different world.
-
-As soon as I heard about it, I knew I had to go.
-
-My life was about to get weird and interesting.
+Some people are into Star Wars. Some people are into Indiana Jones. Some people are into Back to the Future. For me, it was always Mad Max. Wasteland Weekend is an annual festival in California that looks and feels like a Mad Max movie. Everyone crafts intimidating costumes. A lot of people come up with a character to play. Most characters have detailed backstories. The goal is "immersion." When you're there, you feel like you've entered a different world. As soon as I heard about it, I knew I had to go.
 
 My favorite Mad Max character had always been Scrooloose of the Lost Tribe, AKA the Waiting Ones. He's the weird, mute, goth-like kid in Mad Max: Beyond Thunderdome who spends most of his time alone, doing his own thing. As an introvert who had never fit in anywhere, I'd always identified with Scrooloose the most.
 
@@ -38,9 +32,7 @@ I loved that car more than anything. Stellar Blue, with a light blue bird on the
 
 When I arrived at the event, I found a place to park and camp. I'd be sleeping in the car. It's a lot easier than putting up a tent.
 
-I got into character and introduced myself to my neighbor, Christine. It was her first time at Wasteland Weekend too.
-
-I asked her if she knew Scrooloose, or if she'd seen anyone matching his description. No luck.
+I got into character and introduced myself to my neighbor, Christine. It was her first time at Wasteland Weekend too. I asked her if she knew Scrooloose, or if she'd seen anyone matching his description. No luck.
 
 I headed into Wasteland City, at the center of the event. Along the way I checked out the cars. There were newer cars, older cars, and military vehicles. All were covered in dirt and many had bull bars, spikes, and fake weapons mounted on them.
 
