@@ -7,7 +7,7 @@ use Log;
 
 class Util {
 
-    CONST MONTHS_FOR_PROFILE_TO_BE_INACTIVE = 6;
+    CONST MONTHS_FOR_PROFILE_TO_BE_INACTIVE = 1;
 
     public static function pretty_event_names() {
         return [
