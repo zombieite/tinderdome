@@ -217,7 +217,7 @@ On Dec 7 I finally got a chance to interview suspect Trav'lyn Ruze about the Kil
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/grotch.jpg"><img src="/images/fun/save_deadline/grotch_s.jpg"></a>
 <br>
-Suspect Grotch tries to deflect suspicion by loudly proclaiming her support for the cause with a SAVE DEADLINE t-shirt.
+Suspect Grotch tries to deflect suspicion by loudly proclaiming its support for the cause with a SAVE DEADLINE t-shirt.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -265,7 +265,7 @@ At the Wastelanders Ball on Jan 5, 2019, I was shocked to discover that my creat
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/grotch_hat.jpg"><img src="/images/fun/save_deadline/grotch_hat_s.jpg"></a>
 <br>
-The WCC should really keep better track of this hat. I hope Grotch cleaned out the remnants of beef jerky stuck to that thing before she put it on.
+The WCC should really keep better track of this hat. I hope Grotch cleaned out the remnants of beef jerky stuck to that thing before it put it on.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -283,13 +283,13 @@ During the Winter Games Almost Patton delivered this clue that proves Deadline d
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/cm.jpg"><img src="/images/fun/save_deadline/cm_s.jpg"></a>
 <br>
-I received a tip that Grotch might have seen Deadline even after Civil Defense "last" saw him. Here she is wearing a ceremonial headdress and screen printing some Save Deadline merchandise she probably plans to sell for a profit to support her <a href="https://cultofcatmeat.com">"church."</a>
+I received a tip that Grotch might have seen Deadline even after Civil Defense "last" saw him. Here it is wearing a ceremonial headdress and screen printing some Save Deadline merchandise it probably plans to sell for a profit to support its <a href="https://cultofcatmeat.com">"church."</a>
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/sd.jpg"><img src="/images/fun/save_deadline/sd_s.jpg"></a>
 <br>
-The lady doth protest too much methinks. She who crows the most knows the most. She who makes the headlines kidnapped Deadline. Grotch is now the lead suspect in this case.
+The lady doth protest too much methinks. It who crows the most knows the most. It who makes the headlines kidnapped Deadline. Grotch is now the lead suspect in this case.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
