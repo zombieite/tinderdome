@@ -6,15 +6,15 @@ We had the factory up and running. We were churning out three Firebuddies a day.
 
 You probably think business owners just sit around all day collecting profits. I would be happy to do that but unfortunately I have to work too. I come up with the ideas. I put up the money. I take the risks. I choose what jobs to hire for. I choose who to hire. I choose what to automate. I choose what machines to buy. I create jobs for dozens of people.
 
-I employed a manager. And twenty six clever cunts. And a "security team" I put together by paying off some of the local gangsters. We had thirty different machines in there to help build the various components of the Firebuddies but we outsourced as much as we could to keep the operation as small as possible. Keeping it small is a necessity cuz without property rights you never know when you're gonna get knocked over. It's not a matter of if it's a matter of when.
+I employed a manager. And twenty six clever cunts. And a "security team" I put together by paying off some of the local gangsters. We had thirty different machines to help build the various components of the Firebuddies but we outsourced as much as we could to keep the operation as small as possible. Keeping it small is a necessity cuz without property rights you never know when you're gonna get knocked over. It's not a matter of if it's a matter of when.
 
-Ideally a factory is just a box where raw materials go in one end and widgets come out the other. In practice a factory starts off as nothing more than a building with a gang of clever cunts in it who know how to put your shit together for you. Over time your goal is to replace all of them people with machines. Sure they all got kids to feed but they know the deal from day one. They're only there cuz you ain't figured out a way to replace them yet. You'll never be able to automate everything. But dealing with people ain't bad. You find the people you want and pay them enough to lure them away from whatever other job they might have taken instead. If someone else tries to lure them away from you then you give them a raise to keep them around.
+Ideally a factory is just a box where raw materials go in one end and widgets come out the other. In practice a factory starts off as nothing more than a building with a gang of clever cunts in it who know how to put your shit together for you. Over time your goal is to replace all of them cunts with machines. Sure they all got kids to feed but they know the deal from day one. They're only there cuz you ain't figured out a way to replace them yet. You'll never be able to automate everything. But dealing with people ain't bad. You find the people you want and pay them enough to lure them away from whatever other job they might have taken instead. If someone else tries to lure them away from you then you give them a raise to keep them around.
 
 The factory was the good news. The bad news was Mohawk Asshole was here in the USA. And John and Mohawk Asshole were now best mates. And John's new best mate is pretty much the same person who killed my family and was trying to kill me. And John chased my girlfriend away. Good thing John was gonna make me a millionaire or I would have swapped places with him just so I could slit my own throat.
 
 And Deadline was still missing. But I had a theory about that one.
 
-All those stupid non clues were just distractions. Deadline wasn't dead but someone didn't want him found. Mohawk Asshole had come to the USA looking for me and my car. He'd seen Deadline driving my car so he stabbed him. Mohawk Asshole wasn't the first person to come after Deadline. Every motherfucker who'd ever had a negative story published about them in the paper had a motive to bump him off. But for Deadline getting stabbed was the last straw. So he'd gone into hiding. 
+All those stupid non clues were just distractions. Deadline wasn't dead but someone didn't want him found. Mohawk Asshole came to the USA looking for me and my car. He saw Deadline driving my car so he stabbed him. Mohawk Asshole wasn't the first person to come after Deadline. Every motherfucker who ever had a negative story published about them in the paper had a motive to bump him off. But for Deadline getting stabbed was the last straw. So he went into hiding. 
 
 He wouldn't have been able to pull this whole thing off himself. Someone was protecting him. But people get stabbed every day. What was so important about Deadline that he had to be protected? Who would go to such great lengths to hide him and keep him hidden?
 
@@ -38,7 +38,7 @@ I'm just fucking with you. I have no idea what you're asking me. I just know tha
 
 I fired up my Firebuddy and posted a message on You Are Awaited that I was headed to The Cannibal Run. I ran the matches for the event which was easier now cuz I'd gotten around to writing that almighty algorithm I'd been bragging about since before it existed. I faked it then I maked it.
 
-I was about to shut it down and head out when I noticed something. Deadline or someone claiming to be him had signed up to be matched at The Cannibal Run. He'd been matched to a sheila by the name of Firecracker who'd bought a Firebuddy from me a few months back.
+I was about to shut it down and head out when I noticed something. Deadline or someone claiming to be him had signed up to be matched at The Cannibal Run. The Algorithm had matched him to a sheila by the name of Firecracker who'd bought a Firebuddy from me a few months back.
 
 I viewed his profile. It was in Morse code for some reason. The Firebuddy translated it. Me and John had implemented support for a heap of languages. Everything but emojis cuz fuck that shit. Anyway here's what his profile said.
 
@@ -48,7 +48,7 @@ I viewed his profile. It was in Morse code for some reason. The Firebuddy transl
 
 That bullshit was about as helpful as the Twinkie on the chair. It was clearly some kind of ruse but I'd jump through the hoops if it would bring Deadline back. I know my theory involves him not wanting to be found so if I found him I'd keep my mouth shut. Except for telling you fuckers about it of course.
 
-I made sure I had Deadline's fedora with me and headed to Uranium Springs. When I got there the first thing I did was find Firecracker. She was easy to spot. She looked like she was peeled off the side of a WWII bomber. She remembered me. I told her we were both looking for Deadline. She agreed to join forces.
+I made sure to take Deadline's fedora with me to Uranium Springs. When I got there the first thing I did was find Firecracker. She was easy to spot. She looked like she was peeled off the side of a WWII bomber. She remembered me. I told her we were both looking for Deadline. She agreed to join forces.
 
 "Have you seen any potatoes?" she asked.
 
@@ -80,11 +80,9 @@ I asked her what the fuck she was doing with it.
 
 "Fuck off." She took off running for cover. Then she peeked out and pointed her arm at some bloke.
 
-He had on a DingDong too and it made a noise and flashed. He fell to the ground.
+He had on a DingDong too and it made a noise and flashed. He fell to the ground. I ran to him. I thought maybe he was dead.
 
-I ran to him. I thought maybe he was dead. "Are you ok?" I asked.
-
-I reached down and grabbed his DingDong.
+"Are you ok?" I asked. I reached down and grabbed his DingDong.
 
 He pulled his arm away and got up. "Yeah dude it's just a game" he said.
 
@@ -118,7 +116,7 @@ I liked that he mentioned You Are Awaited but me and John weren't making any mon
 
 I looked around the streets of Uranium Springs. I counted two people with Firebuddies and twelve with DingDongs. 
 
-DingoDongles. Whatever. I was planning to release a new Firebuddy called the Firebuddy 2 at this year's Gathering. Guess I'd better get some games written for it and expand my production capacity.
+DingoDongles. Whatever. I was planning to release a new Firebuddy called the Firebuddy 2 at this year's Gathering. Guess I'd better get some games written for it and expand my production capacity so we could fill our backorders faster.
 
 Are you thinking that means I have to enter the race now? Fuck no. I got enough money for all that shit I gotta do.
 
@@ -138,7 +136,7 @@ He wasn't captive or hiding or brainwashed or unconscious. He was just in disgui
 
 In Epoxyclypse you don't just take pictures. It's a time consuming and expensive process. Not just cuz you gotta process and print them yourself. You usually gotta make your own cameras and emulsions too. You don't take pictures. You make photographs. Now you understand why no one's made a movie in decades.
 
-The cunt was pointing and clicking and pointing and clicking and I didn't see him switching out any film canisters or boxes or black bags. It could have been a TV camera but where was the video tape recorder?
+The cunt was pointing and clicking and pointing and clicking and I didn't see him switching out any plates or film reels or black bags. It could have been a TV camera but where was the video tape recorder?
 
 Firecracker appeared at his side. She'd spotted him too. They exchanged a few words and she handed him what I can only assume was that bullshit magic potion. He drank it hesitantly. She put his hat on his head. He packed up his camera and they walked off together. What a pair them two made. Trust The Algorithm indeed.
 
