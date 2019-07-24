@@ -214,6 +214,7 @@ class Util {
                     or
                     last_active > now()-interval ? month
                 )
+                and number_photos>0
             order by
                 $upcoming_order_bys
                 $gender_order_by
