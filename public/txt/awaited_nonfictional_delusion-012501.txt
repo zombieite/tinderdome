@@ -40,7 +40,7 @@ This rule ain't the Golden Rule. The Golden Rule says do unto others as you'd ha
 
 This rule ain't the Platinum Rule. The Platinum Rule is an improvement upon the Golden Rule where you try to do unto others as they would have you to do unto them. Treat others how they want to be treated. That's a good rule too but I can do you one better.
 
-I call my rule the Goddamn Tippitytop Best Rule.
+I call my rule the Goddamn Tippitytop Best Rule:
 
 
     CREATE VALUE
