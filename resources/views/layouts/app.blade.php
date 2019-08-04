@@ -88,6 +88,6 @@
 @endif
 <br>
 <br>
-For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. For films, <a href="https://www.youtube.com/wastelandfirebird">follow us on this video site</a>. For a nonfictional account of how this site came to be and other adventures, stick around. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
+For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. For films, <a href="https://www.youtube.com/wastelandfirebird">follow us on this video site</a>. For a nonfictional account of how this site came to be and other adventures, click around. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.
 </body>
 </html>

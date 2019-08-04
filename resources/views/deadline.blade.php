@@ -373,7 +373,7 @@ The missing edition of the Wastelander: Vol. II No. 4!
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
-There's more going on here. Why was the WCC trying to derail its own investigation? Why was this all set up like a wild goose chase? Where did the tapeless audio recorder come from? I have the answers to these questions and more. Find Firebird at Wasteland Weekend 2019.
+There's more going on here. Why was the WCC trying to derail its own investigation? Why was this all set up like a wild goose chase? Where did the tapeless audio recorder come from?
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
