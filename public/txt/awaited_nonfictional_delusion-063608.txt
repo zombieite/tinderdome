@@ -85,7 +85,7 @@ When I came back to Epoxyclypse I compared their Tomorrowland friends lists to t
 
 I gave each of their future friends one of the remaining Firebuddies for free. That way when they signed up for You Are Awaited they'd be sure to meet people they liked even though the social network consisted of just ten people. Of course I made it look like there were more than ten people on there by adding a heap of fake users.
 
-Once everyone had signed up for You Are Awaited I ran the matches. What that supposedly meant was I ran the magic algorithm that connected people to their new friends they were supposed to meet at The Gathering. What that really meant was I manually inserted some rows into a database. Right now this was a labor intensive process that required timeline swapping but eventually I'd get around to writing that great algorithm. Hopefully before the next You Are Awaited event that was scheduled to happen at the Cannibal Run.
+Once everyone had signed up for You Are Awaited I ran the matches. What that supposedly meant was I ran the magic algorithm that connected people to their new friends they were supposed to meet at The Gathering. What that really meant was I manually inserted some rows into a database. Right now this was a labor intensive process that required timeline swapping but eventually I'd get around to writing that great algorithm. Hopefully before the You Are Awaited event that was scheduled to happen at the next Cannibal Run.
 
 Anyway the idea was everyone would go find each other during The Gathering and shake hands or fuck or whatever.
 
