@@ -291,7 +291,7 @@ class Util {
             'ANTIHERO',
             'SUPERHERO',
             'SUPERVILLAIN',
-            '?',
+            'ANTIVILLAIN',
             '??',
             '???',
             '????',
