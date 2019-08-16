@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1><a href="http://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24197982.html">Awaited: Nonfictional Delusion (Paperback)</a></h1>
+<h1><a href="http://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24209302.html">Awaited: Nonfictional Delusion (Paperback)</a></h1>
 
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-000000.txt">Chapter 00: 000000</a><br><br>
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-012501.txt">Chapter 01: 012501</a><br><br>

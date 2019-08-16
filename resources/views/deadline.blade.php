@@ -160,7 +160,7 @@ Civil Defense told me to talk to suspects Digits and Doc, pictured. I was told t
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/madskelli.jpg"><img src="/images/fun/save_deadline/madskelli_s.jpg"></a>
 <br>
-Someone at the WCC claimed the Rust Devils threw a grenade at them. I brought along Mad Kelli for security and I interviewed the Rust Devils under the pseudonym Thunderbird since they're no friends of mine for unrelated reasons. That interview yielded nothing.
+Someone at the WCC claimed the Rust Devils threw a grenade at them. I brought along Mad Skelli for security and I interviewed the Rust Devils under the pseudonym Thunderbird since they're no friends of mine for unrelated reasons. That interview yielded nothing.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
@@ -271,7 +271,7 @@ The WCC should really keep better track of this hat. I hope Grotch cleaned out t
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
 <a target="_blank" href="/images/fun/save_deadline/skelli_au.jpg"><img src="/images/fun/save_deadline/skelli_au_s.jpg"></a>
 <br>
-Mad Kelli sending her support all the way from Australia.
+Mad Skelli sending her support all the way from Australia.
 </div>
 
 <div class="profile_search_block" style="width:200px;vertical-align:top;">
