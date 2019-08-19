@@ -27,7 +27,6 @@
 {{--
                         <iframe style="width:100%;max-width:720px;height:480px" src="https://www.youtube.com/embed/C1KfykeThdI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 --}}
-<img style="width:100%;max-width:720px;height:480px" src="/images/fun/youtube.jpg">
 {{--
                     @endif
                 @endif
