@@ -2,7 +2,11 @@
 
 @section('content')
 
-<h1><a href="http://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24209302.html">Awaited: Nonfictional Delusion (Paperback)</a></h1>
+<h1><a href="http://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24218988.html">Awaited: Nonfictional Delusion (Paperback)</a></h1>
+
+<p>
+What if, by going to Wasteland Weekend, you really could enter another universe? Too implausible to be an autobiography. Too real to be fiction. It's much more than just a story about Wasteland Weekend and Uranium Springs. It's a missing instruction manual for life. This book will help you make friends. This book will help you make money. This book might even save your life. Two years in the making, this tiny, 143-page book has been meticulously engineered to evoke a sense of hope during the apocalypse. It will inspire you to change your life and change the world. Anarchy, attachment, cars, economics, entrepreneurship, entropy, ethics, grief, guilt, guns, kindness, self-reliance, Seventies nostalgia, and stoicism. This is the You Are Awaited story. Awaited: Nonfictional Delusion, by John Binns. Buy a paperback copy or read it for free right here.
+</p>
 
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-000000.txt">Chapter 00: 000000</a><br><br>
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-012501.txt">Chapter 01: 012501</a><br><br>
