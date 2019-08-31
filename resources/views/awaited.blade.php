@@ -14,51 +14,54 @@ What if, by going to Wasteland Weekend, you really could enter another world? To
 
 <h1><a href="/images/fun/awaited-nonfictional-delusion/awaited-nonfictional-delusion.pdf">pdf</a></h1>
 
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-000000.txt">Chapter 00</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/00.mp3">Chapter 00 (Audiobook)</a>
-<br><br>
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-012501.txt">Chapter 01</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/01.mp3">Chapter 01 (Audiobook)</a><br>
 <a href="https://www.youtube.com/watch?v=zQqjvO-useM">Chapter 01, Scene II (Film)</a>
-<br><br>
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-022502.txt">Chapter 02</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/02.mp3">Chapter 02 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-033011.txt">Chapter 03</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/03.mp3">Chapter 03 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-043508.txt">Chapter 04</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/04.mp3">Chapter 04 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-053604.txt">Chapter 05</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/05.mp3">Chapter 05 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-063608.txt">Chapter 06</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/06.mp3">Chapter 06 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-073701.txt">Chapter 07</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/07.mp3">Chapter 07 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-083704.txt">Chapter 08</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/08.mp3">Chapter 08 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-093708.txt">Chapter 09</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/09.mp3">Chapter 09 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-103711.txt">Chapter 10</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/10.mp3">Chapter 10 (Audiobook)</a>
-<br><br>
-
+</div>
+<div class="profile_search_block" style="width:200px;height:100px;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-113808.txt">Chapter 11</a><br>
 <a href="http://youareawaited.com/images/awaited-nonfictional-delusion/11.mp3">Chapter 11 (Audiobook)</a>
-<br><br>
+</div>
 
 @endsection
