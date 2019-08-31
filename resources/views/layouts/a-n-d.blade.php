@@ -7,7 +7,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta property="og:title" content="Awaited: Nonfictional Delusion">
 <meta property="og:url" content="http://youareawaited.com/awaited-nonfictional-delusion">
-<meta property="og:image" content="http://youareawaited.com/images/awaited-nonfictional-delusion.jpg">
+<meta property="og:image" content="http://youareawaited.com/images/awaited-nonfictional-delusion/awaited-nonfictional-delusion.jpg">
 <meta property="og:description" content="What if, by going to Wasteland Weekend, you really could enter another world?">
 <meta name="description" content="What if, by going to Wasteland Weekend, you really could enter another world?">
 <title>Awaited: Nonfictional Delusion</title>
