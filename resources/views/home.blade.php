@@ -6,6 +6,8 @@
     <h2 class="bright">{{ $success_message }}</h2>
 @endif
 
+@include('home_promo_stuff')
+
 @if ($matched && $next_event_attending)
     <h1>YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event_attending]) }} {{ $next_event_attending_year }}!</h1>
 @else
@@ -16,7 +18,6 @@
         @else
             <p>If you will be attending {{ $pretty_names[$next_event] }} {{ $year }}, please <a href="/profile/edit">let us know</a>.</p>
         @endif
-        @include('home_promo_stuff', ['recently_updated_users' => $recently_updated_users, 'leaderboard' => $leaderboard, 'leader_count' => $leader_count, 'nonleader_count' => $nonleader_count])
     @endif
 {{--
     @if ($good_ratings_percent >= 50)
