@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-{{--
-<iframe style="width:100%;max-width:720px;height:480px" src="https://www.youtube.com/embed/C1KfykeThdI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
---}}
+
+@include('home_promo_stuff')
+
 <p>You Are Awaited is a simple mission that you can sign up for during Wasteland Weekend and other post-apocalyptic events. Participation is free. <a href="{{ route('register') }}">Signups are done on this site, year-round</a>.</p>
 <h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
