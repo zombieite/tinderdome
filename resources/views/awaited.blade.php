@@ -14,9 +14,9 @@ What if, by going to Wasteland Weekend, you really could enter another world? To
 
 <h1><a href="http://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24218988.html">Buy the paperback</a></h1>
 
-<h1><a href="/images/fun/awaited-nonfictional-delusion/awaited-nonfictional-delusion.pdf">pdf</a></h1>
+<h1><a href="/images/fun/awaited-nonfictional-delusion/awaited-nonfictional-delusion.pdf">Download the pdf</a></h1>
 
-<h1>Download the text files or audiobook files</h1>
+<h1>Download the text files or audiobook files:</h1>
 
 <div class="profile_search_block" style="width:13em;height:7em;vertical-align:top;">
 <a href="http://youareawaited.com/txt/awaited_nonfictional_delusion-000000.txt">Chapter 00</a><br>
