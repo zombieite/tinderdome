@@ -47,6 +47,10 @@ h6 {
     padding: 0;
     text-transform: uppercase;
 }
+.small {
+    font-size: xx-small;
+    text-transform: uppercase;
+}
 input[type="submit"] {
     color: black;
     background-color: var(--special);
