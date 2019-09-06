@@ -10,9 +10,9 @@
 What if, by going to Wasteland Weekend, you really could enter another world? Too implausible to be an autobiography. Too real to be fiction. It's much more than just a story about Wasteland Weekend and Uranium Springs. It's a missing instruction manual for life. This book will help you make friends. This book will help you make money. This book might even save your life. Two years in the making, this tiny, 143-page book has been meticulously engineered to evoke a sense of hope during the apocalypse. It will inspire you to change your life and change the world. Anarchy, attachment, cars, economics, entrepreneurship, entropy, ethics, grief, guilt, guns, kindness, self-reliance, Seventies nostalgia, and stoicism. This is the You Are Awaited story. Awaited: Nonfictional Delusion, by John Binns. 
 </p>
 
-<h1><a href="https://www.indiegogo.com/projects/you-are-awaited-film-2020/x/15103854#/">CROWDFUND THE FILM</a></h1>
-
 <h1><a href="http://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24218988.html">Buy the paperback</a></h1>
+
+<h1><a href="https://www.indiegogo.com/projects/you-are-awaited-film-2020/x/15103854#/">Donate $3 to next year's film</a></h1>
 
 <h1><a href="/images/fun/awaited-nonfictional-delusion/awaited-nonfictional-delusion.pdf">Download the pdf</a></h1>
 
