@@ -18,6 +18,7 @@
 		<th><b>Name</b></th>
 		<th><b>Caps</b></th>
 		<th><b>Matched<br>to name</b></th>
+@if (!$matches_complete)
 		<th><b>Id</b></th>
 		<th><b>Rating<br>of match</b></th>
 		<th><b>Match's<br>rating of</b></th>
@@ -33,6 +34,7 @@
 		@else
 			<th><b>&nbsp;</b></th>
 		@endif
+@endif
 	</tr>
 @foreach ($users as $user)
 	<tr
@@ -75,6 +77,7 @@
 		@else
 		@endif
 		</td>
+@if (!$matches_complete)
 		<td>{{ $user->id }}</td>
 		<td>
 			@if (isset($match_rating_hash[$user->id]) && (($match_rating_hash[$user->id] === 0) || ($match_rating_hash[$user->id] == -1))) <span class="bright"> @endif
@@ -136,6 +139,7 @@
 
 		@else
 		@endif
+@endif
 	</tr>
 @endforeach
 </table>
