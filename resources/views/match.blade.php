@@ -18,7 +18,6 @@
 		<th><b>Name</b></th>
 		<th><b>Caps</b></th>
 		<th><b>Matched<br>to name</b></th>
-@if (!$matches_complete)
 		<th><b>Id</b></th>
 		<th><b>Rating<br>of match</b></th>
 		<th><b>Match's<br>rating of</b></th>
@@ -34,7 +33,6 @@
 		@else
 			<th><b>&nbsp;</b></th>
 		@endif
-@endif
 	</tr>
 @foreach ($users as $user)
 	<tr
@@ -77,7 +75,6 @@
 		@else
 		@endif
 		</td>
-@if (!$matches_complete)
 		<td>{{ $user->id }}</td>
 		<td>
 			@if (isset($match_rating_hash[$user->id]) && (($match_rating_hash[$user->id] === 0) || ($match_rating_hash[$user->id] == -1))) <span class="bright"> @endif
@@ -139,11 +136,10 @@
 
 		@else
 		@endif
-@endif
 	</tr>
 @endforeach
 </table>
-@if ($matches_complete && $days_ago_matching < 14)
+@if ($matches_complete && $days_ago_matching < 30)
 	<h4>{{ $found_match }}/{{ $counter }} ({{ floor($found_match / $counter * 100) }}%) found their match</h4>
     @if ($event_attending_count > 0)
         <form method="POST">{{ csrf_field() }}<input type="hidden" name="event" value="{{ $event }}"><input type="hidden" name="year" value="{{ $year }}"><input class="no" type="submit" name="mark_event_complete" value="Reset event attendance preferences"></form>
