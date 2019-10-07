@@ -68,7 +68,10 @@ class HomeController extends Controller
         $unrated_users             = \App\Util::unrated_users( $logged_in_user );
         $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );
         $matches_done              = DB::select('select * from matching where event=? and year=?', [$next_event_attending, $next_event_attending_year]);
-        $attending_next_event      = DB::select("select * from users where id=? and attending_$next_event", [$logged_in_user_id]);
+        $attending_next_event      = false;
+        if ($next_event) {
+            $attending_next_event  = DB::select("select * from users where id=? and attending_$next_event", [$logged_in_user_id]);
+        }
         $random_ok                 = DB::select("select * from users where id=? and random_ok", [$logged_in_user_id]);
         $matched                   = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$logged_in_user_id, $logged_in_user_id, $next_event_attending, $next_event_attending_year]);
         $recent_good_ratings       = DB::select('select count(*) interested from choose where created_at>now()-interval 1 week and choice>1 and chosen_id=?', [$logged_in_user_id]);
