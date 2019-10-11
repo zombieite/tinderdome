@@ -41,6 +41,6 @@ Your mission is to find your match at the event and introduce yourself. They'll 
 </p>
 <h3>5. Get your caps</h3>
 <p>
-Upon mission completion, you can go to the <a href="https://www.facebook.com/WCCorp/">Wasteland Communication Corporation</a> Post Office to pick up your bottlecap bounty. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
+Upon mission completion, you can find <a href="/profile/Firebird">Firebird</a> to pick up your bottlecap bounty. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
 </p>
 @endsection

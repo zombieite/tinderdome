@@ -151,7 +151,7 @@ Mission status
         @endif
     @endif
 </li>
-<li>To receive your reward, go to the <a href="https://www.facebook.com/WCCorp/">Wasteland Communication Corporation</a> Post Office.</li>
+<li>To get your reward, find <a href="/profile/Firebird">Firebird</a>.</li>
 </ol>
 
 @if ($matched_to_users)
