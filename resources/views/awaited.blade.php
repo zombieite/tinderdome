@@ -12,7 +12,7 @@ What if, by going to Wasteland Weekend, you really could enter another world? To
 
 <h1><a href="http://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24218988.html">Buy the paperback</a></h1>
 
-<h1><a href="https://www.indiegogo.com/projects/you-are-awaited-film-2020/x/15103854#/">Donate $3 to next year's film</a></h1>
+<h1><a href="https://www.indiegogo.com/projects/you-are-awaited-film-2020/x/15103854#/">Crowdfund next year's film--We must hit our goal by Oct 30</a></h1>
 
 <h1><a href="/images/fun/awaited-nonfictional-delusion/awaited-nonfictional-delusion.pdf">Download the pdf</a></h1>
 
