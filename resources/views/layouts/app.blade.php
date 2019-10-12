@@ -26,9 +26,9 @@
     &middot;
     <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
     &middot;
-    <a class="navbar" href="/awaited-nonfictional-delusion">AWAITED: NONFICTIONAL DELUSION</a>
+    <a class="navbar" href="https://www.indiegogo.com/projects/you-are-awaited-film-2020#/">CROWDFUND THE 2020 FILM</a>
     &middot;
-    <a class="navbar" href="https://www.facebook.com/WCCorp/">WCC</a>
+    <a class="navbar" href="/awaited-nonfictional-delusion">AWAITED: NONFICTIONAL DELUSION</a>
     &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
 @else
@@ -44,9 +44,9 @@
     &middot;
     <a class="navbar" href="/search">Search</a>
     &middot;
-    <a class="navbar" href="/awaited-nonfictional-delusion">AWAITED: NONFICTIONAL DELUSION</a>
+    <a class="navbar" href="https://www.indiegogo.com/projects/you-are-awaited-film-2020#/">CROWDFUND THE 2020 FILM</a>
     &middot;
-    <a class="navbar" href="https://www.facebook.com/WCCorp/">WCC</a>
+    <a class="navbar" href="/awaited-nonfictional-delusion">AWAITED: NONFICTIONAL DELUSION</a>
     &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
     &middot;
