@@ -8,9 +8,9 @@
 }
 body {
     color: white;
-    background-image: url("/images/wcc_bg.jpg");
+    background-image: url("/images/awaited_bg.jpg");
     background-color: black;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     margin: 1.5em;
 }
