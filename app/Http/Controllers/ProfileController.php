@@ -165,17 +165,10 @@ class ProfileController extends Controller
         $missions_completed                 = \App\Util::missions_completed( $profile_id );
         $titles                             = \App\Util::titles();
         $logged_in_user_hoping_to_find_love = null;
-        $attending['winter_games']          = $profile->attending_winter_games;
-        $attending['ball']                  = $profile->attending_ball;
-        $attending['detonation']            = $profile->attending_detonation;
-        $attending['atomic_falls']          = $profile->attending_atomic_falls;
-        $attending['wasteland']             = $profile->attending_wasteland;
-        $pretty_event_names                 = \App\Util::pretty_event_names();
         $next_event                         = null;
         $year                               = null;
         $upcoming_events_with_year          = \App\Util::upcoming_events_with_year( $auth_user );
         if ($auth_user) {
-            $upcoming_events_with_year          = \App\Util::upcoming_events_user_is_attending_with_year( $auth_user );
             $logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
         }
         foreach ($upcoming_events_with_year as $upcoming_event => $event_year) {
@@ -216,8 +209,6 @@ class ProfileController extends Controller
             'title_index'                        => $title_index,
             'share_info'                         => $share_info,
             'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
-            'attending'                          => $attending,
-            'pretty_event_names'                 => $pretty_event_names,
             'year'                               => $year,
             'image_query_string'                 => $image_query_string,
             'count_with_same_name'               => $count_with_same_name,
@@ -256,11 +247,6 @@ class ProfileController extends Controller
         $hoping_to_find_love             = $profile->hoping_to_find_love;
         $hoping_to_find_lost             = $profile->hoping_to_find_lost;
         $hoping_to_find_enemy            = $profile->hoping_to_find_enemy;
-        $attending_event['winter_games'] = $profile->attending_winter_games;
-        $attending_event['ball']         = $profile->attending_ball;
-        $attending_event['detonation']   = $profile->attending_detonation;
-        $attending_event['atomic_falls'] = $profile->attending_atomic_falls;
-        $attending_event['wasteland']    = $profile->attending_wasteland;
         return view('auth/register', [
             'email'                      => $email,
             'share_info_with_favorites'  => $share_info_with_favorites,
@@ -279,7 +265,6 @@ class ProfileController extends Controller
             'hoping_to_find_love'        => $hoping_to_find_love,
             'hoping_to_find_lost'        => $hoping_to_find_lost,
             'hoping_to_find_enemy'       => $hoping_to_find_enemy,
-            'attending_event'            => $attending_event,
             'update_errors'              => $update_errors,
             'title_index'                => $title_index,
             'titles'                     => $titles,
@@ -332,16 +317,7 @@ class ProfileController extends Controller
         $hoping_to_find_love       = isset($_POST['hoping_to_find_love']);
         $hoping_to_find_lost       = isset($_POST['hoping_to_find_lost']);
         $hoping_to_find_enemy      = isset($_POST['hoping_to_find_enemy']);
-        $attending_winter_games    = isset($_POST['attending_winter_games']);
-        $attending_ball            = isset($_POST['attending_ball']);
-        $attending_detonation      = isset($_POST['attending_detonation']);
-        $attending_atomic_falls    = isset($_POST['attending_atomic_falls']);
-        $attending_wasteland       = isset($_POST['attending_wasteland']);
         $ip                        = request()->ip() or die("No ip");
-
-        if ($attending_detonation && $attending_atomic_falls) {
-            $update_errors .= "Can't attend both Detonation and Atomic Falls. They are on the same dates.";
-        }
 
         $email_exists = DB::select('select id,email from users where email=? and id<>?', [$email, $profile_id]);
         if ($email_exists) {
@@ -407,11 +383,6 @@ class ProfileController extends Controller
             $profile->hoping_to_find_love       = $hoping_to_find_love;
             $profile->hoping_to_find_lost       = $hoping_to_find_lost;
             $profile->hoping_to_find_enemy      = $hoping_to_find_enemy;
-            $profile->attending_winter_games    = $attending_winter_games;
-            $profile->attending_ball            = $attending_ball;
-            $profile->attending_detonation      = $attending_detonation;
-            $profile->attending_atomic_falls    = $attending_atomic_falls;
-            $profile->attending_wasteland       = $attending_wasteland;
             $profile->ip                        = $ip;
 
             $profile->save();
@@ -419,11 +390,6 @@ class ProfileController extends Controller
             return redirect("/profile/$profile_id/$wasteland_name_hyphenated");
         }
 
-        $attending_event['winter_games'] = $attending_winter_games;
-        $attending_event['ball']         = $attending_ball;
-        $attending_event['detonation']   = $attending_detonation;
-        $attending_event['atomic_falls'] = $attending_atomic_falls;
-        $attending_event['wasteland']    = $attending_wasteland;
         return view('auth/register', [
             'email'                     => $email,
             'share_info_with_favorites' => $share_info_with_favorites,
@@ -445,7 +411,6 @@ class ProfileController extends Controller
             'hoping_to_find_love'       => $hoping_to_find_love,
             'hoping_to_find_lost'       => $hoping_to_find_lost,
             'hoping_to_find_enemy'      => $hoping_to_find_enemy,
-            'attending_event'           => $attending_event,
             'update_errors'             => $update_errors,
         ]);
     }
@@ -489,7 +454,6 @@ class ProfileController extends Controller
             abort(403, 'Invalid year');
         }
 
-        $logged_in_is_signed_up         = DB::select("select * from users where id=? and attending_$event", [$logged_in_user_id]);
         $deleted_match_or_match_said_no = false;
         $matches_done                   = DB::select('
             select * from matching where event=? and year=?
