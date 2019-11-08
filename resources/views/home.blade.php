@@ -9,15 +9,15 @@
 @include('home_promo_stuff')
 
 @if ($matched && $next_event_attending)
-    <h1>YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event_attending]) }} {{ $next_event_attending_year }}!</h1>
+    <h1>YOU ARE AWAITED AT {{ strtoupper($next_event_attending) }} {{ $next_event_attending_year }}!</h1>
 @else
     @if ($matches_done)
     @else
         @if ($attending_next_event)
-            <p>You are signed up for a You Are Awaited mission during {{ $pretty_names[$next_event] }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
+            <p>You are signed up for a You Are Awaited mission during {{ $next_event }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
         @else
             @if ($next_event)
-                <p>If you will be attending {{ $pretty_names[$next_event] }} {{ $year }}, please <a href="/profile/edit">let us know</a>.</p>
+                <p>If you will be attending {{ $next_event }} {{ $year }}, please <a href="/profile/edit">let us know</a>.</p>
             @endif
         @endif
     @endif
@@ -97,7 +97,7 @@
 <h2>
 Mission status
 @if ($next_event_attending)
-	for {{ $pretty_names[$next_event_attending] }} {{ $next_event_attending_year }}
+	for {{ $next_event_attending }} {{ $next_event_attending_year }}
 @endif
 </h2>
 <ol>
@@ -125,12 +125,12 @@ Mission status
 @endif
 @if ($next_event_attending)
     @if ($matched)
-        <li><b><a class="bright" href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">COMPLETE: YOU ARE AWAITED AT {{ strtoupper($pretty_names[$next_event_attending]) }} {{ $next_event_attending_year }}! Here's your match.</a></b></li>
+        <li><b><a class="bright" href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">COMPLETE: YOU ARE AWAITED AT {{ strtoupper($next_event_attending) }} {{ $next_event_attending_year }}! Here's your match.</a></b></li>
     @else
         @if ($matches_done)
-            <li>Matches are complete for {{ $pretty_names[$next_event_attending] }} {{ $next_event_attending_year }}, but you were not matched. <a href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">Find out why</a>.</li>
+            <li>Matches are complete for {{ $next_event_attending }} {{ $next_event_attending_year }}, but you were not matched. <a href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">Find out why</a>.</li>
         @else
-            <li>Matches have not yet been run for {{ $pretty_names[$next_event_attending] }} {{ $next_event_attending_year }}. Check back here before the event to find out who you're matched with.</li>
+            <li>Matches have not yet been run for {{ $next_event_attending }} {{ $next_event_attending_year }}. Check back here before the event to find out who you're matched with.</li>
         @endif
     @endif
 @else
@@ -160,11 +160,11 @@ Mission status
         <div class="centered_block">
         @if ($matched_to_user->choice === 0)
             Found match
-            <br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+            <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
         @else
             @if ($matched_to_user->they_said_no)
                 Found match
-                <br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+                <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
             @else
                 @if ($matched_to_user->name)
                     @if ($matched_to_user->number_photos)
@@ -177,14 +177,14 @@ Mission status
                         Matched to
                     @endif
                     <a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a>
-                    <br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+                    <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
                 @else
                     @if ($matched_to_user->choice === -1 or $matched_to_user->choice === 0)
                         Found match
-                        <br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+                        <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
                     @else
                         Matched to deleted user;<br>mission incomplete
-                        <br>{{ $pretty_names[$matched_to_user->event] }} {{ $matched_to_user->year }}
+                        <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
                     @endif
                 @endif
             @endif
