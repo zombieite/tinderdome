@@ -121,7 +121,7 @@ Mission status
         <li>Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.</li>
     @endif
 @else
-    <li>COMPLETE: Unrated users: {{ count($unrated_users) }}. You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
+    <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
 @endif
 @if ($next_event_attending)
     @if ($matched)
