@@ -75,17 +75,17 @@ class Util {
                 users
                 left join choose my_choice on (
                     users.id = my_choice.chosen_id
-                    and chooser_id=?
+                    and chooser_id = ?
                 )
                 left join choose their_choice on (
                     users.id = their_choice.chooser_id
                     and their_choice.chosen_id = ?
                 )
                 join attending i_am_attending on (
-                    users.id = i_am_attending.user_id
+                    i_am_attending.user_id = ?
                 )
                 join attending they_are_attending on (
-                    my_choice.chosen_id = they_are_attending.user_id
+                    users.id = they_are_attending.user_id
                 )
             where
                 id > 10
@@ -99,7 +99,7 @@ class Util {
                     their_choice.choice != 0
                 )
         ",
-        [$chooser_user_id, $chooser_user_id, $chooser_user_id, Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE]);
+        [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 
         return $rated_users;
     }
@@ -108,16 +108,6 @@ class Util {
         $gender_of_match = $chooser_user->gender_of_match;
         $chooser_user_id = $chooser_user->id;
         $upcoming_order_bys = '';
-        $upcoming_events = \App\Util::upcoming_events_user_is_attending_with_year( $chooser_user );
-        $next_event = null;
-        foreach ($upcoming_events as $event => $event_year) {
-            $next_event or ($next_event = $event);
-            $upcoming_order_bys .= "attending_$event desc,";
-        }
-        $next_event or ($next_event = 'wasteland');
-        foreach ($upcoming_events as $event => $event_year) {
-            $upcoming_order_bys .= "attending_$event desc,";
-        }
         #Log::debug("Gender of match: $gender_of_match");
         $gender_order_by = '';
         if ($gender_of_match) {
@@ -154,10 +144,10 @@ class Util {
                     and their_choice.chosen_id = ?
                 )
                 join attending i_am_attending on (
-                    users.id = i_am_attending.user_id
+                    i_am_attending.user_id = ?
                 )
                 join attending they_are_attending on (
-                    my_choice.chosen_id = they_are_attending.user_id
+                    users.id = they_are_attending.user_id
                 )
             where
                 id > 10
@@ -177,7 +167,7 @@ class Util {
                 number_photos desc,
                 id desc
         ",
-        [$chooser_user_id, $chooser_user_id, $chooser_user_id, Util::MONTHS_FOR_PROFILE_TO_BE_INACTIVE]);
+        [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 
         return $unrated_users;
     }
