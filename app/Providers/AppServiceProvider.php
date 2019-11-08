@@ -24,7 +24,6 @@ class AppServiceProvider extends ServiceProvider
             $next_event                  = null;
             $next_event_year             = null;
             $next_event_count            = null;
-            $pretty_event_names          = \App\Util::pretty_event_names();
             $upcoming_events_with_year   = \App\Util::upcoming_events_with_year();
             foreach ($upcoming_events_with_year as $event => $event_year) {
                 $next_event              = $event;
@@ -38,7 +37,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('next_event_count',                                 $next_event_count);
             $view->with('next_event',                                       $next_event);
             $view->with('year',                                             $next_event_year);
-            $view->with('pretty_event_names',                               $pretty_event_names);
             $view->with('upcoming_events_with_year',                        $upcoming_events_with_year);
         });
     }

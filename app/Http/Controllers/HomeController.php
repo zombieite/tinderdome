@@ -18,7 +18,6 @@ class HomeController extends Controller
         $leaderboard_and_count     = \App\Util::leaderboard( $leader_count, $logged_in_user_id );
         $leaderboard               = $leaderboard_and_count['leaderboard'];
         $nonleader_count           = $leaderboard_and_count['nonleader_count'];
-        $pretty_names              = \App\Util::pretty_event_names();
         $titles                    = \App\Util::titles();
         $next_event                = null;
         $year                      = null;
@@ -38,7 +37,6 @@ class HomeController extends Controller
                 'nonleader_count' => $nonleader_count,
                 'next_event'      => $next_event,
                 'year'            => $year,
-                'pretty_names'    => $pretty_names,
                 'titles'          => $titles,
             ]);
         }
@@ -84,7 +82,7 @@ class HomeController extends Controller
         $ratings_count             = $ratings[0]->rated;
         $good_ratings_percent      = 0;
         $found_my_match            = null;
-        $rated_fraction            = count($rated_users) / (count($rated_users) + count($unrated_users));
+        $rated_fraction            = (count($rated_users) + count($unrated_users)) ? count($rated_users) / (count($rated_users) + count($unrated_users)) : 1;
         $rated_enough              = true;
         $why_not_share_email       = $logged_in_user->hoping_to_find_love && !$logged_in_user->share_info_with_favorites;
         $success_message           = '';
@@ -225,7 +223,6 @@ class HomeController extends Controller
             'matches_done'                               => $matches_done,
             'attending_next_event'                       => $attending_next_event,
             'random_ok'                                  => $random_ok,
-            'pretty_names'                               => $pretty_names,
             'found_my_match'                             => $found_my_match,
             'leaderboard'                                => $leaderboard,
             'leader_count'                               => $leader_count,
