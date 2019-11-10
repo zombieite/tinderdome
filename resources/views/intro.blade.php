@@ -32,7 +32,7 @@ Browse other profiles and choose who you'd enjoy meeting.
 <p>
 Shortly before each event, the matching algorithm will run. You will be matched with one other person at the event. Check your email or come back to this site to see who you're matched with.
 @if ($next_event)
-    Next event: {{ $pretty_names[$next_event] }} {{ $year }}!
+    Next event: {{ $next_event }} {{ $year }}!
 @endif
 </p>
 <h3>4. Seek out your match</h3>
