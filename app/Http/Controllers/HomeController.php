@@ -14,10 +14,6 @@ class HomeController extends Controller
     {
         $logged_in_user            = Auth::user();
         $logged_in_user_id         = Auth::id();
-        $leader_count              = 10;
-        $leaderboard_and_count     = \App\Util::leaderboard( $leader_count, $logged_in_user_id );
-        $leaderboard               = $leaderboard_and_count['leaderboard'];
-        $nonleader_count           = $leaderboard_and_count['nonleader_count'];
         $titles                    = \App\Util::titles();
         $next_event                = null;
         $year                      = null;
@@ -31,6 +27,10 @@ class HomeController extends Controller
         if ($logged_in_user) {
             // All good
         } else {
+            $leader_count              = 10;
+            $leaderboard_and_count     = \App\Util::leaderboard( $leader_count, $logged_in_user_id );
+            $leaderboard               = $leaderboard_and_count['leaderboard'];
+            $nonleader_count           = $leaderboard_and_count['nonleader_count'];
             return view('intro', [
                 'leaderboard'     => $leaderboard,
                 'leader_count'    => $leader_count,
@@ -73,14 +73,10 @@ class HomeController extends Controller
         $random_ok                 = DB::select("select * from users where id=? and random_ok", [$logged_in_user_id]);
         $matched                   = DB::select('select * from matching where (user_1=? or user_2=?) and event=? and year=?', [$logged_in_user_id, $logged_in_user_id, $next_event_attending, $next_event_attending_year]);
         $recent_good_ratings       = DB::select('select count(*) interested from choose where created_at>now()-interval 1 week and choice>1 and chosen_id=?', [$logged_in_user_id]);
-        $recent_good_ratings_count = $recent_good_ratings[0]->interested;
         $good_ratings              = DB::select('select count(*) interested from choose where choice>1 and chosen_id=?', [$logged_in_user_id]);
-        $good_ratings_count        = $good_ratings[0]->interested;
         $mutual_ok_ratings         = DB::select('select count(*) possible_matches from choose their_choice join choose my_choice on my_choice.chooser_id=? and their_choice.chooser_id=my_choice.chosen_id where their_choice.choice>0 and my_choice.choice>0 and their_choice.chosen_id=?', [$logged_in_user_id, $logged_in_user_id]);
-        $mutual_ok_ratings_count   = $mutual_ok_ratings[0]->possible_matches;
         $ratings                   = DB::select('select count(*) rated from choose where choice>-1 and chosen_id=?', [$logged_in_user_id]);
         $ratings_count             = $ratings[0]->rated;
-        $good_ratings_percent      = 0;
         $found_my_match            = null;
         $rated_fraction            = (count($rated_users) + count($unrated_users)) ? count($rated_users) / (count($rated_users) + count($unrated_users)) : 1;
         $rated_enough              = true;
@@ -110,11 +106,6 @@ class HomeController extends Controller
         ', [$logged_in_user_id, $logged_in_user_id]);
         foreach ($recently_updated_users as $recently_updated_user) {
             $recently_updated_user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $recently_updated_user->name);
-        }
-
-        if ($good_ratings_count && $ratings_count) {
-            $good_ratings_percent = round( $good_ratings_count / $ratings_count * 100 );
-            //Log::debug("good ratings count '$good_ratings_count' ratings count '$ratings_count' percent '$good_ratings_percent'");
         }
 
         if ($random_ok) {
@@ -224,15 +215,8 @@ class HomeController extends Controller
             'attending_next_event'                       => $attending_next_event,
             'random_ok'                                  => $random_ok,
             'found_my_match'                             => $found_my_match,
-            'leaderboard'                                => $leaderboard,
-            'leader_count'                               => $leader_count,
-            'nonleader_count'                            => $nonleader_count,
             'rated_enough'                               => $rated_enough,
             'rated_percent'                              => $rated_percent,
-            'recent_good_ratings_count'                  => $recent_good_ratings_count,
-            'good_ratings_count'                         => $good_ratings_count,
-            'mutual_ok_ratings_count'                    => $mutual_ok_ratings_count,
-            'good_ratings_percent'                       => $good_ratings_percent,
             'recently_updated_users'                     => $recently_updated_users,
             'min_percent_to_count_as_rated_enough_users' => $min_percent_to_count_as_rated_enough_users,
             'why_not_share_email'                        => $why_not_share_email,
