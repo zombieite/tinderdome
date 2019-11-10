@@ -13,7 +13,7 @@ class Util {
         $events_and_years_result = DB::select('select event_short_name,year(event_date) event_year from event where event_date>now()');
         $events_and_years = [];
         foreach ($events_and_years_result as $event) {
-            $event_and_years[$event->event_short_name] = $event->event_year;
+            $events_and_years[$event->event_short_name] = $event->event_year;
         }
         return $events_and_years;
     }
