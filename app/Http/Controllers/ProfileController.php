@@ -428,8 +428,6 @@ class ProfileController extends Controller
         $year                   = $_GET['year'];
         $match_name             = null;
         $match_id               = null;
-        $events                 = \App\Util::all_events();
-        $pretty_event_names     = \App\Util::pretty_event_names();
 
         if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
             $logged_in_user_id = $_GET['masquerade']+0;
@@ -440,12 +438,6 @@ class ProfileController extends Controller
             // All good
         } else {
             die('Invalid event');
-        }
-
-        if (in_array($event, $events)) {
-            // All good
-        } else {
-            abort(403, 'Invalid event');
         }
 
         if (preg_match('/^[0-9]+$/', $year)) {
@@ -483,8 +475,6 @@ class ProfileController extends Controller
                 'matches_done'                   => $matches_done,
                 'event'                          => $event,
                 'year'                           => $year,
-                'pretty_event_names'             => $pretty_event_names,
-                'logged_in_is_signed_up'         => $logged_in_is_signed_up,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
@@ -524,8 +514,6 @@ class ProfileController extends Controller
                 'matches_done'                   => $matches_done,
                 'event'                          => $event,
                 'year'                           => $year,
-                'pretty_event_names'             => $pretty_event_names,
-                'logged_in_is_signed_up'         => $logged_in_is_signed_up,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
