@@ -445,7 +445,6 @@ class ProfileController extends Controller
         } else {
             abort(403, 'Invalid year');
         }
-
         $deleted_match_or_match_said_no = false;
         $matches_done                   = DB::select('
             select * from matching where event=? and year=?
@@ -459,12 +458,12 @@ class ProfileController extends Controller
                 users_2.name user_2_name
             from
                 matching
-                left join users users_1 on (user_1=users_1.id)
-                left join users users_2 on (user_2=users_2.id)
+                left join users users_1 on (user_1 = users_1.id)
+                left join users users_2 on (user_2 = users_2.id)
             where
-                event=?
-                and year=?
-                and (user_1=? or user_2=?)
+                event = ?
+                and year = ?
+                and (user_1 = ? or user_2 = ?)
         ', [$event, $year, $logged_in_user_id, $logged_in_user_id]);
         $match = array_shift($match_array);
 
@@ -474,7 +473,7 @@ class ProfileController extends Controller
             return view('nomatch', [
                 'matches_done'                   => $matches_done,
                 'event'                          => $event,
-                'year'                           => $year,
+                'event_year'                     => $year,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
@@ -513,7 +512,7 @@ class ProfileController extends Controller
             return view('nomatch', [
                 'matches_done'                   => $matches_done,
                 'event'                          => $event,
-                'year'                           => $year,
+                'event_year'                     => $year,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
