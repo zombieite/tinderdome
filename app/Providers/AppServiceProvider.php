@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
             foreach ($upcoming_events_with_year as $event => $event_year) {
                 $next_event              = $event;
                 $next_event_year         = $event_year;
-                $next_event_count_result = DB::select("select count(*) next_event_count from users where attending_$next_event");
-                $next_event_count        = $next_event_count_result[0]->next_event_count;
+                $next_event_count_result = 0; // TODO XXX FIXME
+                $next_event_count        = 0; // TODO XXX FIXME
                 break; // This used to do more stuff
             }
             $view->with('active_count',                                     $active_count);
