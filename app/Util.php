@@ -9,6 +9,10 @@ class Util {
 
     CONST MONTHS_FOR_PROFILE_TO_BE_INACTIVE = 1;
 
+    public static function upcoming_events_with_pretty_name_and_date() {
+        return DB::select('select event_short_name,event_long_name,event_date from event where event_date>now() order by event_date');
+    }
+
     public static function upcoming_events_with_year() {
         $events_and_years_result = DB::select('select event_short_name,year(event_date) event_year from event where event_date>now()');
         $events_and_years = [];

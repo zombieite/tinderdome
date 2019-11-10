@@ -11,32 +11,6 @@
 @if ($matched && $next_event_attending)
     <h1>YOU ARE AWAITED AT {{ strtoupper($next_event_attending) }} {{ $next_event_attending_year }}!</h1>
 @else
-    @if ($matches_done)
-    @else
-        @if ($attending_next_event)
-            <p>You are signed up for a You Are Awaited mission during {{ $next_event }} {{ $year }}. If you cannot attend, please <a href="/profile/edit">let us know</a>.</p>
-        @else
-            @if ($next_event)
-                <p>If you will be attending {{ $next_event }} {{ $year }}, please <a href="/profile/edit">let us know</a>.</p>
-            @endif
-        @endif
-    @endif
-{{--
-    @if ($good_ratings_percent >= 50)
-        <p>{{ $good_ratings_percent }}% of users who have rated you said they'd enjoy meeting you.</p>
-    @else
-        @if ($recent_good_ratings_count >= 10)
-            <p>{{ $recent_good_ratings_count }} users have said they'd enjoy meeting you in the past week.</p>
-        @else
-            @if ($good_ratings_count >= 50)
-                <p>{{ $good_ratings_count }} users have said they'd enjoy meeting you.</p>
-            @else
-                @if ($mutual_ok_ratings_count >= 3)
-                @endif
-            @endif
-        @endif
-    @endif
---}}
     @if ($number_photos)
         @if (count($unrated_users) >= 3)
             <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
