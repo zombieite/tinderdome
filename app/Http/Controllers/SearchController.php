@@ -27,8 +27,6 @@ class SearchController extends Controller
         $logged_in_user_id                        = Auth::id();
         $logged_in_user                           = Auth::user();
         $event                                    = isset($_GET['event']) ? $_GET['event'] : null;
-        $events                                   = \App\Util::all_events();
-        $pretty_event_names                       = \App\Util::pretty_event_names();
         $titles                                   = \App\Util::titles();
         $rated_clause                             = 'and ( c1.choice is null or c1.choice != 0 )';
         $event_clause                             = '';
@@ -54,11 +52,6 @@ class SearchController extends Controller
                 // Regex check looks ok
             } else {
                 abort(403, 'Invalid event regex');
-            }
-            if (in_array($event, $events)) {
-                $event_clause = "and attending_$event";
-            } else {
-                abort(403, 'Invalid event');
             }
         }
 
@@ -192,9 +185,7 @@ class SearchController extends Controller
             'show_all'                                 => $show_all,
             'profiles_found_count'                     => $profiles_found_count,
             'users_who_must_be_rated'                  => $users_who_must_be_rated,
-            'events'                                   => $events,
             'event'                                    => $event,
-            'pretty_event_names'                       => $pretty_event_names,
             'titles'                                   => $titles,
         ]);
     }
