@@ -9,7 +9,7 @@
 			{{ $count_with_same_name }} other wastelanders go by the name {{ $wasteland_name }}. Be sure to find the right one.
 		@endif
 	@endif
-	Your mission is to seek out {{ $wasteland_name }} at {{ $pretty_event_names[$event] }} {{ $year }}.
+	Your mission is to seek out {{ $wasteland_name }} at {{ $event }} {{ $year }}.
 	{{ $wasteland_name }} will be looking for you, too.
 	If you find them and meet them in person let us know. This will mark your mission as complete. This mission won't expire until one of you deletes your profile. You can even find them after the event.
 	<br>
@@ -48,7 +48,7 @@
 	@foreach ($events_to_show as $event)
 		@if (isset($attending[$event]))
 			@if ($attending[$event])
-				<h3>Attending {{ $pretty_event_names[$event] }} {{ $year }}</h3>
+				<h3>Attending {{ $event }} {{ $year }}</h3>
 			@endif
 		@endif
 	@endforeach
