@@ -90,9 +90,11 @@ php artisan make:command MyCommand.
 # Change to:
 # protected $signature = 'my:command';
 # In the handle() method you can add your code:
+# use Illuminate\Support\Facades\DB;
 # public function handle()
 # {
 #     echo 'Hello world';
+#     // DB:: commands can go in here if you use DB at top
 # }
 # In app/Console/Kernel.php you will find protected variable $commands. Add your Command's class name.
 # protected $commands = [
