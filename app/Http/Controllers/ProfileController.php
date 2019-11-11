@@ -425,7 +425,7 @@ class ProfileController extends Controller
         $user                   = Auth::user();
         $logged_in_user_id      = Auth::id();
         $event                  = $_GET['event'];
-        $year                   = $_GET['year'];
+        $date                   = $_GET['date'];
         $match_name             = null;
         $match_id               = null;
 
@@ -440,31 +440,32 @@ class ProfileController extends Controller
             die('Invalid event');
         }
 
-        if (preg_match('/^[0-9]+$/', $year)) {
+        if (preg_match('/^[0-9-]+$/', $date)) {
             // All good
         } else {
-            abort(403, 'Invalid year');
+            abort(403, 'Invalid date');
         }
         $deleted_match_or_match_said_no = false;
         $matches_done                   = DB::select('
-            select * from matching where event=? and year=?
-        ', [$event, $year]);
+            select * from attending join event on attending.event_id=event.event_id where event_short_name=? and event_date=?
+        ', [$event, $date]);
 
         $match_array = DB::select('
             select
-                user_1,
-                user_2,
+                user_id,
+                user_id_of_match,
                 users_1.name user_1_name,
                 users_2.name user_2_name
             from
-                matching
-                left join users users_1 on (user_1 = users_1.id)
-                left join users users_2 on (user_2 = users_2.id)
+                attending
+                join event on attending.event_id = event.event_id
+                left join users users_1 on (user_id = users_1.id)
+                left join users users_2 on (user_id_of_match = users_2.id)
             where
-                event = ?
-                and year = ?
-                and (user_1 = ? or user_2 = ?)
-        ', [$event, $year, $logged_in_user_id, $logged_in_user_id]);
+                event_short_name = ?
+                and event_date = ?
+                and user_id = ?
+        ', [$event, $date, $logged_in_user_id]);
         $match = array_shift($match_array);
 
         if ($match) {
@@ -478,15 +479,10 @@ class ProfileController extends Controller
             ]);
         }
 
-        // Figure out who their match is because the table might have them as user_1 or user_2
-        if ($match->user_1 === $logged_in_user_id) {
+        if ($match->user_id === $logged_in_user_id) {
             //Log::debug("User 1 '".$match->user_1."' === user id '$logged_in_user_id'");
-            $match_id   = $match->user_2;
+            $match_id   = $match->user_id_of_match;
             $match_name = $match->user_2_name;
-        } else if ($match->user_2 === $logged_in_user_id) {
-            //Log::debug("User 2 '".$match->user_2."' === user id '$logged_in_user_id'");
-            $match_id   = $match->user_1;
-            $match_name = $match->user_1_name;
         } else {
             die("Could not look up match for user '$logged_in_user_id'");
         }
@@ -520,7 +516,7 @@ class ProfileController extends Controller
         $users_with_same_name = DB::select('select * from users where name = ? and id != ?', [$match_name, $match_id]);
         $count_with_same_name = count($users_with_same_name);
 
-        return $this->show($match_id, $match_name, null, null, true, $event, $year, $count_with_same_name);
+        return $this->show($match_id, $match_name, null, null, true, $event, $date, $count_with_same_name);
     }
 
     public function compatible()

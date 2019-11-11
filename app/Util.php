@@ -36,20 +36,22 @@ class Util {
 
     public static function matched_to_users( $chooser_user_id ) {
         // Left join in case account has been deleted
+        Log::debug("Finding matches for user '$chooser_user_id/'");
         $matched_to_users = DB::select('
             select
-                *
+                *, year(event_date) year
             from
-                matching
-                left join users on ((matching.user_1 = users.id or matching.user_2 = users.id) and users.id != ?)
-                left join choose on (chooser_id = ? and chosen_id in (matching.user_1, matching.user_2) and chosen_id != ?)
+                attending
+                join event on attending.event_id = event.event_id
+                left join users on attending.user_id_of_match = users.id
+                left join choose on chooser_id = attending.user_id and chosen_id = attending.user_id_of_match
             where
-                (user_1 = ? or user_2 = ?)
+                user_id = ?
             order by
-                matching.created_at desc
-        ', [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
+                event.event_date desc
+        ', [$chooser_user_id]);
         foreach ($matched_to_users as $user) {
-            //Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
+            Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
             $user->they_said_no = false;
             $their_choice = DB::select('select choice from choose where chooser_id = ? and chosen_id = ?', [$user->id, $chooser_user_id]);
             if ($their_choice) {
@@ -62,7 +64,7 @@ class Util {
             if ($user->choice == -1) {
                 $user->url = '/profile/'.$user->id.'/'.$user->wasteland_name_hyphenated;
             } else {
-                $user->url = '/profile/match?event='.$user->event.'&year='.$user->year;
+                $user->url = '/profile/match?event='.$user->event_short_name.'&date='.$user->event_date;
             }
         }
         return $matched_to_users;
@@ -180,20 +182,17 @@ class Util {
 
         $missions = DB::select('
             select
-                event,
-                year,
-                user_1,
-                user_2
+                event_id,
+                user_id_of_match
             from
-                matching
+                attending
             where
-                user_1    = ?
-                or user_2 = ?
-        ', [ $user_id, $user_id ]);
+                user_id = ?
+        ', [ $user_id ]);
 
         $points = 0;
         foreach ($missions as $mission) {
-            $other_user_id = $mission->user_1 == $user_id ? $mission->user_2 : $mission->user_1;
+            $other_user_id = $mission->user_id_of_match;
 
             // Yes, we are giving them the point if they marked the user as No instead of Met.
             // This allows them to hide users they have already met and did not like at all
