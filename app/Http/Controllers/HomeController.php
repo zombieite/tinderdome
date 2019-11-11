@@ -15,13 +15,13 @@ class HomeController extends Controller
         $logged_in_user            = Auth::user();
         $logged_in_user_id         = Auth::id();
         $titles                    = \App\Util::titles();
-        $next_event                = null;
+        $next_event_long_name      = null;
         $next_event_date           = null;
         $year                      = null;
         $upcoming_events           = \App\Util::upcoming_events_with_pretty_name_and_date();
         foreach ($upcoming_events as $event) {
-            $next_event      = $event->event_long_name;
-            $next_event_date = $event->event_date;
+            $next_event_long_name  = $event->event_long_name;
+            $next_event_date       = $event->event_date;
             break;
         }
 
@@ -33,12 +33,12 @@ class HomeController extends Controller
             $leaderboard               = $leaderboard_and_count['leaderboard'];
             $nonleader_count           = $leaderboard_and_count['nonleader_count'];
             return view('intro', [
-                'leaderboard'     => $leaderboard,
-                'leader_count'    => $leader_count,
-                'nonleader_count' => $nonleader_count,
-                'next_event'      => $next_event,
-                'next_event_date' => $next_event_date,
-                'titles'          => $titles,
+                'leaderboard'          => $leaderboard,
+                'leader_count'         => $leader_count,
+                'nonleader_count'      => $nonleader_count,
+                'next_event_long_name' => $next_event_long_name,
+                'next_event_date'      => $next_event_date,
+                'titles'               => $titles,
             ]);
         }
 
@@ -122,6 +122,18 @@ class HomeController extends Controller
             }
         }
 
+        if (isset($_POST['attending_event_id'])) {
+            $attending_event_id = $_POST['attending_event_id'];
+            die('TODO');
+            //    if ($_POST['accept'] === 'Approve') {
+            //        DB::update('update comment set approved=1 where comment_id=?', [$comment_id]);
+            //        $success_message = 'Comment approved.';
+            //    } else {
+            //        DB::delete('delete from comment where comment_id=?', [$comment_id]);
+            //        $success_message = 'Comment deleted.';
+            //    }
+        }
+
         $comments_to_approve = DB::select('
             select
                 comment.comment_id,
@@ -152,7 +164,8 @@ class HomeController extends Controller
             'number_photos'                              => $number_photos,
             'unrated_users'                              => $unrated_users,
             'matched_to_users'                           => $matched_to_users,
-            'next_event'                                 => $next_event,
+            'next_event_long_name'                       => $next_event_long_name,
+            'next_event_date'                            => $next_event_date,
             'random_ok'                                  => $random_ok,
             'found_my_match'                             => $found_my_match,
             'rated_enough'                               => $rated_enough,
