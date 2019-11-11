@@ -36,7 +36,7 @@ class Util {
 
     public static function matched_to_users( $chooser_user_id ) {
         // Left join in case account has been deleted
-        Log::debug("Finding matches for user '$chooser_user_id/'");
+        // Log::debug("Finding matches for user '$chooser_user_id/'");
         $matched_to_users = DB::select('
             select
                 *, year(event_date) year
@@ -51,7 +51,7 @@ class Util {
                 event.event_date desc
         ', [$chooser_user_id]);
         foreach ($matched_to_users as $user) {
-            Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
+            // Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
             $user->they_said_no = false;
             $their_choice = DB::select('select choice from choose where chooser_id = ? and chosen_id = ?', [$user->id, $chooser_user_id]);
             if ($their_choice) {
