@@ -40,10 +40,6 @@ class RegisterController extends Controller
 			abort(403, 'Only the site owner can be named Firebird');
 		}
 
-		if (isset($data['attending_detonation']) && isset($data['attending_atomic_falls'])) {
-			abort(403, "Can't attend both Detonation and Atomic Falls. They are on the same dates.");
-		}
-
         if (strlen($data['description']) > 2000) {
             $data['description'] = substr($data['description'], 0, 2000);
         }
@@ -65,11 +61,6 @@ class RegisterController extends Controller
 			'hoping_to_find_love'         => isset($data['hoping_to_find_love'])       ? true : false,
 			'hoping_to_find_lost'         => isset($data['hoping_to_find_lost'])       ? true : false,
 			'hoping_to_find_enemy'        => isset($data['hoping_to_find_enemy'])      ? true : false,
-			'attending_winter_games'      => isset($data['attending_winter_games'])    ? true : false,
-			'attending_ball'              => isset($data['attending_ball'])            ? true : false,
-			'attending_detonation'        => isset($data['attending_detonation'])      ? true : false,
-			'attending_atomic_falls'      => isset($data['attending_atomic_falls'])    ? true : false,
-			'attending_wasteland'         => isset($data['attending_wasteland'])       ? true : false,
 			'number_photos'               => 0,
 			'ip'                          => $ip,
 		]);
