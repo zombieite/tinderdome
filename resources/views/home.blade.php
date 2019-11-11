@@ -125,7 +125,6 @@ Mission status
         @endif
     @endif
 </li>
-<li>To get your reward, find <a href="/profile/Firebird">Firebird</a>.</li>
 </ol>
 
 @if ($matched_to_users)
