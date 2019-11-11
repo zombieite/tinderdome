@@ -37,10 +37,6 @@ Shortly before each event, the matching algorithm will run. You will be matched 
 </p>
 <h3>4. Seek out your match</h3>
 <p>
-Your mission is to find your match at the event and introduce yourself. They'll be looking for you, too.
-</p>
-<h3>5. Get your caps</h3>
-<p>
-Upon mission completion, you can find <a href="/profile/Firebird">Firebird</a> to pick up your bottlecap bounty. Every mission you complete earns you a different cap. <a href="{{ route('register') }}">Get started by creating your profile</a>.
+Your mission is to find your match at the event and introduce yourself. That's it!
 </p>
 @endsection
