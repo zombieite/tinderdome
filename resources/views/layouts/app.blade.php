@@ -76,12 +76,8 @@
 
 <hr>
 {{ $total_count }} total participants
-@if ($next_event_count >= 20)
-    &middot; {{ $next_event_count }} signed up for missions during {{ $pretty_event_names[$next_event] }} {{ $year }}
-@endif
-@if ($active_count >= 10)
-    &middot; {{ $active_count }} active in the past 24 hours
-@endif
+&middot; {{ $active_count }} active in the past 24 hours
+&middot; {{ $next_event_count }} signed up for missions during {{ $next_event }}
 <br>
 <br>
 For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. For films, <a href="https://www.youtube.com/wastelandfirebird">follow us on this video site</a>. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) to report bugs or abusive users.

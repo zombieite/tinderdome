@@ -24,20 +24,19 @@ class AppServiceProvider extends ServiceProvider
             $next_event                  = null;
             $next_event_year             = null;
             $next_event_count            = null;
-            $upcoming_events_with_year   = \App\Util::upcoming_events_with_year();
-            foreach ($upcoming_events_with_year as $event => $event_year) {
-                $next_event              = $event;
-                $next_event_year         = $event_year;
-                $next_event_count_result = 0; // TODO XXX FIXME
-                $next_event_count        = 0; // TODO XXX FIXME
-                break; // This used to do more stuff
+            $upcoming_events             = \App\Util::upcoming_events_with_pretty_name_and_date();
+            foreach ($upcoming_events as $event) {
+                $next_event              = $event->event_long_name;
+                $next_event_id           = $event->event_id;
+                $next_event_count_result = DB::select('select count(*) next_event_count from attending where event_id = ?',[$next_event_id]);
+                $next_event_count        = $next_event_count_result[0]->next_event_count;
+                break;
             }
             $view->with('active_count',                                     $active_count);
             $view->with('total_count',                                      $total_count);
             $view->with('next_event_count',                                 $next_event_count);
             $view->with('next_event',                                       $next_event);
-            $view->with('year',                                             $next_event_year);
-            $view->with('upcoming_events_with_year',                        $upcoming_events_with_year);
+            $view->with('upcoming_events',                                  $upcoming_events);
         });
     }
 }

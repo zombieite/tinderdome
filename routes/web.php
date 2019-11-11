@@ -1,26 +1,26 @@
 <?php
 
 // Visible to everyone
-Route::get( '/',                                     'HomeController@index');
-Route::get( '/save-deadline',                        'DeadlineController@save_deadline');
-Route::get( '/awaited-nonfictional-delusion',        'AwaitedNonfictionalDelusionController@awaited_nonfictional_delusion');
+Route::get( '/',                                      'HomeController@index');
+Route::get( '/save-deadline',                         'DeadlineController@save_deadline');
+Route::get( '/awaited-nonfictional-delusion',         'AwaitedNonfictionalDelusionController@awaited_nonfictional_delusion');
 Route::get( '/profile/Firebird',                      'ProfileController@showFirebird');
 
 // Visible to logged in only ( add ->middleware('auth'); )
 Auth::routes();
-Route::get( '/match',                                'MatchController@match')->middleware(            'auth');
+Route::get( '/match',                                 'MatchController@match')->middleware(            'auth');
 Route::get( '/profile/{profile_id}/{wasteland_name}', 'ProfileController@show')->middleware(           'auth');
 Route::get( '/profile/edit',                          'ProfileController@edit')->middleware(           'auth');
 Route::get( '/profile/compatible',                    'ProfileController@compatible')->middleware(     'auth');
 Route::get( '/profile/match',                         'ProfileController@match')->middleware(          'auth');
-Route::get( '/image/upload',                         'ImageController@upload')->middleware(           'auth');
-Route::get( '/photosearch',                          'PhotoSearchController@photosearch')->middleware('auth');
-Route::get( '/search',                               'SearchController@search')->middleware(          'auth');
-Route::post('/',                                     'HomeController@index')->middleware(             'auth');
+Route::get( '/image/upload',                          'ImageController@upload')->middleware(           'auth');
+Route::get( '/photosearch',                           'PhotoSearchController@photosearch')->middleware('auth');
+Route::get( '/search',                                'SearchController@search')->middleware(          'auth');
+Route::post('/',                                      'HomeController@index')->middleware(             'auth');
 Route::post('/profile/compatible',                    'ProfileController@compatible')->middleware(     'auth');
 Route::post('/profile/comment',                       'ProfileController@comment')->middleware(        'auth');
-Route::post('/image/upload',                         'ImageController@upload')->middleware(           'auth');
+Route::post('/image/upload',                          'ImageController@upload')->middleware(           'auth');
 Route::post('/profile/edit',                          'ProfileController@update')->middleware(         'auth');
 Route::post('/profile/{profile_id}/{wasteland_name}', 'ProfileController@compatible')->middleware(     'auth');
-Route::post('/search',                               'SearchController@update_rating')->middleware(   'auth');
-Route::post('/match',                                'MatchController@match')->middleware(            'auth');
+Route::post('/search',                                'SearchController@update_rating')->middleware(   'auth');
+Route::post('/match',                                 'MatchController@match')->middleware(            'auth');
