@@ -134,11 +134,11 @@ Mission status
         <div class="centered_block">
         @if ($matched_to_user->choice === 0)
             Found match
-            <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
+            <br>{{ $matched_to_user->event_long_name }}
         @else
             @if ($matched_to_user->they_said_no)
                 Found match
-                <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
+                <br>{{ $matched_to_user->event_long_name }}
             @else
                 @if ($matched_to_user->name)
                     @if ($matched_to_user->number_photos)
@@ -151,14 +151,14 @@ Mission status
                         Matched to
                     @endif
                     <a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a>
-                    <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
+                    <br>{{ $matched_to_user->event_long_name }}
                 @else
                     @if ($matched_to_user->choice === -1 or $matched_to_user->choice === 0)
                         Found match
-                        <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
+                        <br>{{ $matched_to_user->event_long_name }}
                     @else
                         Matched to deleted user;<br>mission incomplete
-                        <br>{{ $matched_to_user->event }} {{ $matched_to_user->year }}
+                        <br>{{ $matched_to_user->event_long_name }}
                     @endif
                 @endif
             @endif

@@ -16,6 +16,7 @@ class HomeController extends Controller
         $logged_in_user_id         = Auth::id();
         $titles                    = \App\Util::titles();
         $next_event                = null;
+        $next_event_date           = null;
         $year                      = null;
         $upcoming_events           = \App\Util::upcoming_events_with_pretty_name_and_date();
         foreach ($upcoming_events as $event) {
