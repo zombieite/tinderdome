@@ -35,16 +35,6 @@
 
 <hr>
 
-@if ($upcoming_events_with_year)
-    I will be attending...
-    @foreach ($upcoming_events_with_year as $event => $event_year)
-        <br>
-        <input type="checkbox" name="attending_{{ $event }}" id="attending_{{ $event }}" @guest @else @if ($attending_event{$event}) checked @endif @endguest>
-        <label for="attending_{{ $event }}">{{ $pretty_event_names{$event} }} {{ $event_year }}.</label>
-    @endforeach
-    <br><br>
-@endif
-
 I am...
 <br>
 <input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
