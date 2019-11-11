@@ -81,3 +81,24 @@ tail -1000 storage/logs/laravel.log; tail -f storage/logs/laravel.log
 # http://localhost/ should now work
 
 # Set up backup rsync script to sync files not in repo and keep mysql backed up
+
+# Instructions to run scripts from command line using your code and Laravel's code:
+php artisan make:command MyCommand.
+# Go to app/Console/Commands/MyCommand.php
+# Find:
+# protected $signature = 'command:name';
+# Change to:
+# protected $signature = 'my:command';
+# In the handle() method you can add your code:
+# public function handle()
+# {
+#     echo 'Hello world';
+# }
+# In app/Console/Kernel.php you will find protected variable $commands. Add your Command's class name.
+# protected $commands = [
+#     // ...
+#     Commands\MyCommand::class,
+# ];
+php artisan my:command
+
+
