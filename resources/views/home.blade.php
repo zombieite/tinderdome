@@ -68,17 +68,7 @@
     @endforeach
 @endif
 
-<h2>
-Mission status
-@if ($upcoming_events_and_signup_status)
-    @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-        @if ($upcoming_event->attending_event_id)
-            for {{ $upcoming_event->event_long_name }}
-            @break
-        @endif
-    @endforeach
-@endif
-</h2>
+<h2>Mission status</h2>
 <ol>
 @if ($number_photos)
     <li>COMPLETE: <a href="/profile/{{ $logged_in_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.</li>
