@@ -31,8 +31,8 @@ Browse other profiles and choose who you'd enjoy meeting.
 <h3>3. Find out who you're matched with</h3>
 <p>
 Shortly before each event, the matching algorithm will run. You will be matched with one other person at the event. Check your email or come back to this site to see who you're matched with.
-@if ($next_event)
-    Next event: {{ $next_event_long_name }}!
+@if ($next_event_name)
+    Next event: {{ $next_event_name }}!
 @endif
 </p>
 <h3>4. Seek out your match</h3>
