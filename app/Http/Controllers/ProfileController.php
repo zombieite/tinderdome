@@ -444,7 +444,8 @@ class ProfileController extends Controller
                 user_id,
                 user_id_of_match,
                 users_1.name user_1_name,
-                users_2.name user_2_name
+                users_2.name user_2_name,
+                event_long_name
             from
                 attending
                 join event on attending.event_id = event.event_id
@@ -455,15 +456,16 @@ class ProfileController extends Controller
                 and event_date = ?
                 and user_id = ?
         ', [$event, $date, $logged_in_user_id]);
-        $match = array_shift($match_array);
+        $match           = array_shift($match_array);
+        $event_long_name = $match->event_long_name;
 
         if ($match) {
             // All good
         } else {
             return view('nomatch', [
                 'matches_done'                   => $matches_done,
-                'event'                          => $event,
-                'event_year'                     => $year,
+                'event'                          => $event_long_name,
+                'date'                           => $date,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
@@ -496,8 +498,8 @@ class ProfileController extends Controller
         if ($deleted_match_or_match_said_no) {
             return view('nomatch', [
                 'matches_done'                   => $matches_done,
-                'event'                          => $event,
-                'event_year'                     => $year,
+                'event'                          => $event_long_name,
+                'date'                           => $date,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
@@ -505,7 +507,7 @@ class ProfileController extends Controller
         $users_with_same_name = DB::select('select * from users where name = ? and id != ?', [$match_name, $match_id]);
         $count_with_same_name = count($users_with_same_name);
 
-        return $this->show($match_id, $match_name, null, null, true, $event, $date, $count_with_same_name);
+        return $this->show($match_id, $match_name, null, null, true, $event_long_name, $date, $count_with_same_name);
     }
 
     public function compatible()

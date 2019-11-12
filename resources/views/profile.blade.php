@@ -9,9 +9,10 @@
 			{{ $count_with_same_name }} other wastelanders go by the name {{ $wasteland_name }}. Be sure to find the right one.
 		@endif
 	@endif
-	Your mission is to seek out {{ $wasteland_name }} at {{ $event }} {{ $year }}.
+	Your mission is to seek out {{ $wasteland_name }} at {{ $event }}.
 	{{ $wasteland_name }} will be looking for you, too.
-	If you find them and meet them in person let us know. This will mark your mission as complete. This mission won't expire until one of you deletes your profile. You can even find them after the event.
+	This mission won't expire until one of you deletes the mission or deletes their profile. You can find them during the event or after.
+    If you find them and meet them in person let us know. This will mark your mission as complete.
 	<br>
 	<br>
 	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
@@ -31,7 +32,7 @@
 	@if ($how_to_find_me || $share_info)
 		@if ($profile_id == 1)
 		@else
-			Do not post screenshots of this page. This information is confidential.
+			Do not share screenshots of this page. This information is confidential.
 		@endif
 		@if ($how_to_find_me)
 			How to find {{ $wasteland_name }}:
