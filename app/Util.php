@@ -37,6 +37,7 @@ class Util {
                 left join attending on event.event_id = attending.event_id and attending.user_id = ?
             where
                 event_date > now()
+                and event_date < now() + interval 4 month
             order by
                 event_date
         ', [$user_id]);
