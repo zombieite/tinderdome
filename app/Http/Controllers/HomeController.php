@@ -15,15 +15,6 @@ class HomeController extends Controller
         $logged_in_user            = Auth::user();
         $logged_in_user_id         = Auth::id();
         $titles                    = \App\Util::titles();
-        $next_event_long_name      = null;
-        $next_event_date           = null;
-        $year                      = null;
-        $upcoming_events           = \App\Util::upcoming_events_with_pretty_name_and_date();
-        foreach ($upcoming_events as $event) {
-            $next_event_long_name  = $event->event_long_name;
-            $next_event_date       = $event->event_date;
-            break;
-        }
 
         if ($logged_in_user) {
             // All good
@@ -36,18 +27,17 @@ class HomeController extends Controller
                 'leaderboard'          => $leaderboard,
                 'leader_count'         => $leader_count,
                 'nonleader_count'      => $nonleader_count,
-                'next_event_long_name' => $next_event_long_name,
-                'next_event_date'      => $next_event_date,
                 'titles'               => $titles,
             ]);
         }
 
-        DB::update('update users set last_active=now() where id=?', [$logged_in_user_id]);
+        DB::update('update users set last_active = now() where id = ?', [$logged_in_user_id]);
         if ($logged_in_user_id == 1 and isset($_GET['masquerade'])) {
             $logged_in_user_id = $_GET['masquerade'];
             $logged_in_user    = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
         }
 
+        $upcoming_events           = \App\Util::upcoming_events_with_pretty_name_and_date();
         $min_fraction_to_count_as_rated_enough_users = .75;
         $wasteland_name            = $logged_in_user->name;
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -164,8 +154,6 @@ class HomeController extends Controller
             'number_photos'                              => $number_photos,
             'unrated_users'                              => $unrated_users,
             'matched_to_users'                           => $matched_to_users,
-            'next_event_long_name'                       => $next_event_long_name,
-            'next_event_date'                            => $next_event_date,
             'random_ok'                                  => $random_ok,
             'found_my_match'                             => $found_my_match,
             'rated_enough'                               => $rated_enough,
