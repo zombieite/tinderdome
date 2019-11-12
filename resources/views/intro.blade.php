@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
 @include('home_promo_stuff')
+<h2>Turn strangers into friends--by meeting them.</h2>
 <p>You Are Awaited is a simple game played in the real world during various events. Participation is free. <a href="{{ route('register') }}">Sign up on this site</a>.
 @if ($next_event_name)
     Our next event will be {{ $next_event_name }}!</p>
 @endif
-<h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others. Here's how.</h2>
+<h2>Meet our top {{ $leader_count }} heroes, and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
 	<div class="centered_block">
 		@if ($leader['number_photos'])
