@@ -102,12 +102,22 @@ Mission status
 @else
     <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
 @endif
-@if ($upcoming_events)
+@if ($upcoming_events_and_signup_status)
+    <li>Let us know if you'll be attending these upcoming events:<br>
+        <div>
+            <form action="/" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="attending_event_form" value="1">
+                @foreach ($upcoming_events_and_signup_status as $upcoming_event)
+                    <input type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) checked @endif > {{ $upcoming_event->event_long_name }}<br>
+                @endforeach
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </li>
 
 
 
-
-    <li>Upcoming events
 {{--
                 @if ($next_event_attending)
                     @if ($matched)
@@ -137,7 +147,6 @@ Mission status
             At the event, seek out your match.
         @endif
 --}}
-    </li>
 
 
 @else

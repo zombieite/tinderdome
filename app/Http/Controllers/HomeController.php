@@ -37,7 +37,43 @@ class HomeController extends Controller
             $logged_in_user        = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
         }
 
+        if (isset($_POST['comment_id'])) {
+            $comment_id = $_POST['comment_id'];
+            if (isset($_POST['accept'])) {
+                if ($_POST['accept'] === 'Approve') {
+                    DB::update('update comment set approved=1 where comment_id=?', [$comment_id]);
+                    $success_message = 'Comment approved.';
+                } else {
+                    DB::delete('delete from comment where comment_id=?', [$comment_id]);
+                    $success_message = 'Comment deleted.';
+                }
+            }
+        }
+
         $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
+        if (isset($_POST['attending_event_form'])) {
+            if ($upcoming_events_and_signup_status) {
+                foreach ($upcoming_events_and_signup_status as $upcoming_event) {
+                    $event_id = $upcoming_event->event_id;
+                    $attending = DB::select('select count(*) is_attending from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id])[0]->is_attending;
+                    if (isset($_POST["attending_event_id_$event_id"]) && $_POST["attending_event_id_$event_id"]) {
+                        if ($attending) {
+                            // All good
+                        } else {
+                            DB::insert('insert into attending (user_id, event_id) values (?, ?)', [$logged_in_user_id, $event_id]);
+                        }
+                    } else {
+                        if ($attending) {
+                            DB::delete('delete from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
+                        } else {
+                            // All good
+                        }
+                    }
+                }
+            }
+        }
+        $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
+
         $min_fraction_to_count_as_rated_enough_users = .75;
         $wasteland_name            = $logged_in_user->name;
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -97,31 +133,6 @@ class HomeController extends Controller
             foreach ($mutuals as $mutual) {
                 $mutual->wasteland_name_hyphenated = preg_replace('/\s/', '-', $mutual->name);
             }
-        }
-
-        if (isset($_POST['comment_id'])) {
-            $comment_id = $_POST['comment_id'];
-            if (isset($_POST['accept'])) {
-                if ($_POST['accept'] === 'Approve') {
-                    DB::update('update comment set approved=1 where comment_id=?', [$comment_id]);
-                    $success_message = 'Comment approved.';
-                } else {
-                    DB::delete('delete from comment where comment_id=?', [$comment_id]);
-                    $success_message = 'Comment deleted.';
-                }
-            }
-        }
-
-        if (isset($_POST['attending_event_id'])) {
-            $attending_event_id = $_POST['attending_event_id'];
-            die('TODO');
-            //    if ($_POST['accept'] === 'Approve') {
-            //        DB::update('update comment set approved=1 where comment_id=?', [$comment_id]);
-            //        $success_message = 'Comment approved.';
-            //    } else {
-            //        DB::delete('delete from comment where comment_id=?', [$comment_id]);
-            //        $success_message = 'Comment deleted.';
-            //    }
         }
 
         $comments_to_approve = DB::select('
