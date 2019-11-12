@@ -19,25 +19,25 @@ class HomeController extends Controller
         if ($logged_in_user) {
             // All good
         } else {
-            $leader_count              = 10;
-            $leaderboard_and_count     = \App\Util::leaderboard( $leader_count, $logged_in_user_id );
-            $leaderboard               = $leaderboard_and_count['leaderboard'];
-            $nonleader_count           = $leaderboard_and_count['nonleader_count'];
+            $leader_count          = 10;
+            $leaderboard_and_count = \App\Util::leaderboard( $leader_count );
+            $leaderboard           = $leaderboard_and_count['leaderboard'];
+            $nonleader_count       = $leaderboard_and_count['nonleader_count'];
             return view('intro', [
-                'leaderboard'          => $leaderboard,
-                'leader_count'         => $leader_count,
-                'nonleader_count'      => $nonleader_count,
-                'titles'               => $titles,
+                'leaderboard'      => $leaderboard,
+                'leader_count'     => $leader_count,
+                'nonleader_count'  => $nonleader_count,
+                'titles'           => $titles,
             ]);
         }
 
         DB::update('update users set last_active = now() where id = ?', [$logged_in_user_id]);
         if ($logged_in_user_id == 1 and isset($_GET['masquerade'])) {
-            $logged_in_user_id = $_GET['masquerade'];
-            $logged_in_user    = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
+            $logged_in_user_id     = $_GET['masquerade'];
+            $logged_in_user        = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
         }
 
-        $upcoming_events           = \App\Util::upcoming_events_with_pretty_name_and_date();
+        $upcoming_events           = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
         $min_fraction_to_count_as_rated_enough_users = .75;
         $wasteland_name            = $logged_in_user->name;
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -164,9 +164,9 @@ class HomeController extends Controller
             'comments_to_approve'                        => $comments_to_approve,
             'success_message'                            => $success_message,
             'titles'                                     => $titles,
+            'upcoming_events'                            => $upcoming_events,
             'matched' => false, // TODO XXX FIXME
             'matches_done' => false, // TODO XXX FIXME
-            'next_event_attending' => false, // TODO XXX FIXME
         ]);
     }
 }

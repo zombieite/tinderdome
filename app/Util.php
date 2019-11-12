@@ -7,31 +7,38 @@ use Log;
 
 class Util {
 
-    CONST MONTHS_FOR_PROFILE_TO_BE_INACTIVE = 1;
-
     public static function upcoming_events_with_pretty_name_and_date() {
-        return DB::select('select event_id,event_short_name,event_long_name,event_date from event where event_date>now() order by event_date');
+        return DB::select('
+            select
+                event_id,
+                event_short_name,
+                event_long_name,
+                event_date
+            from
+                event
+            where
+                event_date > now()
+            order by
+                event_date
+        ');
     }
 
-    public static function upcoming_events_with_year() {
-        $events_and_years_result = DB::select('select event_short_name,year(event_date) event_year from event where event_date>now()');
-        $events_and_years = [];
-        foreach ($events_and_years_result as $event) {
-            $events_and_years[$event->event_short_name] = $event->event_year;
-        }
-        return $events_and_years;
-    }
-
-    public static function upcoming_events_user_is_attending_with_year( $logged_in_user ) {
-        $events = \App\Util::upcoming_events_with_year();
-        $attending_events_and_years = [];
-        foreach ($events as $event_short_name => $year) {
-            $event_attendance_result = DB::select('select * from attending join event on attending.event_id=event.event_id where event_short_name = ? and user_id = ?', [$event_short_name, $user_id]);
-            if ($event_attendance_result) {
-                $attending_events_and_years[$event_short_name] = $year;
-            }
-        }
-        return $attending_events_and_years;
+    public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user_id ) {
+        return DB::select('
+            select
+                event.event_id,
+                event_short_name,
+                event_long_name,
+                event_date,
+                attending.event_id attending_event_id
+            from
+                event
+                left join attending on event.event_id = attending.event_id and attending.user_id = ?
+            where
+                event_date > now()
+            order by
+                event_date
+        ', [$user_id]);
     }
 
     public static function matched_to_users( $chooser_user_id ) {
