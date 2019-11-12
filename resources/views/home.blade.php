@@ -109,7 +109,7 @@ Mission status
                 {{ csrf_field() }}
                 <input type="hidden" name="attending_event_form" value="1">
                 @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                    <input type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) checked ><span class="bright"> @else > @endif {{ $upcoming_event->event_long_name }} @if ($upcoming_event->attending_event_id) </span> @endif  <br>
+                    <input type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked ><span class="bright"> @else > @endif {{ $upcoming_event->event_long_name }} @if ($upcoming_event->attending_event_id) </span> @endif  <br>
                 @endforeach
                 <input type="submit" value="Submit">
             </form>

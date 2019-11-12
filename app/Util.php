@@ -30,7 +30,8 @@ class Util {
                 event_short_name,
                 event_long_name,
                 event_date,
-                attending.event_id attending_event_id
+                attending.event_id attending_event_id,
+                attending.user_id_of_match
             from
                 event
                 left join attending on event.event_id = attending.event_id and attending.user_id = ?
