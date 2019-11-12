@@ -70,10 +70,12 @@
 
 <h2>
 Mission status
-@if ($upcoming_events)
-    @foreach ($upcoming_events as $upcoming_event)
+@if ($upcoming_events_and_signup_status)
+    @foreach ($upcoming_events_and_signup_status as $upcoming_event)
+        @if ($upcoming_event->attending_event_id)
             for {{ $upcoming_event->event_long_name }}
             @break
+        @endif
     @endforeach
 @endif
 </h2>
