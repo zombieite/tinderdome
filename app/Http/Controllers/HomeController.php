@@ -55,7 +55,11 @@ class HomeController extends Controller
             if ($upcoming_events_and_signup_status) {
                 foreach ($upcoming_events_and_signup_status as $upcoming_event) {
                     $event_id = $upcoming_event->event_id;
-                    $attending = DB::select('select count(*) is_attending from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id])[0]->is_attending;
+                    $attending_result = DB::select('select * from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
+                    $attending = null;
+                    if ($attending_result) {
+                        $attending = array_shift($attending_result);
+                    }
                     if (isset($_POST["attending_event_id_$event_id"]) && $_POST["attending_event_id_$event_id"]) {
                         if ($attending) {
                             // All good
@@ -64,7 +68,11 @@ class HomeController extends Controller
                         }
                     } else {
                         if ($attending) {
-                            DB::delete('delete from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
+                            if ($attending->user_id_of_match) {
+                                // Can't delete, already matched
+                            } else {
+                                DB::delete('delete from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
+                            }
                         } else {
                             // All good
                         }

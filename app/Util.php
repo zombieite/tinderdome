@@ -46,7 +46,7 @@ class Util {
         // Log::debug("Finding matches for user '$chooser_user_id/'");
         $matched_to_users = DB::select('
             select
-                *, year(event_date) year
+                *
             from
                 attending
                 join event on attending.event_id = event.event_id
