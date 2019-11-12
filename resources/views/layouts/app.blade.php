@@ -52,27 +52,7 @@
 
 <hr>
 
-{{--
-@guest
-@else
-    @if ((Auth::user()->id === 1) || (Auth::user()->id === 50))
---}}
-
-        @yield('content')
-
-{{--
-<img src="/images/fun/other/under_construction.gif"><br>
-<h1>UNDER CONSTRUCTION</h1>
-<h3>You Are Awaited will return to service soon</h3>
-    @else
-        <h1>TRUST THE ALGORITHM</h1>
-        Matches are being run right now.<br><br>
-        @for ($i = 1; $i <=30; $i++)
-            <div style="display:inline-block;padding:2em;"><a href="/images/fun/{{ $i }}.jpg">{{ $i }}</a></div>
-        @endfor
-    @endif
-@endguest
---}}
+    @yield('content')
 
 <hr>
 {{ $total_count }} total participants
