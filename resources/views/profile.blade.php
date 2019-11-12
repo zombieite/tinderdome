@@ -42,17 +42,6 @@
 @if ($share_info)
 	<h3><a href="mailto:{{ $share_info }}" class="bright">{{ $share_info }}</a></h3>
 @endif
-@if ($is_my_match)
-
-@else
-	@foreach ($events_to_show as $event)
-		@if (isset($attending[$event]))
-			@if ($attending[$event])
-				<h3>Attending {{ $event }} {{ $year }}</h3>
-			@endif
-		@endif
-	@endforeach
-@endif
 @if ($gender)
 	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.
 @endif

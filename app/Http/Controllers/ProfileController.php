@@ -165,18 +165,9 @@ class ProfileController extends Controller
         $missions_completed                 = \App\Util::missions_completed( $profile_id );
         $titles                             = \App\Util::titles();
         $logged_in_user_hoping_to_find_love = null;
-        $next_event                         = null;
-        $year                               = null;
-        $upcoming_events_with_year          = \App\Util::upcoming_events_with_year( $auth_user );
         if ($auth_user) {
             $logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
         }
-        foreach ($upcoming_events_with_year as $upcoming_event => $event_year) {
-            $next_event = $upcoming_event;
-            $year       = $event_year;
-            break;
-        }
-        $events_to_show                     = [$next_event];
 
         return view('profile', [
             'profile_id'                         => $profile_id,
@@ -194,7 +185,6 @@ class ProfileController extends Controller
             'hoping_to_find_love'                => $hoping_to_find_love,
             'hoping_to_find_lost'                => $hoping_to_find_lost,
             'hoping_to_find_enemy'               => $hoping_to_find_enemy,
-            'events_to_show'                     => $events_to_show,
             'unchosen_user_id'                   => $unchosen_user_id,
             'count_left'                         => $count_left,
             'is_my_match'                        => $is_my_match,
@@ -209,7 +199,6 @@ class ProfileController extends Controller
             'title_index'                        => $title_index,
             'share_info'                         => $share_info,
             'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
-            'year'                               => $year,
             'image_query_string'                 => $image_query_string,
             'count_with_same_name'               => $count_with_same_name,
             'we_know_each_other'                 => $we_know_each_other,
