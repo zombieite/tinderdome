@@ -37,7 +37,7 @@ class HomeController extends Controller
             $logged_in_user        = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
         }
 
-        $upcoming_events           = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
+        $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
         $min_fraction_to_count_as_rated_enough_users = .75;
         $wasteland_name            = $logged_in_user->name;
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -164,7 +164,7 @@ class HomeController extends Controller
             'comments_to_approve'                        => $comments_to_approve,
             'success_message'                            => $success_message,
             'titles'                                     => $titles,
-            'upcoming_events'                            => $upcoming_events,
+            'upcoming_events_and_signup_status'          => $upcoming_events_and_signup_status,
             'matched' => false, // TODO XXX FIXME
             'matches_done' => false, // TODO XXX FIXME
         ]);
