@@ -31,7 +31,7 @@ Browse other profiles and choose who you'd enjoy meeting.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-Shortly before each event, you will be matched to another participant. Come back here to find out who you're matched with.
+Shortly before each event, you will be matched to someone you'd enjoy meeting. Come back here to find out who.
 </p>
 <h3>4. Seek out your match</h3>
 <p>
