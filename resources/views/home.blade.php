@@ -103,7 +103,7 @@ Mission status
     <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
 @endif
 @if ($upcoming_events_and_signup_status)
-    <li>Let us know if you'll be attending these upcoming events:<br>
+    <li>Let us know if you'll be attending these upcoming events.<br>
         <div>
             <form action="/" method="POST">
                 {{ csrf_field() }}
