@@ -109,7 +109,7 @@ Mission status
                 {{ csrf_field() }}
                 <input type="hidden" name="attending_event_form" value="1">
                 @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                    <input type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) checked @endif > {{ $upcoming_event->event_long_name }}<br>
+                    <input type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) checked ><span class="bright"> @else > @endif {{ $upcoming_event->event_long_name }} @if ($upcoming_event->attending_event_id) </span> @endif  <br>
                 @endforeach
                 <input type="submit" value="Submit">
             </form>
@@ -184,8 +184,13 @@ Mission status
                         Found match
                         <br>{{ $matched_to_user->event_long_name }}
                     @else
-                        Matched to deleted user;<br>mission incomplete
-                        <br>{{ $matched_to_user->event_long_name }}
+                        @if ($matched_to_user->id)
+                            Matched to deleted user;<br>mission incomplete
+                            <br>{{ $matched_to_user->event_long_name }}
+                        @else
+                            No match yet for
+                            <br>{{ $matched_to_user->event_long_name }}
+                        @endif
                     @endif
                 @endif
             @endif
