@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
-
 @include('home_promo_stuff')
-
-<p>You Are Awaited is a simple mission that you can sign up for during Wasteland Weekend and other post-apocalyptic events. Participation is free. <a href="{{ route('register') }}">Signups are done on this site, year-round</a>.</p>
+<p>You Are Awaited is a simple game played in the real world during various events. Participation is free. <a href="{{ route('register') }}">Sign up on this site</a>. Our next event will be {{ $next_event_name }}!</p>
 <h2>Meet our top {{ $leader_count }} heroes... and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
 	<div class="centered_block">
@@ -30,10 +28,7 @@ Browse other profiles and choose who you'd enjoy meeting.
 </p>
 <h3>3. Find out who you're matched with</h3>
 <p>
-Shortly before each event, the matching algorithm will run. You will be matched with one other person at the event. Check your email or come back to this site to see who you're matched with.
-@if ($next_event_name)
-    Next event: {{ $next_event_name }}!
-@endif
+Shortly before each event, you will be matched to another participant. Come back here to find out who you're matched with.
 </p>
 <h3>4. Seek out your match</h3>
 <p>
