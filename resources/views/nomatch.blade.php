@@ -3,9 +3,9 @@
 
 @if ($matches_done)
 	@if ($deleted_match_or_match_said_no)
-		<h2>You were matched for {{ $event }} {{ $event_year }}, but your match has deleted their profile.</h2>
+		<h2>You were matched for {{ $event }}, but your match has deleted their profile.</h2>
 	@else
-		<h2>We did not find you a match for {{ $event }} {{ $event_year }}.</h2>
+		<h2>We did not find you a match for {{ $event }}.</h2>
 		<p>
 			There are a few possible reasons for this.
 			<ul>
@@ -19,6 +19,6 @@
 		</p>
 	@endif
 @else
-	Matches have not been run yet for {{ $event }} {{ $event_year }}. Check back a few days before the event.
+	Matches have not been run yet for {{ $event }}. Check back a few days before the event.
 @endif
 @endsection

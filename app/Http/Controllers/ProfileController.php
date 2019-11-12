@@ -457,7 +457,7 @@ class ProfileController extends Controller
                 and user_id = ?
         ', [$event, $date, $logged_in_user_id]);
         $match           = array_shift($match_array);
-        $event_long_name = $match->event_long_name;
+        $event_long_name = $match ? $match->event_long_name : '';
 
         if ($match) {
             // All good
