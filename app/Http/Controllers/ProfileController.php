@@ -423,10 +423,10 @@ class ProfileController extends Controller
             Log::debug("Masquerading as $logged_in_user_id");
         }
 
-        if (preg_match('/^[_a-z]+$/', $event)) {
+        if (preg_match('/^[_a-z0-9]+$/', $event)) {
             // All good
         } else {
-            die('Invalid event');
+            abort(403, 'Invalid event');
         }
 
         if (preg_match('/^[0-9-]+$/', $date)) {
