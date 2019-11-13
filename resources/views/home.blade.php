@@ -78,15 +78,7 @@
 @endif
 @if ($unrated_users)
     @if ($number_photos)
-        @if ($random_ok)
-            <li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
-        @else
-            @if ($rated_enough)
-                <li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
-            @else
-                <li><a href="/profile/compatible?" class="bright">INCOMPLETE: Since you are not ok with a random match, you must rate {{ $min_percent_to_count_as_rated_enough_users }}% of our users</a>. You have rated {{ $rated_percent }}%.</li>
-            @endif
-        @endif
+        <li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
     @else
         <li>Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.</li>
     @endif
@@ -108,7 +100,7 @@
 @else
     <li>When new events are added, they will appear here. You can sign up to be matched during these events.</li>
 @endif
-<li>At the event, seek out your match and introduce yourself. If you find them, <a href="/search?show_all=1">let us know</a>.</li>
+<li>At each event, seek out your match and introduce yourself. If you find them, <a href="/search?show_all=1">let us know</a>.</li>
 </ol>
 
 @if ($matched_to_users)
@@ -171,9 +163,4 @@
         @endif
     @endforeach
 @endif
-
-@if ($why_not_share_email)
-    <p>Looking for romance? You can get in touch with mutual Fuck-yeahs between events by <a href="/profile/edit">sharing your email address with them</a>.</p>
-@endif
-
 @endsection

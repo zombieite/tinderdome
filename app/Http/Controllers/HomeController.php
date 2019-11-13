@@ -14,11 +14,11 @@ class HomeController extends Controller
     {
         $logged_in_user            = Auth::user();
         $logged_in_user_id         = Auth::id();
-        $titles                    = \App\Util::titles();
 
         if ($logged_in_user) {
             // All good
         } else {
+            $titles                = \App\Util::titles();
             $leader_count          = 10;
             $leaderboard_and_count = \App\Util::leaderboard( $leader_count );
             $leaderboard           = $leaderboard_and_count['leaderboard'];
@@ -91,31 +91,11 @@ class HomeController extends Controller
         }
 
         $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
-        $min_fraction_to_count_as_rated_enough_users = .75;
-        $wasteland_name            = $logged_in_user->name;
-        $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
-        $number_photos             = $logged_in_user->number_photos;
-        $rated_users               = \App\Util::rated_users( $logged_in_user );
-        $unrated_users             = \App\Util::unrated_users( $logged_in_user );
-        $random_ok                 = DB::select("select * from users where id=? and random_ok", [$logged_in_user_id]);
-        $ratings                   = DB::select('select count(*) rated from choose where choice>-1 and chosen_id=?', [$logged_in_user_id]);
-        $ratings_count             = $ratings[0]->rated;
-        $found_my_match            = null;
-        $rated_fraction            = (count($rated_users) + count($unrated_users)) ? count($rated_users) / (count($rated_users) + count($unrated_users)) : 1;
-        $rated_enough              = true;
-        $why_not_share_email       = $logged_in_user->hoping_to_find_love && !$logged_in_user->share_info_with_favorites;
-        $success_message           = '';
-
-        if ($random_ok) {
-            // All good
-        } else {
-            if ($rated_fraction < ($min_fraction_to_count_as_rated_enough_users - 0.01)) {
-                $rated_enough = false;
-            }
-        }
-
-        $rated_percent                              = round($rated_fraction * 100);
-        $min_percent_to_count_as_rated_enough_users = round($min_fraction_to_count_as_rated_enough_users * 100);
+        $wasteland_name                    = $logged_in_user->name;
+        $wasteland_name_hyphenated         = preg_replace('/\s/', '-', $wasteland_name);
+        $number_photos                     = $logged_in_user->number_photos;
+        $unrated_users                     = \App\Util::unrated_users( $logged_in_user );
+        $success_message                   = '';
 
         $mutuals = [];
         if ($logged_in_user->hoping_to_find_love && $logged_in_user->share_info_with_favorites) {
@@ -181,16 +161,9 @@ class HomeController extends Controller
             'number_photos'                              => $number_photos,
             'unrated_users'                              => $unrated_users,
             'matched_to_users'                           => $matched_to_users,
-            'random_ok'                                  => $random_ok,
-            'found_my_match'                             => $found_my_match,
-            'rated_enough'                               => $rated_enough,
-            'rated_percent'                              => $rated_percent,
-            'min_percent_to_count_as_rated_enough_users' => $min_percent_to_count_as_rated_enough_users,
-            'why_not_share_email'                        => $why_not_share_email,
             'mutuals'                                    => $mutuals,
             'comments_to_approve'                        => $comments_to_approve,
             'success_message'                            => $success_message,
-            'titles'                                     => $titles,
             'upcoming_events_and_signup_status'          => $upcoming_events_and_signup_status,
         ]);
     }
