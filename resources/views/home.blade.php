@@ -144,11 +144,12 @@
                         <br>{{ $matched_to_user->event_long_name }}
                         </div>
                     @else
-                        @if ($matched_to_user->id)
+                        @if ($matched_to_user->user_id_of_match)
                             <div class="centered_block">
                             @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
                             Matched to deleted user;<br>mission incomplete
                             <br>{{ $matched_to_user->event_long_name }}
+                            <form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $matched_to_user->event_id }}" value="Delete this mission"></form>
                             </div>
                         @else
                             <div class="centered_block">
