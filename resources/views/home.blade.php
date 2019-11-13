@@ -89,18 +89,17 @@
     <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
 @endif
 @if ($upcoming_events_and_signup_status)
-    <li>Let us know if you'll be attending these upcoming events.<br>
-        <div>
-            <form action="/" method="POST">
-                {{ csrf_field() }}
-                <input type="hidden" name="attending_event_form" value="1">
-                @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                    <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > {{ $upcoming_event->event_long_name }} @if ($upcoming_event->attending_event_id) </span> @endif @if ($upcoming_event->user_id_of_match) <b><a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! Here's your match.</a></b> @endif <br>
-                @endforeach
-                <input type="submit" value="Submit changes">
-            </form>
-        </div>
-    </li>
+    <li><div>
+        Let us know if you'll be attending these upcoming events.<br>
+        <form action="/" method="POST">
+            {{ csrf_field() }}
+            <input type="hidden" name="attending_event_form" value="1">
+            @foreach ($upcoming_events_and_signup_status as $upcoming_event)
+                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > {{ $upcoming_event->event_long_name }} @if ($upcoming_event->user_id_of_match) <br><b><a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! Here's your match.</a></b><br> @endif <br>
+            @endforeach
+            <input type="submit" value="Submit changes">
+        </form>
+    </div></li>
 @else
     <li>When new events are added, they will appear here. You can sign up to be matched during these events.</li>
 @endif
