@@ -13,21 +13,9 @@
         <h1><a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! Here's your match.</a></h1>
     @endif
 @endforeach
-@if ($number_photos)
-    @if (count($unrated_users) >= 3)
-        <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
-        @for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
-                @if ($unrated_users[$i]->number_photos)
-                    <div class="profile_search_block">
-                        <a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
-                    </div>
-                @endif
-        @endfor
-    @endif
-@endif
 
 @if ($comments_to_approve)
-    <h2 class="bright">You have new comments from people you know.</h2>
+    <h2 class="bright">You have new comments</h2>
     You can approve them or delete them. If you approve them they will appear on your profile. All comments are deleted after one year.
     <ul class="nobullet">
     @foreach ($comments_to_approve as $comment)
@@ -53,6 +41,19 @@
         </li>
     @endforeach
     </ul>
+@endif
+
+@if ($number_photos)
+    @if (count($unrated_users) >= 3)
+        <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a></h2>
+        @for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
+                @if ($unrated_users[$i]->number_photos)
+                    <div class="profile_search_block">
+                        <a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
+                    </div>
+                @endif
+        @endfor
+    @endif
 @endif
 
 @if (count($mutuals))
@@ -99,7 +100,7 @@
             {{ csrf_field() }}
             <input type="hidden" name="attending_event_form" value="1">
             @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > {{ $upcoming_event->event_long_name }} @if ($upcoming_event->user_id_of_match) &middot; <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">Here's your match!</a> @endif <br>
+                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > @if ($upcoming_event->user_id_of_match) <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}"> @endif {{ $upcoming_event->event_long_name }} @if ($upcoming_event->user_id_of_match) </a> @endif <br>
             @endforeach
             <input type="submit" value="Submit changes">
         </form>
