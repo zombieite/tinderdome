@@ -8,6 +8,11 @@
 
 @include('home_promo_stuff')
 
+@foreach ($upcoming_events_and_signup_status as $upcoming_event)
+    @if ($upcoming_event->user_id_of_match)
+        <h1><a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! Here's your match.</a></h1>
+    @endif
+@endforeach
 @if ($number_photos)
     @if (count($unrated_users) >= 3)
         <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
@@ -19,7 +24,6 @@
                 @endif
         @endfor
     @endif
-@else
 @endif
 
 @if ($comments_to_approve)
@@ -95,7 +99,7 @@
             {{ csrf_field() }}
             <input type="hidden" name="attending_event_form" value="1">
             @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > {{ $upcoming_event->event_long_name }} @if ($upcoming_event->user_id_of_match) <br><b><a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! Here's your match.</a></b><br> @endif <br>
+                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > {{ $upcoming_event->event_long_name }} @if ($upcoming_event->user_id_of_match) &middot; <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">Here's your match!</a> @endif <br>
             @endforeach
             <input type="submit" value="Submit changes">
         </form>
