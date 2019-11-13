@@ -8,22 +8,18 @@
 
 @include('home_promo_stuff')
 
-@if ($matched)
-    <h1>YOU ARE AWAITED!</h1>
-@else
-    @if ($number_photos)
-        @if (count($unrated_users) >= 3)
-            <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
-            @for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
-                    @if ($unrated_users[$i]->number_photos)
-                        <div class="profile_search_block">
-                            <a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
-                        </div>
-                    @endif
-            @endfor
-        @endif
-    @else
+@if ($number_photos)
+    @if (count($unrated_users) >= 3)
+        <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a>.</h2>
+        @for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
+                @if ($unrated_users[$i]->number_photos)
+                    <div class="profile_search_block">
+                        <a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
+                    </div>
+                @endif
+        @endfor
     @endif
+@else
 @endif
 
 @if ($comments_to_approve)
@@ -135,6 +131,13 @@
                     @endif
                     <a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a>
                     <br>{{ $matched_to_user->event_long_name }}
+                    @if ($matched_to_user->choice === -1)
+                    @else
+                        @if ($matched_to_user->event_has_not_yet_happened)
+                        @else
+                            <br><form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $matched_to_user->event_id }}" value="Delete this mission"></form>
+                        @endif
+                    @endif
                 @else
                     @if ($matched_to_user->choice === -1 or $matched_to_user->choice === 0)
                         Found match
