@@ -97,7 +97,7 @@
                 @foreach ($upcoming_events_and_signup_status as $upcoming_event)
                     <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > {{ $upcoming_event->event_long_name }} @if ($upcoming_event->attending_event_id) </span> @endif @if ($upcoming_event->user_id_of_match) <b><a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! Here's your match.</a></b> @endif <br>
                 @endforeach
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit changes">
             </form>
         </div>
     </li>
@@ -110,23 +110,25 @@
 @if ($matched_to_users)
     <h2>Mission matches</h2>
     @foreach ($matched_to_users as $matched_to_user)
-        <div class="centered_block">
         @if ($matched_to_user->choice === 0)
+            <div class="centered_block">
             Found match
             <br>{{ $matched_to_user->event_long_name }}
         @else
             @if ($matched_to_user->they_said_no)
+                <div class="centered_block">
                 Found match
                 <br>{{ $matched_to_user->event_long_name }}
+                </div>
             @else
                 @if ($matched_to_user->name)
-                    @if ($matched_to_user->number_photos)
-                        <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a>
-                        <br>
-                    @endif
                     @if ($matched_to_user->choice === -1)
+                        <div class="centered_block">
+                        @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
                         Found
                     @else
+                        <div class="centered_block_bright">
+                        @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
                         Matched to
                     @endif
                     <a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a>
@@ -137,23 +139,32 @@
                             <br><form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $matched_to_user->event_id }}" value="Delete this mission"></form>
                         @endif
                     @endif
+                    </div>
                 @else
                     @if ($matched_to_user->choice === -1 or $matched_to_user->choice === 0)
+                        <div class="centered_block">
+                        @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
                         Found match
                         <br>{{ $matched_to_user->event_long_name }}
+                        </div>
                     @else
                         @if ($matched_to_user->id)
+                            <div class="centered_block">
+                            @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
                             Matched to deleted user;<br>mission incomplete
                             <br>{{ $matched_to_user->event_long_name }}
+                            </div>
                         @else
+                            <div class="centered_block">
+                            @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
                             No match yet for
                             <br>{{ $matched_to_user->event_long_name }}
+                            </div>
                         @endif
                     @endif
                 @endif
             @endif
         @endif
-        </div>
     @endforeach
 @endif
 
