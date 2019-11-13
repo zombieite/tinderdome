@@ -8,7 +8,7 @@
         @if ($event)
     		<h2>We did not find you a match for {{ $event }}.</h2>
         @else
-            <h2>We did not find you a match.</h2>
+            <h2>Event not found.</h2>
         @endif
 		<p>
 			There are a few possible reasons for this.
@@ -22,6 +22,10 @@
 		</p>
 	@endif
 @else
-	Matches have not been run yet for {{ $event }}. Check back a few days before the event.
+    @if ($event)
+    	Matches have not been run yet for {{ $event }}. Check back a few days before the event.
+    @else
+        Event not found.
+    @endif
 @endif
 @endsection
