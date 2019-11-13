@@ -99,46 +99,12 @@
                 {{ csrf_field() }}
                 <input type="hidden" name="attending_event_form" value="1">
                 @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                    <input type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked ><span class="bright"> @else > @endif {{ $upcoming_event->event_long_name }} @if ($upcoming_event->attending_event_id) </span> @endif  <br>
+                    <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > {{ $upcoming_event->event_long_name }} @if ($upcoming_event->attending_event_id) </span> @endif @if ($upcoming_event->user_id_of_match) <b><a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! Here's your match.</a></b> @endif <br>
                 @endforeach
                 <input type="submit" value="Submit">
             </form>
         </div>
     </li>
-
-
-
-{{--
-                @if ($next_event_attending)
-                    @if ($matched)
-                        <li><b><a class="bright" href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">COMPLETE: YOU ARE AWAITED AT {{ strtoupper($next_event_attending) }} {{ $next_event_attending_year }}! Here's your match.</a></b></li>
-                    @else
-                        @if ($matches_done)
-                            <li>Matches are complete for {{ $next_event_attending }} {{ $next_event_attending_year }}, but you were not matched. <a href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">Find out why</a>.</li>
-                        @else
-                            <li>Matches have not yet been run for {{ $next_event_attending }} {{ $next_event_attending_year }}. Check back here before the event to find out who you're matched with.</li>
-                        @endif
-                    @endif
-                    @else
-
-                    @endif
-                @endif
-                <li>
-    @if ($next_event_attending && $matched)
-        @if ($found_my_match)
-            COMPLETE: You found your match!
-        @else
-            Did you find your match? <a href="/profile/match?event={{ $next_event_attending }}&year={{ $next_event_attending_year }}">Let us know</a>.
-        @endif
-    @else
-        @if ($number_photos)
-            At the event, seek out your match. When you find your match, <a href="/search?show_all=1">let us know that you've met them</a>.
-        @else
-            At the event, seek out your match.
-        @endif
---}}
-
-
 @else
     <li>When new events are added, they will appear here. You can sign up to be matched during these events.</li>
 @endif
