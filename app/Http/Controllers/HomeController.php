@@ -80,15 +80,23 @@ class HomeController extends Controller
                 }
             }
         }
-        $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
 
+        $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );
+        foreach ($matched_to_users as $matched_to_user) {
+            if (isset($_POST['delete_mission_'.$matched_to_user->event_id])) {
+                DB::delete('delete from attending where event_id = ? and user_id = ?', [$matched_to_user->event_id, $logged_in_user_id]);
+                DB::delete('delete from attending where event_id = ? and user_id = ?', [$matched_to_user->event_id, $matched_to_user->user_id_of_match]);
+                $matched_to_users  = \App\Util::matched_to_users( $logged_in_user_id );
+            }
+        }
+
+        $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
         $min_fraction_to_count_as_rated_enough_users = .75;
         $wasteland_name            = $logged_in_user->name;
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
         $number_photos             = $logged_in_user->number_photos;
         $rated_users               = \App\Util::rated_users( $logged_in_user );
         $unrated_users             = \App\Util::unrated_users( $logged_in_user );
-        $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );
         $random_ok                 = DB::select("select * from users where id=? and random_ok", [$logged_in_user_id]);
         $ratings                   = DB::select('select count(*) rated from choose where choice>-1 and chosen_id=?', [$logged_in_user_id]);
         $ratings_count             = $ratings[0]->rated;
@@ -184,8 +192,6 @@ class HomeController extends Controller
             'success_message'                            => $success_message,
             'titles'                                     => $titles,
             'upcoming_events_and_signup_status'          => $upcoming_events_and_signup_status,
-            'matched' => false, // TODO XXX FIXME
-            'matches_done' => false, // TODO XXX FIXME
         ]);
     }
 }
