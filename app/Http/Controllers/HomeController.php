@@ -41,10 +41,10 @@ class HomeController extends Controller
             $comment_id = $_POST['comment_id'];
             if (isset($_POST['accept'])) {
                 if ($_POST['accept'] === 'Approve') {
-                    DB::update('update comment set approved=1 where comment_id=?', [$comment_id]);
+                    DB::update('update comment set approved=1 where comment_id = ? and commented_on_user_id = ?', [$comment_id, $logged_in_user_id]);
                     $success_message = 'Comment approved.';
                 } else {
-                    DB::delete('delete from comment where comment_id=?', [$comment_id]);
+                    DB::delete('delete from comment where comment_id = ? and commented_on_user_id = ?', [$comment_id, $logged_in_user_id]);
                     $success_message = 'Comment deleted.';
                 }
             }
