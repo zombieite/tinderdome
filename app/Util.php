@@ -123,7 +123,6 @@ class Util {
     public static function unrated_users( $chooser_user ) {
         $gender_of_match = $chooser_user->gender_of_match;
         $chooser_user_id = $chooser_user->id;
-        $upcoming_order_bys = '';
         #Log::debug("Gender of match: $gender_of_match");
         $gender_order_by = '';
         if ($gender_of_match) {
@@ -165,10 +164,14 @@ class Util {
                 join attending they_are_attending on (
                     users.id = they_are_attending.user_id
                 )
+                join event on (
+                    i_am_attending.event_id = event.event_id
+                )
             where
                 id > 10
                 and id <> ?
                 and i_am_attending.event_id = they_are_attending.event_id
+                and event_date > now()
                 and my_choice.choice is null
                 and
                 (
@@ -178,10 +181,9 @@ class Util {
                 )
                 and number_photos > 0
             order by
-                $upcoming_order_bys
                 $gender_order_by
                 number_photos desc,
-                id desc
+                id asc
         ",
         [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 

@@ -107,7 +107,7 @@
         <li>Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.</li>
     @endif
 @else
-    <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
+    <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals.</li>
 @endif
 
 <li>Come back here a few days before the event to find out who you're matched with.
