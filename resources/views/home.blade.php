@@ -146,7 +146,7 @@
                     @if ($matched_to_user->choice === -1)
                     @else
                         @if ($matched_to_user->ok_to_delete_old_mission)
-                            <br><form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $matched_to_user->event_id }}" value="Delete this mission"></form>
+                            <br><form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $matched_to_user->event_id }}" class="no" value="Delete this mission"></form>
                         @endif
                     @endif
                     </div>
