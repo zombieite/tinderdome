@@ -107,12 +107,12 @@
         <li>Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.</li>
     @endif
 @else
-    <li>COMPLETE: You have viewed all profiles that are signed up for the same events you are signed up for. Check back later to see new arrivals.</li>
+    <li>COMPLETE: You have viewed all profiles. Come back later to see new arrivals.</li>
 @endif
 
-<li>Come back here a few days before the event to find out who you're matched with.
+<li>Come back a few days before the event to find out who you're matched with.
 
-<li>At the event, seek out your match and introduce yourself. If you find them, <a href="/search?show_all=1">let us know</a>.</li>
+<li>At the event, seek out your match and introduce yourself.</li>
 
 </ol>
 
