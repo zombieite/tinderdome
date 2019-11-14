@@ -35,7 +35,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('total_count',                                      $total_count);
             $view->with('next_event_count',                                 $next_event_count);
             $view->with('next_event_name',                                  $next_event_name);
-            $view->with('upcoming_events',                                  $upcoming_events);
         });
     }
 }
