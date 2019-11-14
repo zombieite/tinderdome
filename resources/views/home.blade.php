@@ -110,6 +110,7 @@
             <div class="centered_block">
             Found match
             <br>{{ $matched_to_user->event_long_name }}
+            </div>
         @else
             @if ($matched_to_user->they_said_no)
                 <div class="centered_block">
