@@ -26,7 +26,7 @@
     &middot;
     <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
     &middot;
-    <a class="navbar" href="/awaited-nonfictional-delusion">AWAITED: NONFICTIONAL DELUSION</a>
+    <a class="navbar" href="/awaited-nonfictional-delusion"><span class="bright">A</span>W<span class="bright">A</span>I<span class="bright">T</span>E<span class="bright">D</span>: <span class="bright">N</span>O<span class="bright">N</span>F<span class="bright">I</span>C<span class="bright">T</span>I<span class="bright">O</span>N<span class="bright">A</span>L <span class="bright">D</span>E<span class="bright">L</span>U<span class="bright">S</span>I<span class="bright">O</span>N</a>
     &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
 @else
@@ -42,7 +42,7 @@
     &middot;
     <a class="navbar" href="/search">Search</a>
     &middot;
-    <a class="navbar" href="/awaited-nonfictional-delusion">AWAITED: NONFICTIONAL DELUSION</a>
+    <a class="navbar" href="/awaited-nonfictional-delusion"><span class="bright">A</span>W<span class="bright">A</span>I<span class="bright">T</span>E<span class="bright">D</span>: <span class="bright">N</span>O<span class="bright">N</span>F<span class="bright">I</span>C<span class="bright">T</span>I<span class="bright">O</span>N<span class="bright">A</span>L <span class="bright">D</span>E<span class="bright">L</span>U<span class="bright">S</span>I<span class="bright">O</span>N</a>
     &middot;
     <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
     &middot;
