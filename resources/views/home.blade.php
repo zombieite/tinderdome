@@ -102,7 +102,7 @@
 
 @if ($unrated_users)
     @if ($number_photos)
-        <li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
+        <li><a href="/profile/compatible?" class="bright">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
     @else
         <li>Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.</li>
     @endif
@@ -118,7 +118,7 @@
     </li>
 @endif
 
-<li>Come back a few days before the event to find out who you're matched with.
+<li>Check here a few days before the event to find out who you're matched with.
 
 <li>At the event, seek out your match and introduce yourself.</li>
 
