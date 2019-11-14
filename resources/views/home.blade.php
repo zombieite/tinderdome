@@ -71,23 +71,22 @@
 
 <h2>Mission status</h2>
 <ol>
+
 @if ($number_photos)
     <li>COMPLETE: <a href="/profile/{{ $logged_in_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.</li>
 @else
     <li><a href="/image/upload" class="bright">INCOMPLETE: You must upload a photo</a>.</li>
 @endif
-@if ($unrated_users)
-    @if ($number_photos)
-        <li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
-    @else
-        <li>Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.</li>
-    @endif
-@else
-    <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
-@endif
+
 @if ($upcoming_events_and_signup_status)
     <li><div>
-        Let us know if you'll be attending these upcoming events.<br>
+        @foreach ($upcoming_events_and_signup_status as $upcoming_event)
+            @if ($upcoming_event->attending_event_id)
+                COMPLETE:
+                @break
+            @endif
+        @endforeach
+        Sign up for upcoming events.<br>
         <form action="/" method="POST">
             {{ csrf_field() }}
             <input type="hidden" name="attending_event_form" value="1">
@@ -100,7 +99,21 @@
 @else
     <li>When new events are added, they will appear here. You can sign up to be matched during these events.</li>
 @endif
-<li>At each event, seek out your match and introduce yourself. If you find them, <a href="/search?show_all=1">let us know</a>.</li>
+
+@if ($unrated_users)
+    @if ($number_photos)
+        <li><a href="/profile/compatible?">Choose who you'd like to meet ({{ count($unrated_users) }} left to view)</a>.</li>
+    @else
+        <li>Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.</li>
+    @endif
+@else
+    <li>COMPLETE: You have viewed all profiles. Check back later to see new arrivals. Or you can <a href="/search?show_all=1">revisit profiles</a> you've already viewed.</li>
+@endif
+
+<li>Come back here a few days before the event to find out who you're matched with.
+
+<li>At the event, seek out your match and introduce yourself. If you find them, <a href="/search?show_all=1">let us know</a>.</li>
+
 </ol>
 
 @if ($matched_to_users)

@@ -26,11 +26,15 @@ Create a profile
 <p>
 You'll create a profile that tells everyone a little bit about you. <a href="/profile/Firebird">Here's an example</a>.
 </p>
-<h3>2. Let us know who you'd enjoy meeting at the next event</h3>
+<h3>2. Sign up for an event</h3>
 <p>
-Browse other profiles and choose who you'd enjoy meeting.
+Let us know what upcoming events you'll be attending.
 </p>
-<h3>3. Find out who you're matched with</h3>
+<h3>3. Let us know who you'd enjoy meeting</h3>
+<p>
+Browse other profiles and choose who you'd enjoy meeting at one of the upcoming events.
+</p>
+<h3>4. Find out who you're matched with</h3>
 <p>
 Shortly before each event, you will be matched to someone you'd enjoy meeting. Come back here to find out who.
 </p>
