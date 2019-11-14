@@ -49,7 +49,7 @@ class Util {
         $matched_to_users = DB::select('
             select
                 *,
-                if(event_date < now() - interval 14 day, 1, 0) ok_to_delete_old_mission
+                if(event_date < now() - interval 5 day, 1, 0) ok_to_delete_old_mission
             from
                 attending
                 join event on attending.event_id = event.event_id

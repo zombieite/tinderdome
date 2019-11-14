@@ -174,11 +174,15 @@
                             <form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $matched_to_user->event_id }}" value="Delete this mission"></form>
                             </div>
                         @else
-                            <div class="centered_block">
-                            @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
-                            No match yet for
-                            <br>{{ $matched_to_user->event_long_name }}
-                            </div>
+                            @if ($matched_to_user->ok_to_delete_old_mission)
+                                {{-- Don't even show an old mission that didn't get them a match --}}
+                            @else
+                                <div class="centered_block">
+                                @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
+                                No match yet for
+                                <br>{{ $matched_to_user->event_long_name }}
+                                </div>
+                            @endif
                         @endif
                     @endif
                 @endif
