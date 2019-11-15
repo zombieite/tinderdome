@@ -284,43 +284,39 @@ class Util {
     }
 
     public static function nos_left_for_user( $user_id ) {
-        $user_count = 0;
-        $user_count_results = DB::select('select count(*) user_count from users');
-        foreach ($user_count_results as $user_count_result) {
-            $user_count = $user_count_result->user_count;
-        }
-        $nos_used = 0;
-        $nos_used_results = DB::select('select count(*) nos_used from choose join users on choose.chosen_id = users.id where choice = 0 and chooser_id = ?', [$user_id]);
-        foreach ($nos_used_results as $nos_used_result) {
-            $nos_used = $nos_used_result->nos_used;
-        }
-        $popularity = 0;
-        $popularity_results = DB::select('select count(*) popularity from choose join users on choose.chooser_id = users.id where choice > 0 and chosen_id = ? and chooser_id <> ?', [$user_id, $user_id]);
-        foreach ($popularity_results as $popularity_result) {
-            $popularity = $popularity_result->popularity;
-        }
-        $gender              = null;
-        $birth_year          = null;
-        $hoping_to_find_love = null;
-        $random_ok           = null;
-        $nos_info_results = DB::select('select gender, birth_year, hoping_to_find_love, random_ok from users where id = ?', [$user_id]);
-        foreach ($nos_info_results as $nos_info_result) {
-            $gender              = $nos_info_result->gender;
-            $birth_year          = $nos_info_result->birth_year;
-            $hoping_to_find_love = $nos_info_result->hoping_to_find_love;
-            $random_ok           = $nos_info_result->random_ok;
-        }
+        $user_count              = 0;
+        $user_count_results      = DB::select('select count(*) user_count from users');
+        $user_count_result       = array_shift($user_count_results);
+        $user_count              = $user_count_result->user_count;
+        $nos_used                = 0;
+        $nos_used_results        = DB::select('select count(*) nos_used from choose join users on choose.chosen_id = users.id where choice = 0 and chooser_id = ?', [$user_id]);
+        $nos_used_result         = array_shift($nos_used_results);
+        $nos_used                = $nos_used_result->nos_used;
+        $popularity              = 0;
+        $popularity_results      = DB::select('select count(*) popularity from choose join users on choose.chooser_id = users.id where choice > 0 and chosen_id = ? and chooser_id <> ?', [$user_id, $user_id]);
+        $popularity_result       = array_shift($popularity_results);
+        $popularity              = $popularity_result->popularity;
+        $gender                  = null;
+        $birth_year              = null;
+        $hoping_to_find_love     = null;
+        $random_ok               = null;
+        $nos_info_results        = DB::select('select gender, birth_year, hoping_to_find_love, random_ok from users where id = ?', [$user_id]);
+        $nos_info_result         = array_shift($nos_info_results);
+        $gender                  = $nos_info_result->gender;
+        $birth_year              = $nos_info_result->birth_year;
+        $hoping_to_find_love     = $nos_info_result->hoping_to_find_love;
+        $random_ok               = $nos_info_result->random_ok;
 
-        $min_available_nos = intdiv($user_count, 8);
-        $max_available_nos = intdiv($user_count, 2);
+        $min_available_nos       = intdiv($user_count, 10);
+        $max_available_nos       = intdiv($user_count, 2);
 
         // Everyone gets this many
-        $nos = $min_available_nos;
+        $nos                     = $min_available_nos;
 
         // Bonus amount to give below
-        $bonus_nos_amount = intdiv($user_count, 20);
+        $bonus_nos_amount        = intdiv($user_count, 20);
 
-        // If you're popular you can be pickier and still get a match
+        // If a lot of people want to meet you, you can be pickier and still get a match
         $nos += $popularity;
 
         // If you'll allow a random match from unrated users you get to choose more nos for rated users
@@ -333,27 +329,27 @@ class Util {
             $nos += $bonus_nos_amount;
         }
 
-        // If you're young you can be picker and still get a match
+        // If you're young you can probably be pickier and still get a match
         if ($birth_year >= date("Y")-45) {
             $nos += $bonus_nos_amount;
         }
 
-        // If you're a female you can be pickier and still get a match
+        // If you're a female you can probably be pickier and still get a match, and you might need to be pickier for safety's sake
         if ($gender == 'F') {
             $nos += (2 * $bonus_nos_amount);
         }
 
-        // If you are young AND female you can be even pickier and still get a match
+        // If you are young AND female you can probably be even pickier and still get a match
         if (($gender == 'F') && ($birth_year >= date("Y")-25)) {
             $nos += $bonus_nos_amount;
         }
 
-        // If you are young AND female you can be even pickier and still get a match
+        // If you are young AND female you can probably be even pickier and still get a match
         if (($gender == 'F') && ($birth_year >= date("Y")-35)) {
             $nos += $bonus_nos_amount;
         }
 
-        // If you are young AND female you can be even pickier and still get a match
+        // If you are young AND female you can probably be even pickier and still get a match
         if (($gender == 'F') && ($birth_year >= date("Y")-45)) {
             $nos += $bonus_nos_amount;
         }
