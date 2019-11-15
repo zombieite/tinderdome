@@ -29,6 +29,9 @@ You'll create a profile that tells everyone a little bit about you. <a href="/pr
 <h3>2. Sign up for an event</h3>
 <p>
 Let us know what upcoming events you'll be attending.
+@if ($next_event_name)
+    The next event is {{ $next_event_name }}!
+@endif
 </p>
 <h3>3. Let us know who you'd enjoy meeting</h3>
 <p>
