@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('home_promo_stuff')
-<h2>Turn strangers into friends--by meeting them.</h2>
+<h2>Turn strangers into friends by meeting them.</h2>
 <p>You Are Awaited is a simple game. You prepare for it online, but play it in the real world. Participation is free. <a href="{{ route('register') }}">Sign up on this site</a>.
 @if ($next_event_name)
     Our next event will be {{ $next_event_name }}!</p>
@@ -13,10 +13,10 @@
 			<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a>
 		@endif
 		<br>
-		@if ($leader['missions_completed']['points'] > 0)
+		@if ($leader['missions_completed'] > 0)
 			{{ $titles[$leader['title_index']] }}
 		@endif
-		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed']['points'] }}
+		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed'] }}
 	</div>
 @endforeach
 <h3>1.

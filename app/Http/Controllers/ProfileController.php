@@ -280,7 +280,7 @@ class ProfileController extends Controller
         $missions_completed        = \App\Util::missions_completed( $profile_id );
 
         $title_index               = isset($_POST['title_index']) ? $_POST['title_index'] : null;
-        if ($title_index > $missions_completed['points']) {
+        if ($title_index > $missions_completed) {
             $update_errors = 'Illegal title choice';
         }
 

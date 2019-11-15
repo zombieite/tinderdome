@@ -7,6 +7,52 @@ use Log;
 
 class Util {
 
+    public static function user_score($user_id) {
+
+        $user_scoring_data_result = DB::select('
+            select
+				id,
+                greylist,
+				number_photos,
+                datediff(curdate(), users.created_at) days_since_signup
+            from
+                users
+            where
+                id = ?
+        ', [$user_id]);
+		$user_scoring_data = array_shift($user_scoring_data_result);
+		$popularity_result = DB::select('
+			select
+				sum(choice) popularity
+			from
+				choose
+			where
+				choice > 0
+				and chosen_id = ?
+		', [$user_id]);
+		$popularity_row = array_shift($popularity_result);
+		$popularity = $popularity_row->popularity;
+		$missions_completed = \App\Util::missions_completed($user_id);
+
+		$score = 0;
+
+		if ($user_scoring_data->greylist) {
+			return $score;
+		}
+
+        if ($user_scoring_data->number_photos === 0) {
+			return $score;
+        }
+
+        $popularity_multiplier                    = 2;
+        $missions_completed_rank_boost_multiplier = 100;
+        $score += $user_scoring_data->days_since_signup;
+        $score += $popularity         * $popularity_multiplier;
+        $score += $missions_completed * $missions_completed_rank_boost_multiplier;
+
+		return $score;
+    }
+
     public static function upcoming_events_with_pretty_name_and_date() {
         return DB::select('
             select
@@ -80,46 +126,6 @@ class Util {
         return $matched_to_users;
     }
 
-    public static function rated_users( $chooser_user ) {
-        $chooser_user_id = $chooser_user->id;
-
-        // The second choose join hides users who have already said no to you so you don't even get to see them
-        $rated_users = DB::select("
-            select
-                *
-            from
-                users
-                left join choose my_choice on (
-                    users.id = my_choice.chosen_id
-                    and chooser_id = ?
-                )
-                left join choose their_choice on (
-                    users.id = their_choice.chooser_id
-                    and their_choice.chosen_id = ?
-                )
-                join attending i_am_attending on (
-                    i_am_attending.user_id = ?
-                )
-                join attending they_are_attending on (
-                    users.id = they_are_attending.user_id
-                )
-            where
-                id > 10
-                and id <> ?
-                and i_am_attending.event_id = they_are_attending.event_id
-                and my_choice.choice is not null
-                and
-                (
-                    their_choice.choice is null
-                    or
-                    their_choice.choice != 0
-                )
-        ",
-        [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
-
-        return $rated_users;
-    }
-
     public static function unrated_users( $chooser_user ) {
         $gender_of_match = $chooser_user->gender_of_match;
         $chooser_user_id = $chooser_user->id;
@@ -191,55 +197,18 @@ class Util {
     }
 
     public static function missions_completed( $user_id ) {
-
-        $missions = DB::select('
-            select
-                event_id,
-                user_id_of_match
-            from
-                attending
-            where
-                user_id = ?
+        $missions_result = DB::select('
+			select
+				count(*) missions_completed
+			from
+				attending
+				join event on (attending.event_id = event.event_id)
+				join choose on (attending.user_id = choose.chooser_id and attending.user_id_of_match = choose.chosen_id and choose.choice < 1)
+      		where
+				user_id = ?
         ', [ $user_id ]);
-
-        $points = 0;
-        foreach ($missions as $mission) {
-            $other_user_id = $mission->user_id_of_match;
-
-            // Yes, we are giving them the point if they marked the user as No instead of Met.
-            // This allows them to hide users they have already met and did not like at all
-            // and still get credit for the mission.
-            $user_claims_known = DB::select('
-                select
-                    1
-                from
-                    choose
-                where
-                    chooser_id    = ?
-                    and chosen_id = ?
-                    and choice    <= 0
-            ', [ $user_id, $other_user_id ]);
-
-            $other_user_claims_knows_this_user = DB::select('
-                select
-                    1
-                from
-                    choose
-                where
-                    chooser_id    = ?
-                    and chosen_id = ?
-                    and choice    <= 0
-            ', [ $other_user_id, $user_id ]);
-
-            if ($user_claims_known or $other_user_claims_knows_this_user) {
-                $points += 1;
-            }
-        }
-
-        return [
-            'missions' => $missions,
-            'points'   => $points,
-        ];
+		$missions = array_shift($missions_result);
+		return $missions->missions_completed;
     }
 
     public static function titles() {
@@ -262,8 +231,8 @@ class Util {
     }
 
     private static function sort_leaderboard($a, $b) {
-        if ($b['missions_completed']['points'] - $a['missions_completed']['points'] !== 0) {
-            return $b['missions_completed']['points'] - $a['missions_completed']['points'];
+        if ($b['missions_completed'] - $a['missions_completed'] !== 0) {
+            return $b['missions_completed'] - $a['missions_completed'];
         }
         return $a['profile_id'] - $b['profile_id'];
     }
@@ -306,20 +275,6 @@ class Util {
         while (count($leaderboard) > $number_of_leaders) {
             array_pop($leaderboard);
             $nonleader_count++;
-        }
-
-        // Make sure leaders are ok showing their face to the logged in user.
-        // Yes, the user could still see them if they logged out but this is
-        // the price of fame.
-        if ($auth_user_id) {
-            foreach ($leaderboard as $leader) {
-                $leader_id = $leader['profile_id'];
-                $this_leader_blocked_me = DB::select('select choice from choose where choice=0 and chooser_id=? and chosen_id=?', [$leader_id, $auth_user_id]);
-                if ($this_leader_blocked_me) {
-                    // If one leader has blocked them, don't show any
-                    $leaderboard = [];
-                }
-            }
         }
 
         return [
