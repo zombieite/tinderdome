@@ -16,9 +16,16 @@ class AppServiceProvider extends ServiceProvider
 
             $logged_in_user_id            = Auth::id();
             if ($logged_in_user_id) {
-                $ip                       = request()->ip() or die("No ip");
-                $score                    = \App\Util::user_score($logged_in_user_id);
-                DB::update('update users set last_active = now(), ip = ?, score =? where id = ?', [$ip, $score, $logged_in_user_id]);
+                $current_time             = time();
+                $last_updated_time        = session('last_active_time');
+                if ($last_updated_time && $current_time - $last_updated_time < 1800) {
+                    // Only update last_active, ip, and score every once in a while
+                } else {
+                    $ip                   = request()->ip() or die("No ip");
+                    $score                = \App\Util::user_score($logged_in_user_id);
+                    DB::update('update users set last_active = now(), ip = ?, score = ? where id = ?', [$ip, $score, $logged_in_user_id]);
+                    session(['last_active_time' => $current_time]);
+                }
             }
 
             $active_count_result          = DB::select('select count(*) active_count from users where last_active>now()-interval 1 day');
