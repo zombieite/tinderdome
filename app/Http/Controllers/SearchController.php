@@ -45,8 +45,6 @@ class SearchController extends Controller
         $logged_in_user_number_photos             = $logged_in_user->number_photos;
         $users_who_must_be_rated                  = 0;
 
-        DB::update('update users set last_active=now() where id=?', [$logged_in_user_id]);
-
         if ($event) {
             if (preg_match('/^[a-z_]+$/', $event)) {
                 // Regex check looks ok

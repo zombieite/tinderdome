@@ -31,7 +31,6 @@ class HomeController extends Controller
             ]);
         }
 
-        DB::update('update users set last_active = now() where id = ?', [$logged_in_user_id]);
         if ($logged_in_user_id == 1 and isset($_GET['masquerade'])) {
             $logged_in_user_id     = $_GET['masquerade'];
             $logged_in_user        = DB::select('select * from users where id=?', [$logged_in_user_id])[0];

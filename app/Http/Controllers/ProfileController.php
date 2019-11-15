@@ -32,8 +32,6 @@ class ProfileController extends Controller
             Log::debug("Masquerading as $logged_in_user_id");
         }
 
-        DB::update('update users set last_active=now() where id=?', [$logged_in_user_id]);
-
         //Log::debug("Looking for user $logged_in_user_id");
         if ($profile) {
             // All good
@@ -270,8 +268,6 @@ class ProfileController extends Controller
         } else {
             abort(403);
         }
-
-        DB::update('update users set last_active=now() where id=?', [$profile_id]);
 
         $titles                    = \App\Util::titles();
         $update_errors             = '';

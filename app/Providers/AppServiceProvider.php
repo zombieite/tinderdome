@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +12,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('*', function($view) {
+
+            $logged_in_user_id = Auth::id();
+            if ($logged_in_user_id) {
+                DB::update('update users set last_active = now() where id = ?', [$logged_in_user_id]);
+            }
+
             $active_count_result = DB::select('select count(*) active_count from users where last_active>now()-interval 1 day');
             $active_count = 0;
             if ($active_count_result) {
