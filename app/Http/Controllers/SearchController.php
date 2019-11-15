@@ -13,16 +13,6 @@ use Log;
 
 class SearchController extends Controller
 {
-    private static function sort_search($a, $b) {
-        if ($b['missions_completed']['points'] - $a['missions_completed']['points'] !== 0) {
-            return $b['missions_completed']['points'] - $a['missions_completed']['points'];
-        }
-        if ($b['choice'] - $a['choice'] !== 0) {
-            return $b['choice'] - $a['choice'];
-        }
-        return $a['profile_id'] - $b['profile_id'];
-    }
-
     public function search() {
         $logged_in_user_id                        = Auth::id();
         $logged_in_user                           = Auth::user();
@@ -166,8 +156,6 @@ class SearchController extends Controller
 
         $profiles_found_count = count($profiles);
         //Log::debug("Found $profiles_found_count profiles");
-
-        //usort($profiles, [$this, 'sort_search']);
 
         return view('search', [
             'profiles'                                 => $profiles,

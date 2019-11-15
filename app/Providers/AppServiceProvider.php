@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use App\Util;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
             $logged_in_user_id            = Auth::id();
             if ($logged_in_user_id) {
                 $ip                       = request()->ip() or die("No ip");
-                DB::update('update users set last_active = now(), ip = ? where id = ?', [$ip, $logged_in_user_id]);
+                $score                    = \App\Util::user_score($logged_in_user_id);
+                DB::update('update users set last_active = now(), ip = ?, score =? where id = ?', [$ip, $score, $logged_in_user_id]);
             }
 
             $active_count_result          = DB::select('select count(*) active_count from users where last_active>now()-interval 1 day');
@@ -39,10 +41,10 @@ class AppServiceProvider extends ServiceProvider
                 $next_event_count         = $next_event_count_result[0]->next_event_count;
                 break;
             }
-            $view->with('active_count',                                     $active_count);
-            $view->with('total_count',                                      $total_count);
-            $view->with('next_event_count',                                 $next_event_count);
-            $view->with('next_event_name',                                  $next_event_name);
+            $view->with('active_count',     $active_count);
+            $view->with('total_count',      $total_count);
+            $view->with('next_event_count', $next_event_count);
+            $view->with('next_event_name',  $next_event_name);
         });
     }
 }

@@ -85,7 +85,7 @@
             @else
                 <div style="display:inline-block;">
                     <a name="profile{{ $profile['profile_id'] }}"></a>
-                    @if ($profile['missions_completed']['points'])
+                    @if ($profile['missions_completed'])
                         {{ $titles[$profile['title_index']] }}
                     @endif
                     <a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
@@ -112,8 +112,8 @@
                         @endif
                     @endif
                     <br>
-                    @if ($profile['missions_completed']['points'])
-                        <span>Missions completed: {{ $profile['missions_completed']['points'] }}</span>
+                    @if ($profile['missions_completed'])
+                        <span>Missions completed: {{ $profile['missions_completed'] }}</span>
                     @endif
                 </div>
             @endif
