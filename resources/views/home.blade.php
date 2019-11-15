@@ -111,10 +111,14 @@
         @foreach ($upcoming_events_and_signup_status as $upcoming_event)
             @if ($upcoming_event->attending_event_id)
                 COMPLETE: You have viewed all profiles. Come back later to see new arrivals.
+                @php ($viewed_all = 1)
                 @break
             @endif
         @endforeach
-        Let us know who you'd like to meet.
+        @if ($viewed_all)
+        @else
+            Let us know who you'd like to meet.
+        @endif
     </li>
 @endif
 
