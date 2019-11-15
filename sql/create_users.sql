@@ -21,6 +21,7 @@ CREATE TABLE users (
 	hoping_to_find_lost BOOLEAN,
 	hoping_to_find_enemy BOOLEAN,
 	share_info_with_favorites BOOLEAN,
+    score INT,
     title_index INT,
 	ip VARCHAR(50) NOT NULL,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
