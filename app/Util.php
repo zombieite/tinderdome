@@ -93,7 +93,7 @@ class Util {
                 event_date
         ', [$user_id]);
 		foreach ($event_results as $event_result) {
-			$next_event_count_result = DB::select('select count(*) next_event_count from attending where event_id = ?',[$event_result->event_id]);
+			$next_event_count_result = DB::select('select count(*) next_event_count from attending join users on attending.user_id = users.id where event_id = ?',[$event_result->event_id]);
 			$count = $next_event_count_result[0]->next_event_count;
 			$event_result->attending_count = $count;
 			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
