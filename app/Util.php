@@ -69,8 +69,13 @@ class Util {
         ');
     }
 
+	public static function min_signups_to_run_event() {
+		return 20;
+	}
+
     public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user_id ) {
-        return DB::select('
+		$min_signups_to_run_event = \App\Util::min_signups_to_run_event();
+        $event_results = DB::select('
             select
                 event.event_id,
                 event_short_name,
@@ -87,6 +92,13 @@ class Util {
             order by
                 event_date
         ', [$user_id]);
+		foreach ($event_results as $event_result) {
+			$next_event_count_result = DB::select('select count(*) next_event_count from attending where event_id = ?',[$event_result->event_id]);
+			$count = $next_event_count_result[0]->next_event_count;
+			$event_result->attending_count = $count;
+			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
+		}
+		return $event_results;
     }
 
     public static function matched_to_users( $chooser_user_id ) {

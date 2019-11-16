@@ -91,7 +91,7 @@
             {{ csrf_field() }}
             <input type="hidden" name="attending_event_form" value="1">
             @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > @if ($upcoming_event->user_id_of_match) <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}"> @endif {{ $upcoming_event->event_long_name }} @if ($upcoming_event->user_id_of_match) </a> @endif <br>
+                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}" @if ($upcoming_event->attending_event_id) @if ($upcoming_event->user_id_of_match) disabled @endif checked @endif > @if ($upcoming_event->user_id_of_match) <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}"> @endif {{ $upcoming_event->event_long_name }} @if ($upcoming_event->user_id_of_match) </a> @else @if ($upcoming_event->signups_still_needed) &middot; {{ $upcoming_event->attending_count }} signed up, {{ $upcoming_event->signups_still_needed }} more signups are needed. Tell your friends! @endif @endif <br>
             @endforeach
             <input type="submit" value="Submit changes">
         </form>
@@ -115,7 +115,7 @@
                 @break
             @endif
         @endforeach
-        @if (isset($viewed_all))
+        @if ($viewed_all)
         @else
             Let us know who you'd like to meet.
         @endif

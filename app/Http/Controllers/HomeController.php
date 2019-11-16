@@ -53,11 +53,11 @@ class HomeController extends Controller
         if (isset($_POST['attending_event_form'])) {
             if ($upcoming_events_and_signup_status) {
                 foreach ($upcoming_events_and_signup_status as $upcoming_event) {
-                    $event_id = $upcoming_event->event_id;
+                    $event_id         = $upcoming_event->event_id;
                     $attending_result = DB::select('select * from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
-                    $attending = null;
+                    $attending        = null;
                     if ($attending_result) {
-                        $attending = array_shift($attending_result);
+                        $attending    = array_shift($attending_result);
                     }
                     if (isset($_POST["attending_event_id_$event_id"]) && $_POST["attending_event_id_$event_id"]) {
                         if ($attending) {
@@ -89,7 +89,6 @@ class HomeController extends Controller
             }
         }
 
-        $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user_id );
         $wasteland_name                    = $logged_in_user->name;
         $wasteland_name_hyphenated         = preg_replace('/\s/', '-', $wasteland_name);
         $number_photos                     = $logged_in_user->number_photos;
