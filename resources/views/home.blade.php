@@ -100,11 +100,15 @@
                 @endif
                 >
                 @if ($upcoming_event->user_id_of_match)
-                    <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">
+                    <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">{{ $upcoming_event->event_long_name }}</a>
+                @else
+                    @if ($upcoming_event->url)
+                        <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>
+                    @else
+                        {{ $upcoming_event->event_long_name }}
+                    @endif
                 @endif
-                {{ $upcoming_event->event_long_name }}
                 @if ($upcoming_event->user_id_of_match)
-                    </a>
                 @else
                     &middot;
                     @if ($upcoming_event->signups_still_needed)
@@ -114,7 +118,7 @@
                         @else
                             {{ $upcoming_event->signups_still_needed }} more signups are needed.
                         @endif
-                        Get the word out to evenyone who is attending the event.
+                        Get the word out to everyone who will be attending this event.
                     @else
                         {{ $upcoming_event->attending_count }} signed up, this event is happening!
                     @endif
