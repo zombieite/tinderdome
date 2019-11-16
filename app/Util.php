@@ -81,6 +81,7 @@ class Util {
                 event_short_name,
                 event_long_name,
                 event_date,
+				url,
                 attending.event_id attending_event_id,
                 attending.user_id_of_match
             from
