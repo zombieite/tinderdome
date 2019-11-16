@@ -106,28 +106,29 @@ class Util {
 				where
 					event_id = ?
 			',[$event_result->event_id]);
-			$count                                             = $next_event_count_result[0]->next_event_count;
-			$event_result->attending_count                     = $count;
-			$event_result->signups_still_needed                = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
-			$event_result->can_claim_match                     = false;
+			$count                              = $next_event_count_result[0]->next_event_count;
+			$event_result->attending_count      = $count;
+			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
+			$event_result->can_claim_match      = false;
 			if ($event_result->signups_still_needed) {
 				// Nothing to do yet
 			} else {
 				if ($event_result->user_id_of_match) {
 					// Matched!
 				} else {
-					$already_matched_but_dont_know_it          = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
+					$already_matched_but_dont_know_it              = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
 					if ($already_matched_but_dont_know_it) {
-						$event_result->can_claim_match         = true;
-					}
-					$score                                     = $user->score;
-					$days_till_event                           = $event_result->days_till_event;
-					$dbewecgm                                  = \App\Util::days_before_event_when_everyone_can_get_match();
-					if ($days_till_event > $dbewecgm) {
-						$days_left_till_everyone_can_get_match = $days_till_event - $dbewecgm;
-
+						$event_result->can_claim_match             = true;
 					} else {
-						die('TODO XXX FIXME Allow everyone to get match at this point');
+						$score                                     = $user->score;
+						$days_till_event                           = $event_result->days_till_event;
+						$dbewecgm                                  = \App\Util::days_before_event_when_everyone_can_get_match();
+						if ($days_till_event > $dbewecgm) {
+							$days_left_till_everyone_can_get_match = $days_till_event - $dbewecgm;
+
+						} else {
+							die('TODO XXX FIXME Allow everyone to get match at this point');
+						}
 					}
 				}
 			}
