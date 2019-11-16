@@ -275,7 +275,7 @@ class ProfileController extends Controller
         if (isset($_POST['delete'])) {
             DB::delete('delete from users     where id = ?',         [$profile_id]);
             DB::delete('delete from attending where user_id = ?',    [$profile_id]);
-            DB::delete('delete from choose    where chooser_id = ?', [$profile_id, $profile_id]); // Don't delete chosen_id because we want a record of whether they ever met the deleted user
+            DB::delete('delete from choose    where chooser_id = ?', [$profile_id, $profile_id]); // Don't delete chosen_id because we want to keep records of who met the deleted user
             DB::delete('delete from comment   where commenting_user_id = ? or commented_on_user_id = ?', [$profile_id, $profile_id]);
             return redirect('/');
         }
