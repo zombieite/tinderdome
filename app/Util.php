@@ -73,7 +73,12 @@ class Util {
 		return 20;
 	}
 
-    public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user_id ) {
+	public static function days_before_event_when_everyone_can_get_match() {
+		return 3;
+	}
+
+    public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user ) {
+		$user_id = $user->id;
 		$min_signups_to_run_event = \App\Util::min_signups_to_run_event();
         $event_results = DB::select('
             select
@@ -81,6 +86,7 @@ class Util {
                 event_short_name,
                 event_long_name,
                 event_date,
+				datediff(event_date, curdate()) days_till_event,
 				url,
                 attending.event_id attending_event_id,
                 attending.user_id_of_match
@@ -98,6 +104,18 @@ class Util {
 			$count = $next_event_count_result[0]->next_event_count;
 			$event_result->attending_count = $count;
 			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
+			if ($event_result->signups_still_needed) {
+				// Nothing to do yet
+			} else {
+				$score = $user->score;
+				$days_till_event = $event_result->days_till_event;
+				$dbewecgm = \App\Util::days_before_event_when_everyone_can_get_match();
+				if ($days_till_event > $dbewecgm) {
+
+				} else {
+					die('TODO XXX FIXME');
+				}
+			}
 		}
 		return $event_results;
     }
