@@ -115,7 +115,7 @@
                 @break
             @endif
         @endforeach
-        @if ($viewed_all)
+        @if (isset($viewed_all))
         @else
             Let us know who you'd like to meet.
         @endif
