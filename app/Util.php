@@ -77,6 +77,7 @@ class Util {
 		$user_id                  = $user->id;
 		$min_signups_to_run_event = \App\Util::min_signups_to_run_event();
 		$max_event_days_away      = \App\Util::max_event_days_away();
+		$dbewecgm                 = \App\Util::days_before_event_when_everyone_can_get_match();
         $event_results            = DB::select('
             select
                 event.event_id,
@@ -84,6 +85,7 @@ class Util {
                 event_long_name,
                 event_date,
 				datediff(event_date, curdate()) days_till_event,
+				unix_timestamp(event_date-interval ? day)-unix_timestamp(now()) seconds_till_event,
 				url,
                 attending.event_id attending_event_id,
                 attending.user_id_of_match
@@ -95,7 +97,7 @@ class Util {
                 and event_date < now() + interval ? day
             order by
                 event_date
-        ', [$user_id, $max_event_days_away]);
+        ', [$dbewecgm, $user_id, $max_event_days_away]);
 		foreach ($event_results as $event_result) {
 			$next_event_count_result = DB::select('
 				select
@@ -122,7 +124,7 @@ class Util {
 					} else {
 						$score                                     = $user->score;
 						$days_till_event                           = $event_result->days_till_event;
-						$dbewecgm                                  = \App\Util::days_before_event_when_everyone_can_get_match();
+						$seconds_till_event                        = $event_result->seconds_till_event;
 						if ($days_till_event > $dbewecgm) {
 							$days_left_till_everyone_can_get_match = $days_till_event - $dbewecgm;
 
