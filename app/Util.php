@@ -69,23 +69,25 @@ class Util {
         ');
     }
 
-	public static function min_signups_to_run_event()                      { return 20;  }
-	public static function days_before_event_when_everyone_can_get_match() { return 3;   }
-    public static function max_event_days_away()                           { return 120; }
+	public static function min_signups_to_run_event()                        { return 20;  }
+	public static function days_before_event_when_everyone_can_get_match()   { return 2;   }
+	public static function days_before_event_when_top_ranked_can_get_match() { return 12;  }
+    public static function max_event_days_away()                             { return 120; }
 
     public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user ) {
 		$user_id                  = $user->id;
 		$min_signups_to_run_event = \App\Util::min_signups_to_run_event();
 		$max_event_days_away      = \App\Util::max_event_days_away();
-		$dbewecgm                 = \App\Util::days_before_event_when_everyone_can_get_match();
+		$dbewEcgm                 = \App\Util::days_before_event_when_everyone_can_get_match();
+		$dbewTRcgm                = \App\Util::days_before_event_when_top_ranked_can_get_match();
         $event_results            = DB::select('
             select
                 event.event_id,
                 event_short_name,
                 event_long_name,
                 event_date,
-				datediff(event_date, curdate()) days_till_event,
-				unix_timestamp(event_date-interval ? day)-unix_timestamp(now()) seconds_till_event,
+				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_top_ranked_can_match,
+				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_everyone_can_match,
 				url,
                 attending.event_id attending_event_id,
                 attending.user_id_of_match
@@ -97,18 +99,18 @@ class Util {
                 and event_date < now() + interval ? day
             order by
                 event_date
-        ', [$dbewecgm, $user_id, $max_event_days_away]);
+        ', [$dbewTRcgm, $dbewEcgm, $user_id, $max_event_days_away]);
 		foreach ($event_results as $event_result) {
-			$next_event_count_result = DB::select('
+			$event_count_result = DB::select('
 				select
-					count(*) next_event_count
+					count(*) event_count
 				from
 					attending
 					join users on attending.user_id = users.id
 				where
 					event_id = ?
 			',[$event_result->event_id]);
-			$count                              = $next_event_count_result[0]->next_event_count;
+			$count                              = $event_count_result[0]->event_count;
 			$event_result->attending_count      = $count;
 			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
 			$event_result->can_claim_match      = false;
@@ -116,20 +118,28 @@ class Util {
 				// Nothing to do yet
 			} else {
 				if ($event_result->user_id_of_match) {
-					// Matched!
+					die('Matched! TODO XXX FIXME? Or maybe already implemented? Try just deleting this statement');
 				} else {
-					$already_matched_but_dont_know_it              = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
-					if ($already_matched_but_dont_know_it) {
+					$already_matched_but_dont_know_it  = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
+					$time                                          = time();
+					$score                                         = $user->score;
+					$max_score_attending_result                    = DB::select('select max(score) max_score from users join attending on users.id = attending.user_id and event_id = ?', [$event_result->event_id]);
+					$max_score                                     = $max_score_attending_result[0]->max_score;
+					if ($max_score < 1 ) {
+						$max_score                                 = 1; // Prevent divide by zero and stuff
+					}
+					$time_when_top_ranked_can_match                = $event_result->time_when_top_ranked_can_match;
+					$time_when_everyone_can_match                  = $event_result->time_when_everyone_can_match;
+					if ($time > $time_when_everyone_can_match) {
 						$event_result->can_claim_match             = true;
 					} else {
-						$score                                     = $user->score;
-						$days_till_event                           = $event_result->days_till_event;
-						$seconds_till_event                        = $event_result->seconds_till_event;
-						if ($days_till_event > $dbewecgm) {
-							$days_left_till_everyone_can_get_match = $days_till_event - $dbewecgm;
-
-						} else {
-							die('TODO XXX FIXME Allow everyone to get match at this point');
+						$day_range                                 = $dbewTRcgm - $dbewEcgm;
+						$slice_duration                            = intval(($day_range * 24 * 60 * 60) / $max_score);
+						$advance_seconds_user_can_match            = $score * $slice_duration;
+						$event_result->time_when_user_can_match    = $time_when_everyone_can_match - $advance_seconds_user_can_match;
+						$event_result->seconds_till_user_can_match = $event_result->time_when_user_can_match - $time;
+						if ( $event_result->seconds_till_user_can_match < 0 ) {
+							$event_result->can_claim_match         = true;
 						}
 					}
 				}
