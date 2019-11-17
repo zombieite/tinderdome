@@ -116,7 +116,7 @@
                         @if ($upcoming_event->signups_still_needed === 1)
                             only one more signup still needed!
                         @else
-                            {{ $upcoming_event->signups_still_needed }} more signups are needed.
+                            {{ $upcoming_event->signups_still_needed }} more signups needed for this event to proceed.
                         @endif
                         @if ($upcoming_event->url)
                             <a href="{{ $upcoming_event->url }}">Get the word out to everyone who will be attending this event</a>.
@@ -124,7 +124,12 @@
                             Get the word out to everyone who will be attending this event.
                         @endif
                     @else
-                        {{ $upcoming_event->attending_count }} signed up, this event is happening!
+                        {{ $upcoming_event->attending_count }} signed up.
+                        @if ($upcoming_event->can_claim_match)
+                            <span class="bright">You can now request your match!</span>
+                        @else
+                            You will be eligible to request your match in approximately {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
+                        @endif
                     @endif
                 @endif
                 <br>
