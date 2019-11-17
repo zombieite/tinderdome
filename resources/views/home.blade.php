@@ -118,7 +118,11 @@
                         @else
                             {{ $upcoming_event->signups_still_needed }} more signups are needed.
                         @endif
-                        Get the word out to everyone who will be attending this event.
+                        @if ($upcoming_event->url)
+                            <a href="{{ $upcoming_event->url }}">Get the word out to everyone who will be attending this event</a>.
+                        @else
+                            Get the word out to everyone who will be attending this event.
+                        @endif
                     @else
                         {{ $upcoming_event->attending_count }} signed up, this event is happening!
                     @endif
