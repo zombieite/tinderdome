@@ -46,7 +46,7 @@
         <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a></h2>
         @for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
                 @if ($unrated_users[$i]->number_photos)
-                    @include('let_us_know_if_youd_enjoy_meeting', ['user_id' => $unrated_users[$i]->id])
+                    @include('user_block_enjoy_meeting', ['user_id' => $unrated_users[$i]->id])
                 @endif
         @endfor
     @endif
@@ -55,13 +55,7 @@
 @if (count($mutuals))
     <h2>Users who have shared their contact info with you</h2>
     @foreach ($mutuals as $mutual)
-        <div class="centered_block_bright">
-            @if ($mutual->number_photos)
-                <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $mutual->id }}-1.jpg" style="height:100px;"></a>
-                <br>
-            @endif
-            <a href="/profile/{{ $mutual->id }}/{{ $mutual->wasteland_name_hyphenated }}">{{ $mutual->name }}</a>
-        </div>
+        @include('user_block_mutual', ['number_photos' => $mutual->number_photos, 'user_id' => $mutual->id, 'wasteland_name_hyphenated' => $mutual->wasteland_name_hyphenated, 'name' => $mutual->name])
     @endforeach
 @endif
 
