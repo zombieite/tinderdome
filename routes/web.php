@@ -2,7 +2,6 @@
 
 // Visible to everyone
 Route::get( '/',                                      'HomeController@index');
-Route::get( '/save-deadline',                         'DeadlineController@save_deadline');
 Route::get( '/awaited-nonfictional-delusion',         'AwaitedNonfictionalDelusionController@awaited_nonfictional_delusion');
 Route::get( '/profile/Firebird',                      'ProfileController@showFirebird');
 

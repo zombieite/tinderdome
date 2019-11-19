@@ -18,7 +18,7 @@
     <ul class="nobullet">
     @foreach ($comments_to_approve as $comment)
         <li>
-            <div class=" profile_search_block ">
+            <div class="profile_search_block ">
                 <div style="display:inline-block;">
                     @if ($comment->user_number_photos)
                         <a href="/profile/{{ $comment->commenting_user_id }}/{{ $comment->commenting_user_wasteland_name_hyphenated }}"><img src="/uploads/image-{{ $comment->commenting_user_id }}-1.jpg" style="height:50px;"></a>
