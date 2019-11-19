@@ -202,12 +202,7 @@
                         </div>
                     @else
                         @if ($matched_to_user->user_id_of_match)
-                            <div class="centered_block">
-                            @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
-                            Matched to deleted user;<br>mission incomplete
-                            <br>{{ $matched_to_user->event_long_name }}
-                            <form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $matched_to_user->event_id }}" value="Delete this mission"></form>
-                            </div>
+                            @include('user_block_matched_to_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
                         @else
                             @if ($matched_to_user->ok_to_delete_old_mission)
                                 {{-- Don't even show an old mission that didn't get them a match --}}
