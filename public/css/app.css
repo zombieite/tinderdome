@@ -21,8 +21,14 @@ textarea {
 }
 table {
     border-collapse: collapse;
+    border-color: var(--subtle);
+}
+th {
+    padding: 1em;
+    border: 1px solid var(--subtle);
 }
 td {
+    padding: 1em;
     border: 1px solid var(--subtle);
 }
 hr {
@@ -120,6 +126,24 @@ button.met, input[type="submit"].met {
     margin-right: 0.1em;
     padding: 0.5em;
     text-align: center;
+}
+.mission_match {
+    border: 1px solid var(--subtle);
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-right: 0.1em;
+    padding: 0.5em;
+    text-align: center;
+    width: 15em;
+}
+.mission_match_bright {
+    border: 1px solid var(--bright);
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-right: 0.1em;
+    padding: 0.5em;
+    text-align: center;
+    width: 15em;
 }
 .upcoming_event_checkbox {
     margin: 1em;
