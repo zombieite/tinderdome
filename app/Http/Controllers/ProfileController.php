@@ -86,18 +86,6 @@ class ProfileController extends Controller
                 }
             }
 
-            // Find or create a choose row so the logged in user can rate the profile being viewed
-            if ($profile_id != 1 && !$is_me) {
-                $choose_row_exists = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$logged_in_user_id, $profile_id]);
-                if ($choose_row_exists) {
-                    foreach ($choose_row_exists as $choose_row) {
-                        $choice = $choose_row->choice;
-                    }
-                } else {
-                    DB::insert('insert into choose (chooser_id, chosen_id) values (?, ?)', [ $logged_in_user_id, $profile_id ]);
-                }
-            }
-
             // Figure out if we should share this user's email with a mutual favorite
             if ($auth_user->hoping_to_find_love && $auth_user->share_info_with_favorites) { // The logged in user must share info to be able to see others' shared info
                 // Figure out if the logged in user and the profile being viewed are mutual favorites
@@ -523,21 +511,7 @@ class ProfileController extends Controller
         }
 
         if (isset($_POST['chosen'])) {
-            $chosen_id    = $_POST['chosen'];
-            $choose_value = null;
-            if (isset($_POST['YesYesYes'])) {
-                $choose_value = 3;
-            } elseif (isset($_POST['YesYes'])) {
-                $choose_value = 2;
-            } elseif (isset($_POST['Yes'])) {
-                $choose_value = 1;
-            } elseif (isset($_POST['No'])) {
-                $choose_value = 0;
-            } elseif (isset($_POST['Met'])) {
-                $choose_value = -1;
-            }
-            $update = 'update choose set choice=? where chooser_id=? and chosen_id=?';
-            DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
+            \App\Util::rate_user($chooser_user_id, $_POST);
         }
 
         $unrated_users    = \App\Util::unrated_users( $chooser_user );
