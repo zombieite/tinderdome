@@ -86,6 +86,9 @@ class HomeController extends Controller
                 DB::delete('delete from attending where event_id = ? and user_id = ?', [$matched_to_user->event_id, $logged_in_user_id]);
                 DB::delete('delete from attending where event_id = ? and user_id = ?', [$matched_to_user->event_id, $matched_to_user->user_id_of_match]);
                 $matched_to_users  = \App\Util::matched_to_users( $logged_in_user_id );
+            } else if (isset($_POST['Met']) or isset($_POST['No'])) {
+                \App\Util::rate_user($logged_in_user_id, $_POST);
+                $matched_to_users  = \App\Util::matched_to_users( $logged_in_user_id );
             }
         }
 

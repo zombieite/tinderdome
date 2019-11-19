@@ -12,7 +12,7 @@
 <meta name="description" content="Find thems you're looking for and thems you've lost.">
 <meta name="robots" content="noindex">
 <title>You Are Awaited</title>
-<link href="/css/app.css?rev=3" rel="stylesheet">
+<link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
@@ -49,10 +49,7 @@
 @endguest
 <hr>
 @include('home_promo_stuff')
-<hr>
-
     @yield('content')
-
 <hr>
 {{ $total_count }} total participants
 &middot; {{ $active_count }} active in the past 24 hours
