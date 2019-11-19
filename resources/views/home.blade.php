@@ -129,9 +129,13 @@
                             @else
                                 @if (isset($upcoming_event->seconds_till_user_can_match))
                                     @if ($upcoming_event->seconds_till_user_can_match > 360000)
-                                        You will be eligible to request your match in approximately {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
+                                        You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
                                     @else
-                                        You will be eligible to request your match in approximately {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
+                                        @if ($upcoming_event->seconds_till_user_can_match > 3600)
+                                            You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
+                                        @else
+                                            You will be eligible to request your match in less than one hour!
+                                        @endif
                                     @endif
                                 @endif
                             @endif
