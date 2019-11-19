@@ -162,30 +162,38 @@
 @if ($matched_to_users)
     <h2>Mission matches</h2>
     @foreach ($matched_to_users as $matched_to_user)
-        @if ($matched_to_user->choice === 0)
+        {{-- If one of us set we've met but one of us said no --}}
+        @if ($matched_to_user->choice === 0 or $matched_to_user->they_said_no)
             @include('user_block_found_not_liked', ['event_long_name' => $matched_to_user->event_long_name ])
+        {{-- else who knows but we at least haven't met and said no --}}
         @else
-            @if ($matched_to_user->they_said_no)
-                @include('user_block_found_not_liked', ['event_long_name' => $matched_to_user->event_long_name ])
-            @else
-                @if ($matched_to_user->name)
-                    @if ($matched_to_user->choice === -1)
-                        @include('user_block_found', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name ])
-                    @else
-                        @include('user_block_not_found_yet', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name, 'ok_to_delete_old_mission' => $matched_to_user->ok_to_delete_old_mission, 'event_id' => $matched_to_user->event_id ])
-                    @endif
+            {{-- If match exists and was not deleted --}}
+            @if ($matched_to_user->name) {{-- Name populated means join to users succeeded --}}
+                {{-- If I say I've met them --}}
+                @if ($matched_to_user->choice === -1)
+                    @include('user_block_found', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name ])
+                {{-- else I haven't found them yet --}}
                 @else
-                    @if ($matched_to_user->choice === -1 or $matched_to_user->choice === 0)
-                        @include('user_block_found_but_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
+                    @include('user_block_not_found_yet', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name, 'ok_to_delete_old_mission' => $matched_to_user->ok_to_delete_old_mission, 'event_id' => $matched_to_user->event_id ])
+                @endif
+            {{-- else match does not exist yet or match deleted themselves --}}
+            @else
+                {{-- I found my match before they deleted themselves --}}
+                @if ($matched_to_user->choice === -1)
+                    @include('user_block_found_but_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
+                {{-- else I haven't found them, and they either don't exist yet, or they deleted themselves --}}
+                @else
+                    {{-- If I was indeed matched to them at some point, then they must have deleted themselves --}}
+                    @if ($matched_to_user->user_id_of_match) {{-- user_id populated but no name populated means they deleted themselves --}}
+                        @include('user_block_matched_to_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
+                    {{-- else I was never matched to anyone, either because the mission gave me no match, or because the mission hasn't happened yet --}}
                     @else
-                        @if ($matched_to_user->user_id_of_match)
-                            @include('user_block_matched_to_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
+                        {{-- If the mission never gave me a match (ok to delete flag is set in that case, among others) --}}
+                        @if ($matched_to_user->ok_to_delete_old_mission)
+                            {{-- Don't even show an old mission that didn't get them a match --}}
+                        {{-- else I just haven't gotten my match yet --}}
                         @else
-                            @if ($matched_to_user->ok_to_delete_old_mission)
-                                {{-- Don't even show an old mission that didn't get them a match --}}
-                            @else
-                                @include('user_block_no_match_yet', ['event_long_name' => $matched_to_user->event_long_name])
-                            @endif
+                            @include('user_block_no_match_yet', ['event_long_name' => $matched_to_user->event_long_name])
                         @endif
                     @endif
                 @endif
