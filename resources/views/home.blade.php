@@ -46,9 +46,7 @@
         <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a></h2>
         @for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
                 @if ($unrated_users[$i]->number_photos)
-                    <div class="profile_search_block">
-                        <a href="/profile/compatible?"><img src="/uploads/image-{{ $unrated_users[$i]->id }}-1.jpg" style="height:100px;"></a>
-                    </div>
+                    @include('let_us_know_if_youd_enjoy_meeting', ['user_id' => $unrated_users[$i]->id])
                 @endif
         @endfor
     @endif
