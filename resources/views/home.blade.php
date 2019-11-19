@@ -212,11 +212,7 @@
                             @if ($matched_to_user->ok_to_delete_old_mission)
                                 {{-- Don't even show an old mission that didn't get them a match --}}
                             @else
-                                <div class="centered_block">
-                                @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
-                                No match yet for
-                                <br>{{ $matched_to_user->event_long_name }}
-                                </div>
+                                @include('user_block_no_match_yet', ['event_long_name' => $matched_to_user->event_long_name])
                             @endif
                         @endif
                     @endif
