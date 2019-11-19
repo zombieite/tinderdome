@@ -43,7 +43,7 @@
 
 @if ($number_photos)
     @if (count($unrated_users) >= 3)
-        <h2><a href="/profile/compatible?">Let us know if you'd enjoy meeting these users</a></h2>
+        <h2><a href="/profile/compatible?" class="bright">Let us know if you'd enjoy meeting these users</a></h2>
         @for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
                 @if ($unrated_users[$i]->number_photos)
                     @include('user_block_enjoy_meeting', ['user_id' => $unrated_users[$i]->id])
@@ -80,51 +80,69 @@
         <form action="/" method="POST">
             {{ csrf_field() }}
             <input type="hidden" name="attending_event_form" value="1">
-            @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}"
-                @if ($upcoming_event->attending_event_id)
-                    @if ($upcoming_event->user_id_of_match)
-                        disabled
-                    @endif
-                    checked
-                @endif
-                >
-                @if ($upcoming_event->user_id_of_match)
-                    <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">{{ $upcoming_event->event_long_name }}</a>
-                @else
-                    @if ($upcoming_event->url)
-                        <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>
-                    @else
-                        {{ $upcoming_event->event_long_name }}
-                    @endif
-                @endif
-                @if ($upcoming_event->user_id_of_match)
-                @else
-                    &middot;
-                    @if ($upcoming_event->signups_still_needed)
-                        {{ $upcoming_event->attending_count }} signed up,
-                        @if ($upcoming_event->signups_still_needed === 1)
-                            only one more signup still needed!
-                        @else
-                            {{ $upcoming_event->signups_still_needed }} more signups needed for this event to proceed.
-                        @endif
-                        @if ($upcoming_event->url)
-                            <a href="{{ $upcoming_event->url }}">Get the word out to everyone who will be attending this event</a>.
-                        @else
-                            Get the word out to everyone who will be attending this event.
-                        @endif
-                    @else
-                        {{ $upcoming_event->attending_count }} signed up.
-                        @if ($upcoming_event->can_claim_match)
-                            <span class="bright">You can now request your match!</span>
-                        @else
-                            You will be eligible to request your match in approximately {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
-                        @endif
-                    @endif
-                @endif
+            @if ($upcoming_events_and_signup_status)
                 <br>
-            @endforeach
+                <table>
+                    <tr>
+                        <th>Event</th>
+                        <th>Signups</th>
+                        <th>Signups<br>still needed</th>
+                        <th>Match</th>
+                    </tr>
+                @foreach ($upcoming_events_and_signup_status as $upcoming_event)
+                    <tr>
+                        <td>
+                            <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}"
+                            @if ($upcoming_event->attending_event_id)
+                                @if ($upcoming_event->user_id_of_match)
+                                    disabled
+                                @endif
+                                checked
+                            @endif
+                            >
+                            @if ($upcoming_event->user_id_of_match)
+                                <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">{{ $upcoming_event->event_long_name }}</a>
+                            @else
+                                @if ($upcoming_event->url)
+                                    <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>
+                                @else
+                                    {{ $upcoming_event->event_long_name }}
+                                @endif
+                            @endif
+                        </td>
+                        <td>
+                            {{ $upcoming_event->attending_count }}
+                        <td>
+                            @if ($upcoming_event->signups_still_needed)
+                                @if ($upcoming_event->url)
+                                    {{ $upcoming_event->signups_still_needed }} &middot; <a href="{{ $upcoming_event->url }}" class="bright">Get the word out!</a>
+                                @else
+                                    {{ $upcoming_event->signups_still_needed }} &middot; Get the word out!
+                                @endif
+                            @else
+                                Event is happening!
+                            @endif
+                        </td>
+                        <td>
+                            @if ($upcoming_event->can_claim_match)
+                                <span class="bright">You can now request your match!</span>
+                            @else
+                                @if (isset($upcoming_event->seconds_till_user_can_match))
+                                    @if ($upcoming_event->seconds_till_user_can_match > 360000)
+                                        You will be eligible to request your match in approximately {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
+                                    @else
+                                        You will be eligible to request your match in approximately {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
+                                    @endif
+                                @endif
+                            @endif
+                        </td>
+                    </tr>
+                @endforeach
+                </table>
+            @endif
+            <br>
             <input type="submit" value="Submit changes">
+            <br>
         </form>
     </div></li>
 @else
