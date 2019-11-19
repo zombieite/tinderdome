@@ -163,43 +163,20 @@
     <h2>Mission matches</h2>
     @foreach ($matched_to_users as $matched_to_user)
         @if ($matched_to_user->choice === 0)
-            <div class="centered_block">
-            Found match
-            <br>{{ $matched_to_user->event_long_name }}
-            </div>
+            @include('user_block_found_not_liked', ['event_long_name' => $matched_to_user->event_long_name ])
         @else
             @if ($matched_to_user->they_said_no)
-                <div class="centered_block">
-                Found match
-                <br>{{ $matched_to_user->event_long_name }}
-                </div>
+                @include('user_block_found_not_liked', ['event_long_name' => $matched_to_user->event_long_name ])
             @else
                 @if ($matched_to_user->name)
                     @if ($matched_to_user->choice === -1)
-                        <div class="centered_block">
-                        @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
-                        Found
+                        @include('user_block_found', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name ])
                     @else
-                        <div class="centered_block_bright">
-                        @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
-                        Matched to
+                        @include('user_block_not_found_yet', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name, 'ok_to_delete_old_mission' => $matched_to_user->ok_to_delete_old_mission, 'event_id' => $matched_to_user->event_id ])
                     @endif
-                    <a href="{{ $matched_to_user->url }}">{{ $matched_to_user->name }}</a>
-                    <br>{{ $matched_to_user->event_long_name }}
-                    @if ($matched_to_user->choice === -1)
-                    @else
-                        @if ($matched_to_user->ok_to_delete_old_mission)
-                            <br><form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $matched_to_user->event_id }}" class="no" value="Delete this mission"></form>
-                        @endif
-                    @endif
-                    </div>
                 @else
                     @if ($matched_to_user->choice === -1 or $matched_to_user->choice === 0)
-                        <div class="centered_block">
-                        @if ($matched_to_user->number_photos) <a href="{{ $matched_to_user->url }}"><img src="/uploads/image-{{ $matched_to_user->id }}-1.jpg" style="height:100px;"></a><br> @endif
-                        Found match
-                        <br>{{ $matched_to_user->event_long_name }}
-                        </div>
+                        @include('user_block_found_but_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
                     @else
                         @if ($matched_to_user->user_id_of_match)
                             @include('user_block_matched_to_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
