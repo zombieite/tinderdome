@@ -14,11 +14,9 @@
 <title>You Are Awaited</title>
 <link href="/css/app.css?rev=3" rel="stylesheet">
 </head>
-
 <body>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
-
 @guest
     <a class="navbar" href="{{ route('register') }}">Create a profile</a>
     &middot;
@@ -49,7 +47,8 @@
     <input type="submit" value="Log out">
     </form>
 @endguest
-
+<hr>
+@include('home_promo_stuff')
 <hr>
 
     @yield('content')
