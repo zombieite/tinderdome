@@ -81,7 +81,6 @@ class Util {
         return DB::select('
             select
                 event_id,
-                event_short_name,
                 event_long_name,
                 event_date
             from
@@ -107,7 +106,6 @@ class Util {
         $event_results            = DB::select('
             select
                 event.event_id,
-                event_short_name,
                 event_long_name,
                 event_date,
 				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_top_ranked_can_match,
@@ -219,7 +217,7 @@ class Util {
             if ($user->choice == -1) {
                 $user->url = '/profile/'.$user->id.'/'.$user->wasteland_name_hyphenated;
             } else {
-                $user->url = '/profile/match?event='.$user->event_short_name.'&date='.$user->event_date;
+                $user->url = '/profile/match?event_id='.$user->event_id;
             }
         }
         return $matched_to_users;
