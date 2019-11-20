@@ -145,7 +145,7 @@
                 </table>
             @endif
             <br>
-            <input type="submit" value="Submit changes">
+            <input type="submit" class="yesyesyes" value="Submit changes">
             <br>
         </form>
     </div></li>

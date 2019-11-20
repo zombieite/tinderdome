@@ -150,6 +150,7 @@ class ProfileController extends Controller
         $unchosen_user_id                   = $profile_id;
         $missions_completed                 = \App\Util::missions_completed( $profile_id );
         $titles                             = \App\Util::titles();
+        $events                             = \App\Util::events_user_is_attending( $profile_id );
         $logged_in_user_hoping_to_find_love = null;
         if ($auth_user) {
             $logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
@@ -174,8 +175,6 @@ class ProfileController extends Controller
             'unchosen_user_id'                   => $unchosen_user_id,
             'count_left'                         => $count_left,
             'is_my_match'                        => $is_my_match,
-            'event'                              => $event,
-            'year'                               => $year,
             'is_me'                              => $is_me,
             'choice'                             => $choice,
             'nos_left'                           => $nos_left,
@@ -189,6 +188,7 @@ class ProfileController extends Controller
             'count_with_same_name'               => $count_with_same_name,
             'we_know_each_other'                 => $we_know_each_other,
             'comments'                           => $comments,
+            'events'                             => $events,
         ]);
     }
 
