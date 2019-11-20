@@ -86,7 +86,6 @@
                     <tr>
                         <th>Event</th>
                         <th>Signups</th>
-                        <th>Signups<br>still needed</th>
                         <th>Match</th>
                     </tr>
                 @foreach ($upcoming_events_and_signup_status as $upcoming_event)
@@ -112,15 +111,14 @@
                         </td>
                         <td>
                             {{ $upcoming_event->attending_count }}
-                        <td>
                             @if ($upcoming_event->signups_still_needed)
                                 @if ($upcoming_event->url)
-                                    {{ $upcoming_event->signups_still_needed }} &middot; <a href="{{ $upcoming_event->url }}" class="bright">Get the word out!</a>
+                                    / {{ $upcoming_event->signups_still_needed }} &middot; <a href="{{ $upcoming_event->url }}" class="bright">Get the word out!</a>
                                 @else
-                                    {{ $upcoming_event->signups_still_needed }} &middot; Get the word out!
+                                    / {{ $upcoming_event->signups_still_needed }} &middot; Get the word out!
                                 @endif
                             @else
-                                Event is happening!
+                                &middot; Event is happening!
                             @endif
                         </td>
                         <td>
@@ -137,6 +135,9 @@
                                             You will be eligible to request your match in less than one hour!
                                         @endif
                                     @endif
+                                    As you complete more missions, you become eligible to be matched sooner.
+                                @else
+                                    This event needs {{ $upcoming_event->signups_still_needed }} more signups.
                                 @endif
                             @endif
                         </td>
