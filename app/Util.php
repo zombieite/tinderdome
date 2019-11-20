@@ -172,6 +172,22 @@ class Util {
 		return $event_results;
     }
 
+    public static function events_user_is_attending($user_id) {
+        return DB::select('
+            select
+                event.event_id,
+                event_long_name
+            from
+                attending
+                join event on attending.event_id = event.event_id
+            where
+                attending.user_id = ?
+                and event_date > now()
+            order by
+                event_date
+        ', [$user_id]);
+    }
+
     public static function matched_to_users( $chooser_user_id ) {
         // Left join in case account has been deleted
         // Log::debug("Finding matches for user '$chooser_user_id/'");

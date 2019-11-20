@@ -28,6 +28,11 @@
 		<h2 class="bright">{{ $wasteland_name }}</h2>
 	@endif
 @endif
+@if ($events)
+    @foreach ($events as $event)
+        <h3 class="bright">Attending {{ $event->event_long_name }}</h3>
+    @endforeach
+@endif
 @if ($show_how_to_find_me || $share_info || $is_me)
 	@if ($how_to_find_me || $share_info)
 		@if ($profile_id == 1)
