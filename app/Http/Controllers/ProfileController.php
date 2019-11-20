@@ -13,7 +13,7 @@ use Log;
 
 class ProfileController extends Controller
 {
-    public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null, $event = null, $year = null, $count_with_same_name = 0)
+    public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null, $event_long_name = null, $year = null, $count_with_same_name = 0)
     {
         $profile = null;
         if ($unchosen_user) {
@@ -189,6 +189,7 @@ class ProfileController extends Controller
             'we_know_each_other'                 => $we_know_each_other,
             'comments'                           => $comments,
             'events'                             => $events,
+            'event_long_name'                    => $event_long_name,
         ]);
     }
 
@@ -400,8 +401,7 @@ class ProfileController extends Controller
     {
         $user                   = Auth::user();
         $logged_in_user_id      = Auth::id();
-        $event                  = $_GET['event'];
-        $date                   = $_GET['date'];
+        $event_id               = $_GET['event_id'];
         $match_name             = null;
         $match_id               = null;
 
@@ -410,21 +410,16 @@ class ProfileController extends Controller
             Log::debug("Masquerading as $logged_in_user_id");
         }
 
-        if (preg_match('/^[_a-z0-9]+$/', $event)) {
+        if (preg_match('/^[0-9]+$/', $event_id)) {
             // All good
         } else {
             abort(403, 'Invalid event');
         }
 
-        if (preg_match('/^[0-9-]+$/', $date)) {
-            // All good
-        } else {
-            abort(403, 'Invalid date');
-        }
         $deleted_match_or_match_said_no = false;
         $matches_done                   = DB::select('
-            select * from attending join event on attending.event_id=event.event_id where event_short_name=? and event_date=?
-        ', [$event, $date]);
+            select * from attending join event on attending.event_id=event.event_id where attending.event_id = ?
+        ', [$event_id]);
 
         $match_array = DB::select('
             select
@@ -439,10 +434,9 @@ class ProfileController extends Controller
                 left join users users_1 on (user_id = users_1.id)
                 left join users users_2 on (user_id_of_match = users_2.id)
             where
-                event_short_name = ?
-                and event_date = ?
+                attending.event_id = ?
                 and user_id = ?
-        ', [$event, $date, $logged_in_user_id]);
+        ', [$event_id, $logged_in_user_id]);
         $match           = array_shift($match_array);
         $event_long_name = $match ? $match->event_long_name : '';
 
@@ -452,7 +446,6 @@ class ProfileController extends Controller
             return view('nomatch', [
                 'matches_done'                   => $matches_done,
                 'event'                          => $event_long_name,
-                'date'                           => $date,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
@@ -486,7 +479,6 @@ class ProfileController extends Controller
             return view('nomatch', [
                 'matches_done'                   => $matches_done,
                 'event'                          => $event_long_name,
-                'date'                           => $date,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
@@ -494,7 +486,7 @@ class ProfileController extends Controller
         $users_with_same_name = DB::select('select * from users where name = ? and id != ?', [$match_name, $match_id]);
         $count_with_same_name = count($users_with_same_name);
 
-        return $this->show($match_id, $match_name, null, null, true, $event_long_name, $date, $count_with_same_name);
+        return $this->show($match_id, $match_name, null, null, true, $event_long_name, $count_with_same_name);
     }
 
     public function compatible()
