@@ -137,7 +137,7 @@
                                     @endif
                                     As you complete more missions, you become eligible to be matched sooner.
                                 @else
-                                    This event needs {{ $upcoming_event->signups_still_needed }} more signups.
+                                    This event needs {{ $upcoming_event->signups_still_needed }} more signups before anyone will be matched.
                                 @endif
                             @endif
                         </td>
