@@ -110,15 +110,15 @@
                             @endif
                         </td>
                         <td>
-                            {{ $upcoming_event->attending_count }}
                             @if ($upcoming_event->signups_still_needed)
+                                {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed.
                                 @if ($upcoming_event->url)
-                                    / {{ $upcoming_event->signups_still_needed }} &middot; <a href="{{ $upcoming_event->url }}" class="bright">Get the word out!</a>
+                                    <a href="{{ $upcoming_event->url }}" class="bright">Get the word out!</a>
                                 @else
-                                    / {{ $upcoming_event->signups_still_needed }} &middot; Get the word out!
+                                    Get the word out!
                                 @endif
                             @else
-                                &middot; Event is happening!
+                                {{ $upcoming_event->attending_count }} signups, event is happening
                             @endif
                         </td>
                         <td>
