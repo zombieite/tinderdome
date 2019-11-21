@@ -11,119 +11,10 @@ use Log;
 class MatchController extends Controller
 {
     public function my_match() {
-
+        $event_id = $_GET['event_id'];
         return view('my_match', [
+            'event_id' => $event_id,
         ]);
-    }
-
-    // Prioritize this user's mutual matches by
-    private static function sort_matches($a, $b) {
-
-        // Move greylist users to the bottom
-        if ($a->greylist - $b->greylist !== 0) {
-            return $a->greylist - $b->greylist;
-        }
-
-        // Put users with zero photos at the bottom
-        if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
-            return $b->number_photos - $a->number_photos;
-        }
-
-        // Whether they are this user's preferred match gender
-        $gender_of_chooser         = $a->gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
-        $desired_gender_of_chooser = $a->desired_gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
-        if ($desired_gender_of_chooser) {
-            if (($a->gender === $desired_gender_of_chooser) && ($b->gender !== $desired_gender_of_chooser)) {
-                return -1;
-            } else if (($b->gender === $desired_gender_of_chooser) && ($a->gender !== $desired_gender_of_chooser)) {
-                return 1;
-            }
-
-        // If preferred match gender is unspecified, male first, because (at the moment) there are many more men looking to be matched. Doing this drastically increases the number of mutual matches because it leaves more women in the matching pool to be matched with another user later in the matching process. An undesirable side effect is it does make it less likely for a bisexual woman to be matched with a another woman. But, if she does want to be matched to a woman, she can still set her desired gender of match to be female and that will be respected in the above conditional. Occasionally it also might make bisexual men MORE likely to be matched with a man than a woman.
-        } else {
-            if (($a->gender === 'M') && ($b->gender !== 'M')) {
-                return -1;
-            } else if (($b->gender === 'M') && ($a->gender !== 'M')) {
-                return 1;
-            }
-        }
-
-        // Chosen user might have a preference for gender too
-        if ($a->gender_of_match !== $b->gender_of_match) {
-            if ($a->gender_of_match && $a->gender_of_match === $gender_of_chooser) {
-                return -1;
-            } else if ($b->gender_of_match && $b->gender_of_match === $gender_of_chooser) {
-                return 1;
-            }
-        }
-
-        // Popularity
-        // DESC
-        if ($b->popularity - $a->popularity !== 0) {
-            return $b->popularity - $a->popularity;
-        }
-
-        // Number of photos descending (prioritize more complete profiles)
-        if ($b->number_photos - $a->number_photos !== 0) {
-            return $b->number_photos - $a->number_photos;
-        }
-
-        // Length of description descending (prioritize more complete profiles)
-        if (strlen($b->description) - strlen($a->description) !== 0) {
-            return strlen($b->description) - strlen($a->description);
-        }
-
-        // Random ok descending (prioritize random-ok users just as a small perk to them)
-        if ($b->random_ok - $a->random_ok !== 0) {
-            return $b->random_ok - $a->random_ok;
-        }
-
-        // Id ascending (prioritize early signups just as a small perk to them)
-        return $a->id - $b->id;
-    }
-
-    private static function rank_users($a, $b) {
-
-        // Move greylist users to the bottom
-        if ($a->greylist - $b->greylist !== 0) {
-            return $a->greylist - $b->greylist;
-        }
-
-        // Put users with zero photos at the bottom
-        if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
-            return $b->number_photos - $a->number_photos;
-        }
-
-        // Popularity and missions completed and days since signup combined
-        $popularity_multiplier                    = 2;
-        $missions_completed_rank_boost_multiplier = 75;
-        $a_rank = 0;
-        $b_rank = 0;
-        $a_rank += $a->days_since_signup;
-        $b_rank += $b->days_since_signup;
-        $a_rank += $a->popularity * $popularity_multiplier;
-        $b_rank += $b->popularity * $popularity_multiplier;
-        $a_rank += $a->missions_completed_count * $missions_completed_rank_boost_multiplier;
-        $b_rank += $b->missions_completed_count * $missions_completed_rank_boost_multiplier;
-        if ($b_rank - $a_rank !== 0) {
-            return $b_rank - $a_rank;
-        }
-
-        // Deprioritize men a little because we have too many
-        if ($a->gender != $b->gender) {
-            if ($a->gender == 'M') {
-                return 1;
-            } else if ($b->gender == 'M') {
-                return -1;
-            }
-        }
-
-        // Whoever signed up first
-        return ($a->id - $b->id);
-    }
-
-    private static function alpha_sort($a, $b) {
-        return strcmp(strtolower($a->name), strtolower($b->name));
     }
 
     public function match()
@@ -591,4 +482,113 @@ class MatchController extends Controller
         ]);
     }
 
+    // Prioritize this user's mutual matches by
+    private static function sort_matches($a, $b) {
+
+        // Move greylist users to the bottom
+        if ($a->greylist - $b->greylist !== 0) {
+            return $a->greylist - $b->greylist;
+        }
+
+        // Put users with zero photos at the bottom
+        if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
+            return $b->number_photos - $a->number_photos;
+        }
+
+        // Whether they are this user's preferred match gender
+        $gender_of_chooser         = $a->gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
+        $desired_gender_of_chooser = $a->desired_gender_of_chooser; // Should be same for both $a and $b (my ugly way of passing params)
+        if ($desired_gender_of_chooser) {
+            if (($a->gender === $desired_gender_of_chooser) && ($b->gender !== $desired_gender_of_chooser)) {
+                return -1;
+            } else if (($b->gender === $desired_gender_of_chooser) && ($a->gender !== $desired_gender_of_chooser)) {
+                return 1;
+            }
+
+        // If preferred match gender is unspecified, male first, because (at the moment) there are many more men looking to be matched. Doing this drastically increases the number of mutual matches because it leaves more women in the matching pool to be matched with another user later in the matching process. An undesirable side effect is it does make it less likely for a bisexual woman to be matched with a another woman. But, if she does want to be matched to a woman, she can still set her desired gender of match to be female and that will be respected in the above conditional. Occasionally it also might make bisexual men MORE likely to be matched with a man than a woman.
+        } else {
+            if (($a->gender === 'M') && ($b->gender !== 'M')) {
+                return -1;
+            } else if (($b->gender === 'M') && ($a->gender !== 'M')) {
+                return 1;
+            }
+        }
+
+        // Chosen user might have a preference for gender too
+        if ($a->gender_of_match !== $b->gender_of_match) {
+            if ($a->gender_of_match && $a->gender_of_match === $gender_of_chooser) {
+                return -1;
+            } else if ($b->gender_of_match && $b->gender_of_match === $gender_of_chooser) {
+                return 1;
+            }
+        }
+
+        // Popularity
+        // DESC
+        if ($b->popularity - $a->popularity !== 0) {
+            return $b->popularity - $a->popularity;
+        }
+
+        // Number of photos descending (prioritize more complete profiles)
+        if ($b->number_photos - $a->number_photos !== 0) {
+            return $b->number_photos - $a->number_photos;
+        }
+
+        // Length of description descending (prioritize more complete profiles)
+        if (strlen($b->description) - strlen($a->description) !== 0) {
+            return strlen($b->description) - strlen($a->description);
+        }
+
+        // Random ok descending (prioritize random-ok users just as a small perk to them)
+        if ($b->random_ok - $a->random_ok !== 0) {
+            return $b->random_ok - $a->random_ok;
+        }
+
+        // Id ascending (prioritize early signups just as a small perk to them)
+        return $a->id - $b->id;
+    }
+
+    private static function rank_users($a, $b) {
+
+        // Move greylist users to the bottom
+        if ($a->greylist - $b->greylist !== 0) {
+            return $a->greylist - $b->greylist;
+        }
+
+        // Put users with zero photos at the bottom
+        if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
+            return $b->number_photos - $a->number_photos;
+        }
+
+        // Popularity and missions completed and days since signup combined
+        $popularity_multiplier                    = 2;
+        $missions_completed_rank_boost_multiplier = 75;
+        $a_rank = 0;
+        $b_rank = 0;
+        $a_rank += $a->days_since_signup;
+        $b_rank += $b->days_since_signup;
+        $a_rank += $a->popularity * $popularity_multiplier;
+        $b_rank += $b->popularity * $popularity_multiplier;
+        $a_rank += $a->missions_completed_count * $missions_completed_rank_boost_multiplier;
+        $b_rank += $b->missions_completed_count * $missions_completed_rank_boost_multiplier;
+        if ($b_rank - $a_rank !== 0) {
+            return $b_rank - $a_rank;
+        }
+
+        // Deprioritize men a little because we have too many
+        if ($a->gender != $b->gender) {
+            if ($a->gender == 'M') {
+                return 1;
+            } else if ($b->gender == 'M') {
+                return -1;
+            }
+        }
+
+        // Whoever signed up first
+        return ($a->id - $b->id);
+    }
+
+    private static function alpha_sort($a, $b) {
+        return strcmp(strtolower($a->name), strtolower($b->name));
+    }
 }
