@@ -43,7 +43,7 @@ class MatchController extends Controller
         }
 
         if(isset($_POST['matchme'])) {
-            // TODO XXX FIXME filter out logged in user nos and potential match nos
+            // TODO XXX FIXME filter out logged in user nos&knows and potential match nos&knows
             $mutual_unmet_matches = DB::select("
                 select
                     users.id,
