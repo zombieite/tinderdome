@@ -30,6 +30,11 @@ class MatchController extends Controller
         if ($event->signups_still_needed) {
             return redirect('/');
         }
+        if ($event->attending_event_id) {
+            // All good
+        } else {
+            return redirect('/');
+        }
         return view('my_match', [
             'event_id' => $event_id,
         ]);
