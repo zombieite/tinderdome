@@ -123,7 +123,7 @@
                         </td>
                         <td>
                             @if ($upcoming_event->can_claim_match)
-                                <span class="bright">You can now request your match!</span>
+                                <a href="/my-match" class="bright">You can now request your match!</a>
                             @else
                                 @if (isset($upcoming_event->seconds_till_user_can_match))
                                     @if ($upcoming_event->seconds_till_user_can_match > 360000)
