@@ -6,7 +6,7 @@
 		<h2>You were matched for {{ $event }}, but your match has deleted their profile.</h2>
 	@else
         @if ($event)
-    		<h2>We did not find you a match for {{ $event }}.</h2>
+    		<h2>We have not yet found you a match for {{ $event }}.</h2>
         @else
             <h2>Event not found.</h2>
         @endif

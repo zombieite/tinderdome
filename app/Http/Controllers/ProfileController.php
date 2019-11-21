@@ -440,7 +440,7 @@ class ProfileController extends Controller
         $match           = array_shift($match_array);
         $event_long_name = $match ? $match->event_long_name : '';
 
-        if ($match) {
+        if ($match->user_id_of_match) {
             // All good
         } else {
             return view('nomatch', [
