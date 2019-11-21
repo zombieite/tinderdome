@@ -24,8 +24,11 @@ class MatchController extends Controller
         if ($event) {
             // All good
         } else {
-            Log::debug("Could not find user $logged_in_user_id");
+            Log::debug("Could not find event '$event_id'");
             abort(404);
+        }
+        if ($event->signups_still_needed) {
+            return redirect('/');
         }
         return view('my_match', [
             'event_id' => $event_id,
