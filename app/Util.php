@@ -95,7 +95,7 @@ class Util {
 	public static function min_signups_to_run_event()                        { return 20;  }
 	public static function days_before_event_when_everyone_can_get_match()   { return 3;   }
 	public static function days_before_event_when_top_ranked_can_get_match() { return 7;   }
-    public static function max_event_days_away()                             { return 120; }
+    public static function max_event_days_away()                             { return 90; }
 
     public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user ) {
 		$user_id                  = $user->id;
@@ -117,8 +117,8 @@ class Util {
                 event
                 left join attending on event.event_id = attending.event_id and attending.user_id = ?
             where
-                event_date > now()
-                and event_date < now() + interval ? day
+                    event_date >= now() - interval 1 day
+                and event_date <  now() + interval ? day
             order by
                 event_date
         ', [$dbewTRcgm, $dbewEcgm, $user_id, $max_event_days_away]);
@@ -136,34 +136,36 @@ class Util {
 			$event_result->attending_count      = $count;
 			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
 			$event_result->can_claim_match      = false;
-			if ($event_result->signups_still_needed) {
+            if ($event_result->signups_still_needed) {
 				// Nothing to do yet
 			} else {
 				if ($event_result->user_id_of_match) {
 					die('Matched! TODO XXX FIXME? Or maybe already implemented? Try just deleting this statement');
 				} else {
-					$already_matched_but_dont_know_it  = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
-					$time                                          = time();
-					$score                                         = $user->score;
-					$max_score_attending_result                    = DB::select('select max(score) max_score from users join attending on users.id = attending.user_id and event_id = ?', [$event_result->event_id]);
-					$max_score                                     = $max_score_attending_result[0]->max_score;
-					if ($max_score < 1 ) {
-						$max_score                                 = 1; // Prevent divide by zero and stuff
-					}
-					$time_when_top_ranked_can_match                = $event_result->time_when_top_ranked_can_match;
-					$time_when_everyone_can_match                  = $event_result->time_when_everyone_can_match;
-					if ($time > $time_when_everyone_can_match) {
-						$event_result->can_claim_match             = true;
-					} else {
-						$day_range                                 = $dbewTRcgm - $dbewEcgm;
-						$slice_duration                            = intval(($day_range * 24 * 60 * 60) / $max_score);
-						$advance_seconds_user_can_match            = $score * $slice_duration;
-						$event_result->time_when_user_can_match    = $time_when_everyone_can_match - $advance_seconds_user_can_match;
-						$event_result->seconds_till_user_can_match = $event_result->time_when_user_can_match - $time;
-						if ( $event_result->seconds_till_user_can_match < 0 ) {
-							$event_result->can_claim_match         = true;
-						}
-					}
+                    if ($event_result->attending_event_id) {
+                        $already_matched_but_dont_know_it  = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
+                        $time                                          = time();
+                        $score                                         = $user->score;
+                        $max_score_attending_result                    = DB::select('select max(score) max_score from users join attending on users.id = attending.user_id and event_id = ?', [$event_result->event_id]);
+                        $max_score                                     = $max_score_attending_result[0]->max_score;
+                        if ($max_score < 1 ) {
+                            $max_score                                 = 1; // Prevent divide by zero and stuff
+                        }
+                        $time_when_top_ranked_can_match                = $event_result->time_when_top_ranked_can_match;
+                        $time_when_everyone_can_match                  = $event_result->time_when_everyone_can_match;
+                        if ($time > $time_when_everyone_can_match) {
+                            $event_result->can_claim_match             = true;
+                        } else {
+                            $day_range                                 = $dbewTRcgm - $dbewEcgm;
+                            $slice_duration                            = intval(($day_range * 24 * 60 * 60) / $max_score);
+                            $advance_seconds_user_can_match            = $score * $slice_duration;
+                            $event_result->time_when_user_can_match    = $time_when_everyone_can_match - $advance_seconds_user_can_match;
+                            $event_result->seconds_till_user_can_match = $event_result->time_when_user_can_match - $time;
+                            if ( $event_result->seconds_till_user_can_match < 0 ) {
+                                $event_result->can_claim_match         = true;
+                            }
+                        }
+                    }
 				}
 			}
 		}
