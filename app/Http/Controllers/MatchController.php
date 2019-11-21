@@ -316,9 +316,9 @@ class MatchController extends Controller
         }
 
         // Whether this user is their potential match's preferred match gender
-        if (($a->gender_of_match == $a->gender_of_chooser) && ($b->gender_of_match != $b->gender_of_chooser)) {
+        if ((!$a->gender_of_match || ($a->gender_of_chooser == $a->gender_of_match)) && ($b->gender_of_chooser != $b->gender_of_match)) {
             return -1;
-        } else if (($b->gender_of_match == $b->gender_of_chooser) && ($a->gender_of_match == $a->gender_of_chooser)) {
+        } else if ((!$b->gender_of_match || ($b->gender_of_chooser == $b->gender_of_match)) && ($a->gender_of_chooser != $a->gender_of_match)) {
             return 1;
         }
 
