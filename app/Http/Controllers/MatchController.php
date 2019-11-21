@@ -10,6 +10,12 @@ use Log;
 
 class MatchController extends Controller
 {
+    public function my_match() {
+
+        return view('my_match', [
+        ]);
+    }
+
     // Prioritize this user's mutual matches by
     private static function sort_matches($a, $b) {
 
