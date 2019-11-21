@@ -78,6 +78,7 @@ class HomeController extends Controller
                     }
                 }
             }
+            $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
         }
 
         $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );
