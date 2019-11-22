@@ -96,7 +96,12 @@ class MatchController extends Controller
             return $a->greylist - $b->greylist;
         }
 
-		// Move these values out for less confusion
+        // Put users with zero photos at the bottom
+        if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
+            return $b->number_photos - $a->number_photos;
+        }
+
+		// Get these values out for less confusion
 		if ($a->gender_of_chooser != $b->gender_of_chooser) {
 			die('Found differnt values for gender_of_chooser in a and b');
 		}
@@ -130,12 +135,6 @@ class MatchController extends Controller
             return -1;
         } else if (($b->gender_of_match == $gender_of_chooser) && ($a->gender_of_match != $gender_of_chooser)) {
             return 1;
-        }
-
-        // Put users with zero photos at the bottom
-        // TODO XXX FIXME check poll https://www.facebook.com/YouAreAwaited/posts/2179203122180515
-        if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
-            return $b->number_photos - $a->number_photos;
         }
 
         // Score descending
