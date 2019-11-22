@@ -71,6 +71,8 @@ class MatchController extends Controller
                 where
                     users.id > 10
 					and (users.random_ok = 1 or c2.choice is not null)
+					and (c1.choice is null or c1.choice > 0)
+					and (c2.choice is null or c2.choice > 0)
                     and users.id != ?
             ", [$event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
             foreach ($mutual_unmet_matches as $match) {
