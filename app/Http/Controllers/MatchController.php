@@ -60,10 +60,11 @@ class MatchController extends Controller
 			if ($my_match_user_id) {
 				// All good
 			} else {
+				// Get all users who are potential matches for the logged in user
 				$left_maybe = $logged_in_user->random_ok ? 'left' : '';
 				$mutual_unmet_matches = DB::select("
 					select
-						users.id,
+						users.id user_id,
 						name,
 						email,
 						gender,
@@ -89,13 +90,14 @@ class MatchController extends Controller
 				foreach ($mutual_unmet_matches as $match) {
 					$match->choosers_desired_gender_of_match = $logged_in_user->gender_of_match;
 					$match->gender_of_chooser                = $logged_in_user->gender;
+					$match->hoping_to_find_love              = $logged_in_user->hoping_to_find_love;
 				}
 
 				// Where the magic happens
 				usort($mutual_unmet_matches, array($this, 'sort_matches'));
+				$my_match_user_id = $mutual_unmet_matches[0]->user_id;
 			}
         }
-
         $event_name = $event->event_long_name;
 
         return view('match_me', [
@@ -123,14 +125,21 @@ class MatchController extends Controller
         }
 
 		// Get these values out for less confusion
-		if ($a->gender_of_chooser != $b->gender_of_chooser) {
-			die('Found differnt values for gender_of_chooser in a and b');
+		if (($a->choosers_desired_gender_of_match != $b->choosers_desired_gender_of_match)
+		 || ($a->gender_of_chooser                != $b->gender_of_chooser)
+		 || ($a->hoping_to_find_love              != $b->hoping_to_find_love)) {
+			die("To-be-matched user's attributes incorrectly passed to sort");
 		}
-		if ($a->choosers_desired_gender_of_match != $b->choosers_desired_gender_of_match) {
-			die('Found differnt values for choosers_desired_gender_of_match in a and b');
+		$gender_of_chooser                = $a->gender_of_chooser;
+		$choosers_desired_gender_of_match = $a->choosers_desired_gender_of_match;
+		$chooser_is_hoping_to_find_love   = $a->hoping_to_find_love;
+
+		// Try to match people who are hoping to find love
+		if (($a->hoping_to_find_love == $chooser_is_hoping_to_find_love) && ($b->hoping_to_find_love != $chooser_is_hoping_to_find_love)) {
+			return -1;
+		} else if (($b->hoping_to_find_love == $chooser_is_hoping_to_find_love) && ($a->hoping_to_find_love != $chooser_is_hoping_to_find_love)) {
+			return 1;
 		}
-		$gender_of_chooser                = $a->gender_of_chooser;                // $a and $b have this set to the same thing
-		$choosers_desired_gender_of_match = $a->choosers_desired_gender_of_match; // $a and $b have this set to the same thing
 
 		// If chooser has a gender they prefer to meet
 		if ($choosers_desired_gender_of_match) {
@@ -164,6 +173,6 @@ class MatchController extends Controller
         }
 
         // Id ascending
-        return $a->id - $b->id;
+        return $a->user_id - $b->user_id;
     }
 }
