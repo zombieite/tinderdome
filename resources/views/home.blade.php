@@ -8,7 +8,7 @@
 
 @foreach ($upcoming_events_and_signup_status as $upcoming_event)
     @if ($upcoming_event->user_id_of_match)
-        <h1 class="bright">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">Here's your match.</a></h1>
+        <h1 class="bright">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match.</a></h1>
     @endif
 @endforeach
 
@@ -100,7 +100,7 @@
                             @endif
                             >
                             @if ($upcoming_event->user_id_of_match)
-                                <a class="bright" href="/profile/match?event={{ $upcoming_event->event_short_name }}&date={{ $upcoming_event->event_date }}">{{ $upcoming_event->event_long_name }}</a>
+                                <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">{{ $upcoming_event->event_long_name }}</a>
                             @else
                                 @if ($upcoming_event->url)
                                     <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>

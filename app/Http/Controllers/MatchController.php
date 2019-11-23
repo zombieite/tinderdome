@@ -87,15 +87,18 @@ class MatchController extends Controller
 						and (c2.choice is null or c2.choice > 0)
 						and users.id != ?
 				", [$event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
-				foreach ($mutual_unmet_matches as $match) {
-					$match->choosers_desired_gender_of_match = $logged_in_user->gender_of_match;
-					$match->gender_of_chooser                = $logged_in_user->gender;
-					$match->hoping_to_find_love              = $logged_in_user->hoping_to_find_love;
-				}
+                if ($mutual_unmet_matches) {
+                    foreach ($mutual_unmet_matches as $match) {
+                        $match->choosers_desired_gender_of_match = $logged_in_user->gender_of_match;
+                        $match->gender_of_chooser                = $logged_in_user->gender;
+                        $match->hoping_to_find_love              = $logged_in_user->hoping_to_find_love;
+                    }
 
-				// Where the magic happens
-				usort($mutual_unmet_matches, array($this, 'sort_matches'));
-				$my_match_user_id = $mutual_unmet_matches[0]->user_id;
+                    // Where the magic happens
+                    usort($mutual_unmet_matches, array($this, 'sort_matches'));
+                    $my_match_user_id = $mutual_unmet_matches[0]->user_id;
+                    DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
+                }
 			}
         }
         $event_name = $event->event_long_name;
@@ -104,7 +107,6 @@ class MatchController extends Controller
             'logged_in_user'    => $logged_in_user,
             'event_id'          => $event_id,
             'event_name'        => $event_name,
-            'potential_matches' => $mutual_unmet_matches,
 			'matchme'           => $matchme,
 			'my_match_user_id'  => $my_match_user_id,
         ]);

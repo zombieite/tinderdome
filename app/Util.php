@@ -140,7 +140,7 @@ class Util {
 				// Nothing to do yet
 			} else {
 				if ($event_result->user_id_of_match) {
-					die('Matched! TODO XXX FIXME? Or maybe already implemented? Try just deleting this statement');
+                    // All good
 				} else {
                     if ($event_result->attending_event_id) {
                         $already_matched_but_dont_know_it  = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
