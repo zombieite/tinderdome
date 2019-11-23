@@ -112,8 +112,6 @@ class MatchController extends Controller
 
     private static function sort_matches($a, $b) {
 
-        // TODO XXX FIXME Um, user rating and what they are looking for? I know we do it somewhere but seems like it should be done in here now
-
         // Move greylist users to the bottom
         if ($a->greylist - $b->greylist != 0) {
             return $a->greylist - $b->greylist;
@@ -124,6 +122,22 @@ class MatchController extends Controller
             return $b->number_photos - $a->number_photos;
         }
 
+		// Sort by this user's rating desc, then by that user's rating of this user desc
+		if ($a->user_looking_to_be_matcheds_rating_of_this_user ===  0) { die('Found a No rating'); }
+		if ($b->user_looking_to_be_matcheds_rating_of_this_user ===  0) { die('Found a No rating'); }
+		if ($a->this_users_rating_of_user_looking_to_be_matched ===  0) { die('Found a No rating'); }
+		if ($b->this_users_rating_of_user_looking_to_be_matched ===  0) { die('Found a No rating'); }
+		if ($a->user_looking_to_be_matcheds_rating_of_this_user === -1) { die('Found a Know rating'); }
+		if ($b->user_looking_to_be_matcheds_rating_of_this_user === -1) { die('Found a Know rating'); }
+		if ($a->this_users_rating_of_user_looking_to_be_matched === -1) { die('Found a Know rating'); }
+		if ($b->this_users_rating_of_user_looking_to_be_matched === -1) { die('Found a Know rating'); }
+		if ($b->user_looking_to_be_matcheds_rating_of_this_user - $a->user_looking_to_be_matcheds_rating_of_this_user != 0) {
+			return $b->user_looking_to_be_matcheds_rating_of_this_user - $a->user_looking_to_be_matcheds_rating_of_this_user;
+		}
+		if ($b->this_users_rating_of_user_looking_to_be_matched - $a->this_users_rating_of_user_looking_to_be_matched != 0) {
+			return $b->this_users_rating_of_user_looking_to_be_matched - $a->this_users_rating_of_user_looking_to_be_matched;
+		}
+
 		// Get these values out for less confusion
 		if (($a->choosers_desired_gender_of_match != $b->choosers_desired_gender_of_match)
 		 || ($a->gender_of_chooser                != $b->gender_of_chooser)
@@ -133,13 +147,6 @@ class MatchController extends Controller
 		$gender_of_chooser                = $a->gender_of_chooser;
 		$choosers_desired_gender_of_match = $a->choosers_desired_gender_of_match;
 		$chooser_is_hoping_to_find_love   = $a->hoping_to_find_love;
-
-		// Try to match people who are hoping to find love
-		if (($a->hoping_to_find_love == $chooser_is_hoping_to_find_love) && ($b->hoping_to_find_love != $chooser_is_hoping_to_find_love)) {
-			return -1;
-		} else if (($b->hoping_to_find_love == $chooser_is_hoping_to_find_love) && ($a->hoping_to_find_love != $chooser_is_hoping_to_find_love)) {
-			return 1;
-		}
 
 		// If chooser has a gender they prefer to meet
 		if ($choosers_desired_gender_of_match) {
