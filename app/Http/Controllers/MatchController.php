@@ -97,9 +97,11 @@ class MatchController extends Controller
                     // Where the magic happens
                     usort($mutual_unmet_matches, array($this, 'sort_matches'));
                     $my_match_user_id = $mutual_unmet_matches[0]->user_id;
-                    DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
                 }
 			}
+            if ($my_match_user_id) {
+                DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
+            }
         }
         $event_name = $event->event_long_name;
 
