@@ -8,7 +8,7 @@
 
 @foreach ($upcoming_events_and_signup_status as $upcoming_event)
     @if ($upcoming_event->user_id_of_match)
-        <h1 class="bright">YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match.</a></h1>
+        <h1>YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.</h1>
     @endif
 @endforeach
 
@@ -122,22 +122,26 @@
                             @endif
                         </td>
                         <td>
-                            @if ($upcoming_event->can_claim_match)
-                                <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
+                            @if ($upcoming_event->user_id_of_match)
+                                <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.
                             @else
-                                @if (isset($upcoming_event->seconds_till_user_can_match))
-                                    @if ($upcoming_event->seconds_till_user_can_match > 360000)
-                                        You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
-                                    @else
-                                        @if ($upcoming_event->seconds_till_user_can_match > 3600)
-                                            You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
-                                        @else
-                                            You will be eligible to request your match in less than one hour!
-                                        @endif
-                                    @endif
-                                    As you complete more missions, you become eligible to be matched sooner.
+                                @if ($upcoming_event->can_claim_match)
+                                    <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
                                 @else
-                                    &nbsp;
+                                    @if (isset($upcoming_event->seconds_till_user_can_match))
+                                        @if ($upcoming_event->seconds_till_user_can_match > 360000)
+                                            You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
+                                        @else
+                                            @if ($upcoming_event->seconds_till_user_can_match > 3600)
+                                                You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
+                                            @else
+                                                You will be eligible to request your match in less than one hour!
+                                            @endif
+                                        @endif
+                                        As you complete more missions, you become eligible to be matched sooner.
+                                    @else
+                                        &nbsp;
+                                    @endif
                                 @endif
                             @endif
                         </td>
