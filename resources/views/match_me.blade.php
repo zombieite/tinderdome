@@ -2,7 +2,7 @@
 @section('content')
 @if ($matchme)
     @if ($my_match_user_id)
-        <a href="/profile/match?event_id={{ $event_id }}">You have a match for {{ $event_name }}!</a>
+        <a href="/profile/match?event_id={{ $event_id }}">You now have a match for {{ $event_name }}!</a>
     @else
         You do not yet have a match. You may still get a match, because new people are signing up and they could be matched to you. Check back later!
     @endif
