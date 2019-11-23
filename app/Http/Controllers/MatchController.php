@@ -79,7 +79,7 @@ class MatchController extends Controller
 						users
 						join attending on (users.id = attending.user_id and attending.user_id_of_match is null and attending.event_id = ?)
 						$left_maybe join choose c1 on (users.id = c1.chosen_id and c1.chooser_id = ?)
-						left join choose c2 on (users.id = c2.chooser_id and c1.chosen_id = ?)
+						left join choose c2 on (users.id = c2.chooser_id and c2.chosen_id = ?)
 					where
 						users.id > 10
 						and (users.random_ok = 1 or c2.choice is not null)
