@@ -134,7 +134,6 @@ button.met, input[type="submit"].met {
     margin-right: 0.1em;
     padding: 0.5em;
     text-align: center;
-    width: 15em;
 }
 .mission_match_bright {
     border: 1px solid var(--bright);
@@ -143,7 +142,6 @@ button.met, input[type="submit"].met {
     margin-right: 0.1em;
     padding: 0.5em;
     text-align: center;
-    width: 15em;
 }
 .upcoming_event_checkbox {
     margin: 1em;

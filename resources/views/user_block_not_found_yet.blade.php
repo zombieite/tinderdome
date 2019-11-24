@@ -3,8 +3,11 @@
 Matched to
 <a href="{{ $url }}">{{ $name }}</a>
 <br>{{ $event_long_name }}
-<br><form action="/" method="POST">{{ csrf_field() }}<input type="hidden" name="chosen" value="{{ $user_id }}"><input type="submit" name="Met" class="met" value="Found!"><br><input type="submit" name="No" class="no" value="Found but did not enjoy meeting"></form>
+<br>
+@if ($ok_to_mark_user_found)
+    @include('rating_form', ['action' => "", 'user_id_to_rate' => $user_id, 'number_photos' => $number_photos, 'current_choice' => null, 'nos_left' => 1, 'is_my_match' => 1])
+@endif
 @if ($ok_to_delete_old_mission)
-    <form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $event_id }}" class="no" value="Delete this mission"></form>
+    <form action="" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $event_id }}" class="no" value="Delete this mission"></form>
 @endif
 </div>
