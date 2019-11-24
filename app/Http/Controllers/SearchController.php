@@ -179,31 +179,9 @@ class SearchController extends Controller
     public function update_rating() {
         if (isset($_POST['chosen'])) {
             $chooser_user_id = Auth::id();
-            $chosen_id       = $_POST['chosen'];
-            $choose_value    = null;
-            if (isset($_POST['YesYesYes'])) {
-                $choose_value = 3;
-            } elseif (isset($_POST['YesYes'])) {
-                $choose_value = 2;
-            } elseif (isset($_POST['Yes'])) {
-                $choose_value = 1;
-            } elseif (isset($_POST['Met'])) {
-                $choose_value = -1;
-            } elseif (isset($_POST['No'])) {
-                $choose_value = 0;
+            if (isset($_POST['chosen'])) {
+                \App\Util::rate_user($chooser_user_id, $_POST);
             }
-
-            $choose_row_exists = DB::select('select * from choose where chooser_id=? and chosen_id=?', [$chooser_user_id, $chosen_id]);
-            if ($choose_row_exists) {
-                // No need to insert another choose row
-            } else {
-                DB::insert('
-                    insert into choose (chooser_id, chosen_id) values (?, ?)
-                ', [ $chooser_user_id, $chosen_id ]);
-            }
-
-            $update = 'update choose set choice=? where chooser_id=? and chosen_id=?';
-            DB::update( $update, [ $choose_value, $chooser_user_id, $chosen_id ] );
         }
         return $this->search();
     }
