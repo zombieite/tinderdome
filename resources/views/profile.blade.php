@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @if ($is_my_match)
-	<h1 class="bright">{{ $auth_user->name }}, YOU ARE AWAITED by {{ $wasteland_name }}!</h1>
+	<h1 class="bright">{{ $auth_user->name }}, you are awaited by {{ $wasteland_name }}!</h1>
 	@if ($count_with_same_name)
 		@if ($count_with_same_name == 1)
 			Another wastelander also goes by the name {{ $wasteland_name }}. Be sure to find the right one.
@@ -29,11 +29,6 @@
 		<h2 class="bright">{{ $wasteland_name }}</h2>
 	@endif
 @endif
-@if ($events)
-    @foreach ($events as $event)
-        <h3 class="bright">Attending {{ $event->event_long_name }}</h3>
-    @endforeach
-@endif
 @if ($show_how_to_find_me || $share_info || $is_me)
 	@if ($how_to_find_me || $share_info)
 		@if ($profile_id == 1)
@@ -42,12 +37,20 @@
 		@endif
 		@if ($how_to_find_me)
 			How to find {{ $wasteland_name }}:
-			<h3 class="bright">&quot;{{ $how_to_find_me }}&quot;</h3>
+            <div class="profile_search_block">
+			    {{ $how_to_find_me }}
+            </div>
+            <br><br>
 		@endif
 	@endif
 @endif
 @if ($share_info)
 	<h3><a href="mailto:{{ $share_info }}" class="bright">{{ $share_info }}</a></h3>
+@endif
+@if ($events)
+    @foreach ($events as $event)
+        <h3>Attending {{ $event->event_long_name }}</h3>
+    @endforeach
 @endif
 @if ($gender)
 	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.
