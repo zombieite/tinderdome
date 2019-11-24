@@ -36,7 +36,7 @@
 			Do not share screenshots of this page. This information is confidential.
 		@endif
 		@if ($how_to_find_me)
-			How to find {{ $wasteland_name }}:
+			How to find {{ $wasteland_name }}:<br>
             <div class="profile_search_block">
 			    {{ $how_to_find_me }}
             </div>
