@@ -44,7 +44,7 @@
 @if ($number_photos)
     @if (count($unrated_users) >= 3)
         <h2><a href="/profile/compatible?" class="bright">Let us know if you'd enjoy meeting these users</a></h2>
-        @for ($i = 0; (($i < 7) && ($i < count($unrated_users))); $i++)
+        @for ($i = 0; (($i < 6) && ($i < count($unrated_users))); $i++)
                 @if ($unrated_users[$i]->number_photos)
                     @include('user_block_enjoy_meeting', ['user_id' => $unrated_users[$i]->id])
                 @endif
@@ -201,7 +201,7 @@
                     @include('user_block_found', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name ])
                 {{-- else I haven't found them yet --}}
                 @else
-                    @include('user_block_not_found_yet', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name, 'ok_to_delete_old_mission' => $matched_to_user->ok_to_delete_old_mission, 'event_id' => $matched_to_user->event_id ])
+                    @include('user_block_not_found_yet', ['number_photos' => $matched_to_user->number_photos, 'url' => $matched_to_user->url, 'user_id' => $matched_to_user->id, 'name' => $matched_to_user->name, 'event_long_name' => $matched_to_user->event_long_name, 'ok_to_delete_old_mission' => $matched_to_user->ok_to_delete_old_mission, 'event_id' => $matched_to_user->event_id, 'ok_to_mark_user_found' => $matched_to_user->ok_to_mark_user_found ])
                 @endif
             {{-- else match does not exist yet or match deleted themselves --}}
             @else
