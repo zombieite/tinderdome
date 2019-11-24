@@ -24,7 +24,7 @@ class ProfileController extends Controller
         }
 
         $wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
-        $auth_user               = Auth::user();
+        $logged_in_user               = Auth::user();
         $logged_in_user_id       = Auth::id();
 
         if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
@@ -66,7 +66,11 @@ class ProfileController extends Controller
         }
 
         // If we have a logged in user (not someone looking at Firebird's profile)
-        if ($logged_in_user_id && $auth_user) {
+        if ($logged_in_user_id && $logged_in_user) {
+            $choice_result = DB::select('select choice from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
+            if ($choice_result) {
+                $choice = array_shift($choice_result)->choice;
+            }
 
             $nos_left = \App\Util::nos_left_for_user( $logged_in_user_id );
 
@@ -87,7 +91,7 @@ class ProfileController extends Controller
             }
 
             // Figure out if we should share this user's email with a mutual favorite
-            if ($auth_user->hoping_to_find_love && $auth_user->share_info_with_favorites) { // The logged in user must share info to be able to see others' shared info
+            if ($logged_in_user->hoping_to_find_love && $logged_in_user->share_info_with_favorites) { // The logged in user must share info to be able to see others' shared info
                 // Figure out if the logged in user and the profile being viewed are mutual favorites
                 if ($choice == 3) {
                     $this_profile_likes_logged_in_user = DB::select('select * from choose where chooser_id=? and chosen_id=? and choice=3', [$profile_id, $logged_in_user_id]);
@@ -152,8 +156,8 @@ class ProfileController extends Controller
         $titles                             = \App\Util::titles();
         $events                             = \App\Util::events_user_is_attending( $profile_id );
         $logged_in_user_hoping_to_find_love = null;
-        if ($auth_user) {
-            $logged_in_user_hoping_to_find_love = $auth_user->hoping_to_find_love;
+        if ($logged_in_user) {
+            $logged_in_user_hoping_to_find_love = $logged_in_user->hoping_to_find_love;
         }
 
         return view('profile', [
@@ -178,7 +182,7 @@ class ProfileController extends Controller
             'is_me'                              => $is_me,
             'choice'                             => $choice,
             'nos_left'                           => $nos_left,
-            'auth_user'                          => $auth_user,
+            'logged_in_user'                     => $logged_in_user,
             'missions_completed'                 => $missions_completed,
             'titles'                             => $titles,
             'title_index'                        => $title_index,
