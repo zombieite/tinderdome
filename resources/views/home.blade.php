@@ -214,14 +214,6 @@
                     @if ($matched_to_user->user_id_of_match) {{-- user_id populated but no name populated means they deleted themselves --}}
                         @include('user_block_matched_to_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
                     {{-- else I was never matched to anyone, either because the mission gave me no match, or because the mission hasn't happened yet --}}
-                    @else
-                        {{-- If the mission never gave me a match (ok to delete flag is set in that case, among others) --}}
-                        @if ($matched_to_user->ok_to_delete_old_mission)
-                            {{-- Don't even show an old mission that didn't get them a match --}}
-                        {{-- else I just haven't gotten my match yet --}}
-                        @else
-                            @include('user_block_no_match_yet', ['event_long_name' => $matched_to_user->event_long_name])
-                        @endif
                     @endif
                 @endif
             @endif
