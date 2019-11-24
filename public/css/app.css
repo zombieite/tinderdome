@@ -128,6 +128,7 @@ button.met, input[type="submit"].met {
     text-align: center;
 }
 .mission_match {
+    display: inline-block;
     border: 1px solid var(--subtle);
     margin-top: 0.2em;
     margin-bottom: 0.2em;
@@ -136,6 +137,7 @@ button.met, input[type="submit"].met {
     text-align: center;
 }
 .mission_match_bright {
+    display: inline-block;
     border: 1px solid var(--bright);
     margin-top: 0.2em;
     margin-bottom: 0.2em;
