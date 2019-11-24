@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @if ($is_my_match)
-	<h1 class="bright">{{ $auth_user->name }}, you are awaited by {{ $wasteland_name }}!</h1>
+	<h1 class="bright">{{ $logged_in_user->name }}, you are awaited by {{ $wasteland_name }}!</h1>
 	@if ($count_with_same_name)
 		@if ($count_with_same_name == 1)
 			Another wastelander also goes by the name {{ $wasteland_name }}. Be sure to find the right one.
@@ -123,7 +123,7 @@
                     </div>
                 </div>
             </li>
-        @elseif ($auth_user && $comment->commenting_user_id === $auth_user->id)
+        @elseif ($logged_in_user && $comment->commenting_user_id === $logged_in_user->id)
             <li>
                 <div class=" profile_search_block ">
                     <div style="display:inline-block;">
@@ -142,7 +142,7 @@
     @endforeach
     </ul>
 @endif
-@if ($auth_user && $auth_user->id === 1)
+@if ($logged_in_user && $logged_in_user->id === 1)
 	<br><br>
 	<form method="POST" style="width:100%;text-align:right;">
 		{{ csrf_field() }}

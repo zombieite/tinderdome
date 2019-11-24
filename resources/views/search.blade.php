@@ -117,15 +117,12 @@
                     @endif
                 </div>
             @endif
-            @if ($show_yeses)
+            <br>
+            <br>
+            @if ($logged_in_user_id == $profile['profile_id'])
+                (You)
             @else
-                <br>
-                <br>
-                @if ($logged_in_user_id == $profile['profile_id'])
-                    (You)
-                @else
-                    @include('rating_form', ['action' => "#profile".$previous_profile_id, 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice'], 'number_photos' => $profile['number_photos']])
-                @endif
+                @include('rating_form', ['action' => "#profile".$previous_profile_id, 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice'], 'number_photos' => $profile['number_photos']])
             @endif
         </div>
     @endif
