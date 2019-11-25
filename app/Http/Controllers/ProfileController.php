@@ -49,19 +49,20 @@ class ProfileController extends Controller
             abort(404);
         }
 
-        $is_me                 = false;
-        $image_query_string    = '';
-        $user_count            = 0;
-        $nos_left              = 0;
-        $nos_used              = 0;
-        $popularity            = 0;
-        $choice                = null;
-        $share_info            = null;
-        $we_know_each_other    = false;
-        $comments              = [];
-        $is_my_match           = null;
-        $ok_to_mark_user_found = null;
-        $event_long_name       = null;
+        $is_me                           = false;
+        $image_query_string              = '';
+        $user_count                      = 0;
+        $nos_left                        = 0;
+        $nos_used                        = 0;
+        $popularity                      = 0;
+        $choice                          = null;
+        $share_info                      = null;
+        $we_know_each_other              = false;
+        $comments                        = [];
+        $is_my_match                     = null;
+        $ok_to_mark_user_found           = null;
+        $event_long_name                 = null;
+        $match_knows_you_are_their_match = null;
 
         if ($profile_id == 1) {
             $show_how_to_find_me = true;
@@ -87,10 +88,19 @@ class ProfileController extends Controller
                     and user_id_of_match = ?
             ', [$logged_in_user_id, $profile_id]);
             if ($match_result) {
-                $match                 = array_shift($match_result);
-                $event_long_name       = $match->event_long_name;
-                $is_my_match           = true;
-                $ok_to_mark_user_found = $match->ok_to_mark_user_found;
+                $match                                  = array_shift($match_result);
+                $event_long_name                        = $match->event_long_name;
+                $is_my_match                            = true;
+                $ok_to_mark_user_found                  = $match->ok_to_mark_user_found;
+                $match_knows_you_are_their_match        = DB::select('
+                    select
+                        *
+                    from
+                        attending
+                    where
+                        user_id = ?
+                        and user_id_of_match = ?
+                ', [$profile_id, $logged_in_user_id]);
             }
 
             // Find number of No's left
@@ -218,6 +228,7 @@ class ProfileController extends Controller
             'events'                             => $events,
             'event_long_name'                    => $event_long_name,
             'ok_to_mark_user_found'              => $ok_to_mark_user_found,
+            'match_knows_you_are_their_match'    => $match_knows_you_are_their_match,
         ]);
     }
 
