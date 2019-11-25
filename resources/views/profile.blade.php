@@ -16,7 +16,9 @@
     If you find them and meet them in person let us know. This will mark your mission as complete.
 	<br>
 	<br>
-	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
+    @if ($ok_to_mark_user_found)
+    	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
+    @endif
 	<br>
 @else
 	@if (!$is_me && $unchosen_user_id != 1 )
