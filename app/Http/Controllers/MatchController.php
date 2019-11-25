@@ -77,7 +77,8 @@ class MatchController extends Controller
 						c2.choice this_users_rating_of_user_looking_to_be_matched
 					from
 						users
-						join attending on (users.id = attending.user_id and attending.user_id_of_match is null and attending.event_id = ?)
+						join attending attending_no_known_match_yet on (users.id = attending_no_known_match_yet.user_id and attending_no_known_match_yet.user_id_of_match is null and attending_no_known_match_yet.event_id = ?)
+                        left join attending attending_already_matched_but_dont_know on (users.id = attending_already_matched_but_dont_know.user_id_of_match and attending_already_matched_but_dont_know.event_id = attending_no_known_match_yet.event_id)
 						$left_maybe join choose c1 on (users.id = c1.chosen_id and c1.chooser_id = ?)
 						left join choose c2 on (users.id = c2.chooser_id and c2.chosen_id = ?)
 					where
@@ -86,6 +87,7 @@ class MatchController extends Controller
 						and (c1.choice is null or c1.choice > 0)
 						and (c2.choice is null or c2.choice > 0)
 						and users.id != ?
+                        and attending_already_matched_but_dont_know.attending_id is null
 				", [$event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
                 if ($mutual_unmet_matches) {
                     foreach ($mutual_unmet_matches as $match) {
@@ -96,7 +98,23 @@ class MatchController extends Controller
 
                     // Where the magic happens
                     usort($mutual_unmet_matches, array($this, 'sort_matches'));
-                    $my_match_user_id = $mutual_unmet_matches[0]->user_id;
+                    Log::debug("Matching ".$logged_in_user->name." ($logged_in_user_id):");
+                    $logged_count = 0;
+                    foreach ($mutual_unmet_matches as $match) {
+                        Log::debug($match->user_id." ".$match->name." gender:".$match->gender." gender_of_match:".$match->gender_of_match." score:".$match->score." random_ok:".$match->random_ok." photos:".$match->number_photos." grey:".$match->greylist." logged_in_rating_of:".$match->user_looking_to_be_matcheds_rating_of_this_user." rating_of_logged_in:".$match->this_users_rating_of_user_looking_to_be_matched." logged_in_desired_gender:".$match->choosers_desired_gender_of_match." logged_in_gender:".$match->gender_of_chooser);
+                        $logged_count++;
+                        if ($logged_count >= 10) {
+                            break;
+                        }
+                    }
+
+                    // If user needs to be matched to their worst match then so be it
+                    if ($logged_in_user->number_photos < 1 or $logged_in_user->greylist) {
+                        $my_match_user_id = end($mutual_unmet_matches)->user_id;
+                    // else give them the best match we could find
+                    } else {
+                        $my_match_user_id = $mutual_unmet_matches[0]->user_id;
+                    }
                 }
 			}
             if ($my_match_user_id) {
