@@ -26,4 +26,7 @@ class AjaxController extends Controller
         }
         return;
 	}
+    public function redirect_gets() {
+        return redirect('/');
+    }
 }
