@@ -91,12 +91,16 @@ class SearchController extends Controller
                     hoping_to_find_love,
                     share_info_with_favorites,
                     c1.choice logged_in_user_choice,
-                    c2.choice their_choice
+                    c2.choice their_choice,
+                    attending_id,
+                    if (event_date is not null and event_date < curdate(), 1, 0) ok_to_mark_user_found
                 from
                     users
                     left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
                     left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
                     left join choose c3 on (c3.chooser_id = users.id and c3.chosen_id = ?)
+                    left join attending on (user_id = ? and attending.user_id_of_match = id)
+                    left join event on attending.event_id = event.event_id
                 where
                     id > 10
                     $rated_clause
@@ -111,7 +115,7 @@ class SearchController extends Controller
                 order by
                     c1.choice desc,
                     name
-            ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+            ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
         }
 
         foreach ($all_users as $profile) {
@@ -124,6 +128,7 @@ class SearchController extends Controller
             $description               = $profile->description;
             $number_photos             = $profile->number_photos;
             $choice                    = $profile->logged_in_user_choice;
+            $ok_to_mark_user_found     = $profile->attending_id ? $profile->ok_to_mark_user_found : 1;
             $mutual_favorite           = false;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
             $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -147,6 +152,7 @@ class SearchController extends Controller
                 'choice'                    => $choice,
                 'mutual_favorite'           => $mutual_favorite,
                 'missions_completed'        => $missions_completed,
+                'ok_to_mark_user_found'     => $ok_to_mark_user_found,
             ];
 
             if ($show_nos || (!$users_who_must_be_rated && $logged_in_user_number_photos && ($mutual_favorite || !$show_mutuals))) {

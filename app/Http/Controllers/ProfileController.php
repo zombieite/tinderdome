@@ -13,7 +13,7 @@ use Log;
 
 class ProfileController extends Controller
 {
-    public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $is_my_match = null, $event_long_name = null, $year = null, $count_with_same_name = 0)
+    public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $count_with_same_name = 0)
     {
         $profile = null;
         if ($unchosen_user) {
@@ -49,17 +49,19 @@ class ProfileController extends Controller
             abort(404);
         }
 
-        $is_me               = false;
-        $image_query_string  = '';
-        $user_count          = 0;
-        $nos_left            = 0;
-        $nos_used            = 0;
-        $popularity          = 0;
-        $choice              = null;
-        $share_info          = null;
-        $show_how_to_find_me = $is_my_match;
-        $we_know_each_other  = false;
-        $comments            = [];
+        $is_me                 = false;
+        $image_query_string    = '';
+        $user_count            = 0;
+        $nos_left              = 0;
+        $nos_used              = 0;
+        $popularity            = 0;
+        $choice                = null;
+        $share_info            = null;
+        $we_know_each_other    = false;
+        $comments              = [];
+        $is_my_match           = null;
+        $ok_to_mark_user_found = null;
+        $event_long_name       = null;
 
         if ($profile_id == 1) {
             $show_how_to_find_me = true;
@@ -72,6 +74,26 @@ class ProfileController extends Controller
                 $choice = array_shift($choice_result)->choice;
             }
 
+            // See if this user is one of the logged in user's matches
+            $match_result = DB::select('
+                select
+                    event_long_name,
+                    if (event_date < curdate(), 1, 0) ok_to_mark_user_found
+                from
+                    attending
+                    join event on attending.event_id = event.event_id
+                where
+                    user_id = ?
+                    and user_id_of_match = ?
+            ', [$logged_in_user_id, $profile_id]);
+            if ($match_result) {
+                $match                 = array_shift($match_result);
+                $event_long_name       = $match->event_long_name;
+                $is_my_match           = true;
+                $ok_to_mark_user_found = $match->ok_to_mark_user_found;
+            }
+
+            // Find number of No's left
             $nos_left = \App\Util::nos_left_for_user( $logged_in_user_id );
 
             // Figure out if user is looking at their own profile (hide buttons in that case)
@@ -138,6 +160,7 @@ class ProfileController extends Controller
             }
         }
 
+        $show_how_to_find_me                = $is_my_match;
         $gender                             = $profile->gender;
         $gender_of_match                    = $profile->gender_of_match;
         $gender_of_match_2                  = $profile->gender_of_match_2;
@@ -194,6 +217,7 @@ class ProfileController extends Controller
             'comments'                           => $comments,
             'events'                             => $events,
             'event_long_name'                    => $event_long_name,
+            'ok_to_mark_user_found'              => $ok_to_mark_user_found,
         ]);
     }
 
@@ -490,7 +514,7 @@ class ProfileController extends Controller
         $users_with_same_name = DB::select('select * from users where name = ? and id != ?', [$match_name, $match_id]);
         $count_with_same_name = count($users_with_same_name);
 
-        return $this->show($match_id, $match_name, null, null, true, $event_long_name, $count_with_same_name);
+        return $this->show($match_id, $match_name, null, null, $count_with_same_name);
     }
 
     public function compatible()
