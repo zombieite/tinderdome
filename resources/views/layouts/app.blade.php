@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+<title>You Are Awaited</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,10 +12,20 @@
 <meta property="og:description" content="Find thems you're looking for and thems you've lost.">
 <meta name="description" content="Find thems you're looking for and thems you've lost.">
 <meta name="robots" content="noindex">
-<title>You Are Awaited</title>
 <link href="/css/app.css" rel="stylesheet">
+<script>
+function getViewport() {
+    var w = Math.max(document.documentElement.clientWidth,  window.innerWidth  || 0);
+    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    var request = new XMLHttpRequest();
+    request.open('POST', '/viewport', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+    request.send('viewport_width='+w+'&viewport_height='+h);
+}
+</script>
 </head>
-<body>
+<body onload="getViewport()">
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 @guest
