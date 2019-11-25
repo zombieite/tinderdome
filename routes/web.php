@@ -25,4 +25,6 @@ Route::post('/profile/{profile_id}/{wasteland_name}', 'ProfileController@compati
 Route::post('/search',                                'SearchController@update_rating')->middleware(   'auth');
 Route::post('/match-me',                              'MatchController@match_me')->middleware(         'auth');
 Route::post('/match',                                 'MatchController@match')->middleware(            'auth');
+
+Route::get( '/viewport',                              'AjaxController@redirect_gets')->middleware(          'auth');
 Route::post('/viewport',                              'AjaxController@viewport')->middleware(          'auth');
