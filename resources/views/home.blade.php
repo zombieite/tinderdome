@@ -213,7 +213,6 @@
                     {{-- If I was indeed matched to them at some point, then they must have deleted themselves --}}
                     @if ($matched_to_user->user_id_of_match) {{-- user_id populated but no name populated means they deleted themselves --}}
                         @include('user_block_matched_to_deleted', ['event_long_name' => $matched_to_user->event_long_name, 'event_id' => $matched_to_user->event_id])
-                    {{-- else I was never matched to anyone, either because the mission gave me no match, or because the mission hasn't happened yet --}}
                     @endif
                 @endif
             @endif
