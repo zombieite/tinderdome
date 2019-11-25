@@ -23,7 +23,6 @@
     This mission won't expire until one of you deletes the mission or deletes their profile.
     If you find them and meet them in person let us know. This will mark your mission as complete.
 	<br>
-	<br>
     @if ($ok_to_mark_user_found)
     	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice])
     @endif

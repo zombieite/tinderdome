@@ -111,11 +111,12 @@ class MatchController extends Controller
         $event_name = $event->event_long_name;
 
         return view('match_me', [
-            'logged_in_user'    => $logged_in_user,
-            'event_id'          => $event_id,
-            'event_name'        => $event_name,
-			'matchme'           => $matchme,
-			'my_match_user_id'  => $my_match_user_id,
+            'logged_in_user'       => $logged_in_user,
+            'event_id'             => $event_id,
+            'event_name'           => $event_name,
+			'matchme'              => $matchme,
+			'my_match_user_id'     => $my_match_user_id,
+            'mutual_unmet_matches' => $mutual_unmet_matches,
         ]);
     }
 
