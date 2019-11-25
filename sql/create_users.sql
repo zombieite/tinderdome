@@ -24,6 +24,8 @@ CREATE TABLE users (
     score INT,
     title_index INT,
 	ip VARCHAR(50) NOT NULL,
+    viewport_width INT,
+    viewport_height INT,
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	last_active timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
