@@ -17,7 +17,7 @@ class MatchController extends Controller
         $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
         $event                             = null;
         $mutual_unmet_matches              = null;
-		$my_match_user_id                       = null;
+		$my_match_user_id                  = null;
         foreach ($upcoming_events_and_signup_status as $maybe_event) {
             if ($maybe_event->event_id == $event_id) {
                 $event = $maybe_event;
@@ -45,6 +45,7 @@ class MatchController extends Controller
 
 		$matchme = null;
         if (isset($_POST['matchme'])) {
+            Log::debug($logged_in_user->name." has requested their match for event $event_id");
 			$matchme = $_POST['matchme'];
 
 			$someone_else_claimed_me_row = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_id, $logged_in_user_id]);
@@ -89,6 +90,7 @@ class MatchController extends Controller
 						and users.id != ?
                         and attending_already_matched_but_dont_know.attending_id is null
 				", [$event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
+                Log::debug(count($mutual_unmet_matches)." possible matches found for ".$logged_in_user->name);
                 if ($mutual_unmet_matches) {
                     foreach ($mutual_unmet_matches as $match) {
                         $match->choosers_desired_gender_of_match = $logged_in_user->gender_of_match;
@@ -123,6 +125,10 @@ class MatchController extends Controller
                 } catch (Exception $e) {
                     $my_match_user_id = null;
                     Log::error("Error matching '$logged_in_user_id' to '$my_match_user_id', probably race condition, probably someone else got them as a match, can retry: '".$e->getMessage()."'");
+                }
+                if ($my_match_user_id) {
+                    Log::debug("Matched ".$logged_in_user->name." $logged_in_user_id to $my_match_user_id.");
+                    return redirect("/profile/match?event_id=$event_id");
                 }
             }
         }
