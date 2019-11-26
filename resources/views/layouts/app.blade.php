@@ -13,6 +13,10 @@
 <meta name="description" content="Find thems you're looking for and thems you've lost.">
 <meta name="robots" content="noindex">
 <link href="/css/app.css" rel="stylesheet">
+@guest
+</head>
+<body>
+@else
 <script>
 function getViewport() {
     var w = Math.max(document.documentElement.clientWidth,  window.innerWidth  || 0);
@@ -26,6 +30,7 @@ function getViewport() {
 </script>
 </head>
 <body onload="getViewport()">
+@endguest
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 @guest
