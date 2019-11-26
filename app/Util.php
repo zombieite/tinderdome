@@ -195,7 +195,8 @@ class Util {
             select
                 *,
                 if(event_date < curdate() - interval 5 day, 1, 0) ok_to_delete_old_mission,
-                if(event_date < curdate(), 1, 0) ok_to_mark_user_found
+                if(event_date < curdate(), 1, 0) ok_to_mark_user_found,
+                if(event_date >= curdate(), 1, 0) event_is_in_future
             from
                 attending
                 join event on attending.event_id = event.event_id
