@@ -6,9 +6,9 @@
     <h2 class="bright">{{ $success_message }}</h2>
 @endif
 
-@foreach ($upcoming_events_and_signup_status as $upcoming_event)
-    @if ($upcoming_event->user_id_of_match)
-        <h1>YOU ARE AWAITED AT {{ strtoupper($upcoming_event->event_long_name) }}! <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.</h1>
+@foreach ($matched_to_users as $matched_to_user)
+    @if ($matched_to_user->event_is_in_future and $matched_to_user->name and !$matched_to_user->they_said_no)
+        <h1>YOU ARE AWAITED AT {{ strtoupper($matched_to_user->event_long_name) }}! <a class="bright" href="/profile/match?event_id={{ $matched_to_user->event_id }}">Here's your match</a>.</h1>
     @endif
 @endforeach
 
