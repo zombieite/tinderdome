@@ -193,32 +193,32 @@ class Util {
         // Log::debug("Finding matches for user '$chooser_user_id/'");
         $matched_to_users = DB::select('
             select
-                *,
+                id,
+                name,
+                email,
+                number_photos,
+                attending.event_id,
+                event_long_name,
+                c1.choice logged_in_users_rating_of_this_user,
+                c2.choice this_users_rating_of_logged_in_user,
                 if(event_date < curdate() - interval 5 day, 1, 0) ok_to_delete_old_mission,
                 if(event_date < curdate(), 1, 0) ok_to_mark_user_found,
                 if(event_date >= curdate(), 1, 0) event_is_in_future
             from
                 attending
                 join event on attending.event_id = event.event_id
-                left join users on attending.user_id_of_match = users.id
-                left join choose on chooser_id = attending.user_id and chosen_id = attending.user_id_of_match
+                join users on attending.user_id_of_match = users.id
+                left join choose c1 on (c1.chooser_id = attending.user_id and c1.chosen_id = attending.user_id_of_match)
+                left join choose c2 on (c2.chooser_id = attending.user_id_of_match and c2.chosen_id = attending.user_id)
             where
-                user_id = ?
+                attending.user_id = ?
             order by
                 event.event_date desc
         ', [$chooser_user_id]);
         foreach ($matched_to_users as $user) {
-            // Log::debug("Found matched user ".$user->name.' choice '.$user->choice);
-            $user->they_said_no = false;
-            $their_choice = DB::select('select choice from choose where chooser_id = ? and chosen_id = ?', [$user->id, $chooser_user_id]);
-            if ($their_choice) {
-                if ($their_choice[0]->choice === 0) {
-                    $user->they_said_no = true;
-                }
-            }
             $name = $user->name;
             $user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $name);
-            if ($user->choice == -1) {
+            if ($user->logged_in_users_rating_of_this_user == -1) {
                 $user->url = '/profile/'.$user->id.'/'.$user->wasteland_name_hyphenated;
             } else {
                 $user->url = '/profile/match?event_id='.$user->event_id;
