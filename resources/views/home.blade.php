@@ -82,74 +82,76 @@
             <input type="hidden" name="attending_event_form" value="1">
             @if ($upcoming_events_and_signup_status)
                 <br>
-                <table>
-                    <tr>
-                        <th>Event</th>
-                        <th>Signups</th>
-                        <th>Match</th>
-                    </tr>
                 @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-                    <tr>
-                        <td>
-                            <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}"
-                            @if ($upcoming_event->attending_event_id)
+                    <table>
+                        <tr>
+                            <td>Event</td>
+                            <td>
+                                <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}"
+                                @if ($upcoming_event->attending_event_id)
+                                    @if ($upcoming_event->user_id_of_match)
+                                        disabled
+                                    @endif
+                                    checked
+                                @endif
+                                >
                                 @if ($upcoming_event->user_id_of_match)
-                                    disabled
-                                @endif
-                                checked
-                            @endif
-                            >
-                            @if ($upcoming_event->user_id_of_match)
-                                <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">{{ $upcoming_event->event_long_name }}</a>
-                            @else
-                                @if ($upcoming_event->url)
-                                    <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>
+                                    <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">{{ $upcoming_event->event_long_name }}</a>
                                 @else
-                                    {{ $upcoming_event->event_long_name }}
-                                @endif
-                            @endif
-                        </td>
-                        <td>
-                            @if ($upcoming_event->signups_still_needed)
-                                {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed.
-                                @if ($upcoming_event->url)
-                                    <a href="{{ $upcoming_event->url }}" class="bright">Get the word out!</a>
-                                @else
-                                    Get the word out!
-                                @endif
-                            @else
-                                {{ $upcoming_event->attending_count }} signups, event is happening
-                            @endif
-                        </td>
-                        <td>
-                            @if ($upcoming_event->user_id_of_match)
-                                <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.
-                            @else
-                                @if ($upcoming_event->can_claim_match)
-                                    <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
-                                @else
-                                    @if (isset($upcoming_event->seconds_till_user_can_match))
-                                        @if ($upcoming_event->seconds_till_user_can_match > 360000)
-                                            You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
-                                        @else
-                                            @if ($upcoming_event->seconds_till_user_can_match > 3600)
-                                                You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
-                                            @else
-                                                You will be eligible to request your match in less than one hour!
-                                            @endif
-                                        @endif
-                                        As you complete more missions, you become eligible to be matched sooner.
+                                    @if ($upcoming_event->url)
+                                        <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>
                                     @else
-                                        &nbsp;
+                                        {{ $upcoming_event->event_long_name }}
                                     @endif
                                 @endif
-                            @endif
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Signups</td>
+                            <td>
+                                @if ($upcoming_event->signups_still_needed)
+                                    {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed.
+                                    @if ($upcoming_event->url)
+                                        <a href="{{ $upcoming_event->url }}" class="bright">Get the word out!</a>
+                                    @else
+                                        Get the word out!
+                                    @endif
+                                @else
+                                    {{ $upcoming_event->attending_count }} signups, event is happening
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Match</td>
+                            <td>
+                                @if ($upcoming_event->user_id_of_match)
+                                    <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.
+                                @else
+                                    @if ($upcoming_event->can_claim_match)
+                                        <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
+                                    @else
+                                        @if (isset($upcoming_event->seconds_till_user_can_match))
+                                            @if ($upcoming_event->seconds_till_user_can_match > 360000)
+                                                You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
+                                            @else
+                                                @if ($upcoming_event->seconds_till_user_can_match > 3600)
+                                                    You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
+                                                @else
+                                                    You will be eligible to request your match in less than one hour!
+                                                @endif
+                                            @endif
+                                            As you complete more missions, you will become eligible to be matched sooner.
+                                        @else
+                                            &nbsp;
+                                        @endif
+                                    @endif
+                                @endif
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
                 @endforeach
-                </table>
             @endif
-            <br>
             <input type="submit" class="yesyesyes" value="Submit changes">
             <br>
         </form>

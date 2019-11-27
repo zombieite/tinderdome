@@ -147,5 +147,6 @@ button.met, input[type="submit"].met {
     text-align: center;
 }
 .upcoming_event_checkbox {
-    margin: 1em;
+    transform:scale(2, 2);
+    margin:1em;
 }
