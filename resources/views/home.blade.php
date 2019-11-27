@@ -95,14 +95,10 @@
                                     checked
                                 @endif
                                 >
-                                @if ($upcoming_event->user_id_of_match)
-                                    <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">{{ $upcoming_event->event_long_name }}</a>
+                                @if ($upcoming_event->url)
+                                    <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>
                                 @else
-                                    @if ($upcoming_event->url)
-                                        <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>
-                                    @else
-                                        {{ $upcoming_event->event_long_name }}
-                                    @endif
+                                    {{ $upcoming_event->event_long_name }}
                                 @endif
                             </td>
                         </tr>
@@ -112,7 +108,7 @@
                                 @if ($upcoming_event->signups_still_needed)
                                     {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed.
                                     @if ($upcoming_event->url)
-                                        <a href="{{ $upcoming_event->url }}" class="bright">Get the word out!</a>
+                                        <a href="{{ $upcoming_event->url }}" class="bright">Get the word out</a>!
                                     @else
                                         Get the word out!
                                     @endif
