@@ -211,7 +211,8 @@ class Util {
                 left join choose c1 on (c1.chooser_id = attending.user_id and c1.chosen_id = attending.user_id_of_match)
                 left join choose c2 on (c2.chooser_id = attending.user_id_of_match and c2.chosen_id = attending.user_id)
             where
-                attending.user_id = ?
+                user_id_of_match is not null
+                and attending.user_id = ?
             order by
                 event.event_date desc
         ', [$chooser_user_id]);
