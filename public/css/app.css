@@ -80,6 +80,7 @@ button.yes, input[type="submit"].yes {
 .no, button.no, input[type="submit"].no {
     background-color: red;
     border: 1px solid var(--subtle);
+    height: 3em;
 }
 button.met, input[type="submit"].met {
     background-color: var(--met);
