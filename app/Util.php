@@ -55,7 +55,7 @@ class Util {
 
     public static function rate_user($logged_in_user_id, $post) {
 		$chosen_id = $post['chosen'];
-		if ($chosen_id != 1 && $chosen_id != $logged_in_user_id) {
+		if ($chosen_id != $logged_in_user_id) {
             $choose_value = null;
             if (isset($post['YesYesYes'])) {
                 $choose_value = 3;
@@ -92,10 +92,10 @@ class Util {
         ');
     }
 
-	public static function min_signups_to_run_event()                        { return 20;  }
-	public static function days_before_event_when_everyone_can_get_match()   { return 3;   }
-	public static function days_before_event_when_top_ranked_can_get_match() { return 10;  }
-    public static function max_event_days_away()                             { return 90;  }
+	public static function min_signups_to_run_event()                        { return 20; }
+	public static function days_before_event_when_everyone_can_get_match()   { return  3; }
+	public static function days_before_event_when_top_ranked_can_get_match() { return 10; }
+    public static function max_event_days_away()                             { return 90; }
 
     public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user ) {
 		$user_id                  = $user->id;
