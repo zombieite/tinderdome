@@ -201,13 +201,13 @@ class Util {
                 event_long_name,
                 c1.choice logged_in_users_rating_of_this_user,
                 c2.choice this_users_rating_of_logged_in_user,
-                if(event_date < curdate() - interval 5 day, 1, 0) ok_to_delete_old_mission,
+                if(event_date < curdate() - interval 30 day, 1, 0) ok_to_delete_old_mission,
                 if(event_date < curdate(), 1, 0) ok_to_mark_user_found,
                 if(event_date >= curdate(), 1, 0) event_is_in_future
             from
                 attending
                 join event on attending.event_id = event.event_id
-                join users on attending.user_id_of_match = users.id
+                left join users on attending.user_id_of_match = users.id
                 left join choose c1 on (c1.chooser_id = attending.user_id and c1.chosen_id = attending.user_id_of_match)
                 left join choose c2 on (c2.chooser_id = attending.user_id_of_match and c2.chosen_id = attending.user_id)
             where
