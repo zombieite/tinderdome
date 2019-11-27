@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@if ($is_my_match)
+@if ($is_my_match and $choice > 0)
     @if ($match_knows_you_are_their_match)
 	    <h1 class="bright">{{ $logged_in_user->name }}, you are awaited by {{ $wasteland_name }}!</h1>
         <h2>They have logged in to check their matches. They know you are their match.</h2>
