@@ -189,28 +189,18 @@
 @if ($matched_to_users)
     <h2>Mission matches</h2>
     @foreach ($matched_to_users as $matched_to_user)
-
-        {{-- If we didn't like this match --}}
         @if ($matched_to_user->logged_in_users_rating_of_this_user === 0)
-            @include('user_block_found_not_liked', ['event_long_name' => $matched_to_user->event_long_name ])
-
-        {{-- else we either met them or we would still like to meet them --}}
+            @include('user_block_found_not_liked', [
+                'event_long_name'                      => $matched_to_user->event_long_name,
+            ])
         @else
-
-            {{-- If our match didn't like us --}
             @if ($matched_to_user->this_users_rating_of_logged_in_user === 0)
                 @include('user_block_found_but_deleted', [
-                    'event_long_name'          => $matched_to_user->event_long_name,
-                    'event_id'                 => $matched_to_user->event_id
+                    'event_long_name'                  => $matched_to_user->event_long_name,
+                    'event_id'                         => $matched_to_user->event_id,
                 ])
-
-            {{-- else our match either met us or would still like to meet us --}
             @else
-
-                {{-- If match exists and was not deleted --}}
-                @if ($matched_to_user->name) {{-- Name populated means join to users succeeded --}}
-
-                    {{-- If I say I've met them --}}
+                @if ($matched_to_user->name)
                     @if ($matched_to_user->logged_in_users_rating_of_this_user === -1)
                         @include('user_block_found', [
                             'number_photos'            => $matched_to_user->number_photos,
@@ -219,8 +209,6 @@
                             'name'                     => $matched_to_user->name,
                             'event_long_name'          => $matched_to_user->event_long_name,
                         ])
-
-                    {{-- else I haven't found them yet --}}
                     @else
                         @include('user_block_not_found_yet', [
                             'number_photos'            => $matched_to_user->number_photos,
@@ -230,29 +218,24 @@
                             'event_long_name'          => $matched_to_user->event_long_name,
                             'ok_to_delete_old_mission' => $matched_to_user->ok_to_delete_old_mission,
                             'event_id'                 => $matched_to_user->event_id,
-                            'ok_to_mark_user_found'    => $matched_to_user->ok_to_mark_user_found
+                            'ok_to_mark_user_found'    => $matched_to_user->ok_to_mark_user_found,
                         ])
                     @endif
-
-                {{-- else match deleted themselves --}}
                 @else
-
-                    {{-- I found my match before they deleted themselves --}}
                     @if ($matched_to_user->choice === -1)
                         @include('user_block_found_but_deleted', [
                             'event_long_name'          => $matched_to_user->event_long_name,
-                            'event_id'                 => $matched_to_user->event_id
+                            'event_id'                 => $matched_to_user->event_id,
                         ])
-
-                    {{-- else I never found them --}}
                     @else
                         @include('user_block_matched_to_deleted', [
-                            'event_long_name'      => $matched_to_user->event_long_name,
-                            'event_id'             => $matched_to_user->event_id
+                            'event_long_name'          => $matched_to_user->event_long_name,
+                            'event_id'                 => $matched_to_user->event_id,
                         ])
                     @endif
                 @endif
             @endif
+        @endif
     @endforeach
 @endif
 @endsection
