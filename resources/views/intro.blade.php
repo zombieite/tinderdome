@@ -30,7 +30,7 @@ Create a profile that tells everyone a little bit about you. <a href="/profile/F
 <p>
 Let us know what upcoming events you'll be attending.
 @if ($next_event_name)
-    The next event is {{ $next_event_name }}.
+    The next event will be {{ $next_event_name }}.
 @endif
 </p>
 <h3>3. Let us know who you'd enjoy meeting</h3>
