@@ -60,32 +60,31 @@ input[type="submit"] {
     color: black;
     background-color: var(--special);
     border: 1px solid var(--subtle);
+    height: 3em;
     margin: 0.5em;
+}
+button {
+    height: 3em;
 }
 button.yesyesyes, input[type="submit"].yesyesyes {
     background-color: var(--yes);
     border: 1px solid var(--subtle);
-    height: 3em;
 }
 button.yesyes, input[type="submit"].yesyes {
     background-color: var(--yes);
     border: 1px solid var(--subtle);
-    height: 3em;
 }
 button.yes, input[type="submit"].yes {
     background-color: var(--neutral);
     border: 1px solid var(--subtle);
-    height: 3em;
 }
 .no, button.no, input[type="submit"].no {
     background-color: red;
     border: 1px solid var(--subtle);
-    height: 3em;
 }
 button.met, input[type="submit"].met {
     background-color: var(--met);
     border: 1px solid var(--subtle);
-    height: 3em;
 }
 .bright {
     color: var(--bright);
