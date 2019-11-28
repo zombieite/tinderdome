@@ -67,8 +67,7 @@ function getViewport() {
 @include('home_promo_stuff')
     @yield('content')
 <hr>
-{{ $total_count }} total participants
-&middot; {{ $active_count }} active in the past 24 hours
+{{ $active_count }} participants active in the past 24 hours
 @if ($next_event_name)
 &middot; {{ $next_event_count }} signed up for missions during {{ $next_event_name }}
 @endif
