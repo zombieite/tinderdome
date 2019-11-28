@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@include('home_promo_stuff')
 <h2>Turn strangers into friends by meeting them.</h2>
 <p>You Are Awaited is a simple game. You prepare for it online, but play it during various real-world events. Participation is free. <a href="{{ route('register') }}">Sign up now</a>.
 @if ($next_event_name)

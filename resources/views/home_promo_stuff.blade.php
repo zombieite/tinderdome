@@ -1,1 +1,3 @@
-{{-- <iframe style="width:100%;max-width:720px;height:480px" src="https://www.youtube.com/embed/zQqjvO-useM" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe><br> --}}
+<a href="/awaited-nonfictional-delusion"><img src="/images/stuff/awaited-nonfictional-delusion-ad.jpg"></a>
+<a href="https://cultofcatmeat.com"><img src="/images/stuff/catmeat.png"></a>
+<hr>

@@ -39,10 +39,6 @@ function getViewport() {
     <a class="navbar" href="{{ route('login') }}">Log in</a>
     &middot;
     <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
-    &middot;
-    <a class="navbar bright" href="/awaited-nonfictional-delusion">AWAITED: NONFICTIONAL DELUSION</a>
-    &middot;
-    <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
 @else
     <form action="{{ route('logout') }}" method="POST">
     {{ csrf_field() }}
@@ -55,10 +51,6 @@ function getViewport() {
     <a class="navbar" href="/image/upload">Upload images</a>
     &middot;
     <a class="navbar" href="/search">Search</a>
-    &middot;
-    <a class="navbar bright" href="/awaited-nonfictional-delusion">AWAITED: NONFICTIONAL DELUSION</a>
-    &middot;
-    <a class="navbar" href="https://www.cultofcatmeat.com">CULT OF CATMEAT</a>
     &middot;
     <input type="submit" value="Log out">
     </form>
