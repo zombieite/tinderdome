@@ -153,7 +153,7 @@
         </form>
     </div></li>
 @else
-    <li>When new events are added, they will appear here. You can sign up to be matched during these events.</li>
+    <li>When new events are added, they will appear here. Sign up here to be matched.</li>
 @endif
 
 @if ($unrated_users)
@@ -173,14 +173,14 @@
         @endforeach
         @if (isset($viewed_all))
         @else
-            Let us know who you'd like to meet.
+            Let us know who you'd like to meet at the events.
         @endif
     </li>
 @endif
 
-<li>Check here a few days before the event to find out who you're matched with.
+<li>Check here a few days before each event to find out who you're matched with.
 
-<li>At the event, seek out your match and introduce yourself.</li>
+<li>At each event, seek out your match and introduce yourself.</li>
 
 </ol>
 
