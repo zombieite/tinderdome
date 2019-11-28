@@ -106,8 +106,8 @@ I am...
 <label for="gender">Gender</label>
 <select name="gender" id="gender">
 	<option value="">No answer</option>
-	<option value="M" @guest @else @if ($gender === 'M') selected @endif @endguest>M</option>
-	<option value="F" @guest @else @if ($gender === 'F') selected @endif @endguest>F</option>
+	<option value="M" @guest @else @if ($gender === 'M') selected @endif @endguest>Man</option>
+	<option value="W" @guest @else @if ($gender === 'W') selected @endif @endguest>Woman</option>
 	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
 </select>
 
@@ -115,16 +115,16 @@ I am...
 <label for="gender_of_match">I would prefer to be matched with a person of gender...</label>
 <select name="gender_of_match" id="gender_of_match">
 	<option value="">Any</option>
-	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>M</option>
-	<option value="F" @guest @else @if ($gender_of_match === 'F') selected @endif @endguest>F</option>
+	<option value="M" @guest @else @if ($gender_of_match === 'M') selected @endif @endguest>Man</option>
+	<option value="W" @guest @else @if ($gender_of_match === 'W') selected @endif @endguest>Woman</option>
 	<option value="O" @guest @else @if ($gender_of_match === 'O') selected @endif @endguest>Other</option>
 </select>
 <br>
 <label for="gender_of_match_2">Or gender...</label>
 <select name="gender_of_match_2" id="gender_of_match_2">
 	<option value="">No answer</option>
-	<option value="M" @guest @else @if ($gender_of_match_2 === 'M') selected @endif @endguest>M</option>
-	<option value="F" @guest @else @if ($gender_of_match_2 === 'F') selected @endif @endguest>F</option>
+	<option value="M" @guest @else @if ($gender_of_match_2 === 'M') selected @endif @endguest>Man</option>
+	<option value="W" @guest @else @if ($gender_of_match_2 === 'W') selected @endif @endguest>Woman</option>
 	<option value="O" @guest @else @if ($gender_of_match_2 === 'O') selected @endif @endguest>Other</option>
 </select>
 <br>Users of all genders will see your profile. We will try to match you to a user of your preferred gender but you must be open to being matched to users of all genders.

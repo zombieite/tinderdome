@@ -33,7 +33,7 @@ class PhotoSearchController extends Controller
 		}
 
 		if ($gender_to_show) {
-			if (preg_match('/^(f|m|o)$/', $gender_to_show)) {
+			if (preg_match('/^(w|m|o)$/', $gender_to_show)) {
 				$gender_clause = 'and gender = ?';
 			} else {
 				abort(403, 'Unknown gender');
