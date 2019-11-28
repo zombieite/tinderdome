@@ -62,7 +62,7 @@
     @endforeach
 @endif
 @if ($gender)
-	Gender: {{ $gender === 'M' ? 'Male' : ($gender === 'F' ? 'Female' : 'Other') }}.
+	Gender: {{ $gender === 'M' ? 'Man' : ($gender === 'W' ? 'Woman' : 'Other') }}.
 @endif
 @if ($birth_year)
 	@if ($birth_year === 1959)
@@ -95,10 +95,10 @@
 	@endif
 @endif
 @if ($gender_of_match)
-	Prefers to meet gender: {{ $gender_of_match === 'M' ? 'Male' : ($gender_of_match === 'F' ? 'Female' : 'Other') }}.
+	Prefers to meet gender: {{ $gender_of_match === 'M' ? 'Man' : ($gender_of_match === 'W' ? 'Woman' : 'Other') }}.
 @endif
 @if ($gender_of_match && $gender_of_match_2 && ($gender_of_match != $gender_of_match_2))
-	Or gender: {{ $gender_of_match_2 === 'M' ? 'Male' : ($gender_of_match_2 === 'F' ? 'Female' : 'Other') }}.
+	Or gender: {{ $gender_of_match_2 === 'M' ? 'Man' : ($gender_of_match_2 === 'W' ? 'Woman' : 'Other') }}.
 @endif
 @if ($description)
 	<br>

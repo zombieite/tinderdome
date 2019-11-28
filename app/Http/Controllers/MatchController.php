@@ -209,9 +209,9 @@ class MatchController extends Controller
 		// else chooser has no gender they prefer to meet, so if they are M see if we can match them to another M who also has no preference, since we have too many M and this is a way to match up 2 of them without disappointing either of them
 		} else {
 			if ($gender_of_chooser == 'M' ) {
-				if ((!$a->gender_of_match && $a->gender == 'M') && ($b->gender_of_match || $b->gender == 'F')) {
+				if ((!$a->gender_of_match && $a->gender == 'M') && ($b->gender_of_match || $b->gender == 'W')) {
 					return -1;
-				} else if ((!$b->gender_of_match && $b->gender == 'M') && ($a->gender_of_match) || $a->gender == 'F') {
+				} else if ((!$b->gender_of_match && $b->gender == 'M') && ($a->gender_of_match) || $a->gender == 'W') {
 					return 1;
 				}
 			}

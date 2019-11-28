@@ -66,7 +66,7 @@
     <a href="/photosearch">Show all photos</a><br><br>
     <a href="/photosearch?gender=o">Show all photos of users of gender other and unspecified</a><br><br>
     <a href="/photosearch?gender=m">Show all photos of men</a><br><br>
-    <a href="/photosearch?gender=f">Show all photos of women</a><br><br>
+    <a href="/photosearch?gender=w">Show all photos of women</a><br><br>
 @endif
 @php $previous_profile_id = isset($profiles[0]) ? $profiles[0]['profile_id'] : ''; @endphp
 @foreach ($profiles as $profile)
