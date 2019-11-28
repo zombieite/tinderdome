@@ -8,7 +8,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta property="og:title" content="You Are Awaited">
 <meta property="og:url" content="http://youareawaited.com">
-<meta property="og:image" content="http://youareawaited.com/images/awaited_bw.jpg">
+<meta property="og:image" content="http://youareawaited.com/images/awaited.jpg">
 <meta property="og:description" content="Find thems you're looking for and thems you've lost.">
 <meta name="description" content="Find thems you're looking for and thems you've lost.">
 <meta name="robots" content="noindex">
