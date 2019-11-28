@@ -1,3 +1,5 @@
-<a href="/awaited-nonfictional-delusion"><img src="/images/stuff/awaited-nonfictional-delusion-ad.jpg"></a>
+<a href="/awaited-nonfictional-delusion"><img src="/images/stuff/awaited-nonfictional-delusion.jpg"></a>
+<a href="https://www.youtube.com/watch?v=pMKM1d0IsNs"><img src="/images/stuff/awaited-youtube.jpg"></a>
+<a href="https://www.youtube.com/watch?v=zQqjvO-useM"><img src="/images/stuff/roadblock-youtube.jpg"></a>
 <a href="https://cultofcatmeat.com"><img src="/images/stuff/catmeat.png"></a>
 <hr>
