@@ -40,3 +40,6 @@ yarn.lock
 readme.md
 composer.phar
 resources/assets/
+.styleci.yml
+app/Http/Controllers/Auth/ConfirmPasswordController.php
+package-lock.json
