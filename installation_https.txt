@@ -1,0 +1,153 @@
+mkdir -p /Users/zombieite/Desktop/local/web/
+
+ln -s /Library/WebServer/Documents /Users/zombieite/Desktop/local/web/tinderdome
+
+apache config is /etc/apache2/httpd.conf but hopefully we can leave this alone?
+
+apachectl configtest
+
+echo "<html><body><h1>Welcome to my site</h1></body></html>" >/Library/WebServer/Documents/index.html
+
+sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+
+visit localhost to verify it is working
+
+to stop: sudo /usr/sbin/apachectl stop
+
+to restart: sudo /usr/sbin/apachectl restart
+
+to start again: sudo /usr/sbin/apachectl start
+
+https://ssl-config.mozilla.org/#server=apache&server-version=2.4.39&config=intermediate
+
+# TODO XXX FIXME this needs to be symlinked from the one in the git repo, so figure that order of operations out and fix
+ln -s /Users/$USER/Desktop/local/web/tinderdome/apache/youareawaited.com.conf /private/etc/apache2/other/youareawaited.com.conf
+copy contents into new file, adding LoadModule's as needed by copying them from /private/etc/apache2/httpd.conf: /private/etc/apache2/other/youareawaited.com.conf
+
+add
+Listen 443
+
+apachectl configtest
+
+https://certbot.eff.org/lets-encrypt/osx-apache
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install letsencrypt
+sudo certbot --apache
+echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew" | sudo tee -a /etc/crontab > /dev/null
+
+to renew, i think you can just do:
+certbot renew
+from above cron, if the cron doesn't take care of it for you.
+
+#copied from repo's installation.txt:
+
+cd ~
+
+# Get composer (may need to get homebrew first)
+curl -sS https://getcomposer.org/installer | /usr/bin/php
+
+# get php ext zip
+brew update
+brew install php@7.3
+brew link php@7.3 --force
+
+/Users/$USER/composer.phar global require "laravel/installer"
+
+mv /Users/$USER/composer.phar /Users/$USER/composer 
+PATH=$PATH:/Users/$USER/.composer/vendor/bin
+PATH=$PATH:/Users/$USER/
+
+mkdir /Users/$USER/Desktop/local/web
+
+cd /Users/$USER/Desktop/local/web
+
+# Get this repo (may need to install git first)
+git clone git@github.com:zombieite/tinderdome.git
+
+laravel new tinderdome --force # force means who cares that there is stuff in there already
+
+chmod 777 tinderdome/storage
+
+chmod 777 tinderdome/bootstrap/cache
+
+mv tinderdome/.env.example tinderdome/.env
+
+cd tinderdome
+
+/Users/$USER/composer install
+
+php artisan key:generate
+
+git diff # If you have time, check if anything important has been updated that should be incorporated into vendor files I've added to repo and modified
+
+git checkout -- . # Use my modifications instead of defaults
+
+brew install mysql
+
+mysql.server start # use this any time you need to start it also?
+
+mysql_secure_installation # answer questions in secure way
+
+vi .env # Set this stuff:
+# DB_DATABASE=tinderdome
+# DB_USERNAME=root # This should work on day 1 but change this
+# DB_PASSWORD=? # Whatever you set it to during mysql_secure_installation
+
+# start mysql client (see password above)
+mysql -uroot -p
+
+create database tinderdome;
+
+^D
+
+# Set up backups of production server to local disk, if we are not production server. Or, if we are the production server, then get the copy once and load it up and make sure our backup server is backing up our db instead.
+
+
+# Populate DB with existing data
+mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysqldump.sql
+
+# Install image resizer
+/Users/$USER/composer require intervention/image
+
+# Get all user images not in repo
+cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/uploads public/
+
+# Get all temporary images not in repo
+cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/images/fun public/images/
+
+# If you need to tail logs
+tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/logs/php_error.log
+tail -1000 storage/logs/laravel.log; tail -f storage/logs/laravel.log
+
+# I think Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
+
+# Set MAMP Apache port to 80 and MySQL port to 3306 and start server
+
+# http://localhost/ should now work
+
+# Set up backup rsync script to sync files not in repo and keep mysql backed up
+
+# Instructions to run scripts from command line using your code and Laravel's code:
+php artisan make:command MyCommand.
+# Go to app/Console/Commands/MyCommand.php
+# Find:
+# protected $signature = 'command:name';
+# Change to:
+# protected $signature = 'my:command';
+# In the handle() method you can add your code:
+# use Illuminate\Support\Facades\DB;
+# public function handle()
+# {
+#     echo 'Hello world';
+#     // DB:: commands can go in here if you use DB at top
+# }
+# In app/Console/Kernel.php you will find protected variable $commands. Add your Command's class name.
+# protected $commands = [
+#     // ...
+#     Commands\MyCommand::class,
+# ];
+php artisan my:command
+
+
+
