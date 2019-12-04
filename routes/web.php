@@ -26,5 +26,5 @@ Route::post('/search',                                'SearchController@update_r
 Route::post('/match-me',                              'MatchController@match_me')->middleware(         'auth');
 Route::post('/match',                                 'MatchController@match')->middleware(            'auth');
 
-Route::get( '/viewport',                              'AjaxController@redirect_gets')->middleware(          'auth');
+Route::get( '/viewport',                              'AjaxController@redirect_gets')->middleware(     'auth');
 Route::post('/viewport',                              'AjaxController@viewport')->middleware(          'auth');
