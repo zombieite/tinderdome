@@ -24,7 +24,6 @@ database/
 package.json
 phpunit.xml
 public/.htaccess
-public/index.php
 public/robots.txt
 public/svg/
 resources/js/
