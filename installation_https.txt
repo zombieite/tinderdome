@@ -54,7 +54,7 @@ brew link php@7.3 --force
 
 /Users/$USER/composer.phar global require "laravel/installer"
 
-mv /Users/$USER/composer.phar /Users/$USER/composer 
+mv /Users/$USER/composer.phar /Users/$USER/composer
 PATH=$PATH:/Users/$USER/.composer/vendor/bin
 PATH=$PATH:/Users/$USER/
 
@@ -83,6 +83,9 @@ git diff # If you have time, check if anything important has been updated that s
 
 git checkout -- . # Use my modifications instead of defaults
 
+# Install image resizer
+/Users/$USER/composer require intervention/image
+
 brew install mysql
 
 mysql.server start # use this any time you need to start it also?
@@ -102,27 +105,15 @@ create database tinderdome;
 ^D
 
 # Set up backups of production server to local disk, if we are not production server. Or, if we are the production server, then get the copy once and load it up and make sure our backup server is backing up our db instead.
-
-
-# Populate DB with existing data
 mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysqldump.sql
 
-# Install image resizer
-/Users/$USER/composer require intervention/image
+# Get all user images not in repo. See above, figure out long-term backup strategy but this gets it up for now.
+cp -r /Users/$USER/Desktop/remote/server/web/php/public/uploads/ public/uploads/
 
-# Get all user images not in repo
-cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/uploads public/
-
-# Get all temporary images not in repo
-cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/images/fun public/images/
-
+# TODO XXX FIXME set up logs in apache config, copy from working MAMP config
 # If you need to tail logs
-tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/logs/php_error.log
-tail -1000 storage/logs/laravel.log; tail -f storage/logs/laravel.log
-
-# I think Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
-
-# Set MAMP Apache port to 80 and MySQL port to 3306 and start server
+#tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/logs/php_error.log
+#tail -1000 storage/logs/laravel.log; tail -f storage/logs/laravel.log
 
 # http://localhost/ should now work
 
