@@ -67,8 +67,10 @@ git clone git@github.com:zombieite/tinderdome.git
 
 laravel new tinderdome --force # force means who cares that there is stuff in there already
 
-chmod 777 tinderdome/storage
-
+mkdir -p /Library/WebServer/Documents/tinderdome/storage/framework/sessions/
+chmod 777 /Library/WebServer/Documents/tinderdome/storage
+chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework/
+chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework/sessions/
 chmod 777 tinderdome/bootstrap/cache
 
 mv tinderdome/.env.example tinderdome/.env
