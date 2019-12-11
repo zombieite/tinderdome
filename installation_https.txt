@@ -90,16 +90,19 @@ git diff
 # Install image resizer
 /Users/$USER/composer require intervention/image
 
-mkdir -p /Library/WebServer/Documents/tinderdome/storage/framework/sessions/
+mkdir -p /Library/WebServer/Documents/tinderdome/storage/framework/sessions
+mkdir -p /Library/WebServer/Documents/tinderdome/bootstrap/cache
+chmod 777 /Library/WebServer/Documents/tinderdome
 chmod 777 /Library/WebServer/Documents/tinderdome/storage
-chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework/
-chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework/sessions/
-chmod 777 tinderdome/bootstrap/cache
-find . -name '*.php' | xargs chmod 755
+chmod 777 /Library/WebServer/Documents/tinderdome/storage/logs
+chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework
+chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework/sessions
+chmod 777 /Library/WebServer/Documents/tinderdome/bootstrap/cache
+# find . -name '*.php' | xargs chmod 755
 
 brew install mysql
 
-mysql.server start # use this any time you need to start it also?
+mysql.server start
 
 mysql_secure_installation # answer questions in secure way
 
@@ -108,11 +111,9 @@ vi .env # Set this stuff:
 # DB_USERNAME=root # This should work on day 1 but change this
 # DB_PASSWORD=? # Whatever you set it to during mysql_secure_installation
 
-# start mysql client (see password above)
-mysql -uroot -p
-
 # make php connection work (use whatever you set password to during mysql_secure_installation)
-alter user 'root'@'localhost' identified with mysql_native_password by '?';
+mysql -uroot -p
+alter user 'root'@'localhost' identified with mysql_native_password by '<password>';
 
 create database tinderdome;
 
@@ -122,7 +123,8 @@ create database tinderdome;
 mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysqldump.sql
 
 # Get all user images not in repo. See above, figure out long-term backup strategy but this gets it up for now.
-cp -r /Users/$USER/Desktop/remote/server/web/php/public/uploads/ public/uploads/
+mkdir /Users/$USER/Desktop/local/web/tinderdome/public/uploads
+cp /Users/$USER/Desktop/remote/server/web/php/public/uploads/* public/uploads/
 
 # tail logs
 tail -f storage/logs/laravel-*.log
@@ -134,7 +136,7 @@ tail -f /var/log/apache2/access_log
 # Set up backup rsync script to sync files not in repo and keep mysql backed up
 
 # Instructions to run scripts from command line using your code and Laravel's code:
-php artisan make:command MyCommand.
+#php artisan make:command MyCommand.
 # Go to app/Console/Commands/MyCommand.php
 # Find:
 # protected $signature = 'command:name';
@@ -152,7 +154,7 @@ php artisan make:command MyCommand.
 #     // ...
 #     Commands\MyCommand::class,
 # ];
-php artisan my:command
+#php artisan my:command
 
 
 
