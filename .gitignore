@@ -42,3 +42,4 @@ resources/assets/
 .styleci.yml
 app/Http/Controllers/Auth/ConfirmPasswordController.php
 package-lock.json
+apache/youareawaited.com-le-ssl.conf
