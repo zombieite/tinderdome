@@ -1,8 +1,16 @@
-mkdir -p /Users/zombieite/Desktop/local/web/
+mkdir -p /Users/$USER/Desktop/local/web
 
-ln -s /Library/WebServer/Documents /Users/zombieite/Desktop/local/web/tinderdome
+sudo chmod 777 /Library/WebServer/Documents
 
-apache config is /etc/apache2/httpd.conf but hopefully we can leave this alone?
+rm -f /Library/WebServer/Documents/*
+
+cd /Library/WebServer/Documents
+
+git clone git@github.com:zombieite/tinderdome.git
+
+ln -s /Library/WebServer/Documents/tinderdome /Users/zombieite/Desktop/local/web/
+
+# apache config is /etc/apache2/httpd.conf but hopefully we can leave this alone
 
 apachectl configtest
 
@@ -10,37 +18,38 @@ echo "<html><body><h1>Welcome to my site</h1></body></html>" >/Library/WebServer
 
 sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
 
-visit localhost to verify it is working
+# visit http://localhost to verify it is working
 
-to stop: sudo /usr/sbin/apachectl stop
+sudo /usr/sbin/apachectl restart
 
-to restart: sudo /usr/sbin/apachectl restart
+sudo /usr/sbin/apachectl stop
 
-to start again: sudo /usr/sbin/apachectl start
+sudo /usr/sbin/apachectl start
 
-https://ssl-config.mozilla.org/#server=apache&server-version=2.4.39&config=intermediate
+# https://ssl-config.mozilla.org/#server=apache&server-version=2.4.39&config=intermediate
+sudo ln -s /Users/$USER/Desktop/local/web/tinderdome/apache/youareawaited.com.conf /private/etc/apache2/other/youareawaited.com.conf
 
-# TODO XXX FIXME this needs to be symlinked from the one in the git repo, so figure that order of operations out and fix
-ln -s /Users/$USER/Desktop/local/web/tinderdome/apache/youareawaited.com.conf /private/etc/apache2/other/youareawaited.com.conf
-copy contents into new file, adding LoadModule's as needed by copying them from /private/etc/apache2/httpd.conf: /private/etc/apache2/other/youareawaited.com.conf
-
-add
-Listen 443
+# go into /private/etc/apache2/other/youareawaited.com.conf
+# comment out most of the contents of <VirtualHost *:80> but leave those section delimiters and "ServerName youareawaited.com" in place
+# comment out Listen 443
+# comment out <VirtualHost *:443> section including those section delimiters
 
 apachectl configtest
 
-https://certbot.eff.org/lets-encrypt/osx-apache
-
+# install brew if necessary
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# https://certbot.eff.org/lets-encrypt/osx-apache
+# install letsencrypt certbot
 brew install letsencrypt
 sudo certbot --apache
 echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew" | sudo tee -a /etc/crontab > /dev/null
 
-to renew, i think you can just do:
-certbot renew
-from above cron, if the cron doesn't take care of it for you.
+# to renew, i think you can just do:
+#certbot renew
+# from above cron, if the cron doesn't take care of it for you.
 
-#copied from repo's installation.txt:
+# site should be visible but with errors at this point
 
 cd ~
 
@@ -58,14 +67,11 @@ mv /Users/$USER/composer.phar /Users/$USER/composer
 PATH=$PATH:/Users/$USER/.composer/vendor/bin
 PATH=$PATH:/Users/$USER/
 
-mkdir /Users/$USER/Desktop/local/web
-
-cd /Users/$USER/Desktop/local/web
-
-# Get this repo (may need to install git first)
-git clone git@github.com:zombieite/tinderdome.git
+cd /Library/WebServer/Documents/
 
 laravel new tinderdome --force # force means who cares that there is stuff in there already
+# might need to go into .composer/vendor/laravel/installer/src/NewCommand.php and change line to:
+# $process = new Process(implode(' && ', $commands), $directory, null, null, null);
 
 mv tinderdome/.env.example tinderdome/.env
 
@@ -75,9 +81,11 @@ cd tinderdome
 
 php artisan key:generate
 
-git diff # If you have time, check if anything important has been updated that should be incorporated into vendor files I've added to repo and modified
+git diff
 
-git checkout -- . # Use my modifications instead of defaults
+# use vendor versions, my versions, or some combination of each as necessary. work on removing files from git if the vendor versions are what we want.
+# git checkout -- <file> # Use my modifications instead of defaults
+# git commit <file>      # Add vendor changes to git repo, or consider removing this file from repo
 
 # Install image resizer
 /Users/$USER/composer require intervention/image
