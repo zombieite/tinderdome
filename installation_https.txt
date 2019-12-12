@@ -45,6 +45,8 @@ brew install letsencrypt
 sudo certbot --apache
 echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew" | sudo tee -a /etc/crontab > /dev/null
 
+# You may have to go into /etc/letsencrypt/options-ssl-apache.conf and remove the line about compression in order to get configtest to work
+
 # to renew, i think you can just do:
 #certbot renew
 # from above cron, if the cron doesn't take care of it for you.
