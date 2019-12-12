@@ -97,6 +97,7 @@ chmod 777 /Library/WebServer/Documents/tinderdome/storage
 chmod 777 /Library/WebServer/Documents/tinderdome/storage/logs
 chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework
 chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework/sessions
+chmod 777 /Library/WebServer/Documents/tinderdome/storage/framework/views
 chmod 777 /Library/WebServer/Documents/tinderdome/bootstrap/cache
 # find . -name '*.php' | xargs chmod 755
 
@@ -105,6 +106,10 @@ brew install mysql
 mysql.server start
 
 mysql_secure_installation # answer questions in secure way
+
+#vi /usr/local/etc/my.cnf
+# Add line:
+#default-authentication-plugin=mysql_native_password
 
 vi .env # Set this stuff:
 # DB_DATABASE=tinderdome
@@ -125,6 +130,14 @@ mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysql
 # Get all user images not in repo. See above, figure out long-term backup strategy but this gets it up for now.
 mkdir /Users/$USER/Desktop/local/web/tinderdome/public/uploads
 cp /Users/$USER/Desktop/remote/server/web/php/public/uploads/* public/uploads/
+
+# I had this problem but making these changes fixed it
+# https://laracasts.com/discuss/channels/laravel/installation-fresh-laravel?page=1#reply=558018
+# vi ./vendor/symfony/translation-contracts/composer.json
+# change "php": "^7.2.9" to "php": "^7.1.3"
+# vi /Library/WebServer/Documents/tinderdome/composer.json
+# in "require": add "symfony/translation-contracts": "^1.1.6"
+# composer update
 
 # tail logs
 tail -f storage/logs/laravel-*.log
