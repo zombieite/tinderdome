@@ -1,3 +1,5 @@
+HTTP:
+
 # FIRST: Install MAMP, start MAMP not MAMP Pro https://www.mamp.info/en/downloads/
 
 cd ~
@@ -71,10 +73,11 @@ cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/uploads public/
 cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/images/fun public/images/
 
 # If you need to tail logs
+tail -1000 /Applications/MAMP/logs/apache_error.log; tail -f /Applications/MAMP/logs/apache_error.log
 tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/logs/php_error.log
-tail -1000 storage/logs/laravel.log; tail -f storage/logs/laravel.log
+tail -1000 storage/logs/laravel-<date>.log; tail -f storage/logs/laravel-<date>.log
 
-# I think Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
+# Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
 
 # Set MAMP Apache port to 80 and MySQL port to 3306 and start server
 
@@ -103,4 +106,9 @@ php artisan make:command MyCommand.
 # ];
 php artisan my:command
 
+HTTPS:
+
+# Instead of removing, also consider replacing the one in version control (apache/httpd_mamp.conf) with the one MAMP put into place. I just want to be sure nothing changes this conf without me knowing, and that if I change it, I can go back.
+rm /Applications/MAMP/conf/apache/httpd.conf
+ln -s /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mamp.conf /Applications/MAMP/conf/apache/httpd.conf
 
