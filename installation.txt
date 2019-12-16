@@ -108,7 +108,4 @@ php artisan my:command
 
 HTTPS:
 
-# Instead of removing, also consider replacing the one in version control (apache/httpd_mamp.conf) with the one MAMP put into place. I just want to be sure nothing changes this conf without me knowing, and that if I change it, I can go back.
-rm /Applications/MAMP/conf/apache/httpd.conf
-ln -s /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mamp.conf /Applications/MAMP/conf/apache/httpd.conf
 
