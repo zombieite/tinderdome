@@ -108,4 +108,9 @@ php artisan my:command
 
 HTTPS:
 
+# Use MAMP to stop both servers and quit MAMP. We'll use its config for MySQL as-is but copy and modify its Apache config for Mac's native Apache install instead. This is because MAMP actively administers http.conf rather than letting us modify it and letting our modifications stick.
+
+# Start up MAMP's version of MySQL server. Client can still be started as described above.
+/Applications/MAMP/Library/bin/mysqld &
+
 
