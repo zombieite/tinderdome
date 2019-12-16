@@ -113,4 +113,18 @@ HTTPS:
 # Start up MAMP's version of MySQL server. Client can still be started as described above.
 /Applications/MAMP/Library/bin/mysqld &
 
+# Start up Mac's version of Apache
+apachectl configtest
+sudo /usr/sbin/apachectl start
+
+# Test localhost, it should say "It works!"
+
+# Backup working Mac Apache config into version control
+sudo mv /etc/apache2/httpd.conf /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mac.conf
+sudo chown $USER /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mac.conf
+
+# Use MAMP's Apache config instead
+ln -s /Users/jbinns/Desktop/local/web/tinderdome/apache/httpd_mamp.conf /etc/apache2/httpd.conf
+apachectl configtest
+
 
