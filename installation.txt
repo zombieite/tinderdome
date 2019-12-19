@@ -41,6 +41,7 @@ rm -rf /Applications/MAMP/htdocs
 
 # Symlink the php stuff to default place
 # NOTE: this does not always work. Sometimes you have to actually move the whole repo into /Applications/MAMP/ and make a symlink for htdocs to point to tinderdome/public
+# Also note that symlinking the site like this might break rsync backups unless they are configured to follow symlinks
 ln -s /Users/$USER/Desktop/local/web/tinderdome/public /Applications/MAMP/htdocs
 
 git checkout -- public/js/app.js
