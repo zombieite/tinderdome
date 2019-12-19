@@ -7,9 +7,11 @@ cd ~
 # Get composer (may need to get homebrew first)
 curl -sS https://getcomposer.org/installer | /usr/bin/php
 
+# May need to mv /Users/$USER/composer.phar /Users/$USER/composer but may not
+
 /Users/$USER/composer.phar global require "laravel/installer"
 
-PATH=$PATH:/Users/$USER/.composer/vendor/bin
+PATH=$PATH:/Users/$USER/.composer/vendor/bin:/Users/$USER/
 
 mkdir /Users/$USER/Desktop/local/web
 
@@ -38,6 +40,7 @@ php artisan key:generate
 rm -rf /Applications/MAMP/htdocs
 
 # Symlink the php stuff to default place
+# NOTE: this does not always work. Sometimes you have to actually move the whole repo into /Applications/MAMP/ and make a symlink for htdocs to point to tinderdome/public
 ln -s /Users/$USER/Desktop/local/web/tinderdome/public /Applications/MAMP/htdocs
 
 git checkout -- public/js/app.js
@@ -53,7 +56,9 @@ vi .env # Set this stuff:
 # DB_USERNAME=root # This should work on day 1 but change this
 # DB_PASSWORD=root # This should work on day 1 but change this
 
-# Run mysql (see password above)
+# Set MAMP Apache port to 80 and MySQL port to 3306 and start servers using MAMP's button
+
+# Start mysql client (see password above)
 /Applications/MAMP/Library/bin/mysql -uroot -p
 
 create database tinderdome;
@@ -61,16 +66,13 @@ create database tinderdome;
 ^D
 
 # Populate DB with existing data
-/Applications/MAMP/Library/bin/mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/backups/server/web/backup/mysqldump.sql
+/Applications/MAMP/Library/bin/mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysqldump.sql
 
 # Install image resizer
 /Users/$USER/composer.phar require intervention/image
 
 # Get all user images not in repo
-cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/uploads public/
-
-# Get all temporary images not in repo
-cp -r /Users/$USER/Desktop/remote/backups/server/web/php/public/images/fun public/images/
+cp -r /Users/$USER/Desktop/remote/server/web/tinderdome/public/uploads public/
 
 # If you need to tail logs
 tail -1000 /Applications/MAMP/logs/apache_error.log; tail -f /Applications/MAMP/logs/apache_error.log
@@ -78,8 +80,7 @@ tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/log
 tail -1000 storage/logs/laravel-<date>.log; tail -f storage/logs/laravel-<date>.log
 
 # Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
-
-# Set MAMP Apache port to 80 and MySQL port to 3306 and start server
+# but secret laravel routing magic is here: /Applications/MAMP/htdocs/.htaccess
 
 # http://localhost/ should now work
 
@@ -104,7 +105,7 @@ php artisan make:command MyCommand.
 #     // ...
 #     Commands\MyCommand::class,
 # ];
-php artisan my:command
+#php artisan my:command
 
 HTTPS:
 
