@@ -95,10 +95,10 @@
 	@endif
 @endif
 @if ($gender_of_match)
-	Prefers to meet gender: {{ $gender_of_match === 'M' ? 'Man' : ($gender_of_match === 'W' ? 'Woman' : 'Other') }}.
+	Prefers to meet: {{ $gender_of_match === 'M' ? 'Men' : ($gender_of_match === 'W' ? 'Women' : 'Other') }}.
 @endif
 @if ($gender_of_match && $gender_of_match_2 && ($gender_of_match != $gender_of_match_2))
-	Or gender: {{ $gender_of_match_2 === 'M' ? 'Man' : ($gender_of_match_2 === 'W' ? 'Woman' : 'Other') }}.
+	Or gender: {{ $gender_of_match_2 === 'M' ? 'Men' : ($gender_of_match_2 === 'W' ? 'Women' : 'Other') }}.
 @endif
 @if ($description)
 	<br>
