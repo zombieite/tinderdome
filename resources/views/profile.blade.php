@@ -94,12 +94,14 @@
 		making an enemy.
 	@endif
 @endif
+{{--
 @if ($gender_of_match)
-	Prefers to meet: {{ $gender_of_match === 'M' ? 'Men' : ($gender_of_match === 'W' ? 'Women' : 'Other') }}.
+	Prefers to meet {{ $gender_of_match === 'M' ? 'men' : ($gender_of_match === 'W' ? 'women' : 'gender other') }}.
 @endif
 @if ($gender_of_match && $gender_of_match_2 && ($gender_of_match != $gender_of_match_2))
-	Or gender: {{ $gender_of_match_2 === 'M' ? 'Men' : ($gender_of_match_2 === 'W' ? 'Women' : 'Other') }}.
+	Or {{ $gender_of_match_2 === 'M' ? 'men' : ($gender_of_match_2 === 'W' ? 'women' : 'gender other') }}.
 @endif
+--}}
 @if ($description)
 	<br>
 	<br>
