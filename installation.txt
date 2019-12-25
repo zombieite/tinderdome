@@ -13,7 +13,7 @@ curl -sS https://getcomposer.org/installer | /usr/bin/php
 
 PATH=$PATH:/Users/$USER/.composer/vendor/bin:/Users/$USER/
 
-mkdir /Users/$USER/Desktop/local/web
+mkdir -p /Users/$USER/Desktop/local/web
 
 cd /Users/$USER/Desktop/local/web
 
