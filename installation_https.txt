@@ -105,6 +105,7 @@ chmod 777 /Library/WebServer/Documents/tinderdome/bootstrap/cache
 
 brew install mysql
 
+# Do not run this as root, there's no need to and it won't work either
 mysql.server start
 
 mysql_secure_installation # answer questions in secure way
