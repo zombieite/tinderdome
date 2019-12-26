@@ -1,8 +1,20 @@
 HTTP:
 
-# FIRST: Install MAMP, start MAMP not MAMP Pro https://www.mamp.info/en/downloads/
+# Make sure you've stopped any other running instances of httpd or mysqld.
 
-cd ~
+mkdir -p /Users/$USER/Desktop/local/web
+
+cd /Users/$USER/Desktop/local/web
+
+# Get this repo (may need to install git first)
+git clone git@github.com:zombieite/tinderdome.git
+
+# Install MAMP https://www.mamp.info/en/downloads/
+# Start MAMP not MAMP Pro
+# In MAMP preferences, set document root to /Users/$USER/Desktop/local/web/tinderdome/public
+# Set MAMP Apache port to 80 and MySQL port to 3306 and start servers using MAMP's button
+
+cd
 
 # Get composer (may need to get homebrew first)
 curl -sS https://getcomposer.org/installer | /usr/bin/php
@@ -13,12 +25,7 @@ curl -sS https://getcomposer.org/installer | /usr/bin/php
 
 PATH=$PATH:/Users/$USER/.composer/vendor/bin:/Users/$USER/
 
-mkdir /Users/$USER/Desktop/local/web
-
 cd /Users/$USER/Desktop/local/web
-
-# Get this repo (may need to install git first)
-git clone git@github.com:zombieite/tinderdome.git
 
 laravel new tinderdome --force # force means who cares that there is stuff in there already
 
@@ -28,6 +35,8 @@ chmod 777 tinderdome/bootstrap/cache
 
 mv tinderdome/.env.example tinderdome/.env
 
+# Check localhost now, it should be working. It should say "Laravel".
+
 cd tinderdome
 
 cp public/favicon.ico /Applications/MAMP/bin/favicon.ico
@@ -35,15 +44,6 @@ cp public/favicon.ico /Applications/MAMP/bin/favicon.ico
 /Users/$USER/composer.phar install
 
 php artisan key:generate
-
-# Remove default dir
-rm -rf /Applications/MAMP/htdocs
-
-# Symlink the php stuff to default place
-# NOTE: this does not always work. Sometimes you have to actually move the whole repo into /Applications/MAMP/ and make a symlink for htdocs to point to tinderdome/public
-# Also note that symlinking the site like this might break rsync backups unless they are configured to follow symlinks
-
-ln -s /Users/$USER/Desktop/local/web/tinderdome/public /Applications/MAMP/htdocs
 
 git checkout -- public/js/app.js
 
@@ -58,8 +58,6 @@ vi .env # Set this stuff:
 # DB_USERNAME=root # This should work on day 1 but change this
 # DB_PASSWORD=root # This should work on day 1 but change this
 
-# Set MAMP Apache port to 80 and MySQL port to 3306 and start servers using MAMP's button
-
 # Start mysql client (see password above)
 /Applications/MAMP/Library/bin/mysql -uroot -p
 
@@ -67,14 +65,16 @@ create database tinderdome;
 
 ^D
 
-# Populate DB with existing data
+# Populate DB with existing data (get mysqldump.sql from production server and set up backups later).
 /Applications/MAMP/Library/bin/mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysqldump.sql
 
 # Install image resizer
 /Users/$USER/composer.phar require intervention/image
 
-# Get all user images not in repo
+# Get all user images not in repo (get public/uploads from production server and set up backups later).
 cp -r /Users/$USER/Desktop/remote/server/web/tinderdome/public/uploads public/
+
+# http://localhost/ should now work
 
 # If you need to tail logs
 tail -1000 /Applications/MAMP/logs/apache_error.log; tail -f /Applications/MAMP/logs/apache_error.log
@@ -83,8 +83,6 @@ tail -1000 storage/logs/laravel-<date>.log; tail -f storage/logs/laravel-<date>.
 
 # Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
 # but secret laravel routing magic is here: /Applications/MAMP/htdocs/.htaccess
-
-# http://localhost/ should now work
 
 # Set up backup rsync script to sync files not in repo and keep mysql backed up
 
@@ -110,7 +108,3 @@ php artisan make:command MyCommand.
 #php artisan my:command
 
 HTTPS:
-
-
-
-
