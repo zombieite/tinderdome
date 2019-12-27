@@ -1,11 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<h2>Turn strangers into friends by meeting them.</h2>
-<p>You Are Awaited is a simple game. You prepare for it online, but play it during various real-world events. Participation is free. <a href="{{ route('register') }}">Sign up now</a>.
-@if ($next_event_name)
-    Our next event will be {{ $next_event_name }}.</p>
-@endif
-<h2>Meet our top {{ $leader_count }} heroes, and {{ $nonleader_count }} others. Here's how.</h2>
 @foreach ($leaderboard as $leader)
 	<div class="centered_block">
 		@if ($leader['number_photos'])
@@ -18,6 +12,11 @@
 		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed'] }}
 	</div>
 @endforeach
+<h1>Turn strangers into friends by meeting them.</h1>
+<p>You Are Awaited is a simple game. You prepare for it online, but play it during various real-world events. Participation is free. Here's how to play.
+@if ($next_event_name)
+    Our next event will be {{ $next_event_name }}.</p>
+@endif
 <h3>1.
 @guest<a href="{{ route('register') }}" class="bright">@endguest
 Create a profile
