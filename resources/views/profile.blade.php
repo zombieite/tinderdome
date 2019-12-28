@@ -6,7 +6,7 @@
         <h2>They have logged in to check their matches. They know you are their match.</h2>
     @else
         <h1 class="bright">{{ $logged_in_user->name }}, your mission is to find {{ $wasteland_name }}!</a>
-        <h2>They have not yet checked their matches, but they signed up to be found. They might not know you are their match, but you can still try to find them.</h2>
+        <h2>They have not yet checked their matches, but they signed up to be found. They might not know you are their match, but you can still seek them out.</h2>
     @endif
 	@if ($count_with_same_name)
 		@if ($count_with_same_name == 1)

@@ -3,7 +3,8 @@
 
 @if ($matches_done)
 	@if ($deleted_match_or_match_said_no)
-		<h2>You were matched for {{ $event }}, but your match marked you as found, or deleted their profile. If they deleted their profile, you can go to your <a href="/">home page</a> and delete this mission. There may still be time to sign up for this event again and request another match.</h2>
+        <h2>You were matched for {{ $event }}, but your match's profile has been deleted.</h2>
+        <span class="bright">There may still be time to request another match</span>. Go to your <a href="/">home page</a>, delete this mission, and sign up for this event again.
 	@else
         @if ($event)
     		<h2>We have not yet found you a match for {{ $event }}.</h2>
