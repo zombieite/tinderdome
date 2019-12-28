@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function($view) {
 
             $logged_in_user_id            = Auth::id();
+            $logged_in_user               = Auth::user();
             if ($logged_in_user_id) {
                 $current_time             = time();
                 $last_updated_time        = session('last_active_time');
@@ -26,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
                     DB::update('update users set last_active = now(), ip = ?, score = ? where id = ?', [$ip, $score, $logged_in_user_id]);
                     session(['last_active_time' => $current_time]);
                 }
+                $upcoming_events          = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
+            } else {
+                $upcoming_events          = \App\Util::upcoming_events_with_pretty_name_and_date();
             }
 
             $active_count_result          = DB::select('select count(*) active_count from users where last_active>now()-interval 1 day');
@@ -33,23 +37,20 @@ class AppServiceProvider extends ServiceProvider
             if ($active_count_result) {
                 $active_count             = $active_count_result[0]->active_count;
             }
-            $total_count_result           = DB::select('select count(*) total_count from users where id>10');
-            $total_count                  = 0;
-            if ($total_count_result) {
-                $total_count              = $total_count_result[0]->total_count;
-            }
             $next_event_name              = null;
             $next_event_count             = null;
-            $upcoming_events              = \App\Util::upcoming_events_with_pretty_name_and_date();
             foreach ($upcoming_events as $event) {
                 $next_event_name          = $event->event_long_name;
                 $next_event_id            = $event->event_id;
-                $next_event_count_result  = DB::select('select count(*) next_event_count from attending where event_id = ?',[$next_event_id]);
-                $next_event_count         = $next_event_count_result[0]->next_event_count;
+                if ($logged_in_user_id) {
+                    $next_event_count        = $event->attending_count;
+                } else {
+                    $next_event_count_result = DB::select('select count(*) next_event_count from attending where event_id = ?',[$next_event_id]);
+                    $next_event_count        = $next_event_count_result[0]->next_event_count;
+                }
                 break;
             }
             $view->with('active_count',     $active_count);
-            $view->with('total_count',      $total_count);
             $view->with('next_event_count', $next_event_count);
             $view->with('next_event_name',  $next_event_name);
         });
