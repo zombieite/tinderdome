@@ -219,6 +219,7 @@
                         'ok_to_delete_old_mission' => $matched_to_user->ok_to_delete_old_mission,
                         'event_id'                 => $matched_to_user->event_id,
                         'ok_to_mark_user_found'    => $matched_to_user->ok_to_mark_user_found,
+                        'curse_interface'          => $curse_interface,
                     ])
                 @else
                     @include('user_block_matched_to_deleted', [

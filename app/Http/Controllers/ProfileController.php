@@ -24,7 +24,7 @@ class ProfileController extends Controller
         }
 
         $wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
-        $logged_in_user               = Auth::user();
+        $logged_in_user          = Auth::user();
         $logged_in_user_id       = Auth::id();
 
         if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
@@ -63,6 +63,7 @@ class ProfileController extends Controller
         $ok_to_mark_user_found           = null;
         $event_long_name                 = null;
         $match_knows_you_are_their_match = null;
+        $curse_interface                 = 0;
 
         if ($profile_id == 1) {
             $show_how_to_find_me = true;
@@ -70,6 +71,8 @@ class ProfileController extends Controller
 
         // If we have a logged in user (not someone looking at Firebird's profile)
         if ($logged_in_user_id && $logged_in_user) {
+            $curse_interface = \App\Util::curse_interface( $logged_in_user_id );
+
             $choice_result = DB::select('select choice from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
             if ($choice_result) {
                 $choice = array_shift($choice_result)->choice;
@@ -229,6 +232,7 @@ class ProfileController extends Controller
             'event_long_name'                    => $event_long_name,
             'ok_to_mark_user_found'              => $ok_to_mark_user_found,
             'match_knows_you_are_their_match'    => $match_knows_you_are_their_match,
+            'curse_interface'                    => $curse_interface,
         ]);
     }
 

@@ -472,4 +472,15 @@ class Util {
 
         return $nos;
     }
+
+    public static function curse_interface( $user_id ) {
+        $curse_interface = 0;
+        $attended_wasteland = DB::select("
+            select event_short_name from attending join event on attending.event_id=event.event_id and event.event_short_name='wasteland' and attending.user_id=? limit 1
+        ", [$user_id]);
+        if ($attended_wasteland) {
+            $curse_interface = 1;
+        }
+        return $curse_interface;
+    }
 }
