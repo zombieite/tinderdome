@@ -196,6 +196,7 @@ cp /Applications/MAMP/conf/apache/httpd.conf /Users/$USER/Desktop/local/web/tind
 rm /Applications/MAMP/conf/apache/httpd.conf
 ln -s /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mamp.conf /Applications/MAMP/conf/apache/httpd.conf
 ls -hal /Applications/MAMP/conf/apache/
+git commit -a; git push
 
 # Add line to end of /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mamp.conf
 Include /Users/zombieite/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
