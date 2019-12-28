@@ -39,17 +39,36 @@ class AppServiceProvider extends ServiceProvider
             }
             $next_event_name              = null;
             $next_event_count             = null;
+
+            // Get a default next event count, for the case where they're not logged in, or they're logged in but not signed up for any events
             foreach ($upcoming_events as $event) {
                 $next_event_name          = $event->event_long_name;
                 $next_event_id            = $event->event_id;
-                if ($logged_in_user_id) {
-                    $next_event_count        = $event->attending_count;
-                } else {
-                    $next_event_count_result = DB::select('select count(*) next_event_count from attending where event_id = ?',[$next_event_id]);
-                    $next_event_count        = $next_event_count_result[0]->next_event_count;
-                }
+                $next_event_count_result  = DB::select('
+                    select
+                        count(*) next_event_count
+                    from
+                        attending
+                        join users on attending.user_id = users.id
+                    where
+                        event_id = ?
+                ', [$next_event_id]);
+                $next_event_count     = $next_event_count_result[0]->next_event_count;
                 break;
             }
+
+            // If they are logged in, get the attendance count of the next event they are attending
+            if ($logged_in_user_id) {
+                foreach ($upcoming_events as $event) {
+                    if ($event->attending_event_id) {
+                        $next_event_id    = $event->event_id;
+                        $next_event_name  = $event->event_long_name;
+                        $next_event_count = $event->attending_count;
+                        break;
+                    }
+                }
+            }
+
             $view->with('active_count',     $active_count);
             $view->with('next_event_count', $next_event_count);
             $view->with('next_event_name',  $next_event_name);
