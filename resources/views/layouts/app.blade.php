@@ -13,6 +13,7 @@
 <meta name="description" content="Find thems you're looking for and thems you've lost.">
 <meta name="robots" content="noindex">
 <link href="/css/app.css" rel="stylesheet">
+{{--
 @guest
 </head>
 <body>
@@ -31,6 +32,9 @@ function getViewport() {
 </head>
 <body onload="getViewport()">
 @endguest
+--}}
+</head>
+<body>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
 <br>
 @guest
