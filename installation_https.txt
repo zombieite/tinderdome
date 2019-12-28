@@ -197,6 +197,8 @@ rm /Applications/MAMP/conf/apache/httpd.conf
 ln -s /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mamp.conf /Applications/MAMP/conf/apache/httpd.conf
 ls -hal /Applications/MAMP/conf/apache/
 
+# Add line to end of /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mamp.conf
+Include /Users/zombieite/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
 
 
 
