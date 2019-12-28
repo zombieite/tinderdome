@@ -100,6 +100,7 @@
                                 @else
                                     {{ $upcoming_event->event_long_name }}
                                 @endif
+                                <br>{{ $upcoming_event->event_date }}
                             </td>
                         </tr>
                         <tr>
