@@ -1,3 +1,5 @@
+# Sooo many of these steps are unnecessary, so on next install, simplify them. But these are technically what I did to get the https development server into that state it is in, so they're included for completeness.
+
 mkdir -p /Users/$USER/Desktop/local/web
 
 sudo chmod 777 /Library/WebServer/Documents
@@ -171,6 +173,23 @@ tail -f /var/log/apache2/access_log
 #     Commands\MyCommand::class,
 # ];
 #php artisan my:command
+
+# Now, we will throw most of that work away and come at it from a different direction.
+
+# Do some/all of the instructions in installation.txt to get MAMP version of the server running, too.
+
+# Stop Apache from command line and/or MAMP, stop MySQL from command line and/or MAMP.
+
+# Start MAMP Apache outside of MAMP
+sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
+
+# Start MAMP MySQL outside of MAMP
+/Applications/MAMP/Library/support-files/mysql.server start
+
+# Check localhost to make sure the site, logins, and database are working. Now we have a working Apache config that can be modified to support https, and the https cert files and stuff are all installed and ready to go. One important note: DO NOT START MAMP ANY MORE. If you do, it will overwrite configs. It is tempting to try to copy MAMP's Apache and MySQL configs over to Mac's existing Apache install, but that does not work because the different versions of Apache expect different configurations. It MIGHT work to modify Mac's existing Apache install to try to get Laravel etc. working, but I haven't had success with that yet so this is how I'm doing it for now.
+
+
+
 
 
 
