@@ -3,24 +3,24 @@
 @if ($show_mutuals)
     @if ($logged_in_user_number_photos)
         @if ($users_who_must_be_rated)
-            You must <a href="/profile/compatible?">rate all users</a> before you can see your mutual fuck-yeahs.<br><br>
+            You must <a href="/profile/compatible?">rate all users</a> before you can see your mutuals.<br><br>
         @else
             @if ($profiles_found_count)
                 @if ($profiles_found_count === 1)
-                    You have a mutual fuck-yeah who has shared their contact info with you<br><br>
+                    You have a user who has shared their contact info with you<br><br>
                 @else
-                    {{ $profiles_found_count }} mutual fuck-yeahs have shared their contact info with you<br><br>
+                    {{ $profiles_found_count }} users have shared their contact info with you<br><br>
                 @endif
             @else
-                No mutual fuck-yeahs have shared their contact info with you yet<br><br>
+                No mutuals have shared their contact info with you yet<br><br>
             @endif
         @endif
     @else
-        You must <a href="/image/upload">upload a photo</a> before you can see mutual fuck-yeahs.<br><br>
+        You must <a href="/image/upload">upload a photo</a> before you can see mutuals.<br><br>
     @endif
 @else
     @if ($logged_in_user_hoping_to_find_love && $logged_in_user_share_info_with_favorites)
-        <a href="/search?show_mutuals=1">See mutual fuck-yeahs who have shared their contact info with you</a><br><br>
+        <a href="/search?show_mutuals=1">See mutuals who have shared their contact info with you</a><br><br>
     @endif
 @endif
 @if ($show_yeses)
