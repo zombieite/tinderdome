@@ -34,6 +34,7 @@ class SearchController extends Controller
         $logged_in_user_random_ok                 = $logged_in_user->random_ok;
         $logged_in_user_number_photos             = $logged_in_user->number_photos;
         $users_who_must_be_rated                  = 0;
+        $curse_interface                          = \App\Util::curse_interface( $logged_in_user_id );
 
         if ($event) {
             if (preg_match('/^[a-z_]+$/', $event)) {
@@ -179,6 +180,7 @@ class SearchController extends Controller
             'users_who_must_be_rated'                  => $users_who_must_be_rated,
             'event'                                    => $event,
             'titles'                                   => $titles,
+            'curse_interface'                          => $curse_interface,
         ]);
     }
 

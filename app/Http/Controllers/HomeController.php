@@ -36,6 +36,8 @@ class HomeController extends Controller
             $logged_in_user        = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
         }
 
+        $curse_interface           = \App\Util::curse_interface( $logged_in_user_id );
+
         if (isset($_POST['comment_id'])) {
             $comment_id = $_POST['comment_id'];
             if (isset($_POST['accept'])) {
@@ -167,6 +169,7 @@ class HomeController extends Controller
             'comments_to_approve'                        => $comments_to_approve,
             'success_message'                            => $success_message,
             'upcoming_events_and_signup_status'          => $upcoming_events_and_signup_status,
+            'curse_interface'                            => $curse_interface
         ]);
     }
 }
