@@ -218,7 +218,7 @@ class Util {
         ', [$chooser_user_id]);
         foreach ($matched_to_users as $user) {
             $name = $user->name;
-            Log::debug("Name: '$name' Event is in future: '".$user->event_is_in_future."'");
+            //Log::debug("Name: '$name' Event is in future: '".$user->event_is_in_future."'");
             $user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $name);
             if ($user->logged_in_users_rating_of_this_user == -1) {
                 $user->url = '/profile/'.$user->id.'/'.$user->wasteland_name_hyphenated;
