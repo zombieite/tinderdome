@@ -13,35 +13,10 @@ use Log;
 
 class PhotoSearchController extends Controller
 {
-	private static function sort_search($a, $b) {
-		return $a['profile_id'] - $b['profile_id'];
-	}
-
 	public function photosearch() {
 		$logged_in_user_id         = Auth::id();
 		$logged_in_user            = Auth::user();
-		$logged_in_user_random_ok  = $logged_in_user->random_ok;
-		$users_who_must_be_rated   = 0;
 		$photos                    = [];
-		$gender_to_show            = isset($_GET['gender']) ? $_GET['gender'] : null;
-		$gender_clause             = '';
-
-		if ($logged_in_user_random_ok) {
-			// All good
-		} else {
-			$users_who_must_be_rated = \App\Util::unrated_users( $logged_in_user );
-		}
-
-		if ($gender_to_show) {
-			if (preg_match('/^(w|m|o)$/', $gender_to_show)) {
-				$gender_clause = 'and gender = ?';
-			} else {
-				abort(403, 'Unknown gender');
-			}
-			if ($gender_to_show === 'o') {
-				$gender_clause = 'and (gender = ? or gender = "" or gender is null)';
-			}
-		}
 
 		$all_users = DB::select("
 			select
@@ -70,7 +45,6 @@ class PhotoSearchController extends Controller
 					or
 					c3.choice != 0
 				)
-				$gender_clause
 			order by
 				c1.choice desc,
 				name
@@ -94,7 +68,6 @@ class PhotoSearchController extends Controller
 
 		return view('photosearch', [
 			'photos'                  => $photos,
-			'users_who_must_be_rated' => $users_who_must_be_rated,
 		]);
 	}
 }
