@@ -25,7 +25,7 @@ class SearchController extends Controller
         $profiles                                 = [];
         $all_users                                = [];
         $nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
-        $curse_interface                          = \App\Util::curse_interface( $logged_in_user_id );
+        $curse_interface                          = \App\Util::is_wastelander( $logged_in_user_id );
         $search_for_rating                        = null;
 
         if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
