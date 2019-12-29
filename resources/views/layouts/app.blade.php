@@ -13,26 +13,6 @@
 <meta name="description" content="Find thems you're looking for and thems you've lost.">
 <meta name="robots" content="noindex">
 <link href="/css/app.css" rel="stylesheet">
-{{--
-@guest
-</head>
-<body>
-@else
-<script>
-function getViewport() {
-    var w = Math.max(document.documentElement.clientWidth,  window.innerWidth  || 0);
-    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    var request = new XMLHttpRequest();
-    request.open('POST', '/viewport', true);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    request.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
-    request.send('viewport_width='+w+'&viewport_height='+h);
-}
-</script>
-</head>
-<body onload="getViewport()">
-@endguest
---}}
 </head>
 <body>
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
