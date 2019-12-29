@@ -71,7 +71,7 @@ class ProfileController extends Controller
 
         // If we have a logged in user (not someone looking at Firebird's profile)
         if ($logged_in_user_id && $logged_in_user) {
-            $curse_interface = \App\Util::curse_interface( $logged_in_user_id );
+            $curse_interface = \App\Util::is_wastelander( $logged_in_user_id );
 
             $choice_result = DB::select('select choice from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
             if ($choice_result) {

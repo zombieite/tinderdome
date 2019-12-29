@@ -36,7 +36,7 @@ class HomeController extends Controller
             $logged_in_user        = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
         }
 
-        $curse_interface           = \App\Util::curse_interface( $logged_in_user_id );
+        $curse_interface           = \App\Util::is_wastelander( $logged_in_user_id );
 
         if (isset($_POST['comment_id'])) {
             $comment_id = $_POST['comment_id'];
