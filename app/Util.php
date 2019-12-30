@@ -229,9 +229,7 @@ class Util {
         return $matched_to_users;
     }
 
-    public static function unrated_users( $chooser_user ) {
-        $gender_of_match = $chooser_user->gender_of_match;
-        $chooser_user_id = $chooser_user->id;
+    public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
         #Log::debug("Gender of match: $gender_of_match");
         $gender_order_by = '';
         if ($gender_of_match) {

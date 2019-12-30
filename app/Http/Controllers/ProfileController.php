@@ -549,7 +549,7 @@ class ProfileController extends Controller
             \App\Util::rate_user($chooser_user_id, $_POST);
         }
 
-        $unrated_users    = \App\Util::unrated_users( $chooser_user );
+        $unrated_users    = \App\Util::unrated_users( $chooser_user->id, $chooser_user->gender_of_match );
         $unrated_user     = array_shift($unrated_users);
         $count_left       = 0;
         foreach ($unrated_users as $user_to_count) {
