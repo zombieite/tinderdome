@@ -144,7 +144,7 @@ Include /Users/jbinns/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
 # And uncomment:
 LoadModule rewrite_module libexec/apache2/mod_rewrite.so
 
-# Stop MAMP's version of Apache so that Certbot can start native Mac Apache install and use it as the server temporarily, so that the challenge succeeds (some outside server needs to contact our server and verify that a resource can be reached, which verifies that we own the server). 
+# Stop MAMP's version of Apache so that Certbot can start native Mac Apache install and use it as the server temporarily, so that the challenge succeeds (some outside server needs to contact our server and verify that a resource can be reached, which verifies that we own the server).
 
 # https://certbot.eff.org/lets-encrypt/osx-apache
 # install letsencrypt certbot
@@ -155,7 +155,7 @@ sudo certbot --apache # This complains "Cannot find an SSLCertificateFile direct
 # Set up a cron to renew certs (this is so far untested so who knows if it actually works, but it's copied from Certbot instructions so it might)
 echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew" | sudo tee -a /etc/crontab > /dev/null
 
-# Stop native Mac Apache install (might need to change apachectl to apache2ctl) 
+# Stop native Mac Apache install (might need to change apachectl to apache2ctl)
 /usr/sbin/apachectl stop
 
 # Start MAMP's version of Apache. Note that now, for configtest, we need sudo, because config hits private key files owned by root. You may have to go into /etc/letsencrypt/options-ssl-apache.conf and remove the line about compression in order to get configtest to work.
@@ -167,14 +167,14 @@ sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
 #certbot renew
 # from above cron, if the cron doesn't take care of it for you.
 
-# Check localhost to make sure the site, logins, and database are working. Now we have a working Apache config that can be modified to support https, and the https cert files and stuff are all installed and ready to go. One important note: DO NOT START MAMP ANYMORE. If you do, it will overwrite configs. It is tempting to try to copy MAMP's Apache and MySQL configs over to Mac's native Mac Apache install and use it instead, but that does not work because the different versions of Apache expect different configurations. It MIGHT work to modify Mac's native Apache install to try to get Laravel etc. working there first, but I haven't had success with that yet so this is how I'm doing it for now.
+# Check localhost to make sure the site, logins, and database are working. Now we have a working Apache config that can be modified to support https, and the https cert files and stuff are all installed and ready to go. One important note: DO NOT START MAMP ANYMORE. If you do, it will overwrite configs(? Actually at the moment I have my development server working using MAMP and my custom httpd.conf so not sure about this). It is tempting to try to copy MAMP's Apache and MySQL configs over to Mac's native Mac Apache install and use it instead, but that does not work because the different versions of Apache expect different configurations. It MIGHT work to modify Mac's native Apache install to try to get Laravel etc. working there first, but I haven't had success with that yet so this is how I'm doing it for now.
 
 # Verify certificate files are in place before we start to use them
 sudo ls /etc/letsencrypt/live/youareawaited.com/fullchain.pem
 sudo ls /etc/letsencrypt/live/youareawaited.com/privkey.pem
 sudo ls /etc/letsencrypt/options-ssl-apache.conf
 
-# Open apache/youareawaited.com.conf and uncomment everything. 
+# Open apache/youareawaited.com.conf and uncomment everything.
 
 sudo /Applications/MAMP/bin/apache2/bin/apachectl configtest
 sudo /Applications/MAMP/bin/apache2/bin/httpd -k stop
