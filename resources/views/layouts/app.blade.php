@@ -6,12 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta property="og:type" content="website">
 <meta property="og:title" content="You Are Awaited">
-<meta property="og:url" content="http://youareawaited.com">
-<meta property="og:image" content="http://youareawaited.com/images/awaited.jpg">
+<meta property="og:url" content="https://youareawaited.com">
+<meta property="og:image" content="https://youareawaited.com/images/awaited.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:description" content="Find thems you're looking for and thems you've lost.">
 <meta name="description" content="Find thems you're looking for and thems you've lost.">
-<meta name="robots" content="noindex">
 <link href="/css/app.css" rel="stylesheet">
 </head>
 <body>

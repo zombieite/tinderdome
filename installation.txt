@@ -181,3 +181,7 @@ sudo /Applications/MAMP/bin/apache2/bin/httpd -k stop
 sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
 # Site should now redirect to https. Accept security risks if viewing page via URL "localhost". Regression test page load, login, logout.
 
+# This site should give you an A+
+https://www.ssllabs.com/ssltest/analyze.html?d=youareawaited.com&hideResults=on
+# Site was found from this helpful post
+https://rameerez.com/blog/facebook-sharing-not-scraping-url-correctly-with-https-links/
