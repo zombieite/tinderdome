@@ -385,10 +385,8 @@ class Util {
     }
 
     public static function nos_left_for_user( $user_id ) {
-        $user_count              = 0;
-        $user_count_results      = DB::select('select count(*) user_count from users');
-        $user_count_result       = array_shift($user_count_results);
-        $user_count              = $user_count_result->user_count;
+        $unrated_users           = \App\Util::unrated_users( $user_id );
+        $user_count              = sizeof($unrated_users);
         $nos_used                = 0;
         $nos_used_results        = DB::select('select count(*) nos_used from choose join users on choose.chosen_id = users.id where choice = 0 and chooser_id = ?', [$user_id]);
         $nos_used_result         = array_shift($nos_used_results);
@@ -408,22 +406,14 @@ class Util {
         $hoping_to_find_love     = $nos_info_result->hoping_to_find_love;
         $random_ok               = $nos_info_result->random_ok;
 
-        $min_available_nos       = intdiv($user_count, 10);
-        $max_available_nos       = intdiv($user_count, 2);
+        $min_available_nos       = intdiv($user_count, 20) || 1;
+        $max_available_nos       = intdiv($user_count, 3)  || 1;
 
         // Everyone gets this many
         $nos                     = $min_available_nos;
 
         // Bonus amount to give below
-        $bonus_nos_amount        = intdiv($user_count, 20);
-
-        // If a lot of people want to meet you, you can be pickier and still get a match
-        $nos += $popularity;
-
-        // If you'll allow a random match from unrated users you get to choose more nos for rated users
-        if ($random_ok) {
-            $nos += $bonus_nos_amount;
-        }
+        $bonus_nos_amount        = intdiv($user_count, 20) || 1;
 
         // If you're hoping for love you might want to be pickier, even if you don't get a match
         if ($hoping_to_find_love) {
@@ -435,23 +425,19 @@ class Util {
             $nos += $bonus_nos_amount;
         }
 
-        // If you're a female you can probably be pickier and still get a match, and you might need to be pickier for safety's sake
-        if ($gender == 'F') {
-            $nos += (2 * $bonus_nos_amount);
-        }
-
-        // If you are young AND female you can probably be even pickier and still get a match
-        if (($gender == 'F') && ($birth_year >= date("Y")-25)) {
+        // If you're a woman you can probably be pickier and still get a match, and you might need to be pickier for safety's sake
+        if ($gender == 'W') {
             $nos += $bonus_nos_amount;
         }
 
         // If you are young AND female you can probably be even pickier and still get a match
-        if (($gender == 'F') && ($birth_year >= date("Y")-35)) {
+        if (($gender == 'W') && ($birth_year >= date("Y")-25)) {
             $nos += $bonus_nos_amount;
         }
-
-        // If you are young AND female you can probably be even pickier and still get a match
-        if (($gender == 'F') && ($birth_year >= date("Y")-45)) {
+        if (($gender == 'W') && ($birth_year >= date("Y")-35)) {
+            $nos += $bonus_nos_amount;
+        }
+        if (($gender == 'W') && ($birth_year >= date("Y")-45)) {
             $nos += $bonus_nos_amount;
         }
 

@@ -22,7 +22,7 @@ class MatchController extends Controller
 		$my_match_user_id                  = null;
 		$matchme                           = null;
         $time_until_can_resubmit           = 0;
-        $seconds_between_submits           = 600;
+        $seconds_between_submits           = 1800;
 
         foreach ($upcoming_events_and_signup_status as $maybe_event) {
             if ($maybe_event->event_id == $event_id) {
