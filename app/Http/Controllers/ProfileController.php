@@ -108,6 +108,7 @@ class ProfileController extends Controller
 
             // Find number of No's left
             $nos_left = \App\Util::nos_left_for_user( $logged_in_user_id );
+            Log::debug("'$nos_left' no's left");
 
             // Figure out if user is looking at their own profile (hide buttons in that case)
             if ($logged_in_user_id == $profile_id) {

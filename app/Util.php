@@ -420,7 +420,7 @@ class Util {
         $max_available_nos       = intdiv($user_count, 3);
         if (!$min_available_nos) { $min_available_nos = 1; }
         if (!$max_available_nos) { $max_available_nos = 1; }
-        #Log::debug("min avail nos: '$min_available_nos', max '$max_available_nos'");
+        Log::debug("user count '$user_count' min avail nos: '$min_available_nos', max '$max_available_nos'");
 
         // Everyone gets this many
         $nos                     = $min_available_nos;
@@ -465,6 +465,7 @@ class Util {
         }
 
         // Remove ones already used
+        Log::debug("'$nos_used' no's used");
         $nos -= $nos_used;
 
         return $nos;
