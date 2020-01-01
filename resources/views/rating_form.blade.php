@@ -14,10 +14,10 @@
 	@else
 		<input type="submit" name="Met" value="I have met them"@if (($current_choice == -1) || !isset($current_choice)) class="met"@endif>
 		@if (($current_choice === 0) || ($nos_left > 0) || (!$number_photos))
-			<input type="submit" name="No" value="No ({{ $nos_left >= 0 ? $nos_left : 0 }} left)"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
+			<input type="submit" name="No" value="Block this user"@if (($current_choice == 0) || !isset($current_choice)) class="no"@endif>
 		@endif
-		@if ($nos_left <= 0)
-			<br><br><span class="no">To mark more users as No, you must <a href="/search?show_nos=1">change {{ -$nos_left+1 }} of your previous No ratings to Neutral</a>.</span>
+		@if (($nos_left <= 0) && ($current_choice !== 0))
+			<br><br><span class="no">To block this user, you must <a href="/search?show_nos=1">unblock some of your previously blocked users</a>.</span>
 		@endif
 	@endif
 </form>

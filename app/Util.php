@@ -64,7 +64,7 @@ class Util {
             } elseif (isset($post['Yes'])) {
                 $choose_value = 1;
             } elseif (isset($post['No'])) {
-                if (\App\Util::nos_left_for_user($logged_in_user_id)) {
+                if (\App\Util::nos_left_for_user($logged_in_user_id) > 0) {
                     $choose_value = 0;
                 }
             } elseif (isset($post['Met'])) {
@@ -238,8 +238,8 @@ class Util {
     }
 
     public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
-        #Log::debug("App Util gender of match: $gender_of_match");
-        #Log::debug("Finding users not yet rated by '$chooser_user_id'");
+        //Log::debug("App Util gender of match: $gender_of_match");
+        //Log::debug("Finding users not yet rated by '$chooser_user_id'");
         $gender_order_by = '';
         if ($gender_of_match) {
             if (preg_match('/^M|W|O$/', $gender_of_match)) {
@@ -259,7 +259,7 @@ class Util {
                 }
             }
         }
-        #Log::debug("Gender order by: '$gender_order_by'");
+        //Log::debug("Gender order by: '$gender_order_by'");
 
         // The second choose join hides users who have already said no to you so you don't even get to see them
         $unrated_users_sql = "
@@ -302,7 +302,7 @@ class Util {
                 number_photos desc,
                 id asc
         ";
-        #Log::debug($unrated_users_sql);
+        //Log::debug($unrated_users_sql);
         $unrated_users = DB::select($unrated_users_sql, [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 
         return $unrated_users;
@@ -396,47 +396,62 @@ class Util {
     }
 
     public static function nos_left_for_user( $user_id ) {
-        $unrated_users           = \App\Util::unrated_users( $user_id );
-        $user_count              = sizeof($unrated_users);
+        // Find out how many people are attending events that this user is attending, and base number of Nos left on that
+        $user_count_result       = DB::select('
+            select
+                count(distinct users.id) user_count
+            from
+                attending i_am_attending
+                join attending they_are_attending on (i_am_attending.event_id = they_are_attending.event_id and i_am_attending.user_id <> they_are_attending.user_id)
+                join users on they_are_attending.user_id = users.id
+                join event on they_are_attending.event_id = event.event_id
+            where
+                event_date >= curdate()
+                and i_am_attending.user_id = ?
+        ', [$user_id]);
+        $user_count              = $user_count_result[0]->user_count;
+
+        // Find out how many Nos have been used already on people attending events that this user is attenidng
         $nos_used                = 0;
-        $nos_used_results        = DB::select('select count(*) nos_used from choose join users on choose.chosen_id = users.id where choice = 0 and chooser_id = ?', [$user_id]);
+        $nos_used_results        = DB::select('
+            select
+                count(distinct users.id) nos_used
+            from
+                choose
+                join users on choose.chosen_id = users.id
+                join attending they_are_attending on users.id = they_are_attending.user_id
+                join attending i_am_attending on they_are_attending.event_id = i_am_attending.event_id
+                join event on they_are_attending.event_id = event.event_id
+            where
+                event_date >= curdate()
+                and choice = 0
+                and chooser_id = ?
+        ', [$user_id]);
         $nos_used_result         = array_shift($nos_used_results);
         $nos_used                = $nos_used_result->nos_used;
-        $popularity              = 0;
-        $popularity_results      = DB::select('select count(*) popularity from choose join users on choose.chooser_id = users.id where choice > 0 and chosen_id = ? and chooser_id <> ?', [$user_id, $user_id]);
-        $popularity_result       = array_shift($popularity_results);
-        $popularity              = $popularity_result->popularity;
-        $gender                  = null;
-        $birth_year              = null;
-        $hoping_to_find_love     = null;
-        $random_ok               = null;
-        $nos_info_results        = DB::select('select gender, birth_year, hoping_to_find_love, random_ok from users where id = ?', [$user_id]);
-        $nos_info_result         = array_shift($nos_info_results);
-        $gender                  = $nos_info_result->gender;
-        $birth_year              = $nos_info_result->birth_year;
-        $hoping_to_find_love     = $nos_info_result->hoping_to_find_love;
-        $random_ok               = $nos_info_result->random_ok;
-        $min_available_nos       = intdiv($user_count, 10);
-        $max_available_nos       = intdiv($user_count, 3);
-        if (!$min_available_nos) { $min_available_nos = 1; }
-        if (!$max_available_nos) { $max_available_nos = 1; }
-        Log::debug("user count '$user_count' min avail nos: '$min_available_nos', max '$max_available_nos'");
 
-        // Everyone gets this many
-        $nos                     = $min_available_nos;
+        $popularity          = 0;
+        $popularity_results  = DB::select('select count(*) popularity from choose join users on choose.chooser_id = users.id where choice > 0 and chosen_id = ? and chooser_id <> ?', [$user_id, $user_id]);
+        $popularity_result   = array_shift($popularity_results);
+        $popularity          = $popularity_result->popularity;
+        $gender              = null;
+        $birth_year          = null;
+        $hoping_to_find_love = null;
+        $random_ok           = null;
+        $nos_info_results    = DB::select('select gender, birth_year, hoping_to_find_love, random_ok from users where id = ?', [$user_id]);
+        $nos_info_result     = array_shift($nos_info_results);
+        $gender              = $nos_info_result->gender;
+        $birth_year          = $nos_info_result->birth_year;
+        $hoping_to_find_love = $nos_info_result->hoping_to_find_love;
+        $random_ok           = $nos_info_result->random_ok;
+        $bonus_nos_amount    = intdiv($user_count, 20) || 1;
+        $min_available_nos   = intdiv($user_count, 10);
+        $max_available_nos   = intdiv($user_count, 3);
+        if ($min_available_nos <= 0) { $min_available_nos = 1; }
+        if ($max_available_nos <= 0) { $max_available_nos = 1; }
 
-        // Bonus amount to give below
-        $bonus_nos_amount        = intdiv($user_count, 20) || 1;
-
-        // If you're hoping for love you might want to be pickier, even if you don't get a match
-        if ($hoping_to_find_love) {
-            $nos += $bonus_nos_amount;
-        }
-
-        // If you're young you can probably be pickier and still get a match
-        if ($birth_year >= date("Y")-45) {
-            $nos += $bonus_nos_amount;
-        }
+        // Start with the minimum
+        $nos                 = $min_available_nos;
 
         // If you're a woman you can probably be pickier and still get a match, and you might need to be pickier for safety's sake
         if ($gender == 'W') {
@@ -454,19 +469,18 @@ class Util {
             $nos += $bonus_nos_amount;
         }
 
-        // Check everyone gets the minimum
         if ($nos < $min_available_nos) {
             $nos = $min_available_nos;
         }
-
-        // Check no one goes beyond the maximum
         if ($nos > $max_available_nos) {
             $nos = $max_available_nos;
         }
 
-        // Remove ones already used
-        Log::debug("'$nos_used' no's used");
         $nos -= $nos_used;
+
+        if ($nos < 0) {
+            $nos = 0;
+        }
 
         return $nos;
     }

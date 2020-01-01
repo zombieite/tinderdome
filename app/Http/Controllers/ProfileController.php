@@ -108,7 +108,7 @@ class ProfileController extends Controller
 
             // Find number of No's left
             $nos_left = \App\Util::nos_left_for_user( $logged_in_user_id );
-            Log::debug("'$nos_left' no's left");
+            //Log::debug("'$nos_left' no's left");
 
             // Figure out if user is looking at their own profile (hide buttons in that case)
             if ($logged_in_user_id == $profile_id) {
@@ -120,7 +120,7 @@ class ProfileController extends Controller
                     // Make sure the person they're trying to look at hasn't said no to them
                     $they_said_no = DB::select('select * from choose where chooser_id=? and chosen_id=? and choice=0', [$profile_id, $logged_in_user_id]);
                     if ($they_said_no) {
-                        Log::debug('They said no');
+                        //Log::debug('They said no');
                         abort(404);
                     }
                 }
