@@ -13,33 +13,35 @@
 		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed'] }}
 	</div>
 @endforeach
-<p>You Are Awaited is a simple game. You prepare for it online, but play it during various real-world events. Participation is free. Here's how to play.
+<p>You Are Awaited is a simple game. You prepare online using this website, but the game itself happens during various real-world events.
 @if ($next_event_name)
-    Our next event will be {{ $next_event_name }}.</p>
+    Our next event will be {{ $next_event_name }}.
 @endif
-<h3>1.
+Participation is free. Here's how to play.
+</p>
+<h2>1.
 @guest<a href="{{ route('register') }}" class="bright">@endguest
 Create a profile
-@guest</a>@endguest</h3>
+@guest</a>@endguest</h2>
 <p>
 Create a profile that tells everyone a little bit about you. <a href="/profile/Firebird">Here's an example</a>.
 </p>
-<h3>2. Sign up for an event</h3>
+<h2>2. Sign up for an event</h2>
 <p>
 Let us know what upcoming events you'll be attending.
 @if ($next_event_name)
     The next event will be {{ $next_event_name }}.
 @endif
 </p>
-<h3>3. Let us know who you'd enjoy meeting</h3>
+<h2>3. Let us know who you'd enjoy meeting</h2>
 <p>
 Browse other profiles and choose who you'd enjoy meeting at upcoming events.
 </p>
-<h3>4. Find out who you're matched with</h3>
+<h2>4. Find out who you're matched with</h2>
 <p>
 Before each event, return to this site to find out who you've been matched with.
 </p>
-<h3>4. Seek out your match</h3>
+<h2>4. Seek out your match</h2>
 <p>
 Your mission is to find your match at the event and introduce yourself. They'll be looking for you, too. That's it!
 </p>
