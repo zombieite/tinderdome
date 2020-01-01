@@ -129,17 +129,21 @@
                                     @else
                                         @if (isset($upcoming_event->seconds_till_user_can_match))
                                             @if ($upcoming_event->seconds_till_user_can_match > 360000)
-                                                You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
+                                                You will be matched in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
                                             @else
                                                 @if ($upcoming_event->seconds_till_user_can_match > 3600)
-                                                    You will be eligible to request your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
+                                                    You will be matched in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
                                                 @else
-                                                    You will be eligible to request your match in less than one hour!
+                                                    You will be matched in less than one hour!
                                                 @endif
                                             @endif
                                             As you complete more missions, you will become eligible to be matched sooner.
                                         @else
-                                            &nbsp;
+                                            @if ($upcoming_event->attending_event_id)
+                                                @if ($upcoming_event->signups_still_needed)
+                                                    More signups are needed before anyone will be matched.
+                                                @endif
+                                            @endif
                                         @endif
                                     @endif
                                 @endif
