@@ -412,9 +412,11 @@ class Util {
         $birth_year              = $nos_info_result->birth_year;
         $hoping_to_find_love     = $nos_info_result->hoping_to_find_love;
         $random_ok               = $nos_info_result->random_ok;
-
-        $min_available_nos       = intdiv($user_count, 20) || 1;
-        $max_available_nos       = intdiv($user_count, 3)  || 1;
+        $min_available_nos       = intdiv($user_count, 10);
+        $max_available_nos       = intdiv($user_count, 3);
+        if (!$min_available_nos) { $min_available_nos = 1; }
+        if (!$max_available_nos) { $max_available_nos = 1; }
+        #Log::debug("min avail nos: '$min_available_nos', max '$max_available_nos'");
 
         // Everyone gets this many
         $nos                     = $min_available_nos;
