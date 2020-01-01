@@ -64,8 +64,14 @@ class Util {
             } elseif (isset($post['Yes'])) {
                 $choose_value = 1;
             } elseif (isset($post['No'])) {
-                if (\App\Util::nos_left_for_user($logged_in_user_id) > 0) {
+                // If they were matched to this user at some point, they can always block them
+                if (DB::select('select * from attending where user_id = ? and user_id_of_match = ?', [$logged_in_user_id, $chosen_id])) {
                     $choose_value = 0;
+                // else they can only block users if they have enough blocks left
+                } else {
+                    if (\App\Util::nos_left_for_user($logged_in_user_id) > 0) {
+                        $choose_value = 0;
+                    }
                 }
             } elseif (isset($post['Met'])) {
                 $choose_value = -1;
