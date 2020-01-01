@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
 
             $logged_in_user_id            = Auth::id();
             $logged_in_user               = Auth::user();
-            if ($logged_in_user_id) {
+            if ($logged_in_user_id && $logged_in_user) {
                 $current_time             = time();
                 $last_updated_time        = session('last_active_time');
                 if ($last_updated_time && $current_time - $last_updated_time < 1800) {
@@ -58,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
             }
 
             // If they are logged in, get the attendance count of the next event they are attending
-            if ($logged_in_user_id) {
+            if ($logged_in_user_id && $logged_in_user) {
                 foreach ($upcoming_events as $event) {
                     if ($event->attending_event_id) {
                         $next_event_id    = $event->event_id;
