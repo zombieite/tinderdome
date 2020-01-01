@@ -166,12 +166,14 @@ class Util {
                             }
                             $time_when_top_ranked_can_match                = $event_result->time_when_top_ranked_can_match;
                             $time_when_everyone_can_match                  = $event_result->time_when_everyone_can_match;
+                            //Log::debug("time:'$time' score:'$score' ms:'$max_score' twtrcm:'$time_when_top_ranked_can_match' twecm:'$time_when_everyone_can_match'");
                             if ($time > $time_when_everyone_can_match) {
                                 $event_result->can_claim_match             = true;
                             } else {
                                 $day_range                                 = $dbewTRcgm - $dbewEcgm;
                                 $slice_duration                            = intval(($day_range * 24 * 60 * 60) / $max_score);
                                 $advance_seconds_user_can_match            = $score * $slice_duration;
+                                //Log::debug("Range:'$day_range' Slice duration:'$slice_duration' This user's advance seconds:'$advance_seconds_user_can_match'");
                                 $event_result->time_when_user_can_match    = $time_when_everyone_can_match - $advance_seconds_user_can_match;
                                 $event_result->seconds_till_user_can_match = $event_result->time_when_user_can_match - $time;
                                 if ( $event_result->seconds_till_user_can_match < 0 ) {
