@@ -43,9 +43,14 @@ I am...
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
 <label for="hoping_to_find_friend">Open to finding a new friend.</label>
 <br>
-<input type="checkbox" name="hoping_to_find_enemy" id="hoping_to_find_enemy" @guest @else @if ($hoping_to_find_enemy) checked @endif @endguest>
-<label for="hoping_to_find_enemy">Open to finding a new enemy.</label>
-<br>
+@guest
+@else
+    @if ($is_wastelander)
+        <input type="checkbox" name="hoping_to_find_enemy" id="hoping_to_find_enemy" @guest @else @if ($hoping_to_find_enemy) checked @endif @endguest>
+        <label for="hoping_to_find_enemy">Open to finding a new enemy.</label>
+        <br>
+    @endif
+@endguest
 <input type="checkbox" name="hoping_to_find_love" id="hoping_to_find_love" @guest @else @if ($hoping_to_find_love) checked @endif @endguest>
 <label for="hoping_to_find_love">Open to finding a new romantic partner.</label>
 <p style="margin-left: 2em; margin-top: 0em; margin-bottom: 0em;">
@@ -112,6 +117,10 @@ I am...
 </select>
 
 <br>
+<br>
+We will try to match you to a user of your preferred gender, but you must be open to being matched to users of any gender.
+
+<br>
 <label for="gender_of_match">I would prefer to be matched with a person of gender...</label>
 <select name="gender_of_match" id="gender_of_match">
 	<option value="">Any</option>
@@ -127,7 +136,6 @@ I am...
 	<option value="W" @guest @else @if ($gender_of_match_2 === 'W') selected @endif @endguest>Woman</option>
 	<option value="O" @guest @else @if ($gender_of_match_2 === 'O') selected @endif @endguest>Other</option>
 </select>
-<br>Users of all genders will see your profile. We will try to match you to a user of your preferred gender but you must be open to being matched to users of all genders.
 
 <hr>
 
@@ -136,7 +144,7 @@ I am...
 <textarea rows="20" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
 
 <br><br>
-<label for="how_to_find_me">Tell other users how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Plain text only. Emojis are not supported.
+<label for="how_to_find_me">Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Plain text only. Emojis are not supported.
 <br>
 <input type="text" style="width:100%;" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
