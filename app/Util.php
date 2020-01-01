@@ -478,7 +478,23 @@ class Util {
     }
 
     public static function has_match_for_next_event_waiting( $user_id ) {
-        $result = DB::select('
+        $match_id = null;
+        $my_result = DB::select('
+            select
+                user_id_of_match
+            from
+                attending
+                join event on attending.event_id = event.event_id
+            where
+                event_date >= curdate()
+                and user_id = ?
+            order by
+                event_date
+        ', [$user_id]);
+        if ($my_result) {
+            $match_id = $my_result[0]->user_id_of_match;
+        }
+        $their_result = DB::select('
             select
                 user_id
             from
@@ -490,9 +506,8 @@ class Util {
             order by
                 event_date
         ', [$user_id]);
-        $match_id = null;
-        if ($result) {
-            $match_id  = $result[0]->user_id;
+        if ($their_result) {
+            $match_id  = $their_result[0]->user_id;
         }
         return $match_id;
     }
