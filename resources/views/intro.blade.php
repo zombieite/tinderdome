@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<h1>Turn strangers into friends by meeting them.</h1>
 @foreach ($leaderboard as $leader)
 	<div class="centered_block">
 		@if ($leader['number_photos'])
@@ -12,7 +13,6 @@
 		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed'] }}
 	</div>
 @endforeach
-<h1>Turn strangers into friends by meeting them.</h1>
 <p>You Are Awaited is a simple game. You prepare for it online, but play it during various real-world events. Participation is free. Here's how to play.
 @if ($next_event_name)
     Our next event will be {{ $next_event_name }}.</p>
