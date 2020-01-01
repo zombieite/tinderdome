@@ -64,16 +64,20 @@ class Util {
             } elseif (isset($post['Yes'])) {
                 $choose_value = 1;
             } elseif (isset($post['No'])) {
-                $choose_value = 0;
+                if (\App\Util::nos_left_for_user($logged_in_user_id)) {
+                    $choose_value = 0;
+                }
             } elseif (isset($post['Met'])) {
                 $choose_value = -1;
             }
-		    $choose_row_exists = DB::select('select * from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $chosen_id]);
-		    if ($choose_row_exists) {
-				DB::update( 'update choose set choice = ? where chooser_id = ? and chosen_id = ?', [ $choose_value, $logged_in_user_id, $chosen_id ] );
-		    } else {
-		        DB::insert('insert into choose (choice, chooser_id, chosen_id) values (?, ?, ?)', [ $choose_value, $logged_in_user_id, $chosen_id ]);
-		    }
+            if (!is_null($choose_value)) {
+                $choose_row_exists = DB::select('select * from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $chosen_id]);
+                if ($choose_row_exists) {
+                    DB::update( 'update choose set choice = ? where chooser_id = ? and chosen_id = ?', [ $choose_value, $logged_in_user_id, $chosen_id ] );
+                } else {
+                    DB::insert('insert into choose (choice, chooser_id, chosen_id) values (?, ?, ?)', [ $choose_value, $logged_in_user_id, $chosen_id ]);
+                }
+            }
 		}
     }
 
