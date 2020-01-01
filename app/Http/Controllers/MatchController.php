@@ -50,16 +50,24 @@ class MatchController extends Controller
         }
 
         // Don't allow too many rePOSTs too often
-        $match_requested_time = session('match_requested_time');
-        $current_time      = time();
-        if ($match_requested_time && $current_time - $match_requested_time < $seconds_between_submits) {
-            $time_until_can_resubmit = $seconds_between_submits - ($current_time - $match_requested_time);
+        $match_requested_time_result = DB::select('
+            select
+                unix_timestamp(now()) now_time,
+                unix_timestamp(match_requested) match_requested_time
+            from
+                attending
+            where
+                user_id = ?
+                and event_id = ?
+        ', [$logged_in_user_id, $event_id]);
+        $now_time                    = $match_requested_time_result[0]->now_time;
+        $match_requested_time        = $match_requested_time_result[0]->match_requested_time;
+        if ($match_requested_time && $now_time - $match_requested_time < $seconds_between_submits) {
+            $time_until_can_resubmit = $seconds_between_submits - ($now_time - $match_requested_time);
         } else {
-
             if (isset($_POST['matchme'])) {
                 $hide_submit       = 1;
-                session(['match_requested_time' => $current_time]);
-
+                DB::update('update attending set match_requested = now() where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
                 Log::debug($logged_in_user->name." has requested their match for event $event_id");
                 $matchme = $_POST['matchme'];
 
