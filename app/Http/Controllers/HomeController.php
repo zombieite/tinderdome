@@ -99,8 +99,14 @@ class HomeController extends Controller
         $wasteland_name_hyphenated         = preg_replace('/\s/', '-', $wasteland_name);
         $number_photos                     = $logged_in_user->number_photos;
         #Log::debug("Home controller gom: '".$logged_in_user->gender_of_match."'");
-        $unrated_users                     = \App\Util::unrated_users( $logged_in_user->id, $logged_in_user->gender_of_match );
+        $unrated_users                     = [];
         $success_message                   = '';
+
+        if (\App\Util::has_match_for_next_event_waiting( $logged_in_user_id )) {
+            // Don't show unrated users because this user already has a match waiting for them
+        } else {
+            $unrated_users = \App\Util::unrated_users( $logged_in_user->id, $logged_in_user->gender_of_match );
+        }
 
         $mutuals = [];
         if ($logged_in_user->hoping_to_find_love && $logged_in_user->share_info_with_favorites) {
