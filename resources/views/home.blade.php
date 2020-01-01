@@ -209,7 +209,7 @@
                     ])
                 @endif
             @else
-                @if ($matched_to_user->name)
+                @if ($matched_to_user->name && $matched_to_user->this_users_rating_of_logged_in_user !== 0)
                     @include('user_block_not_found_yet', [
                         'number_photos'            => $matched_to_user->number_photos,
                         'url'                      => $matched_to_user->url,
