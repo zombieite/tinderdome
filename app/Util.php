@@ -144,25 +144,29 @@ class Util {
 				} else {
                     if ($event_result->attending_event_id) {
                         $already_matched_but_dont_know_it  = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
-                        $time                                          = time();
-                        $score                                         = $user->score;
-                        $max_score_attending_result                    = DB::select('select max(score) max_score from users join attending on users.id = attending.user_id and event_id = ?', [$event_result->event_id]);
-                        $max_score                                     = $max_score_attending_result[0]->max_score;
-                        if ($max_score < 1 ) {
-                            $max_score                                 = 1; // Prevent divide by zero and stuff
-                        }
-                        $time_when_top_ranked_can_match                = $event_result->time_when_top_ranked_can_match;
-                        $time_when_everyone_can_match                  = $event_result->time_when_everyone_can_match;
-                        if ($time > $time_when_everyone_can_match) {
-                            $event_result->can_claim_match             = true;
+                        if ($already_matched_but_dont_know_it) {
+                            $event_result->can_claim_match                 = true;
                         } else {
-                            $day_range                                 = $dbewTRcgm - $dbewEcgm;
-                            $slice_duration                            = intval(($day_range * 24 * 60 * 60) / $max_score);
-                            $advance_seconds_user_can_match            = $score * $slice_duration;
-                            $event_result->time_when_user_can_match    = $time_when_everyone_can_match - $advance_seconds_user_can_match;
-                            $event_result->seconds_till_user_can_match = $event_result->time_when_user_can_match - $time;
-                            if ( $event_result->seconds_till_user_can_match < 0 ) {
-                                $event_result->can_claim_match         = true;
+                            $time                                          = time();
+                            $score                                         = $user->score;
+                            $max_score_attending_result                    = DB::select('select max(score) max_score from users join attending on users.id = attending.user_id and event_id = ?', [$event_result->event_id]);
+                            $max_score                                     = $max_score_attending_result[0]->max_score;
+                            if ($max_score < 1 ) {
+                                $max_score                                 = 1; // Prevent divide by zero and stuff
+                            }
+                            $time_when_top_ranked_can_match                = $event_result->time_when_top_ranked_can_match;
+                            $time_when_everyone_can_match                  = $event_result->time_when_everyone_can_match;
+                            if ($time > $time_when_everyone_can_match) {
+                                $event_result->can_claim_match             = true;
+                            } else {
+                                $day_range                                 = $dbewTRcgm - $dbewEcgm;
+                                $slice_duration                            = intval(($day_range * 24 * 60 * 60) / $max_score);
+                                $advance_seconds_user_can_match            = $score * $slice_duration;
+                                $event_result->time_when_user_can_match    = $time_when_everyone_can_match - $advance_seconds_user_can_match;
+                                $event_result->seconds_till_user_can_match = $event_result->time_when_user_can_match - $time;
+                                if ( $event_result->seconds_till_user_can_match < 0 ) {
+                                    $event_result->can_claim_match         = true;
+                                }
                             }
                         }
                     }
@@ -486,7 +490,7 @@ class Util {
         ', [$user_id]);
         $match_id = null;
         if ($result) {
-            $match_id  = $result[0]->user_id;;
+            $match_id  = $result[0]->user_id;
         }
         return $match_id;
     }
