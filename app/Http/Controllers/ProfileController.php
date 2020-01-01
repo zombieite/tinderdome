@@ -255,18 +255,19 @@ class ProfileController extends Controller
         $gender_of_match                 = $profile->gender_of_match;
         $gender_of_match_2               = $profile->gender_of_match_2;
         $title_index                     = $profile->title_index;
-        $titles                          = \App\Util::titles();
         $height                          = $profile->height;
         $birth_year                      = $profile->birth_year;
         $description                     = $profile->description;
         $how_to_find_me                  = $profile->how_to_find_me;
         $number_photos                   = $profile->number_photos;
         $random_ok                       = $profile->random_ok;
-        $missions_completed              = \App\Util::missions_completed( $profile_id );
         $hoping_to_find_friend           = $profile->hoping_to_find_friend;
         $hoping_to_find_love             = $profile->hoping_to_find_love;
         $hoping_to_find_lost             = $profile->hoping_to_find_lost;
         $hoping_to_find_enemy            = $profile->hoping_to_find_enemy;
+        $titles                          = \App\Util::titles();
+        $missions_completed              = \App\Util::missions_completed( $profile_id );
+        $is_wastelander                  = \App\Util::is_wastelander( $profile_id );
         return view('auth/register', [
             'email'                      => $email,
             'share_info_with_favorites'  => $share_info_with_favorites,
@@ -289,6 +290,7 @@ class ProfileController extends Controller
             'title_index'                => $title_index,
             'titles'                     => $titles,
             'missions_completed'         => $missions_completed,
+            'is_wastelander'             => $is_wastelander,
         ]);
     }
 
