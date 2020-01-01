@@ -55,15 +55,15 @@
 @if ($show_nos)
     @if ($profiles_found_count)
         @if ($profiles_found_count === 1)
-            One user marked as No.<br><br>
+            One user blocked.<br><br>
         @else
-            {{ $profiles_found_count }} users marked as No.<br><br>
+            {{ $profiles_found_count }} users blocked.<br><br>
         @endif
     @else
-        No users marked as No.<br><br>
+        No users blocked.<br><br>
     @endif
 @else
-    <a href="/search?show_nos=1">See users you've marked as No</a><br><br>
+    <a href="/search?show_nos=1">See users you've blocked</a><br><br>
 @endif
 @php $previous_profile_id = isset($profiles[0]) ? $profiles[0]['profile_id'] : ''; @endphp
 @foreach ($profiles as $profile)
