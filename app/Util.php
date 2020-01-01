@@ -230,10 +230,11 @@ class Util {
     }
 
     public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
-        #Log::debug("Gender of match: $gender_of_match");
+        #Log::debug("App Util gender of match: $gender_of_match");
+        #Log::debug("Finding users not yet rated by '$chooser_user_id'");
         $gender_order_by = '';
         if ($gender_of_match) {
-            if (preg_match('/^M|F|O$/', $gender_of_match)) {
+            if (preg_match('/^M|W|O$/', $gender_of_match)) {
                 if (time() % 4 == 0) {
                     // Sometimes, you just gotta rate your non-preferred gender
                 } else {
@@ -250,9 +251,10 @@ class Util {
                 }
             }
         }
+        #Log::debug("Gender order by: '$gender_order_by'");
 
         // The second choose join hides users who have already said no to you so you don't even get to see them
-        $unrated_users = DB::select("
+        $unrated_users_sql = "
             select
                 *
             from
@@ -278,7 +280,7 @@ class Util {
                 id > 10
                 and id <> ?
                 and i_am_attending.event_id = they_are_attending.event_id
-                and event_date > now()
+                and event_date >= curdate()
                 and my_choice.choice is null
                 and
                 (
@@ -291,8 +293,9 @@ class Util {
                 $gender_order_by
                 number_photos desc,
                 id asc
-        ",
-        [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
+        ";
+        #Log::debug($unrated_users_sql);
+        $unrated_users = DB::select($unrated_users_sql, [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 
         return $unrated_users;
     }

@@ -98,6 +98,7 @@ class HomeController extends Controller
         $wasteland_name                    = $logged_in_user->name;
         $wasteland_name_hyphenated         = preg_replace('/\s/', '-', $wasteland_name);
         $number_photos                     = $logged_in_user->number_photos;
+        #Log::debug("Home controller gom: '".$logged_in_user->gender_of_match."'");
         $unrated_users                     = \App\Util::unrated_users( $logged_in_user->id, $logged_in_user->gender_of_match );
         $success_message                   = '';
 
