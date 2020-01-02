@@ -28,7 +28,7 @@ class PotentialMatchController extends Controller
         }
 
         $all_users = DB::select("
-            select
+            select distinct
                 id,
                 name,
                 gender,
@@ -56,7 +56,7 @@ class PotentialMatchController extends Controller
             order by
                 c1.choice desc,
                 name
-        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
         foreach ($all_users as $profile) {
             $profile_id                = $profile->id;;
