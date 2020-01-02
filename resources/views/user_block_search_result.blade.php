@@ -6,44 +6,39 @@
             </a>
         @endif
     </div>
-    @if ($show_yeses)
-        <br>
+    <div style="display:inline-block;">
+        <a name="profile{{ $profile['profile_id'] }}"></a>
+        @if ($profile['missions_completed'])
+            {{ $titles[$profile['title_index']] }}
+        @endif
         <a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
-    @else
-        <div style="display:inline-block;">
-            <a name="profile{{ $profile['profile_id'] }}"></a>
-            @if ($profile['missions_completed'])
-                {{ $titles[$profile['title_index']] }}
-            @endif
-            <a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
-            @if ($profile['birth_year'])
-                <br>
-                @if ($profile['birth_year'] === 1959)
-                    Born before 1960
-                @else
-                    Born in the {{ intval($profile['birth_year'] / 10) * 10 }}s
-                @endif
-            @endif
-            @if ($profile['height'])
-                @if ($profile['birth_year'])
-                    &middot;
-                @else
-                    <br>
-                @endif
-                @if ($profile['height'] < 60)
-                    Under 5 feet
-                @elseif ($profile['height'] > 72)
-                    Over 6 feet
-                @else
-                    {{ floor($profile['height'] / 12) }}&apos;{{ $profile['height'] % 12 }}&quot;
-                @endif
-            @endif
+        @if ($profile['birth_year'])
             <br>
-            @if ($profile['missions_completed'])
-                <span>Missions completed: {{ $profile['missions_completed'] }}</span>
+            @if ($profile['birth_year'] === 1959)
+                Born before 1960
+            @else
+                Born in the {{ intval($profile['birth_year'] / 10) * 10 }}s
             @endif
-        </div>
-    @endif
+        @endif
+        @if ($profile['height'])
+            @if ($profile['birth_year'])
+                &middot;
+            @else
+                <br>
+            @endif
+            @if ($profile['height'] < 60)
+                Under 5 feet
+            @elseif ($profile['height'] > 72)
+                Over 6 feet
+            @else
+                {{ floor($profile['height'] / 12) }}&apos;{{ $profile['height'] % 12 }}&quot;
+            @endif
+        @endif
+        <br>
+        @if ($profile['missions_completed'])
+            <span>Missions completed: {{ $profile['missions_completed'] }}</span>
+        @endif
+    </div>
     <br>
     <br>
     @if ($logged_in_user_id == $profile['profile_id'])
