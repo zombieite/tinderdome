@@ -40,24 +40,23 @@ class PotentialMatchController extends Controller
                 hoping_to_find_love,
                 share_info_with_favorites,
                 c1.choice logged_in_user_choice,
-                c2.choice their_choice,
-                attending_id,
-                if (event_date is not null and event_date < curdate(), 1, 0) ok_to_mark_user_found
+                c2.choice their_choice
             from
                 users
-                left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
-                left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
-                left join choose c3 on (c3.chooser_id = users.id and c3.chosen_id = ?)
-                left join attending on (user_id = ? and attending.user_id_of_match = id)
-                left join event on attending.event_id = event.event_id
+                join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
+                left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ?)
+                join attending they_are_attending on (they_are_attending.user_id = id)
+                join attending i_am_attending on (i_am_attending.user_id = ? and they_are_attending.event_id = i_am_attending.event_id)
+                join event on (i_am_attending.event_id = event.event_id and event.event_date >= curdate())
             where
                 id > 10
+                and id <> ?
                 and c1.choice != 0
-                and (c3.choice is null or c3.choice != 0)
+                and (c2.choice is null or c2.choice != 0)
             order by
                 c1.choice desc,
                 name
-        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
         foreach ($all_users as $profile) {
             $profile_id                = $profile->id;;
@@ -69,7 +68,6 @@ class PotentialMatchController extends Controller
             $description               = $profile->description;
             $number_photos             = $profile->number_photos;
             $choice                    = $profile->logged_in_user_choice;
-            $ok_to_mark_user_found     = $profile->attending_id ? $profile->ok_to_mark_user_found : 1;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
             $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 
@@ -85,7 +83,7 @@ class PotentialMatchController extends Controller
                 'number_photos'             => $number_photos,
                 'choice'                    => $choice,
                 'missions_completed'        => $missions_completed,
-                'ok_to_mark_user_found'     => $ok_to_mark_user_found,
+                'ok_to_mark_user_found'     => false,
             ];
             array_push($profiles, $profile);
         }
