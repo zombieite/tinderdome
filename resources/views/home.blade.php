@@ -147,6 +147,8 @@
                                                 @if ($upcoming_event->signups_still_needed)
                                                     More signups are needed before anyone will be matched.
                                                 @endif
+                                            @else
+                                                You are not signed up for this event.
                                             @endif
                                         @endif
                                     @endif
