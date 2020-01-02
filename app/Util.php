@@ -292,6 +292,10 @@ class Util {
                 join event on (
                     i_am_attending.event_id = event.event_id
                 )
+                left join attending i_have_attended on (
+                    users.id = i_have_attended.user_id_of_match
+                    and i_have_attended.user_id = ?
+                )
             where
                 id > 10
                 and id <> ?
@@ -305,13 +309,14 @@ class Util {
                     their_choice.choice != 0
                 )
                 and number_photos > 0
+                and i_have_attended.user_id_of_match is null
             order by
                 $gender_order_by
                 number_photos desc,
                 id asc
         ";
         //Log::debug($unrated_users_sql);
-        $unrated_users = DB::select($unrated_users_sql, [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
+        $unrated_users = DB::select($unrated_users_sql, [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
 
         return $unrated_users;
     }
