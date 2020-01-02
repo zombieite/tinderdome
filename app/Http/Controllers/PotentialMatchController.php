@@ -39,6 +39,7 @@ class PotentialMatchController extends Controller
                 number_photos,
                 hoping_to_find_love,
                 share_info_with_favorites,
+                event_long_name,
                 c1.choice logged_in_user_choice,
                 c2.choice their_choice
             from
@@ -68,6 +69,7 @@ class PotentialMatchController extends Controller
             $description               = $profile->description;
             $number_photos             = $profile->number_photos;
             $choice                    = $profile->logged_in_user_choice;
+            $event_name                = $profile->event_long_name;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
             $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 
@@ -83,6 +85,7 @@ class PotentialMatchController extends Controller
                 'number_photos'             => $number_photos,
                 'choice'                    => $choice,
                 'missions_completed'        => $missions_completed,
+                'event_name'                => $event_name,
                 'ok_to_rate_user'           => true,
             ];
             array_push($profiles, $profile);

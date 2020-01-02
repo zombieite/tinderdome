@@ -12,6 +12,10 @@
             {{ $titles[$profile['title_index']] }}
         @endif
         <a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">{{ $profile['wasteland_name'] }}</a>
+        @if (isset($profile['event_name']))
+            <br>
+            Attending {{ $profile['event_name'] }}
+        @endif
         @if ($profile['birth_year'])
             <br>
             @if ($profile['birth_year'] === 1959)
