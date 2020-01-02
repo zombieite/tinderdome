@@ -40,6 +40,7 @@ class PotentialMatchController extends Controller
                 hoping_to_find_love,
                 share_info_with_favorites,
                 event_long_name,
+                event_date,
                 c1.choice logged_in_user_choice,
                 c2.choice their_choice
             from
@@ -55,6 +56,7 @@ class PotentialMatchController extends Controller
                 and c1.choice > 0
                 and (c2.choice is null or c2.choice != 0)
             order by
+                event_date,
                 c1.choice desc,
                 name
         ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
