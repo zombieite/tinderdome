@@ -52,12 +52,8 @@ class PotentialMatchController extends Controller
                 left join event on attending.event_id = event.event_id
             where
                 id > 10
-                and
-                (
-                    c3.choice is null
-                    or
-                    c3.choice != 0
-                )
+                and c1.choice != 0
+                and (c3.choice is null or c3.choice != 0)
             order by
                 c1.choice desc,
                 name
