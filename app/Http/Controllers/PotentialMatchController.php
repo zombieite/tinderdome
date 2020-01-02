@@ -51,7 +51,7 @@ class PotentialMatchController extends Controller
             where
                 id > 10
                 and id <> ?
-                and c1.choice != 0
+                and c1.choice > 0
                 and (c2.choice is null or c2.choice != 0)
             order by
                 c1.choice desc,
@@ -83,7 +83,7 @@ class PotentialMatchController extends Controller
                 'number_photos'             => $number_photos,
                 'choice'                    => $choice,
                 'missions_completed'        => $missions_completed,
-                'ok_to_mark_user_found'     => false,
+                'ok_to_rate_user'           => true,
             ];
             array_push($profiles, $profile);
         }

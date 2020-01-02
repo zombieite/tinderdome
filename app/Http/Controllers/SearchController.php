@@ -69,7 +69,7 @@ class SearchController extends Controller
                 c1.choice logged_in_user_choice,
                 c2.choice their_choice,
                 attending_id,
-                if (event_date is not null and event_date < curdate(), 1, 0) ok_to_mark_user_found
+                if (event_date is not null and event_date < curdate(), 1, 0) ok_to_rate_user
             from
                 users
                 left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
@@ -101,7 +101,7 @@ class SearchController extends Controller
             $description               = $profile->description;
             $number_photos             = $profile->number_photos;
             $choice                    = $profile->logged_in_user_choice;
-            $ok_to_mark_user_found     = $profile->attending_id ? $profile->ok_to_mark_user_found : 1;
+            $ok_to_rate_user           = $profile->attending_id ? $profile->ok_to_rate_user : 1;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
             $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 
@@ -117,7 +117,7 @@ class SearchController extends Controller
                 'number_photos'             => $number_photos,
                 'choice'                    => $choice,
                 'missions_completed'        => $missions_completed,
-                'ok_to_mark_user_found'     => $ok_to_mark_user_found,
+                'ok_to_rate_user'           => $ok_to_rate_user,
             ];
             array_push($profiles, $profile);
         }

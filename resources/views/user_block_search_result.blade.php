@@ -44,7 +44,7 @@
     @if ($logged_in_user_id == $profile['profile_id'])
         (You)
     @else
-        @if ($profile['ok_to_mark_user_found'])
+        @if ($profile['ok_to_rate_user'])
             @include('rating_form', ['action' => "#profile".$previous_profile_id, 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice'], 'number_photos' => $profile['number_photos'], 'curse_interface' => $curse_interface])
         @endif
     @endif
