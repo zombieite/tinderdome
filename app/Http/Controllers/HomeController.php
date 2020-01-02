@@ -37,6 +37,7 @@ class HomeController extends Controller
         }
 
         $curse_interface           = \App\Util::is_wastelander( $logged_in_user_id );
+        $random_ok                 = $logged_in_user->random_ok;
 
         if (isset($_POST['comment_id'])) {
             $comment_id = $_POST['comment_id'];
@@ -170,16 +171,17 @@ class HomeController extends Controller
         }
 
         return view('home', [
-            'logged_in_user_id'                          => $logged_in_user_id,
-            'wasteland_name_hyphenated'                  => $wasteland_name_hyphenated,
-            'number_photos'                              => $number_photos,
-            'unrated_users'                              => $unrated_users,
-            'matched_to_users'                           => $matched_to_users,
-            'mutuals'                                    => $mutuals,
-            'comments_to_approve'                        => $comments_to_approve,
-            'success_message'                            => $success_message,
-            'upcoming_events_and_signup_status'          => $upcoming_events_and_signup_status,
-            'curse_interface'                            => $curse_interface
+            'logged_in_user_id'                 => $logged_in_user_id,
+            'wasteland_name_hyphenated'         => $wasteland_name_hyphenated,
+            'number_photos'                     => $number_photos,
+            'unrated_users'                     => $unrated_users,
+            'matched_to_users'                  => $matched_to_users,
+            'mutuals'                           => $mutuals,
+            'comments_to_approve'               => $comments_to_approve,
+            'success_message'                   => $success_message,
+            'upcoming_events_and_signup_status' => $upcoming_events_and_signup_status,
+            'curse_interface'                   => $curse_interface,
+            'random_ok'                         => $random_ok,
         ]);
     }
 }

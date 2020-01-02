@@ -137,7 +137,11 @@
                                                     You will be matched in less than one hour!
                                                 @endif
                                             @endif
-                                            As you complete more missions, you will become eligible to be matched sooner.
+                                            @if ($random_ok)
+                                                <a href="/potential-match">You will most likely be matched to one of these users</a>.
+                                            @else
+                                                <a href="/potential-match">You will be matched to one of these users</a>.
+                                            @endif
                                         @else
                                             @if ($upcoming_event->attending_event_id)
                                                 @if ($upcoming_event->signups_still_needed)
