@@ -5,7 +5,8 @@ CREATE TABLE choose (
 	chooser_id INT NOT NULL,
 	chosen_id INT NOT NULL,
 	choice INT,
-	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 alter table choose add unique `unique_chooser_chosen`(`chooser_id`, `chosen_id`);
 create index index_chooser on choose (chooser_id);
