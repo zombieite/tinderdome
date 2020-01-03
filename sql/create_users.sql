@@ -26,5 +26,7 @@ CREATE TABLE users (
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	last_active timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	greylist INT
+	greylist INT,
+    profile_vetted INT,
+    admin_user INT
 );

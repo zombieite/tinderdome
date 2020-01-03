@@ -105,6 +105,7 @@ class HomeController extends Controller
         #Log::debug("Home controller gom: '".$logged_in_user->gender_of_match."'");
         $unrated_users                     = [];
         $success_message                   = '';
+        $recently_updated_users            = \App\Util::recently_updated_users( $logged_in_user_id, 1 );
 
         if (\App\Util::has_match_for_next_event_waiting( $logged_in_user_id )) {
             // Don't show unrated users because this user already has a match waiting for them
@@ -182,6 +183,7 @@ class HomeController extends Controller
             'upcoming_events_and_signup_status' => $upcoming_events_and_signup_status,
             'curse_interface'                   => $curse_interface,
             'random_ok'                         => $random_ok,
+            'recently_updated_users'            => $recently_updated_users,
         ]);
     }
 }

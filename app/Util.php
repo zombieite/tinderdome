@@ -79,7 +79,7 @@ class Util {
             if (!is_null($choose_value)) {
                 $choose_row_exists = DB::select('select * from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $chosen_id]);
                 if ($choose_row_exists) {
-                    DB::update( 'update choose set choice = ? where chooser_id = ? and chosen_id = ?', [ $choose_value, $logged_in_user_id, $chosen_id ] );
+                    DB::update( 'update choose set choice = ?, updated_at = now() where chooser_id = ? and chosen_id = ?', [ $choose_value, $logged_in_user_id, $chosen_id ] );
                 } else {
                     DB::insert('insert into choose (choice, chooser_id, chosen_id) values (?, ?, ?)', [ $choose_value, $logged_in_user_id, $chosen_id ]);
                 }
@@ -542,5 +542,30 @@ class Util {
             $match_id  = $their_result[0]->user_id;
         }
         return $match_id;
+    }
+
+    public static function recently_updated_users( $user_id, $count = 1 ) {
+        $users = [];
+        if (preg_match('/^\d+$/', $count)) {
+            $users = DB::select('
+                select
+                    users.id,
+                    name
+                from
+                    users
+                    join choose my_choice on (users.id = my_choice.chosen_id and my_choice.chooser_id = ? and my_choice.choice <> 0)
+                    left join choose their_choice on (their_choice.chooser_id = users.id and their_choice.chosen_id = ? and their_choice.choice = 0)
+                where
+                    users.updated_at > my_choice.updated_at
+                    and my_choice.updated_at < now() - interval 2 day
+                    and their_choice.choice is null
+                limit ?
+            ', [$user_id, $user_id, $count]);
+            foreach ($users as $user) {
+                $name = $user->name;
+                $user->wasteland_name_hyphenated = preg_replace('/\s/', '-', $name);
+            }
+        }
+        return $users;
     }
 }

@@ -71,6 +71,14 @@ class ProfileController extends Controller
 
         // If we have a logged in user (not someone looking at Firebird's profile)
         if ($logged_in_user_id && $logged_in_user) {
+            if ($logged_in_user->admin_user) {
+                DB::update('update users set profile_vetted = ? where id = ?', [$logged_in_user_id, $profile_id]);
+            }
+
+            if (isset($_GET['review'])) {
+                DB::delete('delete from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
+            }
+
             $curse_interface = \App\Util::is_wastelander( $logged_in_user_id );
 
             $choice_result = DB::select('select choice from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
@@ -303,6 +311,8 @@ class ProfileController extends Controller
         } else {
             abort(403);
         }
+
+        DB::update('update users set profile_vetted = null where id = ?', [$profile_id]);
 
         $titles                    = \App\Util::titles();
         $update_errors             = '';
