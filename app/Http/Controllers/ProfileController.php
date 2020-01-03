@@ -76,7 +76,7 @@ class ProfileController extends Controller
             }
 
             if (isset($_GET['review'])) {
-                DB::delete('delete from choose where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
+                DB::update('update choose set updated_at = now() where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
             }
 
             $curse_interface = \App\Util::is_wastelander( $logged_in_user_id );
