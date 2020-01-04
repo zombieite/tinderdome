@@ -31,8 +31,22 @@ class AdminMatchController extends Controller
         $event_data_result = DB::select('select * from event where event_id = ?', [$event_id]);
         $event_data        = $event_data_result[0];
 
+        $matches           = DB::select('
+            select
+                users.name,
+                users.score
+            from
+                attending
+                join users on attending.user_id = users.id
+            where
+                event_id = ?
+            order by
+                users.score desc
+        ', [$event_id]);
+
         return view('admin_match', [
-            'event_data'                        => $event_data,
+            'event_data'          => $event_data,
+            'matches'             => $matches,
         ]);
     }
 }
