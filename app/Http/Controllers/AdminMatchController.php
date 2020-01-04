@@ -43,6 +43,7 @@ class AdminMatchController extends Controller
             select
                 users_1.score,
                 users_1.name,
+                users_1.id user_id,
                 user_1_choose.choice user_1_choice,
                 user_2_choose.choice user_2_choice,
                 users_2.name name_of_match
@@ -55,8 +56,18 @@ class AdminMatchController extends Controller
             where
                 event_id = ?
             order by
-                users_1.score desc
+                users_1.score desc,
+                users_1.name
         ', [$event_id]);
+
+        $titles = \App\Util::titles();
+        foreach ($matches as $match) {
+            $missions_completed = \App\Util::missions_completed($match->user_id);
+            if ($match->user_1_choice > 0) {
+                $missions_completed++;
+            }
+            $match->caps = $titles[$missions_completed];
+        }
 
         return view('admin_match', [
             'event_data'          => $event_data,
