@@ -32,6 +32,10 @@ td {
     padding: 1em;
     border: 1px solid var(--subtle);
 }
+td.tight {
+    padding: .1em;
+    border: 1px solid var(--subtle);
+}
 hr {
     border-color: var(--subtle);
 }
@@ -62,6 +66,13 @@ input[type="submit"] {
     background-color: var(--special);
     border: 1px solid var(--subtle);
     height: 3em;
+    margin: 0.5em;
+}
+input[type="submit"].tight {
+    color: black;
+    background-color: var(--special);
+    border: 1px solid var(--subtle);
+    height: 1.4em;
     margin: 0.5em;
 }
 button {
