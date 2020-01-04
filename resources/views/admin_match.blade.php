@@ -6,6 +6,7 @@
     <tr>
         <td><b>&nbsp;</b></td>
         <td><b>Score</b></td>
+        <td><b>Cap</b></td>
         <td><b>Name</b></td>
         <td><b>Choice</b></td>
         <td><b>Match's<br>choice</b></td>
@@ -23,6 +24,7 @@
         <tr>
             <td>{{ $counter }}</td>
             <td>{{ $match->score }}</td>
+            <td>{{ $match->caps }}</td>
             <td @if ($match->user_1_choice == $match->user_2_choice && ($match->user_1_choice == 3 || $match->user_1_choice == -1)) class="{{ $choice_map[$match->user_1_choice] }}" @endif>{{ $match->name }}</td>
             <td class="{{ $choice_map[$match->user_1_choice] }}">{{ $match->user_1_choice }}</td>
             <td class="{{ $choice_map[$match->user_2_choice] }}">{{ $match->user_2_choice }}</td>
