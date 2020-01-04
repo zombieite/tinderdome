@@ -79,12 +79,19 @@ class AdminMatchController extends Controller
         $titles = \App\Util::titles();
         foreach ($matches as $match) {
             $missions_completed = \App\Util::missions_completed($match->user_id);
-            if ($match->user_1_choice > 0) {
+            if (!$match->user_1_choice || (($match->user_1_choice != 0) && ($match->user_1_choice != -1))) {
                 $missions_completed++;
             }
-            $match->caps = $titles[$missions_completed];
+            $cap                              = 'YEAR';
+            $title                            = $titles[$missions_completed];
+            if ($title == 'PARTICIPANT') {
+                // All good
+            } else {
+                $cap                          = "$cap+$title";
+            }
+            $match->cap                       = $cap;
             $match->wasteland_name_hyphenated = preg_replace('/\s/', '-', $match->name);
-            $match->matchs_name_hyphenated = preg_replace('/\s/', '-', $match->name_of_match);
+            $match->matchs_name_hyphenated    = preg_replace('/\s/', '-', $match->name_of_match);
         }
 
         return view('admin_match', [
