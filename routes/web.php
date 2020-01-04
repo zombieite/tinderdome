@@ -8,7 +8,7 @@ Route::get( '/profile/Firebird',                      'ProfileController@showFir
 // Visible to logged in only ( add ->middleware('auth'); )
 Auth::routes();
 Route::get( '/match-me',                              'MatchController@match_me')->middleware(                'auth');
-Route::get( '/match',                                 'MatchController@match')->middleware(                   'auth');
+Route::get( '/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
 Route::get( '/profile/{profile_id}/{wasteland_name}', 'ProfileController@show')->middleware(                  'auth');
 Route::get( '/profile/edit',                          'ProfileController@edit')->middleware(                  'auth');
 Route::get( '/profile/compatible',                    'ProfileController@compatible')->middleware(            'auth');
@@ -26,4 +26,4 @@ Route::post('/profile/{profile_id}/{wasteland_name}', 'ProfileController@compati
 Route::post('/search',                                'SearchController@update_rating')->middleware(          'auth');
 Route::post('/potential-match',                       'PotentialMatchController@potential_match')->middleware('auth');
 Route::post('/match-me',                              'MatchController@match_me')->middleware(                'auth');
-Route::post('/match',                                 'MatchController@match')->middleware(                   'auth');
+Route::post('/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
