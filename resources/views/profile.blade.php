@@ -26,6 +26,9 @@
     @if ($ok_to_mark_user_found)
     	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice, 'curse_interface' => $curse_interface])
     @endif
+    @if ($recently_updated_users)
+        <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1">Review another recently-updated profile</a>
+    @endif
 	<br>
 @else
 	@if (!$is_me && $unchosen_user_id != 1 )
@@ -36,6 +39,9 @@
         @endif
 		@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice, 'curse_interface' => $curse_interface])
 	@endif
+    @if ($recently_updated_users)
+        <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1">Review another recently-updated profile</a>
+    @endif
 	@if ($missions_completed)
 		<h2>{{ $titles[$title_index] }} <span class="bright">{{ $wasteland_name }}</span> &middot; Missions completed: {{ $missions_completed }}</h2>
 	@else
