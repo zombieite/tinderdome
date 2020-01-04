@@ -44,6 +44,7 @@ class AdminMatchController extends Controller
                 users_1.score,
                 users_1.name,
                 users_1.id user_id,
+                attending.user_id_of_match,
                 user_1_choose.choice user_1_choice,
                 user_2_choose.choice user_2_choice,
                 users_2.name name_of_match
@@ -67,6 +68,8 @@ class AdminMatchController extends Controller
                 $missions_completed++;
             }
             $match->caps = $titles[$missions_completed];
+            $match->wasteland_name_hyphenated = preg_replace('/\s/', '-', $match->name);
+            $match->matchs_name_hyphenated = preg_replace('/\s/', '-', $match->name_of_match);
         }
 
         return view('admin_match', [
