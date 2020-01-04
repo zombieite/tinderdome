@@ -33,15 +33,17 @@ class AdminMatchController extends Controller
 
         $matches           = DB::select('
             select
-                users.name,
-                users.score
+                users_1.score,
+                users_1.name,
+                users_2.name name_of_match
             from
                 attending
-                join users on attending.user_id = users.id
+                join users users_1 on attending.user_id = users_1.id
+                left join users users_2 on attending.user_id_of_match = users_2.id
             where
                 event_id = ?
             order by
-                users.score desc
+                users_1.score desc
         ', [$event_id]);
 
         return view('admin_match', [
