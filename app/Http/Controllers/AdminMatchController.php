@@ -72,7 +72,6 @@ class AdminMatchController extends Controller
             where
                 event_id = ?
             order by
-                users_1.score desc,
                 users_1.name
         ', [$event_id]);
 

@@ -23,14 +23,14 @@
             if ($match->user_1_choice == $match->user_2_choice && $match->user_1_choice == -1) { $found++; }
         @endphp
         <tr>
-            <td>{{ $counter }}</td>
-            <td>{{ $match->score }}</td>
-            <td>{{ $match->cap }}</td>
-            <td @if ($match->user_1_choice == $match->user_2_choice && ($match->user_1_choice == 3 || $match->user_1_choice == -1)) class="{{ $choice_map[$match->user_1_choice] }}" @else @if (!$match->user_id_of_match) class="no" @endif @endif><a href="/profile/{{ $match->user_id }}/{{ $match->wasteland_name_hyphenated }}">{{ $match->name }}</a></td>
-            <td class="{{ $choice_map[$match->user_1_choice] }}">{{ $match->user_1_choice }}</td>
-            <td class="{{ $choice_map[$match->user_2_choice] }}">{{ $match->user_2_choice }}</td>
-            <td @if ($match->user_1_choice == $match->user_2_choice && ($match->user_1_choice == 3 || $match->user_1_choice == -1)) class="{{ $choice_map[$match->user_1_choice] }}" @endif><a href="/profile/{{ $match->user_id_of_match }}/{{ $match->matchs_name_hyphenated }}">{{ $match->name_of_match }}</a></td>
-            <td>@if ($match->name_of_match && (($match->user_1_choice !== 0 && $match->user_2_choice !== 0)) && !($match->user_1_choice == -1 && $match->user_2_choice == -1)) <form action="" method="POST">{{ csrf_field() }}<input type="hidden" name="attending_id" value="{{ $match->attending_id }}"><input type="submit" value="Mark {{ $match->name }}/{{ $match->name_of_match }} found"></form> @else &nbsp; @endif </td>
+            <td class="tight">{{ $counter }}</td>
+            <td class="tight">{{ $match->score }}</td>
+            <td class="tight">{{ $match->cap }}</td>
+            <td class=" @if ($match->user_1_choice == $match->user_2_choice && ($match->user_1_choice == 3 || $match->user_1_choice == -1)) {{ $choice_map[$match->user_1_choice] }} @else @if (!$match->user_id_of_match) no @endif @endif tight"><a href="/profile/{{ $match->user_id }}/{{ $match->wasteland_name_hyphenated }}">{{ $match->name }}</a></td>
+            <td class="{{ $choice_map[$match->user_1_choice] }} tight">{{ $match->user_1_choice }}</td>
+            <td class="{{ $choice_map[$match->user_2_choice] }} tight">{{ $match->user_2_choice }}</td>
+            <td class=" @if ($match->user_1_choice == $match->user_2_choice && ($match->user_1_choice == 3 || $match->user_1_choice == -1)) {{ $choice_map[$match->user_1_choice] }} @endif tight"><a href="/profile/{{ $match->user_id_of_match }}/{{ $match->matchs_name_hyphenated }}">{{ $match->name_of_match }}</a></td>
+            <td class="tight">@if ($match->name_of_match && (($match->user_1_choice !== 0 && $match->user_2_choice !== 0)) && !($match->user_1_choice == -1 && $match->user_2_choice == -1)) <form action="" method="POST">{{ csrf_field() }}<input type="hidden" name="attending_id" value="{{ $match->attending_id }}"><input class="tight" type="submit" value="Mark {{ $match->name }}/{{ $match->name_of_match }} found"></form> @else &nbsp; @endif </td>
         </tr>
     @endforeach
 </table>
