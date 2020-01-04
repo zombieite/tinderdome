@@ -28,6 +28,20 @@ class AdminMatchController extends Controller
             die("Invalid event id '$event_id'");
         }
 
+        if (isset($_POST['found'])) {
+            $attending_id = $_POST['found'];
+            if (preg_match('/^\d+$/', $attending_id)) {
+                // All good
+            } else {
+                die("Invalid attending_id '$attending_id'");
+            }
+            $attending_result = DB::select('select * from attending where attending_id = ?', [$attending_id]);
+            $user_id          = $attending_result[0]->user_id;
+            $user_id_of_match = $attending_result[0]->user_id_of_match;
+            \App\Util::rate_user( $user_id, ['chosen' => $user_id_of_match, 'Met' => 1] );
+            \App\Util::rate_user( $user_id_of_match, ['chosen' => $user_id, 'Met' => 1] );
+        }
+
         $event_data_result = DB::select('select * from event where event_id = ?', [$event_id]);
         $event_data        = $event_data_result[0];
         $choice_map        = [
@@ -41,10 +55,11 @@ class AdminMatchController extends Controller
 
         $matches           = DB::select('
             select
+                attending_id,
+                attending.user_id_of_match,
                 users_1.score,
                 users_1.name,
                 users_1.id user_id,
-                attending.user_id_of_match,
                 user_1_choose.choice user_1_choice,
                 user_2_choose.choice user_2_choice,
                 users_2.name name_of_match
