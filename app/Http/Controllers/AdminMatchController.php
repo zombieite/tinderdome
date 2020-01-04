@@ -28,8 +28,8 @@ class AdminMatchController extends Controller
             die("Invalid event id '$event_id'");
         }
 
-        if (isset($_POST['found'])) {
-            $attending_id = $_POST['found'];
+        if (isset($_POST['attending_id'])) {
+            $attending_id = $_POST['attending_id'];
             if (preg_match('/^\d+$/', $attending_id)) {
                 // All good
             } else {
