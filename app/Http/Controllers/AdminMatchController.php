@@ -28,8 +28,11 @@ class AdminMatchController extends Controller
             die("Invalid event id '$event_id'");
         }
 
+        $event_data_result = DB::select('select * from event where event_id = ?', [$event_id]);
+        $event_data        = $event_data_result[0];
+
         return view('admin_match', [
-            'logged_in_user_id'                 => $logged_in_user_id,
+            'event_data'                        => $event_data,
         ]);
     }
 }
