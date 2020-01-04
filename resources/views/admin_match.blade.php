@@ -11,18 +11,26 @@
         <td><b>Match's<br>choice</b></td>
         <td><b>Name of match</b></td>
     </tr>
-    @php $counter = 0; @endphp
+    @php
+        $counter = 0;
+        $found   = 0;
+    @endphp
     @foreach ($matches as $match)
-        @php $counter++; @endphp
+        @php
+            $counter++;
+            if ($match->user_1_choice == $match->user_2_choice && $match->user_1_choice == -1) { $found++; }
+        @endphp
         <tr>
             <td>{{ $counter }}</td>
             <td>{{ $match->score }}</td>
-            <td @if ($match->user_1_choice == $match->user_2_choice) class="{{ $choice_map[$match->user_1_choice] }}" @endif>{{ $match->name }}</td>
+            <td @if ($match->user_1_choice == $match->user_2_choice && ($match->user_1_choice == 3 || $match->user_1_choice == -1)) class="{{ $choice_map[$match->user_1_choice] }}" @endif>{{ $match->name }}</td>
             <td class="{{ $choice_map[$match->user_1_choice] }}">{{ $match->user_1_choice }}</td>
             <td class="{{ $choice_map[$match->user_2_choice] }}">{{ $match->user_2_choice }}</td>
-            <td @if ($match->user_1_choice == $match->user_2_choice) class="{{ $choice_map[$match->user_1_choice] }}" @endif>{{ $match->name_of_match }}</td>
+            <td @if ($match->user_1_choice == $match->user_2_choice && ($match->user_1_choice == 3 || $match->user_1_choice == -1)) class="{{ $choice_map[$match->user_1_choice] }}" @endif>{{ $match->name_of_match }}</td>
         </tr>
     @endforeach
 </table>
+<br>
+{{ $found }}/{{ $counter }} ({{ round($found/$counter * 100) }}%) marked their matches found.
 
 @endsection
