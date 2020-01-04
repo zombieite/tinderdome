@@ -35,6 +35,7 @@
     @endforeach
 </table>
 <br>
+@php if ($counter == 0) { $counter = 1; } @endphp
 {{ $found }}/{{ $counter }} ({{ round($found/$counter * 100) }}%) marked their matches found.
 
 @endsection
