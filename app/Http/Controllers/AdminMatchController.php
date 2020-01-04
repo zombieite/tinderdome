@@ -30,16 +30,28 @@ class AdminMatchController extends Controller
 
         $event_data_result = DB::select('select * from event where event_id = ?', [$event_id]);
         $event_data        = $event_data_result[0];
+        $choice_map        = [
+            '' => '',
+            -1 => 'met',
+             0 => 'no',
+             1 => 'yes',
+             2 => 'yesyes',
+             3 => 'yesyesyes',
+        ];
 
         $matches           = DB::select('
             select
                 users_1.score,
                 users_1.name,
+                user_1_choose.choice user_1_choice,
+                user_2_choose.choice user_2_choice,
                 users_2.name name_of_match
             from
                 attending
                 join users users_1 on attending.user_id = users_1.id
                 left join users users_2 on attending.user_id_of_match = users_2.id
+                left join choose user_1_choose on (users_1.id = user_1_choose.chooser_id and users_2.id = user_1_choose.chosen_id)
+                left join choose user_2_choose on (users_2.id = user_2_choose.chooser_id and users_1.id = user_2_choose.chosen_id)
             where
                 event_id = ?
             order by
@@ -49,6 +61,7 @@ class AdminMatchController extends Controller
         return view('admin_match', [
             'event_data'          => $event_data,
             'matches'             => $matches,
+            'choice_map'          => $choice_map,
         ]);
     }
 }

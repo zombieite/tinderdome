@@ -67,15 +67,15 @@ input[type="submit"] {
 button {
     height: 3em;
 }
-button.yesyesyes, input[type="submit"].yesyesyes {
+.yesyesyes, button.yesyesyes, input[type="submit"].yesyesyes {
     background-color: var(--yes);
     border: 1px solid var(--subtle);
 }
-button.yesyes, input[type="submit"].yesyes {
+.yesyes, button.yesyes, input[type="submit"].yesyes {
     background-color: var(--yes);
     border: 1px solid var(--subtle);
 }
-button.yes, input[type="submit"].yes {
+.yes, button.yes, input[type="submit"].yes {
     background-color: var(--neutral);
     border: 1px solid var(--subtle);
 }
@@ -83,7 +83,7 @@ button.yes, input[type="submit"].yes {
     background-color: red;
     border: 1px solid var(--subtle);
 }
-button.met, input[type="submit"].met {
+.met, button.met, input[type="submit"].met {
     background-color: var(--met);
     border: 1px solid var(--subtle);
 }
