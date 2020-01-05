@@ -53,6 +53,7 @@ class HomeController extends Controller
         }
 
         $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
+
         if (isset($_POST['attending_event_form'])) {
             if ($upcoming_events_and_signup_status) {
                 foreach ($upcoming_events_and_signup_status as $upcoming_event) {
@@ -82,6 +83,12 @@ class HomeController extends Controller
                 }
             }
             $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
+        }
+
+        // Check if they've already requested a match and can't re-request it yet
+        foreach ($upcoming_events_and_signup_status as $upcoming_event) {
+            $event_id = $upcoming_event->event_id;
+            $upcoming_event->time_until_can_re_request_match = \App\Util::time_until_can_re_request_match( $logged_in_user_id, $event_id );
         }
 
         $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );

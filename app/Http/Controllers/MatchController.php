@@ -21,8 +21,7 @@ class MatchController extends Controller
         $mutual_unmet_matches              = null;
 		$my_match_user_id                  = null;
 		$matchme                           = null;
-        $time_until_can_resubmit           = 0;
-        $seconds_between_submits           = 3600;
+        $time_until_can_resubmit           = \App\Util::time_until_can_re_request_match( $logged_in_user_id, $event_id );
 
         foreach ($upcoming_events_and_signup_status as $maybe_event) {
             if ($maybe_event->event_id == $event_id) {
@@ -49,21 +48,8 @@ class MatchController extends Controller
             return redirect('/');
         }
 
-        // Don't allow too many rePOSTs too often
-        $match_requested_time_result = DB::select('
-            select
-                unix_timestamp(now()) now_time,
-                unix_timestamp(match_requested) match_requested_time
-            from
-                attending
-            where
-                user_id = ?
-                and event_id = ?
-        ', [$logged_in_user_id, $event_id]);
-        $now_time                    = $match_requested_time_result[0]->now_time;
-        $match_requested_time        = $match_requested_time_result[0]->match_requested_time;
-        if ($match_requested_time && $now_time - $match_requested_time < $seconds_between_submits) {
-            $time_until_can_resubmit = $seconds_between_submits - ($now_time - $match_requested_time);
+        if ($time_until_can_resubmit) {
+            // Do nothing because they have to wait longer
         } else {
             if (isset($_POST['matchme'])) {
                 $hide_submit       = 1;
