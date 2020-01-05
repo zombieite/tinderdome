@@ -602,7 +602,6 @@ class ProfileController extends Controller
         if ($comment && $we_know_each_other && preg_match('/^[0-9]+$/', $commented_upon_user_id)) {
             $commented_upon_user_name_result = DB::select('select name from users where id=?', [$commented_upon_user_id]);
             $commented_upon_user_name        = $commented_upon_user_name_result[0]->name;
-            DB::delete('delete from comment where created_at<now()-interval 1 year');
             DB::insert('insert into comment (commenting_user_id, commented_on_user_id, comment_content) values (?, ?, ?)', [$commenting_user_id, $commented_upon_user_id, $comment]);
             $wasteland_name_hyphenated       = preg_replace('/\s/', '-', $commented_upon_user_name);
             return redirect("/profile/$commented_upon_user_id/$wasteland_name_hyphenated");
