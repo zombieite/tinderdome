@@ -53,8 +53,9 @@ class HomeController extends Controller
         }
 
         $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
+        $number_photos                     = $logged_in_user->number_photos;
 
-        if (isset($_POST['attending_event_form'])) {
+        if (isset($_POST['attending_event_form']) && $number_photos) {
             if ($upcoming_events_and_signup_status) {
                 foreach ($upcoming_events_and_signup_status as $upcoming_event) {
                     $event_id         = $upcoming_event->event_id;
@@ -109,7 +110,6 @@ class HomeController extends Controller
 
         $wasteland_name                    = $logged_in_user->name;
         $wasteland_name_hyphenated         = preg_replace('/\s/', '-', $wasteland_name);
-        $number_photos                     = $logged_in_user->number_photos;
         #Log::debug("Home controller gom: '".$logged_in_user->gender_of_match."'");
         $unrated_users                     = [];
         $success_message                   = '';

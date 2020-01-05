@@ -560,6 +560,10 @@ class ProfileController extends Controller
         $chooser_user                     = Auth::user();
         $chooser_user_id                  = Auth::id();
 
+        if (!$chooser_user->number_photos) {
+            return redirect('/');
+        }
+
         # Allow admin to reset password
         if ($chooser_user_id === 1 and isset($_POST['reset_password']) and isset($_POST['user_id_to_reset'])) {
             $user_id_to_reset = $_POST['user_id_to_reset'];
