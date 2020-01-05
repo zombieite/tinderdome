@@ -34,6 +34,7 @@ class User extends Authenticatable
 		'attending_atomic_falls',
 		'attending_wasteland',
 		'ip',
+        'user_agent',
 	];
 
 	protected $hidden = [
