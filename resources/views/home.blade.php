@@ -125,7 +125,11 @@
                                     <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.
                                 @else
                                     @if ($upcoming_event->can_claim_match)
-                                        <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
+                                        @if ($upcoming_event->time_until_can_re_request_match)
+                                            You can retry the matching algorithm in {{ ceil($upcoming_event->time_until_can_re_request_match / 60) }} minutes.
+                                        @else
+                                            <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
+                                        @endif
                                     @else
                                         @if (isset($upcoming_event->seconds_till_user_can_match))
                                             @if ($upcoming_event->seconds_till_user_can_match > 360000)

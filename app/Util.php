@@ -568,4 +568,27 @@ class Util {
         }
         return $users;
     }
+
+    public static function time_until_can_re_request_match( $user_id, $event_id ) {
+        $seconds_between_submits     = 3600;
+        $time_until_can_resubmit     = 0;
+        $match_requested_time_result = DB::select('
+            select
+                unix_timestamp(now()) now_time,
+                unix_timestamp(match_requested) match_requested_time
+            from
+                attending
+            where
+                user_id = ?
+                and event_id = ?
+        ', [$user_id, $event_id]);
+        if ($match_requested_time_result) {
+            $now_time                    = $match_requested_time_result[0]->now_time;
+            $match_requested_time        = $match_requested_time_result[0]->match_requested_time;
+            if ($match_requested_time && $now_time - $match_requested_time < $seconds_between_submits) {
+                $time_until_can_resubmit = $seconds_between_submits - ($now_time - $match_requested_time);
+            }
+        }
+        return $time_until_can_resubmit;
+    }
 }
