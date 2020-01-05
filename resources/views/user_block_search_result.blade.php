@@ -42,6 +42,9 @@
         @if ($profile['missions_completed'])
             <span>Missions completed: {{ $profile['missions_completed'] }}</span>
         @endif
+        @if ($profile['choice'] == -1 && $profile['their_choice'] == -1)
+            <br><a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}" class="bright">Leave a comment for {{ $profile['wasteland_name'] }}</a>
+        @endif
     </div>
     <br>
     <br>

@@ -23,7 +23,7 @@ class SearchController extends Controller
         $show_nos                                 = false;
         $show_met                                 = false;
         $profiles                                 = [];
-        $all_users                                = [];
+        $searched_for_users                       = [];
         $nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
         $curse_interface                          = \App\Util::is_wastelander( $logged_in_user_id );
         $search_for_rating                        = null;
@@ -54,7 +54,7 @@ class SearchController extends Controller
             $search_for_rating = -1;
         }
 
-        $all_users = DB::select("
+        $searched_for_users = DB::select("
             select
                 id,
                 name,
@@ -73,8 +73,7 @@ class SearchController extends Controller
             from
                 users
                 left join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
-                left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ? and c2.choice = 3 and share_info_with_favorites)
-                left join choose c3 on (c3.chooser_id = users.id and c3.chosen_id = ?)
+                left join choose c2 on (c2.chooser_id = users.id and c2.chosen_id = ?)
                 left join attending on (user_id = ? and attending.user_id_of_match = id)
                 left join event on attending.event_id = event.event_id
             where
@@ -82,16 +81,16 @@ class SearchController extends Controller
                 and c1.choice = ?
                 and
                 (
-                    c3.choice is null
+                    c2.choice is null
                     or
-                    c3.choice != 0
+                    c2.choice != 0
                 )
             order by
                 c1.choice desc,
                 name
-        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $search_for_rating ]);
+        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $search_for_rating ]);
 
-        foreach ($all_users as $profile) {
+        foreach ($searched_for_users as $profile) {
             $profile_id                = $profile->id;;
             $wasteland_name            = $profile->name;
             $gender                    = $profile->gender;
@@ -101,6 +100,7 @@ class SearchController extends Controller
             $description               = $profile->description;
             $number_photos             = $profile->number_photos;
             $choice                    = $profile->logged_in_user_choice;
+            $their_choice              = $profile->their_choice;
             $ok_to_rate_user           = $profile->attending_id ? $profile->ok_to_rate_user : 1;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
             $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -116,6 +116,7 @@ class SearchController extends Controller
                 'description'               => $description,
                 'number_photos'             => $number_photos,
                 'choice'                    => $choice,
+                'their_choice'              => $their_choice,
                 'missions_completed'        => $missions_completed,
                 'ok_to_rate_user'           => $ok_to_rate_user,
             ];
