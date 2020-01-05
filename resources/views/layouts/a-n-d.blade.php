@@ -2,9 +2,6 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="csrf-token" content="{{ csrf_token() }}">
 <meta property="og:title" content="Awaited: Nonfictional Delusion">
 <meta property="og:url" content="http://youareawaited.com/awaited-nonfictional-delusion">
 <meta property="og:image" content="http://youareawaited.com/images/awaited-nonfictional-delusion/awaited-nonfictional-delusion.jpg">
