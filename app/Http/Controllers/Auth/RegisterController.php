@@ -30,7 +30,6 @@ class RegisterController extends Controller
 
 	protected function create(array $data)
 	{
-abort(403);
 		$wasteland_name            = $data['name'];
 		$wasteland_name            = trim($wasteland_name);
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
