@@ -356,7 +356,8 @@ class ProfileController extends Controller
         $hoping_to_find_love       = isset($_POST['hoping_to_find_love']);
         $hoping_to_find_lost       = isset($_POST['hoping_to_find_lost']);
         $hoping_to_find_enemy      = isset($_POST['hoping_to_find_enemy']);
-        $ip                        = request()->ip() or die("No ip");
+        $ip                        = request()->ip();
+        $user_agent                = request()->header('user-agent');
         $is_wastelander            = \App\Util::is_wastelander( $profile_id );
 
         $email_exists = DB::select('select id,email from users where email=? and id<>?', [$email, $profile_id]);
@@ -424,6 +425,7 @@ class ProfileController extends Controller
             $profile->hoping_to_find_lost       = $hoping_to_find_lost;
             $profile->hoping_to_find_enemy      = $hoping_to_find_enemy;
             $profile->ip                        = $ip;
+            $profile->user_agent                = $user_agent;
 
             $profile->save();
 
