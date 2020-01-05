@@ -48,12 +48,15 @@ class MatchController extends Controller
             return redirect('/');
         }
 
-        if ($time_until_can_resubmit) {
+        if ($time_until_can_resubmit > 0) {
             // Do nothing because they have to wait longer
         } else {
             if (isset($_POST['matchme'])) {
-                $hide_submit       = 1;
+                $current_time_result = DB::select('select unix_timestamp(now()) now_time');
+                $current_time = $current_time_result[0]->now_time;
+                session(['match_requested_time' => $current_time]);
                 DB::update('update attending set match_requested = now() where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
+                $hide_submit = 1;
                 Log::debug($logged_in_user->name." has requested their match for event $event_id");
                 $matchme = $_POST['matchme'];
 

@@ -572,9 +572,10 @@ class Util {
     public static function time_until_can_re_request_match( $user_id, $event_id ) {
         $seconds_between_submits     = 3600;
         $time_until_can_resubmit     = 0;
+        $current_time_result         = DB::select('select unix_timestamp(now()) now_time');
+        $current_time                = $current_time_result[0]->now_time;
         $match_requested_time_result = DB::select('
             select
-                unix_timestamp(now()) now_time,
                 unix_timestamp(match_requested) match_requested_time
             from
                 attending
@@ -582,11 +583,19 @@ class Util {
                 user_id = ?
                 and event_id = ?
         ', [$user_id, $event_id]);
+        $match_requested_time = null;
         if ($match_requested_time_result) {
-            $now_time                    = $match_requested_time_result[0]->now_time;
-            $match_requested_time        = $match_requested_time_result[0]->match_requested_time;
-            if ($match_requested_time && $now_time - $match_requested_time < $seconds_between_submits) {
-                $time_until_can_resubmit = $seconds_between_submits - ($now_time - $match_requested_time);
+            $match_requested_time = $match_requested_time_result[0]->match_requested_time;
+        }
+        if ($match_requested_time) {
+            // All good
+        } else {
+            // Double check the session to avoid people just deleting their attending row. Still not perfect security but not a huge issue if they retry too often.
+            $match_requested_time = session('match_requested_time');
+        }
+        if ($match_requested_time) {
+            if ($match_requested_time && $current_time - $match_requested_time < $seconds_between_submits) {
+                $time_until_can_resubmit = $seconds_between_submits - ($current_time - $match_requested_time);
             }
         }
         return $time_until_can_resubmit;

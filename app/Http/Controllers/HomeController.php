@@ -67,7 +67,8 @@ class HomeController extends Controller
                         if ($attending) {
                             // All good
                         } else {
-                            DB::insert('insert into attending (user_id, event_id) values (?, ?)', [$logged_in_user_id, $event_id]);
+                            $match_requested_time = session('match_requested_time');
+                            DB::insert('insert into attending (user_id, event_id, match_requested) values (?, ?, from_unixtime(?))', [$logged_in_user_id, $event_id, $match_requested_time]);
                         }
                     } else {
                         if ($attending) {
