@@ -570,7 +570,7 @@ class Util {
     }
 
     public static function time_until_can_re_request_match( $user_id, $event_id ) {
-        $seconds_between_submits     = 3600;
+        $seconds_between_submits     = 1800;
         $time_until_can_resubmit     = 0;
         $current_time_result         = DB::select('select unix_timestamp(now()) now_time');
         $current_time                = $current_time_result[0]->now_time;
