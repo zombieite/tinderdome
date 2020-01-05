@@ -33,7 +33,8 @@ class RegisterController extends Controller
 		$wasteland_name            = $data['name'];
 		$wasteland_name            = trim($wasteland_name);
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
-		$ip                        = request()->ip() or die("No ip");
+		$ip                        = request()->ip();
+		$user_agent                = request()->header('user-agent');
 
 		if (preg_match('/irebird/i', $wasteland_name)) {
 			$wasteland_name = NULL;
@@ -63,6 +64,7 @@ class RegisterController extends Controller
 			'hoping_to_find_enemy'        => isset($data['hoping_to_find_enemy'])      ? true : false,
 			'number_photos'               => 0,
 			'ip'                          => $ip,
+			'user_agent'                  => $user_agent,
 		]);
 
 		$user_id = $user->id;
