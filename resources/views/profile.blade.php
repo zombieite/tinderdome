@@ -125,6 +125,7 @@
 	<a target="_blank" href="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}"><img src="/uploads/image-{{ $profile_id }}-{{ $i }}.jpg{{ $image_query_string }}" style="max-width:100%;"></a>
 @endfor
 @if ($we_know_each_other)
+    <br><br>
     @include('comment_form', ['action' => '/profile/comment', 'user_id_to_rate' => $unchosen_user_id])
 @endif
 @if ($comments)
