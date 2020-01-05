@@ -340,7 +340,7 @@ class ProfileController extends Controller
 
         $email                     = $_POST['email'];
         $number_photos             = $profile->number_photos;
-        $wasteland_name            = $_POST['name'];
+        $wasteland_name            = trim($_POST['name']);
         $password                  = $_POST['password'];
         $password_confirmation     = $_POST['password_confirmation'];
         $gender                    = $_POST['gender'];
