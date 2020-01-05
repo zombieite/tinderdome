@@ -34,6 +34,9 @@ class MatchController extends Controller
             Log::debug("Could not find event '$event_id'");
             abort(404);
         }
+        if (!$logged_in_user->number_photos) {
+            return redirect('/');
+        }
         if ($event->signups_still_needed) {
             return redirect('/');
         }
@@ -101,6 +104,7 @@ class MatchController extends Controller
                             and (c2.choice is null or c2.choice > 0)
                             and users.id != ?
                             and attending_already_matched_but_dont_know.attending_id is null
+                            and users.number_photos > 0
                     ", [$event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
                     Log::debug(count($mutual_unmet_matches)." possible matches found for ".$logged_in_user->name);
                     if ($mutual_unmet_matches) {
