@@ -28,7 +28,7 @@
 @else
     <form action="{{ route('logout') }}" method="POST">
     {{ csrf_field() }}
-    Logged in as <a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>
+    <a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>
     &middot;
     <a class="navbar" href="/profile/edit">Edit profile</a>
     &middot;
