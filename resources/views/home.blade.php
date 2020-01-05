@@ -107,7 +107,11 @@
                             <td>Signups</td>
                             <td>
                                 @if ($upcoming_event->signups_still_needed)
-                                    {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed.
+                                    @if ($upcoming_event->signups_still_needed == 1)
+                                        {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signup still needed.
+                                    @else
+                                        {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed.
+                                    @endif
                                     @if ($upcoming_event->url)
                                         <a href="{{ $upcoming_event->url }}" class="bright">Get the word out</a>!
                                     @else
