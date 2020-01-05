@@ -126,7 +126,12 @@
                                 @else
                                     @if ($upcoming_event->can_claim_match)
                                         @if ($upcoming_event->time_until_can_re_request_match)
-                                            You can retry the matching algorithm in {{ ceil($upcoming_event->time_until_can_re_request_match / 60) }} minutes.
+                                            @php $time_until_can_re_request_match = ceil($upcoming_event->time_until_can_re_request_match / 60) @endphp
+                                            @if ($time_until_can_re_request_match == 1)
+                                                You can retry the matching algorithm in {{ $time_until_can_re_request_match }} minute.
+                                            @else
+                                                You can retry the matching algorithm in {{ $time_until_can_re_request_match }} minutes.
+                                            @endif
                                         @else
                                             <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
                                         @endif
