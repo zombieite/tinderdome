@@ -24,6 +24,6 @@ Route::post('/image/upload',                          'ImageController@upload')-
 Route::post('/profile/edit',                          'ProfileController@update')->middleware(                'auth');
 Route::post('/profile/{profile_id}/{wasteland_name}', 'ProfileController@compatible')->middleware(            'auth');
 Route::post('/search',                                'SearchController@update_rating')->middleware(          'auth');
-Route::post('/potential-match',                       'PotentialMatchController@potential_match')->middleware('auth');
+Route::post('/potential-match',                       'PotentialMatchController@update_rating')->middleware('auth');
 Route::post('/match-me',                              'MatchController@match_me')->middleware(                'auth');
 Route::post('/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
