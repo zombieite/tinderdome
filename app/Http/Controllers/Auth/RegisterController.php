@@ -41,6 +41,9 @@ class RegisterController extends Controller
 			abort(403, 'Only the site owner can be named Firebird');
 		}
 
+        $wasteland_name         = preg_replace('/[^\x20-\x7E]/', '', $wasteland_name);
+        $data['how_to_find_me'] = preg_replace('/[^\x20-\x7E]/', '', $data['how_to_find_me']);
+        $data['description']    = preg_replace('/[^\x20-\x7E]/', '', $data['description']);
         if (strlen($data['description']) > 2000) {
             $data['description'] = substr($data['description'], 0, 2000);
         }
