@@ -15,7 +15,7 @@
 <link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
-<a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="width:100%;max-width:441px;"></a>
+<a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="filter:none;width:100%;max-width:441px;"></a>
 <br>
 @guest
     <a class="navbar" href="{{ route('register') }}">Create a profile</a>

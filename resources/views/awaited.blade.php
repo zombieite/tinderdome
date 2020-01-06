@@ -2,7 +2,7 @@
 
 @section('content')
 
-<img style="width:100%" src="/images/awaited-nonfictional-delusion/awaited-nonfictional-delusion.jpg">
+<img style="width:100%;filter:none;" src="/images/awaited-nonfictional-delusion/awaited-nonfictional-delusion.jpg">
 
 <iframe style="width:100%;height:480px" src="https://www.youtube.com/embed/zQqjvO-useM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
