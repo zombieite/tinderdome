@@ -83,22 +83,27 @@ button {
     height: 3em;
 }
 .yesyesyes, button.yesyesyes, input[type="submit"].yesyesyes {
+    font-weight: bold;
     background-color: var(--yes);
     border: 1px solid var(--subtle);
 }
 .yesyes, button.yesyes, input[type="submit"].yesyes {
+    font-weight: bold;
     background-color: var(--yes);
     border: 1px solid var(--subtle);
 }
 .yes, button.yes, input[type="submit"].yes {
+    font-weight: bold;
     background-color: var(--neutral);
     border: 1px solid var(--subtle);
 }
 .no, button.no, input[type="submit"].no {
+    font-weight: bold;
     background-color: var(--no);
     border: 1px solid var(--subtle);
 }
 .met, button.met, input[type="submit"].met {
+    font-weight: bold;
     background-color: var(--met);
     border: 1px solid var(--subtle);
 }
