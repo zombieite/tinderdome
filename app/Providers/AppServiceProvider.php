@@ -22,9 +22,7 @@ class AppServiceProvider extends ServiceProvider
                 if ($last_updated_time && $current_time - $last_updated_time < 1800) {
                     // Only update last_active, ip, and score every once in a while
                 } else {
-                    $ip                   = request()->ip() or die("No ip");
-                    $score                = \App\Util::user_score($logged_in_user_id);
-                    DB::update('update users set last_active = now(), ip = ?, score = ? where id = ?', [$ip, $score, $logged_in_user_id]);
+                    \App\Util::occasional_work($logged_in_user_id);
                     session(['last_active_time' => $current_time]);
                 }
                 $upcoming_events          = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
