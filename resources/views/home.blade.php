@@ -202,7 +202,7 @@
             @if ($upcoming_event->attending_event_id)
                 COMPLETE: You have viewed all profiles.
                 @if ($recently_updated_users)
-                    <a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">But some profiles were recently updated</a>.
+                    <a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Some profiles were recently updated</a>.
                 @else
                     Come back later to see new arrivals.
                 @endif
