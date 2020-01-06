@@ -45,9 +45,17 @@
     @if (count($unrated_users) >= 3)
         <h2><a href="/profile/compatible?" class="bright">Let us know if you'd enjoy meeting these users</a></h2>
         @for ($i = 0; (($i < 6) && ($i < count($unrated_users))); $i++)
-                @if ($unrated_users[$i]->number_photos)
-                    @include('user_block_enjoy_meeting', ['user_id' => $unrated_users[$i]->id])
-                @endif
+            @if ($unrated_users[$i]->number_photos)
+                @include('user_block_enjoy_meeting', ['user_id' => $unrated_users[$i]->id])
+            @endif
+        @endfor
+    @endif
+    @if (count($users_who_say_they_know_you))
+        <h2 class="bright">Do you know these users?</h2>
+        @for ($i = 0; (($i < 6) && ($i < count($users_who_say_they_know_you))); $i++)
+            @if ($users_who_say_they_know_you[$i]->number_photos)
+                @include('user_block_maybe_known', ['user_id' => $users_who_say_they_know_you[$i]->user_id, 'wasteland_name_hyphenated' => $users_who_say_they_know_you[$i]->wasteland_name_hyphenated])
+            @endif
         @endfor
     @endif
 @endif
