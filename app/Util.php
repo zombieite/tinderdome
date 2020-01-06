@@ -333,6 +333,7 @@ class Util {
                 left join choose your_choice on (your_choice.chooser_id = ? and your_choice.chosen_id = users.id)
             where
                 users.id <> ?
+                and users.id > 10
                 and (your_choice.choice is null or (your_choice.choice > 0 and your_choice.updated_at < their_choice.updated_at))
         ', [$user_id, $user_id, $user_id]);
         foreach ($results as $result) {
