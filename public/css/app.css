@@ -17,6 +17,9 @@ body {
 a {
     color: var(--special);
 }
+img {
+    filter: grayscale(75%);
+}
 textarea {
     width: 100%;
 }
