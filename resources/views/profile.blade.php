@@ -43,10 +43,10 @@
         <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Review another recently-updated profile</a>
     @endif
 	@if ($missions_completed)
-        <h2>{{ $titles[$title_index] }} {{ $wasteland_name }}</h2>
+        <h1><span class="dull">{{ $titles[$title_index] }}</span> {{ $wasteland_name }}</h1>
         Missions completed: {{ $missions_completed }}.
 	@else
-		<h2>{{ $wasteland_name }}</h2>
+		<h1>{{ $wasteland_name }}</h1>
 	@endif
 @endif
 @if ($show_how_to_find_me || $share_info || $is_me)
