@@ -113,6 +113,6 @@ class PotentialMatchController extends Controller
                 \App\Util::rate_user($chooser_user_id, $_POST);
             }
         }
-        return $this->search();
+        return $this->potential_match();
     }
 }
