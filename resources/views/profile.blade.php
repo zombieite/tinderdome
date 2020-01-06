@@ -27,7 +27,7 @@
     	@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice, 'curse_interface' => $curse_interface])
     @endif
     @if ($recently_updated_users)
-        <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1">Review another recently-updated profile</a>
+        <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Review another recently-updated profile</a><br>
     @endif
 	<br>
 @else
@@ -40,12 +40,13 @@
 		@include('rating_form', ['action' => '/profile/compatible?', 'user_id_to_rate' => $unchosen_user_id, 'current_choice' => $choice, 'curse_interface' => $curse_interface])
 	@endif
     @if ($recently_updated_users)
-        <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1">Review another recently-updated profile</a>
+        <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Review another recently-updated profile</a>
     @endif
 	@if ($missions_completed)
-		<h2>{{ $titles[$title_index] }} <span class="bright">{{ $wasteland_name }}</span> &middot; Missions completed: {{ $missions_completed }}</h2>
+        <h2>{{ $titles[$title_index] }} {{ $wasteland_name }}</h2>
+        Missions completed: {{ $missions_completed }}.
 	@else
-		<h2 class="bright">{{ $wasteland_name }}</h2>
+		<h2>{{ $wasteland_name }}</h2>
 	@endif
 @endif
 @if ($show_how_to_find_me || $share_info || $is_me)
