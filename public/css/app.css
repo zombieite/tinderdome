@@ -1,8 +1,9 @@
 :root {
     --special: #dedbbc;
     --subtle:  #666666;
-    --yes:     #00ff00;
+    --yes:     #99FF99;
     --neutral: #779977;
+    --no:      #EE4444;
     --met:     #9999ff;
     --bright:  #ff9900;
 }
@@ -94,7 +95,7 @@ button {
     border: 1px solid var(--subtle);
 }
 .no, button.no, input[type="submit"].no {
-    background-color: red;
+    background-color: var(--no);
     border: 1px solid var(--subtle);
 }
 .met, button.met, input[type="submit"].met {
