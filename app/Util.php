@@ -622,4 +622,12 @@ class Util {
         }
         return $time_until_can_resubmit;
     }
+
+    public static function occasional_work($user_id) {
+         $ip         = request()->ip();
+         $user_agent = request()->header('user-agent');
+         $score      = \App\Util::user_score($user_id);
+         DB::update('update users set last_active = now(), ip = ?, user_agent = ?, score = ? where id = ?', [$ip, $user_agent, $score, $user_id]);
+        return;
+    }
 }
