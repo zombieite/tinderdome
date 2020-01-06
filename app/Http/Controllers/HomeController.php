@@ -112,6 +112,7 @@ class HomeController extends Controller
         $wasteland_name_hyphenated         = preg_replace('/\s/', '-', $wasteland_name);
         #Log::debug("Home controller gom: '".$logged_in_user->gender_of_match."'");
         $unrated_users                     = [];
+        $users_who_say_they_know_you       = [];
         $success_message                   = '';
         $recently_updated_users            = \App\Util::recently_updated_users( $logged_in_user_id, 1 );
 
@@ -119,6 +120,12 @@ class HomeController extends Controller
             // Don't show unrated users because this user already has a match waiting for them
         } else {
             $unrated_users = \App\Util::unrated_users( $logged_in_user->id, $logged_in_user->gender_of_match );
+        }
+
+        if ($unrated_users) {
+            // All good
+        } else {
+            $users_who_say_they_know_you =  \App\Util::users_who_say_they_know_you( $logged_in_user->id );
         }
 
         $mutuals = [];
@@ -184,6 +191,7 @@ class HomeController extends Controller
             'wasteland_name_hyphenated'         => $wasteland_name_hyphenated,
             'number_photos'                     => $number_photos,
             'unrated_users'                     => $unrated_users,
+            'users_who_say_they_know_you'       => $users_who_say_they_know_you,
             'matched_to_users'                  => $matched_to_users,
             'mutuals'                           => $mutuals,
             'comments_to_approve'               => $comments_to_approve,

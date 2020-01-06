@@ -321,6 +321,27 @@ class Util {
         return $unrated_users;
     }
 
+    public static function users_who_say_they_know_you( $user_id ) {
+        $results = DB::select('
+            select
+                users.id user_id,
+                users.name,
+                users.number_photos
+            from
+                users
+                join choose their_choice on (their_choice.chooser_id = users.id and their_choice.chosen_id = ? and their_choice.choice = -1)
+                left join choose your_choice on (your_choice.chooser_id = ? and your_choice.chosen_id = users.id)
+            where
+                users.id <> ?
+                and (your_choice.choice is null or (your_choice.choice > 0 and your_choice.updated_at < their_choice.updated_at))
+        ', [$user_id, $user_id, $user_id]);
+        foreach ($results as $result) {
+            $wasteland_name = $result->name;
+            $result->wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+        }
+        return $results;
+    }
+
     public static function missions_completed( $user_id ) {
         $missions_result = DB::select('
 			select
