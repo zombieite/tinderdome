@@ -139,12 +139,12 @@ We will try to match you to a user of your preferred gender, but you must be ope
 
 <hr>
 
-<label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Plain text only. Emojis are not supported. 2000 characters maximum.
+<label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported. 2000 characters maximum.
 <br>
 <textarea rows="20" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
 
 <br><br>
-<label for="how_to_find_me">Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Plain text only. Emojis are not supported.
+<label for="how_to_find_me">Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported.
 <br>
 <input type="text" style="width:100%;" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
