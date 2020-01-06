@@ -61,6 +61,9 @@ h6 {
     padding: 0;
     text-transform: uppercase;
 }
+.dull {
+    color: white;
+}
 .small {
     font-size: xx-small;
     text-transform: uppercase;
