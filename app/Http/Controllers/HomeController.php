@@ -75,6 +75,7 @@ class HomeController extends Controller
                         if ($attending) {
                             if ($attending->user_id_of_match) {
                                 // Can't delete, already matched
+                                Log::debug("User $logged_in_user_id attempting to delete event $event_id but already matched to user ".$attending->user_id_of_match);
                             } else {
                                 DB::delete('delete from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
                             }
