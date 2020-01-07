@@ -146,6 +146,7 @@ class Util {
 			$event_result->attending_count      = $count;
 			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
 			$event_result->can_claim_match      = false;
+            $event_result->already_matched_but_dont_know_it = \App\Util::already_matched_but_dont_know_it($user_id, $event_result->event_id);
             if ($event_result->signups_still_needed) {
 				// Nothing to do yet
 			} else {
@@ -153,8 +154,7 @@ class Util {
                     // All good
 				} else {
                     if ($event_result->attending_event_id) {
-                        $already_matched_but_dont_know_it = \App\Util::already_matched_but_dont_know_it($user_id, $event_result->event_id);
-                        if ($already_matched_but_dont_know_it) {
+                        if ($event_result->already_matched_but_dont_know_it) {
                             $event_result->can_claim_match                 = true;
                         } else {
                             $time                                          = time();
