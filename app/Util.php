@@ -118,8 +118,8 @@ class Util {
                 event.event_id,
                 event_long_name,
                 event_date,
-				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_top_ranked_can_match,
 				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_everyone_can_match,
+                unix_timestamp(now()) now_time,
 				url,
                 attending.event_id attending_event_id,
                 attending.user_id_of_match
@@ -131,7 +131,7 @@ class Util {
                 and event_date <  now() + interval ? day
             order by
                 event_date
-        ', [$dbewTRcgm, $dbewEcgm, $user_id, $max_event_days_away]);
+        ', [$dbewEcgm, $user_id, $max_event_days_away]);
 		foreach ($event_results as $event_result) {
 			$event_count_result = DB::select('
 				select
@@ -157,22 +157,21 @@ class Util {
                         if ($event_result->already_matched_but_dont_know_it) {
                             $event_result->can_claim_match                 = true;
                         } else {
-                            $time                                          = time();
+                            $time                                          = $event_result->now_time;
                             $score                                         = $user->score;
                             $max_score_attending_result                    = DB::select('select max(score) max_score from users join attending on users.id = attending.user_id and event_id = ?', [$event_result->event_id]);
                             $max_score                                     = $max_score_attending_result[0]->max_score;
                             if ($max_score < 1 ) {
                                 $max_score                                 = 1; // Prevent divide by zero and stuff
                             }
-                            $time_when_top_ranked_can_match                = $event_result->time_when_top_ranked_can_match;
                             $time_when_everyone_can_match                  = $event_result->time_when_everyone_can_match;
-                            //Log::debug("time:'$time' score:'$score' ms:'$max_score' twtrcm:'$time_when_top_ranked_can_match' twecm:'$time_when_everyone_can_match'");
+                            //Log::debug("time:'$time' score:'$score' ms:'$max_score' twecm:'$time_when_everyone_can_match'");
                             if ($time > $time_when_everyone_can_match) {
                                 $event_result->can_claim_match             = true;
                             } else {
                                 $day_range                                 = $dbewTRcgm - $dbewEcgm;
-                                $slice_duration                            = intval(($day_range * 24 * 60 * 60) / $max_score);
-                                $advance_seconds_user_can_match            = $score * $slice_duration;
+                                $slice_duration                            = ($day_range * 24 * 60 * 60) / $max_score;
+                                $advance_seconds_user_can_match            = intval($score * $slice_duration);
                                 //Log::debug("Range:'$day_range' Slice duration:'$slice_duration' This user's advance seconds:'$advance_seconds_user_can_match'");
                                 $event_result->time_when_user_can_match    = $time_when_everyone_can_match - $advance_seconds_user_can_match;
                                 $event_result->seconds_till_user_can_match = $event_result->time_when_user_can_match - $time;
