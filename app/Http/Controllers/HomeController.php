@@ -55,6 +55,12 @@ class HomeController extends Controller
         $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
         $number_photos                     = $logged_in_user->number_photos;
 
+        if ($upcoming_events_and_signup_status) {
+            foreach ($upcoming_events_and_signup_status as $upcoming_event) {
+                $upcoming_event->already_matched_but_dont_know_it = \App\Util::already_matched_but_dont_know_it($logged_in_user_id, $upcoming_event->event_id);
+            }
+        }
+
         if (isset($_POST['attending_event_form']) && $number_photos) {
             if ($upcoming_events_and_signup_status) {
                 foreach ($upcoming_events_and_signup_status as $upcoming_event) {
@@ -73,7 +79,7 @@ class HomeController extends Controller
                         }
                     } else {
                         if ($attending) {
-                            if ($attending->user_id_of_match) {
+                            if ($attending->user_id_of_match || $upcoming_event->already_matched_but_dont_know_it) {
                                 // Can't delete, already matched
                                 Log::debug("User $logged_in_user_id attempting to delete event $event_id but already matched to user ".$attending->user_id_of_match);
                             } else {

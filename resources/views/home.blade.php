@@ -98,7 +98,7 @@
                                 <td>
                                     <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}"
                                     @if ($upcoming_event->attending_event_id)
-                                        @if ($upcoming_event->user_id_of_match)
+                                        @if ($upcoming_event->user_id_of_match || $upcoming_event->already_matched_but_dont_know_it)
                                             disabled
                                         @endif
                                         checked
