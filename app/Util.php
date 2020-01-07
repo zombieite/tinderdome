@@ -153,7 +153,7 @@ class Util {
                     // All good
 				} else {
                     if ($event_result->attending_event_id) {
-                        $already_matched_but_dont_know_it  = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_result->event_id, $user_id]);
+                        $already_matched_but_dont_know_it = \App\Util::already_matched_but_dont_know_it($user_id, $event_result->event_id);
                         if ($already_matched_but_dont_know_it) {
                             $event_result->can_claim_match                 = true;
                         } else {
@@ -630,4 +630,11 @@ class Util {
          DB::update('update users set last_active = now(), ip = ?, user_agent = ?, score = ? where id = ?', [$ip, $user_agent, $score, $user_id]);
         return;
     }
+
+    public static function already_matched_but_dont_know_it($user_id, $event_id) {
+        $already_matched_but_dont_know_it = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_id, $user_id]);
+        return $already_matched_but_dont_know_it;
+    }
 }
+
+
