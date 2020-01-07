@@ -138,7 +138,7 @@
                                         <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.
                                     @else
                                         @if ($upcoming_event->can_claim_match)
-                                            @if ($upcoming_event->time_until_can_re_request_match)
+                                            @if (isset($upcoming_event->time_until_can_re_request_match))
                                                 @php $time_until_can_re_request_match = ceil($upcoming_event->time_until_can_re_request_match / 60) @endphp
                                                 @if ($time_until_can_re_request_match == 1)
                                                     You can retry the matching algorithm in {{ $time_until_can_re_request_match }} minute.
