@@ -342,6 +342,29 @@ class Util {
         return $results;
     }
 
+    public static function users_you_can_comment_on_but_havent( $user_id ) {
+        $results = DB::select('
+            select
+                users.id user_id,
+                users.name,
+                users.number_photos
+            from
+                users
+                join choose their_choice on (their_choice.chooser_id = users.id and their_choice.chosen_id = ?        and their_choice.choice = -1)
+                join choose your_choice  on ( your_choice.chooser_id = ?        and  your_choice.chosen_id = users.id and  your_choice.choice = -1)
+                left join comment on (commenting_user_id = ? and commented_on_user_id = users.id)
+            where
+                users.id <> ?
+                and users.id > 10
+                and comment.comment_id is null
+        ', [$user_id, $user_id, $user_id, $user_id]);
+        foreach ($results as $result) {
+            $wasteland_name = $result->name;
+            $result->wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+        }
+        return $results;
+    }
+
     public static function missions_completed( $user_id ) {
         $missions_result = DB::select('
 			select
