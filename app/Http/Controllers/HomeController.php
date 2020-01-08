@@ -109,13 +109,14 @@ class HomeController extends Controller
             }
         }
 
-        $wasteland_name                    = $logged_in_user->name;
-        $wasteland_name_hyphenated         = preg_replace('/\s/', '-', $wasteland_name);
+        $wasteland_name                      = $logged_in_user->name;
+        $wasteland_name_hyphenated           = preg_replace('/\s/', '-', $wasteland_name);
         #Log::debug("Home controller gom: '".$logged_in_user->gender_of_match."'");
-        $unrated_users                     = [];
-        $users_who_say_they_know_you       = [];
-        $success_message                   = '';
-        $recently_updated_users            = \App\Util::recently_updated_users( $logged_in_user_id, 1 );
+        $unrated_users                       = [];
+        $users_who_say_they_know_you         = [];
+        $users_you_can_comment_on_but_havent = [];
+        $success_message                     = '';
+        $recently_updated_users              = \App\Util::recently_updated_users( $logged_in_user_id, 1 );
 
         if (\App\Util::has_match_for_next_event_waiting( $logged_in_user_id )) {
             // Don't show unrated users because this user already has a match waiting for them
@@ -124,9 +125,14 @@ class HomeController extends Controller
         }
 
         if ($unrated_users) {
-            // All good
+            // We'll just show the unrated users
         } else {
-            $users_who_say_they_know_you =  \App\Util::users_who_say_they_know_you( $logged_in_user->id );
+            $users_who_say_they_know_you = \App\Util::users_who_say_they_know_you( $logged_in_user->id );
+            if ($users_who_say_they_know_you) {
+                // We'll just show users who say they know you
+            } else {
+                $users_you_can_comment_on_but_havent = \App\Util::users_you_can_comment_on_but_havent( $logged_in_user->id);
+            }
         }
 
         $mutuals = [];
@@ -188,19 +194,20 @@ class HomeController extends Controller
         }
 
         return view('home', [
-            'logged_in_user_id'                 => $logged_in_user_id,
-            'wasteland_name_hyphenated'         => $wasteland_name_hyphenated,
-            'number_photos'                     => $number_photos,
-            'unrated_users'                     => $unrated_users,
-            'users_who_say_they_know_you'       => $users_who_say_they_know_you,
-            'matched_to_users'                  => $matched_to_users,
-            'mutuals'                           => $mutuals,
-            'comments_to_approve'               => $comments_to_approve,
-            'success_message'                   => $success_message,
-            'upcoming_events_and_signup_status' => $upcoming_events_and_signup_status,
-            'curse_interface'                   => $curse_interface,
-            'random_ok'                         => $random_ok,
-            'recently_updated_users'            => $recently_updated_users,
+            'logged_in_user_id'                   => $logged_in_user_id,
+            'wasteland_name_hyphenated'           => $wasteland_name_hyphenated,
+            'number_photos'                       => $number_photos,
+            'unrated_users'                       => $unrated_users,
+            'users_who_say_they_know_you'         => $users_who_say_they_know_you,
+            'users_you_can_comment_on_but_havent' => $users_you_can_comment_on_but_havent,
+            'matched_to_users'                    => $matched_to_users,
+            'mutuals'                             => $mutuals,
+            'comments_to_approve'                 => $comments_to_approve,
+            'success_message'                     => $success_message,
+            'upcoming_events_and_signup_status'   => $upcoming_events_and_signup_status,
+            'curse_interface'                     => $curse_interface,
+            'random_ok'                           => $random_ok,
+            'recently_updated_users'              => $recently_updated_users,
         ]);
     }
 }
