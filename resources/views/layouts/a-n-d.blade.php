@@ -2,6 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Awaited: Nonfictional Delusion">
 <meta property="og:url" content="http://youareawaited.com/awaited-nonfictional-delusion">
