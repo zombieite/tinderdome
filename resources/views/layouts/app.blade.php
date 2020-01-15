@@ -4,6 +4,7 @@
 <title>You Are Awaited</title>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="You Are Awaited">
 <meta property="og:url" content="https://youareawaited.com">
