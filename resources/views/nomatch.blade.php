@@ -8,19 +8,19 @@
 	@else
         @if ($event)
     		<h2>We have not yet found you a match for {{ $event }}.</h2>
+            <p>
+                There are a few possible reasons for this.
+                <ul>
+                    <li>You already know too many of the people who are attending. We only match you with people you don't know.</li>
+                    <li>You were too picky. If you want to be more likely to get a match at the next event, rate fewer profiles as No, and <a href="/profile/edit">edit your profile</a> to indicate that you are open to a random match.</li>
+                    <li>Random chance did not favor you this time. Part of our matching algorithm is pure luck.</li>
+                    <li>You signed up too late to be matched at this event.</li>
+                    <li>You were matched to someone, but one of you dropped out before the event began.</li>
+                </ul>
+            </p>
         @else
             <h2>Event not found.</h2>
         @endif
-		<p>
-			There are a few possible reasons for this.
-			<ul>
-				<li>You already know too many of the people who are attending. We only match you with people you don't know.</li>
-				<li>You were too picky. If you want to be more likely to get a match at the next event, rate fewer profiles as No, and <a href="/profile/edit">edit your profile</a> to indicate that you are open to a random match.</li>
-				<li>Random chance did not favor you this time. Part of our matching algorithm is pure luck.</li>
-				<li>You signed up too late to be matched at this event.</li>
-				<li>You were matched to someone, but one of you dropped out before the event began.</li>
-			</ul>
-		</p>
 	@endif
 @else
     @if ($event)
