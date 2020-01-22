@@ -56,8 +56,8 @@ class PotentialMatchController extends Controller
                 and c1.choice > 0
                 and (c2.choice is null or c2.choice != 0)
             order by
-                event_date,
                 c1.choice desc,
+                event_date,
                 name
         ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
