@@ -14,7 +14,7 @@ What if, by going to Wasteland Weekend, you really could enter another world? To
 
 <h1><a href="https://www.amazon.com/Awaited-Nonfictional-Delusion-John-Binns-ebook/dp/B07ZYBBCGF/">Kindle</a>
 
-<!--<h1><a href="/images/fun/awaited-nonfictional-delusion/awaited-nonfictional-delusion.pdf">Download the pdf</a></h1>-->
+<!--<h1><a href="/images/awaited-nonfictional-delusion/awaited-nonfictional-delusion.pdf">Download the pdf</a></h1>-->
 
 <h1>Download samples:</h1>
 
