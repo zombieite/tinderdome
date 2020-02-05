@@ -36,6 +36,12 @@ class RegisterController extends Controller
 		$ip                        = request()->ip();
 		$user_agent                = request()->header('user-agent');
 
+		// Bot
+		if ($user_agent == 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36') {
+			$wasteland_name = NULL;
+			abort(200, 'Please contact Firebird directly to create an account');
+		}
+
 		if (preg_match('/irebird/i', $wasteland_name)) {
 			$wasteland_name = NULL;
 			abort(403, 'Only the site owner can be named Firebird');
