@@ -39,10 +39,10 @@ Browse other profiles and let us know who you'd enjoy meeting at upcoming events
 </p>
 <h2>4. Find out who you're matched with</h2>
 <p>
-Before each event, return to this site to find out who you've been matched with.
+Before each event, you will be matched to someone. Return to this site to find out who you've been matched with.
 </p>
-<h2>4. Seek out your match</h2>
+<h2>4. Seek out your match at the event</h2>
 <p>
-Your mission is to find your match at the event and introduce yourself. They'll be looking for you, too. That's it!
+Your mission is to find your match and introduce yourself. They'll be looking for you, too. That's it!
 </p>
 @endsection
