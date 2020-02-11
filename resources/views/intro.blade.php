@@ -33,9 +33,9 @@ Let us know what upcoming events you'll be attending.
     The next event will be {{ $next_event_name }}.
 @endif
 </p>
-<h2>3. Let us know who you'd enjoy meeting</h2>
+<h2>3. Choose who you'd like to meet</h2>
 <p>
-Browse other profiles and choose who you'd enjoy meeting at upcoming events.
+Browse other profiles and let us know who you'd enjoy meeting at upcoming events.
 </p>
 <h2>4. Find out who you're matched with</h2>
 <p>
