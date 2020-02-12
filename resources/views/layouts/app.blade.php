@@ -47,6 +47,6 @@
 @endif
 <br>
 <br>
-For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) for questions, lost passwords, bug reports, and abusive user reports.
+For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>. Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) for questions, lost passwords, bug reports, abusive user reports, or to set up new events.
 </body>
 </html>

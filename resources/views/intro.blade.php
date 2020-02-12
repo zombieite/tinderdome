@@ -24,7 +24,7 @@ Create a profile that tells everyone a little bit about you. <a href="/profile/F
 </p>
 <h2>2. Sign up for an event</h2>
 <p>
-Let us know what upcoming events you'll be attending.
+Let us know what upcoming events you'll be attending, or contact us to set up an event of your own. Any event where twenty or more strangers come together in the same physical space will work!
 </p>
 <h2>3. Choose who you'd like to meet</h2>
 <p>
