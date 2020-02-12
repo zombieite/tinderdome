@@ -24,6 +24,7 @@ CREATE TABLE users (
     title_index INT,
 	ip VARCHAR(50) NOT NULL,
     user_agent varchar(255),
+    referer varchar(255),
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	last_active timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
