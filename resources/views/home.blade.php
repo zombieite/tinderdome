@@ -93,7 +93,7 @@
                 @break
             @endif
         @endforeach
-        Sign up for upcoming events.<br>
+        Sign up for events by checking the boxes and clicking Submit.<br>
         @if ($number_photos)
             <form action="/" method="POST">
                 {{ csrf_field() }}
@@ -196,7 +196,7 @@
         @endif
     </div></li>
 @else
-    <li>When new events are added, they will appear here. Sign up to be matched at an upcoming event.</li>
+    <li>When new events are added, they will appear here. Then you can sign up to be matched.</li>
 @endif
 
 @if ($unrated_users)

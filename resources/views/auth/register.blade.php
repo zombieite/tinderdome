@@ -95,7 +95,7 @@ I am...
 
 <br>
 
-<label for="birth_year">Birth decade</label>
+<label for="birth_year">Birth decade (you must be 18 or older)</label>
 <select name="birth_year" id="birth_year">
 	<option value="">No answer</option>
 	<option value="1959" @guest @else @if ($birth_year === 1959) selected @endif @endguest>Before 1960</option>
