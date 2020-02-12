@@ -42,9 +42,6 @@
     @yield('content')
 <hr>
 {{ $active_count }} active in the past 24 hours
-@if ($next_event_name)
-&middot; {{ $next_event_count }} signed up for missions during {{ $next_event_name }}
-@endif
 <br>
 <br>
 Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) for questions, lost passwords, bug reports, abusive user reports, or to set up new events. For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>.
