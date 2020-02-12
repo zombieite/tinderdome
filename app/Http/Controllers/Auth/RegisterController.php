@@ -35,6 +35,7 @@ class RegisterController extends Controller
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 		$ip                        = request()->ip();
 		$user_agent                = request()->header('user-agent');
+		$referer                   = ''; // TODO XXX FIXME Save original referer in a cookie so when they register we have it
 
 		if (preg_match('/irebird/i', $wasteland_name)) {
 			$wasteland_name = NULL;
@@ -68,6 +69,7 @@ class RegisterController extends Controller
 			'number_photos'               => 0,
 			'ip'                          => $ip,
 			'user_agent'                  => $user_agent,
+			'referer'                     => $referer,
 		]);
 
 		$user_id = $user->id;
