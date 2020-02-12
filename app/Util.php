@@ -357,6 +357,7 @@ class Util {
                 users.id <> ?
                 and users.id > 10
                 and comment.comment_id is null
+                and your_choice.updated_at < your_choice.created_at + interval 3 month
         ', [$user_id, $user_id, $user_id, $user_id]);
         foreach ($results as $result) {
             $wasteland_name = $result->name;
