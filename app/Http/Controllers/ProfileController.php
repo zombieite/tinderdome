@@ -76,10 +76,11 @@ class ProfileController extends Controller
                 DB::update('update users set profile_vetted = ? where id = ?', [$logged_in_user_id, $profile_id]);
             }
 
+            // Mark the profile as seen and reviewed, by updating the choice's updated time
+            DB::update('update choose set updated_at = now() where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
+
             // If we're reviewing this profile because it's changed recently and we haven't seen those changes yet
             if (isset($_GET['review'])) {
-                // Mark the profile as seen and reviewed, by updating the choice's updated time
-                DB::update('update choose set updated_at = now() where chooser_id = ? and chosen_id = ?', [$logged_in_user_id, $profile_id]);
                 // See if there are more users to review, so we can link to them
                 $recently_updated_users = \App\Util::recently_updated_users( $logged_in_user_id, 1 );
             }
