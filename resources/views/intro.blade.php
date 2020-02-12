@@ -13,11 +13,7 @@
 		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed'] }}
 	</div>
 @endforeach
-<p>You Are Awaited is a simple game. You prepare online using this website, but the game itself happens during various real-world events.
-@if ($next_event_name)
-    Our next event will be {{ $next_event_name }}.
-@endif
-Participation is free. Here's how to play.
+<p>You Are Awaited is a simple game. You prepare online using this website, but the game itself happens during various real-world events. Participation is free. Here's how to play.
 </p>
 <h2>1.
 @guest<a href="{{ route('register') }}" class="bright">@endguest
@@ -29,9 +25,6 @@ Create a profile that tells everyone a little bit about you. <a href="/profile/F
 <h2>2. Sign up for an event</h2>
 <p>
 Let us know what upcoming events you'll be attending.
-@if ($next_event_name)
-    The next event will be {{ $next_event_name }}.
-@endif
 </p>
 <h2>3. Choose who you'd like to meet</h2>
 <p>
