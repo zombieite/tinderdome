@@ -2,7 +2,7 @@
     <div style="display:inline-block;">
         @if ($profile['number_photos'])
             <a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}">
-                <img src="/uploads/image-{{ $profile['profile_id'] }}-1.jpg" style="height:100px;">
+                <img src="/uploads/image-{{ $profile['profile_id'] }}-1.jpg" style="height:100px;" loading="lazy">
             </a>
         @endif
     </div>
