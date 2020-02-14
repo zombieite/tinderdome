@@ -16,6 +16,8 @@ class AppServiceProvider extends ServiceProvider
 
             $logged_in_user_id            = Auth::id();
             $logged_in_user               = Auth::user();
+            $missions_completed           = null;
+            $title                        = null;
             if ($logged_in_user_id && $logged_in_user) {
                 $current_time             = time();
                 $last_updated_time        = session('last_active_time');
@@ -25,9 +27,11 @@ class AppServiceProvider extends ServiceProvider
                     \App\Util::occasional_work($logged_in_user_id);
                     session(['last_active_time' => $current_time]);
                 }
-                $upcoming_events          = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
-            } else {
-                $upcoming_events          = \App\Util::upcoming_events_with_pretty_name_and_date();
+                $missions_completed = \App\Util::missions_completed($logged_in_user_id);
+                if ($logged_in_user->title_index) {
+                    $titles               = \App\Util::titles();
+                    $title                = $titles[$logged_in_user->title_index];
+                }
             }
 
             $active_count_result          = DB::select('select count(*) active_count from users where last_active>now()-interval 1 day');
@@ -35,41 +39,10 @@ class AppServiceProvider extends ServiceProvider
             if ($active_count_result) {
                 $active_count             = $active_count_result[0]->active_count;
             }
-            $next_event_name              = null;
-            $next_event_count             = null;
 
-            // Get a default next event count, for the case where they're not logged in, or they're logged in but not signed up for any events
-            foreach ($upcoming_events as $event) {
-                $next_event_name          = $event->event_long_name;
-                $next_event_id            = $event->event_id;
-                $next_event_count_result  = DB::select('
-                    select
-                        count(*) next_event_count
-                    from
-                        attending
-                        join users on attending.user_id = users.id
-                    where
-                        event_id = ?
-                ', [$next_event_id]);
-                $next_event_count     = $next_event_count_result[0]->next_event_count;
-                break;
-            }
-
-            // If they are logged in, get the attendance count of the next event they are attending
-            if ($logged_in_user_id && $logged_in_user) {
-                foreach ($upcoming_events as $event) {
-                    if ($event->attending_event_id) {
-                        $next_event_id    = $event->event_id;
-                        $next_event_name  = $event->event_long_name;
-                        $next_event_count = $event->attending_count;
-                        break;
-                    }
-                }
-            }
-
-            $view->with('active_count',     $active_count);
-            $view->with('next_event_count', $next_event_count);
-            $view->with('next_event_name',  $next_event_name);
+            $view->with('active_count',       $active_count);
+            $view->with('missions_completed', $missions_completed);
+            $view->with('title',              $title);
         });
     }
 }
