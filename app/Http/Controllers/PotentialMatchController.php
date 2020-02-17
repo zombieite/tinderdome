@@ -39,10 +39,9 @@ class PotentialMatchController extends Controller
                 number_photos,
                 hoping_to_find_love,
                 share_info_with_favorites,
-                event_long_name,
-                event_date,
                 c1.choice logged_in_user_choice,
-                c2.choice their_choice
+                c2.choice their_choice,
+                GROUP_CONCAT(event_long_name order by event_date separator ', ') event_long_name
             from
                 users
                 join choose c1 on (c1.chooser_id = ? and c1.chosen_id = users.id and c1.choice is not null)
@@ -55,9 +54,21 @@ class PotentialMatchController extends Controller
                 and id <> ?
                 and c1.choice > 0
                 and (c2.choice is null or c2.choice != 0)
+            group by
+                id,
+                name,
+                gender,
+                height,
+                birth_year,
+                description,
+                title_index,
+                number_photos,
+                hoping_to_find_love,
+                share_info_with_favorites,
+                logged_in_user_choice,
+                their_choice
             order by
                 c1.choice desc,
-                event_date,
                 name
         ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
 
