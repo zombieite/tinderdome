@@ -99,7 +99,7 @@ class SearchController extends Controller
             $title_index               = isset($profile->title_index) ? $profile->title_index : 0;
             $description               = $profile->description;
             $number_photos             = $profile->number_photos;
-            $choice                    = $profile->logged_in_user_choice;
+            $logged_in_user_choice     = $profile->logged_in_user_choice;
             $their_choice              = $profile->their_choice;
             $ok_to_rate_user           = $profile->attending_id ? $profile->ok_to_rate_user : 1;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
@@ -115,8 +115,9 @@ class SearchController extends Controller
                 'birth_year'                => $birth_year,
                 'description'               => $description,
                 'number_photos'             => $number_photos,
-                'choice'                    => $choice,
+                'logged_in_user_choice'     => $logged_in_user_choice,
                 'their_choice'              => $their_choice,
+                'logged_in_user_choice'     => $logged_in_user_choice,
                 'missions_completed'        => $missions_completed,
                 'ok_to_rate_user'           => $ok_to_rate_user,
             ];

@@ -42,7 +42,7 @@
         @if ($profile['missions_completed'])
             <span>Missions completed: {{ $profile['missions_completed'] }}</span>
         @endif
-        @if ($profile['choice'] == -1 && $profile['their_choice'] == -1)
+        @if ($profile['logged_in_user_choice'] == -1 && $profile['their_choice'] == -1)
             <br><a href="/profile/{{ $profile['profile_id'] }}/{{ $profile['wasteland_name_hyphenated'] }}" class="bright">Leave a comment for {{ $profile['wasteland_name'] }}</a>
         @endif
     </div>
@@ -52,7 +52,7 @@
         (You)
     @else
         @if ($profile['ok_to_rate_user'])
-            @include('rating_form', ['action' => "#profile".$previous_profile_id, 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['choice'], 'number_photos' => $profile['number_photos'], 'curse_interface' => $curse_interface])
+            @include('rating_form', ['action' => "#profile".$previous_profile_id, 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['logged_in_user_choice'], 'number_photos' => $profile['number_photos'], 'curse_interface' => $curse_interface])
         @endif
     @endif
 </div>

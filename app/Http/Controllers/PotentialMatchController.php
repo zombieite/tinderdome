@@ -27,6 +27,13 @@ class PotentialMatchController extends Controller
             Log::debug("Masquerading as $logged_in_user_id");
         }
 
+        $c1_choice_additional = '';
+        $c2_choice_additional = '';
+        if (isset($_GET['show_met'])) {
+            $c1_choice_additional = ' or c1.choice = -1';
+            $c2_choice_additional = ' or c2.choice = -1';
+        }
+
         $all_users = DB::select("
             select distinct
                 id,
@@ -52,8 +59,8 @@ class PotentialMatchController extends Controller
             where
                 id > 10
                 and id <> ?
-                and c1.choice > 0
-                and (c2.choice is null or c2.choice != 0)
+                and (c1.choice > 0 $c1_choice_additional)
+                and (c2.choice is null or c2.choice > 0 $c2_choice_additional)
             group by
                 id,
                 name,
@@ -81,7 +88,8 @@ class PotentialMatchController extends Controller
             $title_index               = isset($profile->title_index) ? $profile->title_index : 0;
             $description               = $profile->description;
             $number_photos             = $profile->number_photos;
-            $choice                    = $profile->logged_in_user_choice;
+            $logged_in_user_choice     = $profile->logged_in_user_choice;
+            $their_choice              = $profile->their_choice;
             $event_name                = $profile->event_long_name;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
             $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -96,7 +104,8 @@ class PotentialMatchController extends Controller
                 'birth_year'                => $birth_year,
                 'description'               => $description,
                 'number_photos'             => $number_photos,
-                'choice'                    => $choice,
+                'logged_in_user_choice'     => $logged_in_user_choice,
+                'their_choice'              => $their_choice,
                 'missions_completed'        => $missions_completed,
                 'event_name'                => $event_name,
                 'ok_to_rate_user'           => true,
