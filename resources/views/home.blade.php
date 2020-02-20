@@ -135,7 +135,7 @@
                                         Get the word out!
                                     @endif
                                 @else
-                                    {{ $upcoming_event->attending_count }} signups, event is happening
+                                    {{ $upcoming_event->attending_count }} signups. <a href="/potential-match?event_id={{ $upcoming_event->event_id }}&show_met=1">See who's attending.</a>
                                 @endif
                             </td>
                         </tr>
@@ -168,9 +168,9 @@
                                                 @endif
                                             @endif
                                             @if ($random_ok)
-                                                <a href="/potential-match">You will most likely be matched to one of these users</a>.
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will most likely be matched to one of these users</a>.
                                             @else
-                                                <a href="/potential-match">You will be matched to one of these users</a>.
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will be matched to one of these users</a>.
                                             @endif
                                         @else
                                             @if ($upcoming_event->attending_event_id)
