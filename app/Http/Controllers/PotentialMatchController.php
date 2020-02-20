@@ -34,6 +34,13 @@ class PotentialMatchController extends Controller
             $c2_choice_additional = ' or c2.choice = -1';
         }
 
+        $event_id_clause = '';
+        if (isset($_GET['event_id'])) {
+            if (preg_match('/^[0-9]+$/', $_GET['event_id'])) {
+                $event_id_clause = "and i_am_attending.event_id = ".$_GET['event_id'];
+            }
+        }
+
         $all_users = DB::select("
             select distinct
                 id,
@@ -61,6 +68,7 @@ class PotentialMatchController extends Controller
                 and id <> ?
                 and (c1.choice > 0 $c1_choice_additional)
                 and (c2.choice is null or c2.choice > 0 $c2_choice_additional)
+                $event_id_clause
             group by
                 id,
                 name,
