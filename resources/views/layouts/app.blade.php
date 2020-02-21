@@ -26,7 +26,7 @@
 @else
     <form action="{{ route('logout') }}" method="POST">
     {{ csrf_field() }}
-    @if($title){{ $title }} @endif<a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}@if($missions_completed) [{{ $missions_completed }}]@endif</a>
+    @if($title){{ $title }} @endif<a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>@if($missions_completed) [{{ $missions_completed }}]@endif
     &middot;
     <a class="navbar" href="/profile/edit">Edit profile</a>
     &middot;
