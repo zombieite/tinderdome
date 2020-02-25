@@ -75,6 +75,13 @@ class AdminMatchController extends Controller
                 users_1.name
         ', [$event_id]);
 
+        $users_who_are_matched_but_dont_know = [];
+        foreach ($matches as $match) {
+            if ($match->user_id_of_match) {
+                $users_who_are_matched_but_dont_know[$match->user_id_of_match] = 1;
+            }
+        }
+
         $titles = \App\Util::titles();
         foreach ($matches as $match) {
             $missions_completed = \App\Util::missions_completed($match->user_id);
@@ -94,9 +101,10 @@ class AdminMatchController extends Controller
         }
 
         return view('admin_match', [
-            'event_data'          => $event_data,
-            'matches'             => $matches,
-            'choice_map'          => $choice_map,
+            'event_data'                          => $event_data,
+            'matches'                             => $matches,
+            'choice_map'                          => $choice_map,
+            'users_who_are_matched_but_dont_know' => $users_who_are_matched_but_dont_know,
         ]);
     }
 }
