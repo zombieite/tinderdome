@@ -63,7 +63,7 @@ class AdminMatchController extends Controller
                 user_1_choose.choice user_1_choice,
                 user_2_choose.choice user_2_choice,
                 users_2.name name_of_match,
-                if (event_date > now(), 1, 0) event_is_in_future
+                if (event_date > curdate() - interval 3 day, 1, 0) event_is_in_future
             from
                 attending
                 join event on attending.event_id = event.event_id
