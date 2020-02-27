@@ -57,13 +57,15 @@ class AdminMatchController extends Controller
             select
                 attending_id,
                 attending.user_id_of_match,
+                attending.match_requested,
                 users_1.score,
                 users_1.name,
                 users_1.id user_id,
                 user_1_choose.choice user_1_choice,
                 user_2_choose.choice user_2_choice,
                 users_2.name name_of_match,
-                if (event_date > curdate() - interval 3 day, 1, 0) event_is_in_future
+                if (event_date > curdate() - interval 3 day, 1, 0) event_is_in_future,
+                if (attending.match_requested is not null and attending.user_id_of_match is null, 1, 0) failed_match_attempt
             from
                 attending
                 join event on attending.event_id = event.event_id
