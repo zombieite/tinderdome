@@ -85,14 +85,12 @@ class AdminMatchController extends Controller
         $titles = \App\Util::titles();
         foreach ($matches as $match) {
             $missions_completed = \App\Util::missions_completed($match->user_id);
-            if (!$match->user_1_choice || (($match->user_1_choice != 0) && ($match->user_1_choice != -1))) {
-                $missions_completed++;
-            }
+            $missions_completed++;
             $cap                              = 'YEAR';
-            $title                            = $titles[$missions_completed];
-            if ($title == 'PARTICIPANT') {
+            if ($missions_completed == 1) {
                 // All good
             } else {
+                $title                        = $titles[$missions_completed];
                 $cap                          = "$cap+$title";
             }
             $match->cap                       = $cap;
