@@ -23,7 +23,7 @@
         @endphp
         <tr>
             <td class="tight">{{ $counter }}</td>
-            <td class="tight">{{ $match->cap }}</td>
+            <td class="tight">@if ($match->event_is_in_future){{ $match->cap }}@endif</td>
             <td class=" @if ($match->user_1_choice == $match->user_2_choice && ($match->user_1_choice == 3 || $match->user_1_choice == -1)) {{ $choice_map[$match->user_1_choice] }} @else @if (!$match->user_id_of_match) @if (isset($users_who_are_matched_but_dont_know[$match->user_id])) caution @else no @endif @endif @endif tight"><a href="/profile/{{ $match->user_id }}/{{ $match->wasteland_name_hyphenated }}">{{ $match->name }}</a></td>
             <td class="{{ $choice_map[$match->user_1_choice] }} tight">{{ $match->user_1_choice }}</td>
             <td class="{{ $choice_map[$match->user_2_choice] }} tight">{{ $match->user_2_choice }}</td>
