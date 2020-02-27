@@ -62,15 +62,17 @@ class AdminMatchController extends Controller
                 users_1.id user_id,
                 user_1_choose.choice user_1_choice,
                 user_2_choose.choice user_2_choice,
-                users_2.name name_of_match
+                users_2.name name_of_match,
+                if (event_date > now(), 1, 0) event_is_in_future
             from
                 attending
+                join event on attending.event_id = event.event_id
                 join users users_1 on attending.user_id = users_1.id
                 left join users users_2 on attending.user_id_of_match = users_2.id
                 left join choose user_1_choose on (users_1.id = user_1_choose.chooser_id and users_2.id = user_1_choose.chosen_id)
                 left join choose user_2_choose on (users_2.id = user_2_choose.chooser_id and users_1.id = user_2_choose.chosen_id)
             where
-                event_id = ?
+                attending.event_id = ?
             order by
                 users_1.name
         ', [$event_id]);
