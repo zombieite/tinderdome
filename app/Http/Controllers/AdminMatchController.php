@@ -79,34 +79,43 @@ class AdminMatchController extends Controller
                 users_1.name
         ', [$event_id]);
 
-        $users_who_are_matched_but_dont_know = [];
+        $users_who_are_matched_but_dont_know  = [];
         foreach ($matches as $match) {
             if ($match->user_id_of_match) {
-                $users_who_are_matched_but_dont_know[$match->user_id_of_match] = 1;
+                $users_who_are_claimed[$match->user_id_of_match]['claimant_user_id']         = $match->user_id;
+                $users_who_are_claimed[$match->user_id_of_match]['claimant_name']            = $match->name;
+                $users_who_are_claimed[$match->user_id_of_match]['claimant_name_hyphenated'] = preg_replace('/\s/', '-', $match->name);
             }
         }
 
-        $titles = \App\Util::titles();
+        $titles                                   = \App\Util::titles();
         foreach ($matches as $match) {
-            $missions_completed = \App\Util::missions_completed($match->user_id);
+            $missions_completed                   = \App\Util::missions_completed($match->user_id);
             $missions_completed++;
-            $cap                              = 'YEAR';
+            $cap                                  = 'YEAR';
             if ($missions_completed == 1) {
                 // All good
             } else {
-                $title                        = $titles[$missions_completed];
-                $cap                          = "$cap+$title";
+                $title                            = $titles[$missions_completed];
+                $cap                              = "$cap+$title";
             }
-            $match->cap                       = $cap;
-            $match->wasteland_name_hyphenated = preg_replace('/\s/', '-', $match->name);
-            $match->matchs_name_hyphenated    = preg_replace('/\s/', '-', $match->name_of_match);
+            $match->cap                           = $cap;
+            $match->wasteland_name_hyphenated     = preg_replace('/\s/', '-', $match->name);
+            $match->matchs_name_hyphenated        = preg_replace('/\s/', '-', $match->name_of_match);
+            $match->match_1_class                 = $match->user_1_choice ? $choice_map[$match->user_1_choice] : '';
+            $match->match_2_class                 = $match->user_2_choice ? $choice_map[$match->user_2_choice] : '';
+            if (!$match->name_of_match && isset($users_who_are_claimed[$match->user_id])) {
+                $match->claimant_user_id          = $users_who_are_claimed[$match->user_id]['claimant_user_id'];
+                $match->claimant_name             = $users_who_are_claimed[$match->user_id]['claimant_name'];
+                $match->claimant_name_hyphenated  = $users_who_are_claimed[$match->user_id]['claimant_name_hyphenated'];
+                $match->match_1_class             = 'caution';
+                $match->match_2_class             = '';
+            }
         }
 
         return view('admin_match', [
             'event_data'                          => $event_data,
             'matches'                             => $matches,
-            'choice_map'                          => $choice_map,
-            'users_who_are_matched_but_dont_know' => $users_who_are_matched_but_dont_know,
         ]);
     }
 }
