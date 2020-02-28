@@ -106,15 +106,15 @@ class AdminMatchController extends Controller
             $match->cap                           = $cap;
             $match->wasteland_name_hyphenated     = preg_replace('/\s/', '-', $match->name);
             $match->matchs_name_hyphenated        = preg_replace('/\s/', '-', $match->name_of_match);
-            $match->match_1_class                 = $match->user_1_choice ? $choice_map[$match->user_1_choice] : '';
-            $match->match_2_class                 = $match->user_2_choice ? $choice_map[$match->user_2_choice] : '';
+            $match->match_1_class                 = $match->user_id_of_match ? $match->user_1_choice ? $choice_map[$match->user_1_choice] : 'yes' : '';
+            $match->match_2_class                 = $match->user_id_of_match ? $match->user_2_choice ? $choice_map[$match->user_2_choice] : 'yes' : '';
             if (!$match->name_of_match && isset($users_who_are_claimed[$match->user_id])) {
                 $match->user_id_of_match          = $users_who_are_claimed[$match->user_id]['claimant_user_id'];
                 $match->name_of_match             = $users_who_are_claimed[$match->user_id]['claimant_name'];
                 $match->matchs_name_hyphenated    = $users_who_are_claimed[$match->user_id]['claimant_name_hyphenated'];
                 $match->user_2_choice             = $users_who_are_claimed[$match->user_id]['claimant_choice'];
                 $match->match_1_class             = 'caution';
-                $match->match_2_class             = $choice_map[$users_who_are_claimed[$match->user_id]['claimant_choice']];
+                $match->match_2_class             = $choice_map[$users_who_are_claimed[$match->user_id]['claimant_choice']] ? $choice_map[$users_who_are_claimed[$match->user_id]['claimant_choice']] : 'yes';
             }
         }
 
