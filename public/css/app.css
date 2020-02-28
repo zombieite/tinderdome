@@ -86,34 +86,40 @@ button {
     height: 3em;
 }
 .caution {
+    color: black;
+    background-color: var(--special);
     font-weight: bold;
     background-color: var(--subtle);
-    border: 1px solid var(--subtle);
 }
 .yesyesyes, button.yesyesyes, input[type="submit"].yesyesyes {
+    color: black;
+    background-color: var(--special);
     font-weight: bold;
     background-color: var(--yes);
-    border: 1px solid var(--subtle);
 }
 .yesyes, button.yesyes, input[type="submit"].yesyes {
+    color: black;
+    background-color: var(--special);
     font-weight: bold;
     background-color: var(--yes);
-    border: 1px solid var(--subtle);
 }
 .yes, button.yes, input[type="submit"].yes {
+    color: black;
+    background-color: var(--special);
     font-weight: bold;
     background-color: var(--neutral);
-    border: 1px solid var(--subtle);
 }
 .no, button.no, input[type="submit"].no {
+    color: black;
+    background-color: var(--special);
     font-weight: bold;
     background-color: var(--no);
-    border: 1px solid var(--subtle);
 }
 .met, button.met, input[type="submit"].met {
+    color: black;
+    background-color: var(--special);
     font-weight: bold;
     background-color: var(--met);
-    border: 1px solid var(--subtle);
 }
 .bright {
     color: var(--bright);
