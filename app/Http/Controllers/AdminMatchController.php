@@ -53,7 +53,7 @@ class AdminMatchController extends Controller
              3 => 'yesyesyes',
         ];
 
-        $matches           = DB::select('
+        $matches = DB::select('
             select
                 attending_id,
                 attending.user_id_of_match,
@@ -80,15 +80,17 @@ class AdminMatchController extends Controller
                 users_1.name
         ', [$event_id]);
 
-        // We could have figured this out with an even weirder join but this is a little cleaner.
+        // We could have figured this out with an even weirder join but this is a little simpler.
         // Figure out who is matched, but who has not yet found out they are matched yet.
-        $users_who_are_matched_but_dont_know  = [];
+        $users_who_are_claimed  = [];
+        $users_who_have_claimed = [];
         foreach ($matches as $match) {
             if ($match->user_id_of_match) {
                 $users_who_are_claimed[$match->user_id_of_match]['claimant_user_id']         = $match->user_id;
                 $users_who_are_claimed[$match->user_id_of_match]['claimant_name']            = $match->name;
                 $users_who_are_claimed[$match->user_id_of_match]['claimant_name_hyphenated'] = preg_replace('/\s/', '-', $match->name);
                 $users_who_are_claimed[$match->user_id_of_match]['claimant_choice']          = $match->user_1_choice;
+                $users_who_have_claimed[$match->user_id]                                     = 1;
             }
         }
 
@@ -108,13 +110,16 @@ class AdminMatchController extends Controller
             $match->matchs_name_hyphenated        = preg_replace('/\s/', '-', $match->name_of_match);
             $match->match_1_class                 = $match->user_id_of_match ? $match->user_1_choice ? $choice_map[$match->user_1_choice] : 'yes' : '';
             $match->match_2_class                 = $match->user_id_of_match ? $match->user_2_choice ? $choice_map[$match->user_2_choice] : 'yes' : '';
-            if (!$match->name_of_match && isset($users_who_are_claimed[$match->user_id])) {
+            if (!$match->user_id_of_match && isset($users_who_are_claimed[$match->user_id])) {
                 $match->user_id_of_match          = $users_who_are_claimed[$match->user_id]['claimant_user_id'];
                 $match->name_of_match             = $users_who_are_claimed[$match->user_id]['claimant_name'];
                 $match->matchs_name_hyphenated    = $users_who_are_claimed[$match->user_id]['claimant_name_hyphenated'];
                 $match->user_2_choice             = $users_who_are_claimed[$match->user_id]['claimant_choice'];
                 $match->match_1_class             = 'caution';
                 $match->match_2_class             = $choice_map[$users_who_are_claimed[$match->user_id]['claimant_choice']] ? $choice_map[$users_who_are_claimed[$match->user_id]['claimant_choice']] : 'yes';
+            }
+            if (!isset($users_who_have_claimed[$match->user_id_of_match]) && $match->user_id_of_match) {
+                $match->match_2_class             = 'caution';
             }
         }
 
