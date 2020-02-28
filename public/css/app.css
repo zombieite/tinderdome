@@ -86,7 +86,9 @@ button {
     height: 3em;
 }
 .caution {
+    font-weight: bold;
     background-color: var(--subtle);
+    border: 1px solid var(--subtle);
 }
 .yesyesyes, button.yesyesyes, input[type="submit"].yesyesyes {
     font-weight: bold;
