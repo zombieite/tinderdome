@@ -3,15 +3,6 @@
 
 <h1>Matches for {{ $event_data->event_long_name }} &middot; {{ $event_data->event_date }}</h1>
 <table>
-    <tr>
-        <td><b>&nbsp;</b></td>
-        <td><b>Cap</b></td>
-        <td><b>Name</b></td>
-        <td><b>&nbsp;</b></td>
-        <td><b>&nbsp;</b></td>
-        <td><b>Name of match</b></td>
-        <td><b>Mark found</b></td>
-    </tr>
     @php
         $counter = 0;
         $found   = 0;
