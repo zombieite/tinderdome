@@ -75,7 +75,7 @@ class HomeController extends Controller
                         if ($attending) {
                             if ($attending->user_id_of_match || $upcoming_event->already_matched_but_dont_know_it) {
                                 // Can't delete, already matched
-                                Log::debug("User $logged_in_user_id attempting to delete event $event_id but already matched to user ".$attending->user_id_of_match);
+                                // Also, I think a deactivated but checked checkbox is not actually POSTed as though it were a normal checked checkbox
                             } else {
                                 DB::delete('delete from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
                             }
