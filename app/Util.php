@@ -270,8 +270,21 @@ class Util {
 
         // The second choose join hides users who have already said no to you so you don't even get to see them
         $unrated_users_sql = "
-            select
-                *
+            select distinct
+                users.id,
+                users.name,
+                users.gender,
+                users.gender_of_match,
+                users.gender_of_match_2,
+                users.height,
+                users.birth_year,
+                users.description,
+                users.how_to_find_me,
+                users.hoping_to_find_friend,
+                users.hoping_to_find_love,
+                users.hoping_to_find_lost,
+                users.hoping_to_find_enemy,
+                users.number_photos
             from
                 users
                 left join choose my_choice on (
