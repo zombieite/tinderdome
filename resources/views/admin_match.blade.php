@@ -19,7 +19,7 @@
             <td class="tight {{ $match->match_1_class }}" style="text-align:center;">{{ $match->user_1_choice }}</td>
             <td class="tight {{ $match->match_2_class }}" style="text-align:center;">{{ $match->user_2_choice }}</td>
             <td class="tight {{ $match->match_2_class }}">@if ($match->user_id_of_match) <a class="{{ $match->match_2_class }}" href="/profile/{{ $match->user_id_of_match }}/{{ $match->matchs_name_hyphenated }}">{{ $match->name_of_match }}</a> @else @if($match->failed_match_attempt) {{ $match->match_requested }} @endif @endif </td>
-            <td class="tight">@if ($match->name_of_match && (($match->user_1_choice !== 0 && $match->user_2_choice !== 0)) && !($match->user_1_choice == -1 && $match->user_2_choice == -1)) <form action="" method="POST">{{ csrf_field() }}<input type="hidden" name="attending_id" value="{{ $match->attending_id }}"><input class="tight" type="submit" value="Mark {{ $match->name }}/{{ $match->name_of_match }} found"></form> @else &nbsp; @endif </td>
+            <td class="tight">@if ($match->name_of_match && (($match->user_1_choice !== 0 && $match->user_2_choice !== 0)) && !($match->user_1_choice == -1 && $match->user_2_choice == -1) && ($match->match_1_class != 'caution')) <form action="" method="POST">{{ csrf_field() }}<input type="hidden" name="attending_id" value="{{ $match->attending_id }}"><input class="tight" type="submit" value="Mark {{ $match->name }}/{{ $match->name_of_match }} found"></form> @else &nbsp; @endif </td>
         </tr>
     @endforeach
 </table>
