@@ -34,6 +34,10 @@
     &middot;
     <a class="navbar" href="/search">Search</a>
     &middot;
+    @if (Auth::user()->admin_user && $logged_in_user_missions_completed > 5)
+        <a class="navbar" href="/create-event">Create event</a>
+        &middot;
+    @endif
     <input type="submit" value="Log out">
     </form>
 @endguest
