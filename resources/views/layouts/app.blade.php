@@ -34,7 +34,7 @@
     &middot;
     <a class="navbar" href="/search">Search</a>
     &middot;
-    @if (Auth::user()->admin_user && $logged_in_user_missions_completed > 5)
+    @if ((Auth::user()->admin_user && $logged_in_user_missions_completed > 5) || Auth::user()->id == 1)
         <a class="navbar" href="/create-event">Create event</a>
         &middot;
     @endif
