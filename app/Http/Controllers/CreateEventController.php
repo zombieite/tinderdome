@@ -23,12 +23,24 @@ class CreateEventController extends Controller
             return redirect('/');
         }
 
-        //$event_id = $_GET['event_id'];
-        //if (preg_match('/^\d+$/', $event_id)) {
-        //    // All good
-        //} else {
-        //    die("Invalid event id '$event_id'");
-        //}
+        $event_class = null;
+        $event_date = null;
+        if (isset($_POST['event_class'])) {
+            $event_class = $_POST['event_class'];
+            if (preg_match('/^[a-zA-Z]+$/', $event_class)) {
+                // All good
+            } else {
+                die("Invalid event class '$event_class'");
+            }
+            if (isset($_POST['event_date'])) {
+                $event_date = $_POST['event_date'];
+                if (preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $event_date)) {
+                    // All good
+                } else {
+                    die("Event date must be of the form 'YYYY-MM-DD', not '$event_date'");
+                }
+            }
+        }
 
         return view('create_event', [
         ]);
