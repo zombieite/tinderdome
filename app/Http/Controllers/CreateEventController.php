@@ -23,22 +23,40 @@ class CreateEventController extends Controller
             return redirect('/');
         }
 
-        $event_class = null;
-        $event_date = null;
+        $event_class     = null;
+        $event_date      = null;
+        $event_long_name = null;
+        $url             = null;
         if (isset($_POST['event_class'])) {
             $event_class = $_POST['event_class'];
-            if (preg_match('/^[a-zA-Z]+$/', $event_class)) {
+            if (preg_match('/^[a-zA-Z0-9 ]+$/', $event_class)) {
                 // All good
             } else {
                 die("Invalid event class '$event_class'");
             }
-            if (isset($_POST['event_date'])) {
-                $event_date = $_POST['event_date'];
-                if (preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $event_date)) {
-                    // All good
-                } else {
-                    die("Event date must be of the form 'YYYY-MM-DD', not '$event_date'");
-                }
+        }
+        if (isset($_POST['event_date'])) {
+            $event_date = $_POST['event_date'];
+            if (preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $event_date)) {
+                // All good
+            } else {
+                die("Event date must be of the form 'YYYY-MM-DD', not '$event_date'");
+            }
+        }
+        if (isset($_POST['event_long_name'])) {
+            $event_long_name = $_POST['event_long_name'];
+            if (preg_match('/^[a-zA-Z0-9 ]+$/', $event_long_name)) {
+                // All good
+            } else {
+                die("Event date must be of the form 'YYYY-MM-DD', not '$event_date'");
+            }
+        }
+        if (isset($_POST['url'])) {
+            $url = $_POST['url'];
+            if (preg_match('/^https:\/\/www.facebook.com\/(events|groups)\/[0-9A-Za-z]+\/?/', $url)) {
+                // All good
+            } else {
+                die("URL must be a URL like https://www.facebook.com/events/2433198530093983/ or https://www.facebook.com/groups/WastelandSingles/, not '$url'");
             }
         }
 
