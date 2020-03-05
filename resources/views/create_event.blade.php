@@ -23,8 +23,8 @@
 
     <br><br>
     <label for="url">URL</label>
-    <input id="url" type="url" name="url" maxlength="255" required>
-    Ideally this should be a URL where people can discuss and promote the You Are Awaited mission, like a Facebook event page.
+    <input id="url" type="url" name="url" maxlength="255" value="https://facebook.com/events/" required>
+    Facebook event page. The URL should look like this: https://www.facebook.com/events/123456.../
 
     <br><br>
     <button id="submit" type="submit" class="yesyes">Create event</button>
