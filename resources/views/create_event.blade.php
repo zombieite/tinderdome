@@ -23,7 +23,7 @@
 
     <br><br>
     <label for="url">URL</label>
-    <input id="url" type="url" name="url" maxlength="255" value="https://facebook.com/events/" required>
+    <input id="url" type="url" name="url" maxlength="255" value="https://www.facebook.com/events/" required>
     Facebook event page. The URL should look like this: https://www.facebook.com/events/123456.../
 
     <br><br>
