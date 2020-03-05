@@ -22,6 +22,11 @@
     <input id="event_date" type="date" name="event_date" required>
 
     <br><br>
+    <label for="url">URL</label>
+    <input id="url" type="url" name="url" maxlength="255" required>
+    Ideally this should be a URL where people can discuss and promote the You Are Awaited mission, like a Facebook event page.
+
+    <br><br>
     <button id="submit" type="submit" class="yesyes">Create event</button>
 
 </form>
