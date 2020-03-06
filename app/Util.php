@@ -122,9 +122,11 @@ class Util {
                 unix_timestamp(now()) now_time,
 				url,
                 attending.event_id attending_event_id,
-                attending.user_id_of_match
+                attending.user_id_of_match,
+                users.name created_by_name
             from
                 event
+                left join users on (event.created_by = users.id and event.created_by <> 1)
                 left join attending on event.event_id = attending.event_id and attending.user_id = ?
             where
                     event_date >= now() - interval 1 day

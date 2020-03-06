@@ -118,6 +118,9 @@
                                     {{ $upcoming_event->event_long_name }}
                                 @endif
                                 <br>{{ $upcoming_event->event_date }}
+                                @if ($upcoming_event->created_by_name)
+                                    <br><span class="supersmall">Event created by {{ $upcoming_event->created_by_name }}</span>
+                                @endif
                             </td>
                         </tr>
                         <tr>
