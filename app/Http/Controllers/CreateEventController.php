@@ -56,14 +56,19 @@ class CreateEventController extends Controller
             if (preg_match('/^https:\/\/www.facebook.com\/(events|groups)\/[0-9A-Za-z]+\/?$/', $url)) {
                 // All good
             } else {
-                die("URL must be a URL like https://www.facebook.com/events/2433198530093983/ or https://www.facebook.com/groups/WastelandSingles/, not '$url'");
+                die("URL must be a URL like https://www.facebook.com/events/123456/ or https://www.facebook.com/groups/123456/, not '$url'");
             }
         }
         if ($event_class && $event_date && $event_long_name && $url) {
             DB::insert('insert into event (event_class, event_date, event_long_name, url, created_by) values (?, ?, ?, ?, ?)', [$event_class, $event_date, $event_long_name, $url, $logged_in_user_id]);
+            return redirect('/');
         }
 
+        $existing_event_classes_result = DB::select("select group_concat(distinct event_class order by event_class separator ', ') event_classes from event order by event_class limit 10");
+        $existing_event_classes = $existing_event_classes_result[0]->event_classes;
+
         return view('create_event', [
+            'existing_event_classes' => $existing_event_classes,
         ]);
     }
 }
