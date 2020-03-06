@@ -9,4 +9,3 @@ CREATE TABLE event (
 	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     created_by INT NOT NULL
 );
-alter table event add unique `unique_event_date`(`event`, `event_date`);
