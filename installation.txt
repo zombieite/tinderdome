@@ -163,9 +163,9 @@ sudo /Applications/MAMP/bin/apache2/bin/apachectl configtest
 sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
 # Regression test page load, login, logout
 
-# to renew, i think you can just do:
-#certbot renew
-# from above cron, if the cron doesn't take care of it for you.
+# to renew
+#sudo certbot renew
+# (copied from above cron, if the cron doesn't take care of it for you). sudo apachectl wasn't working because it wanted to use /usr/sbin/apachectl instead of the MAMP one. So I moved the original to a nearby location and linked the MAMP one at /usr/sbin/apachectl. This made it work. There was an error about "Detail: During secondary validation: DNS problem: SERVFAIL looking up CAA for youareawaited.com - the domain's nameservers may be malfunctioning" but that error did not happen when I just retried it.
 
 # Check localhost to make sure the site, logins, and database are working. Now we have a working Apache config that can be modified to support https, and the https cert files and stuff are all installed and ready to go. One important note: DO NOT START MAMP ANYMORE. If you do, it will overwrite configs(? Actually at the moment I have my development server working using MAMP and my custom httpd.conf so not sure about this). It is tempting to try to copy MAMP's Apache and MySQL configs over to Mac's native Mac Apache install and use it instead, but that does not work because the different versions of Apache expect different configurations. It MIGHT work to modify Mac's native Apache install to try to get Laravel etc. working there first, but I haven't had success with that yet so this is how I'm doing it for now.
 
