@@ -1,5 +1,4 @@
 @php $ads = [
-'<a class="small" href="https://www.youtube.com/watch?v=pMKM1d0IsNs">Awaited</a>',
 '<a class="small" href="https://www.youtube.com/watch?v=zQqjvO-useM">Roadblock</a>',
 '<a class="small" href="https://www.facebook.com/thewastelander/">The Wastelander</a>',
 '<a class="small" href="https://www.facebook.com/WCCorp/">WCC</a>',
