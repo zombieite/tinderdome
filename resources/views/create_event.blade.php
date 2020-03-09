@@ -30,6 +30,9 @@
         <label for="public">Publicly visible event</label>
         <input id="public" name="public" type="checkbox">
         <br>If the event is publicly visible, anyone can see it on the homepage and anyone can sign up. If the event is not public, you must share a link to the event and you must approve or deny participants.
+    @else
+        <br><br>
+        This event will be a private event. You must share a link to the event and you must approve or deny participants.
     @endif
 
     <br><br>
