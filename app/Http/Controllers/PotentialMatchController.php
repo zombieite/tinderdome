@@ -22,6 +22,10 @@ class PotentialMatchController extends Controller
         $nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
         $curse_interface                          = \App\Util::is_wastelander( $logged_in_user_id );
 
+        if (!$logged_in_user->number_photos) {
+             return redirect('/image/upload');
+        }
+
         if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
             $logged_in_user_id = $_GET['masquerade']+0;
             Log::debug("Masquerading as $logged_in_user_id");

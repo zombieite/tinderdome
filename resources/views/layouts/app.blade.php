@@ -31,13 +31,13 @@
     <a class="navbar" href="/profile/edit">Edit profile</a>
     &middot;
     <a class="navbar" href="/image/upload">Upload images</a>
-    &middot;
-    <a class="navbar" href="/search">Search</a>
-    &middot;
-    @if ((Auth::user()->admin_user && $logged_in_user_missions_completed > 5) || Auth::user()->id == 1)
-        <a class="navbar" href="/create-event">Create event</a>
+    @if (Auth::user()->number_photos)
         &middot;
+        <a class="navbar" href="/search">Search</a>
+        &middot;
+        <a class="navbar" href="/create-event">Create event</a>
     @endif
+    &middot;
     <input type="submit" value="Log out">
     </form>
 @endguest

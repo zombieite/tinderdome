@@ -17,10 +17,9 @@ class CreateEventController extends Controller
 
         $missions_completed = \App\Util::missions_completed( $logged_in_user_id );
 
+        $logged_in_user_can_create_public_missions = false;
         if (($logged_in_user->admin_user && $logged_in_user_id === 1) || ($logged_in_user->admin_user && $missions_completed > 5)) {
-            // All good
-        } else {
-            return redirect('/');
+            $logged_in_user_can_create_public_missions = true;
         }
 
         $event_class     = null;
@@ -60,7 +59,13 @@ class CreateEventController extends Controller
             }
         }
         if ($event_class && $event_date && $event_long_name && $url) {
-            DB::insert('insert into event (event_class, event_date, event_long_name, url, created_by) values (?, ?, ?, ?, ?)', [$event_class, $event_date, $event_long_name, $url, $logged_in_user_id]);
+            $public = 0;
+            if ($logged_in_user_can_create_public_missions) {
+                if (isset($_POST['public']) && $_POST['public']) {
+                    $public = 1;
+                }
+            }
+            DB::insert('insert into event (event_class, event_date, event_long_name, url, created_by, public) values (?, ?, ?, ?, ?, ?)', [$event_class, $event_date, $event_long_name, $url, $logged_in_user_id, $public]);
             return redirect('/');
         }
 
@@ -68,7 +73,8 @@ class CreateEventController extends Controller
         $existing_event_classes = $existing_event_classes_result[0]->event_classes;
 
         return view('create_event', [
-            'existing_event_classes' => $existing_event_classes,
+            'existing_event_classes'                    => $existing_event_classes,
+            'logged_in_user_can_create_public_missions' => $logged_in_user_can_create_public_missions,
         ]);
     }
 }
