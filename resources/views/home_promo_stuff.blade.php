@@ -1,17 +1,29 @@
 @php $ads = [
-'<a href="https://www.youtube.com/watch?v=pMKM1d0IsNs"><img src="/images/stuff/awaited-youtube.jpg"></a>',
-'<a href="https://www.youtube.com/watch?v=zQqjvO-useM"><img src="/images/stuff/roadblock-youtube.jpg"></a>',
-'<a href="https://www.facebook.com/thewastelander/"><img src="/images/stuff/wastelander.jpg"></a>',
-'<a href="https://www.facebook.com/WCCorp/"><img src="/images/stuff/wcc.png"></a>',
+'<a class="small" href="https://www.youtube.com/watch?v=pMKM1d0IsNs">Awaited</a>',
+'<a class="small" href="https://www.youtube.com/watch?v=zQqjvO-useM">Roadblock</a>',
+'<a class="small" href="https://www.facebook.com/thewastelander/">The Wastelander</a>',
+'<a class="small" href="https://www.facebook.com/WCCorp/">WCC</a>',
 ];
 shuffle($ads);
-array_pop($ads);
-array_pop($ads);
-array_push($ads, '<a href="/awaited-nonfictional-delusion"><img src="/images/stuff/awaited-nonfictional-delusion.jpg"></a>');
-array_push($ads, '<a href="https://cultofcatmeat.com"><img src="/images/stuff/catmeat.png"></a>');
+
+// Can be used to remove some random ones from above
+//array_pop($ads);
+//array_pop($ads);
+
+// Can be used to add mandatory ads that must always be shown
+array_push($ads, '<a class="small" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>');
+array_push($ads, '<a class="small" href="https://cultofcatmeat.com">Cult of Catmeat</a>');
+
 shuffle($ads);
+$ad_string = '';
+$last = end($ads);
+foreach ($ads as $ad) {
+    if ($ad == $last) {
+        $ad_string .= $ad;
+    } else {
+        $ad_string .= "$ad &middot; ";
+    }
+}
 @endphp
-@foreach ($ads as $ad)
-    {!! $ad !!}
-@endforeach
+{!! $ad_string !!}
 <hr>

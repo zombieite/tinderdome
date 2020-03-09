@@ -43,6 +43,9 @@ td.tight {
 hr {
     border-color: var(--subtle);
 }
+hr.top {
+    margin-bottom: 0;
+}
 ul.nobullet {
     padding-left: 0px;
     list-style-type: none;
@@ -53,10 +56,6 @@ li {
 }
 h1, h2, h3, h4, h5, h6, label {
     color: var(--special);
-}
-.supersmall {
-    font-size: xx-small;
-    text-transform: uppercase;
 }
 .dull {
     color: white;
