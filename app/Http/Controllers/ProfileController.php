@@ -27,17 +27,13 @@ class ProfileController extends Controller
         $logged_in_user          = Auth::user();
         $logged_in_user_id       = Auth::id();
 
+        if (!$logged_in_user->number_photos && $profile_id != 1 && $profile_id != $logged_in_user_id) {
+            return redirect('/image/upload');
+        }
+
         if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
             $logged_in_user_id = $_GET['masquerade']+0;
             Log::debug("Masquerading as $logged_in_user_id");
-        }
-
-        //Log::debug("Looking for user $logged_in_user_id");
-        if ($profile) {
-            // All good
-        } else {
-            Log::debug("Could not find user $logged_in_user_id");
-            abort(404);
         }
 
         $wasteland_name = $profile->name;

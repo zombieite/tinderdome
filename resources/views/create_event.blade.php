@@ -25,6 +25,13 @@
     <input id="url" type="url" name="url" size="50" maxlength="255" value="https://www.facebook.com/events/" required>
     <br>Facebook event or group page. The URL should look something like https://www.facebook.com/events/123456/ or https://www.facebook.com/groups/123456/.
 
+    @if ($logged_in_user_can_create_public_missions)
+        <br><br>
+        <label for="public">Publicly visible event</label>
+        <input id="public" name="public" type="checkbox">
+        <br>If the event is publicly visible, anyone can see it on the homepage and anyone can sign up. If the event is not public, you must share a link to the event and you must approve or deny participants.
+    @endif
+
     <br><br>
     <button id="submit" type="submit" class="yesyes">Create event</button>
 

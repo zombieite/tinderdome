@@ -28,6 +28,10 @@ class SearchController extends Controller
         $curse_interface                          = \App\Util::is_wastelander( $logged_in_user_id );
         $search_for_rating                        = null;
 
+        if (!$logged_in_user->number_photos) {
+             return redirect('/image/upload');
+        }
+
         if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
             $logged_in_user_id = $_GET['masquerade']+0;
             Log::debug("Masquerading as $logged_in_user_id");
