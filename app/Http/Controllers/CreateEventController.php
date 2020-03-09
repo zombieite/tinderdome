@@ -52,10 +52,10 @@ class CreateEventController extends Controller
         }
         if (isset($_POST['url'])) {
             $url = $_POST['url'];
-            if (preg_match('/^https:\/\/www.facebook.com\/(events|groups)\/[0-9A-Za-z]+\/?$/', $url)) {
+            if (preg_match('/^https?:\/\//', $url)) {
                 // All good
             } else {
-                die("URL must be a URL like https://www.facebook.com/events/123456/ or https://www.facebook.com/groups/123456/, not '$url'");
+                die("URL must be a URL like http:// or https://, not '$url'");
             }
         }
         if ($event_class && $event_date && $event_long_name && $url) {
