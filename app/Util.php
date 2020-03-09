@@ -131,10 +131,13 @@ class Util {
             where
                     event_date >= now() - interval 1 day
                 and event_date <  now() + interval ? day
-                and event.public = 1
+                and (
+                       event.public = 1
+                    or event.created_by = ?
+                )
             order by
                 event_date
-        ', [$dbewEcgm, $user_id, $max_event_days_away]);
+        ', [$dbewEcgm, $user_id, $max_event_days_away, $user_id]);
 		foreach ($event_results as $event_result) {
 			$event_count_result = DB::select('
 				select
