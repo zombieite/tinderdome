@@ -23,7 +23,7 @@
     <br><br>
     <label for="url">URL</label>
     <input id="url" type="url" name="url" size="50" maxlength="255" value="https://www.facebook.com/events/" required>
-    <br>Facebook event or group page. The URL should look something like https://www.facebook.com/events/123456/ or https://www.facebook.com/groups/123456/.
+    <br>URL of the event. Often this can be a Facebook event or group page.
 
     @if ($logged_in_user_can_create_public_missions)
         <br><br>
