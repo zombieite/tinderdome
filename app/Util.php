@@ -131,6 +131,7 @@ class Util {
             where
                     event_date >= now() - interval 1 day
                 and event_date <  now() + interval ? day
+                and event.public = 1
             order by
                 event_date
         ', [$dbewEcgm, $user_id, $max_event_days_away]);
