@@ -41,7 +41,7 @@
     <input type="submit" value="Log out">
     </form>
 @endguest
-<hr>
+<hr class="top">
 @include('home_promo_stuff')
     @yield('content')
 <hr>
