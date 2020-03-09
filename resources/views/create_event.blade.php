@@ -22,7 +22,7 @@
 
     <br><br>
     <label for="url">URL</label>
-    <input id="url" type="url" name="url" size="50" maxlength="255" value="https://www.facebook.com/events/" required>
+    <input id="url" type="url" name="url" size="50" maxlength="255" required>
     <br>URL of the event. Often this can be a Facebook event or group page.
 
     @if ($logged_in_user_can_create_public_missions)
