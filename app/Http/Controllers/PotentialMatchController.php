@@ -33,7 +33,9 @@ class PotentialMatchController extends Controller
 
         $c1_choice_additional = '';
         $c2_choice_additional = '';
-        if (isset($_GET['show_met'])) {
+        $show_met             = false;
+        if (isset($_GET['show_met']) && $_GET['show_met']) {
+            $show_met             = true;
             $c1_choice_additional = ' or c1.choice = -1';
             $c2_choice_additional = ' or c2.choice = -1';
         }
@@ -135,6 +137,7 @@ class PotentialMatchController extends Controller
             'profiles_found_count'          => $profiles_found_count,
             'titles'                        => $titles,
             'curse_interface'               => $curse_interface,
+            'show_met'                      => $show_met,
         ]);
     }
 

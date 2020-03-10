@@ -50,7 +50,7 @@ class CreateEventController extends Controller
                 die("Event date must be of the form 'YYYY-MM-DD', not '$event_date'");
             }
         }
-        if (isset($_POST['url'])) {
+        if (isset($_POST['url']) && $url) {
             $url = $_POST['url'];
             if (preg_match('/^https?:\/\//', $url)) {
                 // All good
@@ -58,7 +58,7 @@ class CreateEventController extends Controller
                 die("URL must be a URL like http:// or https://, not '$url'");
             }
         }
-        if ($event_class && $event_date && $event_long_name && $url) {
+        if ($event_class && $event_date && $event_long_name) {
             $public = 0;
             if ($logged_in_user_can_create_public_missions) {
                 if (isset($_POST['public']) && $_POST['public']) {

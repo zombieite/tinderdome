@@ -7,6 +7,11 @@
         @php $previous_profile_id = $profile['profile_id'] @endphp
     @endforeach
 @else
-    We can't find any potential matches for you yet. Keep an eye on your <a href="/">home page</a> and be sure to rate all new users as they show up.
+    @if ($show_met)
+        No one has signed up yet.
+    @else
+        We can't find any potential matches for you yet.
+    @endif
+    Encourage people to sign up, keep an eye on the <a href="/">home page</a>, and be sure to rate all new users as they show up.
 @endif
 @endsection
