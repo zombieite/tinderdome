@@ -129,12 +129,12 @@
                                 <a href="/potential-match?event_id={{ $upcoming_event->event_id }}&show_met=1">
                                 @if ($upcoming_event->signups_still_needed)
                                     @if ($upcoming_event->signups_still_needed == 1)
-                                        {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signup still needed.
+                                        {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signup still needed
                                     @else
-                                        {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed.
+                                        {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed
                                     @endif
                                 @else
-                                    {{ $upcoming_event->attending_count }} signups.
+                                    {{ $upcoming_event->attending_count }}
                                 @endif
                                 </a>
                             </td>
