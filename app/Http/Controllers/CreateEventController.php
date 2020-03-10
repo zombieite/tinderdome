@@ -69,11 +69,7 @@ class CreateEventController extends Controller
             return redirect('/');
         }
 
-        $existing_event_classes_result = DB::select("select group_concat(distinct event_class order by event_class separator ', ') event_classes from event order by event_class limit 10");
-        $existing_event_classes = $existing_event_classes_result[0]->event_classes;
-
         return view('create_event', [
-            'existing_event_classes'                    => $existing_event_classes,
             'logged_in_user_can_create_public_missions' => $logged_in_user_can_create_public_missions,
         ]);
     }

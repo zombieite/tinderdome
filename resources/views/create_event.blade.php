@@ -14,7 +14,7 @@
     <br><br>
     <label for="event_class">Event class</label>
     <input id="event_class" type="text" name="event_class" pattern="^[A-Za-z0-9 ]+$" size="50" maxlength="50" required>
-    <br>This is just a word or a few words describing the type of event it is. Event class can be re-used for multiple similar events. You can create a new class, or use an existing class such as {{ $existing_event_classes }}.
+    <br>This is just a word or a few words describing the type of event it is. Event class can be re-used for multiple similar events. You can create a new class, or use an existing class such as atomic_falls, ball, detonation, neotropolis, wasteland, winter_games.
 
     <br><br>
     <label for="event_date">Event date</label>
