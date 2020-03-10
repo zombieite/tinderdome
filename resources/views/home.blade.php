@@ -112,12 +112,12 @@
                                     checked
                                 @endif
                                 >
+                                {{ $upcoming_event->event_long_name }}
+                                <br>
+                                {{ $upcoming_event->event_date }}
                                 @if ($upcoming_event->url)
-                                    <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_long_name }}</a>
-                                @else
-                                    {{ $upcoming_event->event_long_name }}
+                                    <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->url }}</a>
                                 @endif
-                                <br>{{ $upcoming_event->event_date }}
                                 @if ($upcoming_event->created_by_name)
                                     <br><span class="small">Event created by {{ $upcoming_event->created_by_name }}</span>
                                 @endif
