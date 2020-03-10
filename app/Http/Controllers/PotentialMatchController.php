@@ -21,6 +21,7 @@ class PotentialMatchController extends Controller
         $all_users                                = [];
         $nos_left                                 = \App\Util::nos_left_for_user( $logged_in_user_id );
         $curse_interface                          = \App\Util::is_wastelander( $logged_in_user_id );
+        $not_signed_up                            = false;
 
         if (!$logged_in_user->number_photos) {
              return redirect('/image/upload');
@@ -44,6 +45,12 @@ class PotentialMatchController extends Controller
         if (isset($_GET['event_id'])) {
             if (preg_match('/^[0-9]+$/', $_GET['event_id'])) {
                 $event_id_clause = "and i_am_attending.event_id = ".$_GET['event_id'];
+                $logged_in_user_is_attending = DB::select('select user_id from attending where user_id = ? and event_id = ?', [$logged_in_user_id, $_GET['event_id']]);
+                if ($logged_in_user_is_attending) {
+                    // All good
+                } else {
+                    $not_signed_up = true;
+                }
             }
         }
 
@@ -138,6 +145,7 @@ class PotentialMatchController extends Controller
             'titles'                        => $titles,
             'curse_interface'               => $curse_interface,
             'show_met'                      => $show_met,
+            'not_signed_up'                 => $not_signed_up,
         ]);
     }
 
