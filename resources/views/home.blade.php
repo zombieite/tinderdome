@@ -126,20 +126,17 @@
                         <tr>
                             <td>Signups</td>
                             <td>
+                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}&show_met=1">
                                 @if ($upcoming_event->signups_still_needed)
                                     @if ($upcoming_event->signups_still_needed == 1)
                                         {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signup still needed.
                                     @else
                                         {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed.
                                     @endif
-                                    @if ($upcoming_event->url)
-                                        <a href="{{ $upcoming_event->url }}" class="bright">Get the word out</a>!
-                                    @else
-                                        Get the word out!
-                                    @endif
                                 @else
-                                    {{ $upcoming_event->attending_count }} signups. <a href="/potential-match?event_id={{ $upcoming_event->event_id }}&show_met=1">See who's attending.</a>
+                                    {{ $upcoming_event->attending_count }} signups.
                                 @endif
+                                </a>
                             </td>
                         </tr>
                         <tr>
@@ -171,9 +168,9 @@
                                                 @endif
                                             @endif
                                             @if ($random_ok)
-                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will most likely be matched to one of these users</a>.
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will most likely be matched to one of these users.</a>
                                             @else
-                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will be matched to one of these users</a>.
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will be matched to one of these users.</a>
                                             @endif
                                         @else
                                             @if ($upcoming_event->attending_event_id)
