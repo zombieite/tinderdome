@@ -10,7 +10,7 @@ shuffle($ads);
 //array_pop($ads);
 
 // Can be used to add mandatory ads that must always be shown
-array_push($ads, '<a class="small" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>');
+array_push($ads, '<a class="small bright" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>');
 array_push($ads, '<a class="small" href="https://cultofcatmeat.com">Cult of Catmeat</a>');
 
 shuffle($ads);
