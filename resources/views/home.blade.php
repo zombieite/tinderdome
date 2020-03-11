@@ -133,7 +133,7 @@
                                         {{ $upcoming_event->attending_count }}/{{ $upcoming_event->attending_count + $upcoming_event->signups_still_needed }}, {{ $upcoming_event->signups_still_needed }} signups still needed
                                     @endif
                                 @else
-                                    {{ $upcoming_event->attending_count }}
+                                    {{ $upcoming_event->attending_count }} signups
                                 @endif
                                 </a>
                             </td>
