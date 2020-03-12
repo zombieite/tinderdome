@@ -139,6 +139,9 @@ class Util {
                 event_date
         ', [$dbewEcgm, $user_id, $max_event_days_away, $user_id]);
 		foreach ($event_results as $event_result) {
+            $event_long_name_hyphenated = $event_result->event_long_name;
+            $event_long_name_hyphenated = preg_replace('/\s+/', '-', $event_long_name_hyphenated);
+            $event_result->event_long_name_hyphenated = $event_long_name_hyphenated;
 			$event_count_result = DB::select('
 				select
 					count(*) event_count
