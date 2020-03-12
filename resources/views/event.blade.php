@@ -1,15 +1,16 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>Event</h1>
-
 <form action="" method="POST">
     {{ csrf_field() }}
 
-    {{ $event->event_long_name }}
-    <br>{{ $event->event_class }}
-    <br>{{ $event->event_date }}
-    <br>{{ $event->url }}
+    <h1>{{ $event->event_long_name }}: {{ $event->event_date }}</h1>
+    @if ($event->url)
+        <h3><a href="{{ $event->url }}">{{ $event->url }}</a></h3>
+    @endif
+    @if ($event->created_by_name)
+        <span class="small">Event created by {{ $event->created_by_name }}</span>
+    @endif
 
     @if ($logged_in_user_created_this_event)
         <br><button id="submit" type="submit" class="yesyes">Submit changes</button>

@@ -76,24 +76,23 @@ class EventController extends Controller
 
     public function event( $event_id )
     {
-        $logged_in_user                    = Auth::user();
-        $logged_in_user_id                 = Auth::id();
+        $logged_in_user                            = Auth::user();
+        $logged_in_user_id                         = Auth::id();
 
-        $logged_in_user_created_this_event = false;
-        $event                             = null;
+        $logged_in_user_created_this_event         = false;
         if (preg_match('/^[0-9]+$/', $event_id)) {
             // All good
         } else {
             die('Invalid event id');
         }
-        $event_result                      = DB::select('select event_class, event_date, event_long_name, url, created_by, public from event where event_id = ?', [$event_id]);
-        if ($event_result) {
-            $event = $event_result[0];
+        $event_result                              = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user, $event_id );
+        $event                                     = $event_result[0];
+        if ($event) {
             if ($event->created_by == $logged_in_user_id) {
                 $logged_in_user_created_this_event = true;
             }
         } else {
-            die("Event 'event_id' not found");
+            die("Event not found");
         }
 
         return view('event', [
