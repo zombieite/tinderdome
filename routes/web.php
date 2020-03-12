@@ -18,7 +18,7 @@ Route::get( '/photosearch',                           'PhotoSearchController@pho
 Route::get( '/search',                                'SearchController@search')->middleware(                 'auth');
 Route::get( '/potential-match',                       'PotentialMatchController@potential_match')->middleware('auth');
 Route::get( '/create-event',                          'EventController@create_event')->middleware(            'auth');
-Route::get( '/event/{event_id}',                      'EventController@event')->middleware(                   'auth');
+Route::get( '/event/{event_id}/{event_long_name}',    'EventController@event')->middleware(                   'auth');
 Route::post('/',                                      'HomeController@index')->middleware(                    'auth');
 Route::post('/profile/compatible',                    'ProfileController@compatible')->middleware(            'auth');
 Route::post('/profile/comment',                       'ProfileController@comment')->middleware(               'auth');
@@ -30,4 +30,4 @@ Route::post('/potential-match',                       'PotentialMatchController@
 Route::post('/match-me',                              'MatchController@match_me')->middleware(                'auth');
 Route::post('/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
 Route::post('/create-event',                          'EventController@create_event')->middleware(            'auth');
-Route::post('/event/{event_id}',                      'EventController@event')->middleware(                   'auth');
+Route::post('/event/{event_id}/{event_long_name}',    'EventController@event')->middleware(                   'auth');
