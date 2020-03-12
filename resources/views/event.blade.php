@@ -9,7 +9,11 @@
         <h3><a href="{{ $event->url }}">{{ $event->url }}</a></h3>
     @endif
     @if ($event->created_by_name)
-        <span class="small">Event created by {{ $event->created_by_name }}</span>
+        @if ($logged_in_user_created_this_event)
+            <span class="small">Event created by you</span>
+        @else
+            <span class="small">Event created by {{ $event->created_by_name }}</span>
+        @endif
     @endif
 
     @if ($logged_in_user_created_this_event)
