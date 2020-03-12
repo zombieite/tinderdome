@@ -112,7 +112,7 @@
                                     checked
                                 @endif
                                 >
-                                <a href="/event?event_id={{ $upcoming_event->event_id }}">{{ $upcoming_event->event_long_name }}</a>: {{ $upcoming_event->event_date }}
+                                <a href="/event/{{ $upcoming_event->event_id }}">{{ $upcoming_event->event_long_name }}</a>: {{ $upcoming_event->event_date }}
                                 @if ($upcoming_event->url)
                                     <br>
                                     <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->url }}</a>

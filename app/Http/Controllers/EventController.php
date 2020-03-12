@@ -74,32 +74,26 @@ class EventController extends Controller
         ]);
     }
 
-    public function event()
+    public function event( $event_id )
     {
         $logged_in_user                    = Auth::user();
         $logged_in_user_id                 = Auth::id();
 
         $logged_in_user_created_this_event = false;
-        $event_id                          = null;
         $event                             = null;
-        if (isset($_GET['event_id']) && $_GET['event_id']) {
-            $event_id                      = $_GET['event_id'];
-            if (preg_match('/^[0-9]+$/', $event_id)) {
-                // All good
-            } else {
-                die('Invalid event id');
-            }
-            $event_result                  = DB::select('select event_class, event_date, event_long_name, url, created_by, public from event where event_id = ?', [$event_id]);
-            if ($event_result) {
-                $event = $event_result[0];
-                if ($event->created_by == $logged_in_user_id) {
-                    $logged_in_user_created_this_event = true;
-                }
-            } else {
-                die("Event 'event_id' not found");
+        if (preg_match('/^[0-9]+$/', $event_id)) {
+            // All good
+        } else {
+            die('Invalid event id');
+        }
+        $event_result                      = DB::select('select event_class, event_date, event_long_name, url, created_by, public from event where event_id = ?', [$event_id]);
+        if ($event_result) {
+            $event = $event_result[0];
+            if ($event->created_by == $logged_in_user_id) {
+                $logged_in_user_created_this_event = true;
             }
         } else {
-            die('Must provide event_id');
+            die("Event 'event_id' not found");
         }
 
         return view('event', [
