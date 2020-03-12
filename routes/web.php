@@ -17,7 +17,8 @@ Route::get( '/image/upload',                          'ImageController@upload')-
 Route::get( '/photosearch',                           'PhotoSearchController@photosearch')->middleware(       'auth');
 Route::get( '/search',                                'SearchController@search')->middleware(                 'auth');
 Route::get( '/potential-match',                       'PotentialMatchController@potential_match')->middleware('auth');
-Route::get( '/create-event',                          'CreateEventController@create_event')->middleware(      'auth');
+Route::get( '/create-event',                          'EventController@create_event')->middleware(            'auth');
+Route::get( '/event',                                 'EventController@event')->middleware(                   'auth');
 Route::post('/',                                      'HomeController@index')->middleware(                    'auth');
 Route::post('/profile/compatible',                    'ProfileController@compatible')->middleware(            'auth');
 Route::post('/profile/comment',                       'ProfileController@comment')->middleware(               'auth');
@@ -28,4 +29,5 @@ Route::post('/search',                                'SearchController@update_r
 Route::post('/potential-match',                       'PotentialMatchController@update_rating')->middleware(  'auth');
 Route::post('/match-me',                              'MatchController@match_me')->middleware(                'auth');
 Route::post('/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
-Route::post('/create-event',                          'CreateEventController@create_event')->middleware(      'auth');
+Route::post('/create-event',                          'EventController@create_event')->middleware(            'auth');
+Route::post('/event',                                 'EventController@event')->middleware(                   'auth');
