@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Util;
 use Log;
 
-class CreateEventController extends Controller
+class EventController extends Controller
 {
     public function create_event()
     {
