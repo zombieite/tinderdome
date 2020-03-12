@@ -73,4 +73,13 @@ class EventController extends Controller
             'logged_in_user_can_create_public_missions' => $logged_in_user_can_create_public_missions,
         ]);
     }
+
+    public function event()
+    {
+        $logged_in_user            = Auth::user();
+        $logged_in_user_id         = Auth::id();
+
+        return view('event', [
+        ]);
+    }
 }
