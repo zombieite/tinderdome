@@ -112,7 +112,7 @@
                                     checked
                                 @endif
                                 >
-                                {{ $upcoming_event->event_long_name }}: {{ $upcoming_event->event_date }}
+                                <a href="/event?event_id={{ $upcoming_event->event_id }}">{{ $upcoming_event->event_long_name }}</a>: {{ $upcoming_event->event_date }}
                                 @if ($upcoming_event->url)
                                     <br>
                                     <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->url }}</a>
@@ -167,9 +167,9 @@
                                                 @endif
                                             @endif
                                             @if ($random_ok)
-                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will most likely be matched to one of these users.</a>
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will most likely be matched to one of these users</a>.
                                             @else
-                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will be matched to one of these users.</a>
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will be matched to one of these users</a>.
                                             @endif
                                         @else
                                             @if ($upcoming_event->attending_event_id)
