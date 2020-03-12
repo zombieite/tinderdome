@@ -87,37 +87,31 @@ class Util {
 		}
     }
 
-    public static function upcoming_events_with_pretty_name_and_date() {
-        return DB::select('
-            select
-                event_id,
-                event_long_name,
-                event_date
-            from
-                event
-            where
-                event_date > now()
-            order by
-                event_date
-        ');
-    }
-
 	public static function min_signups_to_run_event()                        { return 20; }
 	public static function days_before_event_when_everyone_can_get_match()   { return  3; }
 	public static function days_before_event_when_top_ranked_can_get_match() { return  7; }
     public static function max_event_days_away()                             { return 90; }
 
-    public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user ) {
+    public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user, $event_id = null ) {
 		$user_id                  = $user->id;
 		$min_signups_to_run_event = \App\Util::min_signups_to_run_event();
 		$max_event_days_away      = \App\Util::max_event_days_away();
 		$dbewEcgm                 = \App\Util::days_before_event_when_everyone_can_get_match();
 		$dbewTRcgm                = \App\Util::days_before_event_when_top_ranked_can_get_match();
-        $event_results            = DB::select('
+        $event_id_clause          = '';
+        if ($event_id) {
+            if (preg_match('/^[0-9]+$/', $event_id)) {
+                $event_id_clause = "and event.event_id = $event_id";
+            } else {
+                die('Invalid event id');
+            }
+        }
+        $event_results            = DB::select("
             select
                 event.event_id,
                 event_long_name,
                 event_date,
+                event.created_by,
 				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_everyone_can_match,
                 unix_timestamp(now()) now_time,
 				url,
@@ -126,7 +120,7 @@ class Util {
                 users.name created_by_name
             from
                 event
-                left join users on (event.created_by = users.id and event.created_by <> 1)
+                left join users on (event.created_by = users.id)
                 left join attending on event.event_id = attending.event_id and attending.user_id = ?
             where
                     event_date >= now() - interval 1 day
@@ -135,9 +129,10 @@ class Util {
                        event.public = 1
                     or event.created_by = ?
                 )
+                $event_id_clause
             order by
                 event_date
-        ', [$dbewEcgm, $user_id, $max_event_days_away, $user_id]);
+        ", [$dbewEcgm, $user_id, $max_event_days_away, $user_id]);
 		foreach ($event_results as $event_result) {
             $event_long_name_hyphenated = $event_result->event_long_name;
             $event_long_name_hyphenated = preg_replace('/\s+/', '-', $event_long_name_hyphenated);

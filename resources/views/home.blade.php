@@ -118,7 +118,8 @@
                                     <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->url }}</a>
                                 @endif
                                 @if ($upcoming_event->created_by_name)
-                                    <span class="small">Event created by {{ $upcoming_event->created_by_name }}</span>
+                                    <br>
+                                    <span class="small">Created by {{ $upcoming_event->created_by_name }}</span>
                                 @endif
                             </td>
                         </tr>
