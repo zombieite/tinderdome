@@ -27,7 +27,7 @@ class ProfileController extends Controller
         $logged_in_user          = Auth::user();
         $logged_in_user_id       = Auth::id();
 
-        if (!$logged_in_user->number_photos && $profile_id != 1 && $profile_id != $logged_in_user_id) {
+        if ($profile_id != 1 && !$logged_in_user->number_photos && $profile_id != 1 && $profile_id != $logged_in_user_id) {
             return redirect('/image/upload');
         }
 
