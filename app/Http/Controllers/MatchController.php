@@ -138,6 +138,7 @@ class MatchController extends Controller
                 if ($my_match_user_id) {
                     try {
                         DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
+                        DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$logged_in_user_id, $my_match_user_id, $event_id]);
                     } catch (Exception $e) {
                         $my_match_user_id = null;
                         Log::error("Error matching '$logged_in_user_id' to '$my_match_user_id', probably race condition, probably someone else got them as a match, can retry: '".$e->getMessage()."'");
