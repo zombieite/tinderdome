@@ -110,6 +110,7 @@ class Util {
             select
                 event.event_id,
                 event_long_name,
+                event.description,
                 event_date,
                 event.created_by,
 				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_everyone_can_match,

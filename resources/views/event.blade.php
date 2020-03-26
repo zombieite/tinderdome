@@ -8,6 +8,7 @@
     @if ($event->url)
         <h3><a href="{{ $event->url }}">{{ $event->url }}</a></h3>
     @endif
+    {{ $event->description }}<br><br>
     @if ($event->created_by_name)
         @if ($logged_in_user_created_this_event)
             <span class="small">Event created by you</span>
