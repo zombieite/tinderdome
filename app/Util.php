@@ -217,6 +217,7 @@ class Util {
                 email,
                 number_photos,
                 attending.event_id,
+                attending.match_requested,
                 event_long_name,
                 c1.choice logged_in_users_rating_of_this_user,
                 c2.choice this_users_rating_of_logged_in_user,
