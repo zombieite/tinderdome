@@ -65,7 +65,7 @@ class SearchController extends Controller
                 gender,
                 height,
                 birth_year,
-                description,
+                users.description,
                 title_index,
                 number_photos,
                 hoping_to_find_love,
