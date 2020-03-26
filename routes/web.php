@@ -4,6 +4,7 @@
 Route::get( '/',                                      'HomeController@index');
 Route::get( '/awaited-nonfictional-delusion',         'AwaitedNonfictionalDelusionController@awaited_nonfictional_delusion');
 Route::get( '/profile/Firebird',                      'ProfileController@showFirebird');
+Route::get( '/event/{event_id}/{event_long_name}',    'EventController@event');
 
 // Visible to logged in only ( add ->middleware('auth'); )
 Auth::routes();
@@ -18,7 +19,6 @@ Route::get( '/photosearch',                           'PhotoSearchController@pho
 Route::get( '/search',                                'SearchController@search')->middleware(                 'auth');
 Route::get( '/potential-match',                       'PotentialMatchController@potential_match')->middleware('auth');
 Route::get( '/create-event',                          'EventController@create_event')->middleware(            'auth');
-Route::get( '/event/{event_id}/{event_long_name}',    'EventController@event')->middleware(                   'auth');
 Route::post('/',                                      'HomeController@index')->middleware(                    'auth');
 Route::post('/profile/compatible',                    'ProfileController@compatible')->middleware(            'auth');
 Route::post('/profile/comment',                       'ProfileController@comment')->middleware(               'auth');

@@ -192,6 +192,53 @@ class Util {
 		return $event_results;
     }
 
+    public static function upcoming_events_with_pretty_name_and_date( $event_id ) {
+		$min_signups_to_run_event = \App\Util::min_signups_to_run_event();
+		$max_event_days_away      = \App\Util::max_event_days_away();
+		$dbewEcgm                 = \App\Util::days_before_event_when_everyone_can_get_match();
+		$dbewTRcgm                = \App\Util::days_before_event_when_top_ranked_can_get_match();
+        if (preg_match('/^[0-9]+$/', $event_id)) {
+            // All good
+        } else {
+            die('Invalid event id');
+        }
+        $event_results            = DB::select("
+            select
+                event.event_id,
+                event_long_name,
+                event.description,
+                event_date,
+                event.created_by,
+				url
+            from
+                event
+            where
+                event_id = ?
+                and public = 1
+        ", [$event_id]);
+		foreach ($event_results as $event_result) {
+            $event_long_name_hyphenated = $event_result->event_long_name;
+            $event_long_name_hyphenated = preg_replace('/\s+/', '-', $event_long_name_hyphenated);
+            $event_result->event_long_name_hyphenated = $event_long_name_hyphenated;
+			$event_count_result = DB::select('
+				select
+					count(*) event_count
+				from
+					attending
+					join users on attending.user_id = users.id
+				where
+					event_id = ?
+			',[$event_result->event_id]);
+			$count                              = $event_count_result[0]->event_count;
+            $event_result->created_by_name      = '';
+			$event_result->attending_count      = $count;
+			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
+			$event_result->can_claim_match      = false;
+            $event_result->already_matched_but_dont_know_it = false;
+		}
+		return $event_results;
+    }
+
     public static function events_user_is_attending($user_id) {
         return DB::select('
             select
