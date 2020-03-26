@@ -85,7 +85,14 @@ class EventController extends Controller
         } else {
             die('Invalid event id');
         }
-        $event_result                              = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user, $event_id );
+
+        $event_result                              = null;
+        if ($logged_in_user) {
+            $event_result                          = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user, $event_id );
+        } else {
+            $event_result                          = \App\Util::upcoming_events_with_pretty_name_and_date( $event_id );
+        }
+
         $event                                     = $event_result[0];
         if ($event) {
             if ($event->created_by == $logged_in_user_id) {

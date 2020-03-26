@@ -16,7 +16,9 @@
             <span class="small">Event created by {{ $event->created_by_name }}</span>
         @endif
     @endif
-
+    @guest
+        <a href="/register">Sign up here</a>.
+    @endguest
     @if ($logged_in_user_created_this_event)
         <br><button id="submit" type="submit" class="yesyes">Submit changes</button>
     @endif
