@@ -10,7 +10,7 @@
 	@if (isset($is_my_match) && $is_my_match)
 		<input type="submit" name="Met" value="I found them and met them in person"@if (!isset($current_choice) || (isset($current_choice) && ($current_choice != 0))) class="met"@endif>
 		&nbsp;&nbsp;&nbsp;
-		<input type="submit" name="No" value="I found them but I did not enjoy meeting them"@if (!isset($current_choice) || (isset($current_choice) && ($current_choice != -1))) class="no"@endif>
+		<input type="submit" name="No" value="I found them but I want to block them"@if (!isset($current_choice) || (isset($current_choice) && ($current_choice != -1))) class="no"@endif>
 	@else
 		<input type="submit" name="Met" value="I have met them"@if (($current_choice == -1) || !isset($current_choice)) class="met"@endif>
 		@if (($current_choice === 0) || ($nos_left > 0) || (!$number_photos))

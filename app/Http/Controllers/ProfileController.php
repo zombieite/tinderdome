@@ -113,6 +113,7 @@ class ProfileController extends Controller
                     where
                         user_id = ?
                         and user_id_of_match = ?
+                        and match_requested is not null
                 ', [$profile_id, $logged_in_user_id]);
             }
 
