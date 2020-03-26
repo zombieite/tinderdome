@@ -17,7 +17,7 @@
         @endif
     @endif
     @guest
-        <a href="/register">Sign up here</a>.
+        <a href="/register" class="bright">Sign up here</a>.
     @endguest
     @if ($logged_in_user_created_this_event)
         <br><button id="submit" type="submit" class="yesyes">Submit changes</button>
