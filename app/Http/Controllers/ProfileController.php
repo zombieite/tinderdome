@@ -105,6 +105,13 @@ class ProfileController extends Controller
                 $event_long_name                        = $match->event_long_name;
                 $is_my_match                            = true;
                 $ok_to_mark_user_found                  = $match->ok_to_mark_user_found;
+
+                // This tells our match that we have logged in and looked at their profile and realized they are our match
+                if (DB::select('select attending_id from attending where user_id = ? and user_id_of_match = ? and match_requested is null', [$logged_in_user_id, $profile_id])) {
+                    DB::update('update attending set match_requested = now() where user_id = ? and user_id_of_match = ?', [$logged_in_user_id, $profile_id]);
+                }
+
+                // This checks to see if they have logged in to check that we are their match
                 $match_knows_you_are_their_match        = DB::select('
                     select
                         *
