@@ -26,13 +26,10 @@ class EventController extends Controller
         $event_date      = null;
         $event_long_name = null;
         $url             = null;
+        $description     = null;
         if (isset($_POST['event_class'])) {
             $event_class = $_POST['event_class'];
-            if (preg_match('/^[a-zA-Z0-9 ]+$/', $event_class)) {
-                // All good
-            } else {
-                die("Invalid event class '$event_class'");
-            }
+            $event_class = preg_replace('/[^\x20-\x7E]/', '', $event_class);
         }
         if (isset($_POST['event_date'])) {
             $event_date = $_POST['event_date'];
@@ -44,18 +41,21 @@ class EventController extends Controller
         }
         if (isset($_POST['event_long_name'])) {
             $event_long_name = $_POST['event_long_name'];
-            if (preg_match('/^[a-zA-Z0-9 ]+$/', $event_long_name)) {
-                // All good
-            } else {
-                die("Event date must be of the form 'YYYY-MM-DD', not '$event_date'");
-            }
+            $event_long_name = preg_replace('/[^\x20-\x7E]/', '', $event_long_name);
         }
-        if (isset($_POST['url']) && $url) {
+        if (isset($_POST['url']) && $_POST['url']) {
             $url = $_POST['url'];
             if (preg_match('/^https?:\/\//', $url)) {
                 // All good
             } else {
                 die("URL must be a URL like http:// or https://, not '$url'");
+            }
+        }
+        if (isset($_POST['description']) && $_POST['description']) {
+            $description = $_POST['description'];
+            $description = preg_replace('/[^\x20-\x7E]/', '', $description);
+            if (strlen($description) > 2000) {
+                $description = substr($description, 0, 2000);
             }
         }
         if ($event_class && $event_date && $event_long_name) {
@@ -65,11 +65,14 @@ class EventController extends Controller
                     $public = 1;
                 }
             }
-            DB::insert('insert into event (event_class, event_date, event_long_name, url, created_by, public) values (?, ?, ?, ?, ?, ?)', [$event_class, $event_date, $event_long_name, $url, $logged_in_user_id, $public]);
+            DB::insert('insert into event (event_class, event_date, event_long_name, url, description, created_by, public) values (?, ?, ?, ?, ?, ?, ?)', [$event_class, $event_date, $event_long_name, $url, $description, $logged_in_user_id, $public]);
             return redirect('/');
         }
 
+        $logged_in_user_name = $logged_in_user->name;
+
         return view('create_event', [
+            'logged_in_user_name'                       => $logged_in_user_name,
             'logged_in_user_can_create_public_missions' => $logged_in_user_can_create_public_missions,
         ]);
     }
