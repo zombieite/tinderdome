@@ -37,10 +37,7 @@
 
 I am...
 <br>
-<input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
-<label for="random_ok">(Recommended) Open to a random match if a mutual match can't be found.</label>
-<br>
-<input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" @guest checked @else @if ($hoping_to_find_friend) checked @endif @endguest>
+<input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" checked disabled>
 <label for="hoping_to_find_friend">Open to finding a new friend.</label>
 <br>
 @guest
@@ -53,10 +50,13 @@ I am...
 @endguest
 <input type="checkbox" name="hoping_to_find_love" id="hoping_to_find_love" @guest @else @if ($hoping_to_find_love) checked @endif @endguest>
 <label for="hoping_to_find_love">Open to finding a new romantic partner.</label>
-<p style="margin-left: 2em; margin-top: 0em; margin-bottom: 0em;">
-	<input type="checkbox" name="share_info_with_favorites" id="share_info_with_favorites" @guest @else @if ($share_info_with_favorites) checked @endif @endguest>
-	<label for="share_info_with_favorites">Share my email address with mutuals.</label> You must also check "Open to finding a new romantic partner" above.
-</p>
+<br>
+<input type="checkbox" name="random_ok" id="random_ok" @guest checked @else @if ($random_ok) checked @endif @endguest>
+<label for="random_ok">(Recommended) Open to a random match if a mutual match can't be found.</label>
+<hr>
+
+<input type="checkbox" name="share_info_with_favorites" id="share_info_with_favorites" @guest @else @if ($share_info_with_favorites) checked @endif @endguest>
+<label for="share_info_with_favorites">Share my email address with mutuals.</label>
 
 <hr>
 
@@ -141,7 +141,7 @@ We will try to match you to a user of your preferred gender, but you must be ope
 
 <label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported. 2000 characters maximum.
 <br>
-<textarea rows="20" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
+<textarea rows="10" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
 
 <br><br>
 <label for="how_to_find_me">Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported.

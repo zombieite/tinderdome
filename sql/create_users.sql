@@ -16,7 +16,6 @@ CREATE TABLE users (
 	number_photos INT,
 	hoping_to_find_friend BOOLEAN,
 	hoping_to_find_love BOOLEAN,
-	hoping_to_find_lost BOOLEAN,
 	hoping_to_find_enemy BOOLEAN,
 	share_info_with_favorites BOOLEAN,
     random_ok tinyint(1) NOT NULL DEFAULT 1,
