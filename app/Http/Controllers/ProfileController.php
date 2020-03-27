@@ -202,17 +202,13 @@ class ProfileController extends Controller
         $description                        = $profile->description;
         $how_to_find_me                     = $profile->how_to_find_me;
         $number_photos                      = $profile->number_photos;
-        $hoping_to_find_friend              = $profile->hoping_to_find_friend;
+        $hoping_to_find_friend              = true;
         $hoping_to_find_love                = $profile->hoping_to_find_love;
         $hoping_to_find_enemy               = $profile->hoping_to_find_enemy;
         $unchosen_user_id                   = $profile_id;
         $missions_completed                 = \App\Util::missions_completed( $profile_id );
         $titles                             = \App\Util::titles();
         $events                             = \App\Util::events_user_is_attending( $profile_id );
-        $logged_in_user_hoping_to_find_love = null;
-        if ($logged_in_user) {
-            $logged_in_user_hoping_to_find_love = $logged_in_user->hoping_to_find_love;
-        }
 
         return view('profile', [
             'profile_id'                         => $profile_id,
@@ -240,7 +236,6 @@ class ProfileController extends Controller
             'titles'                             => $titles,
             'title_index'                        => $title_index,
             'share_info'                         => $share_info,
-            'logged_in_user_hoping_to_find_love' => $logged_in_user_hoping_to_find_love,
             'image_query_string'                 => $image_query_string,
             'count_with_same_name'               => $count_with_same_name,
             'we_know_each_other'                 => $we_know_each_other,
@@ -278,7 +273,7 @@ class ProfileController extends Controller
         $how_to_find_me                  = $profile->how_to_find_me;
         $number_photos                   = $profile->number_photos;
         $random_ok                       = $profile->random_ok;
-        $hoping_to_find_friend           = $profile->hoping_to_find_friend;
+        $hoping_to_find_friend           = true;
         $hoping_to_find_love             = $profile->hoping_to_find_love;
         $hoping_to_find_enemy            = $profile->hoping_to_find_enemy;
         $titles                          = \App\Util::titles();
@@ -353,7 +348,7 @@ class ProfileController extends Controller
         $how_to_find_me            = preg_replace('/[^\x00-\x7E]/', '', $_POST['how_to_find_me']);
         $share_info_with_favorites = isset($_POST['share_info_with_favorites']);
         $random_ok                 = isset($_POST['random_ok']);
-        $hoping_to_find_friend     = isset($_POST['hoping_to_find_friend']);
+        $hoping_to_find_friend     = true;
         $hoping_to_find_love       = isset($_POST['hoping_to_find_love']);
         $hoping_to_find_enemy      = isset($_POST['hoping_to_find_enemy']);
         $ip                        = request()->ip();
@@ -420,7 +415,7 @@ class ProfileController extends Controller
             $profile->description               = $description;
             $profile->how_to_find_me            = $how_to_find_me;
             $profile->random_ok                 = $random_ok;
-            $profile->hoping_to_find_friend     = $hoping_to_find_friend;
+            $profile->hoping_to_find_friend     = true;
             $profile->hoping_to_find_love       = $hoping_to_find_love;
             $profile->hoping_to_find_enemy      = $hoping_to_find_enemy;
             $profile->ip                        = $ip;
