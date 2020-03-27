@@ -70,7 +70,6 @@ class RegisterController extends Controller
 			'random_ok'                   => isset($data['random_ok'])                 ? true : false,
 			'hoping_to_find_friend'       => isset($data['hoping_to_find_friend'])     ? true : false,
 			'hoping_to_find_love'         => isset($data['hoping_to_find_love'])       ? true : false,
-			'hoping_to_find_lost'         => isset($data['hoping_to_find_lost'])       ? true : false,
 			'hoping_to_find_enemy'        => isset($data['hoping_to_find_enemy'])      ? true : false,
 			'number_photos'               => 0,
 			'ip'                          => $ip,

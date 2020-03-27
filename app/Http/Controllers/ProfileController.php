@@ -204,7 +204,6 @@ class ProfileController extends Controller
         $number_photos                      = $profile->number_photos;
         $hoping_to_find_friend              = $profile->hoping_to_find_friend;
         $hoping_to_find_love                = $profile->hoping_to_find_love;
-        $hoping_to_find_lost                = $profile->hoping_to_find_lost;
         $hoping_to_find_enemy               = $profile->hoping_to_find_enemy;
         $unchosen_user_id                   = $profile_id;
         $missions_completed                 = \App\Util::missions_completed( $profile_id );
@@ -229,7 +228,6 @@ class ProfileController extends Controller
             'number_photos'                      => $number_photos,
             'hoping_to_find_friend'              => $hoping_to_find_friend,
             'hoping_to_find_love'                => $hoping_to_find_love,
-            'hoping_to_find_lost'                => $hoping_to_find_lost,
             'hoping_to_find_enemy'               => $hoping_to_find_enemy,
             'unchosen_user_id'                   => $unchosen_user_id,
             'count_left'                         => $count_left,
@@ -282,7 +280,6 @@ class ProfileController extends Controller
         $random_ok                       = $profile->random_ok;
         $hoping_to_find_friend           = $profile->hoping_to_find_friend;
         $hoping_to_find_love             = $profile->hoping_to_find_love;
-        $hoping_to_find_lost             = $profile->hoping_to_find_lost;
         $hoping_to_find_enemy            = $profile->hoping_to_find_enemy;
         $titles                          = \App\Util::titles();
         $missions_completed              = \App\Util::missions_completed( $profile_id );
@@ -303,7 +300,6 @@ class ProfileController extends Controller
             'random_ok'                  => $random_ok,
             'hoping_to_find_friend'      => $hoping_to_find_friend,
             'hoping_to_find_love'        => $hoping_to_find_love,
-            'hoping_to_find_lost'        => $hoping_to_find_lost,
             'hoping_to_find_enemy'       => $hoping_to_find_enemy,
             'update_errors'              => $update_errors,
             'title_index'                => $title_index,
@@ -359,7 +355,6 @@ class ProfileController extends Controller
         $random_ok                 = isset($_POST['random_ok']);
         $hoping_to_find_friend     = isset($_POST['hoping_to_find_friend']);
         $hoping_to_find_love       = isset($_POST['hoping_to_find_love']);
-        $hoping_to_find_lost       = isset($_POST['hoping_to_find_lost']);
         $hoping_to_find_enemy      = isset($_POST['hoping_to_find_enemy']);
         $ip                        = request()->ip();
         $user_agent                = request()->header('user-agent');
@@ -427,7 +422,6 @@ class ProfileController extends Controller
             $profile->random_ok                 = $random_ok;
             $profile->hoping_to_find_friend     = $hoping_to_find_friend;
             $profile->hoping_to_find_love       = $hoping_to_find_love;
-            $profile->hoping_to_find_lost       = $hoping_to_find_lost;
             $profile->hoping_to_find_enemy      = $hoping_to_find_enemy;
             $profile->ip                        = $ip;
             $profile->user_agent                = $user_agent;
@@ -456,7 +450,6 @@ class ProfileController extends Controller
             'missions_completed'        => $missions_completed,
             'hoping_to_find_friend'     => $hoping_to_find_friend,
             'hoping_to_find_love'       => $hoping_to_find_love,
-            'hoping_to_find_lost'       => $hoping_to_find_lost,
             'hoping_to_find_enemy'      => $hoping_to_find_enemy,
             'update_errors'             => $update_errors,
             'is_wastelander'            => $is_wastelander,

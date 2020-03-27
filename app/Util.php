@@ -335,7 +335,6 @@ class Util {
                 users.how_to_find_me,
                 users.hoping_to_find_friend,
                 users.hoping_to_find_love,
-                users.hoping_to_find_lost,
                 users.hoping_to_find_enemy,
                 users.number_photos
             from

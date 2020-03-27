@@ -26,7 +26,6 @@ class User extends Authenticatable
         'title_index',
 		'hoping_to_find_friend',
 		'hoping_to_find_love',
-		'hoping_to_find_lost',
 		'hoping_to_find_enemy',
 		'attending_winter_games',
 		'attending_ball',
