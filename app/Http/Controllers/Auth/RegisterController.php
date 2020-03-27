@@ -68,7 +68,7 @@ class RegisterController extends Controller
 			'how_to_find_me'              => $data['how_to_find_me'],
 			'share_info_with_favorites'   => isset($data['share_info_with_favorites']) ? true : false,
 			'random_ok'                   => isset($data['random_ok'])                 ? true : false,
-			'hoping_to_find_friend'       => isset($data['hoping_to_find_friend'])     ? true : false,
+			'hoping_to_find_friend'       => true,
 			'hoping_to_find_love'         => isset($data['hoping_to_find_love'])       ? true : false,
 			'hoping_to_find_enemy'        => isset($data['hoping_to_find_enemy'])      ? true : false,
 			'number_photos'               => 0,
