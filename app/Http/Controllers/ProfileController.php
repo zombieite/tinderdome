@@ -145,12 +145,12 @@ class ProfileController extends Controller
             }
 
             // Figure out if we should share this user's email with a mutual favorite
-            if ($logged_in_user->hoping_to_find_love && $logged_in_user->share_info_with_favorites) { // The logged in user must share info to be able to see others' shared info
+            if ($logged_in_user->share_info_with_favorites) { // The logged in user must share info to be able to see others' shared info
                 // Figure out if the logged in user and the profile being viewed are mutual favorites
                 if ($choice == 3) {
                     $this_profile_likes_logged_in_user = DB::select('select * from choose where chooser_id=? and chosen_id=? and choice=3', [$profile_id, $logged_in_user_id]);
                     if ($this_profile_likes_logged_in_user) {
-                        $this_profile_ok_sharing_info = DB::select('select hoping_to_find_love, share_info_with_favorites from users where id=? and hoping_to_find_love and share_info_with_favorites', [$profile_id]);
+                        $this_profile_ok_sharing_info = DB::select('select share_info_with_favorites from users where id=? and share_info_with_favorites', [$profile_id]);
                         if ($this_profile_ok_sharing_info) {
                             $share_info = $profile->email;
                         }

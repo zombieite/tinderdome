@@ -136,7 +136,7 @@ class HomeController extends Controller
         }
 
         $mutuals = [];
-        if ($logged_in_user->hoping_to_find_love && $logged_in_user->share_info_with_favorites) {
+        if ($logged_in_user->share_info_with_favorites) {
             $mutuals = DB::select("
                 select
                     id,
@@ -147,7 +147,6 @@ class HomeController extends Controller
                     join users on
                     (
                         they_chose_logged_in_user.chooser_id = users.id
-                        and users.hoping_to_find_love
                         and users.share_info_with_favorites
                         and users.id > 10
                     )
