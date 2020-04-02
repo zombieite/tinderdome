@@ -92,7 +92,7 @@ class ProfileController extends Controller
             $match_result = DB::select('
                 select
                     event_long_name,
-                    if (event_date < curdate(), 1, 0) ok_to_mark_user_found
+                    if (event_date <= curdate(), 1, 0) ok_to_mark_user_found
                 from
                     attending
                     join event on attending.event_id = event.event_id
