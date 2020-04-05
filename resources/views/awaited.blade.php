@@ -36,6 +36,7 @@ Sex Pistols - Anarchy In The UK Demo<br>
 Sheldon Allman - Crawl Out Through The Fallout<br>
 <a href="https://thedeloreans.bandcamp.com/album/as-long-as-its-you-single">Deloreans - As Long As It's You</a>
 </div>
+<a href="/images/awaited-nonfictional-delusion/01-kelli.m4a">Chapter 01, Aussie narration by Kelli Robinson (m4a)</a><br>
 <a href="https://www.youtube.com/watch?v=zQqjvO-useM">Chapter 01, Scene II (Film)</a>
 </div>
 <div class="profile_search_block" style="width:13em;height:10em;vertical-align:top;">
