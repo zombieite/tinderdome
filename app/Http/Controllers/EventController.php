@@ -96,6 +96,11 @@ class EventController extends Controller
             $event_result                          = \App\Util::upcoming_events_with_pretty_name_and_date( $event_id );
         }
 
+        if ($event_result) {
+            // All good
+        } else {
+            die("No event result for event_id '$event_id' user '$logged_in_user_id'");
+        }
         $event                                     = $event_result[0];
         if ($event) {
             if ($event->created_by == $logged_in_user_id) {
