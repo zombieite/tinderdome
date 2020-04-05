@@ -26,6 +26,7 @@ Hymie's Basement - 21st Century Pop Song<br>
 AC/DC - Back In Black<br>
 Carpenters - Close To You
 </div>
+<a href="/images/awaited-nonfictional-delusion/00-kelli.m4a">Chapter 00, Aussie narration by Kelli Robinson (m4a)</a><br>
 </div>
 <div class="profile_search_block" style="width:13em;height:7em;vertical-align:top;">
 <!--<a href="/txt/awaited_nonfictional_delusion-012501.txt">Chapter 01 (txt)</a><br>-->
