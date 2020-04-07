@@ -41,7 +41,8 @@ Sheldon Allman - Crawl Out Through The Fallout<br>
 </div>
 <div class="profile_search_block" style="width:13em;height:10em;vertical-align:top;">
 <!--<a href="/txt/awaited_nonfictional_delusion-022502.txt">Chapter 02 (txt)</a><br>-->
-<a href="/images/awaited-nonfictional-delusion/02.mp3">Chapter 02 (mp3)</a>
+<a href="/images/awaited-nonfictional-delusion/02.mp3">Chapter 02 (mp3)</a><br>
+<a href="/images/awaited-nonfictional-delusion/02-kelli.m4a">Chapter 02, Aussie narration by Kelli Robinson (m4a)</a><br>
 </div>
 <div class="profile_search_block" style="width:13em;height:10em;vertical-align:top;">
 <!--<a href="/txt/awaited_nonfictional_delusion-033011.txt">Chapter 03 (txt)</a><br>-->
