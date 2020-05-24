@@ -80,19 +80,13 @@
 <ol>
 
 @if ($number_photos)
-    <li>COMPLETE: <a href="/profile/{{ $logged_in_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.</li>
+    <li><a href="/profile/{{ $logged_in_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.</li>
 @else
     <li><a href="/image/upload" class="bright">INCOMPLETE: You must upload a photo</a>.</li>
 @endif
 
 @if ($upcoming_events_and_signup_status)
     <li><div>
-        @foreach ($upcoming_events_and_signup_status as $upcoming_event)
-            @if ($upcoming_event->attending_event_id)
-                COMPLETE:
-                @break
-            @endif
-        @endforeach
         Sign up for events by checking the boxes and clicking Submit.<br>
         @if ($number_photos)
             <form action="/" method="POST">
@@ -207,7 +201,7 @@
     <li>
         @foreach ($upcoming_events_and_signup_status as $upcoming_event)
             @if ($upcoming_event->attending_event_id)
-                COMPLETE: You have viewed all profiles.
+                You have viewed all profiles.
                 @if ($recently_updated_users)
                     <a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Some profiles were recently updated</a>.
                 @else
