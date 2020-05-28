@@ -92,13 +92,14 @@ class Util {
 	public static function days_before_event_when_top_ranked_can_get_match() { return  7; }
     public static function max_event_days_away()                             { return 180; }
 
-    public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user, $event_id = null ) {
+    public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user, $event_id = null, $event_long_name = null ) {
 		$user_id                  = $user->id;
 		$min_signups_to_run_event = \App\Util::min_signups_to_run_event();
 		$max_event_days_away      = \App\Util::max_event_days_away();
 		$dbewEcgm                 = \App\Util::days_before_event_when_everyone_can_get_match();
 		$dbewTRcgm                = \App\Util::days_before_event_when_top_ranked_can_get_match();
         $event_id_clause          = '';
+        $event_long_name          = $event_long_name ? preg_replace('/-/', ' ', $event_long_name) : '';
         if ($event_id) {
             if (preg_match('/^[0-9]+$/', $event_id)) {
                 $event_id_clause = "and event.event_id = $event_id";
@@ -129,11 +130,12 @@ class Util {
                 and (
                        event.public = 1
                     or event.created_by = ?
+                    or event.event_long_name = ?
                 )
                 $event_id_clause
             order by
                 event_date
-        ", [$dbewEcgm, $user_id, $max_event_days_away, $user_id]);
+        ", [$dbewEcgm, $user_id, $max_event_days_away, $user_id, $event_long_name]);
 		foreach ($event_results as $event_result) {
             $event_long_name_hyphenated = $event_result->event_long_name;
             $event_long_name_hyphenated = preg_replace('/\s+/', '-', $event_long_name_hyphenated);
@@ -192,7 +194,7 @@ class Util {
 		return $event_results;
     }
 
-    public static function upcoming_events_with_pretty_name_and_date( $event_id ) {
+    public static function upcoming_events_with_pretty_name_and_date( $event_id, $event_long_name = null ) {
 		$min_signups_to_run_event = \App\Util::min_signups_to_run_event();
 		$max_event_days_away      = \App\Util::max_event_days_away();
 		$dbewEcgm                 = \App\Util::days_before_event_when_everyone_can_get_match();

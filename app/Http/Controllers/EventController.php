@@ -77,7 +77,7 @@ class EventController extends Controller
         ]);
     }
 
-    public function event( $event_id )
+    public function event( $event_id, $event_long_name = null )
     {
         $logged_in_user                            = Auth::user();
         $logged_in_user_id                         = Auth::id();
@@ -91,9 +91,9 @@ class EventController extends Controller
 
         $event_result                              = null;
         if ($logged_in_user) {
-            $event_result                          = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user, $event_id );
+            $event_result                          = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user, $event_id, $event_long_name );
         } else {
-            $event_result                          = \App\Util::upcoming_events_with_pretty_name_and_date( $event_id );
+            $event_result                          = \App\Util::upcoming_events_with_pretty_name_and_date( $event_id, $event_long_name );
         }
 
         if ($event_result) {
