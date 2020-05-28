@@ -131,6 +131,7 @@ class Util {
                        event.public = 1
                     or event.created_by = ?
                     or event.event_long_name = ?
+                    or attending.event_id is not null
                 )
                 $event_id_clause
             order by

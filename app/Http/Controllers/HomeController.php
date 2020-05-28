@@ -52,7 +52,13 @@ class HomeController extends Controller
             }
         }
 
-        $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
+        $attending_event_id       = null;
+        $attending_event_name     = null;
+        if (isset($_POST['attending_event_id']) && isset($_POST['attending_event_name'])) {
+            $attending_event_id   = $_POST['attending_event_id'];
+            $attending_event_name = $_POST['attending_event_name'];
+        }
+        $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user, $attending_event_id, $attending_event_name );
         $number_photos                     = $logged_in_user->number_photos;
 
         if (isset($_POST['attending_event_form']) && $number_photos) {
