@@ -21,6 +21,8 @@
         <form action="/" method="POST">
             {{ csrf_field() }}
             <input type="hidden" name="attending_event_form" value="1">
+            <input type="hidden" name="attending_event_id" value="{{ $event->event_id }}">
+            <input type="hidden" name="attending_event_name" value="{{ $event->event_long_name }}">
             <br><input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $event->event_id }}"
                 @if ($event->attending_event_id)
                     @if ($event->user_id_of_match || $event->already_matched_but_dont_know_it)
