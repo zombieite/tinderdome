@@ -6,6 +6,10 @@
 	@endif
 @endif
 
+@guest
+To register, please contact Firebird directly.
+@else
+
 <form method="POST" action="@guest {{ route('register') }} @endguest" enctype="multipart/form-data">
 {{ csrf_field() }}
 
@@ -170,6 +174,8 @@ Submit changes
 			</button>
 		</form>
 	@endif
+@endguest
+
 @endguest
 
 @endsection
