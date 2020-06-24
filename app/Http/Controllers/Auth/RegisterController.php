@@ -37,16 +37,7 @@ class RegisterController extends Controller
 		$user_agent                = request()->header('user-agent');
 		$referer                   = ''; // TODO XXX FIXME Save original referer in a cookie so when they register we have it
 
-		// Bot
-        if (
-               $user_agent == 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
-            || $user_agent == 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.0 Safari/537.36'
-            || $user_agent == 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.0 Safari/537.36'
-            || $user_agent == 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3882.0 Safari/537.36'
-        ) {
-			$wasteland_name = NULL;
-			abort(200, 'Please contact Firebird directly to create an account');
-		}
+abort(200, 'Please contact Firebird directly to create an account');
 
 		if (preg_match('/irebird/i', $wasteland_name)) {
 			$wasteland_name = NULL;
