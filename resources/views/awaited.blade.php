@@ -72,7 +72,11 @@ Peter Gabriel and Kate Bush - Don't Give Up
 </div>
 <div class="profile_search_block" style="width:13em;height:10em;vertical-align:top;">
 <!--<a href="/txt/awaited_nonfictional_delusion-083704.txt">Chapter 08 (txt)</a><br>-->
-<a href="/images/awaited-nonfictional-delusion/08.mp3">Chapter 08 (mp3)</a>
+<a href="/images/awaited-nonfictional-delusion/08.mp3">Chapter 08 (mp3)</a><br>
+<a href="/images/awaited-nonfictional-delusion/deadline_uranium_springs_2019_1.mp3">Deadline's Story 1</a><br>
+<a href="/images/awaited-nonfictional-delusion/deadline_uranium_springs_2019_2.mp3">Deadline's Story 2 (missing)</a><br>
+<a href="/images/awaited-nonfictional-delusion/deadline_uranium_springs_2019_3.mp3">Deadline's Story 3</a><br>
+<a href="/images/awaited-nonfictional-delusion/deadline_uranium_springs_2019_4.mp3">Deadline's Story 4</a><br>
 </div>
 <div class="profile_search_block" style="width:13em;height:10em;vertical-align:top;">
 <!--<a href="/txt/awaited_nonfictional_delusion-093708.txt">Chapter 09 (txt)</a><br>-->
