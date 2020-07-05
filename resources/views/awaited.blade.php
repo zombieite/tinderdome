@@ -78,7 +78,7 @@ Peter Gabriel and Kate Bush - Don't Give Up
 <!--<a href="/txt/awaited_nonfictional_delusion-063608.txt">Chapter 06 (txt)</a><br>-->
 <a href="/images/awaited-nonfictional-delusion/06.mp3">Chapter 06 (mp3)</a><br><br>
 <a href="/images/awaited-nonfictional-delusion/deadline_0.mp3">Deadline's Introduction</a><br>
-<div class="small">Read by Chris Okula</div><br>
+<div class="small">By Chris Okula</div><br>
 </div>
 <div class="profile_search_block" style="width:13em;height:20em;vertical-align:top;">
 <!--<a href="/txt/awaited_nonfictional_delusion-073701.txt">Chapter 07 (txt)</a><br>-->
@@ -88,12 +88,12 @@ Peter Gabriel and Kate Bush - Don't Give Up
 <!--<a href="/txt/awaited_nonfictional_delusion-083704.txt">Chapter 08 (txt)</a><br>-->
 <a href="/images/awaited-nonfictional-delusion/08.mp3">Chapter 08 (mp3)</a><br><br>
 <a href="/images/awaited-nonfictional-delusion/deadline_uranium_springs_2019_1.mp3">Deadline's Story 1</a><br>
-<div class="small">Read by Chris Okula</div><br>
+<div class="small">By Chris Okula</div><br>
 Deadline's Story 2 (recording is missing)<br><br>
 <a href="/images/awaited-nonfictional-delusion/deadline_uranium_springs_2019_3.mp3">Deadline's Story 3</a><br>
-<div class="small">Read by Chris Okula</div><br>
+<div class="small">By Chris Okula</div><br>
 <a href="/images/awaited-nonfictional-delusion/deadline_uranium_springs_2019_4.mp3">Deadline's Story 4</a><br>
-<div class="small">Read by Chris Okula</div><br>
+<div class="small">By Chris Okula</div><br>
 </div>
 <div class="profile_search_block" style="width:13em;height:20em;vertical-align:top;">
 <!--<a href="/txt/awaited_nonfictional_delusion-093708.txt">Chapter 09 (txt)</a><br>-->
