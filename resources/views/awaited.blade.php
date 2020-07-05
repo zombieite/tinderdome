@@ -118,7 +118,8 @@ Carpenters - Close To You
 <a href="/images/awaited-nonfictional-delusion/11.mp3">Chapter 11 (mp3)</a>
 <div class="small">
 John Gorka - I'm From New Jersey
-</div>
+</div><br>
+<a href="https://www.youtube.com/watch?v=bhFScP_Ag5Y">Year 38 Update, Putting The Rumors To Rest (Film)</a>
 </div>
 
 <iframe style="width:100%;height:480px" src="https://www.youtube.com/embed/bhFScP_Ag5Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
