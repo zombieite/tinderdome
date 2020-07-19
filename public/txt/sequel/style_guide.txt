@@ -1,6 +1,0 @@
-No commas
-0-10 spelled out, 11+ written as numbers.
-
-kind of       => kinda
-sort of       => sorta
-going to      => gonna
