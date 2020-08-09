@@ -46,7 +46,14 @@ Sheldon Allman - Crawl Out Through The Fallout<br>
 <div class="small">
 Read by Kelli Robinson<br>
 </div><br>
+<a href="https://www.youtube.com/watch?v=C-4BzG1DQNY">Create Value (YouTube Aussie reading)</a><br>
+<div class="small">
+Read by Kelli Robinson<br>
+</div><br>
 <a href="https://www.youtube.com/watch?v=zQqjvO-useM">Chapter 01, Scene II (Film)</a>
+<div class="small">
+Shot in Silverton, NSW, Australia, filming location of Mad Max II
+</div>
 </div>
 <div class="profile_search_block" style="width:13em;height:20em;vertical-align:top;">
 <!--<a href="/txt/awaited_nonfictional_delusion-022502.txt">Chapter 02 (txt)</a><br>-->
