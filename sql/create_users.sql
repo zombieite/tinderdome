@@ -29,5 +29,8 @@ CREATE TABLE users (
 	last_active timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	greylist INT,
     profile_vetted INT,
-    admin_user INT
+    admin_user INT,
+    signup_code VARCHAR(255),
+    video_id VARCHAR(255),
+    campaigning BOOLEAN
 );

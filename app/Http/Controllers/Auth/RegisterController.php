@@ -36,8 +36,10 @@ class RegisterController extends Controller
 		$ip                        = request()->ip();
 		$user_agent                = request()->header('user-agent');
 		$referer                   = ''; // TODO XXX FIXME Save original referer in a cookie so when they register we have it
+        $video_id                  = $data['video_id'];
+        $signup_code               = $data['signup_code'];
 
-abort(200, 'Please contact Firebird directly to create an account');
+        //abort(200, 'Please contact Firebird directly to create an account');
 
 		if (preg_match('/irebird/i', $wasteland_name)) {
 			$wasteland_name = NULL;
@@ -47,6 +49,8 @@ abort(200, 'Please contact Firebird directly to create an account');
         $wasteland_name         = preg_replace('/[^\x20-\x7E]/', '', $wasteland_name);
         $data['how_to_find_me'] = preg_replace('/[^\x20-\x7E]/', '', $data['how_to_find_me']);
         $data['description']    = preg_replace('/[^\x20-\x7E]/', '', $data['description']);
+        $data['video_id']       = preg_replace('/[^\x20-\x7E]/', '', $data['video_id']);
+        $data['signup_code']    = preg_replace('/[^\x20-\x7E]/', '', $data['signup_code']);
         if (strlen($data['description']) > 2000) {
             $data['description'] = substr($data['description'], 0, 2000);
         }
@@ -62,15 +66,18 @@ abort(200, 'Please contact Firebird directly to create an account');
 			'birth_year'                  => $data['birth_year'],
 			'description'                 => $data['description'],
 			'how_to_find_me'              => $data['how_to_find_me'],
+			'hoping_to_find_friend'       => true,
 			'share_info_with_favorites'   => isset($data['share_info_with_favorites']) ? true : false,
 			'random_ok'                   => isset($data['random_ok'])                 ? true : false,
-			'hoping_to_find_friend'       => true,
 			'hoping_to_find_love'         => isset($data['hoping_to_find_love'])       ? true : false,
 			'hoping_to_find_enemy'        => isset($data['hoping_to_find_enemy'])      ? true : false,
+            'campaigning'                 => isset($data['campaigning'])               ? true : false,
 			'number_photos'               => 0,
+            'video_id'                    => $video_id,
 			'ip'                          => $ip,
 			'user_agent'                  => $user_agent,
 			'referer'                     => $referer,
+            'signup_code'                 => $signup_code,
 		]);
 
 		$user_id = $user->id;
