@@ -6,10 +6,6 @@
 	@endif
 @endif
 
-@guest
-To register, please contact Firebird directly.
-@else
-
 <form method="POST" action="@guest {{ route('register') }} @endguest" enctype="multipart/form-data">
 {{ csrf_field() }}
 
@@ -36,6 +32,13 @@ To register, please contact Firebird directly.
 <br>
 <label for="password-confirm">Confirm password</label>
 <input id="password-confirm" type="password" name="password_confirmation" @guest required @endguest>
+
+<hr>
+
+<h1><input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning"><label for="president">&nbsp;I am running for the office of Prezident of the United Wastes of Murica</label></h1>
+
+<label for="video_id">YouTube video id</label>
+<input type="text" name="video_id" id="video_id"></input>
 
 <hr>
 
@@ -161,6 +164,12 @@ Sign up
 Submit changes
 @endguest
 </button>
+
+@guest
+<input name="signup_code" id="signup_code" type="text" maxlength="50" required></input>
+<label for="signup_code">Signup code</label> (please contact Firebird if you do not have one)
+@endguest
+
 </form>
 
 @guest
@@ -174,8 +183,6 @@ Submit changes
 			</button>
 		</form>
 	@endif
-@endguest
-
 @endguest
 
 @endsection
