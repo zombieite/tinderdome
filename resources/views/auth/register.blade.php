@@ -35,10 +35,10 @@
 
 <hr>
 
-<h1><input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning"><label for="president">&nbsp;I am running for the office of Prezident of the United Wastes of Murica</label></h1>
+<h1><input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning" @guest @else @if ($campaigning) checked @endif @endguest><label for="president">&nbsp;I am running for the office of Prezident of the United Wastes of Murica</label></h1>
 
 <label for="video_id">YouTube video id</label>
-<input type="text" name="video_id" id="video_id"></input>
+<input type="text" name="video_id" id="video_id" value="@guest{{ old('video_id') }}@else{{ $video_id }}@endguest"></input>
 
 <hr>
 
@@ -166,7 +166,7 @@ Submit changes
 </button>
 
 @guest
-<input name="signup_code" id="signup_code" type="text" maxlength="50" required></input>
+<input name="signup_code" id="signup_code" type="text" maxlength="50" required value="@guest{{ old('signup_code') }}@else @endguest"></input>
 <label for="signup_code">Signup code</label> (please contact Firebird if you do not have one)
 @endguest
 
