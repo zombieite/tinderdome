@@ -1,4 +1,4 @@
-	Open to
+	<span class="labelclass">Open to</span>
 	@if ($hoping_to_find_love)
 		finding a new friend or romantic partner.
 	@elseif ($hoping_to_find_friend)

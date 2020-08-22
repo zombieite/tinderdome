@@ -1,7 +1,7 @@
 	@if ($height < 60)
-		Height: Under 5 feet.
+		<span class="labelclass">Height:</span> Under 5 feet.
 	@elseif ($height > 72)
-		Height: Over 6 feet.
+		<span class="labelclass">Height:</span> Over 6 feet.
 	@else
-		Height: {{ floor($height / 12) }}&apos;{{ $height % 12 }}&quot;.
+		<span class="labelclass">Height:</span> {{ floor($height / 12) }}&apos;{{ $height % 12 }}&quot;.
 	@endif
