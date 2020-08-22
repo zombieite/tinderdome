@@ -3,6 +3,9 @@
 @if ($success_message)
     <h2 class="bright">{{ $success_message }}</h2>
 @endif
+
+@include('prezidential_election', [])
+
 @foreach ($matched_to_users as $matched_to_user)
         @include('you_are_awaited', [])
 @endforeach
@@ -22,6 +25,8 @@
     @endif
 @endif
 @include('mutuals', [])
-@include('mission_status', [])
+
+{{-- @include('mission_status', []) --}}
+
 @include('mission_matches', [])
 @endsection

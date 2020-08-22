@@ -55,7 +55,7 @@ class RegisterController extends Controller
 
         $wasteland_name         = preg_replace('/[^\x20-\x7E]/', '', $wasteland_name);
         $signup_code            = preg_replace('/[^\x20-\x7E]/', '', $signup_code);
-        $data['how_to_find_me'] = preg_replace('/[^\x20-\x7E]/', '', $data['how_to_find_me']);
+        $data['how_to_find_me'] = isset($data['how_to_find_me']) ? preg_replace('/[^\x20-\x7E]/', '', $data['how_to_find_me']) : '';
         $data['description']    = preg_replace('/[^\x20-\x7E]/', '', $data['description']);
         if (strlen($data['description']) > 2000) {
             $data['description'] = substr($data['description'], 0, 2000);
@@ -70,8 +70,8 @@ class RegisterController extends Controller
 			'email'                       => $data['email'],
 			'password'                    => bcrypt($data['password']),
 			'gender'                      => $data['gender'],
-			'gender_of_match'             => $data['gender_of_match'],
-			'gender_of_match_2'           => $data['gender_of_match_2'],
+			'gender_of_match'             => isset($data['gender_of_match'])   ? $data['gender_of_match']   : '',
+			'gender_of_match_2'           => isset($data['gender_of_match_2']) ? $data['gender_of_match_2'] : '',
 			'height'                      => $data['height'],
 			'birth_year'                  => $data['birth_year'],
 			'description'                 => $data['description'],

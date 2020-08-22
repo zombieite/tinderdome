@@ -348,12 +348,12 @@ class ProfileController extends Controller
         $password                  = $_POST['password'];
         $password_confirmation     = $_POST['password_confirmation'];
         $gender                    = $_POST['gender'];
-        $gender_of_match           = $_POST['gender_of_match'];
-        $gender_of_match_2         = $_POST['gender_of_match_2'];
+        $gender_of_match           = isset($_POST['gender_of_match'])   ? $_POST['gender_of_match']   : '';
+        $gender_of_match_2         = isset($_POST['gender_of_match_2']) ? $_POST['gender_of_match_2'] : '';
         $height                    = intval($_POST['height']);
         $birth_year                = intval($_POST['birth_year']);
         $description               = preg_replace('/[^\x00-\x7E]/', '', $_POST['description']);
-        $how_to_find_me            = preg_replace('/[^\x00-\x7E]/', '', $_POST['how_to_find_me']);
+        $how_to_find_me            = isset($_POST['how_to_find_me']) ? preg_replace('/[^\x00-\x7E]/', '', $_POST['how_to_find_me']) : '';
         $share_info_with_favorites = isset($_POST['share_info_with_favorites']);
         $random_ok                 = isset($_POST['random_ok']);
         $hoping_to_find_friend     = true;
