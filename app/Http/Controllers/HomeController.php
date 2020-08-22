@@ -123,6 +123,7 @@ class HomeController extends Controller
         $users_you_can_comment_on_but_havent = [];
         $success_message                     = '';
         $recently_updated_users              = \App\Util::recently_updated_users( $logged_in_user_id, 1 );
+        $campaigning                         = $logged_in_user->campaigning;
 
         if (\App\Util::has_match_for_next_event_waiting( $logged_in_user_id )) {
             // Don't show unrated users because this user already has a match waiting for them
@@ -213,6 +214,7 @@ class HomeController extends Controller
             'curse_interface'                     => $curse_interface,
             'random_ok'                           => $random_ok,
             'recently_updated_users'              => $recently_updated_users,
+            'campaigning'                         => $campaigning,
         ]);
     }
 }

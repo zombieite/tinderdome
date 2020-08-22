@@ -42,6 +42,8 @@
 
 <hr>
 
+{{--
+
 I am...
 <br>
 <input type="checkbox" name="hoping_to_find_friend" id="hoping_to_find_friend" checked disabled>
@@ -66,6 +68,8 @@ I am...
 <label for="share_info_with_favorites">Share my email address with mutuals.</label>
 
 <hr>
+
+--}}
 
 @guest
 @else
@@ -123,10 +127,11 @@ I am...
 	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
 </select>
 
+{{--
+
 <br>
 <br>
 We will try to match you to a user of your preferred gender, but you must be open to being matched to users of any gender.
-
 <br>
 <label for="gender_of_match">I would prefer to be matched with a person of gender...</label>
 <select name="gender_of_match" id="gender_of_match">
@@ -144,16 +149,22 @@ We will try to match you to a user of your preferred gender, but you must be ope
 	<option value="O" @guest @else @if ($gender_of_match_2 === 'O') selected @endif @endguest>Other</option>
 </select>
 
+--}}
+
 <hr>
 
 <label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported. 2000 characters maximum.
 <br>
 <textarea rows="10" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
 
+{{--
+
 <br><br>
 <label for="how_to_find_me">Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported.
 <br>
 <input type="text" style="width:100%;" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
+
+--}}
 
 <hr>
 
