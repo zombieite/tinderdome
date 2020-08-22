@@ -9,6 +9,9 @@
     <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Review another recently-updated profile</a>
 @endif
 @include('profile_name_section', [])
+
+{{--
+
 @if ($missions_completed)
     <span class="labelclass">Missions completed:</span> {{ $missions_completed }}<br>
 @endif
@@ -23,6 +26,9 @@
 		@endif
 	@endif
 @endif
+
+--}}
+
 @if ($share_info)
 	<h3><a href="mailto:{{ $share_info }}" class="bright">{{ $share_info }}</a></h3>
 @endif
@@ -31,6 +37,9 @@
         <h3>Attending {{ $event->event_long_name }}</h3>
     @endforeach
 @endif
+
+{{--
+
 @if ($gender)
 	<span class="labelclass">Gender:</span> {{ $gender === 'M' ? 'Man' : ($gender === 'W' ? 'Woman' : 'Other') }}.
 @endif
@@ -43,8 +52,11 @@
 @if ($hoping_to_find_love or $hoping_to_find_friend or $hoping_to_find_enemy)
     @include('hoping_to_find', [])
 @endif
+
+--}}
+
 @if ($description)
-	<br><br><div class="profile_search_block">{!! nl2br(e($description)) !!}</div>
+	<div class="profile_search_block">{!! nl2br(e($description)) !!}</div>
 @endif
 <br><br>
 @for ($i = 1; $i <= $number_photos; $i++)
