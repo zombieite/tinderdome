@@ -2,7 +2,7 @@
 @section('content')
 @if ($is_my_match and $choice !== 0 and $choice !== -1)
     @include('profile_is_an_unfound_match', [])
-@elseif (!$is_my_match && !$is_me && $unchosen_user_id != 1)
+@elseif (!$is_me && $profile_id != 1)
     @include('not_match_but_needs_rating_form', [])
 @endif
 @if ($recently_updated_users)
