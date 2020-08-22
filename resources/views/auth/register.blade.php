@@ -35,9 +35,9 @@
 
 <hr>
 
-<h1><input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning" @guest @else @if ($campaigning) checked @endif @endguest><label for="president">&nbsp;I am running for the office of Prezident of the Restored United States of Murica</label></h1>
+<h1><input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning" @guest @else @if ($campaigning) checked @endif @endguest><label for="president">&nbsp;I am running for the office of @include('prezident', []) </label></h1>
 
-<label for="video_id">YouTube video id</label>
+<label for="video_id">YouTube link</label>
 <input type="text" name="video_id" id="video_id" value="@guest{{ old('video_id') }}@else{{ $video_id }}@endguest"></input>
 
 <hr>
