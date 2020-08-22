@@ -43,7 +43,7 @@
         <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Review another recently-updated profile</a>
     @endif
 	@if ($missions_completed)
-        <h1><span class="dull">{{ $titles[$title_index] }}</span> {{ $wasteland_name }}</h1>
+        <h1><span class="dull">{{ $titles[$title_index] }}</span> {{ $wasteland_name }}@if ($campaigning) is running for the office of Prezident of the Restored United States of Murica! @endif</h1>
         Missions completed: {{ $missions_completed }}.
 	@else
 		<h1>{{ $wasteland_name }}</h1>
