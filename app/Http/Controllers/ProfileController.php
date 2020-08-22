@@ -460,6 +460,8 @@ class ProfileController extends Controller
             'hoping_to_find_enemy'      => $hoping_to_find_enemy,
             'update_errors'             => $update_errors,
             'is_wastelander'            => $is_wastelander,
+            'campaigning'               => $campaigning,
+            'video_id'                  => $video_id,
         ]);
     }
 
