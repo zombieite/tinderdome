@@ -10,16 +10,16 @@
 @endif
 @include('profile_name_section', [])
 @if ($missions_completed)
-    Missions completed: {{ $missions_completed }}.<br>
+    <span class="labelclass">Missions completed:</span> {{ $missions_completed }}<br>
 @endif
 @if ($show_how_to_find_me || $share_info || $is_me)
 	@if ($how_to_find_me || $share_info)
 		@if ($profile_id == 1)
 		@else
-			Do not share screenshots of this page. This information is confidential.
+			<span class="labelclass">Do not share screenshots of this page. This information is confidential.</span>
 		@endif
 		@if ($how_to_find_me)
-			How to find {{ $wasteland_name }}:<br><div class="profile_search_block">{{ $how_to_find_me }}</div><br><br>
+			<span class="labelclass">How to find {{ $wasteland_name }}:</span><br><div class="profile_search_block">{{ $how_to_find_me }}</div><br><br>
 		@endif
 	@endif
 @endif
@@ -32,10 +32,10 @@
     @endforeach
 @endif
 @if ($gender)
-	Gender: {{ $gender === 'M' ? 'Man' : ($gender === 'W' ? 'Woman' : 'Other') }}.
+	<span class="labelclass">Gender:</span> {{ $gender === 'M' ? 'Man' : ($gender === 'W' ? 'Woman' : 'Other') }}.
 @endif
 @if ($birth_year)
-	@if ($birth_year === 1959) Born before 1960. @else Born in the {{ intval($birth_year / 10) * 10 }}s. @endif
+	@if ($birth_year === 1959) <span class="labelclass">Born before</span> 1960. @else <span class="labelclass">Born in the</span> {{ intval($birth_year / 10) * 10 }}s. @endif
 @endif
 @if ($height)
     @include('height', [])
