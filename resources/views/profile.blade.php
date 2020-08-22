@@ -9,11 +9,6 @@
     <br><a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Review another recently-updated profile</a>
 @endif
 @include('profile_name_section', [])
-
-@if ($video_id)
-<iframe style="width:100%;height:480px" src="https://www.youtube.com/embed/{{ $video_id }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-@endif
-
 @if ($missions_completed)
     Missions completed: {{ $missions_completed }}.<br>
 @endif
