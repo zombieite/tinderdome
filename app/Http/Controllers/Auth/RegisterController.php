@@ -39,6 +39,14 @@ class RegisterController extends Controller
         $video_id                  = $data['video_id'];
         $signup_code               = $data['signup_code'];
 
+        $matches                   = [];
+        if (preg_match('/v=([a-zA-Z0-9_-]+)/', $video_id, $matches)) {
+            $video_id = $matches[1];
+        } elsif (preg_match('/^[a-zA-Z0-9_-]+$/', $video_id) {
+            // Video id is already extracted from the link, leave as-is
+        } else {
+            $video_id = '';
+        }
 
 		if (preg_match('/irebird/i', $wasteland_name)) {
 			$wasteland_name = NULL;
@@ -49,7 +57,6 @@ class RegisterController extends Controller
         $signup_code            = preg_replace('/[^\x20-\x7E]/', '', $signup_code);
         $data['how_to_find_me'] = preg_replace('/[^\x20-\x7E]/', '', $data['how_to_find_me']);
         $data['description']    = preg_replace('/[^\x20-\x7E]/', '', $data['description']);
-        $data['video_id']       = preg_replace('/[^\x20-\x7E]/', '', $data['video_id']);
         if (strlen($data['description']) > 2000) {
             $data['description'] = substr($data['description'], 0, 2000);
         }

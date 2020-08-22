@@ -354,7 +354,6 @@ class ProfileController extends Controller
         $birth_year                = intval($_POST['birth_year']);
         $description               = preg_replace('/[^\x00-\x7E]/', '', $_POST['description']);
         $how_to_find_me            = preg_replace('/[^\x00-\x7E]/', '', $_POST['how_to_find_me']);
-        $video_id                  = preg_replace('/[^\x00-\x7E]/', '', $_POST['video_id']);
         $share_info_with_favorites = isset($_POST['share_info_with_favorites']);
         $random_ok                 = isset($_POST['random_ok']);
         $hoping_to_find_friend     = true;
@@ -364,6 +363,16 @@ class ProfileController extends Controller
         $ip                        = request()->ip();
         $user_agent                = request()->header('user-agent');
         $is_wastelander            = \App\Util::is_wastelander( $profile_id );
+
+        $video_id                  = $_POST['video_id'];
+        $matches                   = [];
+        if (preg_match('/v=([a-zA-Z0-9_-]+)/', $video_id, $matches)) {
+            $video_id = $matches[1];
+        } else if (preg_match('/^[a-zA-Z0-9_-]+$/', $video_id)) {
+            // Video id is already extracted from the link, leave as-is
+        } else {
+            $video_id = '';
+        }
 
         $email_exists = DB::select('select id,email from users where email=? and id<>?', [$email, $profile_id]);
         if ($email_exists) {
