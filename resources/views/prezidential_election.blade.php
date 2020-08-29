@@ -13,5 +13,5 @@ An election is being held for the office of
     @include('candidate')
 @endforeach
 <br>
-<input type="submit" name="submit" value="THIS BUTTON WILL BECOME ACTIVE ON OCT. 6" disabled="true">
+<input type="submit" name="submit" value="SUBMIT MY VOTE (This button becomes active on Oct. 6)" disabled="true">
 </form>
