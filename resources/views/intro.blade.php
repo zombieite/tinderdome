@@ -1,10 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-An election will be held for the office of
+An election is being held for the office of
 <h1>@include('prezident', [])</h1>
-<span class="bright">Tuesday, Oct 6, 2020</span>
-<br><br>
+<h1 class="bright">Vote on Tuesday, Oct 6, 2020</h1>
 To vote or run for office, <a href="/register">sign up here</a>. You will need a signup code from Firebird.
 
 {{--
