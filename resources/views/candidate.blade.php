@@ -13,7 +13,7 @@
         @if ($profile->video_id)
             <a href="https://www.youtube.com/watch?v={{ $profile->video_id }}">(View video)</a>
         @endif
-        <br>
+        <br><br>
         @include('voting_form', [])
     </div>
 </div>
