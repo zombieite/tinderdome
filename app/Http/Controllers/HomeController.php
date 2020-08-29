@@ -15,10 +15,11 @@ class HomeController extends Controller
         $logged_in_user            = Auth::user();
         $logged_in_user_id         = Auth::id();
 
+        $titles                    = \App\Util::titles();
+
         if ($logged_in_user) {
             // All good
         } else {
-            $titles                = \App\Util::titles();
             $leader_count          = 10;
             $leaderboard_and_count = \App\Util::leaderboard( $leader_count );
             $leaderboard           = $leaderboard_and_count['leaderboard'];
@@ -218,6 +219,7 @@ class HomeController extends Controller
             'recently_updated_users'              => $recently_updated_users,
             'campaigning'                         => $campaigning,
             'candidates'                          => $candidates,
+            'titles'                              => $titles,
         ]);
     }
 }
