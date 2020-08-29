@@ -35,8 +35,8 @@
 
 <hr>
 
-<h1><input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning" @guest @else @if ($campaigning) checked @endif @endguest><label for="president">&nbsp;I am running for the office of @include('prezident', []) </label></h1>
-
+<input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning" @guest @else @if ($campaigning) checked @endif @endguest><label for="president">&nbsp;I am running for the office of @include('prezident', []) </label>
+<br>
 <label for="video_id">Link to YouTube video</label>
 <input type="text" name="video_id" id="video_id" value="@guest{{ old('video_id') }}@else{{ $video_id }}@endguest"></input>
 
@@ -84,6 +84,8 @@ I am...
 @endif
 @endguest
 
+{{--
+
 <label for="height">Height</label>
 <select name="height" id="height">
 	<option value="">No answer</option>
@@ -127,8 +129,6 @@ I am...
 	<option value="O" @guest @else @if ($gender === 'O') selected @endif @endguest>Other</option>
 </select>
 
-{{--
-
 <br>
 <br>
 We will try to match you to a user of your preferred gender, but you must be open to being matched to users of any gender.
@@ -149,9 +149,8 @@ We will try to match you to a user of your preferred gender, but you must be ope
 	<option value="O" @guest @else @if ($gender_of_match_2 === 'O') selected @endif @endguest>Other</option>
 </select>
 
---}}
-
 <hr>
+--}}
 
 <label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported. 2000 characters maximum.
 <br>

@@ -335,6 +335,9 @@ class Util {
         foreach ($results as $result) {
             $wasteland_name = $result->name;
             $result->wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+            if (!$result->title_index) {
+                $result->title_index = 0;
+            }
         }
 
         return $results;
