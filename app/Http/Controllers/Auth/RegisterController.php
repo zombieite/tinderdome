@@ -62,7 +62,7 @@ class RegisterController extends Controller
         }
 
         if ($signup_code != 'PREZ' && $signup_code != 'prez') {
-        //    abort(200, 'Invalid signup code. Please contact Firebird directly to create an account');
+            abort(200, 'Invalid signup code. Please contact Firebird directly to create an account');
         }
 
 		$user = User::create([
