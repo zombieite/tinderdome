@@ -34,8 +34,10 @@
     @if (Auth::user()->number_photos)
         &middot;
         <a class="navbar" href="/search">Search</a>
+{{--
         &middot;
         <a class="navbar" href="/create-event">Create event</a>
+--}}
     @endif
     &middot;
     <input type="submit" value="Log out">
