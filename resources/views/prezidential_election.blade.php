@@ -7,6 +7,11 @@ An election is being held for the office of
     If you'd like to run for this office, check the appropriate box under <a href="/profile/edit">Edit Profile</a>.
 @endif
 <br><br>
+<form action="" method="POST">
+{{ csrf_field() }}
 @foreach ($candidates as $profile)
     @include('candidate')
 @endforeach
+<br>
+<input type="submit" name="submit" value="THIS BUTTON WILL BECOME ACTIVE ON OCT. 6" disabled="true">
+</form>
