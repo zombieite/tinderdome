@@ -6,3 +6,7 @@ An election is being held for the office of
 @else
     If you'd like to run for this office, check the appropriate box under <a href="/profile/edit">Edit Profile</a>.
 @endif
+<br><br>
+@foreach ($candidates as $profile)
+    @include('candidate')
+@endforeach

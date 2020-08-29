@@ -303,18 +303,14 @@ class Util {
     public static function users_running_for_office( $logged_in_user_id ) {
 
         // The second choose join hides users who have already said no to you so you don't even get to see them
-        $unrated_users_sql = "
+        $office_sql = "
             select distinct
-                users.id,
+                users.id profile_id,
                 users.name,
-                users.height,
-                users.birth_year,
                 users.description,
-                users.how_to_find_me,
-                users.hoping_to_find_friend,
-                users.hoping_to_find_love,
-                users.hoping_to_find_enemy,
-                users.number_photos
+                users.number_photos,
+                users.title_index,
+                users.video_id
             from
                 users
                 left join choose my_choice on (
@@ -325,40 +321,23 @@ class Util {
                     users.id = their_choice.chooser_id
                     and their_choice.chosen_id = ?
                 )
-                join attending i_am_attending on (
-                    i_am_attending.user_id = ?
-                )
-                join attending they_are_attending on (
-                    users.id = they_are_attending.user_id
-                )
-                join event on (
-                    i_am_attending.event_id = event.event_id
-                )
-                left join attending i_have_attended on (
-                    users.id = i_have_attended.user_id_of_match
-                    and i_have_attended.user_id = ?
-                )
             where
-                id > 10
-                and id <> ?
-                and i_am_attending.event_id = they_are_attending.event_id
-                and event_date >= curdate()
-                and my_choice.choice is null
-                and
-                (
-                    their_choice.choice is null
-                    or
-                    their_choice.choice != 0
-                )
+                users.campaigning
+                and (my_choice.choice    is null or my_choice.choice    != 0)
+                and (their_choice.choice is null or their_choice.choice != 0)
                 and number_photos > 0
-                and i_have_attended.user_id_of_match is null
             order by
                 id asc
         ";
         //Log::debug($unrated_users_sql);
-        $users_running_for_office = DB::select($unrated_users_sql, [$logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
+        $results = DB::select($office_sql, [$logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
 
-        return $users_running_for_office;
+        foreach ($results as $result) {
+            $wasteland_name = $result->name;
+            $result->wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+        }
+
+        return $results;
     }
 
     public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
