@@ -199,6 +199,8 @@ class HomeController extends Controller
             $comment->commenting_user_wasteland_name_hyphenated = preg_replace('/\s/', '-', $comment->name);
         }
 
+        $candidates = \App\Util::users_running_for_office( $logged_in_user_id );
+
         return view('home', [
             'logged_in_user_id'                   => $logged_in_user_id,
             'wasteland_name_hyphenated'           => $wasteland_name_hyphenated,
@@ -215,6 +217,7 @@ class HomeController extends Controller
             'random_ok'                           => $random_ok,
             'recently_updated_users'              => $recently_updated_users,
             'campaigning'                         => $campaigning,
+            'candidates'                          => $candidates,
         ]);
     }
 }
