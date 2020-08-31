@@ -42,6 +42,8 @@ class RegisterController extends Controller
         $matches                   = [];
         if (preg_match('/v=([a-zA-Z0-9_-]+)/', $video_id, $matches)) {
             $video_id = $matches[1];
+        } else if (preg_match('/youtu\.be\/([a-zA-Z0-9_-]+)/', $video_id, $matches)) {
+            $video_id = $matches[1];
         } else if (preg_match('/^[a-zA-Z0-9_-]+$/', $video_id)) {
             // Video id is already extracted from the link, leave as-is
         } else {
