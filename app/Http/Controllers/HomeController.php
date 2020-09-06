@@ -16,6 +16,8 @@ class HomeController extends Controller
         $logged_in_user_id         = Auth::id();
 
         $titles                    = \App\Util::titles();
+        $success_message           = null;
+        $vote                      = null;
 
         if ($logged_in_user) {
             // All good
@@ -51,6 +53,21 @@ class HomeController extends Controller
                     $success_message = 'Comment deleted.';
                 }
             }
+        }
+
+        if (isset($_POST['vote'])) {
+            $vote = $_POST['vote'];
+            if (preg_match('/^[0-9]+$/', $vote)) {
+                $voted_for_user = DB::select('select * from users where id = ?', [$vote]);
+                if ($voted_for_user) {
+                    DB::update('update users set vote = ? where id = ?', [$vote, $logged_in_user_id]);
+                    $success_message = 'Your vote has been counted.';
+                    $logged_in_user->vote = $vote;
+                }
+            }
+        }
+        if (!$vote) {
+            $vote = $logged_in_user->vote;
         }
 
         $attending_event_id       = null;
@@ -122,7 +139,6 @@ class HomeController extends Controller
         $unrated_users                       = [];
         $users_who_say_they_know_you         = [];
         $users_you_can_comment_on_but_havent = [];
-        $success_message                     = '';
         $recently_updated_users              = \App\Util::recently_updated_users( $logged_in_user_id, 1 );
         $campaigning                         = $logged_in_user->campaigning;
 
@@ -220,6 +236,7 @@ class HomeController extends Controller
             'campaigning'                         => $campaigning,
             'candidates'                          => $candidates,
             'titles'                              => $titles,
+            'vote'                                => $vote,
         ]);
     }
 }
