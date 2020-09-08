@@ -327,7 +327,7 @@ class Util {
                 and (their_choice.choice is null or their_choice.choice != 0)
                 and number_photos > 0
             order by
-                id asc
+                RAND()
         ";
         //Log::debug($unrated_users_sql);
         $results = DB::select($office_sql, [$logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
