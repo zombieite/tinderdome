@@ -6,6 +6,7 @@ Route::get( '/awaited-nonfictional-delusion',         'AwaitedNonfictionalDelusi
 Route::get( '/profile/Firebird',                      'ProfileController@showFirebird');
 Route::get( '/event/{event_id}/{event_long_name}',    'EventController@event');
 Route::view('/videolist', 'videolist');
+Route::view('/theboard', 'theboard');
 
 // Visible to logged in only ( add ->middleware('auth'); )
 Auth::routes();
