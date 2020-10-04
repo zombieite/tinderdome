@@ -27,9 +27,9 @@ FB selling tickets. TD introduces herself to FB, asks how to swap timelines. FB 
             <td>
                 <table>
                     <tr><td><span class="small">Woolworths Bakersfield</span></td></tr>
-                    <tr><td><span class="small">FB and DT meet up with MS to ask for her help.</span></td></tr>
-                    <tr><td><span class="small">+/- Mood change</span></td></tr>
-                    <tr><td><span class="small">&gt;&lt; Conflict</span></td></tr>
+                    <tr><td><span class="small">FB and DT meet up with MS to ask for help.</span></td></tr>
+                    <tr><td><span class="small">-/+ FB hopeless/FB hopeful</span></td></tr>
+                    <tr><td><span class="small">&gt;&lt; FB vs Skelli</span></td></tr>
                 </table>
             </td>
             <td>
