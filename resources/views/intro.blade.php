@@ -4,7 +4,7 @@
 An election is being held for the office of
 <h1>@include('prezident', [])</h1>
 <h1 class="bright">Vote on Tuesday, Oct 6, 2020</h1>
-To vote or run for office, <a href="/register">sign up here</a>. You will need a signup code from Firebird.
+To vote, please contact <a href="mailto:wastelandfirebird@gmail.com">Firebird</a> to create an account.
 
 {{--
 

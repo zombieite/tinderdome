@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+
+@guest
+    <h1>Signups are currently closed. Contact <a href="mailto:wastelandfirebird@gmail.com">Firebird</a> directly to create an account.</h1>
+@else
+
 @if (isset($update_errors))
 	@if ($update_errors)
 		<h2 class="bright">Error updating profile: {{ $update_errors }}</h2>
@@ -185,6 +190,8 @@ Submit changes
 			</button>
 		</form>
 	@endif
+@endguest
+
 @endguest
 
 @endsection

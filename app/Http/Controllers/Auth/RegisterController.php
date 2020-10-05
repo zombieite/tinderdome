@@ -63,7 +63,7 @@ class RegisterController extends Controller
             $data['description'] = substr($data['description'], 0, 2000);
         }
 
-        if ($signup_code != 'PREZ' && $signup_code != 'prez') {
+        if ($signup_code != 'PREZ2' && $signup_code != 'prez2') {
             abort(200, 'Invalid signup code. Please contact Firebird directly to create an account');
         }
 
