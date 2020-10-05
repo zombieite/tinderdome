@@ -4,18 +4,26 @@
 
 Awaited: The Sequel
 <table>
-    <tr><td colspan="6">Act 1</td></tr>
+    <tr><td colspan="6">Act 1: Thesis</td></tr>
     <tr><td>Page</td><td>Beat</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory
  </td><td>Conflict</td></tr>
     <tr>
         <td>1-5</td>
-        <td>Opening Image, Theme Stated</td>
+        <td>Opening Image, Mirror Of Final Image, Theme Stated, This Is Gonna Be Good</td>
         <td>The first ever Tomorrowland Weekend</td>
         <td>
 FB selling tickets. TD introduces herself to FB, asks how to swap timelines. FB tries to get rid of her. She produces MA, introducing him as Bruce. Here because maybe FB can help HIM swap timelines. MA attacks FB, FB's fans grab MA, say no fighting except in the Cage. FB says no it's all right.
         </td>
         <td>FB&nbsp;cocky&nbsp;&#x2198&nbsp;FB&nbsp;terrified</td>
         <td>MA&gt;FB</td>
+    </tr>
+    <tr>
+        <td>6-11</td>
+        <td>Setup, Introduce A-Story Characters, Everyday Life, 6 Things That Need Fixing, Begin Running Gags</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <td>12</td>
@@ -28,7 +36,7 @@ FB and MA simultaneously get the idea to rebuild the Trans Am. MA reveals that n
         <td>Tomorrowlanders&gt;FB</td>
     </tr>
     <tr>
-        <td>12-25</td>
+        <td>13-24</td>
         <td>Debate</td>
         <td>Woolworths Bakersfield</td>
         <td>
@@ -37,6 +45,88 @@ FB and DT meet up with MS to ask for help.
         <td>FB&nbsp;hopeless&nbsp;&#x2197&nbsp;FB&nbsp;hopeful</td>
         <td>FB>Skelli</td>
     </tr>
+    <tr><td colspan="6">Act 2: Antithesis</td></tr>
+    <tr>
+        <td>25-29</td>
+        <td>Break Into Two, Hero Embarks On Adventure</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>30</td>
+        <td>B-Story Or Love Story, Introduce Mirror Characters Of A-Story Characters</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>31-54</td>
+        <td>Fun And Games, The Promise Of The Premise</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr><td colspan="6">Midpoint</td></tr>
+    <tr>
+        <td>55</td>
+        <td>Midpoint, False Victory Or False Defeat, Stakes Are Raised, Mirror Of All Is Lost</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>56-74</td>
+        <td>Bad Guys Close In</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>75</td>
+        <td>All Is Lost, Whiff Of Death, Mirror Of Midpoint</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>76-84</td>
+        <td>Dark Night Of The Soul</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr><td colspan="6">Act 3: Synthesis</td></tr>
+    <tr>
+        <td>85</td>
+        <td>Break Into Three, Fusion of A And B</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>86-109</td>
+        <td>Finale, Climax, Change The World</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>110</td>
+        <td>Final Image, Mirror Of Opening Image, Arcs Complete And Clear</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
 </table>
-
 @endsection
