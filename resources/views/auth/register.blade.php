@@ -35,14 +35,15 @@
 
 <hr>
 
+{{--
 <input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning" @guest @else @if ($campaigning) checked @endif @endguest><label for="president">&nbsp;I am running for the office of @include('prezident', []) </label>
 <br>
+--}}
+
 <label for="video_id">Link to YouTube video</label>
 <input type="text" name="video_id" id="video_id" value="@guest{{ old('video_id') }}@else{{ $video_id }}@endguest"></input>
 
 <hr>
-
-{{--
 
 I am...
 <br>
@@ -69,8 +70,6 @@ I am...
 
 <hr>
 
---}}
-
 @guest
 @else
 @if (isset($missions_completed) && $missions_completed > 0)
@@ -83,8 +82,6 @@ I am...
 <br>
 @endif
 @endguest
-
-{{--
 
 <label for="height">Height</label>
 <select name="height" id="height">
@@ -150,20 +147,15 @@ We will try to match you to a user of your preferred gender, but you must be ope
 </select>
 
 <hr>
---}}
 
 <label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported. 2000 characters maximum.
 <br>
 <textarea rows="10" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
 
-{{--
-
 <br><br>
 <label for="how_to_find_me">Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported.
 <br>
 <input type="text" style="width:100%;" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
-
---}}
 
 <hr>
 
