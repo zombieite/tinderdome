@@ -338,6 +338,8 @@ class Util {
             if (!$result->title_index) {
                 $result->title_index = 0;
             }
+            $votes = DB::select('select count(*) votes from users where vote=?', [$result->profile_id]);
+            $result->votes = $votes[0]->votes;
         }
 
         return $results;
