@@ -122,7 +122,7 @@ FB and DT meet up with MS to ask for help.
     </tr>
     <tr>
         <td>110</td>
-        <td>Final Image, Mirror Of Opening Image, Arcs Complete And Clear</td>
+        <td>Final Image, Mirror Of Opening Image, Arcs Are Complete And Clear</td>
         <td></td>
         <td></td>
         <td></td>
