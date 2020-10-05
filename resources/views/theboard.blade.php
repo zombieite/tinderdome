@@ -2,7 +2,7 @@
 
 @section('content')
 
-Awaited: The Phoenix
+Awaited: Revenge and Redemption
 <table>
     <tr><td colspan="10">Act 1</td></tr>
         <tr>
@@ -29,7 +29,7 @@ FB selling tickets. TD introduces herself to FB, asks how to swap timelines. FB 
                     <tr><td><span class="small">Woolworths Bakersfield</span></td></tr>
                     <tr><td><span class="small">FB and DT meet up with MS to ask for help.</span></td></tr>
                     <tr><td><span class="small">-/+ FB hopeless/FB hopeful</span></td></tr>
-                    <tr><td><span class="small">&gt;&lt; FB vs Skelli and DT</span></td></tr>
+                    <tr><td><span class="small">&gt;&lt; FB vs Skelli</span></td></tr>
                 </table>
             </td>
             <td>
