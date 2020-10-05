@@ -10,6 +10,7 @@
         {{ $titles[$profile->title_index] }}
         <a href="/profile/{{ $profile->profile_id }}/{{ $profile->wasteland_name_hyphenated }}">{{ $profile->name }} (View profile)</a>
         <br>
+        Votes: <span class="bright">{{ $profile->votes }}</span>
         @if ($profile->video_id)
             <a href="https://www.youtube.com/watch?v={{ $profile->video_id }}">(View video)</a>
         @endif
