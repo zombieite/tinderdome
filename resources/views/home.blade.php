@@ -26,6 +26,6 @@
     {{-- @include('mission_status', []) --}}
     @include('mission_matches', [])
 @else
-    <h1>You must <a href="/image/upload">upload a photo</a> to vote or to run for office.</h1>
+    <h1>You must <a href="/image/upload">upload a photo</a>.</h1>
 @endif
 @endsection
