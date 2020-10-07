@@ -8,13 +8,11 @@ SHE WINS FABULOUS CASH AND PRIZES AND OH YEAH YOU HAVE TO DO WHATEVER SHE SAYS N
 
 An election is being held for the office of
 <h1>@include('prezident', [])</h1>
-<h1 class="bright">Vote on Tuesday, Oct 6, 2020</h1>
+<h1 class="bright">VOTE NOW!</h1>
 @if ($campaigning)
     You are running for this office. <a href="/profile/edit">Update your profile</a> with your campaign platform and YouTube video campaign ad!
-@else
-    If you'd like to run for this office, check the appropriate box under <a href="/profile/edit">Edit Profile</a>.
 @endif
-<br><br>
+<br>
 <form action="" method="POST">
 {{ csrf_field() }}
 @foreach ($candidates as $profile)
