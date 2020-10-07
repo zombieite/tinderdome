@@ -1,3 +1,11 @@
+THE WINNER FOR THE ELECTION TO THE OFFICE OF
+<h1>@include('prezident', [])</h1>
+WITH 16 VOTES, IS YOUR NEW PREZIDENT,
+<h1 class="bright">MAD SKELLI!</h1>
+SHE WINS FABULOUS CASH AND PRIZES AND OH YEAH YOU HAVE TO DO WHATEVER SHE SAYS NOW
+
+{{--
+
 An election is being held for the office of
 <h1>@include('prezident', [])</h1>
 <h1 class="bright">Vote on Tuesday, Oct 6, 2020</h1>
@@ -15,3 +23,5 @@ An election is being held for the office of
 <br>
 <input type="submit" name="submit" value="SUBMIT MY VOTE">
 </form>
+
+--}}
