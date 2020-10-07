@@ -2,6 +2,7 @@ THE WINNER FOR THE ELECTION TO THE OFFICE OF
 <h1>@include('prezident', [])</h1>
 WITH 16 VOTES, IS YOUR NEW PREZIDENT,
 <h1 class="bright">MAD SKELLI!</h1>
+<iframe style="width:100%;height:480px" src="https://www.youtube.com/embed/qXhp0xtCoy4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 SHE WINS FABULOUS CASH AND PRIZES AND OH YEAH YOU HAVE TO DO WHATEVER SHE SAYS NOW
 
 {{--
