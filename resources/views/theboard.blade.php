@@ -10,9 +10,9 @@ Awaited: The Sequel
     <tr>
         <td>1-5</td>
         <td>Opening Image, Mirror Of Final Image, Save The Cat, Theme Stated, This Is Gonna Be Good</td>
-        <td>The first ever Tomorrowland Weekend</td>
+        <td>Entrance gate at the first ever Tomorrowland Weekend</td>
         <td>
-FB selling tickets. TD introduces herself to FB, asks how to swap timelines. FB tries to get rid of her. She produces MA, introducing him as Bruce. Here because maybe FB can help HIM swap timelines. MA attacks FB, FB's fans grab MA, say no fighting except in the Cage. FB says no it's all right.
+FB selling tickets to an event called Tomorrowland Weekend, where postapocalyptic weirdos dress up as nonapocalyptic normies. DT introduces herself to FB, asks how to swap timelines. FB tries to get rid of her. She produces MA, introducing him as Bruce. Here because maybe FB can help HIM swap timelines. MA attacks FB, FB's fans grab MA, say no fighting except in the Cage. FB wants to keep up the charade, says no it's all right.
         </td>
         <td>FB&nbsp;cocky&nbsp;&#x2198&nbsp;FB&nbsp;terrified</td>
         <td>MA&gt;FB</td>
@@ -20,30 +20,29 @@ FB selling tickets. TD introduces herself to FB, asks how to swap timelines. FB 
     <tr>
         <td>6-11</td>
         <td>Setup, Introduce A-Story Characters, Everyday Life, 6 Things That Need Fixing, Begin Running Gags</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>FB's trailer at Tomorrowland Weekend</td>
+        <td>They say hi to Mad Skelli on the way to FB's trailer. In trailer FB asks what they're doing there. MA finds out his car was destroyed. FB and MA get the idea to rebuild a new version of the car they used to both covet. MA reveals that no one swaps timelines, leading to DT being mad and everyone at Tomorrowland Weekend wanting their money back. They get angry and burn the place down.
+        <td>FB&nbsp;in&nbsp;control&nbsp;&#x2198&nbsp;FB&nbsp;loses&nbsp;everything</td>
+        <td>Tomorrowlanders>FB</td>
     </tr>
     <tr>
         <td>12</td>
         <td>Catalyst</td>
-        <td>FB's trailer at Tomorrowland Weekend</td>
+        <td>Woolworths Bakersfield</td>
         <td>
-FB and MA simultaneously get the idea to rebuild the Trans Am. MA reveals that no one swaps timelines, leading to everyone at Tomorrowland Weekend wanting their money back. They get angry and burn the place down.
+FB and DT meet up with MS. FB asks MS for money. DT asks them both for help killing MA because he killed her father and their old friend, MK.
         </td>
-        <td>FB&nbsp;in&nbsp;control&nbsp;&#x2198&nbsp;FB&nbsp;loses&nbsp;everything</td>
-        <td>Tomorrowlanders&gt;FB</td>
+        <td></td>
+        <td>DT&gt;FB&gt;MS</td>
     </tr>
     <tr>
         <td>13-24</td>
         <td>Debate</td>
-        <td>Woolworths Bakersfield</td>
+        <td></td>
         <td>
-FB and DT meet up with MS to ask for help.
         </td>
-        <td>FB&nbsp;hopeless&nbsp;&#x2197&nbsp;FB&nbsp;hopeful</td>
-        <td>FB>Skelli</td>
+        <td></td>
+        <td></td>
     </tr>
     <tr><td colspan="6">Act 2: Antithesis</td></tr>
     <tr>
