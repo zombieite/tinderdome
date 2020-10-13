@@ -38,8 +38,9 @@ FB and DT meet up with MS. FB asks MS for money. DT asks them both for help kill
     <tr>
         <td>13-24</td>
         <td>Debate</td>
-        <td></td>
+        <td>Narration</td>
         <td>
+Narrator rants about capitalism and explains the plan. Plan is to start by checking out the old Van Nuys Firebird factory.
         </td>
         <td></td>
         <td></td>
