@@ -21,7 +21,7 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
         <td>6-11</td>
         <td>Setup, Introduce A-Story Characters, Everyday Life, 6 Things That Need Fixing, Begin Running Gags</td>
         <td>FB's trailer at Tomorrowland Weekend</td>
-        <td>They say hi to Mad Skelli on the way to FB's trailer. In trailer FB asks what they're doing there. MA finds out his car was destroyed. FB and MA get the idea to rebuild a new version of the car they used to both covet. MA reveals that no one swaps timelines, leading to DT being mad and everyone at Tomorrowland Weekend wanting their money back. They get angry and burn the place down.
+        <td>They say hi to Mad Skelli on the way to FB's trailer. It's clear that FB and MS still haven't figured out what their relationship is. In trailer FB asks what DT and MA are doing there. MA finds out his car was destroyed. FB and MA get the idea to rebuild a new version of the car they used to both covet. MA reveals that no one swaps timelines, leading to DT being mad and everyone at Tomorrowland Weekend wanting their money back. They get angry and burn the place down.
         <td>FB&nbsp;in&nbsp;control&nbsp;&#x2198&nbsp;FB&nbsp;loses&nbsp;everything</td>
         <td>Tomorrowlanders>FB</td>
     </tr>
@@ -30,9 +30,9 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
         <td>Catalyst</td>
         <td>Woolworths Bakersfield</td>
         <td>
-FB and DT meet up with MS. FB asks MS for money. DT asks them both for help killing MA because he killed her father and their old friend, MK.
+FB and DT meet up with MS. FB asks MS for money. DT asks them both for help killing MA because he killed her father/their old friend, MK.
         </td>
-        <td></td>
+        <td>FB hopeless&nbsp;&#x2197&nbsp;FB&nbsp;hopeful</td>
         <td>DT&gt;FB&gt;MS</td>
     </tr>
     <tr>
