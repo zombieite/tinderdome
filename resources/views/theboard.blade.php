@@ -9,7 +9,7 @@ Awaited: The Sequel
  </td><td>Conflict</td></tr>
     <tr>
         <td>1-11</td>
-        <td>Opening Image, Mirror Of Final Image, Theme Stated, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags And Other Things That Will Come Up Later, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, Save The Cat</td>
+        <td>Opening Image, Mirror Of Final Image, Theme Stated, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags And Callbacks, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, Save The Cat</td>
         <td>The first ever Tomorrowland Weekend</td>
         <td>
 FB selling tickets to an event called Tomorrowland Weekend, where postapocalyptic weirdos dress up as nonapocalyptic normies. DT introduces herself to FB, asks how to swap timelines. FB tries to get rid of her.
@@ -29,8 +29,8 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
     </tr>
     <tr><td colspan="6">Act 2: Antithesis</td></tr>
     <tr>
-        <td>25-30</td>
-        <td>Break Into Two, Hero Embarks On Adventure, B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters</td>
+        <td>25-29</td>
+        <td>Break Into Two, Hero Embarks On Adventure</td>
         <td></td>
         <td>
 
@@ -39,8 +39,8 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
         <td>&gt;&lt;</td>
     </tr>
     <tr>
-        <td>31-54</td>
-        <td>Fun &amp; Games, The Promise Of The Premise, Set Pieces</td>
+        <td>30-54</td>
+        <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces</td>
         <td></td>
         <td>
 
@@ -71,8 +71,8 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
     </tr>
     <tr><td colspan="6">Act 3: Synthesis</td></tr>
     <tr>
-        <td>85-100</td>
-        <td>Break Into Three, Fusion Of A And B, Finale, Climax, Change The World</td>
+        <td>85-104</td>
+        <td>Break Into Three, Fusion Of A And B, Finale, Change The World</td>
         <td></td>
         <td>
 
@@ -81,7 +81,7 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
         <td>&gt;&lt;</td>
     </tr>
     <tr>
-        <td>101-110</td>
+        <td>105-110</td>
         <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete Except For The One Open Question</td>
         <td></td>
         <td>
