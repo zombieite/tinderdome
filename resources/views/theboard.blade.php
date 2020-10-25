@@ -4,16 +4,16 @@
 
 Awaited: The Sequel
 <table>
-    <tr><td colspan="6">Act 1: Thesis</td></tr>
+    <tr><td colspan="7">Act 1: Thesis</td></tr>
     <tr><td>Chapter</td><td>Page</td><td>Beat</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory
  </td><td>Conflict</td></tr>
     <tr>
         <td>0</td>
         <td>1-11</td>
-        <td>Opening Image, Mirror Of Final Image, Theme Stated, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags And Callbacks, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, Save The Cat</td>
+        <td>Opening Image, Mirror Of Final Image, Theme Stated, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags And Callbacks, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, Primal Motivations, Save The Cat</td>
         <td>The first ever Tomorrowland Weekend</td>
         <td>
-FB selling tickets to an event called Tomorrowland Weekend, where postapocalyptic weirdos dress up as nonapocalyptic normies. DT introduces herself to FB, asks how to swap timelines. FB tries to get rid of her.
+FB selling tickets to an event called Tomorrowland Weekend, where postapocalyptic weirdos dress up as nonapocalyptic normies. DT introduces herself to FB, asks how to swap timelines. Hellies and Gillies introduced. "There's no way to hold on to your humanity in a world gone mad."
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;&lt;</td>
@@ -29,7 +29,7 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
         <td>&#x2197&#x2198</td>
         <td>&gt;&lt;</td>
     </tr>
-    <tr><td colspan="6">Act 2: Antithesis</td></tr>
+    <tr><td colspan="7">Act 2: Antithesis</td></tr>
     <tr>
         <td>2</td>
         <td>25-29</td>
@@ -52,7 +52,7 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
         <td>&#x2197&#x2198</td>
         <td>&gt;&lt;</td>
     </tr>
-    <tr><td colspan="6">Midpoint</td></tr>
+    <tr><td colspan="7">Midpoint</td></tr>
     <tr>
         <td>4</td>
         <td>55-74</td>
@@ -75,7 +75,7 @@ FB selling tickets to an event called Tomorrowland Weekend, where postapocalypti
         <td>&#x2197&#x2198</td>
         <td>&gt;&lt;</td>
     </tr>
-    <tr><td colspan="6">Act 3: Synthesis</td></tr>
+    <tr><td colspan="7">Act 3: Synthesis</td></tr>
     <tr>
         <td>6</td>
         <td>85-104</td>
