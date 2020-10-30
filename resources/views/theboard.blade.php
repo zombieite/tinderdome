@@ -10,10 +10,10 @@ Awaited: The Sequel
     <tr>
         <td>0</td>
         <td>1-11</td>
-        <td>Opening Image, Mirror Of Final Image, Theme Stated, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags And Callbacks, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, Primal Motivations, Save The Cat</td>
+        <td>Opening Image, Mirror Of Final Image, Theme Hinted At, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags And Callbacks, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, All Characters Have Primal Motivations, Save The Cat</td>
         <td>The first ever Tomorrowland Weekend</td>
         <td>
-FB selling tickets to an event called Tomorrowland Weekend, where postapocalyptic weirdos dress up as nonapocalyptic normies. DT introduces herself to FB, asks how to swap timelines. Hellies and Gillies introduced. "There's no way to hold on to your humanity in a world gone mad."
+FB selling tickets to an event called Tomorrowland Weekend, where postapocalyptic weirdos dress up as nonapocalyptic normies. DT introduces herself to FB, asks how to swap timelines. Hellies and Gillies introduced. "In a world gone mad you have to set free your inner animal."
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;&lt;</td>
