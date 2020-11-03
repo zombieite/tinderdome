@@ -2,7 +2,7 @@
 
 @section('content')
 
-Awaited: The Sequel
+Awaited: Satirical Parable
 <table>
     <tr><td colspan="8">Act 1: Thesis</td></tr>
     <tr><td>Chapter</td><td>Title</td><td>Pages</td><td>Beats</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory
