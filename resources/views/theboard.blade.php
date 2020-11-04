@@ -12,24 +12,24 @@ Awaited: Satirical Parable
         <td>Tomorrowland</td>
         <td>1-11</td>
         <td>Opening Image, Mirror Of Final Image, Theme Hinted At, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags And Callbacks, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, All Characters Have Primal Motivations, Save The Cat</td>
-        <td>The first ever Tomorrowland Weekend</td>
+        <td>TW</td>
         <td>
 FB selling tickets to TW, where postapocalyptic weirdos dress up as nonapocalyptic normies. DT introduces herself to FB. Hellies and Gillies introduced. FB: "When you're trying to get by in a world gone crazy sometimes you gotta go a little crazy too."
         </td>
         <td>FB proud of TW &#x2198 FB ashamed of TW</td>
-        <td>Hellies &amp; Gilles &gt; FB</td>
+        <td>FB &gt; Hellies &amp; Gillies</td>
     </tr>
     <tr>
         <td>1</td>
         <td>Dorktown</td>
         <td>12-24</td>
         <td>Catalyst &amp; Debate</td>
-        <td>FB's trailer, TW, Woolies</td>
+        <td>TW, Woolies</td>
         <td>
-DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was.
+DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Tomorrowlanders burn down TW and FB saves DT from the flames. They meet up with Skelli to ask for money.
         </td>
-        <td>&#x2197&#x2198</td>
-        <td>&gt;&lt;</td>
+        <td>FB and DT despondent &#x2197 FB and DT hopeful</td>
+        <td>Hellies &amp; Gillies &gt; FB</td>
     </tr>
     <tr><td colspan="8">Act 2: Antithesis</td></tr>
     <tr>
