@@ -16,7 +16,7 @@ Awaited: Satirical Parable
         <td>
 FB selling tickets to TW, where postapocalyptic weirdos dress up as nonapocalyptic normies. DT introduces herself to FB. Hellies and Gillies introduced. FB: "When you're trying to get by in a world gone crazy sometimes you gotta go a little crazy too."
         </td>
-        <td>FB proud of TW &#x2198 FB ashamed of TW</td>
+        <td>FB proud of TW &#x2198 FB concerned about TW</td>
         <td>FB &gt; Hellies &amp; Gillies</td>
     </tr>
     <tr>
