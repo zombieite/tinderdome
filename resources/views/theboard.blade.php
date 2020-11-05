@@ -26,7 +26,7 @@ FB selling tickets to TW, where postapocalyptic weirdos dress up as nonapocalypt
         <td>Catalyst &amp; Debate</td>
         <td>TW, Woolies</td>
         <td>
-DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Tomorrowlanders burn down TW and FB saves DT from the flames. They meet up with Skelli to ask for money.
+DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Tomorrowlanders burn down TW and FB saves DT from the flames.
         </td>
         <td>FB and DT despondent &#x2197 FB and DT hopeful</td>
         <td>Hellies &amp; Gillies &gt; FB</td>
@@ -34,27 +34,27 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
     <tr><td colspan="8">Act 2: Antithesis</td></tr>
     <tr>
         <td>2</td>
-        <td></td>
+        <td>Bakersfield</td>
         <td>25-29</td>
         <td>Break Into Two, Hero Embarks On Adventure</td>
         <td></td>
         <td>
-
+FB and DT meet up with MS to get funding for their quest.
         </td>
-        <td>&#x2197&#x2198</td>
-        <td>&gt;&lt;</td>
+        <td>No money &#x2197 Money</td>
+        <td>FB &amp; DT &gt; Skelli</td>
     </tr>
     <tr>
         <td>3</td>
-        <td></td>
+        <td>Van Nuys</td>
         <td>30-54</td>
         <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces</td>
         <td></td>
         <td>
-
+FB waxes philosophical about rebuilding the world and then segues into laying out their quest goals.
         </td>
         <td>&#x2197&#x2198</td>
-        <td>&gt;&lt;</td>
+        <td>&gt;</td>
     </tr>
     <tr><td colspan="8">Midpoint</td></tr>
     <tr>
@@ -67,7 +67,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
 
         </td>
         <td>&#x2197&#x2198</td>
-        <td>&gt;&lt;</td>
+        <td>&gt;</td>
     </tr>
     <tr>
         <td>5</td>
@@ -79,7 +79,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
 
         </td>
         <td>&#x2197&#x2198</td>
-        <td>&gt;&lt;</td>
+        <td>&gt;</td>
     </tr>
     <tr><td colspan="8">Act 3: Synthesis</td></tr>
     <tr>
@@ -92,7 +92,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
 
         </td>
         <td>&#x2197&#x2198</td>
-        <td>&gt;&lt;</td>
+        <td>&gt;</td>
     </tr>
     <tr>
         <td>7</td>
@@ -104,7 +104,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
 
         </td>
         <td>&#x2197&#x2198</td>
-        <td>&gt;&lt;</td>
+        <td>&gt;</td>
     </tr>
 </table>
 @endsection
