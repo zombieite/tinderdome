@@ -4,9 +4,8 @@
 
 Awaited: Satirical Parable
 <table>
-    <tr><td colspan="8">Act 1: Thesis</td></tr>
-    <tr><td>Chapter</td><td>Title</td><td>Pages</td><td>Beats</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory
- </td><td>Conflict</td></tr>
+    <tr><td colspan="9">Act 1: Thesis</td></tr>
+    <tr><td>Chapter</td><td>Title</td><td>Pages</td><td>Beats</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Urgent Question</td></tr>
     <tr>
         <td>0</td>
         <td>Tomorrowland</td>
@@ -18,6 +17,7 @@ FB selling tickets to TW, where postapocalyptic weirdos dress up as nonapocalypt
         </td>
         <td>FB proud of TW &#x2198 FB concerned about TW</td>
         <td>FB &gt; Hellies &amp; Gillies</td>
+        <td>Is a civil war brewing between the Hellies and the Gillies?</td>
     </tr>
     <tr>
         <td>1</td>
@@ -28,10 +28,11 @@ FB selling tickets to TW, where postapocalyptic weirdos dress up as nonapocalypt
         <td>
 DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Tomorrowlanders burn down TW and FB saves DT from the flames.
         </td>
-        <td>FB and DT despondent &#x2197 FB and DT hopeful</td>
+        <td>TW ok &#x2198 TW destroyed</td>
         <td>Hellies &amp; Gillies &gt; FB</td>
+        <td></td>
     </tr>
-    <tr><td colspan="8">Act 2: Antithesis</td></tr>
+    <tr><td colspan="9">Act 2: Antithesis</td></tr>
     <tr>
         <td>2</td>
         <td>Bakersfield</td>
@@ -43,6 +44,7 @@ FB and DT meet up with MS to get funding for their quest. A second narrator join
         </td>
         <td>No money &#x2197 Money</td>
         <td>FB &amp; DT &gt; Skelli</td>
+        <td></td>
     </tr>
     <tr>
         <td>3</td>
@@ -55,8 +57,9 @@ FB waxes philosophical about rebuilding the world and then segues into laying ou
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
+        <td></td>
     </tr>
-    <tr><td colspan="8">Midpoint</td></tr>
+    <tr><td colspan="9">Midpoint</td></tr>
     <tr>
         <td>4</td>
         <td></td>
@@ -68,6 +71,7 @@ FB waxes philosophical about rebuilding the world and then segues into laying ou
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
+        <td></td>
     </tr>
     <tr>
         <td>5</td>
@@ -80,8 +84,9 @@ FB waxes philosophical about rebuilding the world and then segues into laying ou
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
+        <td></td>
     </tr>
-    <tr><td colspan="8">Act 3: Synthesis</td></tr>
+    <tr><td colspan="9">Act 3: Synthesis</td></tr>
     <tr>
         <td>6</td>
         <td></td>
@@ -93,6 +98,7 @@ FB waxes philosophical about rebuilding the world and then segues into laying ou
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
+        <td></td>
     </tr>
     <tr>
         <td>7</td>
@@ -105,6 +111,7 @@ FB waxes philosophical about rebuilding the world and then segues into laying ou
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
+        <td></td>
     </tr>
 </table>
 @endsection
