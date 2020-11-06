@@ -39,7 +39,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         <td>Break Into Two, Hero Embarks On Adventure</td>
         <td></td>
         <td>
-FB and DT meet up with MS to get funding for their quest.
+FB and DT meet up with MS to get funding for their quest. A second narrator joins us.
         </td>
         <td>No money &#x2197 Money</td>
         <td>FB &amp; DT &gt; Skelli</td>
