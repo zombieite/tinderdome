@@ -44,7 +44,7 @@ FB and DT meet up with MS to get funding and weapons. DT begins assisting with n
         </td>
         <td>No money &#x2197 Money</td>
         <td>DT &gt; FB &amp; Skelli</td>
-        <td>Why are they going to Van Nuys instead of Norwood?</td>
+        <td>Why are they going to Van Nuys?</td>
     </tr>
     <tr>
         <td>3</td>
