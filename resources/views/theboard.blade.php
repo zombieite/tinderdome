@@ -53,7 +53,7 @@ FB and DT meet up with MS to get funding and weapons. DT begins assisting with n
         <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces</td>
         <td></td>
         <td>
-FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. They encounter the deep sea diver at a servo but fail to get the lunchbox back.
+FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. They battle the deep sea diver at a servo but fail to get the lunchbox back.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
