@@ -53,7 +53,7 @@ FB and DT meet up with MS to get funding and weapons. DT begins assisting with n
         <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces</td>
         <td></td>
         <td>
-FB waxes philosophical about rebuilding the world and then segues into laying out their quest goals.
+FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. They pick up the trail of the astronaut at a servo.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
