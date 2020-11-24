@@ -8,7 +8,7 @@ Awaited: Satirical Parable
     <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Question</td></tr>
     <tr>
         <td>0</td>
-        <td>1-11 (00%-10%)</td>
+        <td>1-11 (0%-10%)</td>
         <td>Opening Image, Mirror Of Final Image, Theme Hinted At, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, All Characters Have Primal Motivations, Save The Cat</td>
         <td>Tomorrowland</td>
         <td>TW</td>
@@ -59,11 +59,11 @@ FB gets philosophical about rebuilding the world. FB and DT lay out their quest 
         <td>&gt;</td>
         <td></td>
     </tr>
-    <tr><td colspan="9">Midpoint</td></tr>
+    <tr><td colspan="9">Midpoint: A Spike In The Wall, An N-shaped Story Or A V-shaped Story Depending On Whether We Have A False Victory Or A False Defeat Here</td></tr>
     <tr>
         <td>4</td>
         <td>55-74 (50%-67%)</td>
-        <td>Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat, Stakes Are Raised, Bad Guys Close In</td>
+        <td>Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat, Stakes Are Raised, Maybe Whiff Of Life To Mirror Whiff Of Death? Then... Bad Guys Close In</td>
         <td></td>
         <td></td>
         <td>
@@ -76,7 +76,7 @@ FB gets philosophical about rebuilding the world. FB and DT lay out their quest 
     <tr>
         <td>5</td>
         <td>75-84 (68%-76%)</td>
-        <td>All Is Lost, Mirror Of Midpoint, Whiff Of Death, Dark Night Of The Soul</td>
+        <td>All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death, Then... Dark Night Of The Soul</td>
         <td></td>
         <td></td>
         <td>
@@ -102,7 +102,7 @@ FB gets philosophical about rebuilding the world. FB and DT lay out their quest 
     </tr>
     <tr>
         <td>7</td>
-        <td>(95%-100%)</td>
+        <td>105-110 (95%-100%)</td>
         <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete Except For Maybe The One Open Question</td>
         <td></td>
         <td></td>
