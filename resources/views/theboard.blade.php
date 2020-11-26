@@ -26,7 +26,7 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
         <td>Dorktown</td>
         <td>TW</td>
         <td>
-DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames.
+DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
         </td>
         <td>TW successful &#x2198 TW destroyed</td>
         <td>Hellies &amp; Gillies &gt; FB</td>
@@ -53,7 +53,7 @@ FB and DT meet up with MS to get funding and weapons. DT begins assisting with n
         <td>Van Nuys</td>
         <td>On the road</td>
         <td>
-FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. They battle the deep sea diver at a servo but fail to get the lunchbox back.
+FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. FB battles CD at a servo but fails to get the lunchbox back.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
