@@ -51,7 +51,7 @@ FB and DT meet up with MS to get funding and weapons. DT begins assisting with n
         <td>30-54 (27%-49%)</td>
         <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces</td>
         <td>Van Nuys</td>
-        <td></td>
+        <td>On the road</td>
         <td>
 FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. They battle the deep sea diver at a servo but fail to get the lunchbox back.
         </td>
