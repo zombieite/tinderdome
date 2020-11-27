@@ -2,7 +2,6 @@
 
 @section('content')
 
-Awaited: Satirical Parable
 <table>
     <tr><td colspan="9">Act 1: Thesis</td></tr>
     <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Question</td></tr>
@@ -13,7 +12,7 @@ Awaited: Satirical Parable
         <td>Tomorrowland</td>
         <td>TW</td>
         <td>
-FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. FB: "When you're trying to get by in a world gone crazy sometimes you gotta go a little crazy too." Hellies and Gillies go to war in The Cage.
+FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. FB says you gotta go crazy in a crazy world. Hellies and Gillies go to war in The Cage.
         </td>
         <td>FB proud of TW &#x2198 FB concerned about TW</td>
         <td>FB &gt; Hellies &amp; Gillies</td>
@@ -40,7 +39,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         <td>Bakersfield</td>
         <td>Woolworth's Diner</td>
         <td>
-FB and DT meet up with MS to get funding and weapons. DT begins assisting with narration.
+FB and DT meet up with MS to get funding and weapons. MS contradicts FB, says don't let yourself go crazy in a crazy world. DT begins assisting with narration.
         </td>
         <td>No money &#x2197 Money</td>
         <td>DT &gt; FB &amp; Skelli</td>
@@ -49,17 +48,17 @@ FB and DT meet up with MS to get funding and weapons. DT begins assisting with n
     <tr>
         <td>3</td>
         <td>30-54 (27%-49%)</td>
-        <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces</td>
+        <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces, Then... Lead Up To False Victory Or False Defeat</td>
         <td>Van Nuys</td>
-        <td>On the road</td>
+        <td>Castaic, Van Nuys</td>
         <td>
-FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. FB battles CD at a servo but fails to get the lunchbox back.
+FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back.
         </td>
         <td>&#x2197&#x2198</td>
-        <td>&gt;</td>
+        <td>CD &gt; FB</td>
         <td></td>
     </tr>
-    <tr><td colspan="9">Midpoint: A Spike In The Wall, An N-shaped Story Or A V-shaped Story Depending On Whether We Have A False Victory Or A False Defeat Here</td></tr>
+    <tr><td colspan="9">Midpoint
     <tr>
         <td>4</td>
         <td>55-74 (50%-67%)</td>
