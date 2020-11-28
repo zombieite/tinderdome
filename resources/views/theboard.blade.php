@@ -52,7 +52,7 @@ FB and DT meet up with MS to get funding and weapons. MS contradicts FB, says do
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
         <td>
-FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back.
+FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president.
         </td>
         <td>&#x2197&#x2198</td>
         <td>CD &gt; FB</td>
@@ -89,7 +89,7 @@ FB gets philosophical about rebuilding the world. FB and DT lay out their quest 
     <tr>
         <td>6</td>
         <td>85-104 (77%-94%)</td>
-        <td>Break Into Three, Fusion Of A And B, Finale, Change The World</td>
+        <td>Break Into Three, Fusion Of A And B, Climax, Change The World</td>
         <td></td>
         <td></td>
         <td>
