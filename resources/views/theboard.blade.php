@@ -52,7 +52,7 @@ FB and DT meet up with MS to get funding and weapons. MS contradicts FB, says do
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
         <td>
-FB gets philosophical about rebuilding the world. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president.
+FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army.
         </td>
         <td>&#x2197&#x2198</td>
         <td>CD &gt; FB</td>
