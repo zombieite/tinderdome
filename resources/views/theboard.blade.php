@@ -62,7 +62,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
     <tr>
         <td>4</td>
         <td>55-74 (50%-67%)</td>
-        <td>Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat, Stakes Are Raised, Maybe Whiff Of Life To Mirror Whiff Of Death? Then... Bad Guys Close In</td>
+        <td>Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat, Stakes Are Raised, Then... Bad Guys Close In</td>
         <td></td>
         <td></td>
         <td>
