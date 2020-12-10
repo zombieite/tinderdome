@@ -66,7 +66,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td></td>
         <td></td>
         <td>
- The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army
+FB and DT fail to kill MA with the axe. The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
