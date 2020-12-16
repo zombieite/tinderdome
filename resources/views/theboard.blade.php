@@ -3,8 +3,8 @@
 @section('content')
 
 <table>
-    <tr><td colspan="9">Act 1: Thesis</td></tr>
-    <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Question</td></tr>
+    <tr><td colspan="10">Act 1: Thesis</td></tr>
+    <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Answered Question</td><td>New Question</td></tr>
     <tr>
         <td>0</td>
         <td>1-11 (0%-10%)</td>
@@ -16,6 +16,7 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
         </td>
         <td>FB proud of TW &#x2198 FB concerned about TW</td>
         <td>FB &gt; Hellies &amp; Gillies</td>
+        <td>Is FB still alive? (Yes)</td>
         <td>Is a civil war brewing?</td>
     </tr>
     <tr>
@@ -29,9 +30,10 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         </td>
         <td>TW successful &#x2198 TW destroyed</td>
         <td>Hellies &amp; Gillies &gt; FB</td>
+        <td>Is Tomorrowland real? (No)</td>
         <td>Are FB and DT going to join forces?</td>
     </tr>
-    <tr><td colspan="9">Act 2: Antithesis</td></tr>
+    <tr><td colspan="10">Act 2: Antithesis</td></tr>
     <tr>
         <td>2</td>
         <td>25-29 (23%-26%)</td>
@@ -43,6 +45,7 @@ FB and DT meet up with MS to get funding and weapons. MS contradicts FB, says do
         </td>
         <td>No money &#x2197 Money</td>
         <td>DT &gt; FB &amp; Skelli</td>
+        <td>Q1 (Yes), How will they get to Norwood? (Skelli's money)</td>
         <td>Why are they going to Van Nuys?</td>
     </tr>
     <tr>
@@ -52,13 +55,14 @@ FB and DT meet up with MS to get funding and weapons. MS contradicts FB, says do
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
         <td>
-FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. FB and DT battle MA and CD at Van Nuys Assembly but fail to stop them from building the Frankenbird.
+FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. FB and DT befriend OK. FB, DT, and OK battle MA and CD at Van Nuys Assembly but fail to stop them from building the Frankenbird. They fail to kill CD or MA and lose all of their weapons. Oldkoot is captured.
         </td>
-        <td>&#x2197&#x2198</td>
-        <td>CD &gt; FB</td>
-        <td></td>
+        <td>Struggling but confident &#x2198 Failing and hopeless</td>
+        <td>CD &gt; FB, MA &gt; FB, FB &gt; DT</td>
+        <td>Q2 (Another Firebird factory is there)</td>
+        <td>Will Oldkoot survive?</td>
     </tr>
-    <tr><td colspan="9">Midpoint
+    <tr><td colspan="10">Midpoint
     <tr>
         <td>4</td>
         <td>55-74 (50%-67%)</td>
@@ -66,10 +70,11 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td></td>
         <td></td>
         <td>
-FB and DT fail to kill MA with the axe. The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army
+Oldkoot is executed by guillotine. The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
+        <td>Q3 (No)</td>
         <td></td>
     </tr>
     <tr>
@@ -84,12 +89,13 @@ FB and DT fail to kill MA with the axe. The real stakes of the mission become ap
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
         <td></td>
+        <td></td>
     </tr>
-    <tr><td colspan="9">Act 3: Synthesis</td></tr>
+    <tr><td colspan="10">Act 3: Synthesis</td></tr>
     <tr>
         <td>6</td>
         <td>85-104 (77%-94%)</td>
-        <td>Break Into Three, Fusion Of A And B, Climax, Change The World</td>
+        <td>Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
         <td></td>
         <td></td>
         <td>
@@ -97,12 +103,13 @@ FB and DT fail to kill MA with the axe. The real stakes of the mission become ap
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
+        <td></td>
         <td></td>
     </tr>
     <tr>
         <td>7</td>
         <td>105-110 (95%-100%)</td>
-        <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete Except For Maybe The One Open Question</td>
+        <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete</td>
         <td></td>
         <td></td>
         <td>
@@ -110,6 +117,7 @@ FB and DT fail to kill MA with the axe. The real stakes of the mission become ap
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
+        <td></td>
         <td></td>
     </tr>
 </table>
