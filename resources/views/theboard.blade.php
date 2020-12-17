@@ -55,12 +55,12 @@ FB and DT meet up with MS to get funding and weapons. MS contradicts FB, says do
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
         <td>
-FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. FB and DT befriend OK. FB, DT, and OK battle MA and CD at Van Nuys Assembly but fail to stop them from building the Frankenbird. They fail to kill CD or MA and lose all of their weapons. Oldkoot is captured.
+FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. FB and DT befriend OK. FB, DT, and OK battle MA and CD at Van Nuys Assembly but fail to stop them from building the Frankenbird. They fail to kill CD and MA and lose all of their weapons. Oldkoot is captured.
         </td>
         <td>Struggling but confident &#x2198 Failing and hopeless</td>
         <td>CD &gt; FB, MA &gt; FB, FB &gt; DT</td>
         <td>Q2 (Another Firebird factory is there)</td>
-        <td>Will Oldkoot survive?</td>
+        <td>Will Oldkoot survive? Who's Laura?</td>
     </tr>
     <tr><td colspan="10">Midpoint
     <tr>
