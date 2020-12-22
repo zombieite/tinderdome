@@ -10,9 +10,9 @@
         <td>1-11 (0%-10%)</td>
         <td>Opening Image, Mirror Of Final Image, Theme Hinted At, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, All Characters Have Primal Motivations, Save The Cat</td>
         <td>Tomorrowland</td>
-        <td>TW</td>
+        <td>Tomorrowland Weekend</td>
         <td>
-FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. FB says you gotta go crazy in a crazy world. Hellies and Gillies go to war in The Cage.
+FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. Someone (FB?) says you gotta go crazy in a crazy world. Hellies and Gillies go to war in The Cage.
         </td>
         <td>FB proud of TW &#x2198 FB concerned about TW</td>
         <td>FB &gt; Hellies &amp; Gillies</td>
@@ -24,7 +24,7 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
         <td>12-24 (11%-22%)</td>
         <td>Catalyst &amp; Debate</td>
         <td>Dorktown</td>
-        <td>TW</td>
+        <td>Tomorrowland Weekend</td>
         <td>
 DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
         </td>
@@ -41,7 +41,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         <td>Bakersfield</td>
         <td>Woolworth's Diner</td>
         <td>
-FB and DT meet up with MS to get funding and weapons. MS contradicts FB, says don't let yourself go crazy in a crazy world. DT begins assisting with narration.
+FB and DT meet up with MS to get funding and weapons. MS says DON'T let yourself go crazy in a crazy world. DT begins assisting with narration.
         </td>
         <td>No money &#x2197 Money</td>
         <td>DT &gt; FB &amp; Skelli</td>
@@ -51,38 +51,38 @@ FB and DT meet up with MS to get funding and weapons. MS contradicts FB, says do
     <tr>
         <td>3</td>
         <td>30-54 (27%-49%)</td>
-        <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces, Then... Lead Up To False Victory Or False Defeat</td>
+        <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat</td>
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
         <td>
-FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. FB and DT battle MA and CD at Van Nuys Assembly but fail to stop them from building the Frankenbird. They fail to kill CD and MA and lose all of their weapons. Oldkoot is executed by guillotine.
+FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot is executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they succeed in stealing it instead.
         </td>
-        <td>Struggling but confident &#x2198 Failing and hopeless</td>
+        <td>Losing all their battles &#x2197 Finally a win</td>
         <td>CD &gt; FB, MA &gt; FB, FB &gt; DT</td>
         <td>Q2 (Another Firebird factory is there)</td>
-        <td>Will Oldkoot survive? Who's Laura?</td>
+        <td>Who's Laura?</td>
     </tr>
-    <tr><td colspan="10">Midpoint
+    <tr><td colspan="10">Midpoint</td>
     <tr>
         <td>4</td>
         <td>55-74 (50%-67%)</td>
-        <td>Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat, Stakes Are Raised, Then... Bad Guys Close In</td>
-        <td></td>
-        <td></td>
+        <td>Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death</td>
+        <td>Barstow</td>
+        <td>Route 66 Motel</td>
         <td>
 The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
-        <td>Q3 (No)</td>
+        <td></td>
         <td></td>
     </tr>
     <tr>
         <td>5</td>
         <td>75-84 (68%-76%)</td>
-        <td>All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death, Then... Dark Night Of The Soul</td>
-        <td></td>
-        <td></td>
+        <td>Dark Night Of The Soul</td>
+        <td>Seligman</td>
+        <td>Deluxe Inn</td>
         <td>
 
         </td>
@@ -96,8 +96,8 @@ The real stakes of the mission become apparent as DT reveals the MA is now the G
         <td>6</td>
         <td>85-104 (77%-94%)</td>
         <td>Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
-        <td></td>
-        <td></td>
+        <td>Norwood</td>
+        <td>Norwood Assembly</td>
         <td>
 
         </td>
@@ -109,8 +109,8 @@ The real stakes of the mission become apparent as DT reveals the MA is now the G
     <tr>
         <td>7</td>
         <td>105-110 (95%-100%)</td>
-        <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete</td>
-        <td></td>
+        <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete Except For The One New Question</td>
+        <td>Something that is a play on a place name but not a place name, like Dorktown or Tomorrowland</td>
         <td></td>
         <td>
 
