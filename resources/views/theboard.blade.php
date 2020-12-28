@@ -55,7 +55,7 @@ FB and DT meet up with MS to get funding and weapons. MS says DON'T let yourself
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
         <td>
-FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot is executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they succeed in stealing it instead.
+FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot is executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they steal the Frankenbird instead.
         </td>
         <td>Losing all their battles &#x2197 Finally a win</td>
         <td>CD &gt; FB, MA &gt; FB, FB &gt; DT</td>
@@ -70,7 +70,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>Barstow</td>
         <td>Route 66 Motel</td>
         <td>
-The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army.
+The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army. At All Is Lost, someone is dropped out of a helicopter.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
