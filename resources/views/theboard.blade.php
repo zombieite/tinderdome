@@ -57,7 +57,7 @@ FB and DT meet up with MS to get funding and weapons. MS says DON'T let yourself
         <td>
 FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot is executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they steal the Frankenbird instead.
         </td>
-        <td>Losing all their battles &#x2197 Finally a win</td>
+        <td>Losing all their battles &#x2197 Finally a partial win</td>
         <td>CD &gt; FB, MA &gt; FB, FB &gt; DT</td>
         <td>Q2 (Another Firebird factory is there)</td>
         <td>Who's Laura?</td>
@@ -68,7 +68,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>55-74 (50%-67%)</td>
         <td>Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death</td>
         <td>Barstow</td>
-        <td>Route 66 Motel</td>
+        <td>Barstow</td>
         <td>
 The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army. At All Is Lost, someone is dropped out of a helicopter.
         </td>
