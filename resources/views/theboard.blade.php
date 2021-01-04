@@ -67,8 +67,8 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>4</td>
         <td>55-74 (50%-67%)</td>
         <td>Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death</td>
-        <td>Barstow</td>
-        <td>Barstow</td>
+        <td>Amboy</td>
+        <td>Amboy</td>
         <td>
 The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army. At All Is Lost, someone is dropped out of a helicopter.
         </td>
