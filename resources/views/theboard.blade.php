@@ -29,7 +29,7 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
 DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
         </td>
         <td>TW successful &#x2198 TW destroyed</td>
-        <td>Hellies &amp; Gillies &gt; FB</td>
+        <td>Hellies &gt; Gillies, Hellies &amp; Gillies &gt; FB</td>
         <td>Is Tomorrowland real? (No)</td>
         <td>Are FB and DT going to join forces?</td>
     </tr>
@@ -70,10 +70,10 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>Amboy</td>
         <td>Amboy</td>
         <td>
-The real stakes of the mission become apparent as DT reveals the MA is now the Gilly president and he commands the entire Gilly army. At All Is Lost, someone is dropped out of a helicopter.
+The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT calls in the Helly army and they drop the FD out of their helicopters.
         </td>
         <td>&#x2197&#x2198</td>
-        <td>&gt;</td>
+        <td>DT &gt; FB, Hellies &gt; Gillies</td>
         <td></td>
         <td></td>
     </tr>
