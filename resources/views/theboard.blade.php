@@ -55,7 +55,7 @@ FB and DT meet up with MS to get funding and weapons. MS says DON'T let yourself
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
         <td>
-FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot is executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they steal the Frankenbird instead.
+FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot and friends are executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they steal the Frankenbird instead.
         </td>
         <td>Losing all their battles &#x2197 Finally a partial win</td>
         <td>CD &gt; FB, MA &gt; FB, FB &gt; DT</td>
@@ -70,7 +70,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>Amboy</td>
         <td>Amboy</td>
         <td>
-The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT calls in the Helly army and they drop the FD out of their helicopters.
+The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT becomes increasingly dissatisfied with her partnership with FB and fears he does not have the guts to kill MA. DT goes of on her own and calls in the Helly army and they machine gun the FD and drop the FD out of their helicopters. Firebird helps MA and CD escape because he fears a civil war.
         </td>
         <td>&#x2197&#x2198</td>
         <td>DT &gt; FB, Hellies &gt; Gillies</td>
@@ -80,11 +80,11 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
     <tr>
         <td>5</td>
         <td>75-84 (68%-76%)</td>
-        <td>Dark Night Of The Soul</td>
-        <td>Seligman</td>
-        <td>Deluxe Inn</td>
+        <td>Dark Night Of The Soul, Wallowing In Hopelessness And Sadness And Anger</td>
+        <td></td>
+        <td></td>
         <td>
-
+MA and CD take advantage of FB's kindness and capture him and DT and the Frankenbird. They put him and DT on the brand new double guillotine they've built in front of the Norwood factory.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
@@ -99,7 +99,7 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>Norwood</td>
         <td>Norwood Assembly</td>
         <td>
-
+The Norwood workers are Gillies but they like FB and DT better than MA and CD. The workers rebel and either MA or CD is beheaded by his own people and the other escapes.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
@@ -109,11 +109,11 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
     <tr>
         <td>7</td>
         <td>105-110 (95%-100%)</td>
-        <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete Except For The One New Question</td>
-        <td>Something that is a play on a place name but not a place name, like Dorktown or Tomorrowland</td>
-        <td></td>
+        <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete, All Loose Ends Tied Up Except For The One New Question</td>
+        <td>Torkdown</td>
+        <td>Australia</td>
         <td>
-
+One more Trans Am gets built in Norwood, and it's perfect. FB takes it and gives the Frankenbird to DT who paints it hot pink. They give up on America and head back to Australia as the US descends into civil war.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
