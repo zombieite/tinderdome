@@ -67,8 +67,8 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>4</td>
         <td>55-74 (50%-67%)</td>
         <td>Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death</td>
-        <td>Amboy</td>
-        <td>Amboy</td>
+        <td>Seligman</td>
+        <td>Amboy, Seligman</td>
         <td>
 The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT becomes increasingly dissatisfied with her partnership with FB and fears he does not have the guts to kill MA. DT goes off on her own and calls in the Helly army and they machine gun the FD and drop the FD out of their helicopters. Firebird helps MA and CD escape because he fears a civil war.
         </td>
