@@ -74,8 +74,8 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         </td>
         <td>&#x2197&#x2198</td>
         <td>DT &gt; FB, Hellies &gt; Gillies</td>
-        <td></td>
-        <td></td>
+        <td>Q3 (The Grieving Woman from A-N-D)</td>
+        <td>Will FB and DT reconcile and team up again?</td>
     </tr>
     <tr>
         <td>5</td>
