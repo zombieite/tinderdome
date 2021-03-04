@@ -84,7 +84,7 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td></td>
         <td></td>
         <td>
-MA and CD take advantage of FB's kindness and capture him and DT and the Frankenbird. They put him and DT on the brand new double guillotine they've built in front of the Norwood factory.
+
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
@@ -99,6 +99,7 @@ MA and CD take advantage of FB's kindness and capture him and DT and the Franken
         <td>Norwood</td>
         <td>Norwood Assembly</td>
         <td>
+The guillotine or double guillotine comes out.
 The Norwood workers are Gillies but they like FB and DT better than MA and CD. The workers rebel and either MA or CD is beheaded by his own people and the other escapes.
         </td>
         <td>&#x2197&#x2198</td>
