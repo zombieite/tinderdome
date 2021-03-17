@@ -81,8 +81,8 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>5</td>
         <td>75-84 (68%-76%)</td>
         <td>Dark Night Of The Soul, Wallowing In Hopelessness And Sadness And Anger</td>
-        <td></td>
-        <td></td>
+        <td>Ash Fork</td>
+        <td>Route 66</td>
         <td>
 
         </td>
