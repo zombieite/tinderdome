@@ -68,7 +68,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>55-74 (50%-67%)</td>
         <td>Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death</td>
         <td>Seligman</td>
-        <td>Amboy, Seligman</td>
+        <td>Amboy, Seligman, Ash Fork</td>
         <td>
 The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT becomes increasingly dissatisfied with her partnership with FB and fears he does not have the guts to kill MA. DT goes off on her own and calls in the Helly army and they machine gun the FD and drop the FD out of their helicopters, while destroying the Firebuddy factory.
         </td>
@@ -81,8 +81,8 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>5</td>
         <td>75-84 (68%-76%)</td>
         <td>Dark Night Of The Soul, Wallowing In Hopelessness And Sadness And Anger</td>
-        <td>Ash Fork</td>
-        <td>Route 66</td>
+        <td>St. Louis</td>
+        <td>Dodge factory</td>
         <td>
 
         </td>
