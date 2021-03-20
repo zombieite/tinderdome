@@ -81,10 +81,10 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>5</td>
         <td>75-84 (68%-76%)</td>
         <td>Dark Night Of The Soul, Wallowing In Hopelessness And Sadness And Anger</td>
-        <td>St. Louis</td>
+        <td>Ash Fork, St. Louis</td>
         <td>Dodge factory</td>
         <td>
-
+FB and DT watch as MA dies. The extent of DT's pain and the damage it has done to her is revealed.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
