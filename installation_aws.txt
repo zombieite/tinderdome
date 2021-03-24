@@ -1,0 +1,54 @@
+# Set up AWS EC2 instance, Amazon Linux 2 AMI, including ability to log in via SSH
+# Set up an elastic IP and assign it to your instance
+# Add an A record connecting *.yourname.com to that IP in Amazon Route 53, don't forget that * at the beginning
+# Create a reverse DNS for the IP as well, if you want to support emailing from your domain
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html
+ssh -i /Users/zombieite/Desktop/local/aws/YAA.pem ec2-user@ec2-3-18-223-4.us-east-2.compute.amazonaws.com
+sudo yum update -y
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+sudo yum install -y httpd mariadb-server
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl is-enabled httpd
+sudo usermod -a -G apache ec2-user
+exit
+ssh -i /Users/zombieite/Desktop/local/aws/YAA.pem ec2-user@ec2-3-18-223-4.us-east-2.compute.amazonaws.com
+groups
+sudo chown -R ec2-user:apache /var/www
+sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+echo '<html><body>Hello world</body></html>' >/var/www/html/index.html
+# Visit http://ec2-3-18-223-4.us-east-2.compute.amazonaws.com/
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
+sudo yum install -y mod_ssl
+cat /etc/httpd/conf.d/ssl.conf
+cat /etc/pki/tls/certs/make-dummy-cert
+cd /etc/pki/tls/certs
+sudo ./make-dummy-cert localhost.crt
+ls /etc/pki/tls/certs/localhost.crt
+sudo vi /etc/httpd/conf.d/ssl.conf
+# Comment out SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+sudo systemctl restart httpd
+# Visit https://ec2-3-18-223-4.us-east-2.compute.amazonaws.com/
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html#letsencrypt
+sudo wget -r --no-parent -A 'epel-release-*.rpm' https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
+sudo rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
+sudo yum-config-manager --enable epel*
+sudo yum repolist all
+sudo vi /etc/httpd/conf/httpd.conf
+# After Listen 80 add:
+# <VirtualHost *:80>
+#     DocumentRoot "/var/www/html"
+#     ServerName "youareawaited.com"
+#     ServerAlias "www.youareawaited.com"
+# </VirtualHost>
+sudo systemctl restart httpd
+sudo yum install -y certbot python2-certbot-apache
+sudo certbot
+sudo crontab -e
+# 39      1,13    *       *       *       root    certbot renew --no-self-upgrade
+sudo systemctl restart crond
+# Test SSL
+# https://www.ssllabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
+sudo yum list installed httpd mariadb-server php-mysqlnd
+
