@@ -51,4 +51,237 @@ sudo systemctl restart crond
 # Test SSL
 # https://www.ssllabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
 sudo yum list installed httpd mariadb-server php-mysqlnd
+sudo systemctl start mariadb
+# Enter a new root password and enter Y for other questions
+sudo systemctl enable mariadb
+# Skip installing phpMyAdmin
+mysql -uroot -p
+# This concludes AWS instructions, now merging old Mac install instructions with similar steps on AWS
+# Apache files will be placed at /var/www/html/
+cd /var/www/html/
+ssh-keygen
+cat /home/ec2-user/.ssh/id_rsa.pub
+# Add key to github
+sudo yum install git
+git clone git@github.com:zombieite/tinderdome.git
+# Get composer (may need to get homebrew first)
+curl -sS https://getcomposer.org/installer | /usr/bin/php
+# Expect to see something like Composer (version 2.0.11) successfully installed to: /var/www/html/composer.phar
+# Get Laravel
+php composer.phar global require "laravel/installer"
+# Laravel is now at /home/ec2-user/.config/composer/vendor/bin/laravel
+cd /var/www/html/
+# Remove old default PHP so we can install newer
+# https://rpms.remirepo.net/wizard/ (RHEL7, 7.4.16, Default single) but if that fails maybe try this https://tecadmin.net/install-apache24-php7-on-amazon-linux/
+sudo yum remove php*
+sudo yum install https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo yum install yum-utils
+sudo yum-config-manager --disable 'remi-php*'
+sudo yum-config-manager --enable remi-php80
+yum repolist
+sudo yum update
+sudo yum install php74
+sudo ln -s /usr/bin/php74 /usr/bin/php
+sudo yum install php74-php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}.x86_64
+# force means who cares that there is stuff in there already
+/home/ec2-user/.config/composer/vendor/bin/laravel new tinderdome --force
+sudo chgrp -R apache /var/www/html/ # unsure if necessary or helpful
+chmod 777 tinderdome/storage
+chmod 777 tinderdome/bootstrap/cache
+mv tinderdome/.env.example tinderdome/.env
+sudo vi /etc/httpd/conf/httpd.conf
+# Make it look something like this, but maybe not all of this is necessary?
+#Listen 80
+#<VirtualHost *:80>
+#    DocumentRoot "/var/www/html/tinderdome/public"
+#    ServerName "youareawaited.com"
+#    ServerAlias "www.youareawaited.com"
+#    RewriteEngine on
+#    RewriteCond %{SERVER_NAME} =www.youareawaited.com [OR]
+#    RewriteCond %{SERVER_NAME} =youareawaited.com
+#    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+#</VirtualHost>
+#AddType application/x-httpd-php .php
+#<FilesMatch \.php$>
+#   SetHandler application/x-httpd-php
+#</FilesMatch>
+#AccessFileName .htaccess
+#DirectoryIndex index.html index.php
+#<Directory /var/www/html/tinderdome/public>
+#AllowOverride All
+#</Directory>
+sudo vi /etc/httpd/conf/httpd-le-ssl.conf
+# Change DocumentRoot from /var/www/html/ to /var/www/html/tinderdome/public, then should look something like:
+#<IfModule mod_ssl.c>
+#<VirtualHost *:443>
+#    DocumentRoot "/var/www/html/tinderdome/public"
+#    ServerName "youareawaited.com"
+#    ServerAlias "www.youareawaited.com"
+#    Include /etc/letsencrypt/options-ssl-apache.conf
+#    SSLCertificateFile /etc/letsencrypt/live/youareawaited.com/fullchain.pem
+#    SSLCertificateKeyFile /etc/letsencrypt/live/youareawaited.com/privkey.pem
+#</VirtualHost>
+#</IfModule>
+# I think logs are in /etc/httpd/logs/
+sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}
 
+
+
+
+
+
+
+
+
+
+
+# Check localhost now, it should be working. It should say "Laravel".
+
+cd tinderdome
+
+cp public/favicon.ico /Applications/MAMP/bin/favicon.ico
+
+/Users/$USER/composer.phar install
+
+php artisan key:generate
+
+git checkout -- public/js/app.js
+
+git checkout -- public/css/app.css
+
+git diff # If you have time, check if anything important has been updated that should be incorporated into vendor files I've added to repo and modified
+
+git checkout -- . # Use my modifications instead of defaults
+
+vi .env # Set this stuff:
+# DB_DATABASE=tinderdome
+# DB_USERNAME=root # This should work on day 1 but change this
+# DB_PASSWORD=root # This should work on day 1 but change this
+
+# Start mysql client (see password above)
+/Applications/MAMP/Library/bin/mysql -uroot -p
+
+create database tinderdome;
+
+^D
+
+# Populate DB with existing data (get mysqldump.sql from production server and set up backups later).
+/Applications/MAMP/Library/bin/mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysqldump.sql
+
+# Install image resizer
+/Users/$USER/composer.phar require intervention/image
+
+# Get all user images not in repo (get public/uploads from production server and set up backups later).
+cp -r /Users/$USER/Desktop/remote/server/web/tinderdome/public/uploads public/
+
+# http://localhost/ should now work
+
+# If you need to tail logs
+tail -1000 /Applications/MAMP/logs/apache_error.log; tail -f /Applications/MAMP/logs/apache_error.log
+tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/logs/php_error.log
+tail -1000 storage/logs/laravel-<date>.log; tail -f storage/logs/laravel-<date>.log
+
+# Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
+# but secret laravel routing magic is here: /Applications/MAMP/htdocs/.htaccess
+
+# Set up backup rsync script to sync files not in repo and keep mysql backed up
+
+# Instructions to run scripts from command line using your code and Laravel's code:
+php artisan make:command MyCommand.
+# Go to app/Console/Commands/MyCommand.php
+# Find:
+# protected $signature = 'command:name';
+# Change to:
+# protected $signature = 'my:command';
+# In the handle() method you can add your code:
+# use Illuminate\Support\Facades\DB;
+# public function handle()
+# {
+#     echo 'Hello world';
+#     // DB:: commands can go in here if you use DB at top
+# }
+# In app/Console/Kernel.php you will find protected variable $commands. Add your Command's class name.
+# protected $commands = [
+#     // ...
+#     Commands\MyCommand::class,
+# ];
+#php artisan my:command
+
+HTTPS:
+
+# Reference (note version might need to be changed):
+# https://ssl-config.mozilla.org/#server=apache&server-version=2.4.39&config=intermediate
+
+# First goal is to get server working with a virtual host section, because it's required for letsencrypt certbot. Go into youareawaited.com.conf. Comment out most of the contents of <VirtualHost *:80> but leave those section delimiters and "ServerName youareawaited.com" in place
+# comment out Listen 443
+# comment out <VirtualHost *:443> section including those section delimiters
+# With no comments, file will just be:
+#<VirtualHost *:80>
+#    ServerName youareawaited.com
+#</VirtualHost>
+
+/Applications/MAMP/bin/apache2/bin/apachectl configtest
+sudo /Applications/MAMP/bin/apache2/bin/httpd -k stop
+sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
+# Regression test page load, login, logout
+
+# Add line to end of /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mamp.conf
+Include /Users/jbinns/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
+
+/Applications/MAMP/bin/apache2/bin/apachectl configtest
+sudo /Applications/MAMP/bin/apache2/bin/httpd -k stop
+sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
+# Regression test page load, login, logout
+
+# Note: We will no longer be using MAMP to start/stop Apache or MySQL. Use the commands above only. If you do use MAMP, it may overwrite changes you've made to httpd.conf.
+
+# Install brew if necessary
+which brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Certbot will want to use the native Mac Apache install to configure itself. So we have to tell the native Mac Apache install about our site, even if we don't use the native Mac Apache install. Open /etc/apache2/httpd.conf and add this line to the end:
+Include /Users/jbinns/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
+# And uncomment:
+LoadModule rewrite_module libexec/apache2/mod_rewrite.so
+
+# Stop MAMP's version of Apache so that Certbot can start native Mac Apache install and use it as the server temporarily, so that the challenge succeeds (some outside server needs to contact our server and verify that a resource can be reached, which verifies that we own the server).
+
+# https://certbot.eff.org/lets-encrypt/osx-apache
+# install letsencrypt certbot
+brew update
+brew install letsencrypt
+sudo certbot --apache # This complains "Cannot find an SSLCertificateFile directive" but it's ok
+
+# Set up a cron to renew certs (this is so far untested so who knows if it actually works, but it's copied from Certbot instructions so it might)
+echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew" | sudo tee -a /etc/crontab > /dev/null
+
+# Stop native Mac Apache install (might need to change apachectl to apache2ctl)
+/usr/sbin/apachectl stop
+
+# Start MAMP's version of Apache. Note that now, for configtest, we need sudo, because config hits private key files owned by root. You may have to go into /etc/letsencrypt/options-ssl-apache.conf and remove the line about compression in order to get configtest to work.
+sudo /Applications/MAMP/bin/apache2/bin/apachectl configtest
+sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
+# Regression test page load, login, logout
+
+# to renew
+#sudo certbot renew
+# (copied from above cron, if the cron doesn't take care of it for you). sudo apachectl wasn't working because it wanted to use /usr/sbin/apachectl instead of the MAMP one. So I moved the original to a nearby location and linked the MAMP one at /usr/sbin/apachectl. This made it work. There was an error about "Detail: During secondary validation: DNS problem: SERVFAIL looking up CAA for youareawaited.com - the domain's nameservers may be malfunctioning" but that error did not happen when I just retried it.
+
+# Check localhost to make sure the site, logins, and database are working. Now we have a working Apache config that can be modified to support https, and the https cert files and stuff are all installed and ready to go. One important note: DO NOT START MAMP ANYMORE. If you do, it will overwrite configs(? Actually at the moment I have my development server working using MAMP and my custom httpd.conf so not sure about this). It is tempting to try to copy MAMP's Apache and MySQL configs over to Mac's native Mac Apache install and use it instead, but that does not work because the different versions of Apache expect different configurations. It MIGHT work to modify Mac's native Apache install to try to get Laravel etc. working there first, but I haven't had success with that yet so this is how I'm doing it for now.
+
+# Verify certificate files are in place before we start to use them
+sudo ls /etc/letsencrypt/live/youareawaited.com/fullchain.pem
+sudo ls /etc/letsencrypt/live/youareawaited.com/privkey.pem
+sudo ls /etc/letsencrypt/options-ssl-apache.conf
+
+# Open apache/youareawaited.com.conf and uncomment everything.
+
+sudo /Applications/MAMP/bin/apache2/bin/apachectl configtest
+sudo /Applications/MAMP/bin/apache2/bin/httpd -k stop
+sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
+# Site should now redirect to https. Accept security risks if viewing page via URL "localhost". Regression test page load, login, logout.
+
+# This site should give you an A+
+https://www.ssllabs.com/ssltest/analyze.html?d=youareawaited.com&hideResults=on
+# Site was found from this helpful post
+https://rameerez.com/blog/facebook-sharing-not-scraping-url-correctly-with-https-links/
