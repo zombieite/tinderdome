@@ -81,10 +81,10 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>5</td>
         <td>75-84 (68%-76%)</td>
         <td>Dark Night Of The Soul, Wallowing In Hopelessness And Sadness And Anger</td>
-        <td>Ash Fork, St. Louis</td>
+        <td>St. Louis</td>
         <td>Dodge factory</td>
         <td>
-FB and DT watch as MA dies. The extent of DT's pain and the damage it has done to her is revealed.
+FB and DT watch as MA dies. The extent of DT's pain is revealed and she tries to kill herself.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
@@ -99,8 +99,7 @@ FB and DT watch as MA dies. The extent of DT's pain and the damage it has done t
         <td>Norwood</td>
         <td>Norwood Assembly</td>
         <td>
-The guillotine or double guillotine comes out.
-The Norwood workers are Gillies but they like FB and DT better than MA and CD. The workers rebel and either MA or CD is beheaded by his own people and the other escapes.
+The Helly and Gilly armies convene on Norwood but the auto workers union have heard of Firebird's exploits over their CB radios and they are waiting and ready for battle. They don't have tanks and helcopters but they use their unique skills and a crane to take out the attackers.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
@@ -111,10 +110,10 @@ The Norwood workers are Gillies but they like FB and DT better than MA and CD. T
         <td>7</td>
         <td>105-110 (95%-100%)</td>
         <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete, All Loose Ends Tied Up Except For The One New Question</td>
-        <td>Torkdown</td>
-        <td>Australia</td>
+        <td></td>
+        <td></td>
         <td>
-One more Trans Am gets built in Norwood, and it's perfect. FB takes it and gives the Frankenbird to DT who paints it hot pink. They give up on America and head back to Australia as the US descends into civil war.
+One more Trans Am gets built in Norwood, and it's perfect. FB takes it and gives the Frankenbird to DT who paints it hot pink. They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
