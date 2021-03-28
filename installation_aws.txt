@@ -42,6 +42,7 @@ sudo vi /etc/httpd/conf/httpd.conf
 #     ServerName "youareawaited.com"
 #     ServerAlias "www.youareawaited.com"
 # </VirtualHost>
+sudo apachectl configtest
 sudo systemctl restart httpd
 sudo yum install -y certbot python2-certbot-apache
 sudo certbot
@@ -57,6 +58,7 @@ sudo systemctl enable mariadb
 # Skip installing phpMyAdmin
 mysql -uroot -p
 # This concludes AWS instructions, now merging old Mac install instructions with similar steps on AWS
+
 # Apache files will be placed at /var/www/html/
 cd /var/www/html/
 ssh-keygen
@@ -71,6 +73,7 @@ curl -sS https://getcomposer.org/installer | /usr/bin/php
 php composer.phar global require "laravel/installer"
 # Laravel is now at /home/ec2-user/.config/composer/vendor/bin/laravel
 cd /var/www/html/
+
 # Remove old default PHP so we can install newer
 # https://rpms.remirepo.net/wizard/ (RHEL7, 7.4.16, Default single) but if that fails maybe try this https://tecadmin.net/install-apache24-php7-on-amazon-linux/
 sudo yum remove php*
@@ -83,6 +86,7 @@ sudo yum update
 sudo yum install php74
 sudo ln -s /usr/bin/php74 /usr/bin/php
 sudo yum install php74-php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}.x86_64
+
 # force means who cares that there is stuff in there already
 /home/ec2-user/.config/composer/vendor/bin/laravel new tinderdome --force
 sudo chgrp -R apache /var/www/html/ # unsure if necessary or helpful
@@ -122,6 +126,7 @@ sudo vi /etc/httpd/conf/httpd-le-ssl.conf
 #    SSLCertificateKeyFile /etc/letsencrypt/live/youareawaited.com/privkey.pem
 #</VirtualHost>
 #</IfModule>
+# Main configs are /etc/httpd/conf/httpd.conf and /etc/httpd/conf/httpd-le-ssl.conf
 # I think logs are in /etc/httpd/logs/
 sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}
 
