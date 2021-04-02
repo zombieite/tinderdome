@@ -117,23 +117,18 @@ git clone git@github.com:zombieite/tinderdome.git
 # Repo is at /home/ec2-user/tinderdome ###############################################
 ######################################################################################
 rsync -rv /home/ec2-user/tinderdome/ /var/www/html/tinderdome/
-
-
-
-
-
-
-
-
-
-
 vi .env # Set this stuff:
-# DB_DATABASE=tinderdome
-# DB_USERNAME=root # This should work on day 1 but change this
-# DB_PASSWORD=root # This should work on day 1 but change this
-
-
-
+DB_DATABASE=tinderdome
+DB_USERNAME=root # This should work on day 1 but change this
+DB_PASSWORD=root # This should work on day 1 but change this
+# http://youareawaited.com should show YAA homepage
+# Now to make the other routes work besides index.php, using the .htaccess file
+sudo vi /etc/httpd/conf/httpd.conf
+# Further relax access to the default document root:
+# <Directory "/var/www/html">
+# ...
+AllowOverride All
+# ...
 
 
 
@@ -354,4 +349,6 @@ https://rameerez.com/blog/facebook-sharing-not-scraping-url-correctly-with-https
 
 
 
+TODO: BACKUP MYSQL
+TODO: BACKUP IMAGES IN tinderdome/public/uploads
 TODO: COPY FAVICON TO SOMEWHERE
