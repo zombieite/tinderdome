@@ -1,98 +1,82 @@
-# Set up AWS EC2 instance, Amazon Linux 2 AMI, including ability to log in via SSH
-# Set up an elastic IP and assign it to your instance
-# Add an A record connecting *.yourname.com to that IP in Amazon Route 53, don't forget that * at the beginning
-# Create a reverse DNS for the IP as well, if you want to support emailing from your domain
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html
-ssh -i /Users/zombieite/Desktop/local/aws/YAA.pem ec2-user@ec2-3-18-223-4.us-east-2.compute.amazonaws.com
+# Using web AWS "console" and the official AWS tutorials online
+# Set up AWS EC2 free micro instance, Amazon Linux 2
+# Set up access rules and roles and ports and stuff, ports 80 (http), 443 (https), 22 (ssh)
+# Set up login via SSH
+# Set up an elastic IP and assign it to the instance
+# Add an A record connecting *.youareawaited.com to that IP in Amazon Route 53, don't forget that * at the beginning
+# Maybe add an _alias_ A record for www.youareawated.com too
+# Create a reverse DNS for the IP as well (makes emails from your domain look legit)
+ssh -i /Users/zombieite/Desktop/local/aws/YAA.pem ec2-user@youareawaited.com
+# You probably need to uninstall one thing before installing another version of the same thing
+# If you need to remove stuff installed via Amazon Extras:
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library
+# yum list installed | grep amzn2extra-topic | awk '{ print $1 }'
+# sudo yum remove <package listed above>
+# Now following instructions here:
+# https://tecadmin.net/install-apache24-php7-on-amazon-linux/
 sudo yum update -y
-sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
-sudo yum install -y httpd mariadb-server
-sudo systemctl start httpd
+sudo yum install -y httpd httpd-tools mod_ssl
 sudo systemctl enable httpd
 sudo systemctl is-enabled httpd
+sudo systemctl start httpd
+######################################################################################
+# Website html and stuff will be at /var/www/html/ ###################################
+######################################################################################
+# http://youareawaited.com should show Apache test homepage ##########################
+######################################################################################
+sudo yum install amazon-linux-extras -y
+sudo amazon-linux-extras | grep php
+sudo amazon-linux-extras enable php7.4
+sudo yum clean metadata
+sudo yum install php php-common php-pear
+sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}
+php -v
+echo "<?php phpinfo(); ?>" > /var/www/html/info.php
+# http://youareawaited.com/info.php should show phpinfo
+rm /var/www/html/info.php
+cd /var/www/html/
+ssh-keygen
+cat /home/ec2-user/.ssh/id_rsa.pub
+# Add that key to github
+sudo yum install git
 sudo usermod -a -G apache ec2-user
-exit
-ssh -i /Users/zombieite/Desktop/local/aws/YAA.pem ec2-user@ec2-3-18-223-4.us-east-2.compute.amazonaws.com
 groups
 sudo chown -R ec2-user:apache /var/www
 sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
 find /var/www -type f -exec sudo chmod 0664 {} \;
-echo '<html><body>Hello world</body></html>' >/var/www/html/index.html
-# Visit http://ec2-3-18-223-4.us-east-2.compute.amazonaws.com/
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
-sudo yum install -y mod_ssl
-cat /etc/httpd/conf.d/ssl.conf
-cat /etc/pki/tls/certs/make-dummy-cert
-cd /etc/pki/tls/certs
-sudo ./make-dummy-cert localhost.crt
-ls /etc/pki/tls/certs/localhost.crt
-sudo vi /etc/httpd/conf.d/ssl.conf
-# Comment out SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
-sudo systemctl restart httpd
-# Visit https://ec2-3-18-223-4.us-east-2.compute.amazonaws.com/
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html#letsencrypt
-sudo wget -r --no-parent -A 'epel-release-*.rpm' https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
-sudo rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
-sudo yum-config-manager --enable epel*
-sudo yum repolist all
-sudo vi /etc/httpd/conf/httpd.conf
-# After Listen 80 add:
-# <VirtualHost *:80>
-#     DocumentRoot "/var/www/html"
-#     ServerName "youareawaited.com"
-#     ServerAlias "www.youareawaited.com"
-# </VirtualHost>
-sudo apachectl configtest
-sudo systemctl restart httpd
-sudo yum install -y certbot python2-certbot-apache
-sudo certbot
-sudo crontab -e
-# 39      1,13    *       *       *       root    certbot renew --no-self-upgrade
-sudo systemctl restart crond
-# Test SSL
-# https://www.ssllabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
-sudo yum list installed httpd mariadb-server php-mysqlnd
-sudo systemctl start mariadb
-# Enter a new root password and enter Y for other questions
-sudo systemctl enable mariadb
-# Skip installing phpMyAdmin
-mysql -uroot -p
-# This concludes AWS instructions, now merging old Mac install instructions with similar steps on AWS
-
-# Apache files will be placed at /var/www/html/
-cd /var/www/html/
-ssh-keygen
-cat /home/ec2-user/.ssh/id_rsa.pub
-# Add key to github
-sudo yum install git
-git clone git@github.com:zombieite/tinderdome.git
-# Get composer (may need to get homebrew first)
+# Get composer
 curl -sS https://getcomposer.org/installer | /usr/bin/php
-# Expect to see something like Composer (version 2.0.11) successfully installed to: /var/www/html/composer.phar
+######################################################################################
+# Composer installed at: /var/www/html/composer.phar #################################
+######################################################################################
 # Get Laravel
 php composer.phar global require "laravel/installer"
-# Laravel is now at /home/ec2-user/.config/composer/vendor/bin/laravel
-cd /var/www/html/
-
-# Remove old default PHP so we can install newer
-# https://rpms.remirepo.net/wizard/ (RHEL7, 7.4.16, Default single) but if that fails maybe try this https://tecadmin.net/install-apache24-php7-on-amazon-linux/
-sudo yum remove php*
-sudo yum install https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-sudo yum install yum-utils
-sudo yum-config-manager --disable 'remi-php*'
-sudo yum-config-manager --enable remi-php80
-yum repolist
-sudo yum update
-sudo yum install php74
-sudo ln -s /usr/bin/php74 /usr/bin/php
-sudo yum install php74-php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}.x86_64
-
-# force means who cares that there is stuff in there already
-/home/ec2-user/.config/composer/vendor/bin/laravel new tinderdome --force
-sudo chgrp -R apache /var/www/html/ # unsure if necessary or helpful
+######################################################################################
+# Laravel installed at /home/ec2-user/.config/composer/vendor/bin/laravel ############
+######################################################################################
+/home/ec2-user/.config/composer/vendor/bin/laravel new tinderdome
 chmod 777 tinderdome/storage
 chmod 777 tinderdome/bootstrap/cache
 mv tinderdome/.env.example tinderdome/.env
+cd tinderdome
+/var/www/html/composer.phar install # Might not do anything
+php artisan key:generate
+# Install image resizer
+/var/www/html/composer.phar require intervention/image
+######################################################################################
+# http://youareawaited.com should show Laravel test homepage #########################
+######################################################################################
+
+
+
+
+
+
+
+
+
+
+
 sudo vi /etc/httpd/conf/httpd.conf
 # Make it look something like this, but maybe not all of this is necessary?
 #Listen 80
@@ -140,15 +124,8 @@ sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip
 
 
 
-# Check localhost now, it should be working. It should say "Laravel".
-
-cd tinderdome
-
-cp public/favicon.ico /Applications/MAMP/bin/favicon.ico
-
-/Users/$USER/composer.phar install
-
-php artisan key:generate
+# Make sure NOT logged in as root for this next step
+git clone git@github.com:zombieite/tinderdome.git
 
 git checkout -- public/js/app.js
 
@@ -172,9 +149,6 @@ create database tinderdome;
 
 # Populate DB with existing data (get mysqldump.sql from production server and set up backups later).
 /Applications/MAMP/Library/bin/mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysqldump.sql
-
-# Install image resizer
-/Users/$USER/composer.phar require intervention/image
 
 # Get all user images not in repo (get public/uploads from production server and set up backups later).
 cp -r /Users/$USER/Desktop/remote/server/web/tinderdome/public/uploads public/
@@ -212,8 +186,64 @@ php artisan make:command MyCommand.
 # ];
 #php artisan my:command
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 HTTPS:
 
+AWS instructions:
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
+sudo yum install -y mod_ssl
+cat /etc/httpd/conf.d/ssl.conf
+cat /etc/pki/tls/certs/make-dummy-cert
+cd /etc/pki/tls/certs
+sudo ./make-dummy-cert localhost.crt
+ls /etc/pki/tls/certs/localhost.crt
+sudo vi /etc/httpd/conf.d/ssl.conf
+# Comment out SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+sudo systemctl restart httpd
+# Visit https://ec2-3-18-223-4.us-east-2.compute.amazonaws.com/
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html#letsencrypt
+sudo wget -r --no-parent -A 'epel-release-*.rpm' https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
+sudo rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
+sudo yum-config-manager --enable epel*
+sudo yum repolist all
+sudo vi /etc/httpd/conf/httpd.conf
+# After Listen 80 add:
+# <VirtualHost *:80>
+#     DocumentRoot "/var/www/html"
+#     ServerName "youareawaited.com"
+#     ServerAlias "www.youareawaited.com"
+# </VirtualHost>
+sudo apachectl configtest
+sudo systemctl restart httpd
+sudo yum install -y certbot python2-certbot-apache
+sudo certbot
+sudo crontab -e
+# 39      1,13    *       *       *       root    certbot renew --no-self-upgrade
+sudo systemctl restart crond
+# Test SSL
+# https://www.ssllabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
+
+
+# My instructions
 # Reference (note version might need to be changed):
 # https://ssl-config.mozilla.org/#server=apache&server-version=2.4.39&config=intermediate
 
@@ -290,3 +320,10 @@ sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
 https://www.ssllabs.com/ssltest/analyze.html?d=youareawaited.com&hideResults=on
 # Site was found from this helpful post
 https://rameerez.com/blog/facebook-sharing-not-scraping-url-correctly-with-https-links/
+
+
+
+
+
+
+TODO COPY FAVICON TO SOMEWHERE
