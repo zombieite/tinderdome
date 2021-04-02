@@ -122,116 +122,15 @@ DB_DATABASE=tinderdome
 DB_USERNAME=root # This should work on day 1 but change this
 DB_PASSWORD=root # This should work on day 1 but change this
 # http://youareawaited.com should show YAA homepage
-# Now to make the other routes work besides index.php, using the .htaccess file
+# Now to make the other routes work besides index.php, using the .htaccess file that contains secret laravel routing magic
 sudo vi /etc/httpd/conf/httpd.conf
 # Further relax access to the default document root:
 # <Directory "/var/www/html">
 # ...
 AllowOverride All
 # ...
-
-
-
-
-
-
-# Get all user images not in repo (get public/uploads from production server and set up backups later).
-cp -r /Users/$USER/Desktop/remote/server/web/tinderdome/public/uploads public/
-
-# http://localhost/ should now work
-
-# If you need to tail logs
-tail -1000 /Applications/MAMP/logs/apache_error.log; tail -f /Applications/MAMP/logs/apache_error.log
-tail -1000 /Applications/MAMP/logs/php_error.log; tail -f /Applications/MAMP/logs/php_error.log
-tail -1000 storage/logs/laravel-<date>.log; tail -f storage/logs/laravel-<date>.log
-
-# Apache conf is here: /Applications/MAMP/conf/apache/httpd.conf
-# but secret laravel routing magic is here: /Applications/MAMP/htdocs/.htaccess
-
-# Set up backup rsync script to sync files not in repo and keep mysql backed up
-
-# Instructions to run scripts from command line using your code and Laravel's code:
-php artisan make:command MyCommand.
-# Go to app/Console/Commands/MyCommand.php
-# Find:
-# protected $signature = 'command:name';
-# Change to:
-# protected $signature = 'my:command';
-# In the handle() method you can add your code:
-# use Illuminate\Support\Facades\DB;
-# public function handle()
-# {
-#     echo 'Hello world';
-#     // DB:: commands can go in here if you use DB at top
-# }
-# In app/Console/Kernel.php you will find protected variable $commands. Add your Command's class name.
-# protected $commands = [
-#     // ...
-#     Commands\MyCommand::class,
-# ];
-#php artisan my:command
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-HTTPS:
-
-# SSL
-sudo vi /etc/httpd/conf/httpd.conf
-# Make it look something like this, but maybe not all of this is necessary?
-#Listen 80
-#<VirtualHost *:80>
-#    DocumentRoot "/var/www/html/tinderdome/public"
-#    ServerName "youareawaited.com"
-#    ServerAlias "www.youareawaited.com"
-#    RewriteEngine on
-#    RewriteCond %{SERVER_NAME} =www.youareawaited.com [OR]
-#    RewriteCond %{SERVER_NAME} =youareawaited.com
-#    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
-#</VirtualHost>
-#AddType application/x-httpd-php .php
-#<FilesMatch \.php$>
-#   SetHandler application/x-httpd-php
-#</FilesMatch>
-#AccessFileName .htaccess
-#DirectoryIndex index.html index.php
-#<Directory /var/www/html/tinderdome/public>
-#AllowOverride All
-#</Directory>
-sudo vi /etc/httpd/conf/httpd-le-ssl.conf
-# Change DocumentRoot from /var/www/html/ to /var/www/html/tinderdome/public, then should look something like:
-#<IfModule mod_ssl.c>
-#<VirtualHost *:443>
-#    DocumentRoot "/var/www/html/tinderdome/public"
-#    ServerName "youareawaited.com"
-#    ServerAlias "www.youareawaited.com"
-#    Include /etc/letsencrypt/options-ssl-apache.conf
-#    SSLCertificateFile /etc/letsencrypt/live/youareawaited.com/fullchain.pem
-#    SSLCertificateKeyFile /etc/letsencrypt/live/youareawaited.com/privkey.pem
-#</VirtualHost>
-#</IfModule>
-# Main configs are /etc/httpd/conf/httpd.conf and /etc/httpd/conf/httpd-le-ssl.conf
-# I think logs are in /etc/httpd/logs/
-sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}
-
-AWS instructions:
+# Send over all image uploads
+scp -i /Users/zombieite/Desktop/local/aws/YAA.pem -r /Users/zombieite/Desktop/local/web/tinderdome/public/uploads ec2-user@youareawaited.com:/var/www/html/tinderdome/public/
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
 sudo yum install -y mod_ssl
 cat /etc/httpd/conf.d/ssl.conf
@@ -242,19 +141,10 @@ ls /etc/pki/tls/certs/localhost.crt
 sudo vi /etc/httpd/conf.d/ssl.conf
 # Comment out SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
 sudo systemctl restart httpd
-# Visit https://ec2-3-18-223-4.us-east-2.compute.amazonaws.com/
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html#letsencrypt
 sudo wget -r --no-parent -A 'epel-release-*.rpm' https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
 sudo rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
 sudo yum-config-manager --enable epel*
-sudo yum repolist all
-sudo vi /etc/httpd/conf/httpd.conf
-# After Listen 80 add:
-# <VirtualHost *:80>
-#     DocumentRoot "/var/www/html"
-#     ServerName "youareawaited.com"
-#     ServerAlias "www.youareawaited.com"
-# </VirtualHost>
 sudo apachectl configtest
 sudo systemctl restart httpd
 sudo yum install -y certbot python2-certbot-apache
@@ -265,90 +155,7 @@ sudo systemctl restart crond
 # Test SSL
 # https://www.ssllabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
 
-
-# My instructions
-# Reference (note version might need to be changed):
-# https://ssl-config.mozilla.org/#server=apache&server-version=2.4.39&config=intermediate
-
-# First goal is to get server working with a virtual host section, because it's required for letsencrypt certbot. Go into youareawaited.com.conf. Comment out most of the contents of <VirtualHost *:80> but leave those section delimiters and "ServerName youareawaited.com" in place
-# comment out Listen 443
-# comment out <VirtualHost *:443> section including those section delimiters
-# With no comments, file will just be:
-#<VirtualHost *:80>
-#    ServerName youareawaited.com
-#</VirtualHost>
-
-/Applications/MAMP/bin/apache2/bin/apachectl configtest
-sudo /Applications/MAMP/bin/apache2/bin/httpd -k stop
-sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
-# Regression test page load, login, logout
-
-# Add line to end of /Users/$USER/Desktop/local/web/tinderdome/apache/httpd_mamp.conf
-Include /Users/jbinns/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
-
-/Applications/MAMP/bin/apache2/bin/apachectl configtest
-sudo /Applications/MAMP/bin/apache2/bin/httpd -k stop
-sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
-# Regression test page load, login, logout
-
-# Note: We will no longer be using MAMP to start/stop Apache or MySQL. Use the commands above only. If you do use MAMP, it may overwrite changes you've made to httpd.conf.
-
-# Install brew if necessary
-which brew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# Certbot will want to use the native Mac Apache install to configure itself. So we have to tell the native Mac Apache install about our site, even if we don't use the native Mac Apache install. Open /etc/apache2/httpd.conf and add this line to the end:
-Include /Users/jbinns/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
-# And uncomment:
-LoadModule rewrite_module libexec/apache2/mod_rewrite.so
-
-# Stop MAMP's version of Apache so that Certbot can start native Mac Apache install and use it as the server temporarily, so that the challenge succeeds (some outside server needs to contact our server and verify that a resource can be reached, which verifies that we own the server).
-
-# https://certbot.eff.org/lets-encrypt/osx-apache
-# install letsencrypt certbot
-brew update
-brew install letsencrypt
-sudo certbot --apache # This complains "Cannot find an SSLCertificateFile directive" but it's ok
-
-# Set up a cron to renew certs (this is so far untested so who knows if it actually works, but it's copied from Certbot instructions so it might)
-echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew" | sudo tee -a /etc/crontab > /dev/null
-
-# Stop native Mac Apache install (might need to change apachectl to apache2ctl)
-/usr/sbin/apachectl stop
-
-# Start MAMP's version of Apache. Note that now, for configtest, we need sudo, because config hits private key files owned by root. You may have to go into /etc/letsencrypt/options-ssl-apache.conf and remove the line about compression in order to get configtest to work.
-sudo /Applications/MAMP/bin/apache2/bin/apachectl configtest
-sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
-# Regression test page load, login, logout
-
-# to renew
-#sudo certbot renew
-# (copied from above cron, if the cron doesn't take care of it for you). sudo apachectl wasn't working because it wanted to use /usr/sbin/apachectl instead of the MAMP one. So I moved the original to a nearby location and linked the MAMP one at /usr/sbin/apachectl. This made it work. There was an error about "Detail: During secondary validation: DNS problem: SERVFAIL looking up CAA for youareawaited.com - the domain's nameservers may be malfunctioning" but that error did not happen when I just retried it.
-
-# Check localhost to make sure the site, logins, and database are working. Now we have a working Apache config that can be modified to support https, and the https cert files and stuff are all installed and ready to go. One important note: DO NOT START MAMP ANYMORE. If you do, it will overwrite configs(? Actually at the moment I have my development server working using MAMP and my custom httpd.conf so not sure about this). It is tempting to try to copy MAMP's Apache and MySQL configs over to Mac's native Mac Apache install and use it instead, but that does not work because the different versions of Apache expect different configurations. It MIGHT work to modify Mac's native Apache install to try to get Laravel etc. working there first, but I haven't had success with that yet so this is how I'm doing it for now.
-
-# Verify certificate files are in place before we start to use them
-sudo ls /etc/letsencrypt/live/youareawaited.com/fullchain.pem
-sudo ls /etc/letsencrypt/live/youareawaited.com/privkey.pem
-sudo ls /etc/letsencrypt/options-ssl-apache.conf
-
-# Open apache/youareawaited.com.conf and uncomment everything.
-
-sudo /Applications/MAMP/bin/apache2/bin/apachectl configtest
-sudo /Applications/MAMP/bin/apache2/bin/httpd -k stop
-sudo /Applications/MAMP/bin/apache2/bin/httpd -k start
-# Site should now redirect to https. Accept security risks if viewing page via URL "localhost". Regression test page load, login, logout.
-
-# This site should give you an A+
-https://www.ssllabs.com/ssltest/analyze.html?d=youareawaited.com&hideResults=on
-# Site was found from this helpful post
-https://rameerez.com/blog/facebook-sharing-not-scraping-url-correctly-with-https-links/
-
-
-
-
-
-
 TODO: BACKUP MYSQL
 TODO: BACKUP IMAGES IN tinderdome/public/uploads
 TODO: COPY FAVICON TO SOMEWHERE
+TODO: FIGURE OUT HOW TO RESTART ENTIRE INSTANCE ON WEB CONSOLE
