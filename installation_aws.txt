@@ -66,7 +66,22 @@ php artisan key:generate
 ######################################################################################
 # http://youareawaited.com should show Laravel test homepage #########################
 ######################################################################################
-
+Create vhost file at /etc/httpd/conf.d/youareawaited.com.conf
+<VirtualHost *:80>
+    ServerAdmin john_binns@yahoo.com
+    ServerName youareawaited.com
+    ServerAlias www.youareawaited.com
+    DocumentRoot /var/www/html/tinderdome/public/
+    ErrorLog /var/log/httpd/youareawaited.com-error_log
+    CustomLog /var/log/httpd/youareawaited.com-access_log combined
+</VirtualHost>
+######################################################################################
+# Site configuration at /etc/httpd/conf.d/youareawaited.com.conf #####################
+######################################################################################
+# Error log is at /var/log/httpd/youareawaited.com-error_log #########################
+######################################################################################
+# Access log is at /var/log/httpd/youareawaited.com-access_log #######################
+######################################################################################
 
 
 
