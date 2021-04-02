@@ -23,8 +23,7 @@ sudo systemctl start httpd
 ######################################################################################
 # Website html and stuff will be at /var/www/html/ ###################################
 ######################################################################################
-# http://youareawaited.com should show Apache test homepage ##########################
-######################################################################################
+# http://youareawaited.com should show Apache test homepage
 sudo yum install amazon-linux-extras -y
 sudo amazon-linux-extras | grep php
 sudo amazon-linux-extras enable php7.4
@@ -51,22 +50,23 @@ curl -sS https://getcomposer.org/installer | /usr/bin/php
 # Composer installed at: /var/www/html/composer.phar #################################
 ######################################################################################
 # Get Laravel
-php composer.phar global require "laravel/installer"
+php /var/www/html/composer.phar global require "laravel/installer"
 ######################################################################################
 # Laravel installed at /home/ec2-user/.config/composer/vendor/bin/laravel ############
 ######################################################################################
 /home/ec2-user/.config/composer/vendor/bin/laravel new tinderdome
+php /var/www/html/composer.phar require "laravel/ui"
+php artisan key:generate
+php artisan ui vue --auth
 chmod 777 tinderdome/storage
+chmod 777 tinderdome/storage/logs/
+chmod 777 tinderdome/storage/logs/laravel.log
 chmod 777 tinderdome/bootstrap/cache
 mv tinderdome/.env.example tinderdome/.env
 cd tinderdome
-/var/www/html/composer.phar install # Might not do anything
-php artisan key:generate
 # Install image resizer
-/var/www/html/composer.phar require intervention/image
-######################################################################################
-# http://youareawaited.com should show Laravel test homepage #########################
-######################################################################################
+/var/www/html/composer.phar require "intervention/image"
+# http://youareawaited.com should show Laravel test homepage
 Create vhost file at /etc/httpd/conf.d/youareawaited.com.conf
 <VirtualHost *:80>
     ServerAdmin john_binns@yahoo.com
@@ -77,7 +77,7 @@ Create vhost file at /etc/httpd/conf.d/youareawaited.com.conf
     CustomLog /var/log/httpd/youareawaited.com-access_log combined
 </VirtualHost>
 ######################################################################################
-# Site configuration at /etc/httpd/conf.d/youareawaited.com.conf #####################
+# Site configurations are in /etc/httpd/conf.d/ ######################################
 ######################################################################################
 # Error log is at /var/log/httpd/youareawaited.com-error_log #########################
 ######################################################################################
@@ -103,33 +103,29 @@ exit
 cd
 mkdir mysqldumps
 exit
-# Now from home machine
-scp -i /Users/zombieite/Desktop/local/aws/YAA.pem /Users/zombieite/Desktop/local/wasteland/backups/mysqldump.sql ec2-user@youareawaited.com:~/mysqldumps/
+# (Now from home machine)
+scp -i /Users/zombieite/Desktop/local/aws/YAA.pem /Users/zombieite/Desktop/local/wasteland/backups/mysqldump.sql ec2-user@youareawaited.com:~/mysqldumps/mysqldump.initial.sql
 server
-mysql -uroot -p tinderdome < /home/ec2-user/mysqldumps/mysqldump.sql
-
-
-
-
-
-
-
-
-
-
-
-
-
+mysql -uroot -p tinderdome < /home/ec2-user/mysqldumps/mysqldump.initial.sql
+######################################################################################
+# Mysql backups are at /home/ec2-user/mysqldumps/ ####################################
+######################################################################################
+cd
 # Make sure NOT logged in as root for this next step
 git clone git@github.com:zombieite/tinderdome.git
+######################################################################################
+# Repo is at /home/ec2-user/tinderdome ###############################################
+######################################################################################
+rsync -rv /home/ec2-user/tinderdome/ /var/www/html/tinderdome/
 
-git checkout -- public/js/app.js
 
-git checkout -- public/css/app.css
 
-git diff # If you have time, check if anything important has been updated that should be incorporated into vendor files I've added to repo and modified
 
-git checkout -- . # Use my modifications instead of defaults
+
+
+
+
+
 
 vi .env # Set this stuff:
 # DB_DATABASE=tinderdome
