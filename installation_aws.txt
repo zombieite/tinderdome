@@ -6,13 +6,14 @@
 # Add an A record connecting *.youareawaited.com to that IP in Amazon Route 53, don't forget that * at the beginning
 # Maybe add an _alias_ A record for www.youareawated.com too
 # Create a reverse DNS for the IP as well (makes emails from your domain look legit)
-ssh -i /Users/zombieite/Desktop/local/aws/YAA.pem ec2-user@youareawaited.com
+alias server='ssh -i /Users/zombieite/Desktop/local/aws/YAA.pem ec2-user@youareawaited.com'
+server
 # You probably need to uninstall one thing before installing another version of the same thing
-# If you need to remove stuff installed via Amazon Extras:
+# If you need to remove stuff installed via Amazon Extras, and other useful Amazon Linux 2 tips:
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library
 # yum list installed | grep amzn2extra-topic | awk '{ print $1 }'
 # sudo yum remove <package listed above>
-# Now following instructions here:
+# Following instructions here:
 # https://tecadmin.net/install-apache24-php7-on-amazon-linux/
 sudo yum update -y
 sudo yum install -y httpd httpd-tools mod_ssl
@@ -82,52 +83,32 @@ Create vhost file at /etc/httpd/conf.d/youareawaited.com.conf
 ######################################################################################
 # Access log is at /var/log/httpd/youareawaited.com-access_log #######################
 ######################################################################################
+# Following instructions here:
+# https://tecadmin.net/install-mysql-on-amazon-linux/
+sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+sudo yum install mysql-server
+# Alternate possibility
+# sudo yum install mysql-community-server
+sudo systemctl enable mysqld
+sudo systemctl is-enabled mysqld
+sudo systemctl start mysqld
+sudo grep 'temporary password' /var/log/mysqld.log
+sudo mysql_secure_installation
+######################################################################################
+# Access mysql: mysql -u root -p #####################################################
+######################################################################################
+mysql -u root -p
+create database tinderdome;
+exit
+cd
+mkdir mysqldumps
+exit
+# Now from home machine
+scp -i /Users/zombieite/Desktop/local/aws/YAA.pem /Users/zombieite/Desktop/local/wasteland/backups/mysqldump.sql ec2-user@youareawaited.com:~/mysqldumps/
+server
+mysql -uroot -p tinderdome < /home/ec2-user/mysqldumps/mysqldump.sql
 
 
-
-
-
-
-
-
-
-
-sudo vi /etc/httpd/conf/httpd.conf
-# Make it look something like this, but maybe not all of this is necessary?
-#Listen 80
-#<VirtualHost *:80>
-#    DocumentRoot "/var/www/html/tinderdome/public"
-#    ServerName "youareawaited.com"
-#    ServerAlias "www.youareawaited.com"
-#    RewriteEngine on
-#    RewriteCond %{SERVER_NAME} =www.youareawaited.com [OR]
-#    RewriteCond %{SERVER_NAME} =youareawaited.com
-#    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
-#</VirtualHost>
-#AddType application/x-httpd-php .php
-#<FilesMatch \.php$>
-#   SetHandler application/x-httpd-php
-#</FilesMatch>
-#AccessFileName .htaccess
-#DirectoryIndex index.html index.php
-#<Directory /var/www/html/tinderdome/public>
-#AllowOverride All
-#</Directory>
-sudo vi /etc/httpd/conf/httpd-le-ssl.conf
-# Change DocumentRoot from /var/www/html/ to /var/www/html/tinderdome/public, then should look something like:
-#<IfModule mod_ssl.c>
-#<VirtualHost *:443>
-#    DocumentRoot "/var/www/html/tinderdome/public"
-#    ServerName "youareawaited.com"
-#    ServerAlias "www.youareawaited.com"
-#    Include /etc/letsencrypt/options-ssl-apache.conf
-#    SSLCertificateFile /etc/letsencrypt/live/youareawaited.com/fullchain.pem
-#    SSLCertificateKeyFile /etc/letsencrypt/live/youareawaited.com/privkey.pem
-#</VirtualHost>
-#</IfModule>
-# Main configs are /etc/httpd/conf/httpd.conf and /etc/httpd/conf/httpd-le-ssl.conf
-# I think logs are in /etc/httpd/logs/
-sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}
 
 
 
@@ -155,15 +136,13 @@ vi .env # Set this stuff:
 # DB_USERNAME=root # This should work on day 1 but change this
 # DB_PASSWORD=root # This should work on day 1 but change this
 
-# Start mysql client (see password above)
-/Applications/MAMP/Library/bin/mysql -uroot -p
 
-create database tinderdome;
 
-^D
 
-# Populate DB with existing data (get mysqldump.sql from production server and set up backups later).
-/Applications/MAMP/Library/bin/mysql -uroot -p tinderdome < /Users/$USER/Desktop/remote/server/web/backup/mysqldump.sql
+
+
+
+
 
 # Get all user images not in repo (get public/uploads from production server and set up backups later).
 cp -r /Users/$USER/Desktop/remote/server/web/tinderdome/public/uploads public/
@@ -222,6 +201,44 @@ php artisan make:command MyCommand.
 
 
 HTTPS:
+
+# SSL
+sudo vi /etc/httpd/conf/httpd.conf
+# Make it look something like this, but maybe not all of this is necessary?
+#Listen 80
+#<VirtualHost *:80>
+#    DocumentRoot "/var/www/html/tinderdome/public"
+#    ServerName "youareawaited.com"
+#    ServerAlias "www.youareawaited.com"
+#    RewriteEngine on
+#    RewriteCond %{SERVER_NAME} =www.youareawaited.com [OR]
+#    RewriteCond %{SERVER_NAME} =youareawaited.com
+#    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+#</VirtualHost>
+#AddType application/x-httpd-php .php
+#<FilesMatch \.php$>
+#   SetHandler application/x-httpd-php
+#</FilesMatch>
+#AccessFileName .htaccess
+#DirectoryIndex index.html index.php
+#<Directory /var/www/html/tinderdome/public>
+#AllowOverride All
+#</Directory>
+sudo vi /etc/httpd/conf/httpd-le-ssl.conf
+# Change DocumentRoot from /var/www/html/ to /var/www/html/tinderdome/public, then should look something like:
+#<IfModule mod_ssl.c>
+#<VirtualHost *:443>
+#    DocumentRoot "/var/www/html/tinderdome/public"
+#    ServerName "youareawaited.com"
+#    ServerAlias "www.youareawaited.com"
+#    Include /etc/letsencrypt/options-ssl-apache.conf
+#    SSLCertificateFile /etc/letsencrypt/live/youareawaited.com/fullchain.pem
+#    SSLCertificateKeyFile /etc/letsencrypt/live/youareawaited.com/privkey.pem
+#</VirtualHost>
+#</IfModule>
+# Main configs are /etc/httpd/conf/httpd.conf and /etc/httpd/conf/httpd-le-ssl.conf
+# I think logs are in /etc/httpd/logs/
+sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}
 
 AWS instructions:
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
@@ -341,4 +358,4 @@ https://rameerez.com/blog/facebook-sharing-not-scraping-url-correctly-with-https
 
 
 
-TODO COPY FAVICON TO SOMEWHERE
+TODO: COPY FAVICON TO SOMEWHERE
