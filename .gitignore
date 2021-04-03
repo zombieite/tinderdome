@@ -1,6 +1,5 @@
 *.swp
-public/images/awaited-nonfictional-delusion/
-public/images/fun/
+public/stories/
 public/uploads/
 .env
 .DS_Store
@@ -41,4 +40,3 @@ resources/assets/
 .styleci.yml
 app/Http/Controllers/Auth/ConfirmPasswordController.php
 package-lock.json
-apache/youareawaited.com-le-ssl.conf
