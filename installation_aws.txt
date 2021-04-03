@@ -155,6 +155,9 @@ sudo systemctl restart crond
 # Test SSL
 # https://www.ssllabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
 
+TODO: FIGURE OUT GIT STATUS PROBLEMS
+TODO: FIGURE OUT GIT WORKFLOW
+TODO: REMOVE PREZIDENT STUFF
 TODO: BACKUP MYSQL
 TODO: BACKUP IMAGES IN tinderdome/public/uploads
 TODO: COPY FAVICON TO SOMEWHERE

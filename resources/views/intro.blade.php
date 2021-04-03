@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
+{{--
 An election is being held for the office of
 <h1>@include('prezident', [])</h1>
 <h1 class="bright">Vote on Tuesday, Oct 6, 2020</h1>
 To vote, please contact <a href="mailto:wastelandfirebird@gmail.com">Firebird</a> to create an account.
-
-{{--
+--}}
 
 <h1>Turn strangers into friends by meeting them.</h1>
 @foreach ($leaderboard as $leader)
@@ -46,7 +46,5 @@ Before each event, you will be matched to someone. Return to this site to find o
 <p>
 Your mission is to find your match and introduce yourself. They'll be looking for you, too. That's it!
 </p>
-
---}}
 
 @endsection
