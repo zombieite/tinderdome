@@ -6,7 +6,7 @@
 # Add an A record connecting *.youareawaited.com to that IP in Amazon Route 53, don't forget that * at the beginning
 # Maybe add an _alias_ A record for www.youareawated.com too
 # Create a reverse DNS for the IP as well (makes emails from your domain look legit)
-alias server='ssh -i /Users/zombieite/Desktop/local/aws/YAA.pem ec2-user@youareawaited.com'
+alias server='ssh ec2-user@youareawaited.com'
 server
 # You probably need to uninstall one thing before installing another version of the same thing
 # If you need to remove stuff installed via Amazon Extras, and other useful Amazon Linux 2 tips:
@@ -104,7 +104,7 @@ cd
 mkdir mysqldumps
 exit
 # (Now from home machine)
-scp -i /Users/zombieite/Desktop/local/aws/YAA.pem /Users/zombieite/Desktop/local/wasteland/backups/mysqldump.sql ec2-user@youareawaited.com:~/mysqldumps/mysqldump.initial.sql
+scp /Users/zombieite/Desktop/local/wasteland/backups/mysqldump.sql ec2-user@youareawaited.com:~/mysqldumps/mysqldump.initial.sql
 server
 mysql -uroot -p tinderdome < /home/ec2-user/mysqldumps/mysqldump.initial.sql
 ######################################################################################
@@ -117,6 +117,7 @@ git clone git@github.com:zombieite/tinderdome.git
 # Repo is at /home/ec2-user/tinderdome ###############################################
 ######################################################################################
 rsync -rv /home/ec2-user/tinderdome/ /var/www/html/tinderdome/
+mkdir /var/www/html/tinderdome/public/images/stories/
 vi .env # Set this stuff:
 DB_DATABASE=tinderdome
 DB_USERNAME=root # This should work on day 1 but change this
@@ -130,7 +131,8 @@ sudo vi /etc/httpd/conf/httpd.conf
 AllowOverride All
 # ...
 # Send over all image uploads
-scp -i /Users/zombieite/Desktop/local/aws/YAA.pem -r /Users/zombieite/Desktop/local/web/tinderdome/public/uploads ec2-user@youareawaited.com:/var/www/html/tinderdome/public/
+rsync -rv --size-only /Users/zombieite/Desktop/local/web/tinderdome/public/uploads ec2-user@youareawaited.com:/var/www/html/tinderdome/public/
+rsync -rv --size-only /Users/zombieite/Desktop/local/web/tinderdome/public/images/stories/ ec2-user@youareawaited.com:/var/www/html/tinderdome/public/stories/
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
 sudo yum install -y mod_ssl
 cat /etc/httpd/conf.d/ssl.conf
@@ -158,8 +160,13 @@ sudo systemctl restart crond
 TODO: FIGURE OUT GIT STATUS PROBLEMS
 TODO: FIGURE OUT GIT WORKFLOW
 TODO: REMOVE PREZIDENT STUFF
-TODO: BACKUP MYSQL
-TODO: BACKUP IMAGES IN tinderdome/public/uploads
+TODO: BACK UP MYSQL
+TODO: BACK UP IMAGES IN tinderdome/public/uploads
+TODO: BACK UP BACKUP SCRIPT
 TODO: COPY FAVICON TO SOMEWHERE
 TODO: SET UP CONTENT DISPOSITION
+TODO: MAKE SURE DIRECTORY LISTING OFF
+TODO: MAKE SURE RANDOM FILES CANNOT BE LISTED
+TODO: MAKE SURE DOTFILES CANNOT BE LISTED
+TODO: BACK UP HTTPD CONF AND BASH PROFILE
 TODO: FIGURE OUT HOW TO RESTART ENTIRE INSTANCE ON WEB CONSOLE
