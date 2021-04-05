@@ -82,7 +82,7 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>75-84 (68%-76%)</td>
         <td>Dark Night Of The Soul, Wallowing In Hopelessness And Sadness And Anger</td>
         <td>Ash Fork</td>
-        <td>Ash Fork</td>
+        <td>A dark night on Route 66</td>
         <td>
 FB kills MA. The extent of DT's pain is revealed as she tries to kill herself.
         </td>
