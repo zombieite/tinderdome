@@ -58,10 +58,14 @@ php /var/www/html/composer.phar global require "laravel/installer"
 php /var/www/html/composer.phar require "laravel/ui"
 php artisan key:generate
 php artisan ui vue --auth
-chmod 777 tinderdome/storage
-chmod 777 tinderdome/storage/logs/
-chmod 777 tinderdome/storage/logs/laravel.log
-chmod 777 tinderdome/bootstrap/cache
+chmod 775 tinderdome/storage
+chmod 775 tinderdome/storage/logs/
+chmod 775 tinderdome/storage/logs/laravel.log
+chmod 775 tinderdome/bootstrap/cache
+chmod 775 /var/www/html/tinderdome/public/uploads
+######################################################################################
+# Laravel error log at /var/www/html/tinderdome/storage/logs/laravel.log #############
+######################################################################################
 mv tinderdome/.env.example tinderdome/.env
 cd tinderdome
 # Install image resizer
@@ -133,6 +137,8 @@ AllowOverride All
 # Send over all image uploads
 rsync -rv --size-only /Users/zombieite/Desktop/local/web/tinderdome/public/uploads ec2-user@youareawaited.com:/var/www/html/tinderdome/public/
 rsync -rv --size-only /Users/zombieite/Desktop/local/web/tinderdome/public/images/stories/ ec2-user@youareawaited.com:/var/www/html/tinderdome/public/stories/
+server
+chmod 664 /var/www/html/tinderdome/public/uploads/*
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
 sudo yum install -y mod_ssl
 cat /etc/httpd/conf.d/ssl.conf
