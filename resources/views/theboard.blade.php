@@ -72,7 +72,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>
 The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT becomes increasingly dissatisfied with her partnership with FB and fears he does not have the guts to kill MA. DT goes off on her own and calls in the Helly army and they machine gun the FD and drop the FD out of their helicopters, while destroying the Firebuddy factory.
         </td>
-        <td>&#x2197&#x2198</td>
+        <td>FB & DT friends &#x2198 FB & DT enemies</td>
         <td>DT &gt; FB, Hellies &gt; Gillies</td>
         <td>Q3 (The Grieving Woman from A-N-D)</td>
         <td>Will FB and DT reconcile and team up again?</td>
@@ -84,12 +84,12 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>Ash Fork</td>
         <td>A dark night on Route 66</td>
         <td>
-FB kills MA. The extent of DT's pain is revealed as she tries to kill herself.
+FB kills MA as CD watches. The extent of DT's pain is revealed when she tries to kill herself.
         </td>
-        <td>&#x2197&#x2198</td>
-        <td>&gt;</td>
-        <td></td>
-        <td></td>
+        <td>FB escapes &#x2198 FB kills for the first time</td>
+        <td>FB &gt; MA</td>
+        <td>Will FB ever be rid of MA? (Yes)</td>
+        <td>Will DT be able to find new meaning in her life?</td>
     </tr>
     <tr><td colspan="10">Act 3: Synthesis</td></tr>
     <tr>
