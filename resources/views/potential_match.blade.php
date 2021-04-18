@@ -11,11 +11,11 @@
         @endforeach
     @else
         @if ($show_met)
-            No one has signed up yet.
+            No one else has signed up yet.
         @else
             We can't find any potential matches for you yet.
         @endif
-        Encourage people to sign up, keep an eye on the <a href="/">home page</a>, and be sure to rate all new users as they show up.
+        Encourage other people to sign up, keep an eye on the <a href="/">home page</a>, and be sure to rate all new users as they show up.
     @endif
 @endif
 @endsection
