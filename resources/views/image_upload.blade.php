@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @if ($new_user && $number_photos > 0)
-	<h2>Signup complete! You can upload more photos or <a href="/">go to the home page</a>.</h2>
+	<h2>Account created! You can upload more photos or <a class="bright" href="/">sign up for events on the home page</a>.</h2>
 @endif
 @if ($errors)
 	<h2 class="bright">Error updating images: {!! $errors !!} Problems? You can also just email images to Firebird.</h2>
