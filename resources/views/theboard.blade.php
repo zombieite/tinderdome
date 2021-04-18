@@ -3,14 +3,15 @@
 @section('content')
 
 <table>
-    <tr><td colspan="10">Act 1: Thesis</td></tr>
-    <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Answered Question</td><td>New Question</td></tr>
+    <tr><td colspan="11">Act 1: Thesis</td></tr>
+    <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Song</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Answered Question</td><td>New Question</td></tr>
     <tr>
         <td>0</td>
         <td>1-11 (0%-10%)</td>
         <td>Opening Image, Mirror Of Final Image, Theme Hinted At, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, All Characters Have Primal Motivations, Save The Cat</td>
         <td>Tomorrowland</td>
         <td>Tomorrowland Weekend</td>
+        <td></td>
         <td>
 FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. Someone (FB?) says you gotta go crazy in a crazy world. Hellies and Gillies go to war in The Cage.
         </td>
@@ -25,6 +26,7 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
         <td>Catalyst &amp; Debate</td>
         <td>Dorktown</td>
         <td>Tomorrowland Weekend</td>
+        <td></td>
         <td>
 DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
         </td>
@@ -33,13 +35,14 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         <td>Is Tomorrowland real? (No)</td>
         <td>Are FB and DT going to join forces?</td>
     </tr>
-    <tr><td colspan="10">Act 2: Antithesis</td></tr>
+    <tr><td colspan="11">Act 2: Antithesis</td></tr>
     <tr>
         <td>2</td>
         <td>25-29 (23%-26%)</td>
         <td>Break Into Two, Hero Embarks On Adventure</td>
         <td>Bakersfield</td>
         <td>Woolworth's Diner</td>
+        <td></td>
         <td>
 FB and DT meet up with MS to get funding and weapons. MS says DON'T let yourself go crazy in a crazy world. DT begins assisting with narration.
         </td>
@@ -54,6 +57,7 @@ FB and DT meet up with MS to get funding and weapons. MS says DON'T let yourself
         <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat</td>
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
+        <td></td>
         <td>
 FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot and friends are executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they steal the Frankenbird instead.
         </td>
@@ -62,13 +66,14 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>Q2 (Another Firebird factory is there)</td>
         <td>Who's Laura?</td>
     </tr>
-    <tr><td colspan="10">Midpoint</td>
+    <tr><td colspan="11">Midpoint</td>
     <tr>
         <td>4</td>
         <td>55-74 (50%-67%)</td>
         <td>Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death</td>
         <td>Seligman</td>
         <td>Amboy, Seligman, Ash Fork</td>
+        <td></td>
         <td>
 The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT becomes increasingly dissatisfied with her partnership with FB and fears he does not have the guts to kill MA. DT goes off on her own and calls in the Helly army and they machine gun the FD and drop the FD out of their helicopters, while destroying the Firebuddy factory.
         </td>
@@ -83,6 +88,7 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>Dark Night Of The Soul, Wallowing In Hopelessness And Sadness And Anger</td>
         <td>Ash Fork</td>
         <td>A dark night on Route 66</td>
+        <td></td>
         <td>
 FB kills MA as CD watches. The extent of DT's pain is revealed when she tries to kill herself.
         </td>
@@ -91,13 +97,14 @@ FB kills MA as CD watches. The extent of DT's pain is revealed when she tries to
         <td>Will FB ever be rid of MA? (Yes)</td>
         <td>Will DT be able to find new meaning in her life?</td>
     </tr>
-    <tr><td colspan="10">Act 3: Synthesis</td></tr>
+    <tr><td colspan="11">Act 3: Synthesis</td></tr>
     <tr>
         <td>6</td>
         <td>85-104 (77%-94%)</td>
         <td>Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
         <td>Norwood</td>
         <td>Norwood Assembly</td>
+        <td></td>
         <td>
 The Helly and Gilly armies convene on Norwood but the auto workers union have heard of Firebird's exploits over their CB radios and they are waiting and ready for battle. They don't have tanks and helcopters but they use their unique skills and a crane to take out the attackers.
         </td>
@@ -110,6 +117,7 @@ The Helly and Gilly armies convene on Norwood but the auto workers union have he
         <td>7</td>
         <td>105-110 (95%-100%)</td>
         <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete, All Loose Ends Tied Up Except For The One New Question</td>
+        <td></td>
         <td></td>
         <td></td>
         <td>
