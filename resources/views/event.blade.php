@@ -4,7 +4,7 @@
     {{ csrf_field() }}
 
     @if ($logged_in_user_created_this_event)
-        <h3>To invite people to this event, send them the URL to this page. You must approve all attendees.</h3>
+        <h3>To invite people to this event, send them the URL to this page.</h3>
     @endif
     <h1>{{ $event->event_long_name }}: {{ $event->event_date }}</h1>
     @if ($event->url)
