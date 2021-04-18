@@ -121,6 +121,7 @@
     @endif
 @else
     <li>
+        Let us know who you'd like to meet.
         @foreach ($upcoming_events_and_signup_status as $upcoming_event)
             @if ($upcoming_event->attending_event_id)
                 You have viewed all profiles. Come back later to see new arrivals.
@@ -128,10 +129,6 @@
             @php ($viewed_all = 1)
             @break
         @endforeach
-        @if (isset($viewed_all))
-        @else
-            Let us know who you'd like to meet.
-        @endif
         @if ($recently_updated_users)
             <a href="/profile/{{ $recently_updated_users[0]->id }}/{{ $recently_updated_users[0]->wasteland_name_hyphenated }}?review=1" class="bright">Some profiles were recently updated</a>.
         @endif
