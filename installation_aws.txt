@@ -67,6 +67,8 @@ chmod 775 /var/www/html/tinderdome/public/uploads
 # Laravel error log at /var/www/html/tinderdome/storage/logs/laravel.log #############
 ######################################################################################
 mv tinderdome/.env.example tinderdome/.env
+vi tinderdome/.env
+# APP_DEBUG=false
 cd tinderdome
 # Install image resizer
 /var/www/html/composer.phar require "intervention/image"
