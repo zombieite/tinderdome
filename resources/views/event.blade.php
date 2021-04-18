@@ -19,7 +19,8 @@
     @endif
     {{ $event->description }}<br>
     @guest
-        <a href="/register" class="bright">Sign up here</a>.
+        <br>
+        <a href="/register" class="bright">You can sign up for a You Are Awaited mission at his event here</a>. Yeah, it's free!
     @else
         <form action="/" method="POST">
             {{ csrf_field() }}
