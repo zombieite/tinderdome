@@ -384,7 +384,9 @@ class Util {
                 users.hoping_to_find_friend,
                 users.hoping_to_find_love,
                 users.hoping_to_find_enemy,
-                users.number_photos
+                users.number_photos,
+                users.video_id,
+                users.campaigning
             from
                 users
                 left join choose my_choice on (
