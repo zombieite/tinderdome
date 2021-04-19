@@ -160,6 +160,15 @@ We will try to match you to a user of your preferred gender, but you must be ope
 
 <hr>
 
+@guest
+<img alt="" src="images/signup.jpg">
+<br>
+<input name="signup_code" id="signup_code" type="text" maxlength="50" required value="@guest{{ old('signup_code') }}@else @endguest"></input>
+<label for="signup_code">Signup code</label> (please contact Firebird if you do not have one)
+@endguest
+
+<br><br>
+
 <button id="submit" type="submit" class="yesyes">
 @guest
 Sign up
@@ -167,11 +176,6 @@ Sign up
 Submit changes
 @endguest
 </button>
-
-@guest
-<input name="signup_code" id="signup_code" type="text" maxlength="50" required value="@guest{{ old('signup_code') }}@else @endguest"></input>
-<label for="signup_code">Signup code</label> (please contact Firebird if you do not have one)
-@endguest
 
 </form>
 
