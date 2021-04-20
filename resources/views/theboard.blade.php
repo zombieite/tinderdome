@@ -90,10 +90,10 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>A dark night on Route 66</td>
         <td></td>
         <td>
-FB kills MA as CD watches. The extent of DT's pain is revealed when she tries to kill herself.
+FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to kill herself.
         </td>
         <td>FB escapes &#x2198 FB kills for the first time</td>
-        <td>FB &gt; MA</td>
+        <td>FB &gt; MA & CD</td>
         <td>Will FB ever be rid of MA? (Yes)</td>
         <td>Will DT be able to find new meaning in her life?</td>
     </tr>
