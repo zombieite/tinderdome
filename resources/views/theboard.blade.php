@@ -44,7 +44,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         <td>Woolworth's Diner</td>
         <td></td>
         <td>
-FB and DT meet up with MS to get funding and weapons. MS says DON'T let yourself go crazy in a crazy world. DT begins assisting with narration.
+FB and DT meet up with MS to get funding and weapons. MS says don't let yourself go crazy in a crazy world. DT begins assisting with narration.
         </td>
         <td>No money &#x2197 Money</td>
         <td>DT &gt; FB &amp; Skelli</td>
