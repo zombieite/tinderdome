@@ -94,8 +94,8 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         </td>
         <td>FB escapes &#x2198 FB kills for the first time</td>
         <td>FB &gt; MA & CD</td>
-        <td>Will FB ever be rid of MA? (Yes)</td>
-        <td>Will DT be able to find new meaning in her life?</td>
+        <td>Will FB ever be rid of MA? (Yes), Q4 (Yes)</td>
+        <td>What happened between Firebird and Laura's husband Buddy?</td>
     </tr>
     <tr><td colspan="11">Act 3: Synthesis</td></tr>
     <tr>
@@ -121,7 +121,7 @@ The Helly and Gilly armies convene on Norwood but the auto workers union have he
         <td></td>
         <td></td>
         <td>
-One more Trans Am gets built in Norwood, and it's perfect. FB takes it and gives the Frankenbird to DT who paints it hot pink. They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing.
+One more Trans Am gets built in Norwood, and it's perfect. FB takes it and gives the Frankenbird to DT who paints it hot pink. They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
