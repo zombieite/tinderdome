@@ -116,7 +116,7 @@ The Helly and Gilly armies convene on Norwood but the auto workers union have he
     <tr>
         <td>7</td>
         <td>105-110 (95%-100%)</td>
-        <td>Final Image, Mirror Of Opening Image, All Arcs Are Complete, All Loose Ends Tied Up Except For The One New Question</td>
+        <td>Denouement, Final Image, Mirror Of Opening Image, All Arcs Are Complete, All Loose Ends Tied Up Except For The One New Question</td>
         <td></td>
         <td></td>
         <td></td>
