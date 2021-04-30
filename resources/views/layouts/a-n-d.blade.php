@@ -7,8 +7,8 @@
 <meta property="og:title" content="Awaited: Nonfictional Delusion">
 <meta property="og:url" content="http://youareawaited.com/awaited-nonfictional-delusion">
 <meta property="og:image" content="http://youareawaited.com/stories/awaited-nonfictional-delusion.jpg">
-<meta property="og:description" content="What if, by going to Wasteland Weekend, you really could enter another world?">
-<meta name="description" content="What if, by going to Wasteland Weekend, you really could enter another world?">
+<meta property="og:description" content="ATTACHMENT LEADS TO SUFFERING">
+<meta name="description" content="ATTACHMENT LEADS TO SUFFERING">
 <title>Awaited: Nonfictional Delusion</title>
 <link href="/css/app.css?rev=3" rel="stylesheet">
 </head>
