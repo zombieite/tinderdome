@@ -39,7 +39,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
     <tr>
         <td>2</td>
         <td>25-29 (23%-26%)</td>
-        <td>Break Into Two, Hero Embarks On Adventure</td>
+        <td>Narrative Digression, Break Into Two, Hero Embarks On Adventure</td>
         <td>Bakersfield</td>
         <td>Woolworth's Diner</td>
         <td></td>
@@ -101,7 +101,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
     <tr>
         <td>6</td>
         <td>85-104 (77%-94%)</td>
-        <td>Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
+        <td>Narrative Digression, Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
         <td>Norwood</td>
         <td>Norwood Assembly</td>
         <td></td>
