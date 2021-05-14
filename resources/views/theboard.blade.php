@@ -106,7 +106,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         <td>Norwood Assembly</td>
         <td></td>
         <td>
-The Helly and Gilly armies convene on Norwood but the auto workers union have heard of Firebird's exploits over their CB radios and they are waiting and ready for battle. They don't have tanks and helcopters but they use their unique skills and a crane to take out the attackers.
+The Helly and Gilly armies convene on Norwood but the auto workers union have heard of Firebird's exploits over their Firebuddies and CB radios and they are waiting and ready for battle. They don't have tanks and helcopters but they use their unique skills and a crane to take out the attackers. All the people that FB met along the way and offered jobs to show up to help build cars and battle the bad guys.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
@@ -121,12 +121,12 @@ The Helly and Gilly armies convene on Norwood but the auto workers union have he
         <td></td>
         <td></td>
         <td>
-One more Trans Am gets built in Norwood, and it's perfect. FB takes it and gives the Frankenbird to DT who paints it hot pink. They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
+One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT who paints it hot pink with an orange bird on the hood. They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
         <td></td>
-        <td></td>
+        <td>What was it that the USA got right?</td>
     </tr>
 </table>
 @endsection
