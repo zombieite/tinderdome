@@ -1,6 +1,7 @@
 @php $ads = [
-'<a class="small" href="https://www.youtube.com/watch?v=tPGFdrbHxKA">Roadblock</a>',
 '<a class="small" href="https://www.facebook.com/thewastelander/">The Wastelander</a>',
+'<a class="small" href="https://www.youtube.com/channel/UCoLIaavsryTuXidlQfKJJ7g">Firebird on YouTube</a>',
+'<a class="small" href="https://www.youtube.com/channel/UCQ5Vnk_B0ueLKLpY0P2jmbA">Mad Skelli on YouTube</a>',
 ];
 shuffle($ads);
 
@@ -17,7 +18,6 @@ $ads = [];
 
 // Can be used to add mandatory ads that must always be shown
 array_push($ads, '<a class="small bright" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>');
-array_push($ads, '<a class="small" href="https://cultofcatmeat.com">Cult of Catmeat</a>');
 
 shuffle($ads);
 $ad_string = '';
