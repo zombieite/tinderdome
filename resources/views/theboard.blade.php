@@ -32,8 +32,8 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         </td>
         <td>TW successful &#x2198 TW destroyed</td>
         <td>Hellies &gt; Gillies, Hellies &amp; Gillies &gt; FB</td>
-        <td>Is Tomorrowland real? (No)</td>
-        <td>Are FB and DT going to join forces?</td>
+        <td>Q0 (Yes)</td>
+        <td>How will they get to Norwood?</td>
     </tr>
     <tr><td colspan="11">Act 2: Antithesis</td></tr>
     <tr>
@@ -48,7 +48,7 @@ FB and DT meet up with MS to get funding and weapons. MS says don't let yourself
         </td>
         <td>No money &#x2197 Money</td>
         <td>DT &gt; FB &amp; Skelli</td>
-        <td>Q1 (Yes), How will they get to Norwood? (Skelli's money)</td>
+        <td>Q1 (Skelli's money)</td>
         <td>Why are they going to Van Nuys?</td>
     </tr>
     <tr>
@@ -94,8 +94,8 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         </td>
         <td>FB escapes &#x2198 FB kills for the first time</td>
         <td>FB &gt; MA & CD</td>
-        <td>Will FB ever be rid of MA? (Yes), Q4 (Yes)</td>
-        <td>What happened between Firebird and Laura's husband Buddy?</td>
+        <td>Q4 (Yes)</td>
+        <td>Will they build cars in Norwood?</td>
     </tr>
     <tr><td colspan="11">Act 3: Synthesis</td></tr>
     <tr>
@@ -106,7 +106,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         <td>Norwood Assembly</td>
         <td></td>
         <td>
-The Helly and Gilly armies convene on Norwood but the auto workers union have heard of Firebird's exploits over their Firebuddies and CB radios and they are waiting and ready for battle. They don't have tanks and helcopters but they use their unique skills and a crane to take out the attackers. All the people that FB met along the way and offered jobs to show up to help build cars and battle the bad guys.
+The Helly and Gilly armies convene on Norwood but the auto workers union have heard of Firebird's exploits over their Firebuddies and CB radios and they are waiting and ready for battle. They don't have tanks and helicopters but they use their unique skills and a crane to take out the attackers. All the people that FB met along the way and offered jobs to show up to help build cars and battle the bad guys.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
