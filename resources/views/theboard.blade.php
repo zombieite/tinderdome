@@ -39,7 +39,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
     <tr>
         <td>2</td>
         <td>25-29 (23%-26%)</td>
-        <td>Narrative Digression, Break Into Two, Hero Embarks On Adventure</td>
+        <td>Break Into Two, Hero Embarks On Adventure</td>
         <td>Bakersfield</td>
         <td>Woolworth's Diner</td>
         <td></td>
@@ -54,7 +54,7 @@ FB and DT meet up with MS to get funding and weapons. MS says don't let yourself
     <tr>
         <td>3</td>
         <td>30-54 (27%-49%)</td>
-        <td>B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat</td>
+        <td>Narrative Digression, B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat</td>
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
         <td></td>
