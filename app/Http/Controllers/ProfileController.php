@@ -527,10 +527,12 @@ class ProfileController extends Controller
         if ($match && $match->user_id_of_match) {
             // All good
         } else {
+            $time_until_can_re_request_match = ceil(\App\Util::time_until_can_re_request_match( $logged_in_user_id, $event_id ) / 60);
             return view('nomatch', [
-                'matches_done'                   => $matches_done,
-                'event'                          => $event_long_name,
-                'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
+                'matches_done'                    => $matches_done,
+                'event'                           => $event_long_name,
+                'deleted_match_or_match_said_no'  => $deleted_match_or_match_said_no,
+                'time_until_can_re_request_match' => $time_until_can_re_request_match,
             ]);
         }
 
