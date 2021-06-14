@@ -11,7 +11,7 @@
         <td>Opening Image, Mirror Of Final Image, Theme Hinted At, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, All Characters Have Primal Motivations, Save The Cat</td>
         <td>Tomorrowland</td>
         <td>Tomorrowland Weekend</td>
-        <td></td>
+        <td>[None, short chapter]</td>
         <td>
 FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. Someone (FB?) says you gotta go crazy in a crazy world. Hellies and Gillies go to war in The Cage.
         </td>
@@ -26,7 +26,7 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
         <td>Catalyst &amp; Debate</td>
         <td>Dorktown</td>
         <td>Tomorrowland Weekend</td>
-        <td></td>
+        <td>[None, short chapter]</td>
         <td>
 DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
         </td>
@@ -42,9 +42,9 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         <td>Break Into Two, Hero Embarks On Adventure</td>
         <td>Bakersfield</td>
         <td>Woolworth's Diner</td>
-        <td></td>
+        <td>[None, short chapter]</td>
         <td>
-FB and DT meet up with MS to get funding and weapons. MS says don't let yourself go crazy in a crazy world. DT begins assisting with narration.
+FB and DT meet up with MS to get funding and weapons. MS gives DT some advice we can't hear. DT begins assisting with narration.
         </td>
         <td>No money &#x2197 Money</td>
         <td>DT &gt; FB &amp; Skelli</td>
