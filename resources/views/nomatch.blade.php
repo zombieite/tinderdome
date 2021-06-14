@@ -18,6 +18,7 @@
                     <li>You were matched to someone, but one of you dropped out before the event began.</li>
                 </ul>
             </p>
+            <h2><a class="bright" href="/">You can retry the matching algorithm in {{ $time_until_can_re_request_match }} minutes.</a></h2>
         @else
             <h2>Event not found.</h2>
         @endif
