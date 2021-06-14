@@ -60,6 +60,7 @@ class AdminMatchController extends Controller
                 attending.match_requested,
                 users_1.score,
                 users_1.name,
+                users_1.email user_1_email,
                 users_1.id user_id,
                 users_1.random_ok,
                 user_1_choose.choice user_1_choice,
