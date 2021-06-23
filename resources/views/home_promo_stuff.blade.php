@@ -1,7 +1,7 @@
 @php $ads = [
 '<a class="small" href="https://www.facebook.com/thewastelander/">The Wastelander</a>',
-'<a class="small" href="https://www.youtube.com/channel/UCoLIaavsryTuXidlQfKJJ7g">Firebird on YouTube</a>',
-'<a class="small" href="https://www.youtube.com/channel/UCQ5Vnk_B0ueLKLpY0P2jmbA">Mad Skelli on YouTube</a>',
+'<a class="small" href="https://www.youtube.com/wastelandfirebird">Firebird on YouTube</a>',
+'<a class="small" href="https://www.youtube.com/channel/UCSS_L2Eka2LMn0hM9zaLdlg">Mad Skelli on YouTube</a>',
 ];
 shuffle($ads);
 
