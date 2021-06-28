@@ -4,7 +4,7 @@
 
 <table>
     <tr><td colspan="11">Act 1: Thesis</td></tr>
-    <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Song</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Answered Question</td><td>New Question</td></tr>
+    <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Songs</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Answered Question</td><td>New Question</td></tr>
     <tr>
         <td>0</td>
         <td>1-11 (0%-10%)</td>
@@ -57,7 +57,7 @@ FB and DT meet up with MS to get funding and weapons. MS gives DT some advice we
         <td>Narrative Digression, B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat</td>
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
-        <td>Rolling Stones &middot; Shattered &amp; Bruce Springsteen &middot; Rosalita Come Out Tonight</td>
+        <td>Rolling Stones &middot; Shattered &amp; Bruce Springsteen &middot; Rosalita Come Out Tonight, ADD ONE MORE IT'S FUN & GAME CHAPTER</td>
         <td>
 FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot and friends are executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they steal the Frankenbird instead.
         </td>
@@ -73,7 +73,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death</td>
         <td>Seligman</td>
         <td>Amboy, Seligman, Ash Fork</td>
-        <td></td>
+        <td>[None, stressful chapter]</td>
         <td>
 The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT becomes increasingly dissatisfied with her partnership with FB and fears he does not have the guts to kill MA. DT goes off on her own and calls in the Helly army and they machine gun the FD and drop the FD out of their helicopters, while destroying the Firebuddy factory.
         </td>
