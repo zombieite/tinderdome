@@ -394,7 +394,9 @@ When we arrived in Van Nuys we found some vendors setting up a flea market in a 
 One old coot had heaps of carburetors piled up in several shopping trolleys. I introduced myself.
 "G'day. I'm Firebird. This is Dorktown."
 "Tex Phoenix" he said.
-"You got a carb that will fit on my V6?"
+"Which is it?"
+"Both. Papa was from Dallas. Mama was from Phoenix."
+"All right Tex Phoenix. You got a carb that will fit on my V6?"
 "This ain't much of a Ford town. But I got one that might do the trick."
 While he was digging up the carburetor I grabbed two ancient pieces of grape Bubble Yum from my secret stash and tossed one to Dorktown. She unwrapped it and put it in her mouth. Her eyes lit up in delight. Then she promptly swallowed it.
 Tex showed me the carb. It had clearly been rebuilt with care. Clean as a whistle. New handcut gaskets and everything.
@@ -429,18 +431,18 @@ She talked with her compatriots for a moment then turned and shook my hand.
 The workers were muttering excitedly. One of them opened up a Firebuddy and started speaking into a microphone handset about the possibility of the factory reopening. I'd never seen someone use a Firebuddy like that.
 I designed the Firebuddy to be a machine that you could build upon. That was the beauty of it. It was a general purpose computer. You could add your own hardware and software to it and give it new abilities I never would have thought of.
 "What's that you have connected to your Firebuddy?" I asked.
-"I call it the Citizen's Buddy" he said. "It's like a CB radio only better. It can use the digital network to hop over gaps in the analog one and it can use the analog network to hop over gaps in the digital one. You can transmit privately or publicly. You can control the areas you want to transmit to and receive from but of course that all depends on how much of the network is up."
-
-
-Let me explain something to you postwars out there. Back in the 70s everyone suddenly decided that truckers were really cool. And those truckers all had CB radios. So in the 70s everyone bought CB radios in order to try to make themselves as cool as the truckers. My parents even had one in their station wagon. After the Big Bang a lot of people still had those CB radios lying around. Now that we got Firebuddies and other types of computers people can communicate that way too but since computer networks are so unreliable the CB radio is still one of the best ways to keep in touch.
-
-
-
-"Impressive. If I had any money I'd buy one."
-"If I had any left I'd sell you one. I sell them faster than I can make them. There are so many of them out there now that the other day I was able to hop a message all the way to Rotten Apple."
-"The first cross-country electronic message since the Big Bang! Keep up the good work and we'll have this world put back together in no time."
-He returned to his radio. I had a few more questions for Tex.
-"Are there enough parts left in the factory to build any cars?" I asked.
+"I call it the Citizen's Buddy" she said. "It's like a CB radio only better. It can use the digital network to hop over gaps in the analog one and it can use the analog network to hop over gaps in the digital one. You can transmit privately or publicly. You can control the areas you want to transmit to and receive from. Of course that all depends on how much of the network is up. But there are so many Citizen's Buddies out there now that the other day I was able to hop a message all the way to Albuquerque. My next goal is Oklahoma City."
+Let me explain something to you postwars out there. Back in the 70s everyone thought that truck drivers were really cool. All those truckers all had CB radios so in the 70s everyone bought CB radios. My parents even had one in their station wagon. After the Big Bang all the copper wire infrastructure was out of commission but a lot of people still had working CBs. They are still one of the best ways to keep in touch. Yeah nowadays you can use a Firebuddy to send a message instead. But Firebuddies use radio to communicate just like CBs do so Firebuddies have all the same problems. You have to be close enough to other computers for it to work. Combining the two networks seems like a great way to extend the reach of a bunch of low power transmitters and combine the benefits of both communication methods.
+"If I had any money I'd buy one" I said.
+"If I had any left I'd sell you one" she replied. "I sell them faster than I can make them."
+"What's your name?"
+"Queef Quirky."
+"Queef Quirky. The inventor of the Citizen's Buddy. It's an honor to meet you."
+"What's your name?"
+"Firebird."
+She laughed. "No way! The inventor of the Firebuddy? The honor is all mine."
+She returned to her radio. I had a few more questions for Tex.
+"Are there enough parts left in the factory to build any cars?" I asked him.
 "There are some motors and subframes sitting around" Tex said. "Plenty of body panels but they're pretty rusty. Not enough parts to make a complete car. But you could probably get some kind of frankencar up and running."
 I put the air cleaner back on and started up the Pinto.
 "Carb sounds great. What do I owe you?"
@@ -534,7 +536,7 @@ Thanks to Dorktown's distraction I made it to the Frankenbird. I slammed the bon
 "What did you do that for?" he asked.
 "You're a henchman" I said.
 "I'm a mechanic."
-"Well I don't know how you got this hectic motor running but if you ever decide you wanna work for someone who's not a murderous fopdoodle come find me in Norwood. My name's Firebird."
+"Well I don't know how you got this ridiculous motor running but if you ever decide you wanna work for someone who's not a murderous fopdoodle come find me in Norwood. My name's Firebird."
 I shook his hand and hopped into the Frankenbird. I kicked it in the guts. Me and Dorktown flogged it out of there and we began the race for Norwood.CHAPTER 4: seligman
 Mohawk A-hole came after us in the sand rail. Chumdumpster was on the Elsinore. The Flirty Dozen had piled into the deuce-and-a-half.
 The sand rail and the Elsinore didn't have headlights so they stayed behind the deuce. The Pinto didn't have headlights anymore either so she stayed behind me.
