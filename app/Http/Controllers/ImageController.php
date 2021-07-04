@@ -65,10 +65,10 @@ class ImageController extends Controller
 						}
 					}
 				} else {
-					$errors = 'Please choose an image file to upload.';
+					$errors = 'Uploaded file temp name not found, file may be too large.';
 				}
 			} else {
-				$errors = 'Please choose an image file to upload.';
+				$errors = 'Image file not found, file may be too large..';
 			}
 		}
 
