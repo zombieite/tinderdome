@@ -33,7 +33,7 @@
 		@endif
 	</label>
 	<br><br>
-	Image files must be no more than 2MB.
+	Image files must be no more than 5MB.
 	<br><br>
 	@if ($number_photos == 0)
 		<input type="hidden" name="imagenum" value="new">
