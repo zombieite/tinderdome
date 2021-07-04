@@ -150,6 +150,9 @@ sudo ./make-dummy-cert localhost.crt
 ls /etc/pki/tls/certs/localhost.crt
 sudo vi /etc/httpd/conf.d/ssl.conf
 # Comment out SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+sudo vi /etc/httpd/conf.d/youareawaited.com-le-ssl.conf # other places might be better but this seemed to work
+# After CustomLog line, add:
+# php_value post_max_size 40M
 sudo systemctl restart httpd
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html#letsencrypt
 sudo wget -r --no-parent -A 'epel-release-*.rpm' https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
@@ -163,4 +166,4 @@ sudo crontab -e
 # 39      1,13    *       *       *       root    certbot renew --no-self-upgrade
 sudo systemctl restart crond
 # Test SSL
-# https://www.ssllabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
+# https://www.ss:llabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
