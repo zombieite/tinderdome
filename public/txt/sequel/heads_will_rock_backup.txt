@@ -427,13 +427,13 @@ She talked with her compatriots for a moment then turned and shook my hand.
 They muttered excitedly. One of them opened up a Firebuddy and started speaking into a connected microphone handset about the possibility of the factory reopening. I'd never seen someone use a Firebuddy like that.
 I designed the Firebuddy to be a machine that you could build upon. That was the beauty of it. It was a general purpose computer. You could add your own hardware and software to it and give it new abilities that I never would have thought of.
 "What's that you have connected to your Firebuddy?" I asked.
-"I call it the Citizen's Buddy" she said. "It's a CB radio only better. It can use the digital network to hop over gaps in the analog one and it can use the analog network to hop over gaps in the digital one. The other day I was able to hop a message all the way to Albuquerque. My next goal is Oklahoma City."
-Let me explain something to you postwars out there. Back in the 70s everyone thought truck drivers were really cool. And those truckers all had CB radios. So in the 70s everyone bought CB radios. My parents even had one in their station wagon. After the Big Bang all the copper wire infrastructure was out of commission but a lot of people still had working CBs. CBs have low power and limited range but they're still one of the best ways to keep in touch.
+"I call it the Citizen's Buddy" she said. "It's a CB radio only digital. It can use the digital network to hop over gaps in the analog one and it can use the analog network to hop over gaps in the digital one. The other day I was able to relay a message all the way to Albuquerque. My next goal is Oklahoma City."
+Let me explain something to you postwars out there. Back in the 70s everyone thought truck drivers were really cool. And those truckers all had CB radios. So in the 70s everyone bought CB radios. My parents even had one in their station wagon. After the Big Bang all the copper wire infrastructure was out of commission but a lot of people still had working CBs. So they're still one of the best ways to keep in touch.
 "If I had any money I'd buy one" I said.
 "If I had any left I'd sell you one" she replied.
 "What's your name?"
-"Queef Quirky."
-"It's an honor to meet you Queef Quirky. I'm Firebird."
+"Quirky Qwerty."
+"It's an honor to meet you Quirky Qwerty. I'm Firebird."
 She laughed. "The inventor of the Firebuddy? The honor is all mine."
 I had a few more questions for Tex so I dragged him away from the chattering group.
 "Are there enough parts left in the factory to build any cars?" I asked.
