@@ -106,7 +106,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         <td>Norwood Assembly</td>
         <td>Manfred Mann's Earth Band &middot; By The Light</td>
         <td>
-The Helly and Gilly armies convene on Norwood but the auto workers union have heard of Firebird's exploits over their Firebuddies and CB radios and they are waiting and ready for battle. They don't have tanks and helicopters but they use their unique skills and a crane to take out the attackers. All the people that FB met along the way and offered jobs to show up to help build cars and battle the bad guys.
+The Helly and Gilly armies convene on Norwood but all the people that FB met along the way and offered jobs to show up to help build cars and battle the bad guys.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
