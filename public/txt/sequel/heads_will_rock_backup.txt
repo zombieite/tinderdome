@@ -428,7 +428,7 @@ I designed the Firebuddy to be a machine that you could build upon. That was the
 "What's that you have connected to your Firebuddy?" I asked.
 "I call it the Citizen's Buddy" she said. "It's a CB radio only digital. It can use the digital network to hop over gaps in the analog one and it can use the analog network to hop over gaps in the digital one. The other day I was able to relay a message all the way to Albuquerque. My next goal is Oklahoma City."
 Let me explain something to you postwars out there. Back in the 70s everyone thought truck drivers were really cool. And those truckers all had CB radios. So in the 70s everyone bought CB radios. My parents even had one in their station wagon. After the Big Bang all the copper wire infrastructure was out of commission but a lot of people still had working CBs. So they're still one of the best ways to keep in touch.
-While we're at it let me tell you some other things that only became popular in the 70s and then became permanently cool when the Big Bang stopped the progress of fashion in its tracks. Moustaches. Sideburns. Cheap wood paneling, Pointy collars. Western shirts. Velour. Corduroy. Patches. Browns and beiges and pale greens and yellows. And my personal favorite. Orange. Ok back to CB radios.
+While we're at it let me tell you some other things that only became popular in the 70s and then became permanently cool when the Big Bang stopped the progress of fashion in its tracks. Moustaches. Sideburns. Cheap wood paneling, Pointy collars. Western shirts. Velour. Corduroy. Patches and pins. Browns and beiges and pale greens and yellows. And my personal favorite. Orange. Ok back to CB radios.
 "If I had any money I'd buy one" I said.
 "If I had any left I'd sell you one" she replied.
 "What's your name?"
@@ -507,11 +507,11 @@ At this point five things happened in quick succession.
 2. Mohawk Hineyhole woke up with a start and gave me a funny look.
 3. The head fell off of my axe.
 4. The butt of the axe head hit Mohawk Hineyhole in the forehead.
-5. A voice arose from a dark corner of the room saying "Dad?"
-I looked up at the voice. It was Chumdumpster. He was still in that dive suit. He must sleep in that thing.
-This was a lot to take in. It would have been nice if the axe head had knocked Mohawk Hineyhole unconscious but instead it had imbued him with a more extreme form of consciousness.
-He got up. I started thwacking him with the axe handle because it was the best I could do and we're all just doing the best we can.
-He took the axe handle from me. He threw it across the room.
+5. A voice from a dark corner of the room said "Dad?"
+This was a lot to take in.
+I looked up toward the voice from the corner of the room. It was Chumdumpster. He was still in that dive suit. He must sleep in that thing.
+Now it would have been nice if the axe head had knocked Mohawk Hineyhole unconscious but instead it had imbued him with a more extreme form of consciousness. He got up.
+I started thwacking him with the axe handle because it was the best I could do and we're all just doing the best we can. He took the axe handle from me. He threw it across the room.
 A light came on in the hallway. There were more people in these offices and they were now awake.
 I bolted out of the room and slammed the door. I held it shut. Mohawk Hineyhole and Chumdumpster were tugging on the knob. They were a couple of knobtuggers.
 Knobtuggers. I gotta remember that one.
@@ -539,7 +539,7 @@ I shook his hand and hopped into the Frankenbird. I gave it the bejeezus. Dorkto
 Mohawk Hineyhole came after us in the sand rail. Chumdumpster was on the Elsinore. The Flirty Dozen had piled into the deuce-and-a-half.
 The sand rail and the Elsinore didn't have headlights so they stayed behind the deuce. The Pinto didn't have headlights anymore either so she stayed behind me.
 The Pinto had a new carb and the Frankenbird had a toey doublesuperturbocharged V8 so it didn't take long to put some distance between us and the bloodthirsty boofheads.
-We headed out of Las Diablas on what was left of Route 66. We stayed off the highways to avoid the skags who would be blocking the roads and charging tolls. And don't tell me we should just pay the toll. Sometimes the toll was something more than money. Especially for someone like Dorktown. That was a toll we were not gonna pay.
+We headed out of town on what was left of Route 66. We stayed off the highways to avoid the skags who would be blocking the roads and charging tolls. And don't tell me we should just pay the toll. Sometimes the toll was something more than money. Especially for someone like Dorktown. That was a toll we were not gonna pay.
 We needed petrol so we stopped at Roy's Cafe in Amboy just as the sun was coming up.
 "Let me out of these cuffs" Dorktown demanded from the driver's seat of the Pinto. She did not look at me when she spoke.
 "Will you fill up my tank?" I asked.
@@ -645,9 +645,12 @@ The owner of the place was a bit younger than me but probably still a prewar. He
 "I'll have fifty burgers for takeaway" she said.
 "You hungry?" I asked.
 She ignored me.
-I heard a helicopter approaching. I hadn't heard that sound in a long time. I went to the window and looked up at the sky. The servo owner packed up Dorktown's order. Dorktown kept typing on her Firebuddy.
-It wasn't just one helicopter. It was a dozen of them. Hueys. Loaches. Kiowas. And bringing up the rear was the last of the ACH-47A Chinooks. Nicknamed "Easy Money." They'd only made four of them and only one had made it back from Vietnam. These special Chinooks were known as "Guns-A-Go-Go" because they were loaded with .50 caliber machine guns and rockets and grenade launchers pointing in every direction. The thing was armoured too so it could take abuse as well as dish it out.
-When Dorktown had finished typing out the above clarification she grabbed her sacks of burgers and got up. She pushed the Firebuddy over to me. "Shit's about to go down. You might wanna update your story."
+I heard a helicopter approaching. I hadn't heard that sound in a long time. I went to the window and looked up at the sky. It wasn't just one helicopter. It was a dozen of them.
+Hueys. Loaches. Kiowas. And bringing up the rear was the last of the ACH-47A Chinooks. Nicknamed "Easy Money."
+Thanks for that clarification Dorktown.
+The servo owner packed up Dorktown's order.  But she wasn't done yet. She kept typing on her Firebuddy.
+These special Chinooks were known as "Guns-A-Go-Go" because they were loaded with .50 caliber machine guns and rockets and grenade launchers pointing in every direction. The thing was armoured too so it could take abuse as well as dish it out. They'd only made four of them and Easy Money was the only one to make it back from Vietnam.
+When Dorktown finished typing she grabbed her sacks of burgers and got up. She pushed the Firebuddy over to me. "Shit's about to go down. You might wanna update your story."
 "Our story?"
 "Your story."
 She ran outside and I followed her. The helicopters landed one by one on the main drag of Ash Fork. They kept their blades spinning. The roar of the engines was deafening. The downwash kicked dust into our eyes.
@@ -707,8 +710,9 @@ The helicopters didn't stay on the ground long. They all started taking off agai
 Then a human being fell out of the sky and landed with a massive thud on the Frankenbird's metal mesh windscreen. Laura's kid screamed and started crying. I slammed on the brakes.
 The sad sack's face was right in front of me. It was one of the Flirties. I looked up at him. His blood was dripping all over me but he was still alive. For a few more seconds at least. He looked me in the eye. His mouth moved but he wasn't saying anything.
 Me and Laura got out of the car and looked up. The Gilly soldiers were falling from the sky.CHAPTER 5: amarillo
-Late that night I quietly drove out of Seligman with the headlights off. Once I was far enough away I turned on the lights and picked up the pace. I kept my eyes to the sky looking for helicopters but because of that I didn't notice that Mohawk Hineyhole and Chumdumpster were discreetly following me in the Pinto and on the Elsinore.
-I figured this out when they stopped being discreet about it and the Pinto started ramming the Frankenbird. And to make things worse they hadn't been as careful as I was. They had one of those little round helicopters on their tail. I think it was a Loach. Fortunately it had no guns mounted on it so it wasn't shooting at us. I kicked it in the guts and the Frankenbird left them all behind.
+That night I snuck the Frankenbird out of Seligman with the headlights off. Once I was far enough away I turned on the lights and picked up the pace.
+I kept my eyes to the sky looking for helicopters but because of that I didn't notice that Mohawk Hineyhole and Chumdumpster were discreetly following me in the Pinto and on the Elsinore. I figured this out when they stopped being discreet about it and the Pinto started ramming the Frankenbird.
+And to make things worse they hadn't been as careful as I was. They had one of those little round helicopters on their tail. I think Dorktown called it a Loach. Fortunately it had no guns mounted on it so it wasn't shooting at us. I kicked it in the guts and the Frankenbird left them all behind.
 I was outdriving my headlights probably going 200 kays when I saw that upside down bug. The upside down bug with the dead family inside. The upside down bug that was right before the wreckage of the tanker truck. The tanker truck that was splayed out across the entire road.
 I stood on the brake pedal and all four wheels locked up. The tanker truck came into view but  the Frankenbird wasn't stopping. The tires screeched until I lightly bumped into truck.
 I was gasping. I'd almost died but I didn't have time to dilly dally. Mohawk Hineyhole and Chumdumpster would be here any minute.
@@ -736,15 +740,11 @@ I lowered my bow. "You stole a helicopter?"
 "Good. Then there's still time to kill him." She reached into the mangled Pinto and started tugging on Bruce's arms.
 I forced myself between them. "Dorktown stop it" I said. "You're gonna tear him in half."
 "Do it you cunt" Bruce said.
-"If you do this you're gonna hate yourself" I said.
-"I already hate myself" she said.
-"And there's something else. Chumdumpster is Bruce's son."
+"Listen to me. Chumdumpster is Bruce's son."
 "I'm Messenger Kid's daughter."
-"I know but if Chumdumpster survives this he's gonna come for you."
+"I know but if Chumdumpster is still alive he's gonna come for you."
 "I don't give a rat's ass. Are we gonna assassinate this asshole or what?
-"We're not assassinating anyone" I said.
-"What do you mean?" she asked.
-"This isn't political."
+"We're not assassinating anyone" I said. "This isn't political."
 "If you kill a president it's gonna be political."
 Ok she had a point there. "Yeah but if you drop him out of that helicopter this war is never gonna end."
 She turned and went back to the helicopter. She returned with the crossbow and pointed it at me. "This war will end when we win it" she said.
@@ -755,23 +755,27 @@ Bruce spoke up. "Your pop? I thought you looked familiar. Your pop was the dumb 
 "He talked with his hands!" she replied.
 "Your pop knew where John was. But the only way I could get it out of him was if I had you there to translate."
 "You tortured him and killed him while I watched!"
-"I did what I had to do to save the world" Bruce said.
-I didn't expect him to say that. "From what?" I asked.
+"I did what I had to do" Bruce said.
+"What do you mean?" I asked.
+"I was trying to save the world."
+I didn't expect him to say that. "From what?"
 "From you" he whispered.
-I really didn't expect him to say that. I didn't have to include that part so consider yourself lucky. I'm writing this book so I get to be the hero. But everyone's the hero of their own story. Even the villains. Especially the villains. All of history's greatest atrocities were committed in the name of truth and justice. The most dangerous person on earth is someone who's sure that they're right.
+I didn't have to include this part so consider yourself lucky. I'm writing this book so I get to be the hero. But everyone's the hero of their own story. Even the villains. Especially the villains. All of history's greatest atrocities were committed in the name of truth and justice. The most dangerous person on earth is someone who's sure that they're right. So how is anyone supposed to know if they're the hero or the villain?
+Eh fuck it. Who gives a shit.
 I turned to face Bruce and shot an arrow into his heart. I could tell you about the look in his eyes or the sounds that he made but I really don't want to do that.
-I looked up and saw Steven standing right there looking at me. Don't worry. Chumdumpster is not gonna stay Steven for long but right now he's Steven. I'd witnessed Bruce killing my family and now Steven had witnessed me killing his. We all become an orphan someday. If we're lucky.
-Steven's impressive tumble had been a death defying one. But his metal suit was leaking blood from every one of its cracks. He looked like a robot oozing hydraulic fluid.
+I looked up and saw Steven standing right there looking at me. Steven's impressive tumble had been a death defying one but his metal suit was leaking blood from its seams. He looked like a robot oozing hydraulic fluid.
+Don't worry. Chumdumpster is not gonna stay Steven for long but I'm trying to hold on to what little humanity I have left at this point so right now he's Steven.
+I'd witnessed Bruce killing my family and now Steven had witnessed me killing his. We all become an orphan someday. If we're lucky.
 "Your father asked me to tell you that he loved you more than anything" I said.
 I backed away but he didn't come after me. Instead he reached into the car and tried to revive his now very totally 100% dead dad.
 Then Dorktown turned her crossbow around and pointed it at her chest.
 I threw my bow aside and ran to her but she pulled the trigger before I could get there. Fortunately she had the thing so close to her chest that the bolt didn't have anywhere to go. The crossbow flew out of her hands and she fell backwards onto the road. She hit her head and and it was lights out for Dorktown.
 I crouched down beside her. The bolt was lying on her chest. It had ripped through her clothing and she was bleeding but it had bounced off her sternum.
-"If you die there won't be anyone left in my fan club" I said. I picked her up and carried her to the Frankenbird as quickly as I could. Chumdumpster shambled after us but even though I was carrying Dorktown I was able to keep just ahead of him.
-So Chumdumpster turned back and climbed into the Loach. He managed to get it started. The rotors started spinning faster and faster. The thing started to take flight but he clearly had no idea what he was doing. As soon as the helicopter left the ground it flipped over and landed on its side sending pieces of the rotors flying in every direction. Then the whole thing exploded. Chumdumpster emerged from the flames unharmed.
+"If you die there won't be anyone left in my fan club" I said. I picked her up and started carrying her to the Frankenbird as quickly as I could.
+Chumdumpster shambled after us but I was able to keep just ahead of him. So he turned back and climbed into the Loach. He managed to get it started. The rotors started spinning faster and faster. The thing started to take flight but he clearly had no idea what he was doing. As soon as the helicopter left the ground it flipped over and landed on its side sending pieces of the rotors flying in every direction. Then the whole thing exploded. Chumdumpster emerged from the flames unharmed.
 I got Dorktown into the Frankenbird and started it up. Chumdumpster hobbled over to that upside down Volkswagen convertible and flipped the whole thing over. He threw out the dead dad in the driver's seat but left the rotting corpses of the wife and kids sitting where they were. He got in and managed to get the car started.
 I peeled out and got the heck out of there. Chumdumpster started chasing me in that Volkswagen with his new zombie family riding alongside him. Creepy as heck.
-I drove all night in a blur. When I stopped for petrol I heard two truck drivers talking about seeing some metal creature having a picnic at a rest area with three dead bodies. Or maybe I dreamed that. I hope I dreamed that.
+The rest of the night was a blur. When I stopped for petrol I heard two truck drivers talking about seeing some metal creature having a moonlight picnic with three dead bodies. Or maybe I dreamed that. I hope I dreamed that.
 At some point I fell asleep at the wheel. I woke up in terror with signs and fenceposts bouncing off the front of the car.
 I stopped the car and got out. It was morning and we were somewhere in Texas. I looked around a bit and figured out that we weren't just somewhere. We were somewhere in particular.
 Dorktown came back to life and joined me. "What is this place?" she asked.
@@ -785,19 +789,20 @@ Yeah that's right. She didn't curse for once.
 We climbed onto one of the cars and had a seat in the boot. Dorktown's arm was pressed against mine. It was nice. I usually tried not to touch her but I liked it when every now and then she'd touch me. But don't go getting any ideas. If you haven't figured out what we are to each other by now then you ain't never gonna figure it out.
 "I'm a murderer Dorktown."
 She grabbed my hand. "You're not a murderer. You're just a killer."
-I looked up at the sky.
+I nodded.
 "Why didn't you let me do it?" she asked.
-I didn't say anything. I wasn't sure which thing she was talking about but either way it was the same reason.
+I didn't answer. I wasn't sure which thing she was talking about but it didn't matter. The answer was the same either way.
 "Thank you" she said.
 Not much happened for a while.
-There's a thing called narrative filigree where a writer will write a bunch of fancy stuff just to take up some space. I would do something like that here but I'm not a writer. I'm just someone who's trying to tell you a bunch of stuff that happened. Words will get you into trouble. Words will keep you up at night.
+There's a thing called narrative filigree where a writer will write a bunch of fancy stuff just to take up some space. I would do something like that here but I'm not a writer. I'm just someone who's trying to tell you a bunch of stuff that happened.
+Words will get you into trouble. Words will keep you up at night.
 The weather wasn't hot or cold or stormy. No red-tailed hawk cried out above us. No roadrunner dashed in front of us. There was nothing to hear. There was nothing to see. Nothing to do. Texas was flat and lovely and we sat there and her arm was pressed against mine.
 Dorktown climbed down off the car and took a seat at the piano. She started playing and singing. If that seems out of character to you well it seemed that way to me too. I didn't know she could play. I didn't know she could sing. And if I'd known she could do that stuff I sure as heck wouldn't have ever thought that she would. But a funny thing about character is that it can change.
 The song she played for me was Close To You by The Carpenters. The lullaby my mom used to sing to me as a child.
 Then she got up and said "Let's go build some cars."CHAPTER 6: NORWOOD
 There never was and there never will be another century like the twentieth. In the twentieth century things were invented more quickly than they ever were before. Millennia of stagnation and then all of a sudden in the twentieth century every decade is totally different from the one before it. Hundreds of generations of subsistence farmers and then out of nowhere someone's kid builds a rocket that lands on the moon.
 Yay another rant about economics!!
-I'm not ranting Dorktown. I'm thinking on paper. But I appreciate your enthusiasm.
+I appreciate your enthusiasm Dorktown.
 In just one hundred years we figured out more stuff than we had figured out in the entire hundred thousand years that humans had been on earth. Sure there was fire and the wheel. Agriculture and domestication. Spoken language and written language and the printing press. But that ain't much to figure out in a hundred thousand years.
 Here's a list of some stuff that was either invented or widely adopted in the twentieth century. Indoor plumbing. Electricity and the light bulb. Antibiotics. Vaccines. Anesthetics. Surgery. Birth control. Air conditioning and refrigeration. Washing machines. Telephones. Photography. Transistors. Radio and rock'n'roll. Movies. Television. Computers. Cars. Airplanes and jet engines. Rockets and space travel. Nuclear power. And Norman Borlaug's miracle strains of wheat. You forgot about that one didn't you.
 The twentieth century?? I wasn't even born yet!!
@@ -805,34 +810,51 @@ Were you even listening?
 Norman Borlaug saved a billion lives.
 That's my girl.
 Most of that stuff I mentioned was invented in the US of A. Why did so many people invent so many things in the USA? What was it that the USA got right?
-If we asked Karl Marx he would have said it was capitalism that got us there but then he would have gone on to tell us that capitalism was doomed and destined to be replaced. He turned out to be right. People did replace it. They replaced it with anarchy. Anarchy is just like capitalism except you can only own what you can defend so every now and then someone comes along and seizes your means of production. The bad news is we still got bosses. If think you ain't got a boss then your boss is your customers. If you ain't got no customers then your boss is your stomach.
+If we asked Karl Marx he would have said it was capitalism that got us there but then he would have gone on to tell us that capitalism was doomed and destined to be replaced. He turned out to be right. People did replace it. They replaced it with anarchy. Anarchy is just like capitalism except you can only own what you can defend so every now and then someone comes along and seizes your means of production. The bad news is we still got bosses. If you think you ain't got a boss then your boss is your customers. If you ain't got no customers then your boss is your stomach.
 What's your point??
 The point is we're not just going to Norwood to build cars. We're going to Norwood to pick up where the twentieth century left off.
-We took turns driving. Yeah I let Dorktown drive. It was an emergency. We were saving the world. Or at least rebuilding it. And if we didn't keep driving Chumdumpster was gonna catch up to us.
-By late the next day we spotted the sign for Sin City Ohio. We were listening to Manfred Mann's Earth Band playing Blinded By The Light on Burt Sugarman's Midnight Special in 1977.
-Dad was in the audience that night. Blinded By The Light was written and originally performed by Bruce Springsteen. I know that sounds like an exciting musical discovery but if you're planning on checking out his version be prepared for disappointment. Bruce just got out a rhyming dictionary and threw the song together. Manfred Mann's Earth Band cut out half the lyrics and still managed to nearly double the length of the song. Their version of the song is more about the music and the buildup. And the lyrics that were left in put more emphasis on the stuff about going for a cruise in a deuce coupe on a Friday night with your mates. "Deuce" not "douche." They had some audio production problems and they didn't have time to fix them. But it doesn't matter. File it under "covers that are far better than the originals."
-Sin City was a surprisingly unpopulated town unless you counted the skeletons. After the Big Bang most places only had five percent of their population left but this place seemed a lot closer to zero. After much scouring we managed to find a working servo.
-"Neutron bombs" the servo owner said. "They killed everyone in the city but left the buildings intact. Rumor is whoever was in charge of dropping the bombs liked Pontiac Firebirds and wanted to make sure they didn't hurt the factory. The USA retaliated hard enough that the bad guys never got the chance to take over the place they'd bombed."
-We asked for directions. The place wasn't hard to find. Northeast on Route 22 and look for the General Motors signs.
+We took turns driving. Yeah I let Dorktown drive. It was an emergency. We were saving the world. And if we didn't keep driving Chumdumpster was gonna catch up to us.
+Norwood was a suburb of Sin City. If you're a prewar like me you might know Sin City as Cincinnati. Anyway late the next day we spotted the sign for Sin City.
+As we pulled off the exit we were listening to Manfred Mann's Earth Band playing Blinded By The Light on Burt Sugarman's Midnight Special in 1977. Dad was in the audience that night. Blinded By The Light was written and originally performed by Bruce Springsteen. I know that sounds like an exciting musical discovery but if you're planning on checking out his version be prepared for disappointment. Bruce just got out a rhyming dictionary and threw the song together. Manfred Mann's Earth Band cut out half the lyrics but doubled the length of the song. Their version of the song is more about the music and the buildup. And the lyrics that were left in put more emphasis on the stuff about going for a cruise in a deuce coupe on a Friday night with your mates. "Deuce" not "douche." They had some audio production problems and they didn't have time to fix them. But it doesn't matter. File it under "covers that are far better than the originals."
+Sin City was a surprisingly unpopulated town unless you counted the skeletons. After the Big Bang most places only had five percent of their population left but this place seemed a lot closer to zero. We managed to find a working servo on the outskirts of Norwood. A bloke named Jim owned the place.
+"Neutron bombs" the Jim said. "They killed everyone in the Sin City but left the buildings intact. Rumor is whoever was in charge of dropping the bombs liked Pontiac Firebirds and wanted to make sure they didn't hurt the factory. The USA retaliated hard enough that the bad guys never got the chance to take over the place they'd bombed."
+We asked for directions. The place wouldn't be hard to find. Northeast on Route 22. Look for the General Motors signs. Before we left I told Jim if he knew of anyone who wanted a job building cars he should send them our way.
 The place was in a lot better shape than the plant in Van Nuys. There wasn't even any graffiti or broken glass. Aside from some intrusive vegetation it looked like it had been abandoned yesterday. We parked the Frankenbird right in front of the main entrance. I jumped out of the car and got goosebumps from my head to my toes.
-I had goosebumps too.
-Heck yeah Dorktown. History was built here. Norwood Assembly. Birthplace of the Camaro and the Firebird. In operation from 1923 all the way up until the Big Bang put GM and the rest of the world out of business in 1981.
-The buildings were made of brick and glass. The main building was three stories tall and took up several city blocks. Through the years the facility had grown so there were older and newer sections.
+Norwood Assembly. Birthplace of the Camaro and the Firebird. In operation from 1923 all the way up until the Big Bang put GM and the rest of the world out of business in 1981.
+The buildings were made of brick and glass. The main building was three stories tall and took up several city blocks. Through the years the facility had grown quite a bit so there were older and newer sections.
 We walked right in the front door. The skeleton receptionist said "Hello Mr. Firebird." And while we're imagining things let's imagine I asked her for my messages. "Ah yes. A Mr. Chumdumpster called. He says he forgives you and he's turning around and going home."
 We stepped onto the main factory floor. The place was dusty and had no power but the line itself was completely intact. Before us were hundreds of partially assembled cars!
-There were nine miles of assembly lines throughout the place. The lines carried the bodies up and down through all three stories of the plant.
-Engines came in on trains from Flint Michigan. Bodies came from the Fisher Body building right across the street. Radiators came from Buffalo. Windshields came from Toledo. Roofs came from Kalamazoo.
-Bodies were mated to their drivetrains and subframes at the body drop. Hood and fenders went on. Then a worker would put a bit of fuel in the tank and the car left out the back door under its own power.
+Bodies came from Fisher Body right across the street. Engines came in on trains from Flint Michigan. Radiators came from Buffalo. Windshields came from Toledo. Roofs came from Kalamazoo.
+There were nine miles of assembly lines throughout the place. The lines carried the bodies up and down through all three stories of the plant until they were mated to their drivetrains and subframes at the body drop. Then bonnets and fenders went on. After a bit of fuel was dumped in the tank the car left out the back door under its own power.
 The plant employed thousands of people. The line workers and their robot assistants could put a car together in just a few hours. They turned out hundreds of cars a day.
 While I was running around reverse engineering the build process in my head Dorktown explored the offices.
-"Bloody ripper! Come here!" she screamed.
+"Bloody rippa! Come here!" she screamed.
 I ran to join her. She pointed to a piece of paper on a desk. It was a letter in child's handwriting dated November 1981.
-"Dear Norm Inouye John Schinella Bill Davis and all the people who help make Firebirds. Thank you for making Firebirds. Firebirds are my favorite car. The bird on the hood is the most beautiful thing I have ever seen. When I grow up I want to work at the Firebird factory. How are Firebirds made? Love John Binns."
+"Dear Norm Inouye and John Schinella and Bill Davis and all the people who help make Firebirds. Thank you for making Firebirds. Firebirds are my favorite car. The bird on the hood is the most beautiful thing I have ever seen. When I grow up I want to work at the Firebird factory. How are Firebirds made? Love John Binns."
 Yeah that's my name. Yeah I wrote that letter. One month before my family was killed. One month before the world blew up.
-I looked up at Dorktown. She was holding a package. She handed it to me. It was addressed to me at my parents' address in New Jersey. The bombs must have hit just before they picked up the mail.
-I opened the package. It contained a Firebird t-shirt and a letter.
-"Dear John. Thank you for your letter. I'm the one in charge here at the Firebird factory in Norwood Ohio. You asked how Firebirds are made. I don't know. In fact nobody knows and nobody can possibly know. There's no way any one person could plan all of this and if even if they could plan it today they'd have to start all over with a new plan tomorrow. Thousands of people all over the world play their part and they don't even know what part they're playing. The people who produced the steel and rubber and vinyl and gasoline had no idea that their products would go into making a Firebird. And no one had to tell any of them to do it. They all decided on their own to do it just because they wanted to make an honest buck. Everyone is interconnected in unknowable ways. Even you. I expect to see you here reporting for duty in a few years. Yours truly Snuffy."
+I looked up at Dorktown. She was holding a package. She handed it to me. It was addressed to me at my parents' house in New Jersey. The bombs must have hit just before they picked up the mail.
+I opened the package. It contained a Firebird t-shirt and a Norwood factory patch and a letter.
+"Dear John. Thank you for your letter. I'm the one in charge here at the Firebird factory in Norwood Ohio. You asked how Firebirds are made. I don't know. In fact nobody knows and nobody can possibly know. There's no way any one person could plan all of this and if even if they could plan it today they'd have to start all over with a new plan tomorrow. Thousands of people all over the world play their part but they don't even know what part they're playing. The people who produced the steel and rubber and vinyl and gasoline had no idea that their products would go into making a Firebird. Everyone is interconnected in unknowable ways. Even you. I expect to see you here reporting for duty in a few years. Yours truly. Snuffy."
 "John Binns reporting for duty" I said.
+"We'd better get to work" Dorktown said.
+"Yeah." I put on the Firebird t-shirt and pocketed Snuffy's letter. "Chumdumpster will be any minute."
+We started walking back to the factory floor.
+"And the Helly and Gilly armies" she added.
+I froze in my tracks. "I thought the Gillies were dead."
+Dorktown laughed. "Like twelve of them maybe. There are thousands of people in the Gilly army."
+I felt sick to my stomach. "And the Hellies?"
+"Bubury showed me his willy and I laughed at it. We're not friends anymore."
+"But he let you borrow the Loach?"
+"I didn't say he let me borrow it. I just said I borrowed it."
+I sighed. "We gotta get out of here." I grabbed her arm and tried to pull her along with me but she wouldn't budge.
+"You've been running away from danger your whole life" she said.
+"That's why I'm still alive."
+I tugged harder on her arm but she shoved me away. I stumbled and fell onto the floor.
+"I'm not letting you give up your dream" she said.
+"Why not?"
+"Because it's not just your dream anymore."
+"She's right" a voice said.
+We both turned to see who it was. It was Jim from the Sin City servo.
 
 
 
@@ -849,19 +871,6 @@ I opened the package. It contained a Firebird t-shirt and a letter.
 
 
 
-
-
-
-
-
-FB is discouraged by the letter. he can't plan this. it's not enough to reverse engineer the assembly line. he has to reverse engineer the entire supply chain.
-"Not the paint" says the painter who shows up.
-"not the steel" stays the steel guy who shows up.
-.... etc
-
-need to get DT's car built for her drive off into the sunset with FB
-
-DT tells fb 2 armies are on the way
 
 FB and DT end up almost dropped out of helicopter. note: FB has a handcuff key in his pocket he can use later, that could help here
 
@@ -877,7 +886,7 @@ a bunch of truckers show up to help
 
 DT uses the freight helicopter (nice arc after learning to fly one earlier) to pick up the tank and drop it on easy money. we need to make sure that not only is bubury on there, but also his vice president (to keep the number of deaths the same between both tribes). who's in the tank though? CD will survive with an arrow to his heel, i think, so he wouldn't be in the tank. vice president should be with bubury when bubury is killed, so prez and vice of both hellies & gillies are killed in the story
 
-FB gives DT MK's bunny.
+FB gives DT MK's bunny. He gives it to her by parking it in the passenger seat with the seat belt on, so she can discover it there.
 
 CD is still on the way.
 
