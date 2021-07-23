@@ -367,7 +367,7 @@ Dorktown looked up and took off the headphones.
 "You can drive my car if it's an emergency."
 "Me drive Pinto! Me drive Pinto!"
 "Only in an emergency. And there aren't going to be any more emergencies."
-I got in the car and started it up. I paused and turned to face her. "If you do drive this car don't run in to anything."
+I got in the car and started it up. I paused and turned to face her. "If you do drive this car don't run into anything."
 "Why not?"
 "Pintos are famous for exploding."
 "Exploding car. Got it."
@@ -432,7 +432,7 @@ I put the air cleaner back on and started up the Pinto.
 "Survive?" I asked.
 "They said they'd cut off our heads if we didn't leave town."
 "Cut off your heads?" I laughed. "Really?"
-Just then a deuce-and-a-half turned a corner and headed toward the plant. The deuce was towing a trailer behind it. Built on to the trailer was an actual goshdarn guillotine.
+Just then a deuce-and-a-half turned a corner and headed toward the plant. The deuce was towing a trailer behind it. Built onto the trailer was an actual goshdarn guillotine.
 "Do you need a ride out of here?" I asked.
 "We ain't going nowhere" Tex said.
 The deuce had a bunch of floozies riding in the back. They were all giving us the stinkeye as they went by. I call them floozies cuz no matter their gender or race or age every one of them had on a ridiculous blonde wig. I will dub them the Flirty Dozen.
@@ -824,33 +824,34 @@ We told him about our plans to recommission the place. He got wistful.
 "Why didn't you?" I asked.
 "It takes more than just a dream. You gotta be willing to risk your money. Your sanity. Your life. After the Big Bang I didn't want any more risks."
 We got directions to the factory. The place wouldn't be hard to find. Northeast on Route 22. Look for the General Motors signs. Before we left I told Dull if he knew of anyone who wanted a job building cars he should send tell them to me.
-The place was in a lot better shape than the plant in Van Nuys. There wasn't even any graffiti or broken glass. Aside from some intrusive vegetation it looked like it had been abandoned yesterday. We parked the Frankenbird right in front of the main entrance. I jumped out of the car and got goosebumps from my head to my toes.
+The place was in a lot better shape than the plant in Van Nuys. There wasn't even any graffiti or broken glass. Aside from some intrusive vegetation it looked like it had been abandoned yesterday. We parked the Frankenbird right in front of the main entrance. I jumped out of the car and got goosebumps from my head to my toes. For me this was sacred ground.
 Norwood Assembly. Birthplace of the Camaro and the Firebird. In operation from 1923 all the way up until the Big Bang put GM and the rest of the world out of business in 1981.
 The buildings were made of brick and glass. The main building was three stories tall and took up several city blocks. Through the years the facility had grown quite a bit so there were older and newer sections.
 We walked right in the front door. The skeleton receptionist said "Hello Mr. Firebird." And while we're imagining things let's pretend I asked her for my messages. "Ah yes. A Mr. Chumdumpster called. He says he forgives you and he's turning around and going home."
-We stepped onto the main factory floor. The place was dusty and had no power but the line itself was completely intact. Before us were hundreds of partially assembled cars. And it gets better. The cars in the factory were Firebirds but they were like no Firebirds I'd ever seen. Sleek and low and aerodynamic like something from the future. They were the third generation cars. New for 1982. No one had even seen these cars yet. None of them had made it to the dealer's lots.
-We traced the path of the cars through the factory. Bodies came from Fisher Body right across the street. Engines came in on trains from Flint Michigan. Radiators came from Buffalo. Windscreens came from Toledo. Roofs came from Kalamazoo.
-When I was a kid I read that there was a total of nine miles of assembly lines in here which is like fourteen kilometers. The lines carried the bodies up and down through all three stories of the plant until they were mated to their drivetrains. A bit of fuel was dumped in the tank and the car left out the back door under its own power.
-The plant employed thousands of people in its day. The line workers and their robot assistants could have a single car put together in just a few hours. They turned out hundreds of cars a day.
-While I was running around reverse engineering the build process in my head Dorktown went exploring.
-"Bloody rippa! Come here!" she screamed from one of the offices.
-I ran to her. She pointed to a piece of paper on a desk. It was a letter in child's handwriting dated November 1981.
+We stepped onto the main factory floor. The place was dusty and had no power but the line itself was completely intact. Before us were hundreds of partially assembled cars. And it gets better. The cars in the factory were Firebirds but they were like no Firebirds I'd ever seen. Sleek and low and aerodynamic like something from the future. They were the third generation cars. New for 1982. No one had ever seen cars like these. None of them had made it to the dealer's lots.
+When I was a kid I read a book about this place. I remember reading that there was a total of nine miles of assembly lines in here which is like fourteen kilometers. Bodies came from Fisher Body right across the street. Engines came in on trains from Flint Michigan. Radiators came from Buffalo. Windscreens came from Toledo. Roofs came from Kalamazoo.
+The plant had once employed thousands of people. The line workers and their robot assistants could have a car put together in just a few hours. They turned out hundreds of cars a day.
+While I was running around reverse engineering the build process in my head I heard Dorktown shout from one of the offices.
+"Bloody rippa! Come here!"
+I ran to her. She pointed to a piece of paper on a desk. It was a letter in child's handwriting dated November 1981. I read the letter.
 "Dear Norm Inouye and John Schinella and Bill Davis and all the people who help make Firebirds. Thank you for making Firebirds. Firebirds are my favorite car. The bird on the hood is the most beautiful thing I've ever seen. When I grow up I want to work at the Firebird factory. How are Firebirds made? Love John Binns."
 Yeah that's my name. Yeah I wrote that letter. One month before my family was killed. One month before the world blew up.
-I looked up at Dorktown. She was holding a package. She handed it to me. It was addressed to me at my parents' house in New Jersey. The bombs must have hit just before they picked up the mail.
+Dorktown picked up a package and handed it to me. It was addressed to me at my parents' house in New Jersey. The bombs must have hit just before they picked up the mail.
 I opened the package. It contained a Firebird t-shirt and a letter.
-"Dear John. Thank you for your letter. I'm the one in charge here at the Firebird factory in Norwood Ohio. You asked how Firebirds are made. I don't know. In fact nobody knows and nobody can possibly know. There's no way any one person could plan all of this and if even if they could plan it today they'd have to start all over with a new plan tomorrow. Thousands of people all over the world play their part but they don't even know what part they're playing. The people who produced the steel and rubber and vinyl and gasoline had no idea that their products would go into making a Firebird. Everyone is interconnected in unknowable ways. Even you. I expect to see you here reporting for duty in a few years. Yours truly. Snuffy."
+"Dear John. Thank you for your letter. I'm the one in charge here at the Firebird factory in Norwood Ohio. You asked how Firebirds are made. I don't know. In fact nobody knows and nobody can possibly know. There's no way anyone could plan all of this and if even if they could plan it today they'd have to start all over with a new plan tomorrow. Thousands of people all over the world play their part. But they don't even know what part they're playing. The people who produced the steel and rubber and vinyl and gasoline had no idea that their products would go into making a Firebird. Everyone is interconnected in unknowable ways. Even you. I expect to see you here reporting for duty in a few years. Yours truly. Snuffy."
 I put on the Firebird t-shirt and pocketed Snuffy's letter.
 "Let's get to work" Dorktown said.
-"Chumdumpster is on his way here. If we don't get out of this place we're gonna be dead in a few hours." I walked out of the office and headed back outside to the Frankenbird.
-Dorktown followed me out. "A few hours?" she said. "That's plenty of time to finish building a car."
-I opened the Frankenbird's door. "We can come back later."
-"I doubt that" she said.
+"Chumdumpster is on his way here. If we don't get out of this place we're gonna be dead in a few hours."
+"A few hours?" she said. "That's plenty of time to finish building a car."
+"We should handle Chumdumpster and then come back here later."
+"This place might not be here later" she said.
 "What do you mean?"
 "The Helly and Gilly armies are gonna do the same thing to this place that they did to your other factory."
 "I thought the Gillies were dead."
-Dorktown laughed. "Like twelve of them maybe. There are thousands of people all over the country in the Gilly army."
+Dorktown laughed. "Like twelve of them maybe. There are thousands of people in the Gilly army. From all over the country."
 "And the Hellies?"
+"We're not friends anymore."
+"Why not?"
 "Bubury showed me his willy and I laughed at it. Now he wants to kill me too."
 "But he let you borrow the Loach?"
 "I didn't say he let me borrow it. I just said I borrowed it."
