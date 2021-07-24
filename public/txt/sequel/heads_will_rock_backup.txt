@@ -819,8 +819,8 @@ If we asked Karl Marx he would have said it was capitalism that got us there but
 What's your point??
 The point is we're not just going to Norwood to build cars. We're going to Norwood to pick up where the twentieth century left off.
 We took turns driving. Yeah I let Dorktown drive. How could we be expected to save the world without a good night's sleep?
-Norwood was a suburb of Sin City. If you're a prewar like me you might know Sin City as Cincinnati.
-As we pulled off the Sin City exit we were listening to Manfred Mann's Earth Band playing Blinded By The Light on Burt Sugarman's Midnight Special in 1977. Blinded By The Light was written and originally performed by Bruce Springsteen. I know that sounds like an exciting musical discovery but if you're planning on checking out his version be prepared to be disappointed. Bruce just got out a rhyming dictionary and threw the song together. Manfred Mann's Earth Band cut out half the lyrics and doubled the length of the song. Their version is more about the music and the buildup. The lyrics they left in were the ones about going for a cruise in a deuce coupe on a Friday night with your mates. "Deuce" not "douche." They had some audio production problems and they didn't have time to fix them. But it doesn't matter. File it under "covers that are far better than the originals."
+Norwood was a suburb of Sin City. If you're a prewar like me you might know Sin City as Cincinnati. As we pulled off the Sin City exit we were listening to Manfred Mann's Earth Band playing Blinded By The Light on Burt Sugarman's Midnight Special in 1977.
+Blinded By The Light was written and originally performed by Bruce Springsteen. I know that sounds like an exciting musical discovery but if you're planning on checking out his version be prepared to be disappointed. Bruce literally just used a rhyming dictionary to throw the song together. Manfred Mann's Earth Band cut out half the lyrics and doubled the length of the song. Their version is more about the musical buildup than it is about the lyrics. The lines they did leave in were the good ones. They left in the ones about going for a cruise in a deuce coupe on a Friday night with your mates. "Deuce" not "douche." They had some audio production problems and they didn't have time to fix them. But it doesn't matter. It still turned out to be a cover that was far better than the original.
 Sin City was a surprisingly unpopulated town unless you counted the skeletons. We managed to find a working servo on the outskirts of Norwood. A bloke named Dull owned the place. He was from a place called Dull Ohio.
 "Neutron bombs" Dull said. "They killed everyone in Sin City but left the buildings intact. Rumor is whoever was in charge of dropping the bombs liked Pontiac Firebirds and they wanted to make sure they didn't hurt the factory. We retaliated hard enough that the bad guys never got the chance to take over the place they'd bombed."
 We told him about our plans to recommission the place. He got wistful.
@@ -833,9 +833,8 @@ Norwood Assembly. Birthplace of the Camaro and the Firebird. In operation from 1
 The buildings were made of brick and glass. The main building was three stories tall and took up several city blocks. Through the years the facility had grown quite a bit so there were older and newer sections.
 We walked right in the front door. The skeleton receptionist said "Hello Mr. Firebird." And while we're imagining things let's pretend I asked her for my messages. "Ah yes. A Mr. Chumdumpster called. He says he forgives you and he's turning around and going home."
 We stepped onto the main factory floor. The place was dusty and had no power but the line itself was completely intact. Before us were hundreds of partially assembled cars. The cars in the factory were Firebirds but they were like no Firebirds I'd ever seen. Sleek and low and aerodynamic like something from the future. They were the third generation cars. New for 1982.
-When I was a kid I read a book about this place. I remember reading that there was a total of nine miles of assembly lines in here which is like fourteen kilometers. Bodies came from Fisher Body right across the street. Engines came in on trains from Flint Michigan. Radiators came from Buffalo. Windscreens came from Toledo. Roofs came from Kalamazoo.
-The plant had once employed thousands of people. The line workers and their robot assistants could have a car put together in just a few hours. They turned out hundreds of cars a day.
-While I was running around reverse engineering the build process in my head I heard Dorktown shout from one of the offices.
+When I was a kid I read a book about this place. I remember reading that there was a total of nine miles of assembly lines in here which is like fourteen kilometers. Bodies came from Fisher Body right across the street. Engines came in on trains from Flint Michigan. Radiators came from Buffalo. Windscreens came from Toledo. Roofs came from Kalamazoo. The plant employed thousands of people and turned out hundreds of cars a day.
+While I was running around reverse engineering the build process I heard Dorktown shout from one of the offices.
 "Bloody rippa! Come here!"
 I ran to her. She pointed to a piece of paper on a desk. It was a letter in child's handwriting dated November 1981. I read the letter.
 "Dear Norm Inouye and John Schinella and Bill Davis and all the people who help make Firebirds. Thank you for making Firebirds. Firebirds are my favorite car. The bird on the hood is the most beautiful thing I've ever seen. When I grow up I want to work at the Firebird factory. How are Firebirds made? Love John Binns."
@@ -862,8 +861,8 @@ Dorktown laughed. "Like twelve of them maybe. There are thousands of people in t
 "I thought you said you borrowed it."
 "I never said I had permission."
 I laughed and put my arm over he shoulder. "Let's go build a car."
-We walked back to the factory floor and found the last car in line. It was a black Trans Am with a V8 and a manual 4-speed. I looked at its paperwork. Its VIN was 1G2AW87H0CN000001. Serial number one. The first of the new V8 Firebirds. None of them had made it to the dealer's lots. No one had ever seen cars like these.
-
+We walked back to the factory floor and found the last car in line. The body was hanging from the overheard conveyor and the drivetrain was sitting on the floor conveyor. It was a black Trans Am with a V8 and a manual 4-speed. Its VIN was 1G2AW87H0CN000001. Serial number one. The first of the V8s. None of them had made it to the dealer's lots. The world had never seen cars like these.
+The drivetrain was supposed to be raised up into the body but we didn't have any way to power the lifts and conveyors. So we found some ratchet straps and rigged some pulleys and we managed to bring the body down off of the overhead conveyor and onto the drivetrain instead.
 
 
 drivetrain is moved UP into the body hanging from the overhead conveyor
@@ -875,7 +874,7 @@ brakes
 wiring
 wheels
 fluids
-pedestal conveyor
+fuel
 
 
 
@@ -926,6 +925,8 @@ a bunch of truckers show up to help
 DT uses the freight helicopter (nice arc after learning to fly one earlier) to pick up the tank and drop it on easy money. we need to make sure that not only is bubury on there, but also his vice president (to keep the number of deaths the same between both tribes). who's in the tank though? CD will survive with an arrow to his heel, i think, so he wouldn't be in the tank. vice president should be with bubury when bubury is killed, so prez and vice of both hellies & gillies are killed in the story
 
 FB gives DT MK's bunny. He gives it to her by parking it in the passenger seat with the seat belt on, so she can discover it there.
+
+FB tells the workers who are reverse engineering the process to document everything they do
 
 CD is still on the way.
 
