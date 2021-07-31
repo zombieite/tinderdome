@@ -19,7 +19,7 @@ cd
 # Get composer (may need to get homebrew first)
 curl -sS https://getcomposer.org/installer | /usr/bin/php
 
-# May need to mv /Users/$USER/composer.phar /Users/$USER/composer but may not
+ln -s /Users/$USER/composer.phar /Users/$USER/composer
 
 /Users/$USER/composer.phar global require "laravel/installer"
 
