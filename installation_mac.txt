@@ -35,8 +35,6 @@ chmod 777 tinderdome/bootstrap/cache
 
 mv tinderdome/.env.example tinderdome/.env
 
-# Check localhost now, it should be working. It should say "Laravel".
-
 cd tinderdome
 
 cp public/favicon.ico /Applications/MAMP/bin/favicon.ico
