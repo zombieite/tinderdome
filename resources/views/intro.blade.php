@@ -36,11 +36,11 @@ Let us know what upcoming events you'll be attending, or contact us to set up an
 </p>
 <h2>3. Choose who you'd like to meet</h2>
 <p>
-Browse other profiles and let us know who you'd enjoy meeting at upcoming events.
+Browse other profiles and let us know who you'd enjoy meeting.
 </p>
 <h2>4. Find out who you're matched with</h2>
 <p>
-Before each event, you will be matched to someone. Return to this site to find out who you've been matched with.
+A few days before the event, return to this site to get your match.
 </p>
 <h2>4. Seek out your match at the event</h2>
 <p>
