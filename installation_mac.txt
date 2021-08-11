@@ -19,13 +19,13 @@ brew install php@7.4
 ls /usr/local/etc/php/7.4/php.ini 
 ls /usr/local/opt/php@7.4/lib/httpd/modules/libphp7.so
 vi /usr/local/etc/httpd/httpd.conf
-#### Add LoadModule section for PHP
-#    LoadModule php7_module /usr/local/opt/php@7.4/lib/httpd/modules/libphp7.so
-#    <FilesMatch \.php$>
-#        SetHandler application/x-httpd-php
-#    </FilesMatch>
-#### Find DirectoryIndex and add PHP to it
-#    DirectoryIndex index.php index.html
+# Add LoadModule section for PHP
+# LoadModule php7_module /usr/local/opt/php@7.4/lib/httpd/modules/libphp7.so
+# <FilesMatch \.php$>
+#   SetHandler application/x-httpd-php
+# </FilesMatch>
+# Find DirectoryIndex and add PHP to it
+# DirectoryIndex index.php index.html
 echo "<?php phpinfo(); ?>" >/usr/local/var/www/index.php
 chmod 755 /usr/local/var/www/index.php
 apachectl restart
@@ -61,11 +61,15 @@ openssl genrsa -out server.key 2048
 openssl req -new -x509 -key server.key -out server.crt -days 3650 -subj /CN=localhost
 sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain server.crt
 apachectl configtest # You'll have to uncomment some more SSL stuff in vi /usr/local/etc/httpd/httpd.conf
-apachectl start
+###################################################
+apachectl start                                   #
+###################################################
 # https://localhost/ should redirect to https
 cd /Users/$USER/Desktop/local/web/
 brew install mysql
-mysql.server start # or brew services start mysql
+###################################################
+mysql.server start # or brew services start mysql #
+###################################################
 mysql_secure_installation
 mysql -uroot -p
 create database tinderdome;
