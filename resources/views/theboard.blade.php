@@ -106,7 +106,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         <td>Norwood Assembly</td>
         <td>Manfred Mann's Earth Band &middot; By The Light</td>
         <td>
-The Helly and Gilly armies convene on Norwood but all the people that FB met along the way and offered jobs to show up to help build cars and battle the bad guys.
+The Helly and Gilly armies convene on Norwood, but FB gets help from the friends he made along the way to win the battle.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
@@ -121,7 +121,7 @@ The Helly and Gilly armies convene on Norwood but all the people that FB met alo
         <td></td>
         <td></td>
         <td>
-One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT who paints it hot pink with an orange bird on the hood. They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
+One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
