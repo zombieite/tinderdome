@@ -111,7 +111,7 @@ One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. Th
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
         <td>Q5 (Yes)</td>
-        <td>Did FB kill CD?</td>
+        <td>Did FB kill CD? (UNANSWERED)</td>
     </tr>
     <tr>
         <td>7</td>
@@ -125,7 +125,7 @@ They join with the auto workers' union and form a new, third, political party wh
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
-        <td></td>
+        <td>Capitalism</td>
         <td>What was it that the USA got right?</td>
     </tr>
 </table>
