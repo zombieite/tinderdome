@@ -4,7 +4,7 @@
 
 <table>
     <tr><td colspan="11">Act 1: Thesis</td></tr>
-    <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Songs</td><td>Summary</td><td>Emotional Trajectory</td><td>Conflict</td><td>Answered Question</td><td>New Question</td></tr>
+    <tr><td>Chapter</td><td>Pages</td><td>Beats</td><td>Title</td><td>Setting</td><td>Songs</td><td>Summary</td><td>Answered Question</td><td>New Question</td></tr>
     <tr>
         <td>0</td>
         <td>1-11 (0%-10%)</td>
@@ -15,8 +15,6 @@
         <td>
 FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. Someone (FB?) says you gotta go crazy in a crazy world. Hellies and Gillies go to war in The Cage.
         </td>
-        <td>FB proud of TW &#x2198 FB concerned about TW</td>
-        <td>FB &gt; Hellies &amp; Gillies</td>
         <td>Is FB still alive? (Yes)</td>
         <td>Is a civil war brewing?</td>
     </tr>
@@ -30,8 +28,6 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
         <td>
 DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
         </td>
-        <td>TW successful &#x2198 TW destroyed</td>
-        <td>Hellies &gt; Gillies, Hellies &amp; Gillies &gt; FB</td>
         <td>Q0 (Yes)</td>
         <td>How will they get to Norwood?</td>
     </tr>
@@ -46,8 +42,6 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         <td>
 FB and DT meet up with MS to get funding and weapons. MS gives DT some advice we can't hear. DT begins assisting with narration.
         </td>
-        <td>No money &#x2197 Money</td>
-        <td>DT &gt; FB &amp; Skelli</td>
         <td>Q1 (Skelli's money)</td>
         <td>Why are they going to Van Nuys?</td>
     </tr>
@@ -61,8 +55,6 @@ FB and DT meet up with MS to get funding and weapons. MS gives DT some advice we
         <td>
 FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot and friends are executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they steal the Frankenbird instead.
         </td>
-        <td>Losing all their battles &#x2197 Finally a partial win</td>
-        <td>CD &gt; FB, MA &gt; FB, FB &gt; DT</td>
         <td>Q2 (Another Firebird factory is there)</td>
         <td>Who's Laura?</td>
     </tr>
@@ -77,8 +69,6 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>
 The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT becomes increasingly dissatisfied with her partnership with FB and fears he does not have the guts to kill MA. DT goes off on her own and calls in the Helly army and they machine gun the FD and drop the FD out of their helicopters, while destroying the Firebuddy factory.
         </td>
-        <td>FB & DT friends &#x2198 FB & DT enemies</td>
-        <td>DT &gt; FB, Hellies &gt; Gillies</td>
         <td>Q3 (The Grieving Woman from A-N-D)</td>
         <td>Will FB and DT reconcile and team up again?</td>
     </tr>
@@ -92,8 +82,6 @@ The story goes from FB and DT doing the chasing to FB and DT being chased. The r
         <td>
 FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to kill herself.
         </td>
-        <td>FB escapes &#x2198 FB kills for the first time</td>
-        <td>FB &gt; MA & CD</td>
         <td>Q4 (Yes)</td>
         <td>Will they build cars in Norwood?</td>
     </tr>
@@ -108,8 +96,6 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         <td>
 One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. The Helly and Gilly armies convene on Norwood, but FB gets help from the friends he made along the way to win the battle.
         </td>
-        <td>&#x2197&#x2198</td>
-        <td>&gt;</td>
         <td>Q5 (Yes)</td>
         <td>Did FB kill CD? (UNANSWERED)</td>
     </tr>
@@ -123,8 +109,6 @@ One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. Th
         <td>
 They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
         </td>
-        <td>&#x2197&#x2198</td>
-        <td>&gt;</td>
         <td>Q7 (Capitalism)</td>
         <td>What was it that the USA got right?</td>
     </tr>
