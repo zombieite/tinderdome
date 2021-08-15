@@ -125,7 +125,7 @@ They join with the auto workers' union and form a new, third, political party wh
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
-        <td>Capitalism</td>
+        <td>Q7 (Capitalism)</td>
         <td>What was it that the USA got right?</td>
     </tr>
 </table>
