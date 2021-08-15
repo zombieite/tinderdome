@@ -11,7 +11,7 @@
         <td>Opening Image, Mirror Of Final Image, Theme Hinted At, This Is Gonna Be Good, Everyday Life, 6 Things That Need Fixing, Introduce Running Gags, Introduce A-Story Characters Who Are Mirrors Of B-Story Characters, All Characters Have Primal Motivations, Save The Cat</td>
         <td>Tomorrowland</td>
         <td>Tomorrowland Weekend</td>
-        <td>[None, short chapter]</td>
+        <td></td>
         <td>
 FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. Someone (FB?) says you gotta go crazy in a crazy world. Hellies and Gillies go to war in The Cage.
         </td>
@@ -24,7 +24,7 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
         <td>Catalyst &amp; Debate</td>
         <td>Dorktown</td>
         <td>Tomorrowland Weekend</td>
-        <td>[None, short chapter]</td>
+        <td></td>
         <td>
 DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
         </td>
@@ -38,7 +38,7 @@ DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in
         <td>Break Into Two, Hero Embarks On Adventure</td>
         <td>Bakersfield</td>
         <td>Woolworth's Diner</td>
-        <td>[None, short chapter]</td>
+        <td></td>
         <td>
 FB and DT meet up with MS to get funding and weapons. MS gives DT some advice we can't hear. DT begins assisting with narration.
         </td>
@@ -65,7 +65,7 @@ FB lectures us about economics. FB and DT lay out their quest goals. FB battles 
         <td>Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death</td>
         <td>Seligman</td>
         <td>Amboy, Seligman, Ash Fork</td>
-        <td>[None, stressful chapter]</td>
+        <td></td>
         <td>
 The story goes from FB and DT doing the chasing to FB and DT being chased. The real stakes of the mission become apparent as DT reveals that MA is now the Gilly president and he commands the entire Gilly army. DT becomes increasingly dissatisfied with her partnership with FB and fears he does not have the guts to kill MA. DT goes off on her own and calls in the Helly army and they machine gun the FD and drop the FD out of their helicopters, while destroying the Firebuddy factory.
         </td>
@@ -103,9 +103,9 @@ One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. Th
         <td>7</td>
         <td>105-110 (95%-100%)</td>
         <td>Denouement, Final Image, Mirror Of Opening Image, All Arcs Are Complete, All Loose Ends Tied Up Except For The One New Question</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Norwood</td>
+        <td>Norwood Assembly</td>
+        <td>[SONG NEEDED]</td>
         <td>
 They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
         </td>
