@@ -110,7 +110,7 @@ One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. Th
         </td>
         <td>&#x2197&#x2198</td>
         <td>&gt;</td>
-        <td></td>
+        <td>Q5 (Yes)</td>
         <td>Did FB kill CD?</td>
     </tr>
     <tr>
