@@ -109,7 +109,7 @@ One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. Th
         <td>
 They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
         </td>
-        <td>Q7 (Capitalism)</td>
+        <td>Q7 (UNANSWERED)</td>
         <td>What was it that the USA got right?</td>
     </tr>
 </table>
