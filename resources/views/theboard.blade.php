@@ -105,7 +105,7 @@ One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. Th
         <td>Denouement, Final Image, Mirror Of Opening Image, All Arcs Are Complete, All Loose Ends Tied Up Except For The One New Question</td>
         <td>Norwood</td>
         <td>Norwood Assembly</td>
-        <td></td>
+        <td>John Stewart &middot; Mother Country</td>
         <td>
 They join with the auto workers' union and form a new, third, political party whose mission statement is not about killing, as a perfect mirror of opening image conflict.
         </td>
