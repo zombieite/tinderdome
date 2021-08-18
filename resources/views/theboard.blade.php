@@ -51,7 +51,7 @@ FB and DT meet up with MS to get funding and weapons. MS gives DT some advice we
         <td>Narrative Digression, B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun &amp; Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat</td>
         <td>Van Nuys</td>
         <td>Castaic, Van Nuys</td>
-        <td>Rolling Stones &middot; Shattered &amp; Bruce Springsteen &middot; Rosalita Come Out Tonight</td>
+        <td>Rolling Stones &middot; Shattered<br>Bruce Springsteen &middot; Rosalita Come Out Tonight</td>
         <td>
 FB lectures us about economics. FB and DT lay out their quest goals. FB battles CD at Gallion's but fails to get the lunchbox back. Oldkoot and friends are executed by guillotine. FB and DT battle MA and CD at Van Nuys Assembly. They lose all their weapons and fail to kill them or stop them from building the Frankenbird, but they steal the Frankenbird instead.
         </td>
@@ -92,7 +92,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         <td>Narrative Digression, Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
         <td>Norwood</td>
         <td>Norwood Assembly</td>
-        <td>Manfred Mann's Earth Band &middot; By The Light</td>
+        <td>Earth Wind &amp; Fire &middot; Let's Groove<br>Manfred Mann's Earth Band &middot; By The Light</td>
         <td>
 One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. The Helly and Gilly armies convene on Norwood, but FB gets help from the friends he made along the way to win the battle.
         </td>
