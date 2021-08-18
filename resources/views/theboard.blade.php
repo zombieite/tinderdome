@@ -92,7 +92,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         <td>Narrative Digression, Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
         <td>Norwood</td>
         <td>Norwood Assembly</td>
-        <td>Manfred Mann's Earth Band &middot; By The Light<br>Earth Wind &amp; Fire &middot; Let's Groove</td>
+        <td>Manfred Mann's Earth Band &middot; Blinded By The Light<br>Earth Wind &amp; Fire &middot; Let's Groove</td>
         <td>
 One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. The Helly and Gilly armies convene on Norwood, but FB gets help from the friends he made along the way to win the battle.
         </td>
