@@ -88,7 +88,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
     <tr><td colspan="11">Act 3: Synthesis</td></tr>
     <tr>
         <td>6</td>
-        <td>85-109 (77%-99%)</td>
+        <td>85-109 (77%-98%)</td>
         <td>Narrative Digression, Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
         <td>Norwood</td>
         <td>Norwood Assembly</td>
