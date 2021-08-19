@@ -88,7 +88,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
     <tr><td colspan="11">Act 3: Synthesis</td></tr>
     <tr>
         <td>6</td>
-        <td>85-104 (77%-94%)</td>
+        <td>85-109 (77%-99%)</td>
         <td>Narrative Digression, Break Into Three, Fusion Of A And B Stories, Climax, Change The World</td>
         <td>Norwood</td>
         <td>Norwood Assembly</td>
@@ -101,7 +101,7 @@ One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. Th
     </tr>
     <tr>
         <td>7</td>
-        <td>105-110 (95%-100%)</td>
+        <td>109-110 (99%-100%)</td>
         <td>Denouement, Final Image, Mirror Of Opening Image, All Arcs Are Complete, All Loose Ends Tied Up Except For The One New Question</td>
         <td>Norwood</td>
         <td>Norwood Assembly</td>
