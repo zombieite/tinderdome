@@ -94,7 +94,7 @@ FB kills MA as CD watches. The depth of DT's pain is revealed when she tries to 
         <td>Norwood Assembly</td>
         <td>Manfred Mann's Earth Band &middot; Blinded By The Light<br>Earth Wind &amp; Fire &middot; Let's Groove</td>
         <td>
-One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. The Helly and Gilly armies convene on Norwood, but FB gets help from the friends he made along the way to win the battle.
+FB and DT work together to build the first of the new V8 Trans Ams in Norwood. The Helly and Gilly armies converge on Norwood, but FB gets help from the friends he made along the way and they win the battle.
         </td>
         <td>Q5 (Yes)</td>
         <td>Did FB kill CD? (UNANSWERED)</td>
@@ -107,7 +107,7 @@ One more Trans Am gets built in Norwood, and it's perfect. FB gives it to DT. Th
         <td>Norwood Assembly</td>
         <td>John Stewart &middot; Mother Country</td>
         <td>
-They burn down the guillotine as a perfect mirror of opening image conflict.
+They burn down the guillotine as a mirror image of the opening image conflict.
         </td>
         <td></td>
         <td>What was it that the USA got right?</td>
