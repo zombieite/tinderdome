@@ -13,7 +13,7 @@
         <td>Tomorrowland Weekend</td>
         <td></td>
         <td>
-FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced. Someone (FB?) says you gotta go crazy in a crazy world. Hellies and Gillies go to war in The Cage.
+FB working the gate at TW. DT introduces herself. Hellies and Gillies go to war in the Cage. FB saves a guy who turns out to be a jerk and the Helly president.
         </td>
         <td>Is FB still alive? (Yes)</td>
         <td>Is a civil war brewing?</td>
@@ -26,7 +26,7 @@ FB working the gate at TW. DT introduces herself. Hellies and Gillies introduced
         <td>Tomorrowland Weekend</td>
         <td></td>
         <td>
-DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. Cage battle spills out of The Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
+DT brings MA to FB. MA and FB and DT all get the idea to build a new Firebird in Norwood Ohio where the original plant was. DT asks for help killing MA. Cage battle spills out of the Cage and tomorrowlanders burn down TW. FB saves DT from the flames. CD escapes with lunchbox full of FB's money.
         </td>
         <td>Q0 (Yes)</td>
         <td>How will they get to Norwood?</td>
