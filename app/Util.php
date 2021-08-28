@@ -180,7 +180,7 @@ class Util {
                                 $day_range                                 = $dbewTRcgm - $dbewEcgm;
                                 $slice_duration                            = ($day_range * 24 * 60 * 60) / $max_score;
                                 $advance_seconds_user_can_match            = intval($score * $slice_duration);
-                                //Log::debug("Range:'$day_range' Slice duration:'$slice_duration' This user's advance seconds:'$advance_seconds_user_can_match'");
+                                //Log::debug("Range:'$day_range' Score:'$score' Slice duration:'$slice_duration' This user's advance seconds:'$advance_seconds_user_can_match'");
                                 $event_result->time_when_user_can_match    = $time_when_everyone_can_match - $advance_seconds_user_can_match;
                                 $event_result->seconds_till_user_can_match = $event_result->time_when_user_can_match - $time;
                                 if ( $event_result->seconds_till_user_can_match < 0 ) {
@@ -762,10 +762,10 @@ class Util {
     }
 
     public static function occasional_work($user_id) {
-         $ip         = request()->ip();
-         $user_agent = request()->header('user-agent');
-         $score      = \App\Util::user_score($user_id);
-         DB::update('update users set last_active = now(), ip = ?, user_agent = ?, score = ? where id = ?', [$ip, $user_agent, $score, $user_id]);
+        $ip         = request()->ip();
+        $user_agent = request()->header('user-agent');
+        $score      = \App\Util::user_score($user_id);
+        DB::update('update users set last_active = now(), ip = ?, user_agent = ?, score = ? where id = ?', [$ip, $user_agent, $score, $user_id]);
         return;
     }
 
