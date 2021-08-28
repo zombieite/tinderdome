@@ -64,6 +64,7 @@ chmod 775 tinderdome/storage/logs/laravel.log
 chmod 775 tinderdome/bootstrap/cache
 chmod 775 /var/www/html/tinderdome/public/uploads
 ######################################################################################
+# Images at /var/www/html/tinderdome/public/uploads ##################################
 # Laravel error log at /var/www/html/tinderdome/storage/logs/laravel.log #############
 ######################################################################################
 mv tinderdome/.env.example tinderdome/.env
@@ -84,8 +85,6 @@ Create vhost file at /etc/httpd/conf.d/youareawaited.com.conf
 </VirtualHost>
 ######################################################################################
 # Site configurations are in /etc/httpd/conf.d/ ######################################
-######################################################################################
-# Error log is at /var/log/httpd/youareawaited.com-error_log #########################
 ######################################################################################
 # Access log is at /var/log/httpd/youareawaited.com-access_log #######################
 ######################################################################################
