@@ -50,7 +50,6 @@ class MatchController extends Controller
         } else {
             return redirect('/');
         }
-
         if ($time_until_can_resubmit > 0) {
             // Do nothing because they have to wait longer
         } else {
@@ -116,20 +115,26 @@ class MatchController extends Controller
 
                         // Where the magic happens
                         usort($mutual_unmet_matches, array($this, 'sort_matches'));
-                        Log::debug("Matching ".$logged_in_user->name." ($logged_in_user_id):");
+                        Log::debug("Matching ".$logged_in_user->name." ($logged_in_user_id), gender '".$logged_in_user->gender."' looking for '".$logged_in_user->gender_of_match."' or '".$logged_in_user->gender_of_match_2."':");
                         $logged_count = 0;
                         foreach ($mutual_unmet_matches as $match) {
-                            Log::debug($match->user_id." ".$match->name." gender:".$match->gender." gender_of_match:".$match->gender_of_match." score:".$match->score." random_ok:".$match->random_ok." photos:".$match->number_photos." grey:".$match->greylist." logged_in_rating_of:".$match->user_looking_to_be_matcheds_rating_of_this_user." rating_of_logged_in:".$match->this_users_rating_of_user_looking_to_be_matched." logged_in_desired_gender:".$match->choosers_desired_gender_of_match." logged_in_gender:".$match->gender_of_chooser);
+                            $log_gender = $match->gender ? $match->gender : ' ';
+                            $log_gender_of_match = $match->gender_of_match ? $match->gender_of_match : ' ';
+                            $log_random_ok = $match->random_ok ? $match->random_ok : ' ';
+                            $log_greylist = $match->greylist ? 'GREYLISTED' : '';
+                            $log_user_looking_to_be_matcheds_rating_of_this_user = $match->user_looking_to_be_matcheds_rating_of_this_user ? $match->user_looking_to_be_matcheds_rating_of_this_user : ' ';
+                            $log_this_users_rating_of_user_looking_to_be_matched = $match->this_users_rating_of_user_looking_to_be_matched ? $match->this_users_rating_of_user_looking_to_be_matched : ' ';
+                            $log_user_id = $match->user_id;
+                            $log_name = $match->name;
+                            Log::debug("g:$log_gender gom:$log_gender_of_match lirateof:$log_user_looking_to_be_matcheds_rating_of_this_user rateofli:$log_this_users_rating_of_user_looking_to_be_matched rand:$log_random_ok name:$log_name - $log_user_id $log_greylist");
                             $logged_count++;
-                            if ($logged_count >= 10) {
-                                break;
-                            }
                         }
 
-                        // If user needs to be matched to their worst match then so be it
-                        if ($logged_in_user->number_photos < 1 or $logged_in_user->greylist) {
+                        // If user is greylisted, give them their worst match
+                        if ($logged_in_user->greylist) {
+                            Log::debug("Matching greylisted user to worst match");
                             $my_match_user_id = end($mutual_unmet_matches)->user_id;
-                        // else give them the best match we could find
+                        // else give them their best match
                         } else {
                             $my_match_user_id = $mutual_unmet_matches[0]->user_id;
                         }
@@ -164,7 +169,7 @@ class MatchController extends Controller
 
     private static function sort_matches($a, $b) {
 
-        // Move greylist users to the bottom
+        // Move greylist users to the bottom because they are always everyone's worst match
         if ($a->greylist - $b->greylist != 0) {
             return $a->greylist - $b->greylist;
         }
