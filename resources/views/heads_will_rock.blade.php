@@ -8,9 +8,6 @@
 Too implausible to be an autobiography. Too real to be fiction. It's a missing instruction manual for life. This book will help you make friends. This book will help you make money. This book might even save your life. Two years in the making, this tiny, 143-page book has been meticulously engineered to evoke a sense of hope during the apocalypse. It will inspire you to change your life and change the world. Anarchy, attachment, cars, economics, entrepreneurship, entropy, ethics, grief, guilt, guns, kindness, self-reliance, seventies nostalgia, and stoicism. This is the You Are Awaited story. Awaited: Nonfictional Delusion, by John Binns.
 </p>
 
-<iframe style="width:100%;height:480px" src="https://www.youtube.com/embed/tPGFdrbHxKA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-
 <div class="profile_search_block" style="vertical-align:top;">
 <h1><a href="https://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24218988.html">Paperback</a></h1>
 </div>
@@ -127,7 +124,5 @@ John Gorka - I'm From New Jersey
 </div><br>
 <a href="https://www.youtube.com/watch?v=bhFScP_Ag5Y">Year 38 Update, Putting The Rumors To Rest (Film)</a>
 </div>
-
-<iframe style="width:100%;height:480px" src="https://www.youtube.com/embed/bhFScP_Ag5Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 @endsection
