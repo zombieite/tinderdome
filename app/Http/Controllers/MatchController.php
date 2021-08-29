@@ -74,6 +74,7 @@ class MatchController extends Controller
 
                 if ($my_match_user_id) {
                     // All good
+                    Log::debug("Already matched to $my_match_user_id");
                 } else {
                     // Get all users who are potential matches for the logged in user
                     $left_maybe = $logged_in_user->random_ok ? 'left' : '';
@@ -126,14 +127,19 @@ class MatchController extends Controller
                             $log_this_users_rating_of_user_looking_to_be_matched = $match->this_users_rating_of_user_looking_to_be_matched ? $match->this_users_rating_of_user_looking_to_be_matched : ' ';
                             $log_user_id = $match->user_id;
                             $log_name = $match->name;
-                            Log::debug("g:$log_gender gom:$log_gender_of_match lirateof:$log_user_looking_to_be_matcheds_rating_of_this_user rateofli:$log_this_users_rating_of_user_looking_to_be_matched rand:$log_random_ok name:$log_name - $log_user_id $log_greylist");
+                            Log::debug("g:$log_gender gom:$log_gender_of_match lirateofthem:$log_user_looking_to_be_matcheds_rating_of_this_user theirrateofli:$log_this_users_rating_of_user_looking_to_be_matched rand:$log_random_ok name:$log_name - $log_user_id $log_greylist");
                             $logged_count++;
                         }
 
-                        // If user is greylisted, give them their worst match
+                        // If user is greylisted, give them their worst match, and only match them to someone they've rated, to eliminate pleasant surprises
                         if ($logged_in_user->greylist) {
-                            Log::debug("Matching greylisted user to worst match");
-                            $my_match_user_id = end($mutual_unmet_matches)->user_id;
+                            Log::debug("Matching greylisted user to worst match that is mutually rated");
+                            // Skip anyone who hasn't rated the greylisted user from possibility of being matched to them just because they allow random match
+                            foreach ($mutual_unmet_matches as $mutual_unmet_match) {
+                                if ($mutual_unmet_match->user_looking_to_be_matcheds_rating_of_this_user && $mutual_unmet_match->this_users_rating_of_user_looking_to_be_matched) {
+                                    $my_match_user_id = $mutual_unmet_match->user_id;
+                                }
+                            }
                         // else give them their best match
                         } else {
                             $my_match_user_id = $mutual_unmet_matches[0]->user_id;
@@ -141,6 +147,7 @@ class MatchController extends Controller
                     }
                 }
                 if ($my_match_user_id) {
+                    Log::debug("Matched $logged_in_user_id to $my_match_user_id");
                     try {
                         DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
                         DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$logged_in_user_id, $my_match_user_id, $event_id]);
@@ -152,6 +159,8 @@ class MatchController extends Controller
                         Log::debug("Matched ".$logged_in_user->name." $logged_in_user_id to $my_match_user_id.");
                         return redirect("/profile/match?event_id=$event_id");
                     }
+                } else {
+                    Log::debug("No match found yet for $logged_in_user_id");
                 }
             }
         }
@@ -179,7 +188,7 @@ class MatchController extends Controller
             return $b->number_photos - $a->number_photos;
         }
 
-		// Sort by this user's rating desc, then by that user's rating of this user desc
+        // Double check for things that can't happen
 		if ($a->user_looking_to_be_matcheds_rating_of_this_user ===  0) { die('Found a No rating'); }
 		if ($b->user_looking_to_be_matcheds_rating_of_this_user ===  0) { die('Found a No rating'); }
 		if ($a->this_users_rating_of_user_looking_to_be_matched ===  0) { die('Found a No rating'); }
@@ -188,6 +197,8 @@ class MatchController extends Controller
 		if ($b->user_looking_to_be_matcheds_rating_of_this_user === -1) { die('Found a Know rating'); }
 		if ($a->this_users_rating_of_user_looking_to_be_matched === -1) { die('Found a Know rating'); }
 		if ($b->this_users_rating_of_user_looking_to_be_matched === -1) { die('Found a Know rating'); }
+
+		// Sort by this user's rating desc, then by that user's rating of this user desc
 		if ($b->user_looking_to_be_matcheds_rating_of_this_user - $a->user_looking_to_be_matcheds_rating_of_this_user != 0) {
 			return $b->user_looking_to_be_matcheds_rating_of_this_user - $a->user_looking_to_be_matcheds_rating_of_this_user;
 		}
