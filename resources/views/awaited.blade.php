@@ -1,8 +1,8 @@
-@extends('layouts.book')
+@extends('layouts.awaited-nonfictional-delusion')
 
 @section('content')
 
-<img style="width:100%;filter:none;" src="/stories/awaited-nonfictional-delusion.jpg">
+<img style="width:100%;filter:none;" src="/a-n-d/awaited-nonfictional-delusion.jpg">
 
 <p>
 Too implausible to be an autobiography. Too real to be fiction. It's a missing instruction manual for life. This book will help you make friends. This book will help you make money. This book might even save your life. Two years in the making, this tiny, 143-page book has been meticulously engineered to evoke a sense of hope during the apocalypse. It will inspire you to change your life and change the world. Anarchy, attachment, cars, economics, entrepreneurship, entropy, ethics, grief, guilt, guns, kindness, self-reliance, seventies nostalgia, and stoicism. This is the You Are Awaited story. Awaited: Nonfictional Delusion, by John Binns.
