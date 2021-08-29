@@ -10,9 +10,7 @@
 body {
     color: white;
     background-color: black;
-    background-image: url("/images/awaited_bg.jpg");;
-    background-repeat: no-repeat;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: monospace;
     margin: 1.5em;
 }
 a {
