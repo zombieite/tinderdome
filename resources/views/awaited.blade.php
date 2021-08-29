@@ -1,4 +1,4 @@
-@extends('layouts.awaited-nonfictional-delusion')
+@extends('layouts.awaited_nonfictional_delusion')
 
 @section('content')
 

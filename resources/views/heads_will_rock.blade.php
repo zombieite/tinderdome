@@ -1,4 +1,4 @@
-@extends('layouts.book')
+@extends('layouts.heads_will_rock')
 
 @section('content')
 
@@ -16,7 +16,7 @@ This is the story of how we killed some people while trekking across the USA on 
 </div>
 
 <div class="profile_search_block" style="vertical-align:top;">
-<h1><a href="/heads-will-rock/heads-will-rock.pdf">PDF</a></h1>
+<h1><a href="/h-w-r/heads-will-rock.pdf">PDF</a></h1>
 </div>
 
 @endsection
