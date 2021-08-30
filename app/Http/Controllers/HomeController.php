@@ -37,7 +37,12 @@ class HomeController extends Controller
 
         if ($logged_in_user_id == 1 and isset($_GET['masquerade'])) {
             $logged_in_user_id     = $_GET['masquerade'];
-            $logged_in_user        = DB::select('select * from users where id=?', [$logged_in_user_id])[0];
+            $logged_in_user_query  = DB::select('select * from users where id=?', [$logged_in_user_id]);
+            if ($logged_in_user_query) {
+                $logged_in_user = $logged_in_user_query[0];
+            } else {
+                abort(404);
+            }
         }
 
         $curse_interface           = \App\Util::is_wastelander( $logged_in_user_id );
