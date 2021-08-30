@@ -4,7 +4,7 @@
     <h2 class="bright">{{ $success_message }}</h2>
 @endif
 @if ($number_photos)
-    {{-- @include('prezidential_election', []) --}}
+    @include('prezidential_election', [])
     @foreach ($matched_to_users as $matched_to_user)
         @include('you_are_awaited', [])
     @endforeach
