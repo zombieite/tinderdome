@@ -41,7 +41,7 @@
                         </tr>
                         @if ($upcoming_event->elected_user_id)
                             <tr>
-                                <td>{{ $upcoming_event->elected_user_title }}</td>
+                                <td>{{ $upcoming_event->elected_user_title }} of {{ $upcoming_event->event_long_name }}</td>
                                 <td>@include('user_block_elected')</td>
                             </tr>
                         @endif
