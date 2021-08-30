@@ -110,7 +110,7 @@
                     </table>
                     <br>
                 @endforeach
-            <input type="submit" class="yesyesyes" value="Submit changes">
+            <input type="submit" class="yesyesyes" value="Submit event attendance changes">
             <br>
             </form>
         @endif

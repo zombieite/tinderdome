@@ -338,8 +338,6 @@ class Util {
                 and (my_choice.choice    is null or my_choice.choice    != 0)
                 and (their_choice.choice is null or their_choice.choice != 0)
                 and number_photos > 0
-            order by
-                RAND()
         ";
         //Log::debug($unrated_users_sql);
         $results = DB::select($office_sql, [$logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
@@ -353,6 +351,8 @@ class Util {
             $votes = DB::select('select count(*) votes from users where vote=?', [$result->profile_id]);
             $result->votes = $votes[0]->votes;
         }
+
+        usort($results, function($a, $b) {return $b->votes - $a->votes;});
 
         return $results;
     }
