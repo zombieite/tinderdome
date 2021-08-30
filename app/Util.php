@@ -114,6 +114,7 @@ class Util {
                 event.description,
                 event_date,
                 event.created_by,
+                event.elected_user_id,
 				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_everyone_can_match,
                 unix_timestamp(now()) now_time,
 				url,

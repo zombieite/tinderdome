@@ -22,6 +22,7 @@ class HomeController extends Controller
         if ($logged_in_user) {
             // All good
         } else {
+            // Logged out home page shows this stuff
             $leader_count          = 10;
             $leaderboard_and_count = \App\Util::leaderboard( $leader_count );
             $leaderboard           = $leaderboard_and_count['leaderboard'];
