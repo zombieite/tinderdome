@@ -6,11 +6,12 @@
     --no:      #EE4444;
     --met:     #9999ff;
     --bright:  #ff9900;
+    --font:    monospace;
 }
 body {
     color: white;
     background-color: black;
-    font-family: monospace;
+    font-family: var(--font);
     margin: 1.5em;
 }
 a {
@@ -62,10 +63,11 @@ h1, h2, h3, h4, h5, h6, label {
     color: white;
 }
 .small {
-    font-size: xx-small;
+    font-size: small;
     text-transform: uppercase;
 }
 input[type="submit"] {
+    font-family: var(--font);
     color: black;
     background-color: var(--special);
     border: 1px solid var(--subtle);
@@ -73,6 +75,7 @@ input[type="submit"] {
     margin: 0.5em;
 }
 input[type="submit"].tight {
+    font-family: var(--font);
     color: black;
     background-color: var(--special);
     border: 1px solid var(--subtle);
@@ -80,6 +83,7 @@ input[type="submit"].tight {
     margin: 0.5em;
 }
 button {
+    font-family: var(--font);
     height: 3em;
 }
 .caution {
