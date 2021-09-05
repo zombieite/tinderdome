@@ -122,9 +122,6 @@ button {
 .bright {
     color: var(--bright);
 }
-.navbar {
-    line-height: 2.5;
-}
 .profile_search_block_bright {
     display: inline-block;
     border: 1px solid var(--bright);
