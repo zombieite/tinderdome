@@ -42,9 +42,6 @@ td.tight {
 hr {
     border-color: var(--subtle);
 }
-hr.top {
-    margin-bottom: 0;
-}
 ul.nobullet {
     padding-left: 0px;
     list-style-type: none;
