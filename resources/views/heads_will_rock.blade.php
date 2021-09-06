@@ -24,7 +24,7 @@ This is the story of how we killed some people while trekking across the USA on 
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland">Chapter 0: Tomorrowland</a>
 <br><br>
-Firebird is the gatekeeper at an event he calls Tomorrowland Weekend. He saves the life of a bloke who turns out to be the leader of a tribe called the Hellies. The Hellies are at war with a rival tribe known as the Gillies. The Gillies turn against Firebird for saving the Helly leader.
+Firebird is the gatekeeper at an event he calls Tomorrowland Weekend. He saves the life of a man who turns out to be the leader of a tribe called the Hellies. The Hellies are at war with a rival tribe known as the Gillies. The Gillies turn against Firebird for saving the Helly leader.
 <br><br>
 </div>
 
@@ -38,14 +38,14 @@ A girl named Dorktown inspires both Firebird and his nemesis, Mohawk Asshole, to
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">Chapter 2: Bakersfield</a>
 <br><br>
-Firebird and Dorktown try to secure funding and weapons for their endeavour. Dorktown begins to assist with narration. 
+Firebird and Dorktown try to secure funding and weapons for their endeavour. 
 <br><br>
 </div>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">Chapter 3: Van Nuys</a>
 <br><br>
-Firebird and Dorktown chase Mohawk Asshole and Chumdumpster to the GM factory in Van Nuys. They find it in ruins but Mohawk Asshole manages to build a car using various unmatched pieces he finds lying around. They all begin a journey across the country to the other Firebird factory in Norwood, Ohio. This time it's Firebird and Dorktown who are being chased.
+As Firebird and Dorktown chase Mohawk Asshole and Chumdumpster to the old GM factory in Van Nuys, they try to figure out what conditions they'd have to re-create to revive the prosperity that prevailed in the times before the apocalypse. They find the Van Nuys factory in ruins. Firebird and Dorktown begin the cross-country journey to the other old Firebird factory, in Norwood, Ohio, with Mohawk Asshole and Chumdumpster on their tail. 
 <br><br>
 </div>
 
@@ -66,14 +66,14 @@ Firebird comes to the conclusion that it might not be possible to retain one's h
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-6-norwood">Chapter 6: Norwood</a>
 <br><br>
-Will a new Pontiac Firebird be built in Norwood? Or will the Hellies and Gillies burn it all down?
+Will a new Pontiac Firebird be built in Norwood? Or will the Hellies and the Gillies burn it all down?
 <br><br>
 </div>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-denouement">Chapter 7: Denouement</a>
 <br><br>
-The victors celebrate, while the losers mourn the dead, and plan their revenge.
+The victors celebrate, while the losers mourn... and plan their revenge.
 <br><br>
 </div>
 
