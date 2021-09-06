@@ -30,11 +30,11 @@ table {
     border-color: var(--subtle);
 }
 th {
-    padding: 1em;
+    padding: .5em;
     border: 1px solid var(--subtle);
 }
 td {
-    padding: 1em;
+    padding: .5em;
     border: 1px solid var(--subtle);
 }
 td.adminmatch {
@@ -69,8 +69,8 @@ input[type="submit"] {
     color: var(--bg);
     background-color: var(--special);
     border: 1px solid var(--subtle);
-    height: 3em;
-    margin: 0.5em;
+    padding: 1em;
+    margin: 1em;
 }
 input[type="submit"].adminmatch {
     font-family: var(--font);
