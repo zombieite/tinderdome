@@ -7,10 +7,12 @@
     --met:     #9999ff;
     --bright:  #ff9900;
     --font:    monospace;
+    --fg:      white;
+    --bg:      black;
 }
 body {
-    color: white;
-    background-color: black;
+    color: var(--fg);
+    background-color: var(--bg);
     font-family: var(--font);
     margin: 1em;
 }
@@ -35,8 +37,8 @@ td {
     padding: 1em;
     border: 1px solid var(--subtle);
 }
-td.tight {
-    padding: .1em;
+td.adminmatch {
+    padding: 0;
     border: 1px solid var(--subtle);
 }
 hr {
@@ -57,63 +59,63 @@ h1, h2, h3, h4, h5, h6, label {
     color: var(--special);
 }
 .dull {
-    color: white;
+    color: var(--fg);
 }
 .small {
     text-transform: uppercase;
 }
 input[type="submit"] {
     font-family: var(--font);
-    color: black;
+    color: var(--bg);
     background-color: var(--special);
     border: 1px solid var(--subtle);
     height: 3em;
     margin: 0.5em;
 }
-input[type="submit"].tight {
+input[type="submit"].adminmatch {
     font-family: var(--font);
-    color: black;
+    color: var(--bg);
     background-color: var(--special);
     border: 1px solid var(--subtle);
-    height: 1.4em;
-    margin: 0.5em;
+    height: 1.5em;
+    margin: 0;
 }
 button {
     font-family: var(--font);
     height: 3em;
 }
 .caution {
-    color: black;
+    color: var(--bg);
     background-color: var(--special);
     font-weight: bold;
     background-color: var(--subtle);
 }
 .yesyesyes, button.yesyesyes, input[type="submit"].yesyesyes {
-    color: black;
+    color: var(--bg);
     background-color: var(--special);
     font-weight: bold;
     background-color: var(--yes);
 }
 .yesyes, button.yesyes, input[type="submit"].yesyes {
-    color: black;
+    color: var(--bg);
     background-color: var(--special);
     font-weight: bold;
     background-color: var(--yes);
 }
 .yes, button.yes, input[type="submit"].yes {
-    color: black;
+    color: var(--bg);
     background-color: var(--special);
     font-weight: bold;
     background-color: var(--neutral);
 }
 .no, button.no, input[type="submit"].no {
-    color: black;
+    color: var(--bg);
     background-color: var(--special);
     font-weight: bold;
     background-color: var(--no);
 }
 .met, button.met, input[type="submit"].met {
-    color: black;
+    color: var(--bg);
     background-color: var(--special);
     font-weight: bold;
     background-color: var(--met);
