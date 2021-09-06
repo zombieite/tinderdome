@@ -55,6 +55,10 @@ li {
 h1, h2, h3, h4, h5, h6, label {
     color: var(--special);
 }
+.navbar {
+    display: inline-block;
+    padding: 1em;
+}
 .labelclass {
     color: var(--special);
 }
