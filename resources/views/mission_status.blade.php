@@ -28,14 +28,11 @@
                                     checked
                                 @endif
                                 >
-                                <a href="/event/{{ $upcoming_event->event_id }}/{{ $upcoming_event->event_long_name_hyphenated }}">{{ $upcoming_event->event_long_name }}</a>: {{ $upcoming_event->event_date }}
+                                <a href="/event/{{ $upcoming_event->event_id }}/{{ $upcoming_event->event_long_name_hyphenated }}">{{ $upcoming_event->event_long_name }}</a>: 
                                 @if ($upcoming_event->url)
-                                    <br>
-                                    <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->url }}</a>
-                                @endif
-                                @if ($upcoming_event->created_by_name)
-                                    <br>
-                                    <span class="small">Created by {{ $upcoming_event->created_by_name }}</span>
+                                    <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_date }}</a>
+                                @else
+                                    {{ $upcoming_event->event_date }}
                                 @endif
                             </td>
                         </tr>
