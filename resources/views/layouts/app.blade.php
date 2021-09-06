@@ -40,7 +40,7 @@
 --}}
     @endif
     &middot;
-    <input type="submit" value="Log out">
+    <input class="tight" type="submit" value="Log out">
     </form>
 @endguest
 <hr class="top">

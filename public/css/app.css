@@ -37,14 +37,14 @@ td {
     padding: .5em;
     border: 1px solid var(--subtle);
 }
-td.adminmatch {
+td.tight {
     padding: 0;
     border: 1px solid var(--subtle);
 }
 hr {
     border-color: var(--subtle);
 }
-ul.nobullet {
+ul.nobulletmargin {
     padding-left: 0px;
     list-style-type: none;
 }
@@ -76,13 +76,14 @@ input[type="submit"] {
     padding: 1em;
     margin: 1em;
 }
-input[type="submit"].adminmatch {
+input[type="submit"].tight {
     font-family: var(--font);
     color: var(--bg);
     background-color: var(--special);
     border: 1px solid var(--subtle);
     height: 1.5em;
-    margin: 0;
+    margin: .2em;
+    padding: .2em;
 }
 button {
     font-family: var(--font);
