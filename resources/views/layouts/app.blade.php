@@ -18,25 +18,25 @@
 <a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/YAA.png" style="filter:none;width:100%;max-width:530px;"></a>
 <br>
 @guest
-    <a class="navbar" href="{{ route('register') }}">Create a profile</a>
+    <div class="navbar"><a href="{{ route('register') }}">Sign up</a></div>
     &middot;
-    <a class="navbar" href="{{ route('login') }}">Log in</a>
+    <div class="navbar"><a href="{{ route('login') }}">Log in</a></div>
     &middot;
-    <a class="navbar" href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a>
+    <div class="navbar"><a href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a></div>
 @else
     <form action="{{ route('logout') }}" method="POST">
     {{ csrf_field() }}
-    @if($logged_in_user_title){{ $logged_in_user_title }} @endif<a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>@if($logged_in_user_missions_completed) [{{ $logged_in_user_missions_completed }}]@endif
+    <div class="navbar">@if($logged_in_user_title){{ $logged_in_user_title }} @endif<a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>@if($logged_in_user_missions_completed) [{{ $logged_in_user_missions_completed }}]@endif</div>
     &middot;
-    <a class="navbar" href="/profile/edit">Edit profile</a>
+    <div class="navbar"><a href="/profile/edit">Edit profile</a></div>
     &middot;
-    <a class="navbar" href="/image/upload">Upload images</a>
+    <div class="navbar"><a href="/image/upload">Upload images</a></div>
     @if (Auth::user()->number_photos)
         &middot;
-        <a class="navbar" href="/search">Search</a>
+        <div class="navbar"><a href="/search">Search</a></div>
 {{--
         &middot;
-        <a class="navbar" href="/create-event">Create event</a>
+        <div class="navbar"><a href="/create-event">Create event</a></div>
 --}}
     @endif
     &middot;
