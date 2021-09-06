@@ -19,4 +19,55 @@ This is the story of how we killed some people while trekking across the USA on 
 <h1><a href="/h-w-r/heads-will-rock.pdf">PDF</a></h1>
 </div>
 
+<hr>
+
+<div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland">Chapter 0: Tomorrowland</a>
+<br><br>
+Firebird is working the gate at an event called Tomorrowland Weekend. Firebird saves the life of a bloke who turns out to be the president of a tribe called the Hellies. The Hellies go to war with a rival tribe known as the Gillies.
+<br><br>
+</div>
+
+<div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown">Chapter 1: Dorktown</a>
+<br><br>
+<br><br>
+</div>
+
+<div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">Chapter 2: Bakersfield</a>
+<br><br>
+<br><br>
+</div>
+
+<div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">Chapter 3: Van Nuys</a>
+<br><br>
+<br><br>
+</div>
+
+<div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman">Chapter 4: Seligman</a>
+<br><br>
+<br><br>
+</div>
+
+<div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">Chapter 5: Amarillo</a>
+<br><br>
+<br><br>
+</div>
+
+<div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-6-norwood">Chapter 6: Norwood</a>
+<br><br>
+<br><br>
+</div>
+
+<div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-denouement">Chapter 7: Denouement</a>
+<br><br>
+<br><br>
+</div>
+
 @endsection
