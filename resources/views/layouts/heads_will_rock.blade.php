@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Heads Will Rock: A chronicle of postapocalyptic mayhem">
-<meta property="og:url" content="http://youareawaited.com/heads-will-rock">
-<meta property="og:image" content="http://youareawaited.com/h-w-r/heads-will-rock.jpg">
-<meta property="og:description" content="Is it possible to retain your humanity in a world gone mad?">
-<meta name="description" content="Is it possible to retain your humanity in a world gone mad?">
+<meta property="og:url" content="https://youareawaited.com/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">
+<meta property="og:image" content="https://youareawaited.com/h-w-r/heads-will-rock.jpg">
+<meta property="og:description" content="Can you retain your humanity in a world gone mad?">
+<meta name="description" content="Can you retain your humanity in a world gone mad?">
 <title>Heads Will Rock: A chronicle of postapocalyptic mayhem</title>
 <link href="/css/app.css?rev=3" rel="stylesheet">
 </head>
