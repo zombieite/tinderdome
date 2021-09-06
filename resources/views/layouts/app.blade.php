@@ -24,8 +24,6 @@
     &middot;
     <div class="navbar"><a href="mailto:wastelandfirebird@gmail.com?subject=I lost my YAA password, please send me a new one&body=I lost my YAA password, please send me a new one">Lost password</a></div>
 @else
-    <form action="{{ route('logout') }}" method="POST">
-    {{ csrf_field() }}
     <div class="navbar">@if($logged_in_user_title){{ $logged_in_user_title }} @endif<a href="/profile/{{ Auth::user()->id}}/{{ preg_replace('/ /', '-', Auth::user()->name) }}">{{ Auth::user()->name }}</a>@if($logged_in_user_missions_completed) [{{ $logged_in_user_missions_completed }}]@endif</div>
     &middot;
     <div class="navbar"><a href="/profile/edit">Edit profile</a></div>
@@ -39,9 +37,6 @@
         <div class="navbar"><a href="/create-event">Create event</a></div>
 --}}
     @endif
-    &middot;
-    <input class="tight" type="submit" value="Log out">
-    </form>
 @endguest
 <hr class="top">
 @include('home_promo_stuff')
@@ -51,5 +46,14 @@
 <br>
 <br>
 Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) for questions, lost passwords, bug reports, abusive user reports, or to set up new events. For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>.
+<br>
+<br>
+@guest
+@else
+    <form action="{{ route('logout') }}" method="POST">
+        {{ csrf_field() }}
+        <input type="submit" value="Log out">
+    </form>
+@endguest
 </body>
 </html>
