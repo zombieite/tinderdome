@@ -131,53 +131,42 @@ button {
 .profile_search_block_bright {
     display: inline-block;
     border: 1px solid var(--bright);
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-right: 0.1em;
+    margin: 0.5em;
     padding: 0.5em;
+    text-align: left;
 }
 .profile_search_block {
     display: inline-block;
     border: 1px solid var(--subtle);
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-right: 0.1em;
+    margin: 0.5em;
     padding: 0.5em;
     text-align: left;
 }
 .centered_block {
     display: inline-block;
     border: 1px solid var(--subtle);
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-right: 0.1em;
+    margin: 0.5em;
     padding: 0.5em;
     text-align: center;
 }
 .centered_block_bright {
     display: inline-block;
     border: 1px solid var(--bright);
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-right: 0.1em;
+    margin: 0.5em;
     padding: 0.5em;
     text-align: center;
 }
 .mission_match {
     display: inline-block;
     border: 1px solid var(--subtle);
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-right: 0.1em;
+    margin: 0.5em;
     padding: 0.5em;
     text-align: center;
 }
 .mission_match_bright {
     display: inline-block;
     border: 1px solid var(--bright);
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-right: 0.1em;
+    margin: 0.5em;
     padding: 0.5em;
     text-align: center;
 }
