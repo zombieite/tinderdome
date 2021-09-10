@@ -531,6 +531,7 @@ class ProfileController extends Controller
             return view('nomatch', [
                 'matches_done'                    => $matches_done,
                 'event'                           => $event_long_name,
+                'event_id'                        => $event_id,
                 'deleted_match_or_match_said_no'  => $deleted_match_or_match_said_no,
                 'time_until_can_re_request_match' => $time_until_can_re_request_match,
             ]);
@@ -565,6 +566,7 @@ class ProfileController extends Controller
             return view('nomatch', [
                 'matches_done'                   => $matches_done,
                 'event'                          => $event_long_name,
+                'event_id'                       => $event_id,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
             ]);
         }
