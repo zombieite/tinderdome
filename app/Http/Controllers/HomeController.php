@@ -135,7 +135,12 @@ class HomeController extends Controller
                 }
             } else if (isset($_POST['Met']) or isset($_POST['No'])) {
                 \App\Util::rate_user($logged_in_user_id, $_POST);
-                $matched_to_users  = \App\Util::matched_to_users( $logged_in_user_id );
+                $matched_to_users = \App\Util::matched_to_users( $logged_in_user_id );
+            } else if ($matched_to_user->this_users_rating_of_logged_in_user === 0 || !$matched_to_user->id) {
+                // This case is when this user's match has deleted their profile or marked user as No, but this user doesn't know that yet. No point telling them in that case.
+                DB::update('update attending set user_id_of_match = null where user_id = ? and event_id = ?', [$logged_in_user_id, $matched_to_user->event_id]);
+                $matched_to_users                  = \App\Util::matched_to_users( $logged_in_user_id );
+                $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
             }
         }
 
