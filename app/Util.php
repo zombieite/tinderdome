@@ -520,9 +520,9 @@ class Util {
             'SUPERVILLAIN',
             'ANTIVILLAIN',
             'ENCHANTER',
-            '???',
-            '????',
-            '?????',
+            'WITCH',
+            'WARLOCK',
+            'WIZARD',
             '??????',
         ];
     }
