@@ -19,7 +19,7 @@ Too implausible to be an autobiography. Too real to be fiction. It's a missing i
 </div>
 
 <div class="profile_search_block" style="vertical-align:top;">
-<h1><a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock</a></h1>
+<h1>NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock</a></h1>
 </div>
 
 <br>
