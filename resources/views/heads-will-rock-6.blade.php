@@ -157,13 +157,13 @@ But the fact is I might be going away soon. If I'm gonna go through all this tro
 CREATE VALUE.</p><p>
 You'd be surprised how long I had to run around on this earth screwing up before I figured out the significance of those two words. It would have been nice if someone else had figured it out sometime in the hundred thousand years before I was born and passed the lesson on to me when I was a kid but that's not how things worked out. I'm the one who figured it out. So now I'm passing the lesson on to you. Pay attention.</p><p>
 Create value. Create value for yourself. That's happiness. Create value for people who pay you. That's work. Create value for people who don't pay you. That's kindness. Create value for people you like. That's friendship. Create value for people you don't like. That's self-preservation.</p><p>
-You make relationships sound so transactional.</p><p>
+<i>You make relationships sound so transactional.</i></p><p>
 An employee's relationship with their boss is transactional right?</p><p>
-Yeah some relationships are transactional. But relationships shouldn't have to be. </p><p>
+<i>Yeah some relationships are transactional. But relationships shouldn't have to be.</i></p><p>
 They don't have to be. But they usually are.</p><p>
-And we're supposed to be ok with that??</p><p>
+<i>And we're supposed to be ok with that??</i></p><p>
 I never meant to imply that this is how things ought to be. But I am saying that this is how things are and always will be.</p><p>
-But aren't people's lives inherently valuable??</p><p>
+<i>But aren't people's lives inherently valuable??</i></p><p>
 Any time someone speaks of "value" you should always ask "Value to whom?" A "price" is just a number on a tag. The "cost" is always more than the price. It includes the price but it also includes everything else you have to give up in order to get something. But "value" is something different. Value is subjective. To value a thing means to choose it over another thing.</p><p>
 I value my life more than anything else in this universe. But I don't expect you to. I do truly wish from the bottom of my heart that all of my fellow humans would give me everything I want without me having to offer anything in return. But I bet most of you out there are reading this because you think I've got something interesting to say and not because you think I'm an inherently valuable human being.</p><p>
 There are a lot of boring people out there with nothing to say. They write books too. Should I tell you to go read those books instead?</p><p>
