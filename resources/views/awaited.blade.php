@@ -12,7 +12,7 @@ Too implausible to be an autobiography. Too real to be fiction. It's a missing i
 
 
 <div class="profile_search_block" style="vertical-align:top;">
-<h1><a href="https://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24218988.html">Paperback</a></h1>
+<h1><a class="bright" href="https://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24218988.html">Paperback</a></h1>
 </div>
 
 <div class="profile_search_block" style="vertical-align:top;">

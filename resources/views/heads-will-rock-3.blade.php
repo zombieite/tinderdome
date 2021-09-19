@@ -3,9 +3,9 @@
 PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield</a>
 <h1>CHAPTER 3: VAN NUYS</h1>
 <p>Not many people have written books in the past 38 years. So nowadays every book that gets written sort of has to be a history book and a philosophy book and a survival book too. I'd be doing you a disservice if I didn't tell you what I know about how things got to be the way they are and offer you some ideas about how to get things back to the way they were.</p><p>
-I hope you're gonna spew on about economics again. That was my favourite part of the last book!!</p><p>
+<i>I hope you're gonna spew on about economics again. That was my favourite part of the last book!!</i></p><p>
 You're being sarcastic aren't you Dorktown. Listen. Economics is more than just the study of how we spend money. It's the study of how we make choices. The choices we make change our lives and change the lives of those around us. The choices we make could save the world. So economics is the study of how to save the world. It's important. Stop messing up my story.</p><p>
-Our story.</p><p>
+<i>Our story.</i></p><p>
 Our story.</p><p>
 We're writing this book in what we call Year 38. The reason we call it Year 38 is cuz the Big Bang happened 38 years ago. The world used to be a much swankier place. I know cuz I was there. I'm a prewar. Mohawk Hineyhole was there too. Skelli and Dorktown weren't. Skelli and Dorktown were postwars.</p><p>
 The Big Bang wasn't just a war. There were recessions and depressions. There were natural disasters and unnatural disasters. By the time it was all over the governments of the world had bombed themselves out of existence and taken 95% of humanity with them.</p><p>
@@ -15,11 +15,11 @@ But I'll bet you a hundred bucks you don't know who Norman Borlaug is. Norman Bo
 When we look back it's easy to figure out what the USA got wrong. But the USA was the most prosperous country in history. So what was it that the USA got right?</p><p>
 I'm gonna figure it out and I'm gonna rebuild the world. I may be a moneygrubbing pig but I got dreams too. Who says you have to suffer and sacrifice? I'm gonna save the world. I'm gonna have a good time doing it. And I'm gonna make a heap of money to boot.</p><p>
 The Firebuddy is just the beginning. Someday there will be a Firebuddy that fits in your pocket. Someday we'll have skyscrapers and jets and rockets again. We'll have space stations in orbit and cities on the moon. </p><p>
-And shiny fucking Trans Ams with big fucking birds painted on the bonnets.</p><p>
+<i>And shiny fucking Trans Ams with big fucking birds painted on the bonnets.</i></p><p>
 Don't even try to pretend like you don't want one.</p><p>
-I do want one!! Black with a pink bird. But can we get back to the fighting and killing now??</p><p>
+<i>I do want one!! Black with a pink bird. But can we get back to the fighting and killing now??</i></p><p>
 Ok. Where were we?</p><p>
-Van Nuys.</p><p>
+<i>Van Nuys.</i></p><p>
 "Van Nuys?" Dorktown asked. "What the fuck? We have to get to Norwood."</p><p>
 "You blaspheme too much" I said.</p><p>
 "'Fuck' isn't blasphemy. It's obscenity."</p><p>
@@ -172,15 +172,15 @@ I climbed out of the pool and grabbed a couple more pieces of Bubble Yum. We pop
 "That's not how you do it. Watch."</p><p>
 I blew a bubble as big as Dorktown's head. Her eyes widened in amazement and she smiled. And the smile she gave me wasn't the smile she used when she wanted to get something from you. This smile was real and radiant and I never wanted it to end.</p><p>
 "Let me try let me try!" she pried the gum out of my mouth. She chewed it a bit. She tried to blow a bubble but she just spat the gum into my face.</p><p>
-Cute story but it ain't gonna stay that way.</p><p>
+<i>Cute story but it ain't gonna stay that way.</i></p><p>
 When we got back to the room I set the alarm for 2:30am. Dorktown promptly fell asleep but I did not. I opened up Dorktown's Firebuddy and read through more of the depressing Hellies vs. Gillies vitriol on You Are Awaited.</p><p>
 When the alarm went off I stood up and grabbed my axe. Dorktown yawned and grabbed her crossbow. "Time to go do some killing" she said.</p><p>
 The Pinto crept toward the plant. I kept the headlights off. We parked a block away.</p><p>
-Firebird was wearing a watch so I asked him what time it was.</p><p>
-"I dunno" he said. "It's broken."</p><p>
-Then I realised he was still wearing the broken watch his dad had given him 38 years ago. In his last book he'd claimed that he'd chucked it out a window.</p><p>
+<i>Firebird was wearing a watch so I asked him what time it was.</i></p><p>
+<i>"I dunno" he said. "It's broken."</i></p><p>
+<i>Then I realised he was still wearing the broken watch his dad had given him 38 years ago. In his last book he'd claimed that he'd chucked it out a window.</i></p><p>
 I don't see how that's relevant to the story.</p><p>
-You're a goddamn softcock and you're about to prove it.</p><p>
+<i>You're a goddamn softcock and you're about to prove it.</i></p><p>
 I pulled a pair of handcuffs out of my pocket. I slapped one cuff onto the steering wheel and the other cuff onto Dorktown's wrist.</p><p>
 "What are you doing?" she cried.</p><p>
 "This isn't who you are" I said.</p><p>
@@ -207,11 +207,11 @@ A petrolhead in a blonde wig was working late trying to get the abomination runn
 Then I heard someone snore loudly in the darkened office right beside me. I froze and waited for another snore. Then I snuck in. </p><p>
 Someone was on a mattress in the center of the office. I moved closer. It was him. Mohawk Hineyhole. Still in his tuxedo.</p><p>
 He'd killed my family. He'd killed Messenger Kid. Who knows how many others had died because of him? It was time to put an end to this.</p><p>
-Damn right it was.</p><p>
+<i>Damn right it was.</i></p><p>
 I lifted the axe and aimed for his neck.</p><p>
-Did you hesitate?</p><p>
+<i>Did you hesitate?</i></p><p>
 I did not hesitate.</p><p>
-You fucking hesitated. And I know why. Laura told me.</p><p>
+<i>You fucking hesitated. And I know why. Laura told me.</i></p><p>
 They don't know who Laura is yet. You're getting ahead of the story. And this is kind of a pivotal moment.</p><p>
 At this point five things happened in quick succession.</p><p>
 1. The Frankenbird's engine somehow managed to fire up and the entire building started rumbling.</p><p>
@@ -230,9 +230,9 @@ I jumped into the air just as the Pinto smashed into the doorway. The goon flew 
 One of the Flirties shouted "Hold your fire! It's a Pinto!"</p><p>
 The Frankenbird's mechanic hadn't even noticed us. He was bent over that big idling engine. He tugged on the throttle cable. Boy howdy that car made a hell of a racket.</p><p>
 I jumped off the Pinto's bonnet. Dorktown went back to smashing into the doorway like some kind of lunatic. I'll forgive her for driving my car. This was an emergency and she was coming to my rescue. </p><p>
-No I wasn't. I was pissed off. I came to blow up everything with your exploding car.</p><p>
+<i>No I wasn't. I was pissed off. I came to blow up everything with your exploding car.</i></p><p>
 Including yourself?</p><p>
-Including myself.</p><p>
+<i>Including myself.</i></p><p>
 I'm glad the car didn't explode.</p><p>
 I started running for the Frankenbird but then I heard calls for help. It was the prisoners tied to the front of the deuce.</p><p>
 I made a detour and ran outside to free them. It turned out that the prisoners were Qwerty and Rosie. Rosie's hair was chopped off and she had a massive bruise on the back of her neck.</p><p>

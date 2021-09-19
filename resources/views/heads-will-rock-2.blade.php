@@ -5,7 +5,7 @@ PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapte
 <p>As the sun came up me and Dorktown and Hunkidory surveyed the ruins. There was nothing left of Tomorrowland Weekend.</p><p>
 Me and Dorktown said goodbye to Hunkidory. I promised him there'd be a job waiting for him in Norwood if we got the factory up and running.</p><p>
 I borrowed Dorktown's Firebuddy to send a message to someone who might help us. </p><p>
-He didn't just borrow it. He's writing this whole damn book on my Firebuddy. That means I can help write it!!</p><p>
+<i>He didn't just borrow it. He's writing this whole damn book on my Firebuddy. That means I can help write it!!</i></p><p>
 Stop it Dorktown.</p><p>
 We took the Pinto to the Woolworth's diner in Bakersfield and ordered some brekky.</p><p>
 "What are we sitting around for?" Dorktown asked. "Mohawk Asshole could be in Norwood by now."</p><p>
@@ -61,9 +61,9 @@ Dorktown pointed at an old Barnett Wildcat crossbow that was hanging on the wall
 "I thought she didn't have any money" Skelli said.</p><p>
 "She doesn't."</p><p>
 Skelli paid for our meal and we went outside. She handed Dorktown a sack of coins. They exchanged a few words I couldn't hear. Then Skelli skedattled.</p><p>
-He forgot to mention that Skelli gave him a kiss goodbye. They're in love!!</p><p>
+<i>He forgot to mention that Skelli gave him a kiss goodbye. They're in love!!</i></p><p>
 Dorktown if you're gonna chime in at least give us some useful information. What did Skelli say to you?</p><p>
-She said "If you fuck him I'll smash your pretty little toes with a hammer."</p><p>
+<i>She said "If you fuck him I'll smash your pretty little toes with a hammer."</i></p><p>
 Skelli definitely did not say that.</p><p>
 Dorktown put her new crossbow in the back seat of the Pinto. "Can I drive?"</p><p>
 "Nobody drives my car" I said.</p><p>

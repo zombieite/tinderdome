@@ -62,43 +62,43 @@ The Pinto took its time but we made it to Seligman by midmorning. I headed for t
 "We can drive the cars in" I said.</p><p>
 We drove in and I shut the door behind us. My factory manager Laura came over to greet us with her three year old kid Lucy stumbling alongside her.</p><p>
 I moved the boombox and headphones and tools and jerrycans and all the rest of my stuff out of the Pinto and into the Frankenbird.</p><p>
-You skipped something.</p><p>
+<i>You skipped something.</i></p><p>
 What do you mean?</p><p>
-The Tim Tams.</p><p>
+<i>The Tim Tams.</i></p><p>
 Right. I noticed that Dorktown had eaten an old package of Tim Tams I'd left in the glovebox of the Pinto.</p><p>
-You were furious!!</p><p>
+<i>You were furious!!</i></p><p>
 I didn't say you could eat them.</p><p>
-You went to look for them and you freaked out when you found out they were gone. You took the empty wrapper out of the glovebox and saved it.</p><p>
+<i>You went to look for them and you freaked out when you found out they were gone. You took the empty wrapper out of the glovebox and saved it.</i></p><p>
 So what?</p><p>
-Something was special about those Tim Tams. I figured out what it was. They were the Tim Tams you bought for your sister 38 years ago. You said in your book that you ate them on the day she died. Page 6. Just like you said you chucked your dad's broken watch. Page 34. But you still had the watch. I bet you still have that Hot Wheels Trans Am too.</p><p>
+<i>Something was special about those Tim Tams. I figured out what it was. They were the Tim Tams you bought for your sister 38 years ago. You said in your book that you ate them on the day she died. Page 6. Just like you said you chucked your dad's broken watch. Page 34. But you still had the watch. I bet you still have that Hot Wheels Trans Am too.</i></p><p>
 I do.</p><p>
-Your mother was holding it in her hand when Mohawk Asshole blew her to smithereens.</p><p>
+<i>Your mother was holding it in her hand when Mohawk Asshole blew her to smithereens.</i></p><p>
 That's right Dorktown. Let's get back to the story.</p><p>
 I took Dorktown to the weapons room where we had five Martin Warthog compound bows stashed.</p><p>
 "Are these the weapons we came for?" Dorktown asked. "This isn't Sherwood Forest. Mohawk Asshole has guns."</p><p>
 "Next time I'll build a gun factory."</p><p>
 We cleaned out the weapons room and packed everything into the boot of the Frankenbird. Then I made the mistake of lying down on a couch. I dozed off.</p><p>
-I talked to Laura while you were asleep.</p><p>
+<i>I talked to Laura while you were asleep.</i></p><p>
 She's not the only one you talked to.</p><p>
-Now who's getting ahead of the story??</p><p>
+<i>Now who's getting ahead of the story??</i></p><p>
 You lied to me.</p><p>
-You lied to me too.</p><p>
+<i>You lied to me too.</i></p><p>
 You're ruining the story.</p><p>
-The story sucks.</p><p>
+<i>The story sucks.</i></p><p>
 It's not just a story. It's life.</p><p>
-Life sucks.</p><p>
+<i>Life sucks.</i></p><p>
 You don't know how it ends yet.</p><p>
-Are you gonna tell them or should I??</p><p>
+<i>Are you gonna tell them or should I??</i></p><p>
 Fine. You tell my story. I'll tell yours.</p><p>
-When you introduced me to Laura I instantly knew who she was. She was wearing a necklace made out of paperclips. You described that necklace in your book. Laura's husband made it for her. Laura is the woman who had you at gunpoint. She blamed you for her husband's death. You told me you grabbed her gun and shot her. But she's alive. Not only that but you're friends. You work together.</p><p>
+<i>When you introduced me to Laura I instantly knew who she was. She was wearing a necklace made out of paperclips. You described that necklace in your book. Laura's husband made it for her. Laura is the woman who had you at gunpoint. She blamed you for her husband's death. You told me you grabbed her gun and shot her. But she's alive. Not only that but you're friends. You work together.</i></p><p>
 I was trying to tell a good story.</p><p>
-You were trying to make us think you're someone you're not.</p><p>
+<i>You were trying to make us think you're someone you're not.</i></p><p>
 Ok. I didn't kill Laura. I didn't kill Mohawk Hineyhole. The truth is I've never killed anyone. Does that make me a bad person?</p><p>
-No it just makes you a bad killer.</p><p>
+<i>No it just makes you a bad killer.</i></p><p>
 You've never killed anyone either.</p><p>
-Yeah but when I do I promise you I'm gonna be really fucking good at it.</p><p>
+<i>Yeah but when I do I promise you I'm gonna be really fucking good at it.</i></p><p>
 Let's hope it doesn't come to that.</p><p>
-Oh I hope it does.</p><p>
+<i>Oh I hope it does.</i></p><p>
 To the readers at home I apologize on behalf of both of us for our nonlinear narration style. I think it's safe to assume that what you'd like to hear about next is the stuff that happened next. So that's what I'm gonna tell you.</p><p>
 We left the Pinto at the factory and took off in the Frankenbird. Dorktown was quiet. She typed on her Firebuddy the whole time.</p><p>
 She didn't even notice when I stopped to check on a family in an overturned Volkswagen Beetle convertible. The family was all dead so we continued on our way.</p><p>
@@ -112,10 +112,10 @@ Dorktown grabbed her crossbow and ran inside. I followed her. We sat down at the
 She ignored me. She opened up her Firebuddy and started typing on it some more.</p><p>
 I heard a helicopter approaching. I hadn't heard that sound in a long time. I went to the window and looked up at the sky.</p><p>
 It wasn't just one helicopter. It was a dozen of them. Bringing up the rear was some kind of dual-rotored behemoth the likes of which I'd never seen.</p><p>
-Hueys and Loaches and Kiowas followed by the last of the ACH-47A Chinooks. Nicknamed "Easy Money."</p><p>
+<i>Hueys and Loaches and Kiowas followed by the last of the ACH-47A Chinooks. Nicknamed "Easy Money."</i></p><p>
 Thanks for the clarification Dorktown.</p><p>
 Mr. Nothing handed Dorktown her order. But she wasn't done yet. She kept typing on her Firebuddy.</p><p>
-The ACH-47A Chinooks were known as "Guns-A-Go-Go" because they were loaded with .50 calibre machine guns and rockets and grenade launchers pointing in every direction. They were armoured too so they could take abuse as well as dish it out. They only made four of them and Easy Money was the only one that made it home from Vietnam.</p><p>
+<i>The ACH-47A Chinooks were known as "Guns-A-Go-Go" because they were loaded with .50 calibre machine guns and rockets and grenade launchers pointing in every direction. They were armoured too so they could take abuse as well as dish it out. They only made four of them and Easy Money was the only one that made it home from Vietnam.</i></p><p>
 Ok then.</p><p>
 When Dorktown finished typing she grabbed her sacks of burgers and got up. She pushed the Firebuddy over to me. "Shit's about to go down. You might wanna update your story."</p><p>
 "Our story?"</p><p>
