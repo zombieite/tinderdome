@@ -62,7 +62,7 @@ Tensions rise between Firebird and Dorktown. Firebird refuses to show his allegi
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">Chapter 5: Amarillo</a>
 <br><br>
-Firebird comes to the conclusion that it might not be possible to retain one's humanity in a world gone mad, and makes an irreversible decision.
+Firebird comes to the conclusion that it might not be possible to retain one's humanity in a world gone mad. He makes an irreversible decision.
 <br><br>
 </div>
 
