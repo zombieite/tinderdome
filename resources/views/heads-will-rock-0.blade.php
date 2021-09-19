@@ -1,9 +1,10 @@
 @extends('layouts.heads_will_rock')
 @section('content')
+HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem</a>
 <h1>CHAPTER 0: TOMORROWLAND</h1>
 <p>"Tomorrowland Weekend! Where the Big Bang never happened! You are awaited at Tomorrowland Weekend!"</p><p>
 Carnival barking isn't my style so I paid a bloke to shout this stuff for me.</p><p>
-"Tomorrowland Weekend! No suffering! No hunger! No politics! No war!" </p><p>
+"Tomorrowland Weekend! No suffering! No hunger! No politics! No war!"</p><p>
 Some of my other employees were putting up the new sign that read "Tomorrowland" and taking down the old sign that read "The Gathering." The Gathering was this annual event in the California desert where people came from all over the world to meet up with family and friends. This year I'd paid for the whole thing myself and jazzed it up to look like a parallel universe where the apocalypse never happened.</p><p>
 "Tomorrowland Weekend! The shoes have shoelaces. The cars have guzzoline. The streets are paved with asphalt! You must have a Firebuddy and a costume to enter."</p><p>
 The Firebuddy was a "lappy" computer I'd invented. I called it a "lappy" cuz it was small enough to fit in your lap. It was Firebuddy sales that had paid for this whole event.</p><p>
@@ -96,5 +97,6 @@ Now I know a lot of you readers out there are Hellies and Gillies and I know you
 But my You Are Awaited topic promotion algorithm hadn't sparked reasoned debate. It highlighted the differences between people. Rather than working out those differences people just decided they hated anyone who wasn't on their side.</p><p>
 Ideas that seem obvious to half of humanity can terrify and infuriate the other half. The algorithm promoted discussions of topics like these simply because it noticed people were more engaged in these discussions. My algorithm had radicalized both sides and no one was listening to each other.</p><p>
 The Hellies and Gillies weren't just doomed to repeat history. They were downright excited about it. My dream of bringing humanity together had ended up tearing it in half.</p>
+NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown</a>
 @endsection
 
