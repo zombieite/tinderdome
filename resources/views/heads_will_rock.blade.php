@@ -15,7 +15,7 @@ $hwr = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-marky-ma
 </div>
 
 <div class="profile_search_block" style="vertical-align:top;">
-<h1><a href="/awaited-nonfictional-delusion">PREVIOUS: Awaited: Nonfictional Delusion</a></h1>
+<h1>PREVIOUS: <a href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a></h1>
 </div>
 <br>
 
