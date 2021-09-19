@@ -10,7 +10,6 @@ Too implausible to be an autobiography. Too real to be fiction. It's a missing i
 
 <iframe style="width:100%;height:480px" src="https://www.youtube.com/embed/tPGFdrbHxKA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-
 <div class="profile_search_block" style="vertical-align:top;">
 <h1><a class="bright" href="https://www.lulu.com/shop/john-binns/awaited-nonfictional-delusion/paperback/product-24218988.html">Paperback</a></h1>
 </div>
@@ -18,11 +17,11 @@ Too implausible to be an autobiography. Too real to be fiction. It's a missing i
 <div class="profile_search_block" style="vertical-align:top;">
 <h1><a href="/a-n-d/awaited-nonfictional-delusion.pdf">PDF</a></h1>
 </div>
-<br>
 
 <div class="profile_search_block" style="vertical-align:top;">
 <h1><a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock</a></h1>
 </div>
+
 <br>
 
 <div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
