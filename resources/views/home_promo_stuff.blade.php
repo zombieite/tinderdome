@@ -6,7 +6,7 @@
 shuffle($ads);
 
 // Can be used to remove some random ones from above so the ads section doesn't have too many in it
-// array_pop($ads);
+array_pop($ads);
 
 @endphp
 @guest
