@@ -20,6 +20,11 @@ Too implausible to be an autobiography. Too real to be fiction. It's a missing i
 </div>
 <br>
 
+<div class="profile_search_block" style="vertical-align:top;">
+<h1><a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock</a></h1>
+</div>
+<br>
+
 <div class="profile_search_block" style="width:13em;height:30em;vertical-align:top;">
 <a href="/a-n-d/awaited_nonfictional_delusion-000000.txt">Chapter 00 (txt)</a><br><br>
 <a href="/a-n-d/00.mp3">Chapter 00 (mp3)</a><br>
