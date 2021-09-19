@@ -16,7 +16,7 @@ body {
     font-family: var(--font);
     margin: 1em;
 }
-a {
+a, i {
     color: var(--special);
 }
 img {

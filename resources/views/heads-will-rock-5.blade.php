@@ -88,7 +88,7 @@ Not much happened for a while.</p><p>
 There's a thing called narrative filigree where a writer will just write a bunch of fancy stuff to take up some space. I would try that here but I'm not a writer. I'm just someone who's trying to tell you a bunch of stuff that happened.</p><p>
 Words. Words will get you into trouble. Words will keep you up at night. The weather wasn't hot or cold or stormy. No red-tailed hawk cried out above us. No roadrunner dashed in front of us. Nothing to see. Nothing to hear. Nothing to do. Texas was flat and lovely and I sat there with Dorktown and her arm was pressed against mine.</p><p>
 What did Skelli whisper to you?</p><p>
-She said "If you kill someone you don't have to live with them anymore. You have to live with yourself."</p><p>
+<i>She said "If you kill someone you don't have to live with them anymore. You have to live with yourself."</i></p><p>
 Dorktown climbed down from the car and took a seat at the piano. She started playing and singing. I didn't know she could play. I didn't know she could sing. And if I had known that she could do that stuff well I sure as heck wouldn't have thought that she would.</p><p>
 The song she played for me was Close To You by The Carpenters. The lullaby my mom used to sing to me as a child. The piano was out of tune and some of the keys were missing but it didn't matter.</p><p>
 When she was done she got up and said "I'm not letting you give up on your dream."</p><p>

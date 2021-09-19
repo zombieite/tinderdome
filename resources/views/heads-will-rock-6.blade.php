@@ -3,17 +3,17 @@
 PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo</a>
 <h1>CHAPTER 6: NORWOOD</h1>
 <p>There never was and there never will be another century like the twentieth. In the twentieth century things were invented more quickly than ever before. Millennia of stagnation and then all of a sudden in the twentieth century every decade was totally unlike the one before it. Hundreds of generations of subsistence farmers and then out of nowhere someone's kid builds a rocket that lands on the moon.</p><p>
-Yay another rant about economics!!</p><p>
+<i>Yay another rant about economics!!</i></p><p>
 I appreciate your enthusiasm Dorktown.</p><p>
 In just a hundred years we figured out more stuff than we had figured out in the entire hundred thousand years that preceded it. Sure there was fire and the wheel. Agriculture and domestication. Spoken language and written language and the printing press. But that ain't much to figure out in a hundred thousand years.</p><p>
 Here's a list of some stuff that was either invented or widely adopted in the twentieth century. Indoor plumbing. Electricity and the light bulb. Antibiotics. Vaccines. Anesthetics. Surgery. Birth control. Air conditioning and refrigeration. Washing machines. Telephones. Photography. Transistors. Radio and rock music. Movies. Television. Computers. Cars. Airplanes and jet engines. Rockets and space travel. Nuclear power. And Norman Borlaug's miracle strains of wheat. You forgot about that one didn't you.</p><p>
-The twentieth century?? I wasn't even born yet!!</p><p>
+<i>The twentieth century?? I wasn't even born yet!!</i></p><p>
 Were you even listening?</p><p>
-Norman Borlaug saved a billion lives.</p><p>
+<i>Norman Borlaug saved a billion lives.</i></p><p>
 That's my girl.</p><p>
 Most of the stuff I mentioned was invented in the USA. Why did so many Americans invent so many great things? What was it that the USA got right? </p><p>
 If we asked Karl Marx he would have said it was capitalism that led to all that progress but then he would have gone on to tell us that capitalism was doomed and destined to be replaced. He was right. People did replace it. They replaced it with anarchy. Anarchy is just like capitalism except every now and then some communist comes along and seizes your means of production.</p><p>
-What's your point??</p><p>
+<i>What's your point??</i></p><p>
 The point is we're not just going to Norwood to build cars. We're going to Norwood to pick up where the twentieth century left off.</p><p>
 Me and Dorktown took turns driving. Yeah I let her drive. How could I save the world without a good night's sleep?</p><p>
 Our last petrol stop was in Indianapolis. We found a servo run by a sheila named Dignity. The walls of the servo were covered with impressionist paintings for sale.</p><p>
@@ -37,9 +37,9 @@ Her face lit up. "You're Firebird! I've heard about you. Everyone has. I always 
 Dignity gave us directions. It wouldn't be hard to find. Northeast on Route 22. Look for the General Motors signs.</p><p>
 Norwood was part of Sin City. If you're a prewar like me you might remember Sin City from back when it was called Cincinnati. It had WKRP and a nice zoo. Yeah I know WKRP wasn't a real radio station but it was a great TV show.</p><p>
 As we pulled off the Sin City exit we were listening to Manfred Mann's Earth Band playing Blinded By The Light on Burt Sugarman's Midnight Special in 1977. Blinded By The Light was written and originally performed by Bruce Springsteen. I know that sounds like an exciting musical discovery but if you're planning on checking out his version be prepared to be disappointed. Bruce used a rhyming dictionary to throw the song together. Manfred Mann's Earth Band cut out half the lyrics and doubled the length of the song. Their version is more about the emotional buildup. The lines they left in were the good ones.</p><p>
-Is he saying "douche"?</p><p>
+<i>Is he saying "douche"??</i></p><p>
 No Dorktown. He's singing about going out for a cruise in a deuce coupe on a Friday night with his mates.</p><p>
-I'm pretty sure he's saying "douche."</p><p>
+<i>I'm pretty sure he's saying "douche."</i></p><p>
 Anyway it's a cover that's far better than the original.</p><p>
 Sin City was a surprisingly unpopulated town unless you counted the skeletons. The factory was in a lot better shape than the one in Van Nuys. Aside from some intrusive vegetation it looked like it had been abandoned yesterday. We parked the Frankenbird right out front.</p><p>
 I got goosebumps from my head to my toes for I was standing on hallowed ground. Norwood Assembly. Birthplace of the Camaro and the Firebird. In operation from 1923 all the way up until the Big Bang put GM and the rest of the world out of business in 1981.</p><p>
@@ -70,11 +70,11 @@ She hugged me and then she hugged the car. Then she noticed the writing on the h
 "I didn't forget."</p><p>
 "I know. Laura told me. That's why she forgave you. You showed her your computer with Buddy's name on it."</p><p>
 Dorktown got in to the Firebird Phoenix and I got in next to her. I reached into my pocket and pulled out her pop's Bugs Bunny doll and placed it on the dashboard. I won't say what happened next. All you need to know about Dorktown is that she is one tough cookie. She's a psycho. You do not wanna mess with her.</p><p>
-I was a bloody sook.</p><p>
+<i>I was a bloody sook.</i></p><p>
 She means she was crying.</p><p>
-Sangfroid only gets you so far.</p><p>
+<i>Sangfroid only gets you so far.</i></p><p>
 You and your Aussie slang.</p><p>
-It's French. It means "cold blood."</p><p>
+<i>It's French. It means "cold blood."</i></p><p>
 Dorktown put the bunny in her pocket. She turned the Phoenix's key but it wouldn't start. We realized we forgot the petrol. So I brought the Frankenbird in and siphoned the juice out of it.</p><p>
 This time the Phoenix started right up. Dorktown drove us out the back door and started spinning donuts in the back lot. We had huge smiles on our faces. Then we brought the Phoenix back into the building.</p><p>
 We got out and looked at the next car on the line. "Each car has 4500 different parts from 450 different vendors" I said. "We're gonna have to reverse engineer every step of the build process and resurrect the supply chains. Once we get some power in the place it will make everything easier. Tomorrow we'll...."</p><p>
@@ -172,11 +172,11 @@ I figure if I create some value for the world maybe some value will come back to
 So there's your meaning of life. You've spent your whole life looking for it and I bet you didn't think you were gonna find it today. But trust me you just did. </p><p>
 Have fun. Be nice. Leave the world a better place than you found it.</p><p>
 CREATE VALUE.</p><p>
-Yeah but did we die??</p><p>
+<i>Yeah but did we die??</i></p><p>
 Huh?</p><p>
-Did we get our heads cut off or what??</p><p>
+<i>Did we get our heads cut off or what??</i></p><p>
 Oh right. Wouldn't it be funny if I just ended the book now? Like Two-Lane Blacktop. Did you see that movie?</p><p>
-I've never seen a movie.</p><p>
+<i>I've never seen a movie.</i></p><p>
 If we live we'll watch it together.</p><p>
 The Abrams tank pulled up next to the guillotine. The hatch opened and three blokes got out. The last one out of the tank was the executioner. He wore a dirty canvas hood with holes cut out for his eyes.</p><p>
 The weird part is he winked at me through one of those eyeholes.</p><p>
@@ -210,12 +210,12 @@ I crawled into that hole he pointed to and sat down. I grabbed the joysticks and
 Superturbo manned the Abrams' machine gun and Dignity womanned Easy Money's machine gun. Easy Money took to the sky and I started running over cars. The cars I couldn't catch got holes in them instead.</p><p>
 The Gillies and the Hellies scattered. All except the one who couldn't scatter. Chumdumpster.</p><p>
 I headed right for him. He saw the tank coming and started crawling toward the Zombiebeetle.</p><p>
-Did you hesitate??</p><p>
+<i>Did you hesitate??</i></p><p>
 I did not hesitate.</p><p>
-You frigging hesitated.</p><p>
+<i>You frigging hesitated.</i></p><p>
 Chumdumpster is very totally 100% dead. I squashed him flat. I killed him in sangfroid. How do you pronounce that word anyway?</p><p>
-"Sahfwah."</p><p>
+<i>"Sahfwah."</i></p><p>
 There's no way that's how you pronounce it.</p><p>
-You're changing the subject.</p>
+<i>You're changing the subject.</i></p>
 NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-denouement">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-denouement</a>
 @endsection
