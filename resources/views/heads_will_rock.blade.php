@@ -47,7 +47,7 @@ Firebird and Dorktown try to secure funding and weapons for their endeavour.
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">Chapter 3: Van Nuys</a>
 <br><br>
-As Firebird and Dorktown chase Mohawk Asshole and Chumdumpster to the old GM factory in Van Nuys, they try to figure out what conditions they'd have to re-create to revive the prosperity that prevailed in the times before the apocalypse. They find the Van Nuys factory in ruins. Firebird and Dorktown begin the cross-country journey to the other old Firebird factory, in Norwood, Ohio, with Mohawk Asshole and Chumdumpster on their tail. 
+As Firebird and Dorktown chase Mohawk Asshole and Chumdumpster to the old GM factory in Van Nuys, they discuss what conditions it would take to revive the prosperity that prevailed in the times before the apocalypse. They find the Van Nuys factory in ruins. Firebird and Dorktown begin the cross-country journey to the other old Firebird factory, in Norwood, Ohio, with Mohawk Asshole and Chumdumpster on their tail. 
 <br><br>
 </div>
 
