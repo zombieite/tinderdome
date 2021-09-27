@@ -10,7 +10,7 @@
     @foreach ($matches as $match)
         @php
             $counter++;
-            if ($match->user_1_choice == $match->user_2_choice && $match->user_1_choice == -1) { $found++; }
+            if (($match->user_1_choice === -1) || ($match->user_1_choice === 0)) { $found++; }
         @endphp
         <tr>
             <td class="tight">{{ $counter }}</td>
