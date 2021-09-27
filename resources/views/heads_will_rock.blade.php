@@ -52,7 +52,7 @@ Firebird and Dorktown try to secure funding and weapons for their endeavour.
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">Chapter 3: Van Nuys</a>
 <br><br>
-As Firebird and Dorktown chase Mohawk Asshole and Chumdumpster to the old GM factory in Van Nuys, they discuss what conditions it would take to revive the prosperity that prevailed in the times before the apocalypse. They find the Van Nuys factory in ruins. Firebird and Dorktown begin the cross-country journey to the other old Firebird factory, in Norwood, Ohio, with Mohawk Asshole and Chumdumpster on their tail. 
+As Firebird and Dorktown chase Mohawk Asshole and Chumdumpster to the old GM factory in Van Nuys, they discuss what it would take to revive the prosperity that prevailed in the times before the apocalypse. Firebird and Dorktown find the Van Nuys factory in ruins, and they battle Mohawk Asshole and Chumpdumpster for the scraps of what's left. Firebird and Dorktown begin the cross-country journey to the other Firebird factory in Norwood, Ohio, with Mohawk Asshole and Chumdumpster on their tail. 
 <br><br>
 </div>
 
@@ -67,7 +67,7 @@ Tensions rise between Firebird and Dorktown. Firebird refuses to show his allegi
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">Chapter 5: Amarillo</a>
 <br><br>
-Firebird comes to the conclusion that it might not be possible to retain one's humanity in a world gone mad. He then makes an irreversible decision.
+Firebird gives up on trying to retain his humanity in a world gone mad, and makes an irreversible decision.
 <br><br>
 </div>
 
