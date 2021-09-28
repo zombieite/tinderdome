@@ -87,9 +87,9 @@ class Util {
 		}
     }
 
-	public static function min_signups_to_run_event()                        { return 20; }
-	public static function days_before_event_when_everyone_can_get_match()   { return  7; }
-	public static function days_before_event_when_top_ranked_can_get_match() { return  14; }
+	public static function min_signups_to_run_event()                        { return  20; }
+	public static function days_before_event_when_everyone_can_get_match()   { return   7; }
+	public static function days_before_event_when_top_ranked_can_get_match() { return  21; }
     public static function max_event_days_away()                             { return 180; }
 
     public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user, $event_id = null, $event_long_name = null ) {
