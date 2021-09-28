@@ -107,14 +107,6 @@
 
 <ol>
 
-<li>
-@if ($number_photos)
-    <a href="/profile/{{ $logged_in_user_id }}/{{ $wasteland_name_hyphenated }}">Profile</a> created.
-@else
-    <a href="/image/upload" class="bright">INCOMPLETE: You must upload a photo</a>.
-@endif
-</li>
-
 <li>Sign up for events by checking the boxes and clicking Submit.</li>
 
 <li>
