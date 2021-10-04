@@ -5,9 +5,10 @@ $hwr_ebook = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-ma
 @endphp
 @section('content')
 
-<a href="{{ $hwr }}"><img style="width:100%;filter:none;" src="/h-w-r/heads-will-rock.jpg"></a>
+<a href="{{ $hwr }}"><img style="width:100%;" src="/h-w-r/heads-will-rock.jpg"></a>
 
 <div class="profile_search_block" style="vertical-align:top;">
+<img style="width:200px;" src="/h-w-r/heads_will_rock_front_cover.jpg">
 <h1><a href="{{ $hwr }}" class="bright">Paperback</a></h1>
 </div>
 
@@ -91,7 +92,5 @@ Will a new Pontiac Firebird be built in Norwood? Or will the Hellies and the Gil
 The victors celebrate, while the losers mourn... and plan their revenge.
 <br><br>
 </div>
-
-<a href="{{ $hwr }}"><img style="width:100%;" src="/h-w-r/heads-will-rock.png"></a>
 
 @endsection
