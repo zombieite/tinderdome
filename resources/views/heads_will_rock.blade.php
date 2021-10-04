@@ -1,6 +1,7 @@
 @extends('layouts.heads_will_rock')
 @php
-$hwr = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-marky-make-up/heads-will-rock/paperback/product-r2vrpv.html"
+$hwr = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-marky-make-up/heads-will-rock/paperback/product-r2vrpv.html";
+$hwr_ebook = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-marky-make-up/heads-will-rock/ebook/product-d77kzp.html";
 @endphp
 @section('content')
 
@@ -8,6 +9,11 @@ $hwr = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-marky-ma
 
 <div class="profile_search_block" style="vertical-align:top;">
 <h1><a href="{{ $hwr }}" class="bright">Paperback</a></h1>
+</div>
+
+<div class="profile_search_block" style="vertical-align:top;">
+<h1><a href="{{ $hwr_ebook }}" class="bright">
+Ebook</a></h1>
 </div>
 
 <div class="profile_search_block" style="vertical-align:top;">
