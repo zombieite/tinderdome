@@ -8,7 +8,7 @@ $hwr_ebook = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-ma
 <a href="{{ $hwr }}"><img style="width:100%;" src="/h-w-r/heads-will-rock.jpg"></a>
 
 <div class="profile_search_block" style="vertical-align:top;">
-<img style="width:200px;" src="/h-w-r/heads_will_rock_front_cover.jpg">
+<a href="{{ $hwr }}"><img style="width:200px;" src="/h-w-r/heads_will_rock_front_cover.jpg"></a>
 <h1><a href="{{ $hwr }}" class="bright">PAPERBACK</a></h1>
 </div>
 
