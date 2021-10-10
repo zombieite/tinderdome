@@ -357,13 +357,34 @@ class Util {
         return $results;
     }
 
-    public static function unrated_users( $chooser_user_id, $gender_of_match = null ) {
-        //Log::debug("App Util gender of match: $gender_of_match");
-        //Log::debug("Finding users not yet rated by '$chooser_user_id'");
+    public static function unrated_users( $chooser_user_id, $gender_of_match, $i_am_hoping_to_find_love ) {
+        // Log::debug("App Util gender of match: $gender_of_match");
+        // Log::debug("Finding users not yet rated by '$chooser_user_id'");
+        $check_both_are_attending_upcoming_events = '';
+        $both_attending_join = '';
+        if ($i_am_hoping_to_find_love) {
+            // Don't check to make sure they're both attending upcoming events
+        } else {
+            $both_attending_join = '
+                and i_am_attending.event_id = they_are_attending.event_id
+                and event_date >= curdate()
+            ';
+            $check_both_are_attending_upcoming_events = '
+                join attending i_am_attending on (
+                    i_am_attending.user_id = ?
+                )
+                join attending they_are_attending on (
+                    users.id = they_are_attending.user_id
+                )
+                join event on (
+                    i_am_attending.event_id = event.event_id
+                )
+            ';
+        }
         $gender_order_by = '';
         if ($gender_of_match) {
             if (preg_match('/^M|W|O$/', $gender_of_match)) {
-                if (time() % 4 == 0) {
+                if (time() % 8 == 0) {
                     // Sometimes, you just gotta rate your non-preferred gender
                 } else {
                     $gender_order_by = "
@@ -409,15 +430,7 @@ class Util {
                     users.id = their_choice.chooser_id
                     and their_choice.chosen_id = ?
                 )
-                join attending i_am_attending on (
-                    i_am_attending.user_id = ?
-                )
-                join attending they_are_attending on (
-                    users.id = they_are_attending.user_id
-                )
-                join event on (
-                    i_am_attending.event_id = event.event_id
-                )
+                $check_both_are_attending_upcoming_events
                 left join attending i_have_attended on (
                     users.id = i_have_attended.user_id_of_match
                     and i_have_attended.user_id = ?
@@ -425,8 +438,7 @@ class Util {
             where
                 id > 10
                 and id <> ?
-                and i_am_attending.event_id = they_are_attending.event_id
-                and event_date >= curdate()
+                $both_attending_join
                 and my_choice.choice is null
                 and
                 (
