@@ -160,7 +160,7 @@ class HomeController extends Controller
         if (\App\Util::has_match_for_next_event_waiting( $logged_in_user_id )) {
             // Don't show unrated users because this user already has a match waiting for them
         } else {
-            $unrated_users = \App\Util::unrated_users( $logged_in_user->id, $logged_in_user->gender_of_match, $logged_in_user->hoping_to_find_love );
+            $unrated_users = \App\Util::unrated_users( $logged_in_user->id, $logged_in_user->gender_of_match, $logged_in_user->hoping_to_find_love, $logged_in_user->share_info_with_favorites );
         }
 
         if ($unrated_users) {
