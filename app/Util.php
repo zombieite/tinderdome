@@ -87,7 +87,7 @@ class Util {
 		}
     }
 
-	public static function min_signups_to_run_event()                        { return  20; }
+	public static function min_signups_to_run_event()                        { return  2; }
 	public static function days_before_event_when_everyone_can_get_match()   { return   7; }
 	public static function days_before_event_when_top_ranked_can_get_match() { return  21; }
     public static function max_event_days_away()                             { return 180; }
