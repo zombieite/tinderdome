@@ -13,7 +13,7 @@ use Log;
 
 class ProfileController extends Controller
 {
-    public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $count_with_same_name = 0)
+    public function show($profile_id, $wasteland_name_from_url, $unchosen_user = null, $count_left = null, $count_with_same_name = 0, $ok_to_mark_user_found = true)
     {
         $profile = null;
         if ($unchosen_user) {
@@ -246,6 +246,7 @@ class ProfileController extends Controller
             'recently_updated_users'             => $recently_updated_users,
             'campaigning'                        => $campaigning,
             'video_id'                           => $video_id,
+            'ok_to_mark_user_found'              => $ok_to_mark_user_found,
         ]);
     }
 
@@ -507,7 +508,8 @@ class ProfileController extends Controller
                 user_id_of_match,
                 users_1.name user_1_name,
                 users_2.name user_2_name,
-                event_long_name
+                event_long_name,
+                if(event_date < curdate(), 1, 0) ok_to_mark_user_found
             from
                 attending
                 join event on attending.event_id = event.event_id
@@ -519,6 +521,7 @@ class ProfileController extends Controller
         ', [$event_id, $logged_in_user_id]);
         $match           = array_shift($match_array);
         $event_long_name = $match ? $match->event_long_name : '';
+        $ok_to_mark_user_found = $match ? $match->ok_to_mark_user_found : true;
 
         if ($match && $match->user_id_of_match) {
             // All good
@@ -577,7 +580,7 @@ class ProfileController extends Controller
         $users_with_same_name = DB::select('select * from users where name = ? and id != ?', [$match_name, $match_id]);
         $count_with_same_name = count($users_with_same_name);
 
-        return $this->show($match_id, $match_name, null, null, $count_with_same_name);
+        return $this->show($match_id, $match_name, null, null, $count_with_same_name, $ok_to_mark_user_found);
     }
 
     public function compatible()
