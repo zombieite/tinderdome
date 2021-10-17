@@ -623,10 +623,11 @@ class ProfileController extends Controller
     {
         $commenting_user_id     = Auth::id();
         $commented_upon_user_id = $_POST['commented_upon_user_id'];
-        $comment                = isset($_POST['comment']) ? preg_replace('/[^\x00-\x7E]/', '', $_POST['comment']) : '';
-        if ($comment != $_POST['comment']) {
-            abort(400, 'Sorry, emojis not supported.');
-        }
+        $comment = $_POST['comment'];
+//        $comment                = isset($_POST['comment']) ? preg_replace('/[^\x00-\x7E]/', '', $_POST['comment']) : '';
+//        if ($comment != $_POST['comment']) {
+//            abort(400, 'Sorry, emojis not supported.');
+//        }
 
         // If the logged in user knows this user, and vice versa, allow comment to be submitted for approval
         $we_know_each_other = DB::select('select * from choose c1 join choose c2 on (c1.chosen_id=c2.chooser_id and c1.chooser_id=c2.chosen_id) where c1.chooser_id=? and c1.chosen_id=? and c1.choice=-1 and c2.choice=-1', [$commenting_user_id, $commented_upon_user_id]);
