@@ -22,16 +22,14 @@ class HomeController extends Controller
             // All good
         } else {
             // Logged out home page shows this stuff
-            $leaderboard_and_count = \App\Util::leaderboard( 10 );
-            $leaderboard           = $leaderboard_and_count['leaderboard'];
+            $leaderboard           = \App\Util::leaderboard( 10 );
             return view('intro', [
                 'leaderboard'      => $leaderboard,
                 'titles'           => $titles,
             ]);
         }
 
-        $leaderboard_and_count     = \App\Util::leaderboard( 5 );
-        $leaderboard               = $leaderboard_and_count['leaderboard'];
+        $leaderboard               = \App\Util::leaderboard( 5 );
 
         if ($logged_in_user_id == 1 and isset($_GET['masquerade'])) {
             $logged_in_user_id     = $_GET['masquerade'];
