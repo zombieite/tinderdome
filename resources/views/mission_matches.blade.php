@@ -41,6 +41,7 @@
                         @include('user_block_matched_to_deleted', [
                             'event_long_name'          => $matched_to_user->event_long_name,
                             'event_id'                 => $matched_to_user->event_id,
+                            'user_id'                  => $matched_to_user->id,
                         ])
                     @endif
                 @endif
