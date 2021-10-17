@@ -4,7 +4,9 @@
 @if ($matches_done)
 	@if ($deleted_match_or_match_said_no)
         <h2>You were matched for {{ $event }}, but your match deleted their account.</h2>
-        @include('rating_form_matched_to_deleted')
+        @if ($logged_in_users_rating_of_this_user != -1)
+            @include('rating_form_matched_to_deleted')
+        @endif
 	@else
         @if ($event)
     		<h2>We have not yet found you a match for {{ $event }}.</h2>

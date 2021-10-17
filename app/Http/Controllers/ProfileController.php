@@ -542,7 +542,12 @@ class ProfileController extends Controller
         }
         //Log::debug("Match found for user '$logged_in_user_id' is '$match_name' id '$match_id'");
 
+        $logged_in_users_rating_of_this_user = null;
         if ($match_id) {
+            $logged_in_users_rating_result = DB::select('select choice from choose where chooser_id=? and chosen_id=?', [$logged_in_user_id, $match_id]);
+            if ($logged_in_users_rating_result) {
+                $logged_in_users_rating_of_this_user = $logged_in_users_rating_result[0]->choice;
+            }
             $matched_user = DB::select('select * from users where id=?', [$match_id]);
             if ($matched_user) {
                 $matched_users_current_choice = DB::select('select choice from choose where chooser_id=? and chosen_id=?', [$match_id, $logged_in_user_id]);
@@ -560,11 +565,12 @@ class ProfileController extends Controller
 
         if ($deleted_match_or_match_said_no) {
             return view('nomatch', [
-                'matches_done'                   => $matches_done,
-                'event'                          => $event_long_name,
-                'event_id'                       => $event_id,
-                'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
-                'user_id_of_match'               => $match_id,
+                'matches_done'                        => $matches_done,
+                'event'                               => $event_long_name,
+                'event_id'                            => $event_id,
+                'deleted_match_or_match_said_no'      => $deleted_match_or_match_said_no,
+                'user_id_of_match'                    => $match_id,
+                'logged_in_users_rating_of_this_user' => $logged_in_users_rating_of_this_user,
             ]);
         }
 
