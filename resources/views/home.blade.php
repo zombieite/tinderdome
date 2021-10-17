@@ -24,6 +24,9 @@
     @include('mutuals', [])
     @include('mission_status', [])
     @include('mission_matches', [])
+    <hr>
+    <h2>Leaderboard</h2>
+    @include('leaderboard')
 @else
     <h1>You must <a href="/image/upload">upload a photo</a>.</h1>
 @endif

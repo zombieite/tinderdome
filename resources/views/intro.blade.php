@@ -9,20 +9,9 @@ To vote, please contact <a href="mailto:wastelandfirebird@gmail.com">Firebird</a
 --}}
 
 <h1>Turn strangers into friends by meeting them.</h1>
-@foreach ($leaderboard as $leader)
-	<div class="centered_block">
-		@if ($leader['number_photos'])
-			<a target="_blank" href="/uploads/image-{{ $leader['profile_id'] }}-1.jpg"><img src="/uploads/image-{{ $leader['profile_id'] }}-1.jpg" style="height:100px;"></a>
-		@endif
-		<br>
-		@if ($leader['missions_completed'] > 0)
-			{{ $titles[$leader['title_index']] }}
-		@endif
-		{{ $leader['wasteland_name'] }} &middot; {{ $leader['missions_completed'] }}
-	</div>
-@endforeach
-<p>You Are Awaited is a simple game. You prepare online using this website, but the game itself happens during various real-world events. Participation is free. Here's how to play.
-</p>
+
+@include('leaderboard')
+
 <h2>1.
 @guest<a href="{{ route('register') }}" class="bright">@endguest
 Create a profile

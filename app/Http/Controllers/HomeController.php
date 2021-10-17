@@ -14,19 +14,18 @@ class HomeController extends Controller
     {
         $logged_in_user            = Auth::user();
         $logged_in_user_id         = Auth::id();
-
         $titles                    = \App\Util::titles();
         $success_message           = null;
         $vote                      = null;
+        $leader_count              = 10;
+        $leaderboard_and_count     = \App\Util::leaderboard( $leader_count );
+        $leaderboard               = $leaderboard_and_count['leaderboard'];
+        $nonleader_count           = $leaderboard_and_count['nonleader_count'];
 
         if ($logged_in_user) {
             // All good
         } else {
             // Logged out home page shows this stuff
-            $leader_count          = 10;
-            $leaderboard_and_count = \App\Util::leaderboard( $leader_count );
-            $leaderboard           = $leaderboard_and_count['leaderboard'];
-            $nonleader_count       = $leaderboard_and_count['nonleader_count'];
             return view('intro', [
                 'leaderboard'      => $leaderboard,
                 'leader_count'     => $leader_count,
@@ -243,6 +242,10 @@ class HomeController extends Controller
             'candidates'                          => $candidates,
             'titles'                              => $titles,
             'vote'                                => $vote,
+            'leaderboard'                         => $leaderboard,
+            'leader_count'                        => $leader_count,
+            'nonleader_count'                     => $nonleader_count,
+            'titles'                              => $titles,
         ]);
     }
 }
