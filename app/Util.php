@@ -575,6 +575,9 @@ class Util {
             array_push($leaderboard, $profile);
         }
         usort($leaderboard, ['\App\Util', 'sort_leaderboard']);
+        while (count($leaderboard) > $number_of_leaders) {
+            array_pop($leaderboard);
+        }
         return $leaderboard;
     }
 
