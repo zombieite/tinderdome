@@ -17,8 +17,7 @@ class HomeController extends Controller
         $titles                    = \App\Util::titles();
         $success_message           = null;
         $vote                      = null;
-        $leader_count              = 10;
-        $leaderboard_and_count     = \App\Util::leaderboard( $leader_count );
+        $leaderboard_and_count     = \App\Util::leaderboard( 5 );
         $leaderboard               = $leaderboard_and_count['leaderboard'];
         $nonleader_count           = $leaderboard_and_count['nonleader_count'];
 
