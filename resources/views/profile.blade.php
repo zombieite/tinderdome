@@ -20,7 +20,7 @@
 @if ($show_how_to_find_me)
 	@if ($profile_id == 1)
 	@else
-        @if (!$is_me)
+        @if (!$is_me && $how_to_find_me)
     		<span class="labelclass">Do not share screenshots of this page. This information is confidential.</span>
         @endif
 	@endif
