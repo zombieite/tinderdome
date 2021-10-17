@@ -575,7 +575,7 @@ class Util {
             array_push($leaderboard, $profile);
         }
         usort($leaderboard, ['\App\Util', 'sort_leaderboard']);
-        return $leaderboard;,
+        return $leaderboard;
     }
 
     public static function nos_left_for_user( $user_id ) {
