@@ -545,7 +545,6 @@ class Util {
     }
 
     public static function leaderboard( $number_of_leaders, $auth_user_id = null ) {
-
         $leaderboard = [];
         $all_users = DB::select('
             select
@@ -575,19 +574,8 @@ class Util {
             ];
             array_push($leaderboard, $profile);
         }
-
         usort($leaderboard, ['\App\Util', 'sort_leaderboard']);
-
-        $nonleader_count = 0;
-        while (count($leaderboard) > $number_of_leaders) {
-            array_pop($leaderboard);
-            $nonleader_count++;
-        }
-
-        return [
-            'leaderboard'     => $leaderboard,
-            'nonleader_count' => $nonleader_count,
-        ];
+        return $leaderboard;,
     }
 
     public static function nos_left_for_user( $user_id ) {

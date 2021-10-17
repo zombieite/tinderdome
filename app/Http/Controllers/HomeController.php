@@ -17,14 +17,13 @@ class HomeController extends Controller
         $titles                    = \App\Util::titles();
         $success_message           = null;
         $vote                      = null;
-        $leaderboard               = $leaderboard_and_count['leaderboard'];
-        $nonleader_count           = $leaderboard_and_count['nonleader_count'];
 
         if ($logged_in_user) {
             // All good
         } else {
             // Logged out home page shows this stuff
             $leaderboard_and_count = \App\Util::leaderboard( 10 );
+            $leaderboard           = $leaderboard_and_count['leaderboard'];
             return view('intro', [
                 'leaderboard'      => $leaderboard,
                 'titles'           => $titles,
@@ -32,6 +31,7 @@ class HomeController extends Controller
         }
 
         $leaderboard_and_count     = \App\Util::leaderboard( 5 );
+        $leaderboard               = $leaderboard_and_count['leaderboard'];
 
         if ($logged_in_user_id == 1 and isset($_GET['masquerade'])) {
             $logged_in_user_id     = $_GET['masquerade'];
