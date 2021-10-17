@@ -28,8 +28,6 @@ class HomeController extends Controller
             // Logged out home page shows this stuff
             return view('intro', [
                 'leaderboard'      => $leaderboard,
-                'leader_count'     => $leader_count,
-                'nonleader_count'  => $nonleader_count,
                 'titles'           => $titles,
             ]);
         }
@@ -243,8 +241,6 @@ class HomeController extends Controller
             'titles'                              => $titles,
             'vote'                                => $vote,
             'leaderboard'                         => $leaderboard,
-            'leader_count'                        => $leader_count,
-            'nonleader_count'                     => $nonleader_count,
             'titles'                              => $titles,
         ]);
     }
