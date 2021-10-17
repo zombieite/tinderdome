@@ -39,9 +39,10 @@
                         ])
                     @else
                         @include('user_block_matched_to_deleted', [
-                            'event_long_name'          => $matched_to_user->event_long_name,
-                            'event_id'                 => $matched_to_user->event_id,
-                            'user_id_of_match'         => $matched_to_user->user_id_of_match,
+                            'event_long_name'                     => $matched_to_user->event_long_name,
+                            'event_id'                            => $matched_to_user->event_id,
+                            'user_id_of_match'                    => $matched_to_user->user_id_of_match,
+                            'logged_in_users_rating_of_this_user' => $matched_to_user->logged_in_users_rating_of_this_user,
                         ])
                     @endif
                 @endif
