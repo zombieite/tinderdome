@@ -62,10 +62,6 @@ class ProfileController extends Controller
         $curse_interface                 = 0;
         $recently_updated_users          = [];
 
-        if ($profile_id == 1) {
-            $show_how_to_find_me = true;
-        }
-
         // If we have a logged in user (not someone looking at Firebird's profile)
         if ($logged_in_user_id && $logged_in_user) {
             if ($logged_in_user->admin_user) {
@@ -192,7 +188,7 @@ class ProfileController extends Controller
             }
         }
 
-        $show_how_to_find_me                = $is_my_match;
+        $show_how_to_find_me                = (($is_my_match) || ($profile_id == 1));
         $gender                             = $profile->gender;
         $gender_of_match                    = $profile->gender_of_match;
         $gender_of_match_2                  = $profile->gender_of_match_2;
