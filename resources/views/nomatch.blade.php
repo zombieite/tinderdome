@@ -3,7 +3,7 @@
 
 @if ($matches_done)
 	@if ($deleted_match_or_match_said_no)
-        <h2>You were matched for {{ $event }}, but your match deleted their account. You can delete this mission and be matched to a new user.</h2>
+        <h2>You were matched for {{ $event }}, but your match deleted their account.</h2>
         @include('rating_form_matched_to_deleted')
 	@else
         @if ($event)
