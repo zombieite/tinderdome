@@ -17,6 +17,7 @@
     <span class="labelclass">Missions completed:</span> {{ $missions_completed }}<br>
 @endif
 
+{{--
 @if ($how_to_find_me)
 	@if ($profile_id == 1)
 	@else
@@ -28,6 +29,7 @@
 		<span class="labelclass">How to find {{ $wasteland_name }}:</span><br><div class="profile_search_block"><span class="bright">{{ $how_to_find_me }}</span></div><br><br>
 	@endif
 @endif
+--}}
 
 @if ($share_info)
 	<h3><a href="mailto:{{ $share_info }}" class="bright">{{ $share_info }}</a></h3>
