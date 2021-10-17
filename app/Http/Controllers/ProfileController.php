@@ -188,7 +188,7 @@ class ProfileController extends Controller
             }
         }
 
-        $show_how_to_find_me                = (($is_my_match) || ($profile_id == 1));
+        $show_how_to_find_me                = ($is_my_match) || ($profile_id === 1) || ($logged_in_user_id === 1);
         $gender                             = $profile->gender;
         $gender_of_match                    = $profile->gender_of_match;
         $gender_of_match_2                  = $profile->gender_of_match_2;
