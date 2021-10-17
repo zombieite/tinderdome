@@ -7,6 +7,11 @@ use Log;
 
 class Util {
 
+    public static function min_signups_to_run_event()                        { return  20; }
+    public static function days_before_event_when_everyone_can_get_match()   { return   7; }
+    public static function days_before_event_when_top_ranked_can_get_match() { return  21; }
+    public static function max_event_days_away()                             { return 180; }
+
     public static function user_score($user_id) {
 
         $user_scoring_data_result = DB::select('
@@ -86,11 +91,6 @@ class Util {
             }
 		}
     }
-
-	public static function min_signups_to_run_event()                        { return  20; }
-	public static function days_before_event_when_everyone_can_get_match()   { return   7; }
-	public static function days_before_event_when_top_ranked_can_get_match() { return  21; }
-    public static function max_event_days_away()                             { return 180; }
 
     public static function upcoming_events_with_pretty_name_and_date_and_signup_status( $user, $event_id = null, $event_long_name = null ) {
 		$user_id                  = $user->id;
@@ -279,6 +279,7 @@ class Util {
                 name,
                 email,
                 number_photos,
+                user_id_of_match,
                 attending.event_id,
                 attending.match_requested,
                 event_long_name,

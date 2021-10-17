@@ -3,8 +3,8 @@
 
 @if ($matches_done)
 	@if ($deleted_match_or_match_said_no)
-        <h2>You were matched for {{ $event }}, but your match is no longer attending the event. You can delete this mission and be matched to a new user.</h2>
-        <form action="/" method="POST">{{ csrf_field() }}<input type="submit" name="delete_mission_{{ $event_id }}" value="Delete this mission"></form>
+        <h2>You were matched for {{ $event }}, but your match deleted their account. You can delete this mission and be matched to a new user.</h2>
+        @include('rating_form_matched_to_deleted')
 	@else
         @if ($event)
     		<h2>We have not yet found you a match for {{ $event }}.</h2>

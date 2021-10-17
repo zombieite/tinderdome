@@ -564,6 +564,7 @@ class ProfileController extends Controller
                 'event'                          => $event_long_name,
                 'event_id'                       => $event_id,
                 'deleted_match_or_match_said_no' => $deleted_match_or_match_said_no,
+                'user_id_of_match'               => $match_id,
             ]);
         }
 
