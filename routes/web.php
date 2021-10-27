@@ -18,7 +18,7 @@ Route::view('/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-am
 Route::view('/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-6-norwood',      'heads-will-rock-6');
 Route::view('/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-denouement',   'heads-will-rock-7');
 
-// Visible to logged in only ( add ->middleware('auth'); )
+// Visible to logged in only 
 Auth::routes();
 Route::get( '/match-me',                              'MatchController@match_me')->middleware(                'auth');
 Route::get( '/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
@@ -43,3 +43,6 @@ Route::post('/match-me',                              'MatchController@match_me'
 Route::post('/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
 Route::post('/create-event',                          'EventController@create_event')->middleware(            'auth');
 Route::post('/event/{event_id}/{event_long_name}',    'EventController@event')->middleware(                   'auth');
+
+// Other pages not needed for website functionality
+Route::get( '/theboard',                              'TheBoardController@the_board')->middleware(            'auth');
