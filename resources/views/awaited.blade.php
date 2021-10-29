@@ -21,7 +21,7 @@ Too implausible to be an autobiography. Too real to be fiction. It's a missing i
 <br>
 
 <div class="profile_search_block" style="width:20em;height:21em;vertical-align:top;">
-<a href="/a-n-d/awaited_nonfictional_delusion-000000.txt">Chapter 00 (txt)</a><br><br>
+<a href="/a-n-d/awaited_nonfictional_delusion-000000.txt">Chapter 00 (txt)</a><br>
 <a href="/a-n-d/00.mp3">Chapter 00 (mp3)</a><br>
 <div class="small">
 Hymie's Basement - 21st Century Pop Song<br>
