@@ -27,7 +27,7 @@ Too implausible to be an autobiography. Too real to be fiction. It's a missing i
 Hymie's Basement - 21st Century Pop Song<br>
 AC/DC - Back In Black<br>
 Carpenters - Close To You
-</div><br>
+</div>
 <a href="/a-n-d/00-kelli.m4a">Chapter 00 (m4a Aussie narration)</a><br>
 <div class="small">
 Read by Kelli Robinson<br>
@@ -40,15 +40,15 @@ Read by Kelli Robinson<br>
 Sex Pistols - Anarchy In The UK Demo<br>
 Sheldon Allman - Crawl Out Through The Fallout<br>
 <a href="https://thedeloreans.bandcamp.com/album/as-long-as-its-you-single">Deloreans - As Long As It's You</a>
-</div><br>
+</div>
 <a href="/a-n-d/01-kelli.m4a">Chapter 01 (m4a Aussie narration)</a><br>
 <div class="small">
 Read by Kelli Robinson<br>
-</div><br>
+</div>
 <a href="https://www.youtube.com/watch?v=C-4BzG1DQNY">Create Value (YouTube Aussie reading)</a><br>
 <div class="small">
 Read by Kelli Robinson<br>
-</div><br>
+</div>
 <a href="https://www.youtube.com/watch?v=tPGFdrbHxKA">Chapter 01, Scene II (Film)</a>
 </div>
 <div class="profile_search_block" style="width:20em;height:21em;vertical-align:top;">
@@ -122,7 +122,7 @@ Carpenters - Close To You
 <a href="/a-n-d/11.mp3">Chapter 11 (mp3)</a>
 <div class="small">
 John Gorka - I'm From New Jersey
-</div><br>
+</div>
 <a href="https://www.youtube.com/watch?v=bhFScP_Ag5Y">Year 38 Update, Putting The Rumors To Rest (Film)</a>
 </div>
 
