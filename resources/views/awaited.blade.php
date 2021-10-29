@@ -53,7 +53,7 @@ Read by Kelli Robinson<br>
 </div>
 <div class="profile_search_block" style="width:20em;height:21em;vertical-align:top;">
 <a href="/a-n-d/awaited_nonfictional_delusion-022502.txt">Chapter 02 (txt)</a><br>
-<a href="/a-n-d/02.mp3">Chapter 02 (mp3)</a><br><br>
+<a href="/a-n-d/02.mp3">Chapter 02 (mp3)</a><br>
 <a href="/a-n-d/02-kelli.m4a">Chapter 02 (m4a Aussie narration)</a><br>
 <div class="small">
 Read by Kelli Robinson<br>
@@ -80,7 +80,7 @@ Peter Gabriel and Kate Bush - Don't Give Up
 </div>
 <div class="profile_search_block" style="width:20em;height:21em;vertical-align:top;">
 <a href="/a-n-d/awaited_nonfictional_delusion-063608.txt">Chapter 06 (txt)</a><br>
-<a href="/a-n-d/06.mp3">Chapter 06 (mp3)</a><br><br>
+<a href="/a-n-d/06.mp3">Chapter 06 (mp3)</a><br>
 <a href="/a-n-d/deadline_0.mp3">Deadline's Introduction</a><br>
 <div class="small">By Chris Okula</div><br>
 </div>
@@ -90,10 +90,10 @@ Peter Gabriel and Kate Bush - Don't Give Up
 </div>
 <div class="profile_search_block" style="width:20em;height:21em;vertical-align:top;">
 <a href="/a-n-d/awaited_nonfictional_delusion-083704.txt">Chapter 08 (txt)</a><br>
-<a href="/a-n-d/08.mp3">Chapter 08 (mp3)</a><br><br>
+<a href="/a-n-d/08.mp3">Chapter 08 (mp3)</a><br>
 <a href="/a-n-d/deadline_uranium_springs_2019_1.mp3">Deadline's Story 1</a><br>
 <div class="small">By Chris Okula</div><br>
-Deadline's Story 2 (recording is missing)<br><br>
+Deadline's Story 2 (recording is missing)<br>
 <a href="/a-n-d/deadline_uranium_springs_2019_3.mp3">Deadline's Story 3</a><br>
 <div class="small">By Chris Okula</div><br>
 <a href="/a-n-d/deadline_uranium_springs_2019_4.mp3">Deadline's Story 4</a><br>
