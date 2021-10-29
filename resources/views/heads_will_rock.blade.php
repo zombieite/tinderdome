@@ -21,11 +21,6 @@ EBOOK</a></h1>
 <h1><a href="/h-w-r/heads-will-rock.pdf">PDF</a></h1>
 </div>
 
-<div class="profile_search_block" style="vertical-align:top;">
-<h1>PREVIOUS: <a href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a></h1>
-</div>
-<br>
-
 <p class="small">
 "Not many people have written books in the past 38 years. So nowadays every book that gets written sort of has to be a history book and a philosophy book and a survival book too. I'd be doing you a disservice if I didn't tell you what I know about how things got to be the way they are and offer you some ideas about how to get things back to the way they were."
 </p>
@@ -92,5 +87,12 @@ Will a new Pontiac Firebird be built in Norwood? Or will the Hellies and the Gil
 The victors celebrate, while the losers mourn... and plan their revenge.
 <br><br>
 </div>
+
+<div class="profile_search_block" style="width:20em;vertical-align:top;">
+<a class="small" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>
+<br><br>
+Firebird's marketing materials for the Firebuddy "lappy" computer.
+</div>
+<br>
 
 @endsection
