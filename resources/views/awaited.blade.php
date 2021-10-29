@@ -126,7 +126,7 @@ John Gorka - I'm From New Jersey
 </div>
 
 <div class="profile_search_block" style="vertical-align:top;">
-<h1>NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem" class="bright">Heads Will Rock</a></h1>
+<h1>Next: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem" class="bright">Heads Will Rock</a></h1>
 </div>
 
 <iframe style="width:100%;height:480px" src="https://www.youtube.com/embed/bhFScP_Ag5Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
