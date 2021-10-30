@@ -6,7 +6,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Heads Will Rock: A chronicle of postapocalyptic mayhem">
 <meta property="og:url" content="https://youareawaited.com/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">
-<meta property="og:image" content="https://youareawaited.com/h-w-r/heads-will-rock.jpg">
+<meta property="og:image" content="https://youareawaited.com/h-w-r/heads-will-rock-og.jpg">
 <meta property="og:description" content="Can you retain your humanity in a world gone mad?">
 <meta name="description" content="Can you retain your humanity in a world gone mad?">
 <title>Heads Will Rock: A chronicle of postapocalyptic mayhem</title>
