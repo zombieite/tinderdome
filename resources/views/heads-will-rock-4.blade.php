@@ -1,7 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
 PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys</a>
-<h1>CHAPTER 4: SELIGMAN</h1>
+<h3>CHAPTER 4: SELIGMAN</h3>
 <p>Mohawk Hineyhole came after us in the sand rail. Chumdumpster took off on the Elsinore. The Flirty Dozen piled into the deuce-and-a-half and they made sure to bring that guillotine with them.</p><p>
 The sand rail and the Elsinore didn't have headlights so they stayed behind the deuce. The Pinto didn't have headlights anymore either after Dorktown smashed into that doorway so Dorktown stayed behind me.</p><p>
 The Pinto had a new carb and the Frankenbird had a toey doublesuperturbocharged V8 so it didn't take long to put some distance between us and the bloodthirsty boofheads.</p><p>

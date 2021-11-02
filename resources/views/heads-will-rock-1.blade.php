@@ -1,7 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
 PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland</a>
-<h1>CHAPTER 1: DORKTOWN</h1>
+<h3>CHAPTER 1: DORKTOWN</h3>
 <p>I answered a knock at the door. It was that girl Dorktown.</p><p>
 "You again? Hunkidory!" I shouted.</p><p>
 "No wait!" she said. "I have a Firebuddy now. Hunkidory let me in." She showed me her Firebuddy.</p><p>
