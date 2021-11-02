@@ -13,7 +13,7 @@
 <link href="/css/app.css?rev=3" rel="stylesheet">
 </head>
 <body style="text-align:center;">
-<div style="max-width:19em;font-size:large;font-family:serif;text-align:left;margin:auto;">
+<div style="max-width:19em;font-size:x-large;font-family:serif;text-align:left;margin:auto;">
 @yield('content')
 <br>
 <br>
