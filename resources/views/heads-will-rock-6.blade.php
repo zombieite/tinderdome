@@ -1,7 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
 PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo</a>
-<h1>CHAPTER 6: NORWOOD</h1>
+<h3>CHAPTER 6: NORWOOD</h3>
 <p>There never was and there never will be another century like the twentieth. In the twentieth century things were invented more quickly than ever before. Millennia of stagnation and then all of a sudden in the twentieth century every decade was totally unlike the one before it. Hundreds of generations of subsistence farmers and then out of nowhere someone's kid builds a rocket that lands on the moon.</p><p>
 <i>Yay another rant about economics!!</i></p><p>
 I appreciate your enthusiasm Dorktown.</p><p>

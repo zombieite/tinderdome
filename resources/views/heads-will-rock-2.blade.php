@@ -1,7 +1,7 @@
 @extends('layouts.heads_will_rock')</p><p>
 @section('content')</p><p>
 PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown</a>
-<h1>CHAPTER 2: BAKERSFIELD</h1>
+<h3>CHAPTER 2: BAKERSFIELD</h3>
 <p>As the sun came up me and Dorktown and Hunkidory surveyed the ruins. There was nothing left of Tomorrowland Weekend.</p><p>
 Me and Dorktown said goodbye to Hunkidory. I promised him there'd be a job waiting for him in Norwood if we got the factory up and running.</p><p>
 I borrowed Dorktown's Firebuddy to send a message to someone who might help us. </p><p>

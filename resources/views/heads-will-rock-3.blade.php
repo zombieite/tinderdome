@@ -1,7 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
 PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield</a>
-<h1>CHAPTER 3: VAN NUYS</h1>
+<h3>CHAPTER 3: VAN NUYS</h3>
 <p>Not many people have written books in the past 38 years. So nowadays every book that gets written sort of has to be a history book and a philosophy book and a survival book too. I'd be doing you a disservice if I didn't tell you what I know about how things got to be the way they are and offer you some ideas about how to get things back to the way they were.</p><p>
 <i>I hope you're gonna spew on about economics again. That was my favourite part of the last book!!</i></p><p>
 You're being sarcastic aren't you Dorktown. Listen. Economics is more than just the study of how we spend money. It's the study of how we make choices. The choices we make change our lives and change the lives of those around us. The choices we make could save the world. So economics is the study of how to save the world. It's important. Stop messing up my story.</p><p>

@@ -1,7 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
 HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem</a>
-<h1>CHAPTER 0: TOMORROWLAND</h1>
+<h3>CHAPTER 0: TOMORROWLAND</h3>
 <p>"Tomorrowland Weekend! Where the Big Bang never happened! You are awaited at Tomorrowland Weekend!"</p><p>
 Carnival barking isn't my style so I paid a bloke to shout this stuff for me.</p><p>
 "Tomorrowland Weekend! No suffering! No hunger! No politics! No war!"</p><p>

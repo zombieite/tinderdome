@@ -1,7 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
 PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman</a>
-<h1>CHAPTER 5: AMARILLO</h1>
+<h3>CHAPTER 5: AMARILLO</h3>
 <p>That night I snuck the Frankenbird out of Seligman with the headlights off. Once I was far enough away I turned the headlights on and picked up the pace.</p><p>
 I kept my eyes to the sky looking for helicopters but because of that I didn't notice that Mohawk Hineyhole was discreetly following me in the Pinto with Chumdumpster behind him on the Elsinore. I figured this out when they stopped being discreet about it and the Pinto started ramming the Frankenbird. Mohawk Hineyhole was clearly not afraid of blowing himself up in the Pinto as long as he could take me with him.</p><p>
 To make things worse they hadn't been as careful about sneaking out of town as I'd been. They had one of those little round helicopters on their tail. I think it was a Loach but my helicopter expert has gone AWOL. Fortunately it had no guns mounted on it so it wasn't shooting at us. I kicked it in the guts and the Frankenbird left them all behind.</p><p>

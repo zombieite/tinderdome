@@ -1,4 +1,4 @@
-@extends('layouts.heads_will_rock')
+@extends('layouts.heads_will_rock_home')
 @php
 $hwr = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-marky-make-up/heads-will-rock/paperback/product-r2vrpv.html";
 $hwr_ebook = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-marky-make-up/heads-will-rock/ebook/product-d77kzp.html";
