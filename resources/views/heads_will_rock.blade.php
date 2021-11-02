@@ -7,12 +7,12 @@ $hwr_ebook = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-ma
 
 <a href="{{ $hwr }}"><img style="width:100%;" src="/h-w-r/heads-will-rock.jpg"></a>
 
-<div class="profile_search_block" style="vertical-align:top;">
+<div class="profile_search_block" style="width:20em;vertical-align:top;text-align:center;">
 <a href="{{ $hwr }}"><img style="width:200px;" src="/h-w-r/heads_will_rock_front_cover.jpg"></a>
 <h1><a href="{{ $hwr }}" class="bright">PAPERBACK</a></h1>
 </div>
 
-<div class="profile_search_block" style="vertical-align:top;">
+<div class="profile_search_block" style="width:20em;vertical-align:top;text-align:center;">
 <h1><a href="{{ $hwr_ebook }}" class="bright">
 EBOOK</a></h1>
 </div>
