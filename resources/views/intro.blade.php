@@ -31,7 +31,7 @@ Browse other profiles and let us know who you'd enjoy meeting.
 <p>
 A few days before the event, return to this site to get your match.
 </p>
-<h2>4. Seek out your match at the event</h2>
+<h2>5. Seek out your match at the event</h2>
 <p>
 Your mission is to find your match and introduce yourself. They'll be looking for you, too. That's it!
 </p>
