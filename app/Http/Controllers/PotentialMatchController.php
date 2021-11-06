@@ -66,6 +66,7 @@ class PotentialMatchController extends Controller
                 number_photos,
                 hoping_to_find_love,
                 share_info_with_favorites,
+                i_am_attending.user_id_of_match,
                 c1.choice logged_in_user_choice,
                 c2.choice their_choice,
                 GROUP_CONCAT(event_long_name order by event_date separator ', ') event_long_name
@@ -93,6 +94,7 @@ class PotentialMatchController extends Controller
                 number_photos,
                 hoping_to_find_love,
                 share_info_with_favorites,
+                user_id_of_match,
                 logged_in_user_choice,
                 their_choice
             order by
@@ -114,6 +116,7 @@ class PotentialMatchController extends Controller
             $event_name                = $profile->event_long_name;
             $missions_completed        = \App\Util::missions_completed( $profile_id );
             $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
+            $ok_to_rate_user           = $profile->id != $profile->user_id_of_match;
 
             $profile = [
                 'profile_id'                => $profile_id,
@@ -129,7 +132,7 @@ class PotentialMatchController extends Controller
                 'their_choice'              => $their_choice,
                 'missions_completed'        => $missions_completed,
                 'event_name'                => $event_name,
-                'ok_to_rate_user'           => true,
+                'ok_to_rate_user'           => $ok_to_rate_user,
             ];
             array_push($profiles, $profile);
         }
