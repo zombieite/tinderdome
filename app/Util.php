@@ -7,10 +7,11 @@ use Log;
 
 class Util {
 
-    public static function min_signups_to_run_event()                        { return  20; }
-    public static function days_before_event_when_everyone_can_get_match()   { return   7; }
-    public static function days_before_event_when_top_ranked_can_get_match() { return  21; }
-    public static function max_event_days_away()                             { return 180; }
+    public static function check_session_match_requested_time()              { return true; }
+    public static function min_signups_to_run_event()                        { return   20; }
+    public static function days_before_event_when_everyone_can_get_match()   { return    7; }
+    public static function days_before_event_when_top_ranked_can_get_match() { return   21; }
+    public static function max_event_days_away()                             { return  180; }
 
     public static function user_score($user_id) {
 
@@ -764,7 +765,9 @@ class Util {
             // All good
         } else {
             // Double check the session to avoid people just deleting their attending row. Still not perfect security but not a huge issue if they retry too often.
-            $match_requested_time = session('match_requested_time');
+            if (\App\Util::check_session_match_requested_time()) {
+                $match_requested_time = session('match_requested_time');
+            }
         }
         if ($match_requested_time) {
             if ($match_requested_time && $current_time - $match_requested_time < $seconds_between_submits) {
