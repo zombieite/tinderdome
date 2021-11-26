@@ -116,6 +116,8 @@ NEWSCASTER(can be cast later, ?): Radio audio only
 
 EXTRAS: Employees of 7SP. mechanics, office workers, chemists, engineers.
 
+EMIL: For a music box after-credits thing.
+
 Possible actors:
 Steve, Leo, Kelli, Bill Williams, John Devilman, Dan Carmichael, Darren Koziol. See if Yuko and Yoshi might be coming!
 ----
