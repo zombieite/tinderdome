@@ -64,133 +64,101 @@ SCENE 8
 
 (7SP OFFICE, night)
 
-Camera closeup of PG's burning employee list. Camera continues the downward motion it was making earlier, when it had a closeup of PG's pen. Moving downward, it indicates BB's name: Bruce Barbagallo. BB's address: Broken Hill NSW Notes: Hometown is Werrington NSW, nickname "Wez". Screeching violin plays, repeating the motif from the beginning of the film.
+Camera closeup of PG's burning employee list. Camera continues the downward motion it was making earlier, when it had a closeup of PG's pen. Moving downward, it indicates BB's name: Bruce Barbagallo. Address: BB's address. Notes: Hometown Werrington NSW--nickname "Wez". Screeching violin plays, repeating the motif from the beginning of the film.
 
 SCENE 9 (optional)
 
-(MUNDI MUNDI)
+(MUNDI MUNDI, sunset)
 
 As the ending credits roll, and after the credits are done, grown FERAL KID, in nicer (but still post-apocalyptic) clothing, with music box in hand, visits Mundi Mundi. He turns the crank and plays the song.
-----
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-----
-LOCATIONS
-
-Broken Hill and Silverton NSW Australia, 1981
-----
+------
 SETS
+------
 
-HOUSE: BB and DEBBY's house (Rented house in Broken Hill)
+(Optional) OIL DONKEY: Pumpjack in action (https://en.wikipedia.org/wiki/Eromanga,_Queensland)
 
-7SP OFFICE: Silverton field office (Silverton Hostel)
+HOUSE EXTERIOR: BB and DEBBY's house, exterior (Rented house)
 
-COMPOUND: MM2 well/refinery/compound (Camel Farm)
+HOUSE INTERIOR: BB and DEBBY's house, interior (Rented house)
 
-(Optional) OIL DONKEY: Beginning credits
+7SP OFFICE EXTERIOR: Field office, exterior (Hostel)
+
+7SP OFFICE INTERIOR: Field office, PG's office (Hostel)
+
+COMPOUND: MM2 well/refinery/compound (Camel farm)
 
 (Optional) MUNDI MUNDI: Ending credits
-----
-ACTORS AND OUTFITS
+
+------
+ACTORS
+------
 
 BB (Steve): Bruce Barbagallo. Red mohawk but his hair is covered in a hat at all times, until the end. Tattered and modified denim "work" vest with 7SP patch, which BB has heavily personalised to make it more punk. Above the 7SP patch he's painted "I DRINK [7 SISTERS PETROLEUM]". Works as mechanic for 7SP.
 
-ZED (?): BB's creepy crazy coworker. Inadequate, insecure, ineffectual, inferior. 7SP employee. Tattered denim work vest with 7SP patch, with creepy message painted on the back.
+ZED (?): BB's creepy coworker. Inadequate, insecure, ineffectual, inferior, but angry. 7SP employee. Tattered denim work vest with 7SP patch, and a somewhat ominous message painted on the back: "I DON'T LIKE MONDAYS EITHER." Same hat as BB (which makes BB's hat appear less signficant).
 
-NEIL (?): BB's coworker in a wheelchair, the mechanic with bad legs from MM2. 7SP employee. Tattered denim work vest with 7SP patch, that otherwise looks as much as possible like the one in MM2.
+NEIL (?): BB's coworker in a wheelchair, the mechanic with bad legs from MM2. 7SP employee. Tattered white denim work vest with 7SP patch, yellow shirt, blue bandana. Similar to his outfit in MM2. Same hat as BB (which makes BB's hat appear less signficant).
 
-PG (Leo): Papagallo. Business suit from 1981. MM2 wasteland outfit. CEO of 7SP.
+PG (Leo): Papagallo. Business suit from 1981. Optional MM2 wasteland outfit also. CEO of 7SP.
 
 DEBBY (Kelli): Pregnant punk-rock wife of BB. Long brassy blonde hair.
 
-EXTRAS: Employees of 7SP. Mechanics, office workers, engineers.
+EXTRAS: Employees of 7SP. Mechanics, office workers, engineers, with outfits from dystopian pre-apocalyptic 1981. Some can be wearing the spare 7SP vests we'll have with us.
 
 NEWSCASTER (?): Radio newscaster, audio only.
 
 CURMUDGEON (optional, ?): The military CURMUDGEON, who chimes in with annoying comments when PG argues with BB.
 
 FK (optional, Emil): Feral kid, all grown up.
-----
-PROPS
 
-PG's "typed" out employees list with notes
-sheet (acquired) with human-shaped oil stain (TODO) from sleeping on it in work clothes
-Denim vests for mechanics (acquired) Bruce, ZED and NEIL nametag patches, 7SP patches (TODO)
+------
+PROPS
+------
+
+PG's "typed" (printed in monospace font) employees list with notes
+Bed sheet (acquired) with human-shaped oil stains (TODO) from sleeping on it in work clothes
+Denim vests for mechanics (acquired), with Bruce, ZED and NEIL nametag patches, 7SP patches (TODO)
 Blue bandana for Neil
 (in progress) 7SP sign 600mm x 400mm https://www.vistaprint.com.au/signs-posters/metal-signs
-(in progress) hats for mechanics
-(in progress) orange blanket reflector
-(in progress) wooden desk
-(in progress) whole earth catalog, Solar Energy, socialism, Atlas Shrugged, art of war, How to Win Friends, kapital
-(in progress) Photo of oil derricks
+(in progress) Hats for mechanics
+(in progress) Orange blanket reflector
+(in progress) Framed wall poster of oil derricks
+(in progress) PG's book collection
 (Steve) Old maps
 (Linda) Old metal jerry can of "petrol" (water)
 (Leo) Fake blood
-(Leo) business suit
-(Leo) briefcase
+(Leo) 70s/80s business suit
+(Leo) Briefcase
 (Leo) Military helmet for Curmudgeon
-(Kelli) Knife
-(Kelli) red pen for imprint of music box in DEBBY's hand 
+(Kelli) Knives
+(Kelli) Red pen for imprint of music box in DEBBY's hand 
 (Kelli) PG's pen
-(Kelli) happy birthday music box
+(Kelli) Happy birthday music box
 (Kelli) Wooden matches
-(acquired) yellow shirt for Neil
-(acquired) adhesive double-sided tape for mounting sign and posters
-(acquired) old radio
+(acquired) BB's book collection
+(acquired) Yellow shirt for Neil
+(acquired) Adhesive double-sided tape for mounting sign and posters
+(acquired) Old radio
 (acquired) ANTHONY PAPPAGALLO, CEO 7 SISTERS PETROLEUM plaque
 (acquired) Wheelchair
-(acquired) Bright light, battery, car power cord, for reflecting light off orange blanket 
-(somebody will have one, right?) Fire extinguisher
-----
-SHOOTING SCHEDULE
+(acquired) Bright light, battery, car power cord, for reflecting light off orange blanket to make "flames"
+(acquired) "Wood" desk (vinyl wrap on whatever desk is available)
+Fire extinguisher
 
-Wednesday: Steve/Kelli/Leo stuff (try to get NEIL, ZED, CURMUDGEON, to come early, too)
-Thursday:  Steve/Kelli/Leo stuff (try to get NEIL, ZED, CURMUDGEON, to come early, too)
-Friday:    NEIL, ZED, CURMUDGEON parts if we haven't gotten them already. Extras stuff, Pinnacles and Mundi Mundi.
-Saturday:  NEIL, ZED, CURMUDGEON parts if we haven't gotten them already. Extras stuff, Broken Hill.
-Sunday:    NEIL, ZED, CURMUDGEON parts if we haven't gotten them already. Extras stuff, Mad Max II competition and screening.
-----
-ORIGINAL MAD MAX 2 SCRIPT INTRO NOT USED IN FINAL CUT OF MAD MAX 2 https://imsdb.com/scripts/Mad-Max-2-The-Road-Warrior.html
+------
+SHOOTING SCHEDULE
+------
+
+Wednesday: BB/DEBBY/PG stuff (try to get NEIL, ZED, CURMUDGEON too)
+Thursday:  BB/DEBBY/PG stuff (try to get NEIL, ZED, CURMUDGEON too)
+Friday:    NEIL, ZED, CURMUDGEON parts if we haven't gotten them already. Scenes involving extras.
+Saturday:  NEIL, ZED, CURMUDGEON parts if we haven't gotten them already. Scenes involving extras.
+Sunday:    NEIL, ZED, CURMUDGEON parts if we haven't gotten them already. Scenes involving extras.
+
+------
+ORIGINAL MAD MAX 2 SCRIPT INTRO, NOT USED IN FINAL CUT OF MAD MAX 2 https://imsdb.com/scripts/Mad-Max-2-The-Road-Warrior.html
+------
 
          Ih. A LINE OF CARS... lh.
           stretches for blocks until it finally reaches
@@ -246,4 +214,3 @@ ORIGINAL MAD MAX 2 SCRIPT INTRO NOT USED IN FINAL CUT OF MAD MAX 2 https://imsdb
           In. IN A CITY STREET... In.
           .anxious faces look up as the street lights
           flick off.
-----
