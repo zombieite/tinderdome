@@ -23,7 +23,7 @@ I thought about everyone I'd written about in my book. After all these years the
 Could it be Messenger Kid?</p><p>
 "All right let's go" I said.</p><p>
 When we stepped outside I looked over at the Cage. Spectators had climbed up the sides and onto the top. The entire structure was rocking back and forth. The crowd hooted and hollered like animals. Hopefully tonight this Hellies and Gillies stuff would be decided once and for all and I'd never have to hear about it again.</p><p>
-We headed away from the Cage and toward the entrance gate. The light at the gate was out and Hunkidory was trying to fix it. All I could see was the silhouette of a man who was definitely not Messenger Kid. We were just a few feet away when the light suddenly flickered on and revealed his face.</p><p>
+We headed away from the Cage and toward the entrance gate. The light at the gate was out and Hunkidory was trying to fix it. All I could see was the silhouette of a man who was definitely not Messenger Kid. We were just a couple meters away when the light suddenly flickered on and revealed his face.</p><p>
 "G'day mate!" said a maniacal grinning mohawked head.</p><p>
 I leaped back in terror and fell to the ground. "Jesus frigging Crimean Peninsula" I said.</p><p>
 "I found Bruce!" Dorktown said proudly.</p><p>
