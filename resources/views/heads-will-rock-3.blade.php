@@ -189,7 +189,7 @@ I pulled a pair of handcuffs out of my pocket. I slapped one cuff onto the steer
 I got out and took the axe with me. Dorktown tugged at the steering wheel furiously to no avail. I headed for the assembly plant.</p><p>
 The facility was massive and made up of several buildings. But what had once been a shining bastion of progress and prosperity was now nothing but a ghostly collection of blackened husks.</p><p>
 Light was coming out of a large open rollup door in the main building. A sand rail and the Elsinore motorbike and the deuce-and-a-half with the guillotine trailer were parked out front. A goon in a blonde wig was out there too just like Tex said he would be. He was sharpening the blade of the guillotine. He had two prisoners with hoods over their heads tied to the front bumper of the deuce.</p><p>
-Great. Now this is a rescue mission too? Last time I rescued someone she listened to music while watching me get dragged away by a motorcycle.</p><p>
+Great. Now this is a rescue mission too? Last time I rescued someone she listened to music while watching me get dragged away by a motorbike.</p><p>
 I went around the side and used Tex's key to sneak in through the darkened fire door. I had some trouble pushing the door open cuz something was leaning up against it. I squeezed my way in but in doing so I knocked over a pile of something.</p><p>
 I was greeted by Tex's mutilated head on a pike just centimeters away from my face. There were a dozen other heads on a dozen other pikes too.</p><p>
 If you came here to read about grisly murder well then there you go. But before you start wanking off to it I got something I wanna say.</p><p>
