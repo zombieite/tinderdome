@@ -64,12 +64,12 @@ class RegisterController extends Controller
         }
 
         if (
-            $signup_code == 'headswillrock' || 
-            $signup_code == 'HeadsWillRock' || 
-            $signup_code == 'HEADSWILLROCK' || 
-            $signup_code == 'heads will rock' || 
-            $signup_code == 'Heads Will Rock' || 
-            $signup_code == 'HEADS WILL ROCK' || 
+               $signup_code == 'headswillrock' 
+            || $signup_code == 'HeadsWillRock' 
+            || $signup_code == 'HEADSWILLROCK' 
+            || $signup_code == 'heads will rock' 
+            || $signup_code == 'Heads Will Rock' 
+            || $signup_code == 'HEADS WILL ROCK'  
         ) {
             $signup_code = 'headswillrock';
         }
