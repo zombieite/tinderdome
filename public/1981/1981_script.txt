@@ -102,7 +102,7 @@ ACTORS
 
 PG (Leo): Papagallo. Business suit from 1981. Optional MM2 wasteland outfit also. CEO of 7SP.
 
-ZED (?): BB's creepy coworker. Inadequate, insecure, ineffectual, inferior, but angry. 7SP employee. Tattered denim work vest with 7SP patch, and a somewhat ominous message painted on the back: "I DON'T LIKE MONDAYS EITHER." Same hat as BB (which makes BB's hat appear less signficant).
+ZED (?): BB's creepy coworker. Inadequate, insecure, ineffectual, inferior, but angry. 7SP employee. Tattered denim work vest with 7SP patch, and a somewhat ominous message painted on the back: "I DON'T LIKE MONDAYS EITHER." Same hat as BB (which makes BB's hat appear less signficant). Try to get Ken May or Bill Williams or John Devilman.
 
 NEIL (?): Always in wheelchair. BB's coworker. The mechanic with bad legs from MM2. 7SP employee. Tattered white denim work vest with 7SP patch, yellow shirt, blue bandana. Similar to his outfit in MM2. Same hat as BB (which makes BB's hat appear less signficant).
 
@@ -120,16 +120,13 @@ PROPS
 
 PG's "typed" (printed in monospace font) employees list with notes
 Bed sheet (acquired) with human-shaped oil stains (TODO) from sleeping on it in work clothes
-Denim vests for mechanics (acquired), with Bruce, ZED and NEIL nametag patches, 7SP patches (TODO)
-Blue bandana for Neil
-Leather g-banger for Bruce
+Denim vests for mechanics (acquired), with 7SP patches (TODO)
 Year 40 postapoc outfit for Emil? Mars leather jacket and jeans and old shoes or boots
-(in progress) 7SP sign 600mm x 400mm https://www.vistaprint.com.au/signs-posters/metal-signs
-(in progress) Hats for mechanics
-(in progress) Orange blanket reflector
 (in progress) Framed wall poster of oil derricks
+(in progress) Orange blanket reflector
 (in progress) PG's book collection
 (Steve) Old maps
+(Steve) Leather g-banger for Bruce
 (Linda) Old metal jerry can of "petrol" (water)
 (Leo) Fake blood
 (Leo) 70s/80s business suit
@@ -140,6 +137,9 @@ Year 40 postapoc outfit for Emil? Mars leather jacket and jeans and old shoes or
 (Kelli) PG's pen
 (Kelli) Happy birthday music box
 (Kelli) Wooden matches
+(acquired) Blue bandana for Neil
+(acquired) 7SP sign 600mm x 400mm https://www.vistaprint.com.au/signs-posters/metal-signs
+(acquired) Hats for mechanics
 (acquired) BB's book collection
 (acquired) Yellow shirt for Neil
 (acquired) Adhesive double-sided tape for mounting sign and posters
