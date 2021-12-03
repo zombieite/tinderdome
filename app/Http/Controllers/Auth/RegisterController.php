@@ -63,10 +63,17 @@ class RegisterController extends Controller
             $data['description'] = substr($data['description'], 0, 2000);
         }
 
-        if ($signup_code == 'Atomic 21' || $signup_code == 'atomic 21' || $signup_code == 'Atomic21' || $signup_code == 'ATOMIC21' || $signup_code == 'ATOMIC 21') {
-            $signup_code = 'atomic21';
+        if (
+            $signup_code == 'headswillrock' || 
+            $signup_code == 'HeadsWillRock' || 
+            $signup_code == 'HEADSWILLROCK' || 
+            $signup_code == 'heads will rock' || 
+            $signup_code == 'Heads Will Rock' || 
+            $signup_code == 'HEADS WILL ROCK' || 
+        ) {
+            $signup_code = 'headswillrock';
         }
-        if ($signup_code != 'atomic21') {
+        if ($signup_code != 'headswillrock') {
             abort(200, 'Invalid signup code. Please contact Firebird directly to create an account');
         }
 
