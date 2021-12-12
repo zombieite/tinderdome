@@ -65,6 +65,8 @@ HOUSE INTERIOR: BB and DEBBY's house, interior (Rented house)
 
 7SP OFFICE INTERIOR: Field office, PG's office (Hostel?--but there might not be a suitable room. possibly could use the corner of the large room with window.)
 
+BUS: MM2 well/refinery/compound (Camel farm)--simulate bus movement by actor/camera shaking, moving lights, added sounds
+
 COMPOUND: MM2 well/refinery/compound (Camel farm)
 
 (Optional) MUNDI MUNDI: Ending credits
@@ -93,9 +95,8 @@ Put oil stains on sheet from sleeping on it in work clothes
 Compose and print PG's "typed" (printed in monospace font) employees list with notes
 Weather and graffiti 7SP sign
 Lots of Egg McMuffins--to eat for real, and to eat in the scene
-5 girly trinkets, like lockets, jewelry, toys, buttons, barettes, earrings
-Bruce's duffel bag
 (bid placed) White long sleeve casual shirt for Zed
+(shipping, kelli has earrings) 5 girly trinkets, like lockets, jewelry, toys, buttons, barettes, earrings
 (shipping) Aqua bandana for Zed
 (shipping) Neon yellow poster paper
 (shipping) 7SP patches on vests
@@ -111,6 +112,7 @@ Bruce's duffel bag
 (Kelli) PG's pen
 (Kelli) Happy birthday music box
 (Kelli) Wooden matches
+(acquired) Bruce's duffel bag, Empress of Australia
 (acquired) Black paint to make everyone's hands look greasy
 (acquired) Hammer for Debby to use, also bring other tools
 (acquired) Orange blanket + yellow paper reflector
