@@ -86,6 +86,11 @@ The victors celebrate, while the losers mourn... and plan their revenge.
 <br><br>
 Firebird's marketing materials for the Firebuddy "lappy" computer.
 </div>
-<br>
+
+<div class="profile_search_block" style="width:20em;vertical-align:top;text-align:center;">
+<h1><a href="{{ $hwr }}" class="bright">BUY PAPERBACK</a></h1>
+<a href="{{ $hwr }}"><img style="width:200px;" src="/h-w-r/heads_will_rock_front_cover.jpg"></a>
+<h1><a href="{{ $hwr_ebook }}" class="bright">BUY EBOOK</a></h1>
+</div>
 
 @endsection
