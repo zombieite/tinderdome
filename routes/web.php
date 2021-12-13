@@ -5,6 +5,7 @@ Route::get( '/',                                                      'HomeContr
 Route::get( '/awaited-nonfictional-delusion',                         'AwaitedNonfictionalDelusionController@awaited_nonfictional_delusion');
 Route::get( '/heads-will-rock',                                       'HeadsWillRockController@heads_will_rock');
 Route::get( '/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem', 'HeadsWillRockController@heads_will_rock');
+Route::get( '/1981-postapocalyptic-short-film',                       'NineteenEightyOneController@nineteen_eighty_one');
 Route::get( '/profile/Firebird',                                      'ProfileController@showFirebird');
 Route::get( '/event/{event_id}/{event_long_name}',                    'EventController@event');
 
