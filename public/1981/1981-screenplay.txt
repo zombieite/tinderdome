@@ -55,7 +55,7 @@ NEIL (?): Always in wheelchair. BB's coworker. The mechanic with bad legs from M
 
 EXTRAS (?): Employees of 7SP. Mechanics, office workers, engineers, with outfits from dystopian pre-apocalyptic 1981. Some can be wearing the spare 7SP vests we'll have with us, or other spare wasteland gear we bring.
 
-RADIO ANNOUNCER (?): Radio newscaster, audio only.
+RADIO ANNOUNCER (Caly, COMPLETE): Radio newscaster, audio only.
 
 GROWN FERAL KID (optional, Emil): Feral kid, all grown up.
 
