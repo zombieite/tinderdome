@@ -1,13 +1,13 @@
 <?php
 
 // Visible to everyone
-Route::get( '/',                                                      'HomeController@index');
-Route::get( '/awaited-nonfictional-delusion',                         'AwaitedNonfictionalDelusionController@awaited_nonfictional_delusion');
-Route::get( '/heads-will-rock',                                       'HeadsWillRockController@heads_will_rock');
-Route::get( '/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem', 'HeadsWillRockController@heads_will_rock');
-Route::get( '/1981-postapocalyptic-short-film',                       'NineteenEightyOneController@nineteen_eighty_one');
-Route::get( '/profile/Firebird',                                      'ProfileController@showFirebird');
-Route::get( '/event/{event_id}/{event_long_name}',                    'EventController@event');
+Route::get( '/',                                                           'HomeController@index');
+Route::get( '/awaited-nonfictional-delusion',                              'AwaitedNonfictionalDelusionController@awaited_nonfictional_delusion');
+Route::get( '/heads-will-rock',                                            'HeadsWillRockController@heads_will_rock');
+Route::get( '/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem',      'HeadsWillRockController@heads_will_rock');
+Route::get( '/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2', 'NineteenEightyOneController@nineteen_eighty_one');
+Route::get( '/profile/Firebird',                                           'ProfileController@showFirebird');
+Route::get( '/event/{event_id}/{event_long_name}',                         'EventController@event');
 
 // Just HTML, visible to everyone
 Route::view('/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland', 'heads-will-rock-0');
