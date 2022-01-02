@@ -67,10 +67,9 @@ PROPS
 Print out copies of scripts
 Compose and print PG's "typed" (printed in monospace font) employees list with notes
 Put oil stains on vests and shirts
-Put oil stains on sheet from sleeping on it in work clothes
-Weather and graffiti 7SP sign
+Graffiti 7SP sign
 Dye Kelli's hair brassy blonde
-Dye my hair creepy black if we have no Zed
+Dye my hair creepy black
 Lots of Egg McMuffins--to eat for real, and to eat in the scene
 (Linda) Old metal jerry can of "petrol" (water)
 (Steve) Old maps
@@ -78,12 +77,13 @@ Lots of Egg McMuffins--to eat for real, and to eat in the scene
 (Leo) 70s/80s business suit
 (Leo) Briefcase
 (Leo) Old phone
+(Leo) Flamethrower (optional)
 (Kelli) Punk dangly earrings, ankh and cross and lightning
 (Kelli) Knives
 (Kelli) Red pen for imprint of music box in DEBBY's hand 
 (Kelli) PG's pen
 (Kelli) Happy birthday music box
-(Kelli) Wooden matches
+(Kelli) Wooden matches 
 (acquired) Desk blotter
 (acquired) Movie and music posters
 (acquired) Fake blood
@@ -101,7 +101,7 @@ Lots of Egg McMuffins--to eat for real, and to eat in the scene
 (acquired) Black paint to make everyone's hands look greasy
 (acquired) Hammer for Debby to use, also bring other tools
 (acquired) Orange blanket + yellow paper reflector
-(acquired) Bed sheet
+(acquired) Bed sheet with oil stains
 (acquired) Hats for mechanics
 (acquired) Denim vests for mechanics
 (acquired) Framed wall poster of oil derricks
