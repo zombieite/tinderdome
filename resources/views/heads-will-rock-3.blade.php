@@ -1,6 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
-PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield</a>
+HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock: A chronicle of postapocalyptic mayhem</a><br>
+PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">Chapter 2: Bakersfield</a>
 <h3>CHAPTER 3: VAN NUYS</h3>
 <p>Not many people have written books in the past 38 years. So nowadays every book that gets written sort of has to be a history book and a philosophy book and a survival book too. I'd be doing you a disservice if I didn't tell you what I know about how things got to be the way they are and offer you some ideas about how to get things back to the way they were.</p><p>
 <i>I hope you're gonna spew on about economics again. That was my favourite part of the last book!!</i></p><p>
@@ -251,5 +252,5 @@ He had to think about it for a second. "No."</p><p>
 "Well I don't know how you got this highly improbable motor running but if you ever decide you wanna work for someone who's not a murderous fopdoodle come find me in Norwood. My name is Firebird."</p><p>
 "I'm Superturbo" he said.</p><p>
 I hopped into the Frankenbird and gave it the bejeezus. Dorktown followed me in the Pinto. We flogged it out of there and began the race for Norwood.</p>
-NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman</a>
+NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman">Chapter 4: Seligman</a>
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.heads_will_rock')
 @section('content')
-HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem</a>
+HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock: A chronicle of postapocalyptic mayhem</a><br>
 <h3>CHAPTER 0: TOMORROWLAND</h3>
 <p>"Tomorrowland Weekend! Where the Big Bang never happened! You are awaited at Tomorrowland Weekend!"</p><p>
 Carnival barking isn't my style so I paid a bloke to shout this stuff for me.</p><p>
@@ -97,6 +97,6 @@ Now I know a lot of you readers out there are Hellies and Gillies and I know you
 But my You Are Awaited topic promotion algorithm hadn't sparked reasoned debate. It highlighted the differences between people. Rather than working out those differences people just decided they hated anyone who wasn't on their side.</p><p>
 Ideas that seem obvious to half of humanity can terrify and infuriate the other half. The algorithm promoted discussions of topics like these simply because it noticed people were more engaged in these discussions. My algorithm had radicalized both sides and no one was listening to each other.</p><p>
 The Hellies and Gillies weren't just doomed to repeat history. They were downright excited about it. My dream of bringing humanity together had ended up tearing it in half.</p>
-NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown</a>
+NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown">Chapter 1: Dorktown</a>
 @endsection
 

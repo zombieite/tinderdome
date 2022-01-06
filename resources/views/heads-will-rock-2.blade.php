@@ -1,6 +1,7 @@
 @extends('layouts.heads_will_rock')</p><p>
 @section('content')</p><p>
-PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown</a>
+HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock: A chronicle of postapocalyptic mayhem</a><br>
+PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown">Chapter 1: Dorktown</a>
 <h3>CHAPTER 2: BAKERSFIELD</h3>
 <p>As the sun came up me and Dorktown and Hunkidory surveyed the ruins. There was nothing left of Tomorrowland Weekend.</p><p>
 Me and Dorktown said goodbye to Hunkidory. I promised him there'd be a job waiting for him in Norwood if we got the factory up and running.</p><p>
@@ -69,5 +70,5 @@ Dorktown put her new crossbow in the back seat of the Pinto. "Can I drive?"</p><
 "Nobody drives my car" I said.</p><p>
 "Norwood?" she asked.</p><p>
 I shook my head. "Van Nuys."</p>
-NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys</a>
+NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">Chapter 3: Van Nuys</a>
 @endsection

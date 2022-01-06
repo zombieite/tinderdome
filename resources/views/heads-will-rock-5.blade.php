@@ -1,6 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
-PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman</a>
+HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock: A chronicle of postapocalyptic mayhem</a><br>
+PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-4-seligman">Chapter 4: Seligman</a>
 <h3>CHAPTER 5: AMARILLO</h3>
 <p>That night I snuck the Frankenbird out of Seligman with the headlights off. Once I was far enough away I turned the headlights on and picked up the pace.</p><p>
 I kept my eyes to the sky looking for helicopters but because of that I didn't notice that Mohawk Hineyhole was discreetly following me in the Pinto with Chumdumpster behind him on the Elsinore. I figured this out when they stopped being discreet about it and the Pinto started ramming the Frankenbird. Mohawk Hineyhole was clearly not afraid of blowing himself up in the Pinto as long as he could take me with him.</p><p>
@@ -94,5 +95,5 @@ The song she played for me was Close To You by The Carpenters. The lullaby my mo
 When she was done she got up and said "I'm not letting you give up on your dream."</p><p>
 "Why not?" I asked.</p><p>
 "Because it's not just your dream anymore."</p>
-NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-6-norwood">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-6-norwood</a>
+NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-6-norwood">Chapter 6: Norwood</a>
 @endsection
