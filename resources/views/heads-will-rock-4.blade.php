@@ -1,6 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
-PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys</a>
+HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock: A chronicle of postapocalyptic mayhem</a><br>
+PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">Chapter 3: Van Nuys</a>
 <h3>CHAPTER 4: SELIGMAN</h3>
 <p>Mohawk Hineyhole came after us in the sand rail. Chumdumpster took off on the Elsinore. The Flirty Dozen piled into the deuce-and-a-half and they made sure to bring that guillotine with them.</p><p>
 The sand rail and the Elsinore didn't have headlights so they stayed behind the deuce. The Pinto didn't have headlights anymore either after Dorktown smashed into that doorway so Dorktown stayed behind me.</p><p>
@@ -184,5 +185,5 @@ The helicopters didn't stay on the ground long. They all started taking off agai
 Then a human being fell out of the sky and landed with a massive thud on the Frankenbird's steel mesh windscreen. Lucy screamed and started crying. I slammed on the brakes.</p><p>
 The sad sack's face was right in front of me. It was one of the Flirties. I looked up at him. His blood was dripping all over me but he was still alive. For a few more seconds at least. He looked me in the eye. His mouth moved but he wasn't saying anything.</p><p>
 Me and Laura got out of the car and looked up. The Gilly soldiers were falling from the sky.</p>
-NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo</a>
+NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">Chapter 5: Amarillo</a>
 @endsection

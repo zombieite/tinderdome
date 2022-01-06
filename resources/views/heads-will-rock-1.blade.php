@@ -1,6 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
-PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland</a>
+HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock: A chronicle of postapocalyptic mayhem</a><br>
+PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland">Chapter 0: Tomorrowland</a>
 <h3>CHAPTER 1: DORKTOWN</h3>
 <p>I answered a knock at the door. It was that girl Dorktown.</p><p>
 "You again? Hunkidory!" I shouted.</p><p>
@@ -116,6 +117,6 @@ I looked to my right. Dorktown was trapped under the burning Tomorrowland sign.<
 I looked left again. I looked right again. </p><p>
 Dagnabbit.</p><p>
 The deep sea diver rode off on his motorbike as I chopped away at the burning sign with my axe.</p>
-NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield</a>
+NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">Chapter 2: Bakersfield</a>
 @endsection
 

@@ -1,6 +1,7 @@
 @extends('layouts.heads_will_rock')
 @section('content')
-PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo</a>
+HOME: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock: A chronicle of postapocalyptic mayhem</a><br>
+PREVIOUS: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-5-amarillo">Chapter 5: Amarillo</a>
 <h3>CHAPTER 6: NORWOOD</h3>
 <p>There never was and there never will be another century like the twentieth. In the twentieth century things were invented more quickly than ever before. Millennia of stagnation and then all of a sudden in the twentieth century every decade was totally unlike the one before it. Hundreds of generations of subsistence farmers and then out of nowhere someone's kid builds a rocket that lands on the moon.</p><p>
 <i>Yay another rant about economics!!</i></p><p>
@@ -217,5 +218,5 @@ Chumdumpster is very totally 100% dead. I squashed him flat. I killed him in san
 <i>"Sahfwah."</i></p><p>
 There's no way that's how you pronounce it.</p><p>
 <i>You're changing the subject.</i></p>
-NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-denouement">/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-denouement</a>
+NEXT: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-denouement">Chapter 7: Denouement</a>
 @endsection
