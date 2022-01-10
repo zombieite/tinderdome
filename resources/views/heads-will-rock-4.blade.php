@@ -110,7 +110,7 @@ Dorktown grabbed her crossbow and ran inside. I followed her. We sat down at the
 "Burgers and hot dogs" Mr. Nothing said.</p><p>
 "I'll have fifty burgers for takeaway" she said.</p><p>
 "You hungry?" I asked.</p><p>
-She ignored me. She opened up her Firebuddy and started typing on it some more.</p><p>
+She ignored me. She opened up her Firebuddy and started typing on it some more.</p><p id="guns-a-go-go">
 I heard a helicopter approaching. I hadn't heard that sound in a long time. I went to the window and looked up at the sky.</p><p>
 It wasn't just one helicopter. It was a dozen of them. Bringing up the rear was some kind of dual-rotored behemoth the likes of which I'd never seen.</p><p>
 <i>Hueys and Loaches and Kiowas followed by the last of the ACH-47A Chinooks. Nicknamed "Easy Money."</i></p><p>
