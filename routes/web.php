@@ -10,6 +10,14 @@ Route::get( '/profile/Firebird',                                           'Prof
 Route::get( '/event/{event_id}/{event_long_name}',                         'EventController@event');
 
 // Just HTML, visible to everyone
+Route::view('/heads-will-rock/0-tomorrowland', 'heads-will-rock-0');
+Route::view('/heads-will-rock/1-dorktown',     'heads-will-rock-1');
+Route::view('/heads-will-rock/2-bakersfield',  'heads-will-rock-2');
+Route::view('/heads-will-rock/3-van-nuys',     'heads-will-rock-3');
+Route::view('/heads-will-rock/4-seligman',     'heads-will-rock-4');
+Route::view('/heads-will-rock/5-amarillo',     'heads-will-rock-5');
+Route::view('/heads-will-rock/6-norwood',      'heads-will-rock-6');
+Route::view('/heads-will-rock/7-denouement',   'heads-will-rock-7');
 Route::view('/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-0-tomorrowland', 'heads-will-rock-0');
 Route::view('/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-1-dorktown',     'heads-will-rock-1');
 Route::view('/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield',  'heads-will-rock-2');
