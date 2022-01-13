@@ -161,8 +161,24 @@ sudo apachectl configtest
 sudo systemctl restart httpd
 sudo yum install -y certbot python2-certbot-apache
 sudo certbot
+# This crontab renewal doesn't seem to work, so manually do this periodically
 sudo crontab -e
 # 39      1,13    *       *       *       root    certbot renew --no-self-upgrade
 sudo systemctl restart crond
 # Test SSL
 # https://www.ss:llabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
+# Set up bash profile so logging in does some stuff automatically
+vi ~/.bash_profile
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/code
+export PATH
+eval `ssh-agent`
+alias mysq='mysql -uroot -p`grep DB_PASSWORD /var/www/html/tinderdome/.env | cut -d= -f2` tinderdome'
+sudo certbot renew
+cat /var/www/html/tinderdome/storage/logs/laravel.log
+echo "echo ''>/var/www/html/tinderdome/storage/logs/laravel.log # To remove laravel log file above (don't delete it)"
+ssh-add
+# How to reboot everything
+sudo shutdown -r now
+# Or
+https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Instances:instanceState=running
+# Instance state -> Reboot instance
