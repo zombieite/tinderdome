@@ -9,8 +9,8 @@ You're being sarcastic aren't you Dorktown. Listen. Economics is more than just 
 <i>Our story.</i></p><p>
 Our story.</p><p>
 We're writing this book in what we call Year 38. The reason we call it Year 38 is cuz the Big Bang happened 38 years ago. The world used to be a much swankier place. I know cuz I was there. I'm a prewar. Mohawk Hineyhole was there too. Skelli and Dorktown weren't. Skelli and Dorktown were postwars.</p><p>
-The Big Bang wasn't just a war. There were recessions and depressions. There were natural disasters and unnatural disasters. By the time it was all over the governments of the world had bombed themselves out of existence and taken 95% of humanity with them.</p><p id="negativity-bias">
-The Big Bang took away everything it could. But it couldn't take away our grit or guff or gumption or good old-fashioned American ingenuity.</p><p>
+The Big Bang wasn't just a war. There were recessions and depressions. There were natural disasters and unnatural disasters. By the time it was all over the governments of the world had bombed themselves out of existence and taken 95% of humanity with them.</p><p>
+The Big Bang took away everything it could. But it couldn't take away our grit or guff or gumption or good old-fashioned American ingenuity.</p><p id="negativity-bias">
 The human brain has a thing called negativity bias. We focus on the bad stuff to ensure that threats don't get the better of us. Negativity bias made it easy for people like Howard Zinn to catalog all the things that the USA got wrong. Yeah I read that book and yeah I get it.</p><p>
 But I'll bet you a hundred bucks you don't know who Norman Borlaug is. Norman Borlaug was an American who saved a billion lives by inventing new strains of wheat that could feed the entire planet. A billion lives. If positivity bias were a thing we'd all be wearing t-shirts with pictures of Norman Borlaug on them.</p><p>
 When we look back it's easy to figure out what the USA got wrong. But the USA was the most prosperous country in history. So what was it that the USA got right?</p><p>
