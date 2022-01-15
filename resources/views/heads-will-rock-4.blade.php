@@ -173,7 +173,7 @@ The rest of the Flirty Dozen or maybe now I should call them the Flirty Eleven t
 I pressed the button on my remote to open the evac hatch. Laura was down there with Lucy in her arms. She directed my employees out one by one.</p><p>
 I looked toward the main entrance. The door was now fully open. The Flirty Eleven were at war with the helicopters but they were losing and getting turned into cherry pie. Chumdumpster had noticed what I was up to and he was headed my way on the Elsinore. The Pinto came flying up out of the factory entrance ramp piloted by Mohawk Hineyhole. I bet it felt good to steal a car of mine for once.</p><p>
 I fired an arrow at Chumdumpster but it just bounced off his suit.</p><p>
-Then the ground suddenly sunk in as the entire roof of my factory collapsed with a crash. I looked down into the evac hatch. A whoosh of dust blew up into my face just as Laura and Lucy climbed out.</p><p>
+Then the ground suddenly sank in as the entire roof of my factory collapsed with a crash. I looked down into the evac hatch. A whoosh of dust blew up into my face just as Laura and Lucy climbed out.</p><p>
 "Is that everyone?" I asked.</p><p>
 "Yeah" she nodded.</p><p>
 Sorry world. No more Firebuddies for a while. And screw you Dorktown.</p><p>
