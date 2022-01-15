@@ -30,7 +30,7 @@ I rolled my eyes. "What's a Helly?"</p><p>
 "A Helly is someone who drops Gillies out of helicopters."</p><p>
 "What is it with you and helicopters?"</p><p>
 "It's how Hellies kill people. Drop the bad guys out of helicopters. You know. Like Pinochet used to do."</p><p>
-Oh. Now I get it.</p><p>
+Oh. Now I get it.</p><p id="pinochet">
 Pinochet was a Chilean dictator propped up by the US government. My mom worked as an advisor to him for a few weeks back in the 70s. She persuaded him to allow a free market economic oasis to bloom in South America. It kind of worked. By following her advice Pinochet saved Chile's economy. But he was also a murderous monster who stole millions of dollars and killed thousands of people. He was famous for dropping people out of helicopters. Pinochet tried to be a fascist capitalist but "laissez faire" literally means "let people do their own thing." Pinochet thought he could force people to be free. But that's not how freedom works.</p><p>
 "Are you saying you're a Helly?" I asked.</p><p>
 "Of course I'm a Helly" Dorktown replied. "Aren't you?"</p><p>
