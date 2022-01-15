@@ -51,7 +51,7 @@ I went back to the Frankenbird and opened the door.</p><p>
 "Ok then follow me."</p><p>
 "Where to?"</p><p>
 "My Firebuddy factory in Seligman. I have weapons there. Keep your speed up so they can't follow us. Mohawk Hineyhole doesn't know the location of the new factory and I wanna keep it that way."</p><p>
-I was concerned cuz last year he invaded and took over of my old factory. He kept making computers in there but the quality went way down and he never did anything to improve on my design.</p><p>
+I was concerned cuz last year he invaded and took over my old factory. He kept making computers in there but the quality went way down and he never did anything to improve on my design.</p><p>
 The pump finally clicked off. We got back into our cars and took off. We'd only gotten a few kays down the road when I noticed the Pinto was lagging behind.</p><p>
 We pulled over. I got out and ran back to talk to Dorktown.</p><p>
 "What's wrong?" I asked.</p><p>
