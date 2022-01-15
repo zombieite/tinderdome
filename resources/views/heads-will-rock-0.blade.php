@@ -88,7 +88,7 @@ Half the crowd booed and half the crowd cheered.</p><p>
 I handed swords to both of them and got out of there. I handed the microphone to my carnival barker.</p><p>
 "You're not gonna stay and watch?" he asked.</p><p>
 "I'm trying to retain my humanity" I said.</p><p>
-"Good luck with that."</p><p>
+"Good luck with that."</p><p id="internet-outrage">
 I went back to my trailer and fired up my Firebuddy. Now if you don't have a Firebuddy let me explain what you're missing.</p><p>
 Firebuddies connect with other computers to form a computer network. On the network you can communicate with friends and strangers. You can teach or learn. You can create or consume. You can build a "netsite" to manipulate data in any way you can imagine.</p><p>
 I'd built a "social network" called You Are Awaited. People could share pictures and news articles and comment on them. It started out friendly and positive. But lately things had changed. People had started posting things like "If you're a Helly we can't be friends" and "Gillies should be lined up and shot."</p><p>
