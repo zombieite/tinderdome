@@ -54,6 +54,7 @@ p {
     text-align: left;
 }
 .character {
+    color: var(--special);
     margin-top: 2em;
     text-align: center;
 }
