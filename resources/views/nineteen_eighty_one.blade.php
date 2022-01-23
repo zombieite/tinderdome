@@ -79,7 +79,7 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">I made you brekkie.</div></p>
 
 <p class="p1">Debby playfully shoves the sandwich into his face.</p>
-<p class="p2"> </p>
+
 <p class="p2">BRUCE</p>
 <p class="p3"><div class="dialogue">Could you wrap it up for me? Zed's going to be here any minute.</div></p>
 
@@ -165,9 +165,9 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">That's not what I heard. I heard he's picking the best of us for a special project. I hope he picks me!</div></p>
 <p class="p2">NEIL</p>
 <p class="p3"><div class="dialogue">You just said he's picking the best. So you know he's not picking you.</div></p>
-<p class="p2"> </p>
+
 <p class="p1">Zed opens his mouth and shows Neil his chewed-up food.</p>
-<p class="p2"> </p>
+
 <p class="p2">ZED</p>
 <p class="p3"><div class="dialogue">I love Debby's cooking. She used to cook for me all the time.</div></p>
 
@@ -180,7 +180,7 @@ John "Firebird" Binns
 
 <p class="p2">ZED</p>
 <p class="p3"><div class="dialogue">One date she'll never forget.</div></p>
-<p class="p2"> </p>
+
 <p class="p2">NEIL</p>
 <p class="p3"><div class="dialogue">One date you'll never forget.</div></p>
 <p class="p2">BRUCE</p>
@@ -189,10 +189,10 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">Bruce has got her up the duff. You reckon the baby feels it when he roots her?</div></p>
 <p class="p2">NEIL</p>
 <p class="p3"><div class="dialogue">You reckon you could say something intelligent for once in your life?</div></p>
-<p class="p2"> </p>
+
 <p class="p2">ZED</p>
 <p class="p3"><div class="dialogue">(To Bruce) You ever choke her? She likes it when you choke her.</div></p>
-<p class="p2"> </p>
+
 <p class="p2">BRUCE</p>
 <p class="p3"><div class="dialogue">No she doesn't. And that's why you only got one date.</div></p>
 <p class="p2">ZED</p>
@@ -253,7 +253,7 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">Pappagallo doesn't want to share his toys, so he's chucking a wobbly and pissing off to an outpost in the desert. He's taking a few of us with him. Everyone else has got the sack.</div></p>
 <p class="p2">ZED</p>
 <p class="p3"><div class="dialogue">(To Pappagallo) Can I go? (To Bruce) Are you going to go?</div></p>
-<p class="p2"> </p>
+
 <p class="p2">BRUCE</p>
 <p class="p3"><div class="dialogue">I have everything I need right here.</div></p>
 <p class="p2">PAPPAGALLO</p>
@@ -280,7 +280,7 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">You think you're happy here? You want to run with the dogs? The punks? The misfits? You're a nobody with nothing to do and nowhere to go.</div></p>
 <p class="p3"><div class="dialogue"> </div></p>
 <p class="p1">Bruce is trying to ignore him but Pappagallo gets in his face.</p>
-<p class="p2"> </p>
+
 <p class="p2">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">Why is Debby so special? You've got no one else in your life? What about your family? What about your parents?</div></p>
 <p class="p1">Bruce turns and walks away. His manner suggests Pappagallo has touched a nerve. Pappagallo grabs him and stops him from leaving.</p>
