@@ -33,10 +33,10 @@ John "Firebird" Binns
 <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a>
 </p>
 <p class="p1">
-<a href="https://youareawaited.com/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2">https://youareawaited.com/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2</a>
+<a href="https://youareawaited.com/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2">youareawaited.com/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2</a>
 </p>
 <p class="p1">
-<a href="https://www.youtube.com/wastelandfirebird">https://www.youtube.com/wastelandfirebird</a>
+<a href="https://www.youtube.com/wastelandfirebird">youtube.com/wastelandfirebird</a>
 </p>
 
 <hr>
