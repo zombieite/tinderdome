@@ -430,7 +430,7 @@ John "Firebird" Binns
 
 <p class="camera">FADE OUT.</p>
 
-<p class="p2">THE END</p>
+<p class="end">THE END</p>
 
 </div>
 
