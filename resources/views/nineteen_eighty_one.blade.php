@@ -334,10 +334,10 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">If I go, you'll be alone.</div></p>
 <p class="p2">DEBBY</p>
 <p class="p3"><div class="dialogue">(Pats her belly) I won't be alone.</div></p>
-<p class="p1">FACE TO BLACK, THEN CUT TO:</p>
+<p class="camera">FADE TO BLACK, THEN CUT TO:</p>
 <p class="location">HOUSE INTERIOR, BEDROOM - NIGHT</p>
 <p class="p1">Bruce packs his bag, including three books.</p>
-<p class="p1">VISUAL MATCH CUT TO:</p>
+<p class="camera">VISUAL MATCH CUT TO:</p>
 <p class="location">7SP FIELD OFFICE INTERIOR - NIGHT</p>
 
 <p class="p1">Pappagallo packs his briefcase, including three books. He has a bloody lip and occasionally presses a cold rag to his jaw. There is a knock at the door. Bruce enters but does not sit down.</p>
