@@ -35,9 +35,7 @@ foreach ($ads as $ad) {
 // Use this below the endphp to show the circulating ads
 // {!! $ad_string !!}
 @endphp
-<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">H&nbsp;&nbsp;E&nbsp;&nbsp;A&nbsp;&nbsp;D&nbsp;&nbsp;S</a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<a class="small bright" href="/heads-will-rock">W&nbsp;&nbsp;I&nbsp;&nbsp;L&nbsp;&nbsp;L</a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<a class="small bright" href="/heads-will-rock">R&nbsp;&nbsp;O&nbsp;&nbsp;C&nbsp;&nbsp;K</a>
+<a class="small bright" href="/awaited-nonfictional-delusion">AWAITED</a>
+<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">HEADS WILL ROCK</a>
+<a class="small bright" href="/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2">1981</a>
 <hr>
