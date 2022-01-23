@@ -58,7 +58,7 @@ p {
 .dialogue {
     text-align: left;
     margin: auto;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     padding: 1em;
     border: 1px solid var(--subtle);
     width: 80%;
