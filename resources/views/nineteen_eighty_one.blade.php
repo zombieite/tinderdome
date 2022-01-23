@@ -15,7 +15,7 @@ Written by FIREBIRD
 </h2>
 
 <p>
-A narrative that takes place in the universe of Mad Max 1-3<br>and Heads Will Rock: A Chronicle Of Postapocalyptic Mayhem
+A narrative that takes place in the universe of Mad Max 1-3 and Heads Will Rock: A Chronicle Of Postapocalyptic Mayhem
 </p>
 
 <p>
