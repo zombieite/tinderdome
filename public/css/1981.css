@@ -31,10 +31,25 @@ h1, h2, h3, h4, h5, h6, label {
     max-width: 65em;
     margin: auto;
 }
+p {
+    margin: .1em;
+    padding: .1em;
+}
+.camera {
+    color: var(--bright);
+    text-align: left;
+    margin-top: 2em;
+}
+.location {
+    color: var(--bright);
+    text-align: left;
+    margin-bottom: 1em;
+}
 .p1 {
     text-align: left;
 }
 .p2 {
+    margin-top: 2em;
     text-align: center;
 }
 .p3 {
@@ -43,6 +58,7 @@ h1, h2, h3, h4, h5, h6, label {
 .dialogue {
     text-align: left;
     margin: auto;
+    margin-bottom: 2em;
     padding: 1em;
     border: 1px solid var(--subtle);
     width: 80%;
