@@ -278,7 +278,6 @@ John "Firebird" Binns
 <p class="p1">Bruce keeps trying to get his work done as Pappagallo hounds him.</p>
 <p class="p2">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">You think you're happy here? You want to run with the dogs? The punks? The misfits? You're a nobody with nothing to do and nowhere to go.</div></p>
-<p class="p3"><div class="dialogue"> </div></p>
 <p class="p1">Bruce is trying to ignore him but Pappagallo gets in his face.</p>
 
 <p class="p2">PAPPAGALLO</p>
