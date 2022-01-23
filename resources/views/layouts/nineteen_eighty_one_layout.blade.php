@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Heads Will Rock: A chronicle of postapocalyptic mayhem">
-<meta property="og:url" content="https://youareawaited.com/heads-will-rock">
-<meta property="og:image" content="https://youareawaited.com/h-w-r/heads-will-rock-og.jpg">
-<meta property="og:description" content="Can you retain your humanity in a world gone mad?">
-<meta name="description" content="Can you retain your humanity in a world gone mad?">
-<title>Heads Will Rock: A chronicle of postapocalyptic mayhem</title>
-<link href="/css/app.css?rev=3" rel="stylesheet">
+<meta property="og:title" content="1981: A film in honour of the 40th anniversary of Mad Max 2"> 
+<meta property="og:url" content="https://youareawaited.com/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2">
+<meta property="og:image" content="https://youareawaited.com/1981/1981.jpg">
+<meta property="og:description" content="Shooting in Broken Hill, NSW, March 2022">
+<meta name="description" content="Shooting in Broken Hill, NSW, March 2022">
+<title>1981: A film in honour of the 40th anniversary of Mad Max 2</title>
+<link href="/css/1981.css" rel="stylesheet">
 </head>
 <body>
 @yield('content')

@@ -1,0 +1,37 @@
+:root {
+    --special: #dedbbc;
+    --subtle:  #666666;
+    --yes:     #99FF99;
+    --neutral: #779977;
+    --no:      #EE4444;
+    --met:     #9999ff;
+    --bright:  #ff9900;
+    --font:    monospace;
+    --fg:      white;
+    --bg:      black;
+}
+body {
+    color: var(--fg);
+    background-color: var(--bg);
+    font-family: var(--font);
+    margin: 1em;
+    font-size: x-large;
+}
+a, i {
+    color: var(--special);
+}
+hr {
+    border-color: var(--subtle);
+}
+h1, h2, h3, h4, h5, h6, label {
+    color: var(--special);
+}
+.p2 {
+    text-align: center;
+}
+.p3 {
+    text-align: center;
+}
+.dialogue {
+    border: 1px;
+}
