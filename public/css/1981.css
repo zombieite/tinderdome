@@ -15,7 +15,8 @@ body {
     background-color: var(--bg);
     font-family: var(--font);
     margin: 1em;
-    font-size: x-large;
+    text-align: center;
+    font-size: large;
 }
 a, i {
     color: var(--special);
@@ -26,6 +27,13 @@ hr {
 h1, h2, h3, h4, h5, h6, label {
     color: var(--special);
 }
+.content {
+    width: 65em;
+    margin: auto;
+}
+.p1 {
+    text-align: left;
+}
 .p2 {
     text-align: center;
 }
@@ -33,6 +41,9 @@ h1, h2, h3, h4, h5, h6, label {
     text-align: center;
 }
 .dialogue {
-    display: inline-block;
-    border: 1px;
+    text-align: left;
+    margin: auto;
+    padding: 1em;
+    border: 1px solid var(--subtle);
+    width: 45em;
 }
