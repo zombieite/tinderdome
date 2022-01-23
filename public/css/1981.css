@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6, label {
     color: var(--special);
 }
 .content {
+    max-width: 65em;
     margin: auto;
 }
 .p1 {
