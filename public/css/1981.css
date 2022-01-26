@@ -18,8 +18,8 @@ body {
     text-align: center;
     font-size: large;
 }
-a, i {
-    color: var(--special);
+a {
+    color: var(--bright);
 }
 hr {
     border-color: var(--subtle);
@@ -36,17 +36,17 @@ p {
     padding: .1em;
 }
 .camera {
-    color: var(--bright);
+    color: var(--special);
     text-align: left;
     margin-top: 2em;
 }
 .location {
-    color: var(--bright);
+    color: var(--special);
     text-align: left;
     margin-bottom: 1em;
 }
 .end {
-    color: var(--bright);
+    color: var(--special);
     text-align: center;
     margin-bottom: 1em;
 }
