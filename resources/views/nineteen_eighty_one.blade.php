@@ -49,7 +49,7 @@ John "Firebird" Binns
 <p class="camera">CUT TO:</p>
 <p class="location">HOUSE INTERIOR, BEDROOM - MORNING, JANUARY 1981</p>
 
-<p class="p1">We hear the voice of a radio announcer with an Aussie accent.</p>
+<p class="p1">We hear the voice of a <a href="/1981/radio_announcer_with_music.mp3">RADIO ANNOUNCER</a> with an Aussie accent.</p>
 
 <p class="character">RADIO ANNOUNCER</p>
 <p class="p3"><div class="dialogue">In the US territory of Puerto Rico, explosions destroyed several Air National Guard aircraft. Police suspect it was yet another act of terrorism in a wave of violent rebellion sweeping the US.... Researchers in South Africa have identified several new cases of a mysterious and deadly immune deficiency disease affecting young men. The researchers suspect that the mens' illnesses are all being caused by the same unidentified virus.</div></p>
