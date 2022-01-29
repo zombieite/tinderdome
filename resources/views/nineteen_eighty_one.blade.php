@@ -431,6 +431,8 @@ John "Firebird" Binns
 
 <p class="end">THE END</p>
 
+<p class="p1">More about Bruce Barbagallo in <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock</a>.</p>
+
 </div>
 
 @endsection
