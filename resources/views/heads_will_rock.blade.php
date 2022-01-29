@@ -14,7 +14,7 @@ $hwr_ebook = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-ma
 </div>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
-INTRODUCTION
+<span class="small">Introduction</span>
 <br><br>
 Not many people have written books in the past 38 years. So nowadays every book that gets written sort of has to be a history book and a philosophy book and a survival book too. I'd be doing you a disservice if I didn't tell you what I know about how things got to be the way they are and offer you some ideas about how to get things back to the way they were.
 <br><br>
@@ -82,9 +82,14 @@ The victors celebrate, while the losers mourn... and plan their revenge.
 </div>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
+<span class="small">NEXT</span><br><br>
 <a class="small" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>
 <br><br>
 Firebird's marketing materials for the Firebuddy "lappy" computer.
+<br><br>
+<a class="small" href="/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2">1981</a>
+<br><br>
+A short film describing the circumstances that drove Bruce Barbagallo to tear the whole world to the ground.
 </div>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;text-align:center;">
