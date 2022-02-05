@@ -30,7 +30,6 @@ John/Kelli/Bryce/Steve/Geoff/Leo/Emil/Extras
 ------
 SETS
 ------
-
 (Optional) OIL DONKEY: Pumpjack in action (https://en.wikipedia.org/wiki/Eromanga,_Queensland)
 
 HOUSE EXTERIOR: BB and DEBBY's house, exterior (Rented house: https://secure.booking.com/myreservations.html?label=gen173nr-1DCAEoggI46AdIM1gEaA-IAQGYATG4AQfIAQ_YAQPoAQH4AQOIAgGoAgO4AuHOvI0GwAIB0gIkNzMxZWM5MzQtN2MxZS00MzQ4LTk3OWMtMzViNjA0MzcwMDcy2AIE4AIB;sid=e1c428f27abd73f517304aeddb45dc94;auth_key=H8S2WzbdLPsDFkCo&;label=from_conf_1)
@@ -50,7 +49,6 @@ COMPOUND: MM2 well/refinery/compound (Camel farm)
 ------
 SHOTS AND EDITS
 ------
-
 Music box in Debby's hand should look like music box in Zed's hand
 
 Pappagallo harassing Bruce should look like Pappagallo harassing Max
@@ -89,6 +87,7 @@ Print out copies of scripts
 Print out PG's "typed" (printed in monospace font) employees list with notes
 Dye Kelli's hair brassy blonde
 Lots of Egg McMuffins--to eat for real, and to eat in the scene
+(SHIPPING) Pappagallo sport coat and tie
 (Linda) Old metal jerry can of "petrol" (water)
 (Steve) Old maps
 (Steve) Leather g-banger for Bruce
