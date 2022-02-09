@@ -365,8 +365,7 @@ John "Firebird" Binns
 
 <p class="camera">CUT TO:</p>
 <p class="location">BUS INTERIOR - NIGHT</p>
-<p class="p1">The bus is full of former 7 Sisters Petroleum employees waiting to begin the journey out to the oil donkey. Zed is sitting in a seat listening to his headphones. He's looking out the window.</p>
-<p class="p1">Zed looks up. Bruce is standing in the aisle looking down at him. Zed takes off his headphones.</p>
+<p class="p1">The bus is full of former 7 Sisters Petroleum employees waiting to begin the journey out to the oil donkey. Zed is sitting in a seat listening to his headphones. He's looking out the window. Zed looks up. Bruce is standing in the aisle looking down at him. Zed takes off his headphones.</p>
 
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">No! No! Pappagallo gave me the job!</div></p>
