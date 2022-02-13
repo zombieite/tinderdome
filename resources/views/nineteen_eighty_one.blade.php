@@ -218,7 +218,7 @@ John "Firebird" Binns
 <p class="p1">Pappagallo is seated at his desk. A photo of oil derricks is mounted on the wall behind him. The nameplate on his desk indicates that he is the CEO of 7 Sisters Petroleum. Pappagallo has a list of employees' names in front of him. He has drawn lines through the names of some of the employees, and circled others. We see him circling Bruce's name as Bruce enters. Bruce closes the door, but doesn't sit down. Pappagallo doesn't bother asking him to.</p>
 
 <p class="character">PAPPAGALLO</p>
-<p class="p3"><div class="dialogue">You've probably heard we're being nationalised. We knew it was coming. So I took steps to ensure that when they came to take my company from me, there'd be nothing to left to take. I've dissolved the company and I've destroyed all of its records. 7 Sisters Petroleum no longer exists. I'll pay you what I owe you by the end of the day.</div></p>
+<p class="p3"><div class="dialogue">You've probably heard we're being nationalised. We knew it was coming. So I've taken steps to ensure that when they come to take my company from me, there will be nothing to left to take. I've dissolved the company. I've destroyed all the records. I'm going to burn this place down later tonight. I'll pay you what I owe you by the end of the day.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">It's been nice working with you.</div></p>
 <p class="character">PAPPAGALLO</p>
@@ -420,11 +420,6 @@ John "Firebird" Binns
 
 <p class="character">RADIO ANNOUNCER</p>
 <p class="p3"><div class="dialogue">Police suspect the killer strangles his victims, as no murder weapon has been found. The killer steals a trinket from each of his victims to keep as a souvenir.... Prime minister Fraser (&quot;FRAY-zer&quot;) has declared that stage three of the national emergency is effective immediately. Citizens are warned (radio cuts off and all we can hear is static). </div></p>
-
-<p class="camera">FADE TO BLACK, THEN CUT TO:</p>
-<p class="location">MUNDI MUNDI LOOKOUT - SUNSET</p>
-
-<p class="p1">The title &quot;FORTY YEARS LATER&quot; appears on screen. GROWN FERAL KID from Mad Max 2/The Road Warrior is in his late 40s/early 50s now. He is wearing old clothing, but not animal skins. It's clear that some rebuilding of the world has taken place in the past forty years. He pulls out the same music box Debby held on her tummy 40 years earlier. He turns the crank until, finally, we hear the last note of the song: happy birthday, to... you. Credits announce that this film was created in celebration of the fortieth anniversary of Mad Max 2: The Road Warrior.</p>
 
 <p class="camera">FADE OUT.</p>
 
