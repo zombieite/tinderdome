@@ -188,7 +188,7 @@ John "Firebird" Binns
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">Bruce has got her up the duff. You reckon the baby feels it when he roots her?</div></p>
 <p class="character">NEIL</p>
-<p class="p3"><div class="dialogue">You reckon you could say something intelligent for once in your life?</div></p>
+<p class="p3"><div class="dialogue">You reckon for one sec you could be something besides a total fuckwit?</div></p>
 
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">(To Bruce) You ever choke her? She likes it when you choke her.</div></p>
