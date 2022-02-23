@@ -188,7 +188,7 @@ John "Firebird" Binns
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">Bruce has got her up the duff. You reckon the baby feels it when he roots her?</div></p>
 <p class="character">NEIL</p>
-<p class="p3"><div class="dialogue">You reckon for one sec you could be something besides a total fuckwit?</div></p>
+<p class="p3"><div class="dialogue">You reckon for one sec you could be something other than a total fuckwit?</div></p>
 
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">(To Bruce) You ever choke her? She likes it when you choke her.</div></p>
@@ -399,13 +399,13 @@ John "Firebird" Binns
 <p class="camera">CUT TO:</p>
 <p class="location">OIL DONKEY COMPOUND - NIGHT</p>
 
-<p class="p1">Bruce and the other former employees of 7 Sisters Petroleum are hard at work building Pappagallo's compound. Saws are grinding and sparks are flying. Pappagallo takes Bruce aside with a solemn look on his face. This scene is intentionally written and shot as an homage to the scene in Mad Max 2 in which Wez rages over the death of the Golden Youth.</p>
+<p class="p1">Bruce and the other former employees of 7 Sisters Petroleum are hard at work building Pappagallo's compound. Saws are grinding and sparks are flying. Pappagallo is approached by an employee who informs him about something we can't hear. He walks across the compound and takes Bruce aside with a solemn look on his face. This scene is intentionally written and shot as an homage to the scene in Mad Max 2 in which Wez rages over the death of the Golden Youth.</p>
 
 <p class="character">PAPPAGALLO</p>
-<p class="p3"><div class="dialogue">Bruce, I don't know how to tell you this, but I just got word that... that Debby is uh... Debby was....</div></p>
-<p class="p1">Bruce guess the end of the sentence and attacks Pappagallo in a primal rage.</p>
+<p class="p3"><div class="dialogue">Bruce, I don't know how to tell you this, but I just got word that... that Debby is uh... Debby was uh... killed.</div></p>
+<p class="p1">Bruce's emotions go from sadness to primal rage, and he attacks Pappagallo.</p>
 <p class="character">BRUCE</p>
-<p class="p3"><div class="dialogue">Zed. Zed did this! I'm going to kill him! I'm going to kill him! Kill! Kill! Kill!</div></p>
+<p class="p3"><div class="dialogue">Zed. Zed did this! I'm going to kill him! I'm going to kill all of you! Kill! Kill! Kill!</div></p>
 <p class="p1">The other compound dwellers restrain Bruce. In the fray, Bruce's hat falls off, revealing that his hair is cut into a red mohawk.</p>
 
 <p class="camera">CUT TO:</p>
