@@ -1,0 +1,176 @@
+:root {
+    --special: #ffffff;
+    --subtle:  #0000ff;
+    --yes:     #00ff00;
+    --neutral: #999999;
+    --no:      #ff0000;
+    --met:     cyan;
+    --bright:  #ff00ff;
+    --font:    monospace;
+    --fg:      #00ff00;
+    --bg:      black;
+}
+body {
+    color: var(--fg);
+    background-color: var(--bg);
+    font-family: var(--font);
+    margin: 1em;
+}
+a, i {
+    color: var(--special);
+}
+img {
+    filter: saturate(300%);
+}
+textarea {
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+    border-color: var(--subtle);
+}
+th {
+    padding: .5em;
+    border: 1px solid var(--subtle);
+}
+td {
+    padding: .5em;
+    border: 1px solid var(--subtle);
+}
+td.tight {
+    padding: 0;
+    border: 1px solid var(--subtle);
+}
+hr {
+    border-color: var(--subtle);
+}
+ul.nobulletmargin {
+    padding-left: 0px;
+    list-style-type: none;
+}
+li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+h1, h2, h3, h4, h5, h6, label {
+    color: var(--special);
+}
+.navbar {
+    display: inline-block;
+    margin: .5em;
+}
+.labelclass {
+    color: var(--special);
+}
+.dull {
+    color: var(--fg);
+}
+.small {
+    text-transform: uppercase;
+}
+input[type="submit"] {
+    font-family: var(--font);
+    color: var(--bg);
+    background-color: var(--special);
+    border: 1px solid var(--subtle);
+    padding: 1em;
+    margin: 1em;
+}
+input[type="submit"].tight {
+    font-family: var(--font);
+    color: var(--bg);
+    background-color: var(--special);
+    border: 1px solid var(--subtle);
+    height: 1.5em;
+    margin: .2em;
+    padding: .2em;
+}
+button {
+    font-family: var(--font);
+    height: 3em;
+}
+.caution {
+    color: var(--bg);
+    background-color: var(--special);
+    font-weight: bold;
+    background-color: var(--subtle);
+}
+.yesyesyes, button.yesyesyes, input[type="submit"].yesyesyes {
+    color: var(--bg);
+    background-color: var(--special);
+    font-weight: bold;
+    background-color: var(--yes);
+}
+.yesyes, button.yesyes, input[type="submit"].yesyes {
+    color: var(--bg);
+    background-color: var(--special);
+    font-weight: bold;
+    background-color: var(--yes);
+}
+.yes, button.yes, input[type="submit"].yes {
+    color: var(--bg);
+    background-color: var(--special);
+    font-weight: bold;
+    background-color: var(--neutral);
+}
+.no, button.no, input[type="submit"].no {
+    color: var(--bg);
+    background-color: var(--special);
+    font-weight: bold;
+    background-color: var(--no);
+}
+.met, button.met, input[type="submit"].met {
+    color: var(--bg);
+    background-color: var(--special);
+    font-weight: bold;
+    background-color: var(--met);
+}
+.bright {
+    color: var(--bright);
+}
+.profile_search_block_bright {
+    display: inline-block;
+    border: 1px solid var(--bright);
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: left;
+}
+.profile_search_block {
+    display: inline-block;
+    border: 1px solid var(--subtle);
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: left;
+}
+.centered_block {
+    display: inline-block;
+    border: 1px solid var(--subtle);
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: center;
+}
+.centered_block_bright {
+    display: inline-block;
+    border: 1px solid var(--bright);
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: center;
+}
+.mission_match {
+    display: inline-block;
+    border: 1px solid var(--subtle);
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: center;
+}
+.mission_match_bright {
+    display: inline-block;
+    border: 1px solid var(--bright);
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: center;
+}
+.upcoming_event_checkbox {
+    transform:scale(2, 2);
+    margin:1em;
+}
