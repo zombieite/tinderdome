@@ -64,13 +64,7 @@ class RegisterController extends Controller
         }
 
         $signup_code = strtolower($signup_code);
-        if (
-               $signup_code == 'headswillrock' 
-            || $signup_code == 'heads will rock' 
-        ) {
-            $signup_code = 'heads will rock';
-        }
-        if ($signup_code != 'heads will rock') {
+        if ($signup_code != env('SIGNUP_CODE', 'sign-me-up')) {
             abort(200, 'Invalid signup code. Please contact Firebird directly to create an account');
         }
 
