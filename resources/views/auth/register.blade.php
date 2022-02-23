@@ -41,7 +41,7 @@
 <br>
 --}}
 
-<label for="video_id">Link to YouTube video</label>
+<label for="video_id">(Optional) Link to YouTube video</label>
 <input type="text" name="video_id" id="video_id" value="@guest{{ old('video_id') }}@else{{ $video_id }}@endguest"></input>
 
 <hr>
@@ -154,14 +154,14 @@ We will try to match you to a user of your preferred gender, but you must be ope
 <textarea rows="10" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
 
 <br><br>
-<label for="how_to_find_me">Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported.
+<label for="how_to_find_me">(Optional) Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses. Emojis and non-English characters are not yet supported.
 <br>
 <input type="text" style="width:100%;" maxlength="200" name="how_to_find_me" id="how_to_find_me" value="@guest{{ old('how_to_find_me') }}@else{{ $how_to_find_me }}@endguest">
 
 <hr>
 
 @guest
-<img alt="" src="images/signup.jpg">
+<img alt="" src="images/signup.png" style="filter:none;">
 <br>
 <input name="signup_code" id="signup_code" type="text" maxlength="50" required value="@guest{{ old('signup_code') }}@else @endguest"></input>
 <label for="signup_code">Signup code</label> (please contact Firebird if you do not have one)
