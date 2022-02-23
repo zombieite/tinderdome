@@ -20,7 +20,7 @@ a, i {
     color: var(--special);
 }
 img {
-    filter: saturate(300%);
+    filter: saturate(300%) hue-rotate(-90deg);
 }
 textarea {
     width: 100%;
