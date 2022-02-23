@@ -167,15 +167,13 @@ We will try to match you to a user of your preferred gender, but you must be ope
 <label for="signup_code">Signup code</label> (please contact Firebird if you do not have one)
 @endguest
 
-<br><br>
 
-<button id="submit" type="submit" class="yesyes">
 @guest
-Sign up
+<br><br>
+<button id="submit" type="submit" class="yesyes">Sign up</button>
 @else
-Submit changes
+<button id="submit" type="submit" class="yesyes">Submit changes</button>
 @endguest
-</button>
 
 </form>
 
