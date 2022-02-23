@@ -7,7 +7,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="You Are Awaited">
 <meta property="og:url" content="https://youareawaited.com">
-<meta property="og:image" content="https://youareawaited.com/images/awaited.jpg">
+<meta property="og:image" content="https://youareawaited.com/images/awaited-neo.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:description" content="Find thems you're looking for and thems you've lost.">
