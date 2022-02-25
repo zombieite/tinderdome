@@ -218,7 +218,7 @@ John "Firebird" Binns
 <p class="p1">Pappagallo is seated at his desk. A photo of oil derricks is mounted on the wall behind him. The nameplate on his desk indicates that he is the CEO of 7 Sisters Petroleum. Pappagallo has a list of employees' names in front of him. He has drawn lines through the names of some of the employees, and circled others. We see him circling Bruce's name as Bruce enters. Bruce closes the door, but doesn't sit down. Pappagallo doesn't bother asking him to.</p>
 
 <p class="character">PAPPAGALLO</p>
-<p class="p3"><div class="dialogue">You've probably heard we're being nationalised. We knew it was coming. So I've taken steps to ensure that when they come to take my company from me, there will be nothing left to take. I've dissolved the company. I've destroyed all the records. I'm going to burn this whole place down. I'll pay you what I owe you by the end of the day.</div></p>
+<p class="p3"><div class="dialogue">You've probably heard we're being nationalised. We knew it was coming. So I've taken steps to ensure that when they come to take my company from me, there will be nothing left to take. I've dissolved the company. I've burned all the records. I'll pay you what I owe you by the end of the day.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">It's been nice working with you.</div></p>
 <p class="character">PAPPAGALLO</p>
