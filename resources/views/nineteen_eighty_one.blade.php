@@ -216,14 +216,8 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">Can Debby come?</div></p>
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">Once the compound is built you can send for her. Four weeks. Six tops. </div></p>
-
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">No way.</div></p>
-<p class="p1">Bruce walks out of the office. Pappagallo gets up and follows him. </p>
-
-<p class="camera">CUT TO:</p>
-<p class="location">7SP FIELD OFFICE EXTERIOR</p>
-
 <p class="p1">Bruce goes back to work on the car. Zed runs up to Bruce. Pappagallo joins them. This scene is intentionally written and shot as an homage to the scene in Mad Max 2 in which Pappagallo tries to prevent Max from leaving on his own.</p>
 
 <p class="character">ZED</p>
