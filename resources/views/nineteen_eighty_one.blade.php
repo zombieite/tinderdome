@@ -293,11 +293,11 @@ John "Firebird" Binns
 <p class="p1">Bruce punches Pappagallo and knocks him over. Zed runs to Pappagallo's aid. Bruce leaves and starts walking home. Zed helps Pappagallo up. Pappagallo nods and mutters a few words. He waves to Zed to join him in his office. Zed jumps and cheers.</p>
 
 <p class="camera">CUT TO:</p>
-<p class="location">HOUSE EXTERIOR - MIDDAY</p>
+<p class="location">HOUSE EXTERIOR - MORNING</p>
 <p class="p1">Debby is outside on the porch with her hair tied back in a bandana, pounding some nails down. Bruce arrives home and walks right by her. He enters the house and slams the door. Debby follows him. </p>
 
 <p class="camera">CUT TO:</p>
-<p class="location">HOUSE INTERIOR, KITCHEN - MIDDAY</p>
+<p class="location">HOUSE INTERIOR, KITCHEN - MORNING</p>
 
 <p class="character">DEBBY</p>
 <p class="p3"><div class="dialogue">Did you lose your job?</div></p>
