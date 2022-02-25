@@ -97,7 +97,7 @@ John "Firebird" Binns
 <p class="character">DEBBY</p>
 <p class="p3"><div class="dialogue">Pappagallo?</div></p>
 <p class="character">BRUCE</p>
-<p class="p3"><div class="dialogue">Yeah. He wants every vehicle we have up and running. I think he's preparing for something big.</div></p>
+<p class="p3"><div class="dialogue">Yeah. He wants every vehicle we have up and running. He's got us preparing for something big but he won't say what it is.</div></p>
 <p class="character">DEBBY</p>
 <p class="p3"><div class="dialogue">They nationalised the oil companies.</div></p>
 <p class="character">BRUCE</p>
