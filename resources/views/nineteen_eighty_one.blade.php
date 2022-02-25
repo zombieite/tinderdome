@@ -311,19 +311,15 @@ John "Firebird" Binns
 <p class="location">HOUSE INTERIOR, BEDROOM - NIGHT</p>
 <p class="p1">Bruce packs his bag, including three books.</p>
 <p class="camera">VISUAL MATCH CUT TO:</p>
-<p class="location">7SP FIELD OFFICE INTERIOR - NIGHT</p>
-
-<p class="p1">Pappagallo packs his briefcase, including three books. He has a bloody lip and occasionally presses a cold rag to his jaw. There is a knock at the door. Bruce enters but does not sit down.</p>
-
+<p class="location">7SP FIELD OFFICE EXTERIOR - NIGHT</p>
+<p class="p1">Pappagallo packs his bag, including three books. He has a bloody lip and occasionally presses a cold rag to his jaw. Bruce appears.</p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">I'll take the job.</div></p>
-
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">I've already given the job to Zed.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">Do you want the best? Or do you want Zed?</div></p>
-<p class="p1">Pappagallo sits down and thinks. He opens his briefcase and goes through the books he was just packing: The Last Whole Earth Catalog... Atlas Shrugged.... Then he finds the one he was looking for and hands it to Bruce: How To Win Friends And Influence People.</p>
-
+<p class="p1">Pappagallo considers it for a moment. He opens his bag and goes through the books he was just packing: The Last Whole Earth Catalog... Atlas Shrugged.... Then he finds the one he was looking for and hands it to Bruce: How To Win Friends And Influence People.</p>
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">Read this. Next time let your mouth do the talking.</div></p>
 
