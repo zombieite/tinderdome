@@ -137,30 +137,23 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">If it weren't for you, I'd tear this whole bloody world to the ground.</div></p>
 
 <p class="p1">Zed and Debby share a look. Zed gives her a creepy smile. Debby's face tenses up and she shuts the door.</p>
-
 <p class="camera">CUT TO:</p>
 <p class="location">HOUSE INTERIOR, BEDROOM</p>
 <p class="p1">Debby returns to the bedroom to find a human-shaped oil stain on the sheets. She sighs and removes the sheet.</p>
-
 <p class="character">RADIO ANNOUNCER</p>
 <p class="p3"><div class="dialogue">American economist Deanna Binns has been invited to address the Australian parliament later this year. Binns believes that Australia should adopt economic policies similar to those of Chile's (&quot;CHILL-eez&quot;) reactionary dictatorship. With unemployment and inflation both over twenty percent, these controversial reforms are just as likely to devastate Australia's economy as they are to save it.... A $250,000 reward has been offered for information related to the recent bombings of several Woolworths stores. The reward is the largest ever offered in Australian history.... The Tynong (&quot;TIE-nong&quot;) North and Frankston murders remain unsolved after three more women's bodies were found last month.... And speaking of serial killers, now back to the music. This song is about Brenda Spencer, a 16-year-old girl who shot up a school. It's the Boomtown Rats, with &quot;I Don't Like Mondays.&quot;</div></p>
-
 <p class="camera">CUT TO:</p>
 <p class="location">7SP FIELD OFFICE EXTERIOR - MORNING</p>
 <p class="p1">The 7 Sisters Petroleum office is run down. There's graffiti on the sign by the front door. NEIL is leaning under the open bonnet of a car, trying to work on the engine as best he can while in a wheelchair. He is dressed in a white work vest with a yellow shirt under it, and a dark blue bandana around his neck. Bruce and Zed arrive at work. Both of them are eating their sandwiches. Zed talks with his mouth full.</p>
-
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">Do you ever sleep?</div></p>
-
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">Nah. But I do eat.</div></p>
-
 <p class="p1">Bruce hands Neil the last sandwich.</p>
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">Have you heard the rumour?</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">We're being nationalised. </div></p>
-
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">No, the other rumour. Pappagallo is bringing some of us into his office for a one-on-one meeting.</div></p>
 <p class="character">BRUCE</p>
@@ -169,22 +162,17 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">That's not what I heard. I heard he's picking the best of us for a special project. I hope he picks me!</div></p>
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">You just said he's picking the best. So you know he's not picking you.</div></p>
-
 <p class="p1">Zed opens his mouth and shows Neil his chewed-up food.</p>
-
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">I love Debby's cooking. She used to cook for me all the time.</div></p>
-
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">She never cooked for you.</div></p>
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">Yes she did. She used to be my girlfriend.</div></p>
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">She went on one date with you.</div></p>
-
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">One date she'll never forget.</div></p>
-
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">One date you'll never forget.</div></p>
 <p class="character">BRUCE</p>
@@ -193,34 +181,22 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">Bruce has got her up the duff. You reckon the baby feels it when he roots her?</div></p>
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">You reckon for one sec you could be something other than a total fuckwit?</div></p>
-
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">(To Bruce) You ever choke her? She likes it when you choke her.</div></p>
-
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">No she doesn't. And that's why you only got one date.</div></p>
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">One date so far.</div></p>
 <p class="p1">Bruce moves to attack Zed but Neil grabs his arm. Bruce tugs so hard that he pulls Neil's wheelchair sideways.</p>
-
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">Pay him no mind. The last woman he was inside was his mother. He's not going to try anything with Debby. Not with you around.</div></p>
 <p class="p1">Neil lets Bruce go. Bruce feigns another attack and Zed flinches. Bruce walks away and begins work on another nearby vehicle. PAPPAGALLO appears. He is a middle-aged businessman wearing a 70s suit and a wide tie. Pappagallo has a clipboard with a list of employees' names on it. He has drawn lines through the names of some of the employees, and circled others. We see him circling Bruce's name.</p>
-
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">Bruce, can I speak to you for a moment?</div></p>
-
 <p class="p1">Neil and Zed make schoolboy sounds, as though they are making fun of Bruce for being in trouble with the principal. Bruce and Pappagallo leave the shop area so they are out of earshot of the others.</p>
-
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">I've had lots of girlfriends. I still have the presents they gave me.</div></p>
 <p class="p1">Zed opens his pocket and pulls out a locket, an earring, a button, a toy figurine, a seashell, and a barrette. Neil ignores him.</p>
-
-<p class="camera">CUT TO:</p>
-<p class="location">7SP FIELD OFFICE INTERIOR - MORNING</p>
-
-<p class="p1">Pappagallo is seated at his desk. A photo of oil derricks is mounted on the wall behind him. The nameplate on his desk indicates that he is the CEO of 7 Sisters Petroleum. Pappagallo has a list of employees' names in front of him. He has drawn lines through the names of some of the employees, and circled others. We see him circling Bruce's name as Bruce enters. Bruce closes the door, but doesn't sit down. Pappagallo doesn't bother asking him to.</p>
-
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">You've probably heard we're being nationalised. We knew it was coming. So I've taken steps to ensure that when they come to take my company from me, there will be nothing left to take. I've dissolved the company. I've burned all the records. I'll pay you what I owe you by the end of the day.</div></p>
 <p class="character">BRUCE</p>
@@ -233,7 +209,7 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">That may be, but it takes the brains of people like me to get it out of the ground. It takes our engineers to turn it into something everyone can use. It takes people like you to keep the trucks running. That's why I want you out there with us. You're the best mechanic we've got. </div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">No I'm not. Neil is.</div></p>
-<p class="p1">Pappagallo looks out the window at Neil.</p>
+<p class="p1">Pappagallo looks at Neil in the distance.</p>
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">We need someone... with more... mobility.</div></p>
 <p class="character">BRUCE</p>
