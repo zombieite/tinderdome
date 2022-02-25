@@ -42,7 +42,7 @@ John "Firebird" Binns
 <hr>
 
 <p class="camera">FADE IN:</p>
-<p class="location">AUSTRALIAN OUTBACK - MIDDAY</p>
+<p class="location">AUSTRALIAN OUTBACK - DAY</p>
 
 <p class="p1">&quot;Oil donkey&quot; (AKA pumpjack) pumping. Credits. The title &quot;1981&quot; appears, taking up most of the frame.</p>
 
@@ -91,9 +91,13 @@ John "Firebird" Binns
 <p class="camera">INTERCUT:</p>
 <p class="location">DEBBY/BRUCE</p>
 <p class="character">DEBBY</p>
-<p class="p3"><div class="dialogue">Did Pappagallo have you working late again?</div></p>
+<p class="p3"><div class="dialogue">Working late again?</div></p>
 <p class="character">BRUCE</p>
-<p class="p3"><div class="dialogue">He's preparing for something big but he won't say what it is.</div></p>
+<p class="p3"><div class="dialogue">The CEO is coming in to town.</div></p>
+<p class="character">DEBBY</p>
+<p class="p3"><div class="dialogue">Pappagallo?</div></p>
+<p class="character">BRUCE</p>
+<p class="p3"><div class="dialogue">Yeah. He wants every vehicle we have up and running. I think he's preparing for something big.</div></p>
 <p class="character">DEBBY</p>
 <p class="p3"><div class="dialogue">They nationalised the oil companies.</div></p>
 <p class="character">BRUCE</p>
