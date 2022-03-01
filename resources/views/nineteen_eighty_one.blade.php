@@ -208,7 +208,7 @@ As you've probably heard we're being nationalised. We all knew it was coming. So
 <p class="p3"><div class="dialogue">That oil doesn't belong to you. It belongs to everyone.</div></p>
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">
-That may be, but it takes the brains of guys like me to get it out of the ground. It takes our engineers to turn it into something everyone can use. And it takes guys like you to keep the trucks running. And that's why I'd like you to come with us. You're the best mechanic we've got.</div></p>
+That may be, but it takes guys like me to get it out of the ground. It takes our engineers to turn it into something everyone can use. And it takes guys like you to keep the trucks running. And that's why I'd like you to come with us. You're the best mechanic we've got.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">No I'm not. Neil is.</div></p>
 <p class="p1">Pappagallo looks at Neil in the distance.</p>
@@ -217,7 +217,7 @@ That may be, but it takes the brains of guys like me to get it out of the ground
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">Can Debby come?</div></p>
 <p class="character">PAPPAGALLO</p>
-<p class="p3"><div class="dialogue">Once the compound is built you can send for her. Four weeks. Six tops. </div></p>
+<p class="p3"><div class="dialogue">Once the compound is built you can send for her. Four weeks. Six weeks tops.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">No way.</div></p>
 <p class="p1">Bruce goes back to work on the car. Zed runs up to Bruce. Pappagallo joins them. This scene is intentionally written and shot as an homage to the scene in Mad Max 2 in which Pappagallo tries to prevent Max from leaving on his own.</p>
