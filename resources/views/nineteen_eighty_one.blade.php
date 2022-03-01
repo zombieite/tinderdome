@@ -232,7 +232,8 @@ As you've probably heard we're being nationalised. We all knew it was coming. So
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">I have everything I need right here.</div></p>
 <p class="character">PAPPAGALLO</p>
-<p class="p3"><div class="dialogue">You don't have a future. I can offer you that. You think you can find another job? You'll be fighting over scraps. I can triple your pay.</div></p>
+<p class="p3"><div class="dialogue">
+You don't have a future. I can offer you that. You think you can find another job out here? You'll be fighting over scraps. I can triple your pay.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">Cash isn't worth anything anymore. </div></p>
 <p class="character">PAPPAGALLO</p>
