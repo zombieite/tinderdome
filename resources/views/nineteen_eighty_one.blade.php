@@ -198,7 +198,8 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">I've had lots of girlfriends. I still have the presents they gave me.</div></p>
 <p class="p1">Zed opens his pocket and pulls out a locket, an earring, a button, a toy figurine, a seashell, and a barrette. Neil ignores him.</p>
 <p class="character">PAPPAGALLO</p>
-<p class="p3"><div class="dialogue">You've probably heard we're being nationalised. We knew it was coming. So I've taken steps to ensure that when they come to take my company from me, there will be nothing left to take. I've dissolved the company. I've burned all the records. I'll pay you what I owe you by the end of the day.</div></p>
+<p class="p3"><div class="dialogue">
+As you've probably heard we're being nationalised. We all knew it was coming. So I took steps to ensure that when they come to take my company from me, there will be nothing left to take. As of today I've dissolved the company. I've burned all the maps, all the survey data, all the employee records. 7 Sisters Petroleum is no more. I'll pay you what I owe you by the end of the day.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">It's been nice working with you.</div></p>
 <p class="character">PAPPAGALLO</p>
