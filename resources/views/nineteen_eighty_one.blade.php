@@ -208,7 +208,7 @@ As you've probably heard we're being nationalised. We all knew it was coming. So
 <p class="p3"><div class="dialogue">That oil doesn't belong to you. It belongs to everyone.</div></p>
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">
-That may be, but it takes the brains of people like me to get it out of the ground. It takes our engineers to turn it into something everyone can use. And it takes guys like you to keep the trucks running. That's why I want you out there with us. You're the best mechanic we've got.</div></p>
+That may be, but it takes the brains of guys like me to get it out of the ground. It takes our engineers to turn it into something everyone can use. And it takes guys like you to keep the trucks running. That's why I want you out there with us. You're the best mechanic we've got.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">No I'm not. Neil is.</div></p>
 <p class="p1">Pappagallo looks at Neil in the distance.</p>
