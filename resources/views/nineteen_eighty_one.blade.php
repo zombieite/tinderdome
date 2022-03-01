@@ -201,7 +201,7 @@ John "Firebird" Binns
 <p class="p3"><div class="dialogue">
 As you've probably heard we're being nationalised. We all knew it was coming. So I took steps to ensure that when they come to take my company from me, there will be nothing left to take. As of today I've dissolved the company. I've burned all the maps, all the survey data, all the employee records. 7 Sisters Petroleum is no more. I'll pay you what I owe you by the end of the day.</div></p>
 <p class="character">BRUCE</p>
-<p class="p3"><div class="dialogue">It's been nice working with you.</div></p>
+<p class="p3"><div class="dialogue">It's been a pleasure working with you.</div></p>
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">This doesn't have to be the end. A few of us are going out to one of the oil donkeys to build a little refinery around it. We'll use the fuel to barter for everything we need. We'll start a new life while the rest of the world goes to the dogs.</div></p>
 <p class="character">BRUCE</p>
