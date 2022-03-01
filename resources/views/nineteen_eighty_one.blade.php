@@ -362,12 +362,13 @@ You don't have a future. I can offer you that. You think you can find another jo
 <p class="camera">CUT TO:</p>
 <p class="location">HOUSE EXTERIOR - NIGHT</p>
 
-<p class="p1">All of the sounds stop and we have a brief silence. Zed is standing alone in front of Bruce's and Debby's house. Zed whistles the same birdsong that he heard Bruce whistle to Debby earlier that day.</p>
+<p class="p1">
+All of the sounds stop and we have a brief silence. Zed is standing alone in front of Bruce's and Debby's house. He's about to knock, but then he stops himself. Instead, he whistles the same birdsong that he heard Bruce whistle to Debby earlier that day.</p>
 
 <p class="camera">CUT TO:</p>
 <p class="location">HOUSE INTERIOR, BEDROOM - NIGHT</p>
 
-<p class="p1">Debby hears the whistle and looks up. She stops playing the music box, leaving the last two notes of Happy Birthday unplayed. She whistles back, runs to the front door, and opens it. We cut to Zed's POV of Debby's face as the door opens.</p>
+<p class="p1">Debby hears the whistle and looks up in delight. She stops playing the music box, leaving the last two notes of Happy Birthday unplayed. She whistles back, runs to the front door, and opens it. We cut to Zed's POV of Debby's face as the door opens.</p>
 
 <p class="camera">CUT TO:</p>
 <p class="location">OIL DONKEY COMPOUND - NIGHT</p>
