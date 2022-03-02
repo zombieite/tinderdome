@@ -64,12 +64,10 @@ John "Firebird" Binns
 <p class="character">RADIO ANNOUNCER</p>
 <p class="p3"><div class="dialogue">Biologist Paul Ehrlich (ERR-lick) predicts hundreds of millions will starve, and the prices of raw materials will continue to skyrocket over the next decade. He predicts oil reserves will be depleted in 20 to 30 years. Oil prices have more than tripled, leading prime minister Fraser (&quot;FRAY-zer&quot;) to announce this morning that Australia's oil resources have been nationalised and will now be managed exclusively by the government.</div></p>
 
-<p class="p1">Debby brings a bacon and egg roll on a plate to Bruce in the bedroom. </p>
-
 <p class="camera">CUT TO:</p>
 <p class="location">BEDROOM</p>
 
-<p class="p1">Debby leans over and whispers into Bruce's ear.</p>
+<p class="p1">Debby brings a bacon and egg roll on a plate to Bruce in the bedroom. She leans over and whispers into Bruce's ear.</p>
 
 <p class="character">DEBBY</p>
 <p class="p3"><div class="dialogue">Time to get up Brucie.</div></p>
