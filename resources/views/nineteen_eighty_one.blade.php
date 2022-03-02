@@ -44,7 +44,7 @@ John "Firebird" Binns
 <p class="camera">FADE IN:</p>
 <p class="location">AUSTRALIAN OUTBACK - DAY</p>
 
-<p class="p1">&quot;Oil donkey&quot; (AKA pumpjack) pumping. Credits. The title &quot;1981&quot; appears, taking up most of the frame.</p>
+<p class="p1">&quot;Oil donkey&quot; (AKA pumpjack) pumping. PAPPAGALLO, a middle aged man in a 70s suit with a wide tie, stands in front of it. His expression is serious. He takes off his hat. The title "1981" appears, taking up most of the frame.</p>
 
 <p class="camera">CUT TO:</p>
 <p class="location">HOUSE INTERIOR, BEDROOM - MORNING, JANUARY 1981</p>
@@ -190,7 +190,7 @@ John "Firebird" Binns
 <p class="p1">Bruce moves to attack Zed but Neil grabs his arm. Bruce tugs so hard that he pulls Neil's wheelchair sideways.</p>
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">Pay him no mind. The last woman he was inside was his mother. He's not going to try anything with Debby. Not with you around.</div></p>
-<p class="p1">Neil lets Bruce go. Bruce feigns another attack and Zed flinches. Bruce walks away and begins work on another nearby vehicle. PAPPAGALLO appears. He is a middle-aged businessman wearing a 70s suit and a wide tie. Pappagallo has a clipboard with a list of employees' names on it. He has drawn lines through the names of some of the employees, and circled others. We see him circling Bruce's name.</p>
+<p class="p1">Neil lets Bruce go. Bruce feigns another attack and Zed flinches. Bruce walks away and begins work on another nearby vehicle. Pappagallo appears. He has a clipboard with a list of employees' names on it. He has drawn lines through the names of some of the employees, and circled others. We see him circling Bruce's name.</p>
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">Bruce, can I speak to you for a moment?</div></p>
 <p class="p1">Neil and Zed make schoolboy sounds, as though they are making fun of Bruce for being in trouble with the principal. Bruce and Pappagallo leave the shop area so they are out of earshot of the others.</p>
