@@ -203,7 +203,7 @@ As you've probably heard we're being nationalised. We all knew it was coming. So
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">It's been a pleasure working with you.</div></p>
 <p class="character">PAPPAGALLO</p>
-<p class="p3"><div class="dialogue">This doesn't have to be the end. A few of us are going out to one of the oil donkeys to build a little refinery around it. We'll use the fuel to barter for everything we need. We'll start a new life while the rest of the world goes to the dogs.</div></p>
+<p class="p3"><div class="dialogue">This doesn't have to be the end. A few of us are going out to one of the oil donkeys. We're going to build a little refinery around it. We'll build a wall to keep out the riff-raff. We'll start a new life while the rest of the world goes to the dogs.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">That oil doesn't belong to you. It belongs to everyone.</div></p>
 <p class="character">PAPPAGALLO</p>
