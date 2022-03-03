@@ -67,7 +67,7 @@ John "Firebird" Binns
 <p class="camera">CUT TO:</p>
 <p class="location">BEDROOM</p>
 
-<p class="p1">Debby brings a bacon and egg roll on a plate to Bruce in the bedroom. She leans over and whispers into Bruce's ear.</p>
+<p class="p1">Debby brings a bacon and egg roll on a plate to Bruce in the bedroom. She leans over and whispers in his ear.</p>
 
 <p class="character">DEBBY</p>
 <p class="p3"><div class="dialogue">Time to get up Brucie.</div></p>
