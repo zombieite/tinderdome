@@ -129,7 +129,8 @@ John "Firebird" Binns
 <p class="character">ZED</p>
 <p class="p3"><div class="dialogue">Wake up slacker! 7 Sisters Petroleum, fuelling the world!</div></p>
 
-<p class="p1">Bruce rushes out the door. Zed tries to peek in the door but Bruce immediately slams it shut. They both start heading off to work but then we hear Debby inside whistling the distinctive call of the grey butcherbirds of Werrington, New South Wales. Bruce forgot the sandwiches. He immediately replies with the same whistle and returns to the door. Zed wonders about the purpose of their whistle, but he imitates it successfully, without Bruce or Debby hearing him. The door opens. Debby hands Bruce a bag with the sandwiches in it.</p>
+<p class="p1">
+Bruce rushes out the door. Zed is uncomfortably close to the door and tries to invite himself in, but Bruce immediately slams it shut and pushes him out of the way. They both start heading off to work, but then the door opens again and we hear Debby whistling the distinctive call of the grey butcherbirds of Werrington, New South Wales. He immediately replies with the same whistle and returns to the door. Debby's hand is sticking out of the door, holding the bag of sandwiches. She's hiding her face behind the door to avoid Zed's creepy gaze. Zed wonders about the purpose of their whistle, but he imitates it successfully, without Bruce or Debby hearing him. The door opens. Debby hands Bruce a bag with the sandwiches in it.</p>
 
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">If it weren't for you, I'd tear this whole bloody world to the ground.</div></p>
