@@ -389,10 +389,17 @@ All of the sounds stop and we have a brief silence. Zed is standing alone in fro
 <p class="camera">CUT TO:</p>
 <p class="location">HOUSE INTERIOR, KITCHEN - NIGHT</p>
 
-<p class="p1">Zed bends over. He takes the music box from Debby's dead hand and puts it into his pocket of trinkets.</p>
+<p class="p1">
+Zed walks through Bruce's and Debby's house like he owns the place. It is unclear where Debby is. We hear the radio. Zed casually picks up a chicken leg from a plate and begins eating it while staring at the floor. The camera sits on his face for a full minute as he chews and swallows.
+</p>
 
 <p class="character">RADIO ANNOUNCER</p>
 <p class="p3"><div class="dialogue">Police suspect the killer strangles his victims, as no murder weapon has been found. The killer steals a trinket from each of his victims to keep as a souvenir.... Prime minister Fraser (&quot;FRAY-zer&quot;) has declared that stage three of the national emergency is effective immediately. Citizens are warned (radio cuts off and all we can hear is static). </div></p>
+
+<p class="p1">Zed bends over. The camera follows his hand to the floor. We see him take the music box from Debby's dead hand and put it into his pocket of trinkets.</p>
+
+<p class="character">ZED</p>
+<p class="p3"><div class="dialogue">I always loved your cooking.</div></p>
 
 <p class="camera">FADE OUT.</p>
 
