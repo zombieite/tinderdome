@@ -373,7 +373,8 @@ All of the sounds stop and we have a brief silence. Zed is standing alone in fro
 <p class="camera">CUT TO:</p>
 <p class="location">OIL DONKEY COMPOUND - NIGHT</p>
 
-<p class="p1">Bruce and the other former employees of 7 Sisters Petroleum are hard at work building Pappagallo's compound. Saws are grinding and sparks are flying. Pappagallo is approached by an employee who informs him about something we can't hear. He walks across the compound and takes Bruce aside with a solemn look on his face. This scene is intentionally written and shot as an homage to the scene in Mad Max 2 in which Wez rages over the death of the Golden Youth.</p>
+<p class="p1">
+Bruce and the other former employees of 7 Sisters Petroleum are hard at work building Pappagallo's compound. Saws are grinding and sparks are flying. Pappagallo is taking his old office supplies out of his bag and setting them up at his new desk, such as it is. He is approached by an employee who informs him about something we can't hear. He walks across the compound and takes Bruce aside with a solemn look on his face. This scene is intentionally written and shot as an homage to the scene in Mad Max 2 in which Wez rages over the death of the Golden Youth.</p>
 
 <p class="character">PAPPAGALLO</p>
 <p class="p3"><div class="dialogue">Bruce, I don't know how to tell you this, but I just got word that... that Debby is uh... Debby was uh... killed.</div></p>
