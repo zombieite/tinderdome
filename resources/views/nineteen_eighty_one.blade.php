@@ -44,7 +44,8 @@ John "Firebird" Binns
 <p class="camera">FADE IN:</p>
 <p class="location">AUSTRALIAN OUTBACK - DAY</p>
 
-<p class="p1">&quot;Oil donkey&quot; (AKA pumpjack) pumping. PAPPAGALLO, a middle aged man in a 70s suit with a wide tie, stands in front of it. His expression is serious. He takes off his hat. The title "1981" appears, taking up most of the frame.</p>
+<p class="p1">
+&quot;Oil donkey&quot; (AKA pumpjack) pumping. PAPPAGALLO, a middle aged man in a 70s suit with a wide tie, stands in front of it. His expression is serious. He takes off his hat and sits down on the ground, still watching the pump. The title "1981" appears, taking up most of the frame.</p>
 
 <p class="camera">CUT TO:</p>
 <p class="location">HOUSE INTERIOR, BEDROOM - MORNING, JANUARY 1981</p>
