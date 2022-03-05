@@ -89,7 +89,7 @@ John "Firebird" Binns
 <p class="camera">INTERCUT:</p>
 <p class="location">DEBBY/BRUCE</p>
 <p class="character">DEBBY</p>
-<p class="p3"><div class="dialogue">Working late again?</div></p>
+<p class="p3"><div class="dialogue">Did you work late again?</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">The CEO is coming in to town today.</div></p>
 <p class="character">DEBBY</p>
