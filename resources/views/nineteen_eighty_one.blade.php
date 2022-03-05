@@ -177,7 +177,7 @@ Bruce rushes out the door. Zed is uncomfortably close to the door and tries to i
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">Or shut up about.</div></p>
 <p class="character">ZED</p>
-<p class="p3"><div class="dialogue">Bruce has got her up the duff. You reckon the baby feels it when he roots her?</div></p>
+<p class="p3"><div class="dialogue">Bruce has got her up the duff you know. You reckon the baby feels it when he roots her?</div></p>
 <p class="character">NEIL</p>
 <p class="p3"><div class="dialogue">You reckon for one sec you could be something other than a total fuckwit?</div></p>
 <p class="character">ZED</p>
