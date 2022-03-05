@@ -378,7 +378,7 @@ All of the sounds stop and we have a brief silence. Zed is standing alone in fro
 <p class="p3"><div class="dialogue">Bruce, I don't know how to tell you this, but I just got word that... that Debby is uh... Debby was uh... killed.</div></p>
 <p class="p1">Bruce's emotions go from sadness to primal rage, and he attacks Pappagallo.</p>
 <p class="character">BRUCE</p>
-<p class="p3"><div class="dialogue">Zed. Zed did this! I'm going to kill him! I'm going to kill all of you! Kill! Kill! Kill!</div></p>
+<p class="p3"><div class="dialogue">Zed. Zed did this! I'm going to kill him! I'm going to kill all of you! Burn it all down! Kill! Kill! Kill!</div></p>
 <p class="p1">The other compound dwellers restrain Bruce. In the fray, Bruce's hat falls off, revealing that his hair is cut into a red mohawk.</p>
 
 <p class="camera">CUT TO:</p>
