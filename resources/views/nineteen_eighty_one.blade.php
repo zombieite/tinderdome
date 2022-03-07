@@ -301,7 +301,7 @@ You don't have a future. I can offer you that. You think you can find another jo
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">Do you think I should go?</div></p>
 <p class="character">DEBBY</p>
-<p class="p3"><div class="dialogue">The world is falling apart.</div></p>
+<p class="p3"><div class="dialogue">Have you listened to the radio lately? The world is falling apart.</div></p>
 <p class="character">BRUCE</p>
 <p class="p3"><div class="dialogue">I'm happy here, with you.</div></p>
 <p class="character">DEBBY</p>
