@@ -92,15 +92,25 @@ John "Firebird" Binns
 <p class="character">DEBBY</p>
 <p class="p3"><div class="dialogue">Did you work late again?</div></p>
 <p class="character">BRUCE</p>
-<p class="p3"><div class="dialogue">The CEO is coming in to town today.</div></p>
+<p class="p3"><div class="dialogue">
+The CEO is coming in to town today. He wants every vehicle we have up and running. Every truck, every car, every motorbike.
+</div></p>
 <p class="character">DEBBY</p>
-<p class="p3"><div class="dialogue">Pappagallo?</div></p>
+<p class="p3"><div class="dialogue">
+Pappagallo's coming all the way out here?
+</div></p>
 <p class="character">BRUCE</p>
-<p class="p3"><div class="dialogue">Yeah. He wants every vehicle we have up and running. He's got us preparing for something big but he won't say what it is.</div></p>
+<p class="p3"><div class="dialogue">
+Yeah. He's preparing for something big, but he won't say what it is.
+</div></p>
 <p class="character">DEBBY</p>
-<p class="p3"><div class="dialogue">They nationalised the oil companies.</div></p>
+<p class="p3"><div class="dialogue">
+7 Sisters Petroleum was nationalised this morning. They've voted to nationalise all the oil companies.
+</div></p>
 <p class="character">BRUCE</p>
-<p class="p3"><div class="dialogue">It's about bloody time.</div></p>
+<p class="p3"><div class="dialogue">
+I guess I'm working for the government now. It's about bloody time.
+</div></p>
 <p class="character">DEBBY</p>
 <p class="p3"><div class="dialogue">Is that good news or bad news?</div></p>
 <p class="character">BRUCE</p>
