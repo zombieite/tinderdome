@@ -8,6 +8,7 @@ shuffle($ads);
 // Can be used to remove some random ones from above so the ads section doesn't have too many in it
 array_pop($ads);
 array_pop($ads);
+//
 
 @endphp
 @guest
@@ -20,6 +21,7 @@ $ads = [];
 // Can be used to add mandatory ads that must always be shown
 array_push($ads, '<a class="small" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>');
 array_push($ads, '<a class="small bright" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem">Heads Will Rock</a>');
+//
 
 shuffle($ads);
 $ad_string = '';
