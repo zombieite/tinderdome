@@ -31,7 +31,7 @@ foreach ($ads as $ad) {
         $ad_string .= "$ad &middot; ";
     }
 }
-
+ 
 // Use this below the endphp to show the circulating ads
 // {!! $ad_string !!}
 @endphp
