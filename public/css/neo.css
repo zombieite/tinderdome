@@ -68,6 +68,10 @@ h1, h2, h3, h4, h5, h6, label {
 .small {
     text-transform: uppercase;
 }
+input[type="password"], input[type="email"], input[type="text"], textarea {
+    color: var(--bg);
+    background-color: var(--neutral);
+}
 input[type="submit"] {
     font-family: var(--font);
     color: var(--bg);
