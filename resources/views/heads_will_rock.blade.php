@@ -87,9 +87,6 @@ The victors celebrate, while the losers mourn... and plan their revenge.
 <br><br>
 Firebird's marketing materials for the Firebuddy "lappy" computer.
 <br><br>
-<a class="small" href="/1981-a-film-in-honour-of-the-40th-anniversary-of-mad-max-2">1981</a>
-<br><br>
-A short film describing the circumstances that drove Bruce Barbagallo to tear the whole world to the ground.
 </div>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;text-align:center;">
