@@ -82,7 +82,7 @@ The victors celebrate, while the losers mourn... and plan their revenge.
 </div>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
-<span class="small">NEXT</span><br><br>
+<span class="small">NEXT</span><br>
 <a class="small" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>
 <br><br>
 Firebird's marketing materials for the Firebuddy "lappy" computer.
