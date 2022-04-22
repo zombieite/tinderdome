@@ -42,8 +42,8 @@ As we pulled off the Sin City exit we were listening to Manfred Mann's Earth Ban
 No Dorktown. He's singing about going out for a cruise in a deuce coupe on a Friday night with his mates.</p><p>
 <i>I'm pretty sure he's saying "douche."</i></p><p>
 Anyway it's a cover that's far better than the original.</p><p>
-Sin City was a surprisingly unpopulated town unless you counted the skeletons. The factory was in a lot better shape than the one in Van Nuys. Aside from some intrusive vegetation it looked like it had been abandoned yesterday. We parked the Frankenbird right out front.</p><p>
-I got goosebumps from my head to my toes for I was standing on hallowed ground. Norwood Assembly. Birthplace of the Camaro and the Firebird. In operation from 1923 all the way up until the Big Bang put GM and the rest of the world out of business in 1981.</p><p>
+Sin City was a surprisingly unpopulated town unless you counted the skeletons. The factory was in a lot better shape than the one in Van Nuys. Aside from some intrusive vegetation it looked like it had been abandoned yesterday. We parked the Frankenbird right out front.</p>
+<p id="norwood">I got goosebumps from my head to my toes for I was standing on hallowed ground. Norwood Assembly. Birthplace of the Camaro and the Firebird. In operation from 1923 all the way up until the Big Bang put GM and the rest of the world out of business in 1981.</p><p>
 The buildings were made of brick and glass. The facility took up sixty acres. Through the years the place had grown quite a bit so there were older and newer sections. The main building was three stories tall and held thirteen miles of conveyors.</p><p>
 We walked right in the front door. The skeleton receptionist said "Hello Mr. Firebird." And while we're imagining things let's pretend I asked her for my messages. "Ah yes. A Mr. Chumdumpster called. He says he forgives you for killing his dad and he's turning around and going home."</p><p>
 We stepped onto the main factory floor. The place was dusty and had no power but the line itself was completely intact. Before us were hundreds of partially assembled cars!</p><p>
