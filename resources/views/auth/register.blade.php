@@ -164,7 +164,7 @@ We will try to match you to a user of your preferred gender, but you must be ope
 <img alt="" src="images/signup.png" style="filter:none;">
 <br>
 <input name="signup_code" id="signup_code" type="text" maxlength="50" required value="@guest{{ old('signup_code') }}@else @endguest"></input>
-<label for="signup_code">Signup code</label> (please contact Firebird if you do not have one)
+<label for="signup_code">Signup code</label> (please contact <a href="mailto:wastelandfirebird@gmail.com?subject=I need a signup code&body=I need a signup code">Firebird</a> if cannot read the hint above)
 @endguest
 
 
