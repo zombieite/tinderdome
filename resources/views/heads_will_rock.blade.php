@@ -83,7 +83,7 @@ The victors celebrate, while the losers mourn... and plan their revenge.
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <span class="small">NEXT</span><br>
-<a href="https://www.youtube.com/watch?v=YaMjCREtDP0">1981: The Fall of 7 Sisters Petroleum</a>
+<a class="small" href="https://www.youtube.com/watch?v=YaMjCREtDP0">1981: The Fall of 7 Sisters Petroleum</a>
 <br><br>
 <span class="small">PREVIOUS</span><br>
 <a class="small" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>
