@@ -36,7 +36,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => '',
-                'summary' => '',
+                'summary' => 'Airplane allegory',
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -44,7 +44,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => '',
-                'summary' => '',
+                'summary' => 'Island allegory',
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -52,7 +52,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => '',
-                'summary' => '',
+                'summary' => 'Australia dystopia',
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -60,7 +60,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => '',
-                'summary' => '',
+                'summary' => 'Australia',
                 'answered_question' => '',
                 'new_question' => '',
             ],
