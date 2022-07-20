@@ -20,7 +20,7 @@ class TheBoardController extends Controller
             [
                 'title' => '',
                 'location' => '',
-                'summary' => '',
+                'summary' => 'Norwood normal',
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -28,7 +28,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => '',
-                'summary' => '',
+                'summary' => 'Assassination attempt',
                 'answered_question' => '',
                 'new_question' => '',
             ],
