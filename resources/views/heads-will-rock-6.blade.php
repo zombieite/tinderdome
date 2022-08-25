@@ -120,7 +120,7 @@ We went up to the cockpit. Dorktown hopped into the copilot's seat still chompin
 "What's this one do?" I shouted.</p><p>
 Bubury drew his 1911. When he took his hands off the controls Dorktown took over flying the massive dual rotor armored helicopter.</p><p>
 At this point the flight became much more interesting. I don't know if Dorktown was bad at flying the thing or if she didn't care whether we lived or died.</p><p>
-Little bit of both.</p><p>
+<i>Little bit of both.</i></p><p>
 I grabbed Bubury's hands and made sure that no matter where that gun was pointed it wasn't pointed at us. I managed to drag him out of his seat and knock the gun out of his hands. The chopper tipped upward and the gun slid out the back of the open cargo hold. That part went ok.</p><p>
 The next problem was that me and Bubury were sliding toward the back of the helicopter too. We grabbed on to anything we could. We kept trying to fight each other with our feet but that was hard to do. Then Easy Money started tipping sideways and Bubury landed on top of me. Then we tipped sideways the other way and I landed on top of him. We kept grappling and kicking and punching and wrestling but the flight hurt more than the fight. Then we tipped forward. We slid all the way back up to cockpit. I popped my head in to check on Dorktown. I looked out the front window. All I could see was ground coming toward us.</p><p>
 "How are we doing?" I shouted.</p><p>
