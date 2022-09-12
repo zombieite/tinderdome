@@ -95,6 +95,8 @@ class MatchController extends Controller
                             users
                             join attending attending_no_known_match_yet on (users.id = attending_no_known_match_yet.user_id and attending_no_known_match_yet.user_id_of_match is null and attending_no_known_match_yet.event_id = ?)
                             left join attending attending_already_matched_but_dont_know on (users.id = attending_already_matched_but_dont_know.user_id_of_match and attending_already_matched_but_dont_know.event_id = ?)
+                            left join attending attending_was_matched_in_the_past_according_to_potential_match on (attending_was_matched_in_the_past_according_to_potential_match.user_id = users.id and attending_was_matched_in_the_past_according_to_potential_match.user_id_of_match = ?)
+                            left join attending attending_was_matched_in_the_past_according_to_logged_in_user on (attending_was_matched_in_the_past_according_to_logged_in_user.user_id = ? and attending_was_matched_in_the_past_according_to_logged_in_user.user_id_of_match = users.id)
                             $left_maybe join choose c1 on (users.id = c1.chosen_id and c1.chooser_id = ?)
                             left join choose c2 on (users.id = c2.chooser_id and c2.chosen_id = ?)
                         where
@@ -104,8 +106,10 @@ class MatchController extends Controller
                             and (c2.choice is null or c2.choice > 0)
                             and users.id != ?
                             and attending_already_matched_but_dont_know.user_id_of_match is null
+                            and attending_was_matched_in_the_past_according_to_potential_match.user_id_of_match is null
+                            and attending_was_matched_in_the_past_according_to_logged_in_user.user_id_of_match is null
                             and users.number_photos > 0
-                    ", [$event_id, $event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
+                    ", [$event_id, $event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
                     Log::debug(count($mutual_unmet_matches)." possible matches found for ".$logged_in_user->name);
                     if ($mutual_unmet_matches) {
                         foreach ($mutual_unmet_matches as $match) {
