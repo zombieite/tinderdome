@@ -78,6 +78,19 @@ class MatchController extends Controller
                 } else {
                     // Get all users who are potential matches for the logged in user
                     $left_maybe = $logged_in_user->random_ok ? 'left' : '';
+                    //
+                    // attending_no_known_match_yet:
+                    // A join to only include users that are attending this event but have no match in their attending row
+                    //
+                    // attending_already_matched_but_dont_know:
+                    // A join to detect (and eliminate in the where clause) users that are attending this event but are already listed as a match in SOMEONE ELSE'S attending row
+                    //
+                    // attending_was_matched_in_the_past_according_to_potential_match:
+                    // A join to detect (and eliminate in the where clause) users that have a record of being matched to the logged in user in the past 
+                    //
+                    // attending_was_matched_in_the_past_according_to_logged_in_user:
+                    // A join to detect (and eliminate in the where clause) users that the logged in user has a record of being matched to in the past
+                    //
                     $mutual_unmet_matches = DB::select("
                         select
                             users.id user_id,
