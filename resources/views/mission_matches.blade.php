@@ -32,7 +32,6 @@
                             'user_id'                  => $matched_to_user->id,
                             'name'                     => $matched_to_user->name,
                             'event_long_name'          => $matched_to_user->event_long_name,
-                            'ok_to_delete_old_mission' => $matched_to_user->ok_to_delete_old_mission,
                             'event_id'                 => $matched_to_user->event_id,
                             'ok_to_mark_user_found'    => $matched_to_user->ok_to_mark_user_found,
                             'curse_interface'          => $curse_interface,
