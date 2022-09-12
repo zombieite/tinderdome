@@ -123,12 +123,13 @@ class HomeController extends Controller
         $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );
         foreach ($matched_to_users as $matched_to_user) {
             if (isset($_POST['delete_mission_'.$matched_to_user->event_id])) {
-                if ($matched_to_user->ok_to_delete_old_mission || $matched_to_user->this_users_rating_of_logged_in_user === 0 || !$matched_to_user->id) {
-                    DB::delete('delete from attending where event_id = ? and user_id = ?', [$matched_to_user->event_id, $logged_in_user_id]);
-                    DB::update('update attending set user_id_of_match = null where user_id =? and user_id_of_match = ?', [$matched_to_user->id, $logged_in_user_id]);
-                    $matched_to_users                  = \App\Util::matched_to_users( $logged_in_user_id );
-                    $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
-                }
+                # This caused a feature/bug where if someone deleted a mission, they could be re-matched to the same person later
+                #if ($matched_to_user->ok_to_delete_old_mission || $matched_to_user->this_users_rating_of_logged_in_user === 0 || !$matched_to_user->id) {
+                #    DB::delete('delete from attending where event_id = ? and user_id = ?', [$matched_to_user->event_id, $logged_in_user_id]);
+                #    DB::update('update attending set user_id_of_match = null where user_id =? and user_id_of_match = ?', [$matched_to_user->id, $logged_in_user_id]);
+                #    $matched_to_users                  = \App\Util::matched_to_users( $logged_in_user_id );
+                #    $upcoming_events_and_signup_status = \App\Util::upcoming_events_with_pretty_name_and_date_and_signup_status( $logged_in_user );
+                #}
             } else if (isset($_POST['Met']) or isset($_POST['No'])) {
                 \App\Util::rate_user($logged_in_user_id, $_POST);
                 $matched_to_users = \App\Util::matched_to_users( $logged_in_user_id );
