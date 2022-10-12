@@ -152,9 +152,10 @@ class Util {
 					count(*) event_count
 				from
 					attending
-					join users on attending.user_id = users.id
+					join users on user_id = users.id
 				where
-					event_id = ?
+                    user_id > 10
+					and event_id = ?
 			',[$event_result->event_id]);
 			$count                              = $event_count_result[0]->event_count;
 			$event_result->attending_count      = $count;
@@ -241,10 +242,11 @@ class Util {
 					count(*) event_count
 				from
 					attending
-					join users on attending.user_id = users.id
+					join users on user_id = users.id 
 				where
-					event_id = ?
-			',[$event_result->event_id]);
+                    user_id > 10
+					and event_id = ?
+			', [$event_result->event_id]);
 			$count                              = $event_count_result[0]->event_count;
             $event_result->created_by_name      = '';
 			$event_result->attending_count      = $count;
