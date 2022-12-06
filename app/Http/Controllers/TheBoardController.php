@@ -18,49 +18,49 @@ class TheBoardController extends Controller
         [
             0 => 
             [
-                'title' => '',
-                'location' => '',
-                'summary' => 'Norwood normal',
+                'title' => 'Norwood',
+                'location' => 'Norwood',
+                'summary' => "Building cars. But wait, we need to stop the lines again. Hundreds of people who would prefer to be working have to fight off the Hellies and Gillies. FB groans, is it the communists or the fascists? Laura says I can't remember which is which. FB mentions at least they hate each other so much that they will never team up. No DT to be seen, and DT is their best pilot, so the battles haven't been going so well lately. All the other pilots refuse to fly Easy Money, it's too big and dangerous. And they're almost out of ammo.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
             1 => 
             [
                 'title' => '', 
-                'location' => '',
-                'summary' => 'Assassination attempt',
+                'location' => 'Norwood',
+                'summary' => "FB goes to bar with Laura. CD is there drunk and crippled. CD makes a pathetic attempt to kill FB and ends up unconscious choking on his puke. At first FB refuses to save him. Laura points out that she wanted to kill FB once too but now they are best friends. She demands help rolling CD over. FB helps grudgingly. Laura says they can't just leave him. FB says as soon as he wakes up he's gonna try to kill me again. They take him back to the factory and debate what do with him. FB doesn't want to lock him up as a prisoner but he also can't let him get sober enough to successfully kill him so he keeps giving him alcohol. FB is watching recording of the moon landing. He says he wants to go to the moon and needs DT to fly the rocket since she's his best pilot. Laura says the last person to say that got assassinated.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
             2 => 
             [
                 'title' => '', 
-                'location' => '',
-                'summary' => 'Airplane allegory',
+                'location' => 'Plane to Australia',
+                'summary' => "Airplane allegory",
                 'answered_question' => '',
                 'new_question' => '',
             ],
             3 => 
             [
                 'title' => '', 
-                'location' => '',
-                'summary' => 'Island allegory',
+                'location' => 'Unknown Pacific island',
+                'summary' => "Island allegory",
                 'answered_question' => '',
                 'new_question' => '',
             ],
             4 => 
             [
                 'title' => '', 
-                'location' => '',
-                'summary' => 'Australia dystopia',
+                'location' => 'Australia',
+                'summary' => "Australia dystopia",
                 'answered_question' => '',
                 'new_question' => '',
             ],
             5 => 
             [
                 'title' => '', 
-                'location' => '',
-                'summary' => 'Australia',
+                'location' => 'Australia',
+                'summary' => "Australia",
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -68,7 +68,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => '',
-                'summary' => '',
+                'summary' => "",
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -76,7 +76,7 @@ class TheBoardController extends Controller
             [
                 'title' => 'Denouement', 
                 'location' => '',
-                'summary' => '',
+                'summary' => "",
                 'answered_question' => '',
                 'new_question' => '',
             ],
