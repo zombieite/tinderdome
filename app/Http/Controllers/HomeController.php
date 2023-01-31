@@ -29,7 +29,7 @@ class HomeController extends Controller
             ]);
         }
 
-        $leaderboard               = \App\Util::leaderboard( 6 );
+        $leaderboard               = \App\Util::leaderboard( 5 );
 
         if ($logged_in_user_id == 1 and isset($_GET['masquerade'])) {
             $logged_in_user_id     = $_GET['masquerade'];
