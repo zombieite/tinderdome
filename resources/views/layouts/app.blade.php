@@ -12,10 +12,10 @@
 <meta property="og:image:height" content="630">
 <meta property="og:description" content="Find thems you're looking for and thems you've lost.">
 <meta name="description" content="Find thems you're looking for and thems you've lost.">
-<link href="/css/neo.css" rel="stylesheet">
+<link href="/css/yaa.css" rel="stylesheet">
 </head>
 <body>
-<a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/NEO.png" style="filter:none;width:100%;max-width:530px;"></a>
+<a href="{{ url('/') }}" style="text-decoration:none;"><img src="/images/yaa-header.png" style="filter:none;width:100%;max-width:530px;"></a>
 <br>
 @guest
     <div class="navbar"><a href="{{ route('register') }}">Sign up</a></div>
