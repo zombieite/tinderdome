@@ -40,14 +40,14 @@ A girl named Dorktown inspires both Firebird and his nemesis, Mohawk Asshole, to
 <span class="small">Act II</span><br>
 <a class="small" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-2-bakersfield">Chapter 2: Bakersfield</a>
 <br><br>
-Firebird and Dorktown try to secure funding and weapons for their endeavour. 
+Firebird and Dorktown try to secure funding and weapons for their endeavor. 
 <br><br>
 </div>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;">
 <a class="small" href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-3-van-nuys">Chapter 3: Van Nuys</a>
 <br><br>
-As Firebird and Dorktown chase Mohawk Asshole and Chumdumpster to the old GM factory in Van Nuys, they discuss what it would take to revive the prosperity that prevailed in the times before the apocalypse. Firebird and Dorktown find the Van Nuys factory in ruins, and they battle Mohawk Asshole and Chumpdumpster for the scraps of what's left. Firebird and Dorktown begin the cross-country journey to the other Firebird factory in Norwood, Ohio, with Mohawk Asshole and Chumdumpster on their tail. 
+As Firebird and Dorktown chase Mohawk Asshole and Chumdumpster to the old GM factory in Van Nuys, they discuss what it would take to revive the prosperity that prevailed in the times before the apocalypse. Firebird and Dorktown find the Van Nuys factory in ruins, and they battle Mohawk Asshole and Chumpdumpster for the scraps. Firebird and Dorktown begin the cross-country journey to the other Firebird factory in Norwood, Ohio, with Mohawk Asshole and Chumdumpster on their tail. 
 <br><br>
 </div>
 
