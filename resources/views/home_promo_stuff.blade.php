@@ -1,2 +1,2 @@
-<a href="https://www.youtube.com/watch?v=YaMjCREtDP0">1981: The Fall of 7 Sisters Petroleum</a>
+<a href="https://www.youtube.com/wastelandfirebird">Please subscribe to Firebird's YouTube channel!</a>
 <hr>
