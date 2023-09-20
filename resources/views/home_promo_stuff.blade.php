@@ -1,2 +1,2 @@
-<a href="https://www.youtube.com/wastelandfirebird">Please subscribe to Firebird's YouTube channel!</a>
+<a href="https://www.youtube.com/wastelandfirebird/videos">Please subscribe to Firebird's YouTube channel!</a>
 <hr>
