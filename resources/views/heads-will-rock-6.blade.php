@@ -144,7 +144,7 @@ But Dorktown wasn't gonna give up that easily. She started doing laps around the
 Chumdumpster was furious. He sent the three fastest cars from the Buckeye Gillies after us. But there was no way those half-century-old clunkers were gonna catch the Phoenix. The race ended when Dorktown tried to lap them and they all blocked her.</p><p>
 The Gillies had rounded up all the escaping Hellies. When we got out of the car all the Helly prisoners started cheering. Not because they liked us but because they thought our car was cool and they thought it was funny that we'd thrashed the Gillies.</p><p>
 I'm pretty sure I caught a few of the Gillies cheering for us as well. We'd brought the future to their doorsteps. They'd never seen anything like this sleek and shiny ghoul of a vehicle that had just bested their best.</p><p>
-Chumdumpster pulled up in the Zombiebeetle and stepped out just a few meters away from us. We got out of the Phoenix. I grabbed my bow and nocked an arrow.</p><p>
+Chumdumpster pulled up in the Zombiebeetle and stepped out just a few meters away from us. I grabbed my bow and nocked an arrow.</p><p>
 Now as you may recall I'd shot an arrow at him once before and it had just bounced off his suit. This time I had a better idea.</p><p>
 I aimed for one of his red Adidas sneakers. I got him right in the Achilles tendon and he went down. The Hellies all broke into laughter.</p><p>
 A mob of blonde lackeys rushed to his aid but he pushed them away. "Just cut off their damned heads already!" he snarled.</p><p>
