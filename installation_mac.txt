@@ -64,7 +64,7 @@ composer require "laravel/ui"
 composer require "intervention/image"
 php artisan key:generate
 apachectl restart
-curl http://localhost/tinderdome/public/ # Should show Laravel page
+curl http://localhost/ # Should show Laravel page
 cd /Users/$USER/Desktop/local/web/
 mv tinderdome tinderdome_backup
 git clone git@github.com:zombieite/tinderdome.git
@@ -72,8 +72,9 @@ cd tinderdome
 git status
 apachectl configtest
 vi /opt/homebrew/etc/httpd/httpd.conf
-# Uncomment this line (and a few others):
-# LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
+# Uncomment these lines (and maybe others based on configtest syntax errors):
+LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
+LoadModule ssl_module lib/httpd/modules/mod_ssl.so
 # Add line to end: 
 Include /Users/firebird/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
 ###################################################
@@ -83,35 +84,40 @@ cd /opt/homebrew/etc/httpd/
 openssl genrsa -out server.key 2048
 openssl req -new -x509 -key server.key -out server.crt -days 3650 -subj /CN=localhost
 sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain server.crt
-apachectl configtest # You'll have to uncomment some more SSL stuff in vi /usr/local/etc/httpd/httpd.conf
+apachectl configtest
 ###################################################
 apachectl start                                   #
 ###################################################
-# https://localhost/ should redirect to https
+# http://localhost/ should redirect to https
 cd /Users/$USER/Desktop/local/web/
 brew install mysql
 ###################################################
 mysql.server start # or brew services start mysql #
-mysql -uroot -p tinderdome                        #
 ###################################################
 mysql_secure_installation
 mysql -uroot -p
 create database tinderdome;
 exit
-mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/server/mysqldumps/mysqldump.sql
-rsync -rv /Users/$USER/Desktop/local/web/tinderdome/ /usr/local/var/www/tinderdome/
-mkdir /usr/local/var/www/tinderdome/public/images/stories/
+###################################################
+mysql -uroot -p tinderdome                        #
+###################################################
+mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/mysqldumps/mysqldump.sql
+alias sync='rsync -rv --exclude=".*" /Users/$USER/Desktop/local/web/tinderdome/ /opt/homebrew/var/www/tinderdome/'
+sync
+cd /opt/homebrew/var/www/tinderdome
 vi .env 
 # Set this stuff:
-# DB_DATABASE=tinderdome
-# DB_USERNAME=root
-# DB_PASSWORD=root # or whatever
-rsync -rv --size-only /Users/$USER/Desktop/remote/server/uploads/ /usr/local/var/www/tinderdome/public/uploads/
+DB_DATABASE=tinderdome
+DB_USERNAME=root
+DB_PASSWORD=root # or whatever
+rsync -rv --size-only /Users/$USER/Desktop/remote/uploads/ /opt/homebrew/var/www/tinderdome/public/uploads/
+apachectl restart
+curl https://localhost/
 ###################################################
-# LOGS:                     /usr/local/var/www/tinderdome/storage/logs/laravel.log
-# CONFIGS:                  /usr/local/etc/httpd/
-# DOCUMENTS, SERVER ROOT:   /usr/local/var/www/tinderdome/public/
+# LOGS:                     /opt/homebrew/var/www/tinderdome/storage/logs/laravel.log
+# CONFIGS:                  /opt/homebrew/etc/httpd/
+# DOCUMENTS, SERVER ROOT:   /opt/homebrew/var/www/tinderdome/public/
 # DOCUMENTS, EDITABLE REPO: /Users/$USER/Desktop/local/web/
 ###################################################
 # After editing repo:
-rsync -rv /Users/$USER/Desktop/local/web/tinderdome/ /usr/local/var/www/tinderdome/
+sync
