@@ -120,7 +120,8 @@ class Util {
 				url,
                 attending.event_id attending_event_id,
                 attending.user_id_of_match,
-                created_by_user.name created_by_name
+                created_by_user.name created_by_name,
+                bounty_hunt
             from
                 event
                 left join users created_by_user on (event.created_by = created_by_user.id)
