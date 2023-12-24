@@ -62,7 +62,7 @@ cd tinderdome
 mv .env.example .env
 composer require "laravel/ui"
 composer require "intervention/image"
-/usr/local/opt/php@7.4/bin/php artisan key:generate
+php artisan key:generate
 apachectl restart
 curl http://localhost/tinderdome/public/ # Should show Laravel page
 cd /Users/$USER/Desktop/local/web/
@@ -71,15 +71,15 @@ git clone git@github.com:zombieite/tinderdome.git
 cd tinderdome
 git status
 apachectl configtest
-vi /usr/local/etc/httpd/httpd.conf
+vi /opt/homebrew/etc/httpd/httpd.conf
 # Uncomment this line (and a few others):
 # LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
 # Add line to end: 
-# Include /Users/$USER/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
+Include /Users/firebird/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
 ###################################################
 # Virtual host config at youareawaited.com.conf
 ###################################################
-cd /usr/local/etc/httpd/
+cd /opt/homebrew/etc/httpd/
 openssl genrsa -out server.key 2048
 openssl req -new -x509 -key server.key -out server.crt -days 3650 -subj /CN=localhost
 sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain server.crt
