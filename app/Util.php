@@ -343,7 +343,7 @@ class Util {
                 and number_photos > 0
         ";
         //Log::debug($unrated_users_sql);
-        $results = DB::select($office_sql, [$logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
+        $results = DB::select($office_sql, [$logged_in_user_id, $logged_in_user_id]);
 
         foreach ($results as $result) {
             $wasteland_name = $result->name;
