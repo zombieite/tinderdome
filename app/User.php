@@ -28,7 +28,6 @@ class User extends Authenticatable
 		'hoping_to_find_friend',
 		'hoping_to_find_love',
 		'hoping_to_find_enemy',
-        'campaigning',
         'signup_code',
 		'ip',
         'user_agent',

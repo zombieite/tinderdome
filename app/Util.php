@@ -315,51 +315,6 @@ class Util {
         return $matched_to_users;
     }
 
-    public static function users_running_for_office( $logged_in_user_id ) {
-
-        // The second choose join hides users who have already said no to you so you don't even get to see them
-        $office_sql = "
-            select distinct
-                users.id profile_id,
-                users.name,
-                users.description,
-                users.number_photos,
-                users.title_index,
-                users.video_id
-            from
-                users
-                left join choose my_choice on (
-                    users.id = my_choice.chosen_id
-                    and chooser_id = ?
-                )
-                left join choose their_choice on (
-                    users.id = their_choice.chooser_id
-                    and their_choice.chosen_id = ?
-                )
-            where
-                users.campaigning
-                and (my_choice.choice    is null or my_choice.choice    != 0)
-                and (their_choice.choice is null or their_choice.choice != 0)
-                and number_photos > 0
-        ";
-        //Log::debug($unrated_users_sql);
-        $results = DB::select($office_sql, [$logged_in_user_id, $logged_in_user_id]);
-
-        foreach ($results as $result) {
-            $wasteland_name = $result->name;
-            $result->wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
-            if (!$result->title_index) {
-                $result->title_index = 0;
-            }
-            $votes = DB::select('select count(*) votes from users where vote=?', [$result->profile_id]);
-            $result->votes = $votes[0]->votes;
-        }
-
-        usort($results, function($a, $b) {return $b->votes - $a->votes;});
-
-        return $results;
-    }
-
     public static function unrated_users( $chooser_user_id, $gender_of_match, $i_am_hoping_to_find_love, $share_info_with_favorites ) {
         // Log::debug("App Util gender of match: $gender_of_match");
         // Log::debug("Finding users not yet rated by '$chooser_user_id'");
@@ -410,8 +365,7 @@ class Util {
                 users.hoping_to_find_love,
                 users.hoping_to_find_enemy,
                 users.number_photos,
-                users.video_id,
-                users.campaigning
+                users.video_id
             from
                 users
                 left join choose my_choice on (

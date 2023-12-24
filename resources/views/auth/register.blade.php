@@ -36,11 +36,6 @@
 
 <hr>
 
-{{--
-<input class="upcoming_event_checkbox" type="checkbox" name="campaigning" id="campaigning" @guest @else @if ($campaigning) checked @endif @endguest><label for="president">&nbsp;I am running for the office of @include('prezident', []) </label>
-<br>
---}}
-
 <label for="video_id">(Optional) Link to YouTube video</label>
 <input type="text" name="video_id" id="video_id" value="@guest{{ old('video_id') }}@else{{ $video_id }}@endguest"></input>
 
