@@ -115,20 +115,15 @@ class Util {
                 event.description,
                 event_date,
                 event.created_by,
-                event.elected_user_id,
 				unix_timestamp(event_date)-(? * 60 * 60 * 24) time_when_everyone_can_match,
                 unix_timestamp(now()) now_time,
 				url,
                 attending.event_id attending_event_id,
                 attending.user_id_of_match,
-                created_by_user.name created_by_name,
-                elected_user.name elected_user_name,
-                elected_user.number_photos elected_user_number_photos,
-                elected_user.gender elected_user_gender
+                created_by_user.name created_by_name
             from
                 event
                 left join users created_by_user on (event.created_by = created_by_user.id)
-                left join users elected_user on (event.elected_user_id = elected_user.id)
                 left join attending on event.event_id = attending.event_id and attending.user_id = ?
             where
                     event_date >= now() - interval 1 day
@@ -162,13 +157,6 @@ class Util {
 			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
 			$event_result->can_claim_match      = false;
             $event_result->already_matched_but_dont_know_it = \App\Util::already_matched_but_dont_know_it($user_id, $event_result->event_id);
-            $event_result->elected_user_wasteland_name_hyphenated = preg_replace('/\s/', '-', $event_result->elected_user_name);
-            $event_result->elected_user_title   = 'Royal Figurehead';
-            if ($event_result->elected_user_gender === 'M') {
-                $event_result->elected_user_title = 'King';
-            } else if ($event_result->elected_user_gender === 'W') {
-                $event_result->elected_user_title = 'Queen';
-            }
             if ($event_result->signups_still_needed) {
 				// Nothing to do yet
 			} else {

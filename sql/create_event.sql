@@ -8,7 +8,6 @@ CREATE TABLE event (
     description VARCHAR(2000),
     url VARCHAR(255),
     public BOOLEAN NOT NULL,
-    elected_user_id INT,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     created_by INT NOT NULL
 );
