@@ -75,8 +75,8 @@ vi /opt/homebrew/etc/httpd/httpd.conf
 # Uncomment these lines (and maybe others based on configtest syntax errors):
 LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
 LoadModule ssl_module lib/httpd/modules/mod_ssl.so
-# Add line to end: 
-Include /Users/firebird/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
+# Add line to end, replace <YOURUSERNAMEHERE>
+Include /Users/<YOURUSERNAMEHERE>/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
 ###################################################
 # Virtual host config at youareawaited.com.conf
 ###################################################
