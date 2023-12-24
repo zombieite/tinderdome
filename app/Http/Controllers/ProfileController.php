@@ -205,7 +205,6 @@ class ProfileController extends Controller
         $missions_completed                 = \App\Util::missions_completed( $profile_id );
         $titles                             = \App\Util::titles();
         $events                             = \App\Util::events_user_is_attending( $profile_id );
-        $campaigning                        = $profile->campaigning;
         $video_id                           = $profile->video_id;
 
         return view('profile', [
@@ -244,7 +243,6 @@ class ProfileController extends Controller
             'match_knows_you_are_their_match'    => $match_knows_you_are_their_match,
             'curse_interface'                    => $curse_interface,
             'recently_updated_users'             => $recently_updated_users,
-            'campaigning'                        => $campaigning,
             'video_id'                           => $video_id,
             'ok_to_mark_user_found'              => $ok_to_mark_user_found,
         ]);
@@ -280,7 +278,6 @@ class ProfileController extends Controller
         $titles                          = \App\Util::titles();
         $missions_completed              = \App\Util::missions_completed( $profile_id );
         $is_wastelander                  = \App\Util::is_wastelander( $profile_id );
-        $campaigning                     = $profile->campaigning;
         $video_id                        = $profile->video_id;
         return view('auth/register', [
             'email'                      => $email,
@@ -304,7 +301,6 @@ class ProfileController extends Controller
             'titles'                     => $titles,
             'missions_completed'         => $missions_completed,
             'is_wastelander'             => $is_wastelander,
-            'campaigning'                => $campaigning,
             'video_id'                   => $video_id,
         ]);
     }
@@ -356,7 +352,6 @@ class ProfileController extends Controller
         $hoping_to_find_friend     = true;
         $hoping_to_find_love       = isset($_POST['hoping_to_find_love']);
         $hoping_to_find_enemy      = isset($_POST['hoping_to_find_enemy']);
-        $campaigning               = isset($_POST['campaigning']);
         $ip                        = request()->ip();
         $user_agent                = request()->header('user-agent');
         $is_wastelander            = \App\Util::is_wastelander( $profile_id );
@@ -438,7 +433,6 @@ class ProfileController extends Controller
             $profile->hoping_to_find_enemy      = $hoping_to_find_enemy;
             $profile->ip                        = $ip;
             $profile->user_agent                = $user_agent;
-            $profile->campaigning               = $campaigning;
             $profile->video_id                  = $video_id;
 
             $profile->save();
@@ -468,7 +462,6 @@ class ProfileController extends Controller
             'hoping_to_find_enemy'      => $hoping_to_find_enemy,
             'update_errors'             => $update_errors,
             'is_wastelander'            => $is_wastelander,
-            'campaigning'               => $campaigning,
             'video_id'                  => $video_id,
         ]);
     }

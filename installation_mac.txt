@@ -60,6 +60,11 @@ PATH=/Users/$USER:$PATH
 /Users/$USER/.composer/vendor/bin/laravel new tinderdome
 cd tinderdome
 mv .env.example .env
+vi .env 
+# Set this stuff:
+DB_DATABASE=tinderdome
+DB_USERNAME=root
+DB_PASSWORD=root # or whatever
 composer require "laravel/ui"
 composer require "intervention/image"
 php artisan key:generate
@@ -104,12 +109,6 @@ mysql -uroot -p tinderdome                        #
 mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/mysqldumps/mysqldump.sql
 alias sync='rsync -rv --exclude=".*" /Users/$USER/Desktop/local/web/tinderdome/ /opt/homebrew/var/www/tinderdome/'
 sync
-cd /opt/homebrew/var/www/tinderdome
-vi .env 
-# Set this stuff:
-DB_DATABASE=tinderdome
-DB_USERNAME=root
-DB_PASSWORD=root # or whatever
 rsync -rv --size-only /Users/$USER/Desktop/remote/uploads/ /opt/homebrew/var/www/tinderdome/public/uploads/
 apachectl restart
 curl https://localhost/

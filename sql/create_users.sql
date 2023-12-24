@@ -31,7 +31,5 @@ CREATE TABLE users (
     profile_vetted INT,
     admin_user INT,
     signup_code VARCHAR(255),
-    video_id VARCHAR(255),
-    campaigning BOOLEAN,
-    vote INT
+    video_id VARCHAR(255)
 );
