@@ -57,7 +57,12 @@
                                             You can retry the matching algorithm in {{ $time_until_can_re_request_match }} minutes.
                                         @endif
                                     @else
-                                        <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
+                                        @if ($upcoming_event->bounty_hunt)
+                                            <a href="/choose-who-you-hunt?event_id={{ $upcoming_event->event_id }}" class="bright">You can now choose who you will hunt!</a>
+                                        @else
+                                            <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
+                                        @endif
+                                        
                                     @endif
                                 @else
                                     @if (isset($upcoming_event->seconds_till_user_can_match))

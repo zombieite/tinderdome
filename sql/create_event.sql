@@ -8,6 +8,7 @@ CREATE TABLE event (
     description VARCHAR(2000),
     url VARCHAR(255),
     public BOOLEAN NOT NULL,
+    bounty_hunt BOOLEAN NOT NULL DEFAULT FALSE,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     created_by INT NOT NULL
 );
