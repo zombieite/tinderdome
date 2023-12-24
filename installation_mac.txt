@@ -1,44 +1,61 @@
 # How to install on local Mac development machine
 cd
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew update 
 brew install httpd
-apachectl start # or brew services start httpd
+brew services start httpd # or sudo apachectl start
 curl http://localhost:8080/
-apachectl stop
+brew services stop httpd # or sudo apachectl stop
 apachectl -D DUMP_INCLUDES
 ###################################################
-# Apache config at /usr/local/etc/httpd/httpd.conf
+# BAD BAD BAD (not sure how I fixed this)
+# (one thing I did was 
+# sudo vi /etc/pf.conf
+# then add the line: "pass in proto tcp from any to any port 80" to it
+# and restarted stuff)
+# Included configuration files:
+#  (*) /private/etc/apache2/httpd.conf
+#    (509) /private/etc/apache2/extra/httpd-mpm.conf
+#    (515) /private/etc/apache2/extra/httpd-autoindex.conf
+#    (555) /private/etc/apache2/other/mpm.conf
+#    (555) /private/etc/apache2/other/php7.conf
 ###################################################
-vi /usr/local/etc/httpd/httpd.conf
+# GOOD GOOD GOOD (not sure what I did to get here, uninstalls, reinstalls, restarts?)
+# Included configuration files:
+#  (*) /opt/homebrew/etc/httpd/httpd.conf
+###################################################
+vi /opt/homebrew/etc/httpd/httpd.conf
 # Change Listen 8080 to Listen 80
-apachectl start
+brew services start httpd # or sudo apachectl start
 curl http://localhost # Should say "It works!"
-vi /usr/local/var/www/index.html
+vi /opt/homebrew/var/www/index.html
 # Change "It works!" message, save, and reload to verify you found where the DocumentRoot is
 curl http://localhost
-brew install php@7.4
-/usr/local/opt/php@7.4/bin/php -v
-/usr/local/opt/php@7.4/bin/php -r 'phpinfo();'
-ls /usr/local/etc/php/7.4/php.ini 
-ls /usr/local/opt/php@7.4/lib/httpd/modules/libphp7.so
-vi /usr/local/etc/httpd/httpd.conf
-# Add LoadModule section for PHP
-# LoadModule php7_module /usr/local/opt/php@7.4/lib/httpd/modules/libphp7.so
-# <FilesMatch \.php$>
-#   SetHandler application/x-httpd-php
-# </FilesMatch>
-# Find DirectoryIndex and add PHP to it
-# DirectoryIndex index.php index.html
-echo "<?php phpinfo(); ?>" >/usr/local/var/www/index.php
-chmod 755 /usr/local/var/www/index.php
-apachectl restart
+brew install php 
+vi /opt/homebrew/etc/httpd/httpd.conf
+# Add the following to httpd.conf and restart Apache:
+LoadModule php_module /opt/homebrew/opt/php/lib/httpd/modules/libphp.so
+<FilesMatch \.php$>
+    SetHandler application/x-httpd-php
+</FilesMatch>
+DirectoryIndex index.php index.html
+brew services start httpd # or sudo apachectl start
+curl http://localhost # Should say "It works!"
+echo "<?php phpinfo(); ?>" >/opt/homebrew/var/www/index.php
+chmod 755 /opt/homebrew/var/www/index.php
+brew services restart httpd
 curl http://localhost
-curl -sS https://getcomposer.org/installer | /usr/local/opt/php@7.4/bin/php
+# should have php info in the response, php is executing
+which php
+# should say /opt/homebrew/bin/php
+cd
+curl -sS https://getcomposer.org/installer | php 
 ln -s /Users/$USER/composer.phar /Users/$USER/composer
-/usr/local/opt/php@7.4/bin/php /Users/$USER/composer.phar global require "laravel/installer"
+./composer
+./composer global require "laravel/installer"
 ls /Users/$USER/.composer/vendor/bin/laravel
-cd /usr/local/var/www/
-rm -rf cgi-bin/
+cd /opt/homebrew/var/www/
+rm -rf cgi-bin
 PATH=/Users/$USER:$PATH
 /Users/$USER/.composer/vendor/bin/laravel new tinderdome
 cd tinderdome
