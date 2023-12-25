@@ -54,36 +54,28 @@ class HuntController extends Controller
         $current_time = $current_time_result[0]->now_time;
         session(['match_requested_time' => $current_time]);
         DB::update('update attending set match_requested = now() where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
-        $hide_submit = 1;
-        Log::debug($logged_in_user->name." has requested their match for event $event_id");
-        $someone_else_claimed_me_row = DB::select('select * from attending where event_id = ? and user_id_of_match = ?', [$event_id, $logged_in_user_id]);
-
-
-
-
         $chosen_quarry_id = null;
         if (isset($_POST['huntme']) && isset($_POST['chosen_quarry_id'])) { 
             $chosen_quarry_id = $_POST['chosen_quarry_id'];
         }
         Log::debug($logged_in_user->name." has chosen to hunt '$chosen_quarry_id' for event '$event_id'");
-
-
-
-        if ($someone_else_claimed_me_row) {
-            $my_match_user_id = array_shift($someone_else_claimed_me_row)->user_id;
+        $i_already_requested_and_got_matched_row = DB::select('select * from attending where event_id = ? and user_id = ? and user_id_of_match is not null', [$event_id, $logged_in_user_id]);
+        if ($i_already_requested_and_got_matched_row) {
+            $my_match_user_id = array_shift($i_already_requested_and_got_matched_row)->user_id_of_match;
+        }
+        if ($my_match_user_id) {
+            Log::debug("Already assigned quarry '$my_match_user_id'");
         } else {
-            $i_already_requested_and_got_matched_row = DB::select('select * from attending where event_id = ? and user_id = ? and user_id_of_match is not null', [$event_id, $logged_in_user_id]);
-            if ($i_already_requested_and_got_matched_row) {
-                $my_match_user_id = array_shift($i_already_requested_and_got_matched_row)->user_id_of_match;
+            $mutual_unmet_matches = \App\Util::the_algorithm($logged_in_user, $event_id);
+            foreach ($mutual_unmet_matches as $mutual_unmet_match) {
+                if ($mutual_unmet_match->user_id == $chosen_quarry_id) {
+                    $my_match_user_id = $chosen_quarry_id;
+                    continue;
+                }
             }
         }
         if ($my_match_user_id) {
-            Log::debug("Already matched to $my_match_user_id");
-        } else {
-            $mutual_unmet_matches = \App\Util::the_algorithm($logged_in_user, $event_id);
-        }
-        if ($my_match_user_id) {
-            Log::debug("Matched $logged_in_user_id to $my_match_user_id");
+            Log::debug("User '$logged_in_user_id' will be hunting '$my_match_user_id'");
             try {
                 DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
                 DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$logged_in_user_id, $my_match_user_id, $event_id]);
@@ -96,7 +88,7 @@ class HuntController extends Controller
                 return redirect("/profile/match?event_id=$event_id");
             }
         } else {
-            Log::debug("No match found yet for $logged_in_user_id");
+            Log::debug("Could not match '$logged_in_user_id' to their quarry");
         }
 
         $profiles = [];
