@@ -13,6 +13,174 @@ class Util {
     public static function days_before_event_when_top_ranked_can_get_match() { return   21; }
     public static function max_event_days_away()                             { return  180; }
 
+    private static function the_algorithm_sort($a, $b) {
+
+        // Move greylist users to the bottom because they are always everyone's worst match
+        if ($a->greylist - $b->greylist != 0) {
+            return $a->greylist - $b->greylist;
+        }
+
+        // Put users with zero photos at the bottom
+        if (($b->number_photos - $a->number_photos !== 0) && (($b->number_photos === 0) || ($a->number_photos === 0))) {
+            return $b->number_photos - $a->number_photos;
+        }
+
+        // Double check for things that can't happen
+        if ($a->user_looking_to_be_matcheds_rating_of_this_user ===  0) { die('Found a No rating'); }
+        if ($b->user_looking_to_be_matcheds_rating_of_this_user ===  0) { die('Found a No rating'); }
+        if ($a->this_users_rating_of_user_looking_to_be_matched ===  0) { die('Found a No rating'); }
+        if ($b->this_users_rating_of_user_looking_to_be_matched ===  0) { die('Found a No rating'); }
+        if ($a->user_looking_to_be_matcheds_rating_of_this_user === -1) { die('Found a Know rating'); }
+        if ($b->user_looking_to_be_matcheds_rating_of_this_user === -1) { die('Found a Know rating'); }
+        if ($a->this_users_rating_of_user_looking_to_be_matched === -1) { die('Found a Know rating'); }
+        if ($b->this_users_rating_of_user_looking_to_be_matched === -1) { die('Found a Know rating'); }
+
+        // Sort by this user's rating desc, then by that user's rating of this user desc
+        if ($b->user_looking_to_be_matcheds_rating_of_this_user - $a->user_looking_to_be_matcheds_rating_of_this_user != 0) {
+            return $b->user_looking_to_be_matcheds_rating_of_this_user - $a->user_looking_to_be_matcheds_rating_of_this_user;
+        }
+        if ($b->this_users_rating_of_user_looking_to_be_matched - $a->this_users_rating_of_user_looking_to_be_matched != 0) {
+            return $b->this_users_rating_of_user_looking_to_be_matched - $a->this_users_rating_of_user_looking_to_be_matched;
+        }
+
+        // Get these values out for less confusion
+        if (($a->choosers_desired_gender_of_match != $b->choosers_desired_gender_of_match)
+         || ($a->gender_of_chooser                != $b->gender_of_chooser)
+         || ($a->hoping_to_find_love              != $b->hoping_to_find_love)) {
+            die("To-be-matched user's attributes incorrectly passed to sort");
+        }
+        $gender_of_chooser                = $a->gender_of_chooser;
+        $choosers_desired_gender_of_match = $a->choosers_desired_gender_of_match;
+        $chooser_is_hoping_to_find_love   = $a->hoping_to_find_love;
+
+        // If chooser has a gender they prefer to meet
+        if ($choosers_desired_gender_of_match) {
+            // Move this user's preferred match gender to the top
+            if (($a->gender == $choosers_desired_gender_of_match) && ($b->gender != $choosers_desired_gender_of_match)) {
+                return -1;
+            } else if (($b->gender == $choosers_desired_gender_of_match) && ($a->gender != $choosers_desired_gender_of_match)) {
+                return 1;
+            }
+        // else chooser has no gender they prefer to meet, so if they are M see if we can match them to another M who also has no preference, since we have too many M and this is a way to match up 2 of them without disappointing either of them
+        } else {
+            if ($gender_of_chooser == 'M' ) {
+                if ((!$a->gender_of_match && $a->gender == 'M') && ($b->gender_of_match || $b->gender == 'W')) {
+                    return -1;
+                } else if ((!$b->gender_of_match && $b->gender == 'M') && ($a->gender_of_match) || $a->gender == 'W') {
+                    return 1;
+                }
+            }
+        }
+
+        // If this user is their potential match's preferred match gender, move this potential match up
+        if (($a->gender_of_match == $gender_of_chooser) && ($b->gender_of_match != $gender_of_chooser)) {
+            return -1;
+        } else if (($b->gender_of_match == $gender_of_chooser) && ($a->gender_of_match != $gender_of_chooser)) {
+            return 1;
+        }
+
+        // Score descending
+        if ($b->score - $a->score !== 0) {
+            return $b->score - $a->score;
+        }
+
+        // Id ascending
+        return $a->user_id - $b->user_id;
+    }
+
+    public static function the_algorithm($logged_in_user, $event_id) {
+        $logged_in_user_id = $logged_in_user->id;
+
+        // Get all users who are potential matches for the logged in user
+        $left_maybe = $logged_in_user->random_ok ? 'left' : '';
+        //
+        // attending_no_known_match_yet:
+        // A join to only include users that are attending this event but have no match in their attending row
+        //
+        // attending_already_matched_but_dont_know:
+        // A join to detect (and eliminate in the where clause) users that are attending this event but are already listed as a match in SOMEONE ELSE'S attending row
+        //
+        // attending_was_matched_in_the_past_according_to_potential_match:
+        // A join to detect (and eliminate in the where clause) users that have a record of being matched to the logged in user in the past
+        //
+        // attending_was_matched_in_the_past_according_to_logged_in_user:
+        // A join to detect (and eliminate in the where clause) users that the logged in user has a record of being matched to in the past
+        //
+        $mutual_unmet_matches = DB::select("
+            select
+                users.id user_id,
+                name,
+                email,
+                gender,
+                gender_of_match,
+                score,
+                random_ok,
+                number_photos,
+                greylist,
+                c1.choice user_looking_to_be_matcheds_rating_of_this_user,
+                c2.choice this_users_rating_of_user_looking_to_be_matched
+            from
+                users
+                join attending attending_no_known_match_yet on (users.id = attending_no_known_match_yet.user_id and attending_no_known_match_yet.user_id_of_match is null and attending_no_known_match_yet.event_id = ?)
+                left join attending attending_already_matched_but_dont_know on (users.id = attending_already_matched_but_dont_know.user_id_of_match and attending_already_matched_but_dont_know.event_id = ?)
+                left join attending attending_was_matched_in_the_past_according_to_potential_match on (attending_was_matched_in_the_past_according_to_potential_match.user_id = users.id and attending_was_matched_in_the_past_according_to_potential_match.user_id_of_match = ?)
+                left join attending attending_was_matched_in_the_past_according_to_logged_in_user on (attending_was_matched_in_the_past_according_to_logged_in_user.user_id = ? and attending_was_matched_in_the_past_according_to_logged_in_user.user_id_of_match = users.id)
+                $left_maybe join choose c1 on (users.id = c1.chosen_id and c1.chooser_id = ?)
+                left join choose c2 on (users.id = c2.chooser_id and c2.chosen_id = ?)
+            where
+                users.id > 10
+                and (users.random_ok = 1 or c2.choice is not null)
+                and (c1.choice is null or c1.choice > 0)
+                and (c2.choice is null or c2.choice > 0)
+                and users.id != ?
+                and attending_already_matched_but_dont_know.user_id_of_match is null
+                and attending_was_matched_in_the_past_according_to_potential_match.user_id_of_match is null
+                and attending_was_matched_in_the_past_according_to_logged_in_user.user_id_of_match is null
+                and users.number_photos > 0
+        ", [$event_id, $event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
+        Log::debug(count($mutual_unmet_matches)." possible matches found for ".$logged_in_user->name);
+        if ($mutual_unmet_matches) {
+            foreach ($mutual_unmet_matches as $match) {
+                $match->choosers_desired_gender_of_match = $logged_in_user->gender_of_match;
+                $match->gender_of_chooser                = $logged_in_user->gender;
+                $match->hoping_to_find_love              = $logged_in_user->hoping_to_find_love;
+            }
+
+            // Where the magic happens
+            usort($mutual_unmet_matches, [__CLASS__, 'the_algorithm_sort']);
+
+            Log::debug("Matching ".$logged_in_user->name." ($logged_in_user_id), gender '".$logged_in_user->gender."' looking for '".$logged_in_user->gender_of_match."' or '".$logged_in_user->gender_of_match_2."':");
+            $logged_count = 0;
+            foreach ($mutual_unmet_matches as $match) {
+                $log_gender = $match->gender ? $match->gender : ' ';
+                $log_gender_of_match = $match->gender_of_match ? $match->gender_of_match : ' ';
+                $log_random_ok = $match->random_ok ? $match->random_ok : ' ';
+                $log_greylist = $match->greylist ? 'GREYLISTED' : '';
+                $log_user_looking_to_be_matcheds_rating_of_this_user = $match->user_looking_to_be_matcheds_rating_of_this_user ? $match->user_looking_to_be_matcheds_rating_of_this_user : ' ';
+                $log_this_users_rating_of_user_looking_to_be_matched = $match->this_users_rating_of_user_looking_to_be_matched ? $match->this_users_rating_of_user_looking_to_be_matched : ' ';
+                $log_user_id = $match->user_id;
+                $log_name = $match->name;
+                Log::debug("g:$log_gender gom:$log_gender_of_match lirateofthem:$log_user_looking_to_be_matcheds_rating_of_this_user theirrateofli:$log_this_users_rating_of_user_looking_to_be_matched rand:$log_random_ok name:$log_name - $log_user_id $log_greylist");
+                $logged_count++;
+            }
+
+            // If user is greylisted, give them their worst match, and only match them to someone they've rated, to eliminate pleasant surprises
+            if ($logged_in_user->greylist) {
+                Log::debug("Matching greylisted user to worst match that is mutually rated");
+                // Skip anyone who hasn't rated the greylisted user from possibility of being matched to them just because they allow random match
+                foreach ($mutual_unmet_matches as $mutual_unmet_match) {
+                    if ($mutual_unmet_match->user_looking_to_be_matcheds_rating_of_this_user && $mutual_unmet_match->this_users_rating_of_user_looking_to_be_matched) {
+                        $my_match_user_id = $mutual_unmet_match->user_id;
+                    }
+                }
+            // else give them their best match
+            } else {
+                $my_match_user_id = $mutual_unmet_matches[0]->user_id;
+            }
+        }
+        return $mutual_unmet_matches;
+    }
+
     public static function user_score($user_id) {
 
         $user_scoring_data_result = DB::select('

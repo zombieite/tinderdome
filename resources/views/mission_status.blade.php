@@ -58,7 +58,7 @@
                                         @endif
                                     @else
                                         @if ($upcoming_event->bounty_hunt)
-                                            <a href="/choose-who-you-hunt?event_id={{ $upcoming_event->event_id }}" class="bright">You can now choose who you will hunt!</a>
+                                            <a href="/hunt?event_id={{ $upcoming_event->event_id }}" class="bright">You can now choose who you will hunt!</a>
                                         @else
                                             <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
                                         @endif
