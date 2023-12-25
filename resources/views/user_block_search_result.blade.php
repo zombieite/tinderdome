@@ -50,6 +50,8 @@
     @else
         @if ($profile['ok_to_rate_user'])
             @include('rating_form', ['action' => "#profile".$previous_profile_id, 'user_id_to_rate' => $profile['profile_id'], 'current_choice' => $profile['logged_in_user_choice'], 'number_photos' => $profile['number_photos'], 'curse_interface' => $curse_interface])
+        @elseif ($profile['ok_to_hunt_user'])
+            @include('hunting_form', ['hunted_user_id' => $profile['profile_id'], 'number_photos' => $profile['number_photos']])
         @endif
     @endif
 </div>
