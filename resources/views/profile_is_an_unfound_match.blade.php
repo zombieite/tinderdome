@@ -1,9 +1,11 @@
-    @if ($match_knows_you_are_their_match)
+    @if ($match_knows_you_are_their_match && !$bounty_hunt)
 	    <h1 class="bright">{{ $logged_in_user->name }}, you are awaited by {{ $wasteland_name }}!</h1>
         <h2>They have logged in to check their matches. They know you are their match.</h2>
     @else
         <h1 class="bright">{{ $logged_in_user->name }}, your mission is to find {{ $wasteland_name }}!</a>
-        <h2>They have not yet checked their matches, but they signed up to be found. They might not know you are their match, but you can still seek them out.</h2>
+        @if (!$bounty_hunt)
+            <h2>They have not yet checked their matches, but they signed up to be found. They might not know you are their match, but you can still seek them out.</h2>
+        @endif
     @endif
 	@if ($count_with_same_name)
 		@if ($count_with_same_name == 1)
@@ -13,7 +15,7 @@
 		@endif
 	@endif
 	Your mission is to seek out {{ $wasteland_name }} at {{ $event_long_name }}.
-    @if ($match_knows_you_are_their_match)
+    @if ($match_knows_you_are_their_match && !$bounty_hunt)
     	{{ $wasteland_name }} will be looking for you, too.
     @endif
     You can find them during the event or after.

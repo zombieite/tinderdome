@@ -34,6 +34,7 @@
                             'event_long_name'          => $matched_to_user->event_long_name,
                             'event_id'                 => $matched_to_user->event_id,
                             'ok_to_mark_user_found'    => $matched_to_user->ok_to_mark_user_found,
+                            'bounty_hunt'              => $matched_to_user->bounty_hunt,
                             'curse_interface'          => $curse_interface,
                         ])
                     @else
