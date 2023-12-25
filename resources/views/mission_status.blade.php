@@ -46,7 +46,11 @@
                         <td>Match</td>
                         <td>
                             @if ($upcoming_event->user_id_of_match)
-                                <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.
+                                @if ($upcoming_event->bounty_hunt)
+                                    <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your quarry</a>.
+                                @else
+                                    <a class="bright" href="/profile/match?event_id={{ $upcoming_event->event_id }}">Here's your match</a>.
+                                @endif
                             @else
                                 @if ($upcoming_event->can_claim_match)
                                     @if (isset($upcoming_event->time_until_can_re_request_match) && $upcoming_event->time_until_can_re_request_match)
