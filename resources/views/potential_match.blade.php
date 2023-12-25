@@ -11,7 +11,7 @@
         @endforeach
     @else
         @if ($show_met)
-            No one else has signed up yet.
+            No one you have rated has signed up yet.
         @else
             We can't find any potential matches for you yet.
         @endif
