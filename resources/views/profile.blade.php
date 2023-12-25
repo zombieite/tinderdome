@@ -20,11 +20,11 @@
 @if ($show_how_to_find_me)
 	@if ($profile_id == 1)
 	@else
-        @if (!$is_me && $how_to_find_me)
+        @if (!$is_me && $how_to_find_me && !$bounty_hunt)
     		<span class="labelclass">Do not share screenshots of this page. This information is confidential.</span>
         @endif
 	@endif
-	@if ($how_to_find_me)
+	@if ($how_to_find_me && !$bounty_hunt)
 		<span class="labelclass">How to find {{ $wasteland_name }}:</span><br><div class="profile_search_block"><span class="bright">{{ $how_to_find_me }}</span></div><br><br>
 	@endif
 @endif

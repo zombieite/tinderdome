@@ -88,6 +88,7 @@ class ProfileController extends Controller
             $match_result = DB::select('
                 select
                     event_long_name,
+                    bounty_hunt,
                     if (event_date <= curdate(), 1, 0) ok_to_mark_user_found
                 from
                     attending
@@ -99,6 +100,7 @@ class ProfileController extends Controller
             if ($match_result) {
                 $match                                  = array_shift($match_result);
                 $event_long_name                        = $match->event_long_name;
+                $bounty_hunt                            = $match->bounty_hunt;
                 $is_my_match                            = true;
                 $ok_to_mark_user_found                  = $match->ok_to_mark_user_found;
 
@@ -245,6 +247,7 @@ class ProfileController extends Controller
             'recently_updated_users'             => $recently_updated_users,
             'video_id'                           => $video_id,
             'ok_to_mark_user_found'              => $ok_to_mark_user_found,
+            'bounty_hunt'                        => $bounty_hunt,
         ]);
     }
 
