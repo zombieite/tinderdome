@@ -48,15 +48,16 @@ curl http://localhost
 # should have php info in the response, php is executing
 which php
 # should say /opt/homebrew/bin/php
-cd
-curl -sS https://getcomposer.org/installer | php 
-ln -s /Users/$USER/composer.phar /Users/$USER/composer
-./composer
-./composer global require "laravel/installer"
-ls /Users/$USER/.composer/vendor/bin/laravel
 cd /opt/homebrew/var/www/
-rm -rf cgi-bin
-PATH=/Users/$USER:$PATH
+curl -sS https://getcomposer.org/installer | php 
+./composer.phar
+./composer.phar global require "laravel/installer"
+ls /Users/$USER/.composer/vendor/bin/laravel
+cd
+curl -sS https://getcomposer.org/installer | php
+ln -s /Users/$USER/composer.phar /Users/$USER/composer
+PATH=$PATH:/Users/$USER/
+cd /opt/homebrew/var/www/
 /Users/$USER/.composer/vendor/bin/laravel new tinderdome
 cd tinderdome
 mv .env.example .env
@@ -65,11 +66,23 @@ vi .env
 DB_DATABASE=tinderdome
 DB_USERNAME=root
 DB_PASSWORD=root # or whatever
-composer require "laravel/ui"
-composer require "intervention/image"
+curl -sS https://getcomposer.org/installer | php
+./composer.phar require "laravel/ui"
+./composer.phar require "intervention/image"
+./composer.phar update
 php artisan key:generate
 apachectl restart
 curl http://localhost/ # Should show Laravel page
+# ??? trying to get intervention/image running but doesn't work: Class "Intervention\Image\ImageServiceProvider" not found 
+# vi config/app.php
+# in 'providers' add:
+# Intervention\Image\ImageServiceProvider::class,
+# in 'aliases' add:
+# 'Image' => Intervention\Image\Facades\Image::class
+# rm composer.lock
+# rm -rf vendor
+# ~/composer install
+# ???
 cd /Users/$USER/Desktop/local/web/
 mv tinderdome tinderdome_backup
 git clone git@github.com:zombieite/tinderdome.git
