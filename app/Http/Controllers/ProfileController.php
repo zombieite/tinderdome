@@ -61,6 +61,7 @@ class ProfileController extends Controller
         $match_knows_you_are_their_match = null;
         $curse_interface                 = 0;
         $recently_updated_users          = [];
+        $bounty_hunt                     = null;
 
         // If we have a logged in user (not someone looking at Firebird's profile)
         if ($logged_in_user_id && $logged_in_user) {
