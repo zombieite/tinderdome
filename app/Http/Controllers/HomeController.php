@@ -117,7 +117,9 @@ class HomeController extends Controller
         // Check if they've already requested a match and can't re-request it yet
         foreach ($upcoming_events_and_signup_status as $upcoming_event) {
             $event_id = $upcoming_event->event_id;
-            $upcoming_event->time_until_can_re_request_match = \App\Util::time_until_can_re_request_match( $logged_in_user_id, $event_id );
+            if (!$upcoming_event->bounty_hunt) {
+                $upcoming_event->time_until_can_re_request_match = \App\Util::time_until_can_re_request_match( $logged_in_user_id, $event_id );
+            }
         }
 
         $matched_to_users          = \App\Util::matched_to_users( $logged_in_user_id );
