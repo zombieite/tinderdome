@@ -28,29 +28,31 @@ Route::view('/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem/chapter-7-de
 
 // Visible to logged in only 
 Auth::routes();
-Route::get( '/match-me',                              'MatchController@match_me')->middleware(                'auth');
-Route::get( '/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
-Route::get( '/profile/{profile_id}/{wasteland_name}', 'ProfileController@show')->middleware(                  'auth');
-Route::get( '/profile/edit',                          'ProfileController@edit')->middleware(                  'auth');
-Route::get( '/profile/compatible',                    'ProfileController@compatible')->middleware(            'auth');
-Route::get( '/profile/match',                         'ProfileController@match')->middleware(                 'auth');
-Route::get( '/image/upload',                          'ImageController@upload')->middleware(                  'auth');
-Route::get( '/photosearch',                           'PhotoSearchController@photosearch')->middleware(       'auth');
-Route::get( '/search',                                'SearchController@search')->middleware(                 'auth');
+Route::get( '/match-me',                              'MatchController@match_me'                )->middleware('auth');
+Route::get( '/hunt',                                  'HuntController@hunt'                     )->middleware('auth');
+Route::get( '/admin-match',                           'AdminMatchController@admin_match'        )->middleware('auth');
+Route::get( '/profile/{profile_id}/{wasteland_name}', 'ProfileController@show'                  )->middleware('auth');
+Route::get( '/profile/edit',                          'ProfileController@edit'                  )->middleware('auth');
+Route::get( '/profile/compatible',                    'ProfileController@compatible'            )->middleware('auth');
+Route::get( '/profile/match',                         'ProfileController@match'                 )->middleware('auth');
+Route::get( '/image/upload',                          'ImageController@upload'                  )->middleware('auth');
+Route::get( '/photosearch',                           'PhotoSearchController@photosearch'       )->middleware('auth');
+Route::get( '/search',                                'SearchController@search'                 )->middleware('auth');
 Route::get( '/potential-match',                       'PotentialMatchController@potential_match')->middleware('auth');
-Route::get( '/create-event',                          'EventController@create_event')->middleware(            'auth');
-Route::post('/',                                      'HomeController@index')->middleware(                    'auth');
-Route::post('/profile/compatible',                    'ProfileController@compatible')->middleware(            'auth');
-Route::post('/profile/comment',                       'ProfileController@comment')->middleware(               'auth');
-Route::post('/image/upload',                          'ImageController@upload')->middleware(                  'auth');
-Route::post('/profile/edit',                          'ProfileController@update')->middleware(                'auth');
-Route::post('/profile/{profile_id}/{wasteland_name}', 'ProfileController@compatible')->middleware(            'auth');
-Route::post('/search',                                'SearchController@update_rating')->middleware(          'auth');
-Route::post('/potential-match',                       'PotentialMatchController@update_rating')->middleware(  'auth');
-Route::post('/match-me',                              'MatchController@match_me')->middleware(                'auth');
-Route::post('/admin-match',                           'AdminMatchController@admin_match')->middleware(        'auth');
-Route::post('/create-event',                          'EventController@create_event')->middleware(            'auth');
-Route::post('/event/{event_id}/{event_long_name}',    'EventController@event')->middleware(                   'auth');
+Route::get( '/create-event',                          'EventController@create_event'            )->middleware('auth');
+Route::post('/',                                      'HomeController@index'                    )->middleware('auth');
+Route::post('/profile/compatible',                    'ProfileController@compatible'            )->middleware('auth');
+Route::post('/profile/comment',                       'ProfileController@comment'               )->middleware('auth');
+Route::post('/image/upload',                          'ImageController@upload'                  )->middleware('auth');
+Route::post('/profile/edit',                          'ProfileController@update'                )->middleware('auth');
+Route::post('/profile/{profile_id}/{wasteland_name}', 'ProfileController@compatible'            )->middleware('auth');
+Route::post('/search',                                'SearchController@update_rating'          )->middleware('auth');
+Route::post('/potential-match',                       'PotentialMatchController@update_rating'  )->middleware('auth');
+Route::post('/match-me',                              'MatchController@match_me'                )->middleware('auth');
+Route::post('/hunt',                                  'HuntController@hunt'                     )->middleware('auth');
+Route::post('/admin-match',                           'AdminMatchController@admin_match'        )->middleware('auth');
+Route::post('/create-event',                          'EventController@create_event'            )->middleware('auth');
+Route::post('/event/{event_id}/{event_long_name}',    'EventController@event'                   )->middleware('auth');
 
 // Other pages not needed for website functionality
-Route::get( '/theboard',                              'TheBoardController@the_board')->middleware(            'auth');
+Route::get( '/theboard',                              'TheBoardController@the_board'            )->middleware('auth');
