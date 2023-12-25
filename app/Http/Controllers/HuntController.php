@@ -22,6 +22,7 @@ class HuntController extends Controller
 		$my_match_user_id                  = null;
 		$matchme                           = null;
         $titles                            = \App\Util::titles();
+        $quarry_already_chosen             = null;
 
         foreach ($upcoming_events_and_signup_status as $maybe_event) {
             if ($maybe_event->event_id == $event_id) {
@@ -52,11 +53,10 @@ class HuntController extends Controller
         }
         $current_time_result = DB::select('select unix_timestamp(now()) now_time');
         $current_time = $current_time_result[0]->now_time;
-        session(['match_requested_time' => $current_time]);
-        DB::update('update attending set match_requested = now() where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
         $chosen_quarry_id = null;
         if (isset($_POST['huntme']) && isset($_POST['chosen_quarry_id'])) { 
             $chosen_quarry_id = $_POST['chosen_quarry_id'];
+            DB::update('update attending set match_requested = now() where user_id = ? and event_id = ?', [$logged_in_user_id, $event_id]);
         }
         Log::debug($logged_in_user->name." has chosen to hunt '$chosen_quarry_id' for event '$event_id'");
         $i_already_requested_and_got_matched_row = DB::select('select * from attending where event_id = ? and user_id = ? and user_id_of_match is not null', [$event_id, $logged_in_user_id]);
@@ -89,7 +89,10 @@ class HuntController extends Controller
                 return redirect("/profile/match?event_id=$event_id");
             }
         } else {
-            Log::debug("Could not match '$logged_in_user_id' to their quarry");
+            if (isset($_POST['huntme']) && isset($_POST['chosen_quarry_id'])) {
+                Log::debug("Could not match '$logged_in_user_id' to their quarry");
+                $quarry_already_chosen = 1;
+            }
         }
 
         $profiles = [];
@@ -138,6 +141,7 @@ class HuntController extends Controller
 			'my_match_user_id'           => $my_match_user_id,
             'profiles'                   => $profiles,
             'titles'                     => $titles,
+            'quarry_already_chosen'      => $quarry_already_chosen,
         ]);
     }
 }
