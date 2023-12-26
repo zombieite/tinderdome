@@ -22,6 +22,7 @@
                             'user_id'                  => $matched_to_user->id,
                             'name'                     => $matched_to_user->name,
                             'event_long_name'          => $matched_to_user->event_long_name,
+                            'bounty_hunt'              => $matched_to_user->bounty_hunt,
                         ])
                     @endif
                 @else

@@ -3,4 +3,10 @@
 Found
 <a href="{{ $url }}">{{ $name }}</a>
 <br>{{ $event_long_name }}
+<br>
+@if ($bounty_hunt) 
+Bounty Hunt
+@else
+You Are Awaited
+@endif
 </div>

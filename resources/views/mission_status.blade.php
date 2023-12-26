@@ -27,6 +27,14 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Type</td>
+                        @if ($upcoming_event->bounty_hunt)
+                            <td>Bounty Hunt. You secretly choose who you will look for. Someone else might secretly choose to look for you.</td>
+                        @else
+                            <td>You Are Awaited. The Algorithm chooses who you will look for. They'll be looking for you, too.</td>
+                        @endif
+                    </tr>
+                    <tr>
                         <td>Signups</td>
                         <td>
                             <a href="/potential-match?event_id={{ $upcoming_event->event_id }}&show_met=1">
@@ -43,7 +51,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Match</td>
+                        @if ($upcoming_event->bounty_hunt)
+                            <td>Quarry</td>
+                        @else
+                            <td>Match</td>
+                        @endif
                         <td>
                             @if ($upcoming_event->user_id_of_match)
                                 @if ($upcoming_event->bounty_hunt)
@@ -62,7 +74,7 @@
                                         @endif
                                     @else
                                         @if ($upcoming_event->bounty_hunt)
-                                            <a href="/hunt?event_id={{ $upcoming_event->event_id }}" class="bright">You can now choose who you will hunt!</a>
+                                            <a href="/hunt?event_id={{ $upcoming_event->event_id }}" class="bright">You can now choose who you will hunt</a>!
                                         @else
                                             <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
                                         @endif
