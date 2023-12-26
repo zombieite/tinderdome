@@ -116,9 +116,7 @@
                         </td>
                     </tr>
                 </table>
-                <br>
             @endforeach
-        <br>
         </form>
     @endif
 @else
