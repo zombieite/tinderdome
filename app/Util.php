@@ -477,8 +477,7 @@ class Util {
     }
 
     public static function unrated_users( $chooser_user_id, $gender_of_match, $i_am_hoping_to_find_love, $share_info_with_favorites ) {
-        // Log::debug("App Util gender of match: $gender_of_match");
-        // Log::debug("Finding users not yet rated by '$chooser_user_id'");
+        //Log::debug("Finding users not yet rated by '$chooser_user_id'");
         $both_attending_join = '
             i_am_attending.event_id = they_are_attending.event_id and event_date >= curdate()
         ';
