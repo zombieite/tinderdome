@@ -10,6 +10,17 @@
                     <tr>
                         <td>Event</td>
                         <td>
+                            <a href="/event/{{ $upcoming_event->event_id }}/{{ $upcoming_event->event_long_name_hyphenated }}">{{ $upcoming_event->event_long_name }}</a>
+                            @if ($upcoming_event->url)
+                                <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_date }}</a>
+                            @else
+                                {{ $upcoming_event->event_date }}
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Attending</td>
+                        <td>
                             <input class="upcoming_event_checkbox" type="checkbox" name="attending_event_id_{{ $upcoming_event->event_id }}"
                             @if ($upcoming_event->attending_event_id)
                                 @if ($upcoming_event->user_id_of_match || $upcoming_event->already_matched_but_dont_know_it)
@@ -18,12 +29,7 @@
                                 checked
                             @endif
                             >
-                            <a href="/event/{{ $upcoming_event->event_id }}/{{ $upcoming_event->event_long_name_hyphenated }}">{{ $upcoming_event->event_long_name }}</a>: 
-                            @if ($upcoming_event->url)
-                                <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_date }}</a>
-                            @else
-                                {{ $upcoming_event->event_date }}
-                            @endif
+                            <input type="submit" class="yesyesyes" value="Submit changes">
                         </td>
                     </tr>
                     <tr>
@@ -112,7 +118,6 @@
                 </table>
                 <br>
             @endforeach
-        <input type="submit" class="yesyesyes" value="Submit event attendance changes">
         <br>
         </form>
     @endif
