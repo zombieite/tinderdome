@@ -65,7 +65,12 @@ class EventController extends Controller
                     $public = 1;
                 }
             }
-            DB::insert('insert into event (event_class, event_date, event_long_name, url, description, created_by, public) values (?, ?, ?, ?, ?, ?, ?)', [$event_class, $event_date, $event_long_name, $url, $description, $logged_in_user_id, $public]);
+            if (isset($_POST['bounty_hunt']) && $_POST['bounty_hunt']) {
+                $bounty_hunt = 1;
+            } else {
+                $bounty_hunt = 0;
+            }
+            DB::insert('insert into event (event_class, event_date, event_long_name, url, description, created_by, public, bounty_hunt) values (?, ?, ?, ?, ?, ?, ?, ?)', [$event_class, $event_date, $event_long_name, $url, $description, $logged_in_user_id, $public, $bounty_hunt]);
             $event_id_query = DB::select('select max(event_id) max_event_id from event where created_by = ?', [$logged_in_user_id]);
             $event_id = $event_id_query[0]->max_event_id;
             $event_name_with_hyphens = preg_replace('/\s/', '-', $event_long_name);
