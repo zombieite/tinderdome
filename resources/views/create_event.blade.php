@@ -30,6 +30,11 @@
     <textarea rows="10" name="description" id="description"></textarea>
     <br>Time, location, and description of the event. 2000 characters maximum.
 
+    <br><br>
+    <label for="bounty_hunt">Is this event a bounty hunt?</label>
+    <input id="bounty_hunt" name="bounty_hunt" type="checkbox">
+    <br>Bounty hunt events are one-sided events, where you choose who to hunt, and someone else might choose you. Non-bounty-hunt events are You Are Awaited events, where both people are seeking out each other.
+
     @if ($logged_in_user_can_create_public_missions)
         <br><br>
         <label for="public">Publicly visible event</label>
