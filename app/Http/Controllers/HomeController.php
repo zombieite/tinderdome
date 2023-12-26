@@ -138,12 +138,10 @@ class HomeController extends Controller
         $users_you_can_comment_on_but_havent = [];
         $recently_updated_users              = \App\Util::recently_updated_users( $logged_in_user_id, 1 );
 
-        if (\App\Util::has_match_for_next_event_waiting( $logged_in_user_id )) {
-            // Don't show unrated users because this user already has a match waiting for them
-        } else {
-            $unrated_users = \App\Util::unrated_users( $logged_in_user->id, $logged_in_user->gender_of_match, $logged_in_user->hoping_to_find_love, $logged_in_user->share_info_with_favorites );
-        }
+        //Log::debug("Finding unrated users for user '$logged_in_user_id'");
+        $unrated_users = \App\Util::unrated_users( $logged_in_user->id, $logged_in_user->gender_of_match, $logged_in_user->hoping_to_find_love, $logged_in_user->share_info_with_favorites );
 
+        //Log::debug("Unrated user count: ".count($unrated_users));
         if ($unrated_users) {
             // We'll just show the unrated users
         } else {
