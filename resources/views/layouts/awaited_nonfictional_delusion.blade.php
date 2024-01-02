@@ -10,7 +10,7 @@
 <meta property="og:description" content="ATTACHMENT LEADS TO SUFFERING">
 <meta name="description" content="ATTACHMENT LEADS TO SUFFERING">
 <title>Awaited: Nonfictional Delusion</title>
-<link href="/css/app.css?rev=3" rel="stylesheet">
+<link href="/css/yaa.css?rev=3" rel="stylesheet">
 </head>
 <body>
 @yield('content')

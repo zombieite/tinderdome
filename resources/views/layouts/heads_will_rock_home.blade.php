@@ -10,7 +10,7 @@
 <meta property="og:description" content="Can you retain your humanity in a world gone mad?">
 <meta name="description" content="Can you retain your humanity in a world gone mad?">
 <title>Heads Will Rock: A chronicle of postapocalyptic mayhem</title>
-<link href="/css/app.css?rev=3" rel="stylesheet">
+<link href="/css/yaa.css?rev=3" rel="stylesheet">
 </head>
 <body>
 @yield('content')
