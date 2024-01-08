@@ -80,7 +80,7 @@
                                         @endif
                                     @else
                                         @if ($upcoming_event->bounty_hunt)
-                                            <a href="/hunt?event_id={{ $upcoming_event->event_id }}" class="bright">You can now choose who you will hunt</a>!
+                                            <a href="/hunt?event_id={{ $upcoming_event->event_id }}" class="bright">You can now choose your quarry</a>!
                                         @else
                                             <a href="/match-me?event_id={{ $upcoming_event->event_id }}" class="bright">You can now request your match!</a>
                                         @endif
@@ -88,24 +88,34 @@
                                     @endif
                                 @else
                                     @if (isset($upcoming_event->seconds_till_user_can_match))
+                                        You can
+                                        @if ($upcoming_event->bounty_hunt)
+                                            choose your quarry
+                                        @else
+                                            get your match
+                                        @endif
                                         @if ($upcoming_event->seconds_till_user_can_match > 360000)
-                                            You can get your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
+                                            in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60 / 24) }} days.
                                         @else
                                             @if ($upcoming_event->seconds_till_user_can_match > 3600)
-                                                You can get your match in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
+                                                in about {{ ceil($upcoming_event->seconds_till_user_can_match / 60 / 60) }} hours.
                                             @else
-                                                You can get your match in less than one hour!
+                                                in less than one hour!
                                             @endif
                                         @endif
-                                        @if ($random_ok)
-                                            <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will most likely be matched to one of these users</a>.
+                                        @if ($upcoming_event->bounty_hunt)
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will soon be able to hunt one of these users</a>.
                                         @else
-                                            <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will be matched to one of these users</a>.
+                                            @if ($random_ok)
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will most likely be matched to one of these users</a>.
+                                            @else
+                                                <a href="/potential-match?event_id={{ $upcoming_event->event_id }}">You will be matched to one of these users</a>.
+                                            @endif
                                         @endif
                                     @else
                                         @if ($upcoming_event->attending_event_id)
                                             @if ($upcoming_event->signups_still_needed)
-                                                More signups are needed before anyone will be matched.
+                                                We are still waiting for more signups.
                                             @endif
                                         @else
                                             You are not signed up for this event.
