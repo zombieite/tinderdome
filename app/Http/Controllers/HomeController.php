@@ -16,7 +16,6 @@ class HomeController extends Controller
         $logged_in_user_id         = Auth::id();
         $titles                    = \App\Util::titles();
         $success_message           = null;
-        $vote                      = null;
 
         if ($logged_in_user) {
             // All good
@@ -55,21 +54,6 @@ class HomeController extends Controller
                     $success_message = 'Comment deleted.';
                 }
             }
-        }
-
-        if (isset($_POST['vote'])) {
-            $vote = $_POST['vote'];
-            if (preg_match('/^[0-9]+$/', $vote)) {
-                $voted_for_user = DB::select('select * from users where id = ?', [$vote]);
-                if ($voted_for_user) {
-                    DB::update('update users set vote = ? where id = ?', [$vote, $logged_in_user_id]);
-                    $success_message = 'Your vote has been counted.';
-                    $logged_in_user->vote = $vote;
-                }
-            }
-        }
-        if (!$vote) {
-            $vote = $logged_in_user->vote;
         }
 
         $attending_event_id       = null;
@@ -226,7 +210,6 @@ class HomeController extends Controller
             'random_ok'                           => $random_ok,
             'recently_updated_users'              => $recently_updated_users,
             'titles'                              => $titles,
-            'vote'                                => $vote,
             'leaderboard'                         => $leaderboard,
             'titles'                              => $titles,
         ]);
