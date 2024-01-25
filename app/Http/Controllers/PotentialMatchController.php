@@ -133,6 +133,7 @@ class PotentialMatchController extends Controller
                 'missions_completed'        => $missions_completed,
                 'event_name'                => $event_name,
                 'ok_to_rate_user'           => $ok_to_rate_user,
+                'ok_to_hunt_user'           => 0,
             ];
             array_push($profiles, $profile);
         }
