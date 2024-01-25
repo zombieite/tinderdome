@@ -124,6 +124,7 @@ class SearchController extends Controller
                 'logged_in_user_choice'     => $logged_in_user_choice,
                 'missions_completed'        => $missions_completed,
                 'ok_to_rate_user'           => $ok_to_rate_user,
+                'ok_to_hunt_user'           => 0,
             ];
             array_push($profiles, $profile);
         }
