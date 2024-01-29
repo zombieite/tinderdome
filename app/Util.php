@@ -637,26 +637,27 @@ class Util {
 
     public static function titles() {
         return [
-            '',
-            'PARTICIPANT',
-            'FBIRD',
-            'HERO',
-            'VILLAIN',
-            'ANTIHERO',
-            'SUPERHERO',
-            'SUPERVILLAIN',
-            'ANTIVILLAIN',
-            'ENCHANTER',
-            'WITCH',
-            'GREMLIN',
-            'MOTH WIZARD',
-            'WASTIE',
-            '??????',
-            '??????',
-            '??????',
-            '??????',
-            '??????',
-            '??????',
+            '',             #  0
+            'PARTICIPANT',  #  1
+            'FBIRD',        #  2
+            'HERO',         #  3
+            'VILLAIN',      #  4
+            'ANTIHERO',     #  5
+            'SUPERHERO',    #  6
+            'SUPERVILLAIN', #  7
+            'ANTIVILLAIN',  #  8
+            'ENCHANTER',    #  9
+            'WITCH',        # 10
+            'GREMLIN',      # 11
+            'MOTH WIZARD',  # 12
+            'SEEKER',       # 13
+            'NEIGHBOR',     # 14
+            '??????',       # 15
+            '??????',       # 16
+            '??????',       # 17
+            '??????',       # 18
+            '??????',       # 19
+            '??????',       # 20
         ];
     }
 
