@@ -436,6 +436,7 @@ class Util {
     public static function matched_to_users( $chooser_user_id ) {
         // Left join in case account has been deleted
         // Log::debug("Finding matches for user '$chooser_user_id/'");
+        // Used to check if event date had arrived: if(event_date <= curdate(), 1, 0) ok_to_mark_user_found,
         $matched_to_users = DB::select('
             select
                 id,
@@ -449,7 +450,7 @@ class Util {
                 bounty_hunt,
                 c1.choice logged_in_users_rating_of_this_user,
                 c2.choice this_users_rating_of_logged_in_user,
-                if(event_date <= curdate(), 1, 0) ok_to_mark_user_found,
+                1 ok_to_mark_user_found,
                 if(event_date >= curdate(), 1, 0) event_is_in_future
             from
                 attending
