@@ -86,11 +86,12 @@ class ProfileController extends Controller
             }
 
             // See if this user is one of the logged in user's matches
+            // Used to check if event date had arrived yet: if (event_date <= curdate(), 1, 0) ok_to_mark_user_found
             $match_result = DB::select('
                 select
                     event_long_name,
                     bounty_hunt,
-                    if (event_date <= curdate(), 1, 0) ok_to_mark_user_found
+                    1 ok_to_mark_user_found
                 from
                     attending
                     join event on attending.event_id = event.event_id
