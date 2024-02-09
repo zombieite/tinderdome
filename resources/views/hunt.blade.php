@@ -17,5 +17,8 @@
     @foreach ($profiles as $profile)
         @include('user_block_search_result')
     @endforeach
+    @if (count($profiles) == 0)
+        <h1>You can not hunt anyone yet. We might need more signups, or you already know everyone at this event.</h1>
+    @endif
 @endif
 @endsection
