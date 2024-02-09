@@ -18,7 +18,7 @@
         @include('user_block_search_result')
     @endforeach
     @if (count($profiles) == 0)
-        <h1>You can not hunt anyone yet. We might need more signups, or you already know everyone at this event.</h1>
+        <h1>You can not hunt anyone until we get more signups. There is no one currently available to be hunted.</h1>
     @endif
 @endif
 @endsection
