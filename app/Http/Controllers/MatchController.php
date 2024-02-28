@@ -88,7 +88,9 @@ class MatchController extends Controller
                         }
                     // else give them their best match
                     } else {
-                        $my_match_user_id = $mutual_unmet_matches[0]->user_id;
+                        if (sizeof($mutual_unmet_matches) > 0) {
+                            $my_match_user_id = $mutual_unmet_matches[0]->user_id;
+                        }
                     }
                 }
                 if ($my_match_user_id) {
