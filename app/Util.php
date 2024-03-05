@@ -653,7 +653,7 @@ class Util {
             'MOTH WIZARD',  # 12
             'SEEKER',       # 13
             'NEIGHBOR',     # 14
-            '??????',       # 15
+            'SUNSHINE',     # 15
             '??????',       # 16
             '??????',       # 17
             '??????',       # 18
