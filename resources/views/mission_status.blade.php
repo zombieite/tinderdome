@@ -37,7 +37,7 @@
                         @if ($upcoming_event->bounty_hunt)
                             <td>Bounty Hunt. You secretly choose who you will look for. Someone else might secretly choose to look for you.</td>
                         @else
-                            <td>You Are Awaited. The Algorithm chooses who you will look for. They'll be looking for you, too.</td>
+                            <td>You Are Awaited. The Algorithm chooses who you will look for. Your match will be looking for you, too.</td>
                         @endif
                     </tr>
                     <tr>
