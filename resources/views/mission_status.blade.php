@@ -10,7 +10,7 @@
                     <tr>
                         <td>Event</td>
                         <td>
-                            <a href="/event/{{ $upcoming_event->event_id }}/{{ $upcoming_event->event_long_name_hyphenated }}">{{ $upcoming_event->event_long_name }}</a>
+                            <a class="eventname" href="/event/{{ $upcoming_event->event_id }}/{{ $upcoming_event->event_long_name_hyphenated }}">{{ $upcoming_event->event_long_name }}</a>
                             @if ($upcoming_event->url)
                                 <a href="{{ $upcoming_event->url }}">{{ $upcoming_event->event_date }}</a>
                             @else

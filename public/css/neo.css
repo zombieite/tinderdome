@@ -178,3 +178,6 @@ button {
     transform:scale(2, 2);
     margin:1em;
 }
+.eventname {
+    font-size: x-large;
+}
