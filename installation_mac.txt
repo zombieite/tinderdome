@@ -80,6 +80,7 @@ mysql_secure_installation
 mysql -uroot -p
 create database tinderdome;
 exit
+# may need to do "php artisan migrate" if you skipped it above
 mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/mysqldumps/mysqldump.sql
 ###################################################
 mysql -uroot -p tinderdome                        #
