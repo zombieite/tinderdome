@@ -49,6 +49,9 @@ ln -s /Users/$USER/composer.phar /Users/$USER/composer
 PATH=$PATH:/Users/$USER/
 cd /opt/homebrew/var/www/
 /Users/$USER/.composer/vendor/bin/laravel new tinderdome
+# No starter kit
+# PHPUnit
+# No git repo
 cd tinderdome
 mv .env.example .env
 vi .env 
