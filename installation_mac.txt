@@ -1,6 +1,11 @@
 # How to install on local Mac development machine
 cd
+# Get homebrew working
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Add homebrew to path
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/firebird/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+which brew
 brew update 
 brew install httpd
 brew services start httpd # or sudo apachectl start
