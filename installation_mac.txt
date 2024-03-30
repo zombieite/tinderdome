@@ -70,7 +70,21 @@ vi /opt/homebrew/etc/httpd/httpd.conf
 DocumentRoot "/opt/homebrew/var/www/tinderdome/public"
 <Directory "/opt/homebrew/var/www/tinderdome/public">
 apachectl restart
-curl http://localhost/ # Should show Laravel page
+curl http://localhost/ # Should show error connecting to MySQL
+brew install mysql
+###################################################
+mysql.server start # or brew services start mysql #
+###################################################
+mysql_secure_installation
+mysql -uroot -p
+create database tinderdome;
+exit
+###################################################
+mysql -uroot -p tinderdome                        #
+###################################################
+mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/mysqldumps/mysqldump.sql
+
+
 # ??? trying to get intervention/image running but doesn't work: Class "Intervention\Image\ImageServiceProvider" not found 
 # vi config/app.php
 # in 'providers' add:
@@ -106,18 +120,6 @@ apachectl start                                   #
 ###################################################
 # http://localhost/ should redirect to https
 cd /Users/$USER/Desktop/local/web/
-brew install mysql
-###################################################
-mysql.server start # or brew services start mysql #
-###################################################
-mysql_secure_installation
-mysql -uroot -p
-create database tinderdome;
-exit
-###################################################
-mysql -uroot -p tinderdome                        #
-###################################################
-mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/mysqldumps/mysqldump.sql
 alias sync='rsync -rv --exclude=".*" /Users/$USER/Desktop/local/web/tinderdome/ /opt/homebrew/var/www/tinderdome/'
 sync
 rsync -rv --size-only /Users/$USER/Desktop/remote/uploads/ /opt/homebrew/var/www/tinderdome/public/uploads/
