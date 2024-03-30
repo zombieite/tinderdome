@@ -30,7 +30,7 @@ LoadModule php_module /opt/homebrew/opt/php/lib/httpd/modules/libphp.so
 </FilesMatch>
 DirectoryIndex index.php index.html
 brew services start httpd # or sudo apachectl start
-curl http://localhost # Should say "It works!"
+curl http://localhost # Should say your new homepage message
 echo "<?php phpinfo(); ?>" >/opt/homebrew/var/www/index.php
 chmod 755 /opt/homebrew/var/www/index.php
 brew services restart httpd
