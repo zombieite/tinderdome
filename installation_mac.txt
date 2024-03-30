@@ -52,6 +52,8 @@ cd /opt/homebrew/var/www/
 # No starter kit
 # PHPUnit
 # No git repo
+# MySQL
+# No migrations
 cd tinderdome
 mv .env.example .env
 vi .env 
