@@ -76,6 +76,7 @@ brew install mysql
 mysql.server start # or brew services start mysql #
 ###################################################
 mysql_secure_installation
+# Whatever options you want here but password needs to match config file above
 mysql -uroot -p
 create database tinderdome;
 exit
