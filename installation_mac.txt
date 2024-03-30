@@ -28,8 +28,9 @@ apachectl -D DUMP_INCLUDES
 # GOOD GOOD GOOD (not sure what I did to get here, uninstalls, reinstalls, restarts?)
 # Included configuration files:
 #  (*) /opt/homebrew/etc/httpd/httpd.conf
-###################################################
 vi /opt/homebrew/etc/httpd/httpd.conf
+###################################################
+sudo vi /private/etc/apache2/httpd.conf
 # Change Listen 8080 to Listen 80
 brew services start httpd # or sudo apachectl start
 curl http://localhost # Should say "It works!"
