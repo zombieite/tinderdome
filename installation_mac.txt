@@ -35,7 +35,7 @@ echo "<?php phpinfo(); ?>" >/opt/homebrew/var/www/index.php
 chmod 755 /opt/homebrew/var/www/index.php
 brew services restart httpd
 curl http://localhost
-# should have php info in the response, php is executing
+# should have php info in the response, php is executing, if message is still old message make sure "DirectoryIndex index.php index.html" is in the right order
 which php
 # should say /opt/homebrew/bin/php
 cd /opt/homebrew/var/www/
