@@ -53,7 +53,7 @@ cd /opt/homebrew/var/www/
 # PHPUnit
 # No git repo
 # MySQL
-# No migrations
+# Probably a good idea to run migrations--I tried not doing this and got a missing sessions table and "php artisan migrate" was mad that the users table already existed
 cd tinderdome
 mv .env.example .env
 vi .env 
