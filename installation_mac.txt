@@ -11,26 +11,10 @@ brew install httpd
 brew services start httpd # or sudo apachectl start
 curl http://localhost:8080/
 brew services stop httpd # or sudo apachectl stop
-apachectl -D DUMP_INCLUDES
-###################################################
-# BAD BAD BAD (not sure how I fixed this)
-# (one thing I did was 
-# sudo vi /etc/pf.conf
-# then add the line: "pass in proto tcp from any to any port 80" to it
-# and restarted stuff)
-# Included configuration files:
-#  (*) /private/etc/apache2/httpd.conf
-#    (509) /private/etc/apache2/extra/httpd-mpm.conf
-#    (515) /private/etc/apache2/extra/httpd-autoindex.conf
-#    (555) /private/etc/apache2/other/mpm.conf
-#    (555) /private/etc/apache2/other/php7.conf
-###################################################
-# GOOD GOOD GOOD (not sure what I did to get here, uninstalls, reinstalls, restarts?)
+/opt/homebrew/opt/httpd/bin/apachectl -D DUMP_INCLUDES
 # Included configuration files:
 #  (*) /opt/homebrew/etc/httpd/httpd.conf
-vi /opt/homebrew/etc/httpd/httpd.conf
-###################################################
-sudo vi /private/etc/apache2/httpd.conf
+sudo vi /opt/homebrew/etc/httpd/httpd.conf
 # Change Listen 8080 to Listen 80
 brew services start httpd # or sudo apachectl start
 curl http://localhost # Should say "It works!"
