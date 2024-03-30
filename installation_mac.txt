@@ -66,6 +66,9 @@ curl -sS https://getcomposer.org/installer | php
 ./composer.phar require "intervention/image"
 ./composer.phar update
 php artisan key:generate
+vi /opt/homebrew/etc/httpd/httpd.conf
+DocumentRoot "/opt/homebrew/var/www/tinderdome"
+<Directory "/opt/homebrew/var/www/tinderdome">
 apachectl restart
 curl http://localhost/ # Should show Laravel page
 # ??? trying to get intervention/image running but doesn't work: Class "Intervention\Image\ImageServiceProvider" not found 
