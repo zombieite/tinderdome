@@ -86,8 +86,6 @@ mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/mysqldumps/mysqldump.sql
 mysql -uroot -p tinderdome                        #
 ###################################################
 curl http://localhost/ # Should now show fancy Laravel page
-
-
 # ??? trying to get intervention/image running but doesn't work: Class "Intervention\Image\ImageServiceProvider" not found 
 # vi config/app.php
 # in 'providers' add:
@@ -121,7 +119,7 @@ apachectl configtest
 ###################################################
 apachectl start                                   #
 ###################################################
-# http://localhost/ should redirect to https
+# http://localhost/ should redirect to https, accept browser warnings and proceed
 cd /Users/$USER/Desktop/local/web/
 alias sync='rsync -rv --exclude=".*" /Users/$USER/Desktop/local/web/tinderdome/ /opt/homebrew/var/www/tinderdome/'
 sync
