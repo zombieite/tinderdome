@@ -53,7 +53,7 @@ cd /opt/homebrew/var/www/
 # PHPUnit
 # No git repo
 # MySQL
-# Probably a good idea to run migrations--I tried not doing this and got a missing sessions table and "php artisan migrate" was mad that the users table already existed
+# Probably a good idea to say "yes" to "run migrations"? I tried not doing this and later I got a missing sessions table and "php artisan migrate" was mad that the users table already existed
 cd tinderdome
 mv .env.example .env
 vi .env 
@@ -85,7 +85,7 @@ mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/mysqldumps/mysqldump.sql
 ###################################################
 mysql -uroot -p tinderdome                        #
 ###################################################
-
+curl http://localhost/ # Should now show fancy Laravel page
 
 
 # ??? trying to get intervention/image running but doesn't work: Class "Intervention\Image\ImageServiceProvider" not found 
