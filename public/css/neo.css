@@ -180,4 +180,5 @@ button {
 }
 .eventname {
     font-size: x-large;
+    color: var(--bright);
 }
