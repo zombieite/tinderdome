@@ -160,8 +160,8 @@
 @endif
 </li>
 
-<li>Check here a few days before the event to find out who you've been matched with.</li>
+<li>Come back here a few days before the event to get your match.</li>
 
-<li>At the event, seek out your match and introduce yourself.</li>
+<li>At the event, seek out your match and introduce yourself. That's all there is to it.</li>
 
 </ol>
