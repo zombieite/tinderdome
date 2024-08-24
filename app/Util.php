@@ -657,7 +657,7 @@ class Util {
             'IMPERATOR',    # 16
             'LORD',         # 17
             'OVERLORD',     # 18
-            '???',          # 19
+            'UNDERLORD',    # 19
             '???',          # 20
         ];
     }
