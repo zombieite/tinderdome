@@ -1,3 +1,5 @@
+<iframe style="width:100%;height:240px" src="https://www.youtube.com/embed/cHlSDE7MjbI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<hr>
 <a href="https://www.youtube.com/wastelandfirebird/videos">Firebird's YouTube channel</a>
 &nbsp;&middot;&nbsp;
 <a href="https://www.youtube.com/watch?v=YaMjCREtDP0">1981: The Fall of 7 Sisters Petroleum</a>
