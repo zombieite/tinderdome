@@ -67,7 +67,7 @@ class TheBoardController extends Controller
             6 => 
             [
                 'title' => '', 
-                'location' => '',
+                'location' => 'Australia',
                 'summary' => "Firebird uses the rhetorical tricks he learned on the plane and on the island to get people off their gum addictions and rile them up into a communist revolution that destroys Dorktown's dystopia. This brings him face-to-face with Dorktown, before, during, or after a battle. She says 'I'm not your girlfriend. I'm not your daughter. I'm not your doll. I'm not your protege. Stop trying to save me or fix me or reinvent me.'",
                 'answered_question' => '',
                 'new_question' => '',
@@ -75,7 +75,7 @@ class TheBoardController extends Controller
             7 => 
             [
                 'title' => 'Denouement', 
-                'location' => '',
+                'location' => 'USA',
                 'summary' => "Somehow, Firebird and Dorktown reconcile and head off into the sunset on their next adventure.",
                 'answered_question' => '',
                 'new_question' => '',
