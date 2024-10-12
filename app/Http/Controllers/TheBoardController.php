@@ -119,7 +119,7 @@ class TheBoardController extends Controller
                         'name' => 'name',
                         'percent_start' => 27,
                         'percent_end' => 49,
-                        'beats' => 'B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun & Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat',
+                        'beats' => "Firebird's Narrative Digression, B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun & Games, The Promise Of The Premise, Set Pieces, Leading Up To... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat",
                     ],
                 ]
             ],
@@ -132,7 +132,7 @@ class TheBoardController extends Controller
                         'name' => 'name',
                         'percent_start' => 50,
                         'percent_end' => 67,
-                        'beats' => 'Stakes Are Raised, Bad Guys Close In, Then... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death',
+                        'beats' => 'Stakes Are Raised, Bad Guys Close In, Leading Up To... All Is Lost, Mirror Of Midpoint, False Defeat Or False Victory, Whiff Of Death',
                     ],
                     5 => 
                     [
@@ -152,7 +152,7 @@ class TheBoardController extends Controller
                         'name' => 'name',
                         'percent_start' => 77,
                         'percent_end' => 98,
-                        'beats' => 'Break Into Three, Fusion Of A And B Stories, Climax, Change The World',
+                        'beats' => "Firebird's Narrative Digression, Break Into Three, Fusion Of A And B Stories, Climax, Change The World",
                     ],
                     7 => 
                     [
