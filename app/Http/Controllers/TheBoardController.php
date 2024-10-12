@@ -20,7 +20,7 @@ class TheBoardController extends Controller
             [
                 'title' => 'Norwood',
                 'location' => 'Norwood',
-                'summary' => "It's Christmas eve. Snow. Building cars. Capitalism channels the innate human desire for status out of politics and into making money. First they laugh at your ideas, then they ignore them, then they take them for granted, then they declare them a human right and try to take them away from you and hand them out to the world for free. Dammit, we need to stop the lines again. Hundreds of people who would prefer to be working have to fight off the Hellies and Gillies. FB groans, is it the communists or the fascists? No DT to be seen, and DT is their best pilot.",
+                'summary' => "Christmas eve. Snow. Firebird oversees the process of building cars in a postapocalyptic Pontiac Firebird factory. Capitalism channels the innate human desire for status out of politics and into making money. First they laugh at your ideas, then they ignore them, then they take them for granted, then they declare them a human right and try to take them away from you and hand them out to the world for free.", 
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -28,15 +28,15 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => 'Norwood',
-                'summary' => "Laura drags FB to a bar. Is it a Helly or a Gilly bar? At this bar everyone drinks together. FB says well at least something brings people together. CD is there drunk and crippled. CD makes a pathetic attempt to kill FB and ends up unconscious choking on his puke. At first FB refuses to save him. Laura points out that she wanted to kill FB once too but now they are best friends. She demands help rolling CD over. It's Christmas she says. It was Christmas when his dad killed my family FB says. FB helps grudgingly. Now he's alive but lying in the snow. Laura says they can't just leave him. FB says as soon as he wakes up he's just gonna try to kill me again. They take him back to the factory and debate what do with him. FB doesn't want to lock him up as a prisoner but he also can't let him get sober enough to successfully kill him so he keeps giving him alcohol. FB finds out that all his profits, which he was put into Firebucks, have gone 'to the moon' while he is watching a recording of the moon landing. He says he wants to go to the moon and needs DT to fly the rocket since she's his best pilot. Laura says the last person to say that got assassinated.",
+                'summary' => "Firebird has to stop the assembly line again. Hundreds of people who would prefer to be working have to fight off the Hellies (fascists) or the Gillies (communists). No Dorktown to be seen, and Dorktown is the only one who can pilot the war helicopter Easy Money. The factory owners and workers are victorious, but it is a pyrrhic victory. It is clear one more battle of this scale will destroy the factory for good.", 
                 'answered_question' => '',
                 'new_question' => '',
             ],
             2 => 
             [
                 'title' => '', 
-                'location' => 'Plane to Australia',
-                'summary' => "Airplane allegory",
+                'location' => 'Route 66',
+                'summary' => 'Firebird decides to find Dorktown. He hears she might be in Australia. He heads to LA via Route 66.',
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -44,7 +44,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => 'Unknown Pacific island',
-                'summary' => "Island allegory",
+                'summary' => "Firebird gets on a jet in LA. Airplane allegory. Like Snowpiercer. The people on the airplane do a communist takeover and only manage to crash the plane. It turns out it takes skill to fly a plane and accomplish the other tasks necessary to successfully complete a flight.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -52,7 +52,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => 'Australia',
-                'summary' => "Australia dystopia",
+                'summary' => "Island allegory. Finding food and fresh water. Building shelters. The people on the deserted island propose communism. Firebird proposes capitalism. They debate and vote. The people vote for communism and it fails. How does Firebird get off the island and to Australia? Maybe a passing boat. Maybe they were actually really close to Australia all along and a canoe can get them the rest of the way.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -60,7 +60,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => 'Australia',
-                'summary' => "Australia",
+                'summary' => "Australia dystopia. What's Left O'Sydney is now run by Dorktown! It is now a high-tech-neo-cyber-crony-capitalist hellscape called Dorktowntown. In Dorktowntown they manufacture Gumtreegum. Gumtreegum is an addictive gum that causes people to behave like good little exploited capitalist slaves.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
