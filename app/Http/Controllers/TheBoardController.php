@@ -60,7 +60,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => 'Australia',
-                'summary' => "Australia dystopia. What's Left O'Sydney is now run by Dorktown! It is now a high-tech-neo-cyber-crony-capitalist hellscape called Dorktowntown. In Dorktowntown they manufacture Gumtreegum. Gumtreegum is an addictive gum that causes people to behave like good little exploited capitalist slaves.",
+                'summary' => "Firebird discovers that Australia is now a dystopia. What's Left O'Sydney is now run by Dorktown! It is now a high-tech-neo-cyber-crony-capitalist hellscape called Dorktowntown. In Dorktowntown they manufacture Gumtreegum. Gumtreegum is an addictive gum that causes people to behave like good little exploited capitalist slaves.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -68,7 +68,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => '',
-                'summary' => "",
+                'summary' => "Firebird uses the rhetorical tricks he learned on the plane and on the island to get people off their gum addictions and rile them up into a communist revolution that destroys Dorktown's dystopia. This brings him face-to-face with Dorktown, before, during, or after a battle. She says 'I'm not your girlfriend. I'm not your daughter. I'm not your doll. I'm not your protege. Stop trying to save me or fix me or reinvent me.'",
                 'answered_question' => '',
                 'new_question' => '',
             ],
