@@ -76,7 +76,7 @@ class TheBoardController extends Controller
             [
                 'title' => 'Denouement', 
                 'location' => '',
-                'summary' => "",
+                'summary' => "Somehow, Firebird and Dorktown reconcile and head off into the sunset on their next adventure.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
@@ -119,7 +119,7 @@ class TheBoardController extends Controller
                         'name' => 'name',
                         'percent_start' => 27,
                         'percent_end' => 49,
-                        'beats' => 'Narrative Digression, B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun & Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat',
+                        'beats' => 'B-Story Or Love Story, Introduce B-Story Characters Who Are Mirrors Of A-Story Characters, Fun & Games, The Promise Of The Premise, Set Pieces, Then... Midpoint, Mirror Of All Is Lost, False Victory Or False Defeat',
                     ],
                 ]
             ],
@@ -152,7 +152,7 @@ class TheBoardController extends Controller
                         'name' => 'name',
                         'percent_start' => 77,
                         'percent_end' => 98,
-                        'beats' => 'Narrative Digression, Break Into Three, Fusion Of A And B Stories, Climax, Change The World',
+                        'beats' => 'Break Into Three, Fusion Of A And B Stories, Climax, Change The World',
                     ],
                     7 => 
                     [
