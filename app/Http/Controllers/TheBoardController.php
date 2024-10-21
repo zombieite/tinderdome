@@ -36,7 +36,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => 'Route 66',
-                'summary' => 'Firebird decides to find Dorktown. He hears she might be in Australia. He heads to LA via Route 66.',
+                'summary' => 'Firebird discovers Dorktown may have been kidnapped. She may be in Australia. They tell him Australia is a big country but he heads to LA via Route 66.',
                 'answered_question' => '',
                 'new_question' => '',
             ],
