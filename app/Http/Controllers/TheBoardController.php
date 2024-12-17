@@ -20,7 +20,7 @@ class TheBoardController extends Controller
             [
                 'title' => 'Norwood',
                 'location' => 'Norwood',
-                'summary' => "Christmas eve. Snow. Firebird oversees the process of building cars in a postapocalyptic Pontiac Firebird factory. Capitalism channels the innate human desire for status out of politics and into making money. First they laugh at your ideas, then they ignore them, then they take them for granted, then they declare them a human right and try to take them away from you and hand them out to the world for free.", 
+                'summary' => "Christmas eve. Snow. Firebird oversees the process of building cars in a postapocalyptic Pontiac Firebird factory. Capitalism channels the innate human desire for status out of politics and into making money. Firebird interviews a mechanic and pilot named Greg Gory. Firebird's friend and pilot Dorktown is missing. Greg Gory refuses the job but gives Firebird a piece of gum that is a clue to Dorktown's whereabouts.", 
                 'answered_question' => '',
                 'new_question' => '',
             ],
