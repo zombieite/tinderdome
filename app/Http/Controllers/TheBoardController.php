@@ -20,7 +20,7 @@ class TheBoardController extends Controller
             [
                 'title' => 'Norwood',
                 'location' => 'Norwood',
-                'summary' => "Christmas eve. Firebird oversees the process of building cars in a postapocalyptic Pontiac Firebird factory. Firebird interviews a mechanic and pilot named Greg Gory. Firebird's friend and pilot Dorktown is missing. Greg Gory refuses the job but gives Firebird a piece of gum that is a clue to Dorktown's whereabouts. Firebird chews the gum, which apparently has some kind of drug in it, and stays up working for three days straight. But he then deals with the withdrawal symptoms for several days. When he finally gets clean, his factory has been destroyed because Greg Gory sold him out.", 
+                'summary' => "Christmas eve. Firebird oversees the process of building cars in a postapocalyptic Pontiac Firebird factory. Firebird interviews a mechanic and pilot named Greg Gory. Firebird's friend and pilot Dorktown is missing. Greg Gory refuses the job but because he recognizes the name, he gives Firebird a piece of gum with a wrapper that indicates it was made in 'Dorktowntown.' Firebird chews the gum, which apparently has some kind of drug in it, and stays up working for three days straight. But he then deals with the withdrawal symptoms for several days. When he finally gets clean, his factory has been destroyed because Greg Gory sold him out using information he acquired during the interview.", 
                 'answered_question' => '',
                 'new_question' => '',
             ],
