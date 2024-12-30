@@ -44,7 +44,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => 'Unknown Pacific island',
-                'summary' => "Firebird gets on a jet in LA. Airplane allegory. Like Snowpiercer. The people on the airplane do a communist takeover and only manage to crash the plane. It turns out it takes skill to fly a plane and accomplish the other tasks necessary to successfully complete a flight.",
+                'summary' => "Firebird gets on a jet in LA. Airplane allegory. Like Snowpiercer. The people on the airplane do a communist takeover and manage to crash the plane. It turns out it takes skill to fly a plane and accomplish the other tasks necessary to successfully complete a flight. But the communists only celebrate the crash, because either they can't admit they were wrong, or they genuinely think that as long as the capitalists are dead, that's all that matters.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
