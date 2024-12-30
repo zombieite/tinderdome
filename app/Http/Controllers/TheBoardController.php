@@ -52,7 +52,7 @@ class TheBoardController extends Controller
             [
                 'title' => '', 
                 'location' => 'Australia',
-                'summary' => "Island allegory. Finding food and fresh water. Building shelters. The people on the deserted island propose communism. Firebird proposes capitalism. They debate and vote. The people vote for communism and it fails. How does Firebird get off the island and to Australia? Maybe a passing boat. Maybe they were actually really close to Australia all along and a canoe can get them the rest of the way.",
+                'summary' => "Island allegory. Finding food and fresh water. Building shelters. The people on the deserted island propose communism. Firebird proposes capitalism. They debate and vote. The people vote for communism and it fails, but the communists refuse to see that and continue along happily. How does Firebird get off the island and to Australia? Maybe a passing boat. Maybe they were actually really close to Australia all along and a canoe can get them the rest of the way.",
                 'answered_question' => '',
                 'new_question' => '',
             ],
