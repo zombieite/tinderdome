@@ -123,7 +123,6 @@ Carpenters - Close To You
 <div class="small">
 John Gorka - I'm From New Jersey
 </div>
-<a href="https://www.youtube.com/watch?v=bhFScP_Ag5Y">Year 38 Update, Putting The Rumors To Rest (Film)</a>
 </div>
 
 <div class="profile_search_block" style="vertical-align:top;">
