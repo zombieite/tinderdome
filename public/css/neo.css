@@ -8,7 +8,7 @@
     --bright:  #ff00ff;
     --font:    monospace;
     --fg:      #00ff00;
-    --bg:      #110022;
+    --bg:      #000000;
 }
 body {
     color: var(--fg);
