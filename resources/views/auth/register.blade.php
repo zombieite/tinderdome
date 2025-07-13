@@ -68,10 +68,10 @@ I am...
 
 @guest
 @else
-@if (isset($missions_completed) && $missions_completed > 0)
+@if (isset($max_title) && $max_title > 0)
 <label for="title_index">Title</label>
 <select name="title_index" id="title_index">
-    @for ($i = 0; $i <= $missions_completed; $i++)
+    @for ($i = 0; $i <= $max_title; $i++)
         <option value="{{ $i }}" @if ($title_index === $i) selected @endif>{{ $titles[$i] }}</option>
     @endfor
 </select>
