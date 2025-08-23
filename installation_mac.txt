@@ -9,7 +9,7 @@ which brew
 brew update 
 brew install httpd
 brew services start httpd # or sudo apachectl start
-curl https://localhost/
+curl http://localhost:8080/
 brew services stop httpd # or sudo apachectl stop
 /opt/homebrew/opt/httpd/bin/apachectl -D DUMP_INCLUDES
 # Included configuration files:
