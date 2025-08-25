@@ -57,7 +57,7 @@ class ImageController extends Controller
 							}
 						} else {
 							File::copy($uploaded_file, $destination);
-							$img = Image::make($destination);
+							$img = \Intervention\Image\ImageManagerStatic::make($destination);
 							$img->orientate();
 							$img->heighten($image_height);
 							$img->encode('jpg');

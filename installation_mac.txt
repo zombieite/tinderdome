@@ -41,35 +41,22 @@ which php
 cd /opt/homebrew/var/www/
 curl -sS https://getcomposer.org/installer | php 
 ./composer.phar
-./composer.phar global require "laravel/installer"
+./composer.phar create-project laravel/laravel tinderdome "8.*"
 ls /Users/$USER/.composer/vendor/bin/laravel
-cd
-curl -sS https://getcomposer.org/installer | php
-ln -s /Users/$USER/composer.phar /Users/$USER/composer
-PATH=$PATH:/Users/$USER/
-cd /opt/homebrew/var/www/
-/Users/$USER/.composer/vendor/bin/laravel new tinderdome
-# No starter kit
-# PHPUnit
-# No git repo
-# MySQL
-# Probably a good idea to say "yes" to "run migrations"? I tried not doing this and later I got a missing sessions table and "php artisan migrate" was mad that the users table already existed
-cd tinderdome
+cd tinderdome # important, don't leave, because composer will install stuff here
 mv .env.example .env
 vi .env 
-# Set this stuff:
+# Set this stuff, and leave the other junk in there as-is:
 DB_DATABASE=tinderdome
 DB_USERNAME=root
-DB_PASSWORD=root # or whatever
-curl -sS https://getcomposer.org/installer | php
-./composer.phar require "laravel/ui"
-./composer.phar require "intervention/image"
-./composer.phar update
+DB_PASSWORD=password # or whatever
+../composer.phar require "laravel/ui"
+../composer.phar require intervention/image:^2.7
 php artisan key:generate
 vi /opt/homebrew/etc/httpd/httpd.conf
 DocumentRoot "/opt/homebrew/var/www/tinderdome/public"
 <Directory "/opt/homebrew/var/www/tinderdome/public">
-apachectl restart
+brew services restart httpd
 curl http://localhost/ # Should show error connecting to MySQL
 brew install mysql
 ###################################################
@@ -80,51 +67,42 @@ mysql_secure_installation
 mysql -uroot -p
 create database tinderdome;
 exit
-# may need to do "php artisan migrate" if you skipped it above
-mysql -uroot -p tinderdome </Users/$USER/Desktop/remote/mysqldumps/mysqldump.sql
+php artisan migrate # creates new db tables or leaves good existing ones in place
+mysql -uroot -p tinderdome </Users/firebird/Desktop/server/mysqldumps/mysqldump.sql
 ###################################################
 mysql -uroot -p tinderdome                        #
 ###################################################
 curl http://localhost/ # Should now show fancy Laravel page
-# ??? trying to get intervention/image running but doesn't work: Class "Intervention\Image\ImageServiceProvider" not found 
-# vi config/app.php
-# in 'providers' add:
-# Intervention\Image\ImageServiceProvider::class,
-# in 'aliases' add:
-# 'Image' => Intervention\Image\Facades\Image::class
-# rm composer.lock
-# rm -rf vendor
-# ~/composer install
-# ???
 cd /Users/$USER/Desktop/local/web/
 mv tinderdome tinderdome_backup
 git clone git@github.com:zombieite/tinderdome.git
 cd tinderdome
 git status
 apachectl configtest
+brew services restart httpd
 vi /opt/homebrew/etc/httpd/httpd.conf
 # Uncomment these lines (and maybe others based on configtest syntax errors):
 LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
 LoadModule ssl_module lib/httpd/modules/mod_ssl.so
+apachectl configtest
+brew services restart httpd
 # Add line to end, replace <YOURUSERNAMEHERE>
 Include /Users/$USER/Desktop/local/web/tinderdome/apache/youareawaited.com.conf
 ###################################################
-# Virtual host config at youareawaited.com.conf
+# Virtual host config is at youareawaited.com.conf
 ###################################################
 cd /opt/homebrew/etc/httpd/
 openssl genrsa -out server.key 2048
 openssl req -new -x509 -key server.key -out server.crt -days 3650 -subj /CN=localhost
 sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain server.crt
 apachectl configtest
-###################################################
-apachectl start                                   #
-###################################################
+brew services restart httpd
 # http://localhost/ should redirect to https, accept browser warnings and proceed
+rsync -rv --size-only /Users/$USER/Desktop/server/uploads/ /opt/homebrew/var/www/tinderdome/public/uploads/
 cd /Users/$USER/Desktop/local/web/
 alias sync='rsync -rv --exclude=".*" /Users/$USER/Desktop/local/web/tinderdome/ /opt/homebrew/var/www/tinderdome/'
 sync
-rsync -rv --size-only /Users/$USER/Desktop/remote/uploads/ /opt/homebrew/var/www/tinderdome/public/uploads/
-apachectl restart
+brew services restart httpd # or apachectl restart
 curl https://localhost/
 ###################################################
 # LOGS:                     /opt/homebrew/var/www/tinderdome/storage/logs/laravel.log
