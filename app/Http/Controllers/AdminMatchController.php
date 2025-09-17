@@ -99,14 +99,7 @@ class AdminMatchController extends Controller
         foreach ($matches as $match) {
             $missions_completed                   = \App\Util::missions_completed($match->user_id);
             $missions_completed++;
-            $cap                                  = 'YEAR';
-            if ($missions_completed == 1) {
-                // All good
-            } else {
-                $title                            = $titles[$missions_completed];
-                $cap                              = "$cap+$title";
-            }
-            $match->cap                           = $cap;
+            $match->cap                           = '';
             $match->wasteland_name_hyphenated     = preg_replace('/\s/', '-', $match->name);
             $match->matchs_name_hyphenated        = preg_replace('/\s/', '-', $match->name_of_match);
             $match->match_1_class                 = $match->user_id_of_match ? isset($match->user_1_choice) ? $choice_map[$match->user_1_choice] : '' : '';
