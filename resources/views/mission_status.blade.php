@@ -131,7 +131,7 @@
         </form>
     @endif
 @else
-    When new events are added, they will appear here. Then you can sign up to be matched. Or, contact us if you'd like us to set up a new event.
+    No events are currently scheduled. When new events are scheduled, they will appear here. Contact us if you'd like to schedule a new event.
 @endif
 
 <ol>
@@ -146,7 +146,7 @@
         Once you have uploaded a photo, you can view other users' profiles and choose who you'd like to meet.
     @endif
 @else
-    Let us know who you'd like to meet.
+    Browse profiles and let us know who you'd like to meet.
     @foreach ($upcoming_events_and_signup_status as $upcoming_event)
         @if ($upcoming_event->attending_event_id)
             You have viewed all profiles. Come back later to see new arrivals.
