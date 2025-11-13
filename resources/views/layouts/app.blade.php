@@ -61,5 +61,12 @@ Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com
         <input type="submit" value="Log out">
     </form>
 @endguest
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+    .then(() => console.log('Service Worker registered'))
+    .catch(err => console.error('Service Worker failed:', err));
+}
+</script>
 </body>
 </html>
