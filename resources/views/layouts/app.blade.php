@@ -2,6 +2,8 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 <title>You Are Awaited</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:type" content="website">
