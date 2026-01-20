@@ -1,38 +1,57 @@
 # Using web AWS "console" and the official AWS tutorials online
-# Set up AWS EC2 free micro instance, Amazon Linux 2
-# Set up access rules and roles and ports and stuff, ports 80 (http), 443 (https), 22 (ssh)
-# Set up login via SSH
-# Set up an elastic IP and assign it to the instance
+# Set up AWS EC2 t3.small instance, Amazon Linux 2, set up keys for SSH during the process, or use existing. Copy the ssh keys to your local machine if they are not already in place.
+ssh ec2-user@<the current transient public ip of the instance>
+# Make sure Security->Inbound Rules allow ports 80 (http), 443 (https), 22 (ssh)
+# Set up an elastic IP, or use an existing one, and associate it to the instance
+# Make sure Route 53 connects youareawaited.com to that elastic IP
+ssh ec2-user@<your elastic IP>
 # Add an A record connecting *.youareawaited.com to that IP in Amazon Route 53, don't forget that * at the beginning
-# Maybe add an _alias_ A record for www.youareawated.com too
-# Create a reverse DNS for the IP as well (makes emails from your domain look legit)
+ssh ec2-user@youareawaited.com
+# Create a reverse DNS for the IP to make emails from your domain not be seen as spam 
 alias server='ssh ec2-user@youareawaited.com'
 server
-# You probably need to uninstall one thing before installing another version of the same thing
-# If you need to remove stuff installed via Amazon Extras, and other useful Amazon Linux 2 tips:
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library
-# yum list installed | grep amzn2extra-topic | awk '{ print $1 }'
-# sudo yum remove <package listed above>
-# Following instructions here:
-# https://tecadmin.net/install-apache24-php7-on-amazon-linux/
-sudo yum update -y
-sudo yum install -y httpd httpd-tools mod_ssl
+# Update system packages (Amazon Linux 2023 uses dnf)
+sudo dnf update -y
+# Install Apache HTTP Server and SSL support
+sudo dnf install -y httpd httpd-tools mod_ssl
+# Enable Apache to start on boot
 sudo systemctl enable httpd
+# Verify Apache is enabled
 sudo systemctl is-enabled httpd
+# Start Apache now
 sudo systemctl start httpd
+# Verify Apache is running
+sudo systemctl status httpd --no-pager
+# http://youareawaited.com should show Apache test homepage, note not using SSL yet
 ######################################################################################
 # Website html and stuff will be at /var/www/html/ ###################################
 ######################################################################################
-# http://youareawaited.com should show Apache test homepage
-sudo yum install amazon-linux-extras -y
-sudo amazon-linux-extras | grep php
-sudo amazon-linux-extras enable php7.4
-sudo yum clean metadata
-sudo yum install php php-common php-pear
-sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip}
+sudo dnf install -y --allowerasing curl
+curl --version
+sudo dnf install -y git unzip php php-cli php-common php-mbstring php-xml php-json php-zip php-gd php-intl php-opcache php-pdo php-mysqlnd
 php -v
-echo "<?php phpinfo(); ?>" > /var/www/html/info.php
-# http://youareawaited.com/info.php should show phpinfo
+git --version
+php -m | egrep -i 'gd|mbstring|xml|intl|pdo|mysqlnd'
+cd /tmp && php -r "copy('https://getcomposer.org/installer','composer-setup.php');" && sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer && rm composer-setup.php
+sudo dnf install -y mariadb105-server && sudo systemctl enable --now mariadb && sudo mariadb-secure-installation
+# set a root password
+# answer Y to removing anonymous users
+# Y to disallow remote root login
+# Y to remove test database
+# Y to reload privilege tables
+sudo mariadb -u root -p -e "CREATE DATABASE tinderdome CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; CREATE USER tinderdome@'localhost' IDENTIFIED BY 'tinderdome'; GRANT ALL PRIVILEGES ON tinderdome.* TO tinderdome@'localhost'; FLUSH PRIVILEGES; SHOW DATABASES; SELECT user,host FROM mysql.user;"
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/info.php >/dev/null && sudo chown root:root /var/www/html/info.php && sudo chmod 644 /var/www/html/info.php && sudo systemctl reload httpd
+sudo dnf install -y php-fpm && sudo systemctl enable --now php-fpm && sudo systemctl status php-fpm --no-pager && sudo systemctl reload httpd
+# Check https://youareawaited.com/info.php, see if it shows PHP info
+# Replace PHP info with "Hello world"
+echo "<?php echo 'Hello world';" | sudo tee /var/www/html/index.php >/dev/null && sudo chown root:root /var/www/html/index.php && sudo chmod 644 /var/www/html/index.php && sudo systemctl reload httpd
+sudo rm /var/www/html/info.php
+# Access log
+tail -f  /var/log/httpd/access_log
+# Error log
+tail -f /var/log/httpd/error_log
+
+---------
 rm /var/www/html/info.php
 cd /var/www/html/
 ssh-keygen
