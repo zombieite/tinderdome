@@ -1,6 +1,3 @@
-# Using web AWS "console" and the official AWS tutorials online
-# Set up AWS EC2 t3.small instance, Amazon Linux 2, set up keys for SSH during the process, or use existing. Copy the ssh keys to your local machine if they are not already in place.
-ssh ec2-user@<the current transient public ip of the instance>
 # Make sure Security->Inbound Rules allow ports 80 (http), 443 (https), 22 (ssh)
 # Set up an elastic IP, or use an existing one, and associate it to the instance
 # Make sure Route 53 connects youareawaited.com to that elastic IP
@@ -39,7 +36,8 @@ sudo dnf install -y mariadb105-server && sudo systemctl enable --now mariadb && 
 # Y to disallow remote root login
 # Y to remove test database
 # Y to reload privilege tables
-sudo mariadb -u root -p -e "CREATE DATABASE tinderdome CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; CREATE USER tinderdome@'localhost' IDENTIFIED BY 'tinderdome'; GRANT ALL PRIVILEGES ON tinderdome.* TO tinderdome@'localhost'; FLUSH PRIVILEGES; SHOW DATABASES; SELECT user,host FROM mysql.user;"
+# Change password below
+sudo mariadb -u root -p -e "CREATE DATABASE tinderdome CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; CREATE USER tinderdome@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON tinderdome.* TO tinderdome@'localhost'; FLUSH PRIVILEGES; SHOW DATABASES; SELECT user,host FROM mysql.user;"
 echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/info.php >/dev/null && sudo chown root:root /var/www/html/info.php && sudo chmod 644 /var/www/html/info.php && sudo systemctl reload httpd
 sudo dnf install -y php-fpm && sudo systemctl enable --now php-fpm && sudo systemctl status php-fpm --no-pager && sudo systemctl reload httpd
 # Check https://youareawaited.com/info.php, see if it shows PHP info
@@ -50,87 +48,99 @@ sudo rm /var/www/html/info.php
 tail -f  /var/log/httpd/access_log
 # Error log
 tail -f /var/log/httpd/error_log
-
----------
-rm /var/www/html/info.php
-cd /var/www/html/
+composer --version && composer diagnose
+composer self-update --update-keys
+# This "myapp" stuff gets renamed later so next time through, just do this my way from the start
+cd /var/www && sudo mkdir -p myapp && sudo chown -R ec2-user:apache myapp && cd myapp && composer create-project laravel/laravel .
+$ cd /var/www/myapp && php artisan --version
 ssh-keygen
 cat /home/ec2-user/.ssh/id_rsa.pub
 # Add that key to github
-sudo yum install git
-sudo usermod -a -G apache ec2-user
-groups
-sudo chown -R ec2-user:apache /var/www
-sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
-find /var/www -type f -exec sudo chmod 0664 {} \;
-# Get composer
-curl -sS https://getcomposer.org/installer | /usr/bin/php
-######################################################################################
-# Composer installed at: /var/www/html/composer.phar #################################
-######################################################################################
-# Get Laravel
-php /var/www/html/composer.phar global require "laravel/installer"
-######################################################################################
-# Laravel installed at /home/ec2-user/.config/composer/vendor/bin/laravel ############
-######################################################################################
-/home/ec2-user/.config/composer/vendor/bin/laravel new tinderdome
-php /var/www/html/composer.phar require "laravel/ui"
-php artisan key:generate
-php artisan ui vue --auth
-chmod 775 tinderdome/storage
-chmod 775 tinderdome/storage/logs/
-chmod 775 tinderdome/storage/logs/laravel.log
-chmod 775 tinderdome/bootstrap/cache
-chmod 775 /var/www/html/tinderdome/public/uploads
-######################################################################################
-# Images at /var/www/html/tinderdome/public/uploads ##################################
-# Laravel error log at /var/www/html/tinderdome/storage/logs/laravel.log #############
-######################################################################################
-mv tinderdome/.env.example tinderdome/.env
-vi tinderdome/.env
-# APP_DEBUG=false
-cd tinderdome
-# Install image resizer
-/var/www/html/composer.phar require "intervention/image"
-# http://youareawaited.com should show Laravel test homepage
-Create vhost file at /etc/httpd/conf.d/youareawaited.com.conf
+# Create vhost file at /etc/httpd/conf.d/youareawaited.com.conf
 <VirtualHost *:80>
     ServerAdmin john_binns@yahoo.com
     ServerName youareawaited.com
     ServerAlias www.youareawaited.com
-    DocumentRoot /var/www/html/tinderdome/public/
+    DocumentRoot /var/www/html/tinderdome/public
+    <Directory /var/www/html/tinderdome/public>
+        AllowOverride All
+        Require all granted
+    </Directory>
     ErrorLog /var/log/httpd/youareawaited.com-error_log
     CustomLog /var/log/httpd/youareawaited.com-access_log combined
 </VirtualHost>
+# And this one too: /etc/httpd/conf.d/00-youareawaited-ssl.conf
+Listen 443
+SSLSessionCache shmcb:/run/httpd/sslcache(512000)
+<VirtualHost *:443>
+    ServerAdmin john_binns@yahoo.com
+    ServerName youareawaited.com
+    ServerAlias www.youareawaited.com
+    DocumentRoot /var/www/html/tinderdome/public
+    <Directory /var/www/html/tinderdome/public>
+        AllowOverride All
+        Require all granted
+        Options -Indexes
+    </Directory>
+    SSLEngine on
+    SSLCertificateFile /etc/pki/tls/certs/localhost.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+    ErrorLog /var/log/httpd/youareawaited.com-ssl-error_log
+    CustomLog /var/log/httpd/youareawaited.com-ssl-access_log combined
+</VirtualHost>
+# Just modify what ChatGPT suggested before, to fit my normal install better
+sudo mv /var/www/myapp /var/www/html/tinderdome && sudo chown -R ec2-user:apache /var/www/html/tinderdome
+# Set up rewrites
+sudo sed -i 's/^#LoadModule rewrite_module/LoadModule rewrite_module/' /etc/httpd/conf.modules.d/00-base.conf && sudo systemctl reload httpd
+# Set up permissions
+sudo chown -R ec2-user:apache /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache && sudo find /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache -type d -exec chmod 775 {} \; && sudo find /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache -type f -exec chmod 664 {} \; && sudo systemctl reload httpd
+sudo mkdir -p /var/www/html/tinderdome/database && sudo touch /var/www/html/tinderdome/database/database.sqlite && sudo chown -R ec2-user:apache /var/www/html/tinderdome/database && sudo chmod 775 /var/www/html/tinderdome/database && sudo chmod 664 /var/www/html/tinderdome/database/database.sqlite && sudo systemctl reload httpd
+sudo rm /var/www/html/index.php
+# Make apache use my config
+sudo mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.disabled && sudo mv /etc/httpd/conf.d/youareawaited.com.conf /etc/httpd/conf.d/00-youareawaited.com.conf && sudo apachectl configtest && sudo systemctl reload httpd
+apachectl configtest
+# Get rid of unneeded SSL conf
+sudo mv /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.disabled
+sudo systemctl reload httpd
+sudo systemctl restart httpd
 ######################################################################################
 # Site configurations are in /etc/httpd/conf.d/ ######################################
-######################################################################################
 # Access log is at /var/log/httpd/youareawaited.com-access_log #######################
+# Error log is at /var/log/httpd/youareawaited.com-error_log #########################
 ######################################################################################
-# Following instructions here:
-# https://tecadmin.net/install-mysql-on-amazon-linux/
-sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
-sudo yum install mysql-server
-# Alternate possibility
-# sudo yum install mysql-community-server
-sudo systemctl enable mysqld
-sudo systemctl is-enabled mysqld
-sudo systemctl start mysqld
-sudo grep 'temporary password' /var/log/mysqld.log
-sudo mysql_secure_installation
+# Check the site, it should show Laravel welcome page
+# Now put .env into place
+cd /var/www/html/tinderdome && cp -n .env.example .env && php artisan key:generate --force && perl -0777 -i -pe "s/DB_CONNECTION=.*/DB_CONNECTION=mysql/; s/DB_HOST=.*/DB_HOST=127.0.0.1/; s/DB_PORT=.*/DB_PORT=3306/; s/DB_DATABASE=.*/DB_DATABASE=DB_NAME/; s/DB_USERNAME=.*/DB_USERNAME=DB_USER/; s/DB_PASSWORD=.*/DB_PASSWORD=DB_PASSWORD/;" .env
+# Go into .env and uncomment things and set up DB creds that we created above
+cd /var/www/html/tinderdome && sudo php artisan optimize:clear && sudo php artisan migrate --force
+# Also add or change the lines CACHE_DRIVER=file, CACHE_STORE=file, SESSION_DRIVER=file, APP_DEBUG=false 
+cd /var/www/html/tinderdome && php artisan migrate --force
+cd /var/www/html/tinderdome && composer require intervention/image-laravel
+# Test image generation
+cd /var/www/html/tinderdome && sudo cp -a routes/web.php routes/web.php.bak.$(date +%Y%m%d%H%M%S) && sudo bash -c "cat >> routes/web.php <<'PHP'
+use Intervention\\Image\\Laravel\\Facades\\Image;
+Route::get('/img-test', function () {
+    \$img = Image::create(600, 200)->fill('ccc')->drawCircle(100, 100, function (\$circle) {
+        \$circle->radius(80);
+        \$circle->border('000', 6);
+        \$circle->background('09f');
+    });
+    return response()->image(\$img, 'png');
+});
+PHP"
+cd /var/www/html/tinderdome && php artisan optimize:clear
+# Check URL https://youareawaited.com/img-test
 ######################################################################################
-# Access mysql: mysql -u root -p #####################################################
+# Images at /var/www/html/tinderdome/public/uploads ##################################
+# Laravel error log at /var/www/html/tinderdome/storage/logs/laravel.log #############
+# Access mysql: mysql -u tinderdome -p ###############################################
 ######################################################################################
-mysql -u root -p
-create database tinderdome;
-exit
 cd
 mkdir mysqldumps
-exit
-# (Now from home machine)
-scp /Users/zombieite/Desktop/local/wasteland/backups/mysqldump.sql ec2-user@youareawaited.com:~/mysqldumps/mysqldump.initial.sql
+# Now from home machine
+scp ~/Desktop/server/mysqldumps/mysqldump.sql ec2-user@youareawaited.com:~/mysqldumps/mysqldump.initial.sql
 server
-mysql -uroot -p tinderdome < /home/ec2-user/mysqldumps/mysqldump.initial.sql
+mysql -utinderdome -p tinderdome < /home/ec2-user/mysqldumps/mysqldump.initial.sql
 ######################################################################################
 # Mysql backups are at /home/ec2-user/mysqldumps/ ####################################
 ######################################################################################
@@ -140,25 +150,31 @@ git clone git@github.com:zombieite/tinderdome.git
 ######################################################################################
 # Repo is at /home/ec2-user/tinderdome ###############################################
 ######################################################################################
-rsync -rv /home/ec2-user/tinderdome/ /var/www/html/tinderdome/
-mkdir /var/www/html/tinderdome/public/images/stories/
-vi .env # Set this stuff:
-DB_DATABASE=tinderdome
-DB_USERNAME=root # This should work on day 1 but change this
-DB_PASSWORD=root # This should work on day 1 but change this
+# Now that it's working, save this working state
+sudo cp -a /var/www/html/tinderdome /var/www/html/tinderdome_baseline_$(date +%Y%m%d%H%M%S)
+# Command to copy my code into place
+sudo rsync -av --exclude='.*' --exclude 'storage/' --exclude 'bootstrap/cache/' --exclude 'vendor/' /home/ec2-user/tinderdome/ /var/www/html/tinderdome/
+# Fix permissions for Apache
+sudo chown -R ec2-user:apache /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache && sudo find /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache -type d -exec chmod 2775 {} \; && sudo find /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache -type f -exec chmod 664 {} \; && sudo restorecon -RFv /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache >/dev/null 2>&1 || true
+# Oops one more (probably redundant with last one but adds a little more permissions)
+sudo chown -R ec2-user:apache /var/www/html/tinderdome && sudo find /var/www/html/tinderdome -type d -exec chmod 2755 {} \; && sudo find /var/www/html/tinderdome -type f -exec chmod 0644 {} \; && sudo find /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache -type d -exec chmod 2775 {} \; && sudo find /var/www/html/tinderdome/storage /var/www/html/tinderdome/bootstrap/cache -type f -exec chmod 0664 {} \;
+cd /var/www/html/tinderdome && composer require laravel/ui
+cd /var/www/html/tinderdome && composer install --no-dev --optimize-autoloader && php artisan optimize:clear
 # http://youareawaited.com should show YAA homepage
-# Now to make the other routes work besides index.php, using the .htaccess file that contains secret laravel routing magic
-sudo vi /etc/httpd/conf/httpd.conf
-# Further relax access to the default document root:
-# <Directory "/var/www/html">
-# ...
-AllowOverride All
-# ...
 # Send over all image uploads
-rsync -rv --size-only /Users/zombieite/Desktop/local/web/tinderdome/public/uploads ec2-user@youareawaited.com:/var/www/html/tinderdome/public/
-rsync -rv --size-only /Users/zombieite/Desktop/local/web/tinderdome/public/images/stories/ ec2-user@youareawaited.com:/var/www/html/tinderdome/public/stories/
-server
-chmod 664 /var/www/html/tinderdome/public/uploads/*
+rsync -rv --size-only ~/Desktop/server/uploads/ ec2-user@youareawaited.com:/var/www/html/tinderdome/public/uploads/
+sudo chown -R ec2-user:apache /var/www/html/tinderdome/public/uploads && sudo find /var/www/html/tinderdome/public/uploads -type d -exec chmod 2775 {} \; && sudo find /var/www/html/tinderdome/public/uploads -type f -exec chmod 664 {} \; && sudo restorecon -RFv /var/www/html/tinderdome/public/uploads >/dev/null 2>&1 || true
+rsync -rv --size-only ~/Desktop/local/web/tinderdome/public/images/stories/ ec2-user@youareawaited.com:/var/www/html/tinderdome/public/stories/
+# Set up some old fashioned stuff I haven't bothered to update
+cd /var/www/html/tinderdome && composer remove intervention/image-laravel --no-scripts && composer require intervention/image:^2.7 --no-scripts && php artisan optimize:clear
+cd /var/www/html/tinderdome && composer install --no-dev --optimize-autoloader && php artisan optimize:clear
+sudo vi /etc/php.d/99-tinderdome.ini
+# post_max_size = 40M
+# upload_max_filesize = 40M
+sudo systemctl restart php-fpm
+
+# TODO
+
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
 sudo yum install -y mod_ssl
 cat /etc/httpd/conf.d/ssl.conf
@@ -169,8 +185,6 @@ ls /etc/pki/tls/certs/localhost.crt
 sudo vi /etc/httpd/conf.d/ssl.conf
 # Comment out SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
 sudo vi /etc/httpd/conf.d/youareawaited.com-le-ssl.conf # other places might be better but this seemed to work
-# After CustomLog line, add:
-# php_value post_max_size 40M
 sudo systemctl restart httpd
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html#letsencrypt
 sudo wget -r --no-parent -A 'epel-release-*.rpm' https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
