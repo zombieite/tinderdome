@@ -57,7 +57,7 @@ cat /home/ec2-user/.ssh/id_rsa.pub
 # Add that key to github
 # Create vhost file at /etc/httpd/conf.d/youareawaited.com.conf
 <VirtualHost *:80>
-    ServerAdmin john_binns@yahoo.com
+    ServerAdmin email@email.com
     ServerName youareawaited.com
     ServerAlias www.youareawaited.com
     DocumentRoot /var/www/html/tinderdome/public
@@ -72,7 +72,7 @@ cat /home/ec2-user/.ssh/id_rsa.pub
 Listen 443
 SSLSessionCache shmcb:/run/httpd/sslcache(512000)
 <VirtualHost *:443>
-    ServerAdmin john_binns@yahoo.com
+    ServerAdmin email@email.com
     ServerName youareawaited.com
     ServerAlias www.youareawaited.com
     DocumentRoot /var/www/html/tinderdome/public
