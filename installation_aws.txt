@@ -1,4 +1,3 @@
-# Make sure Security->Inbound Rules allow ports 80 (http), 443 (https), 22 (ssh)
 # Set up an elastic IP, or use an existing one, and associate it to the instance
 # Make sure Route 53 connects youareawaited.com to that elastic IP
 ssh ec2-user@<your elastic IP>
@@ -172,46 +171,31 @@ sudo vi /etc/php.d/99-tinderdome.ini
 # post_max_size = 40M
 # upload_max_filesize = 40M
 sudo systemctl restart php-fpm
-
-# TODO
-
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
-sudo yum install -y mod_ssl
-cat /etc/httpd/conf.d/ssl.conf
-cat /etc/pki/tls/certs/make-dummy-cert
-cd /etc/pki/tls/certs
-sudo ./make-dummy-cert localhost.crt
-ls /etc/pki/tls/certs/localhost.crt
-sudo vi /etc/httpd/conf.d/ssl.conf
-# Comment out SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
-sudo vi /etc/httpd/conf.d/youareawaited.com-le-ssl.conf # other places might be better but this seemed to work
-sudo systemctl restart httpd
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html#letsencrypt
-sudo wget -r --no-parent -A 'epel-release-*.rpm' https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
-sudo rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
-sudo yum-config-manager --enable epel*
-sudo apachectl configtest
-sudo systemctl restart httpd
-sudo yum install -y certbot python2-certbot-apache
-sudo certbot
-# This crontab renewal doesn't seem to work, so manually do this periodically
-sudo crontab -e
-# 39      1,13    *       *       *       root    certbot renew --no-self-upgrade
-sudo systemctl restart crond
-# Test SSL
-# https://www.ss:llabs.com/ssltest/analyze.html?d=www.youareawaited.com&latest
-# Set up bash profile so logging in does some stuff automatically
+# Get SSL working right
+sudo dnf install -y certbot python3-certbot-apache
+certbot --version
+sudo certbot --apache -d youareawaited.com -d www.youareawaited.com
+echo | openssl s_client -servername youareawaited.com -connect youareawaited.com:443 2>/dev/null | openssl x509 -noout -subject -issuer -dates
+# Check 80 to 443 redirect works
+curl -sS -D- http://youareawaited.com/ -o /dev/null
+sudo certbot renew --dry-run
+sudo systemctl list-unit-files | grep -i certbot || true
+sudo systemctl enable --now certbot-renew.timer
+sudo systemctl list-unit-files | grep -i certbot || true
+sudo systemctl list-timers | grep -i certbot
+# To manually renew if timer doesn't work: certbot renew --no-self-upgrade
+# Set up bash profile 
 vi ~/.bash_profile
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/code
 export PATH
 eval `ssh-agent`
-alias mysq='mysql -uroot -p`grep DB_PASSWORD /var/www/html/tinderdome/.env | cut -d= -f2` tinderdome'
-sudo certbot renew
+alias mysq='mysql -utinderdome -p`grep DB_PASSWORD /var/www/html/tinderdome/.env | cut -d= -f2` tinderdome'
 cat /var/www/html/tinderdome/storage/logs/laravel.log
 echo "echo ''>/var/www/html/tinderdome/storage/logs/laravel.log # To remove laravel log file above (don't delete it)"
 ssh-add
 # How to reboot everything
 sudo shutdown -r now
+sudo reboot
 # Or
 https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Instances:instanceState=running
 # Instance state -> Reboot instance
