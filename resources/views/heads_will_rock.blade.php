@@ -5,7 +5,7 @@ $hwr_ebook = "https://www.lulu.com/en/us/shop/john-binns-and-steve-scholz-and-ma
 @endphp
 @section('content')
 
-<a href="{{ $hwr }}"><img style="width:100%;" src="/h-w-r/heads-will-rock.jpg"></a>
+<a href="{{ $hwr }}"><img style="width:100%;filter:none;" src="/h-w-r/heads-will-rock-og.jpg"></a>
 
 <div class="profile_search_block" style="width:20em;vertical-align:top;text-align:center;">
 <h1><a href="{{ $hwr }}" class="bright">BUY PAPERBACK</a></h1>
@@ -87,12 +87,6 @@ The victors celebrate, while the losers mourn... and plan their revenge.
 <br><br>
 <span class="small">PREVIOUS</span><br>
 <a class="small" href="/awaited-nonfictional-delusion">Awaited: Nonfictional Delusion</a>
-</div>
-
-<div class="profile_search_block" style="width:20em;vertical-align:top;text-align:center;">
-<h1><a href="{{ $hwr }}" class="bright">BUY PAPERBACK</a></h1>
-<a href="{{ $hwr }}"><img style="width:200px;" src="/h-w-r/heads_will_rock_front_cover.jpg"></a>
-<h1><a href="{{ $hwr_ebook }}" class="bright">BUY EBOOK</a></h1>
 </div>
 
 @endsection
