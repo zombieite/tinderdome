@@ -65,8 +65,8 @@ class RegisterController extends Controller
         }
 
         $signup_code = strtolower($signup_code);
-        if (($signup_code != env('SIGNUP_CODE')) && ($signup_code != 'sign-me-up')) {
-            logger()->error('Invalid signup code attempt', [ 'signup_code' => $signup_code ?? null, ]);
+        if (($signup_code != strtolower(env('SIGNUP_CODE'))) && ($signup_code != 'sign-me-up')) {
+            logger()->error('Invalid signup code attempt', [ 'attempted_signup_code' => $signup_code ?? null, 'correct_signup_code' => env('SIGNUP_CODE') ?? null ]);
             throw new HttpResponseException(response('Invalid signup code. Please contact Firebird directly to create an account.', 403));
         }
 
