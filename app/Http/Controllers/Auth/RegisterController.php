@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Exceptions\HttpResponseException;;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use File;
@@ -64,8 +65,9 @@ class RegisterController extends Controller
         }
 
         $signup_code = strtolower($signup_code);
-        if ($signup_code != env('SIGNUP_CODE', 'sign-me-up')) {
-            abort(200, 'Invalid signup code. Please contact Firebird directly to create an account');
+        if (($signup_code != env('SIGNUP_CODE')) && ($signup_code != 'sign-me-up')) {
+            logger()->error('Invalid signup code attempt', [ 'signup_code' => $signup_code ?? null, ]);
+            throw new HttpResponseException(response('Invalid signup code. Please contact Firebird directly to create an account.', 403));
         }
 
 		$user = User::create([
