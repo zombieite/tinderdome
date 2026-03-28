@@ -184,18 +184,12 @@ sudo systemctl enable --now certbot-renew.timer
 sudo systemctl list-unit-files | grep -i certbot || true
 sudo systemctl list-timers | grep -i certbot
 # To manually renew if timer doesn't work: certbot renew --no-self-upgrade
-# Set up bash profile 
-vi ~/.bash_profile
-PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/code
-export PATH
-eval `ssh-agent`
-alias mysq='mysql -utinderdome -p`grep DB_PASSWORD /var/www/html/tinderdome/.env | cut -d= -f2` tinderdome'
-cat /var/www/html/tinderdome/storage/logs/laravel.log
-echo "echo ''>/var/www/html/tinderdome/storage/logs/laravel.log # To remove laravel log file above (don't delete it)"
-ssh-add
 # How to reboot everything
 sudo shutdown -r now
 sudo reboot
 # Or
 https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Instances:instanceState=running
 # Instance state -> Reboot instance
+# Put in .env
+SIGNUP_CODE="<fill in current code>"
+APPEARANCE=""
