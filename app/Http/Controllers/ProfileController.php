@@ -363,7 +363,7 @@ class ProfileController extends Controller
         $user_agent                = request()->header('user-agent');
         $is_wastelander            = \App\Util::is_wastelander( $profile_id );
 
-        $video_id                  = $_POST['video_id'];
+        $video_id                  = isset($_POST['video_id'])          ? $_POST['video_id'] : null;
         $matches                   = [];
         if (preg_match('/v=([a-zA-Z0-9_-]+)/', $video_id, $matches)) {
             $video_id = $matches[1];
