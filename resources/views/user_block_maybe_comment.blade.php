@@ -4,4 +4,8 @@
         <br>
     @endif
     <a href="/profile/{{ $user_id }}/{{ $wasteland_name_hyphenated }}">{{ $name }}</a>
+    @if (isset($bounty_hunt_event))
+        hunted you at<br>
+        {{ $bounty_hunt_event }}
+    @endif
 </div>

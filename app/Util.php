@@ -575,15 +575,20 @@ class Util {
     }
 
     public static function users_who_say_they_know_you( $user_id ) {
+        // Bounty hunts are a special case. You can't "win" a bounty hunt by being found, but when someone claims to have found you,
+        // we know what event they claim to have found you at, and that can help you remember them.
         $results = DB::select('
             select
                 users.id user_id,
                 users.name,
-                users.number_photos
+                users.number_photos,
+                event.event_long_name bounty_hunt_event
             from
                 users
                 join choose their_choice on (their_choice.chooser_id = users.id and their_choice.chosen_id = ? and their_choice.choice = -1)
                 left join choose your_choice on (your_choice.chooser_id = ? and your_choice.chosen_id = users.id)
+                left join attending on (attending.user_id_of_match = 1469 and attending.user_id=users.id)
+				left join event on (attending.event_id = event.event_id and event.bounty_hunt = 1)
             where
                 users.id <> ?
                 and users.id > 10
