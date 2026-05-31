@@ -588,6 +588,8 @@ class Util {
                 users.id <> ?
                 and users.id > 10
                 and (your_choice.choice is null or (your_choice.choice > 0 and your_choice.updated_at < their_choice.updated_at))
+            order by
+                their_choice.updated_at desc
         ', [$user_id, $user_id, $user_id]);
         foreach ($results as $result) {
             $wasteland_name = $result->name;
