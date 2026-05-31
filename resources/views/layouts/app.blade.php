@@ -52,7 +52,7 @@
 {{ $active_count }} active in the past 24 hours
 <br>
 <br>
-Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) for questions, lost passwords, bug reports, abusive user reports, or to set up new events. For updates, <a href="https://www.facebook.com/YouAreAwaited">follow us on another social network</a>.
+Contact <a href="mailto:wastelandfirebird@gmail.com">wastelandfirebird@gmail.com</a> (<a href="/profile/Firebird">Firebird</a>) for questions, lost passwords, bug reports, abusive user reports, or to set up new events.
 <br>
 <br>
 @guest
