@@ -588,14 +588,14 @@ class Util {
                 join choose their_choice on (their_choice.chooser_id = users.id and their_choice.chosen_id = ? and their_choice.choice = -1)
                 left join choose your_choice on (your_choice.chooser_id = ? and your_choice.chosen_id = users.id)
                 left join attending on (attending.user_id_of_match = 1469 and attending.user_id=users.id)
-				left join event on (attending.event_id = event.event_id and event.bounty_hunt = 1)
+				left join event on (attending.event_id = event.event_id and attending.user_id_of_match = ? and event.bounty_hunt = 1)
             where
                 users.id <> ?
                 and users.id > 10
                 and (your_choice.choice is null or (your_choice.choice > 0 and your_choice.updated_at < their_choice.updated_at))
             order by
                 their_choice.updated_at desc
-        ', [$user_id, $user_id, $user_id]);
+        ', [$user_id, $user_id, $user_id, $user_id]);
         foreach ($results as $result) {
             $wasteland_name = $result->name;
             $result->wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
