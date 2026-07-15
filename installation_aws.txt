@@ -193,3 +193,13 @@ https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Instances:
 # Put in .env
 SIGNUP_CODE="<fill in current code>"
 APPEARANCE=""
+# Upgrading
+cat /etc/os-release
+sudo dnf check-update
+sudo dnf upgrade --releasever=<2023.12.20260710 for example> 
+sudo systemctl --failed
+sudo mv /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.disabled-new
+sudo apachectl configtest
+sudo systemctl start httpd
+sudo reboot
+uname -r
