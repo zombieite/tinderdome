@@ -352,8 +352,12 @@ class ProfileController extends Controller
         $gender_of_match_2         = isset($_POST['gender_of_match_2']) ? $_POST['gender_of_match_2']  : '';
         $height                    = isset($_POST['height'])            ? intval($_POST['height'])     : null;
         $birth_year                = isset($_POST['birth_year'])        ? intval($_POST['birth_year']) : null;
-        $description               = preg_replace('/[^\x00-\x7E]/', '', $_POST['description']);
-        $how_to_find_me            = isset($_POST['how_to_find_me']) ? preg_replace('/[^\x00-\x7E]/', '', $_POST['how_to_find_me']) : '';
+        $profile_text              = request()->validate([
+            'description'    => ['nullable', 'string', 'max:2000'],
+            'how_to_find_me' => ['nullable', 'string', 'max:200'],
+        ]);
+        $description               = $profile_text['description'] ?? '';
+        $how_to_find_me            = $profile_text['how_to_find_me'] ?? '';
         $share_info_with_favorites = isset($_POST['share_info_with_favorites']);
         $random_ok                 = isset($_POST['random_ok']);
         $hoping_to_find_friend     = true;
@@ -389,10 +393,6 @@ class ProfileController extends Controller
         if ($profile_id != 1 && preg_match('/irebird/i', $wasteland_name)) {
             $wasteland_name = NULL;
             $update_errors .= 'Invalid username';
-        }
-
-        if (strlen($description) > 2000) {
-            $description = substr($description, 0, 2000);
         }
 
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);

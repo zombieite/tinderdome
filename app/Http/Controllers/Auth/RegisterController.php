@@ -23,9 +23,11 @@ class RegisterController extends Controller
 	protected function validator(array $data)
 	{
 		return Validator::make($data, [
-			'name'        => 'required|string|max:50',
-			'email'       => 'required|string|email|max:255|unique:users',
-			'password'    => 'required|string|min:6|confirmed',
+			'name'           => 'required|string|max:50',
+			'email'          => 'required|string|email|max:255|unique:users',
+			'password'       => 'required|string|min:6|confirmed',
+			'description'    => 'nullable|string|max:2000',
+			'how_to_find_me' => 'nullable|string|max:200',
 		]);
 	}
 
@@ -58,11 +60,6 @@ class RegisterController extends Controller
 
         $wasteland_name         = preg_replace('/[^\x20-\x7E]/', '', $wasteland_name);
         $signup_code            = preg_replace('/[^\x20-\x7E]/', '', $signup_code);
-        $data['how_to_find_me'] = isset($data['how_to_find_me']) ? preg_replace('/[^\x20-\x7E]/', '', $data['how_to_find_me']) : '';
-        $data['description']    = preg_replace('/[^\x20-\x7E]/', '', $data['description']);
-        if (strlen($data['description']) > 2000) {
-            $data['description'] = substr($data['description'], 0, 2000);
-        }
 
         $signup_code = strtolower($signup_code);
         if (($signup_code != strtolower(env('SIGNUP_CODE'))) && ($signup_code != 'sign-me-up')) {
