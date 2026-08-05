@@ -45,7 +45,7 @@ Sheldon Allman - Crawl Out Through The Fallout<br>
 <div class="small">
 Read by Kelli Robinson<br>
 </div>
-<a href="https://www.youtube.com/watch?v=C-4BzG1DQNY">Create Value (YouTube Aussie reading)</a><br>
+<a href="/a-n-d/create_value.m4a">Create Value (Aussie reading)</a><br>
 <div class="small">
 Read by Kelli Robinson<br>
 </div>
