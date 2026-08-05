@@ -62,6 +62,7 @@ Read by Kelli Robinson<br>
 <div class="profile_search_block" style="width:20em;height:21em;vertical-align:top;">
 <a href="/a-n-d/awaited_nonfictional_delusion-033011.txt">Chapter 03 (txt)</a><br>
 <a href="/a-n-d/03.mp3">Chapter 03 (mp3)</a>
+<a href="/a-n-d/03-kelli.m4a">Chapter 03 (m4a Aussie narration)</a><br>
 <div class="small">
 Jonathan Richman - Road Runner<br>
 Blondie - Heart Of Glass<br>
