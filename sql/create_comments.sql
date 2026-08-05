@@ -8,4 +8,4 @@ CREATE TABLE comment (
     approved BOOLEAN DEFAULT 0,
     number_photos INT DEFAULT 0,
     created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
