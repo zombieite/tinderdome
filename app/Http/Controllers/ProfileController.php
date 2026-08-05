@@ -650,4 +650,35 @@ class ProfileController extends Controller
 
         return redirect('/');
     }
+
+    public function deleteComment($comment_id)
+    {
+        $logged_in_user_id = Auth::id();
+        $comments = DB::select('
+            select commenting_user_id, commented_on_user_id
+            from comment
+            where comment_id = ?
+        ', [$comment_id]);
+
+        if (!$comments) {
+            abort(404);
+        }
+
+        $comment = array_shift($comments);
+        $can_delete_comment = $comment->commented_on_user_id == $logged_in_user_id
+            || $comment->commenting_user_id == $logged_in_user_id;
+
+        if (!$can_delete_comment) {
+            abort(403);
+        }
+
+        // Keep the ownership check in the delete query as well as the authorization check above.
+        DB::delete('
+            delete from comment
+            where comment_id = ?
+            and (commented_on_user_id = ? or commenting_user_id = ?)
+        ', [$comment_id, $logged_in_user_id, $logged_in_user_id]);
+
+        return redirect()->back();
+    }
 }

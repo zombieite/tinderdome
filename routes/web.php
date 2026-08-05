@@ -42,6 +42,7 @@ Route::get( '/create-event',                          'App\Http\Controllers\Even
 Route::post('/',                                      'App\Http\Controllers\HomeController@index'                    )->middleware('auth');
 Route::post('/profile/compatible',                    'App\Http\Controllers\ProfileController@compatible'            )->middleware('auth');
 Route::post('/profile/comment',                       'App\Http\Controllers\ProfileController@comment'               )->middleware('auth');
+Route::delete('/profile/comment/{comment_id}',        'App\Http\Controllers\ProfileController@deleteComment'         )->where('comment_id', '[0-9]+')->middleware('auth');
 Route::post('/image/upload',                          'App\Http\Controllers\ImageController@upload'                  )->middleware('auth');
 Route::post('/profile/edit',                          'App\Http\Controllers\ProfileController@update'                )->middleware('auth');
 Route::post('/profile/{profile_id}/{wasteland_name}', 'App\Http\Controllers\ProfileController@compatible'            )->middleware('auth');
