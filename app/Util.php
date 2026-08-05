@@ -94,8 +94,11 @@ class Util {
         // Get all users who are potential matches for the logged in user
         $left_maybe = $logged_in_user->random_ok ? 'left' : '';
         //
-        // attending_no_known_match_yet:
-        // A join to only include users that are attending this event but have no match in their attending row
+        // attending_for_event:
+        // A join to get each potential match's attending record for the event being matched.
+        //
+        // matching_event:
+        // A join to get the event type so the availability rules can distinguish regular events from bounty hunts.
         //
         // attending_already_matched_but_dont_know:
         // A join to detect (and eliminate in the where clause) users that are attending this event but are already listed as a match in SOMEONE ELSE'S attending row
@@ -124,7 +127,8 @@ class Util {
                 c2.choice this_users_rating_of_user_looking_to_be_matched
             from
                 users
-                join attending attending_no_known_match_yet on (users.id = attending_no_known_match_yet.user_id and attending_no_known_match_yet.user_id_of_match is null and attending_no_known_match_yet.event_id = ?)
+                join attending attending_for_event on (users.id = attending_for_event.user_id and attending_for_event.event_id = ?)
+                join event matching_event on (matching_event.event_id = attending_for_event.event_id)
                 left join attending attending_already_matched_but_dont_know on (users.id = attending_already_matched_but_dont_know.user_id_of_match and attending_already_matched_but_dont_know.event_id = ?)
                 left join attending attending_was_matched_in_the_past_according_to_potential_match on (attending_was_matched_in_the_past_according_to_potential_match.user_id = users.id and attending_was_matched_in_the_past_according_to_potential_match.user_id_of_match = ?)
                 left join attending attending_was_matched_in_the_past_according_to_logged_in_user on (attending_was_matched_in_the_past_according_to_logged_in_user.user_id = ? and attending_was_matched_in_the_past_according_to_logged_in_user.user_id_of_match = users.id)
@@ -136,6 +140,7 @@ class Util {
                 and (c1.choice is null or c1.choice > 0)
                 and (c2.choice is null or c2.choice > 0)
                 and users.id != ?
+                and (matching_event.bounty_hunt = 1 or attending_for_event.user_id_of_match is null)
                 and attending_already_matched_but_dont_know.user_id_of_match is null
                 and attending_was_matched_in_the_past_according_to_potential_match.user_id_of_match is null
                 and attending_was_matched_in_the_past_according_to_logged_in_user.user_id_of_match is null
@@ -480,7 +485,15 @@ class Util {
     public static function unrated_users( $chooser_user_id, $gender_of_match, $i_am_hoping_to_find_love, $share_info_with_favorites ) {
         //Log::debug("Finding users not yet rated by '$chooser_user_id'");
         $both_attending_join = '
-            i_am_attending.event_id = they_are_attending.event_id and event_date >= curdate()
+            i_am_attending.event_id = they_are_attending.event_id
+            and event_date >= curdate()
+            and (event.bounty_hunt = 1 or they_are_attending.user_id_of_match is null)
+            and not exists (
+                select 1
+                from attending candidate_match
+                where candidate_match.event_id = they_are_attending.event_id
+                and candidate_match.user_id_of_match = users.id
+            )
         ';
         $maybe_left = '';
         if ($i_am_hoping_to_find_love && $share_info_with_favorites) {
@@ -920,5 +933,3 @@ class Util {
         return $already_matched_but_dont_know_it;
     }
 }
-
-
