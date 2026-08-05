@@ -20,20 +20,18 @@ Too implausible to be an autobiography. Too real to be fiction. It's a missing i
 
 <br>
 
-<div class="profile_search_block" style="width:20em;height:21em;vertical-align:top;">
-<a href="/a-n-d/awaited_nonfictional_delusion-000000.txt">Chapter 00 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-012501.txt">Chapter 01 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-022502.txt">Chapter 02 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-033011.txt">Chapter 03 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-043508.txt">Chapter 04 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-053604.txt">Chapter 05 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-063608.txt">Chapter 06 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-073701.txt">Chapter 07 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-083704.txt">Chapter 08 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-093708.txt">Chapter 09 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-103711.txt">Chapter 10 (txt)</a><br>
-<a href="/a-n-d/awaited_nonfictional_delusion-113808.txt">Chapter 11 (txt)</a><br>
-</div>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-000000.txt">Chapter 00 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-012501.txt">Chapter 01 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-022502.txt">Chapter 02 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-033011.txt">Chapter 03 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-043508.txt">Chapter 04 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-053604.txt">Chapter 05 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-063608.txt">Chapter 06 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-073701.txt">Chapter 07 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-083704.txt">Chapter 08 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-093708.txt">Chapter 09 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-103711.txt">Chapter 10 (txt)</a></h1>
+<h1><a href="/a-n-d/awaited_nonfictional_delusion-113808.txt">Chapter 11 (txt)</a></h1>
 
 <div class="profile_search_block" style="vertical-align:top;">
 <h1>Next: <a href="/heads-will-rock-a-chronicle-of-postapocalyptic-mayhem" class="bright">Heads Will Rock</a></h1>
