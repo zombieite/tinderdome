@@ -36,7 +36,6 @@ Route::get( '/profile/edit',                          'App\Http\Controllers\Prof
 Route::get( '/profile/compatible',                    'App\Http\Controllers\ProfileController@compatible'            )->middleware('auth');
 Route::get( '/profile/match',                         'App\Http\Controllers\ProfileController@match'                 )->middleware('auth');
 Route::get( '/image/upload',                          'App\Http\Controllers\ImageController@upload'                  )->middleware('auth');
-Route::get( '/photosearch',                           'App\Http\Controllers\PhotoSearchController@photosearch'       )->middleware('auth');
 Route::get( '/search',                                'App\Http\Controllers\SearchController@search'                 )->middleware('auth');
 Route::get( '/potential-match',                       'App\Http\Controllers\PotentialMatchController@potential_match')->middleware('auth');
 Route::get( '/create-event',                          'App\Http\Controllers\EventController@create_event'            )->middleware('auth');
