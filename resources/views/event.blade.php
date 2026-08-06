@@ -4,7 +4,7 @@
     {{ csrf_field() }}
 
     @if ($logged_in_user_created_this_event)
-        <h3>To invite people to this event, send them the URL to this page.</h3>
+        <h3>To invite people to this event, send them the URL to this page. <a href="/event/{{ $event->event_id }}/{{ $event->event_long_name_hyphenated }}/edit">Edit event</a>.</h3>
     @endif
     <h1>{{ $event->event_long_name }}: {{ $event->event_date }}</h1>
     @if ($event->url)

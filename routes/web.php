@@ -39,6 +39,7 @@ Route::get( '/image/upload',                          'App\Http\Controllers\Imag
 Route::get( '/search',                                'App\Http\Controllers\SearchController@search'                 )->middleware('auth');
 Route::get( '/potential-match',                       'App\Http\Controllers\PotentialMatchController@potential_match')->middleware('auth');
 Route::get( '/create-event',                          'App\Http\Controllers\EventController@create_event'            )->middleware('auth');
+Route::get( '/event/{event_id}/{event_long_name}/edit','App\Http\Controllers\EventController@edit_event'              )->middleware('auth');
 Route::post('/',                                      'App\Http\Controllers\HomeController@index'                    )->middleware('auth');
 Route::post('/profile/compatible',                    'App\Http\Controllers\ProfileController@compatible'            )->middleware('auth');
 Route::post('/profile/comment',                       'App\Http\Controllers\ProfileController@comment'               )->middleware('auth');
@@ -52,6 +53,7 @@ Route::post('/match-me',                              'App\Http\Controllers\Matc
 Route::post('/hunt',                                  'App\Http\Controllers\HuntController@hunt'                     )->middleware('auth');
 Route::post('/admin-match',                           'App\Http\Controllers\AdminMatchController@admin_match'        )->middleware('auth');
 Route::post('/create-event',                          'App\Http\Controllers\EventController@create_event'            )->middleware('auth');
+Route::post('/event/{event_id}/{event_long_name}/edit','App\Http\Controllers\EventController@edit_event'              )->middleware('auth');
 Route::post('/event/{event_id}/{event_long_name}',    'App\Http\Controllers\EventController@event'                   )->middleware('auth');
 
 // Other pages not needed for website functionality
