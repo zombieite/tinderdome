@@ -33,7 +33,7 @@
 		@endif
 	</label>
 	<br><br>
-	Image files must be no more than 5MB.
+	Image files must be no more than {{ $max_filesize_mb }}MB.
 	<br><br>
 	@if ($number_photos == 0)
 		<input type="hidden" name="imagenum" value="new">

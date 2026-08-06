@@ -168,7 +168,7 @@ rsync -rv --size-only ~/Desktop/local/web/tinderdome/public/images/stories/ ec2-
 cd /var/www/html/tinderdome && composer remove intervention/image-laravel --no-scripts && composer require intervention/image:^2.7 --no-scripts && php artisan optimize:clear
 cd /var/www/html/tinderdome && composer install --no-dev --optimize-autoloader && php artisan optimize:clear
 sudo vi /etc/php.d/99-tinderdome.ini
-# post_max_size = 40M
+# post_max_size = 48M
 # upload_max_filesize = 40M
 sudo systemctl restart php-fpm
 # Get SSL working right

@@ -28,7 +28,8 @@ class ImageController extends Controller
 		$image_height              = 500;
 		$max_photos                = 5;
 		$errors                    = '';
-		$max_filesize              = 20000000;
+		$max_filesize_mb           = 40;
+		$max_filesize              = $max_filesize_mb * 1024 * 1024;
 
 		if (isset($_POST['delete'])) {
 			$number_photos = 0;
@@ -93,6 +94,7 @@ class ImageController extends Controller
 			'max_photos'                => $max_photos,
 			'number_photos'             => $number_photos,
 			'errors'                    => $errors,
+			'max_filesize_mb'           => $max_filesize_mb,
 			'time'                      => $time,
 			'new_user'                  => $new_user,
 		]);
