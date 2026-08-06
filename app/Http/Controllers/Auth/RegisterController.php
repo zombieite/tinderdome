@@ -28,6 +28,7 @@ class RegisterController extends Controller
 			'password'       => 'required|string|min:6|confirmed',
 			'description'    => 'nullable|string|max:2000',
 			'how_to_find_me' => 'nullable|string|max:200',
+			'signup_code'    => 'required|string|max:50',
 		]);
 	}
 
@@ -59,11 +60,22 @@ class RegisterController extends Controller
 		}
 
         $wasteland_name         = preg_replace('/[^\x20-\x7E]/', '', $wasteland_name);
-        $signup_code            = preg_replace('/[^\x20-\x7E]/', '', $signup_code);
+        $signup_code            = trim(preg_replace('/[^\x20-\x7E]/', '', $signup_code));
 
         $signup_code = strtolower($signup_code);
-        if (($signup_code != strtolower(env('SIGNUP_CODE'))) && ($signup_code != 'sign-me-up')) {
-            logger()->error('Invalid signup code attempt', [ 'attempted_signup_code' => $signup_code ?? null, 'correct_signup_code' => env('SIGNUP_CODE') ?? null ]);
+        $correct_signup_code = env('SIGNUP_CODE');
+
+        // Fail closed if the signup code has not been configured on the server.
+        if (!is_string($correct_signup_code) || $correct_signup_code === '') {
+            logger()->error('Registration unavailable because SIGNUP_CODE is not configured');
+            throw new HttpResponseException(response('Registration is temporarily unavailable. Please contact Firebird directly to create an account.', 503));
+        }
+
+        if (!hash_equals(strtolower($correct_signup_code), $signup_code)) {
+            logger()->warning('Invalid signup code attempt', [
+                'ip' => $ip,
+                'user_agent' => $user_agent,
+            ]);
             throw new HttpResponseException(response('Invalid signup code. Please contact Firebird directly to create an account.', 403));
         }
 
