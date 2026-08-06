@@ -688,7 +688,7 @@ class Util {
         return $a['profile_id'] - $b['profile_id'];
     }
 
-    public static function leaderboard( $number_of_leaders, $auth_user_id = null ) {
+    public static function leaderboard( $number_of_leaders ) {
         $leaderboard = [];
         $all_users = DB::select('
             select
