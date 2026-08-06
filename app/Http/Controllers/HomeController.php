@@ -22,9 +22,20 @@ class HomeController extends Controller
         } else {
             // Logged out home page shows this stuff
             $leaderboard           = \App\Util::leaderboard( 10 );
+            $upcoming_events       = DB::select('
+                select event_id, event_long_name
+                from event
+                where public = 1
+                and event_date >= curdate()
+                order by event_date, event_long_name
+            ');
+            foreach ($upcoming_events as $upcoming_event) {
+                $upcoming_event->event_long_name_hyphenated = preg_replace('/\s+/', '-', $upcoming_event->event_long_name);
+            }
             return view('intro', [
                 'leaderboard'      => $leaderboard,
                 'titles'           => $titles,
+                'upcoming_events'  => $upcoming_events,
             ]);
         }
 

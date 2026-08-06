@@ -14,7 +14,18 @@ Create a profile that tells everyone a little bit about you. <a href="/profile/F
 </p>
 <h2>2. Sign up for an event</h2>
 <p>
-Let us know what upcoming events you'll be attending, or contact us to set up an event of your own. Any event where twenty or more strangers come together in the same physical space will work!
+@if ($upcoming_events)
+    @if (count($upcoming_events) === 1)
+        The next event will be
+    @else
+        Upcoming events are
+    @endif
+    @foreach ($upcoming_events as $upcoming_event)
+        <a href="/event/{{ $upcoming_event->event_id }}/{{ $upcoming_event->event_long_name_hyphenated }}">{{ $upcoming_event->event_long_name }}</a>@if (!$loop->last){{ $loop->remaining === 1 ? ($loop->count > 2 ? ', and ' : ' and ') : ', ' }}@else{{ '.' }}@endif
+    @endforeach
+@else
+    Let us know what upcoming events you'll be attending, or contact us to set up an event of your own. Any event where twenty or more strangers come together in the same physical space will work!
+@endif
 </p>
 <h2>3. Choose who you'd like to meet</h2>
 <p>
