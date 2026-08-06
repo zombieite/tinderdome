@@ -118,7 +118,7 @@ class Util {
                 gender_of_match,
                 height,
                 birth_year,
-                description,
+                users.description,
                 score,
                 random_ok,
                 number_photos,
