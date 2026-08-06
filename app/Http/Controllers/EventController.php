@@ -102,9 +102,16 @@ class EventController extends Controller
                         where event_id = ? and created_by = ?
                     ', [$event_class, $event_date, $event_long_name, $url, $description, $public, $bounty_hunt, $event_id, $logged_in_user_id]);
                 } else {
-                    DB::insert('insert into event (event_class, event_date, event_long_name, url, description, created_by, public, bounty_hunt) values (?, ?, ?, ?, ?, ?, ?, ?)', [$event_class, $event_date, $event_long_name, $url, $description, $logged_in_user_id, $public, $bounty_hunt]);
-                    $event_id_query = DB::select('select max(event_id) max_event_id from event where created_by = ?', [$logged_in_user_id]);
-                    $event_id = $event_id_query[0]->max_event_id;
+                    $event_id = DB::table('event')->insertGetId([
+                        'event_class'     => $event_class,
+                        'event_date'      => $event_date,
+                        'event_long_name' => $event_long_name,
+                        'url'             => $url,
+                        'description'     => $description,
+                        'created_by'      => $logged_in_user_id,
+                        'public'          => $public,
+                        'bounty_hunt'     => $bounty_hunt,
+                    ], 'event_id');
                 }
                 $event_name_with_hyphens = preg_replace('/\s/', '-', $event_long_name);
                 return redirect("/event/$event_id/$event_name_with_hyphens");
