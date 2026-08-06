@@ -66,7 +66,7 @@ class Util {
             if ($gender_of_chooser == 'M' ) {
                 if ((!$a->gender_of_match && $a->gender == 'M') && ($b->gender_of_match || $b->gender == 'W')) {
                     return -1;
-                } else if ((!$b->gender_of_match && $b->gender == 'M') && ($a->gender_of_match) || $a->gender == 'W') {
+                } else if ((!$b->gender_of_match && $b->gender == 'M') && ($a->gender_of_match || $a->gender == 'W')) {
                     return 1;
                 }
             }
