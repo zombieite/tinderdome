@@ -23,6 +23,10 @@ class ProfileController extends Controller
             $profile = \App\User::find( $profile_id );
         }
 
+        if (!$profile) {
+            abort(404);
+        }
+
         $wasteland_name_from_url = preg_replace('/-/', ' ', $wasteland_name_from_url);
         $logged_in_user          = Auth::user();
         $logged_in_user_id       = Auth::id();
