@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use App\User;
 use App\Util;
-use Image;
-use File;
 use Log;
 
 class ProfileController extends Controller
@@ -391,35 +389,12 @@ class ProfileController extends Controller
         }
 
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
-        $image_height              = 500;
-        $image_width               = $image_height * 3;
-        $number_photos             = 0;
-        if (isset($_FILES["image1"])) {
-            $uploaded_file = $_FILES["image1"]['tmp_name'];
-            if ($uploaded_file) {
-                $number_photos++;
-                $destination = getenv("DOCUMENT_ROOT") . "/uploads/image-$profile_id-1.jpg";
-                File::copy($uploaded_file, $destination);
-                $img = Image::make($destination);
-                $img->orientate();
-                $img->heighten($image_height);
-                if ($img->width() > $image_width) {
-                    $img->widen($image_width);
-                }
-                $img->encode('jpg');
-                $img->save($destination);
-            }
-        }
 
         if ($update_errors) {
             // Don't update
         } else {
             if (strlen($password) > 0) {
                 $profile->password = bcrypt($password);
-            }
-
-            if ($number_photos > 0) {
-                $profile->number_photos = $number_photos;
             }
 
             $profile->name                      = $wasteland_name;
