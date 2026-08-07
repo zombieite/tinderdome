@@ -599,14 +599,6 @@ class ProfileController extends Controller
             return redirect('/');
         }
 
-        # Allow admin to reset password
-        if ($chooser_user_id === 1 and isset($_POST['reset_password']) and isset($_POST['user_id_to_reset'])) {
-            $user_id_to_reset = $_POST['user_id_to_reset'];
-            if ($user_id_to_reset) {
-                DB::update('update users set password = "$2y$10$Lqfw/e9CpIh0eWWo55hoaOan4Z.887KidHjPEEP3Z3PfDRIKSWvQK" where id = ? limit 1', [$user_id_to_reset]);
-            }
-        }
-
         if (isset($_POST['chosen'])) {
             \App\Util::rate_user($chooser_user_id, $_POST);
         }
@@ -623,6 +615,32 @@ class ProfileController extends Controller
         }
 
         return redirect('/');
+    }
+
+    public function resetPassword()
+    {
+        if (Auth::id() !== 1) {
+            abort(403);
+        }
+
+        $user_id_to_reset = request()->validate([
+            'user_id_to_reset' => ['required', 'integer', 'exists:users,id'],
+        ])['user_id_to_reset'];
+        $user = User::findOrFail($user_id_to_reset);
+
+        $alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+        $temporary_password = '';
+        for ($i = 0; $i < 8; $i++) {
+            $temporary_password .= $alphabet[random_int(0, strlen($alphabet) - 1)];
+        }
+
+        $user->password = bcrypt($temporary_password);
+        $user->save();
+
+        return view('admin_password_reset_result', [
+            'wasteland_name'    => $user->name,
+            'temporary_password' => $temporary_password,
+        ]);
     }
 
 

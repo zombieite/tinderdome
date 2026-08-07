@@ -42,6 +42,7 @@ Route::get( '/potential-match',                       'App\Http\Controllers\Pote
 Route::get( '/create-event',                          'App\Http\Controllers\EventController@create_event'            )->middleware('auth');
 Route::get( '/event/{event_id}/{event_long_name}/edit','App\Http\Controllers\EventController@edit_event'              )->middleware('auth');
 Route::post('/',                                      'App\Http\Controllers\HomeController@index'                    )->middleware('auth');
+Route::post('/admin/password-reset',                  'App\Http\Controllers\ProfileController@resetPassword'         )->middleware('auth');
 Route::post('/profile/compatible',                    'App\Http\Controllers\ProfileController@compatible'            )->middleware('auth');
 Route::post('/profile/comment',                       'App\Http\Controllers\ProfileController@comment'               )->middleware('auth');
 Route::delete('/profile/comment/{comment_id}',        'App\Http\Controllers\ProfileController@deleteComment'         )->where('comment_id', '[0-9]+')->middleware('auth');
