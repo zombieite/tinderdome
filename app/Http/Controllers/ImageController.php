@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Util;
 use Image;
+use File;
 use Log;
 
 class ImageController extends Controller
@@ -32,6 +33,10 @@ class ImageController extends Controller
 		$max_filesize              = $max_filesize_mb * 1024 * 1024;
 
 		if (isset($_POST['delete'])) {
+			$photo_paths = glob(public_path("uploads/image-$profile_id-*.jpg"));
+			if ($photo_paths && !File::delete($photo_paths)) {
+				Log::error('Could not delete every photo', ['user_id' => $profile_id]);
+			}
 			$number_photos = 0;
 		} elseif (isset($_POST['upload'])) {
 			if (isset($_FILES["image"])) {
