@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 use App\User;
 use App\Util;
 use Image;
@@ -326,8 +327,6 @@ class ProfileController extends Controller
             abort(403);
         }
 
-        DB::update('update users set profile_vetted = null where id = ?', [$profile_id]);
-
         $titles                    = \App\Util::titles();
         $update_errors             = '';
 
@@ -346,22 +345,25 @@ class ProfileController extends Controller
             $update_errors = 'Illegal title choice';
         }
 
-        $email                     = $_POST['email'];
+        $profile_data = request()->validate([
+            'name'           => ['required', 'string', 'max:50'],
+            'email'          => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($profile_id)],
+            'password'       => ['nullable', 'string', 'min:6', 'confirmed'],
+            'description'    => ['nullable', 'string', 'max:2000'],
+            'how_to_find_me' => ['nullable', 'string', 'max:200'],
+        ]);
+
+        $email                     = $profile_data['email'];
         $number_photos             = $profile->number_photos;
-        $wasteland_name            = preg_replace('/[^\x20-\x7E]/', '', trim($_POST['name']));
-        $password                  = $_POST['password'];
-        $password_confirmation     = $_POST['password_confirmation'];
+        $wasteland_name            = preg_replace('/[^\x20-\x7E]/', '', trim($profile_data['name']));
+        $password                  = $profile_data['password'] ?? '';
         $gender                    = isset($_POST['gender'])            ? $_POST['gender']             : '';
         $gender_of_match           = isset($_POST['gender_of_match'])   ? $_POST['gender_of_match']    : '';
         $gender_of_match_2         = isset($_POST['gender_of_match_2']) ? $_POST['gender_of_match_2']  : '';
         $height                    = isset($_POST['height'])            ? intval($_POST['height'])     : null;
         $birth_year                = isset($_POST['birth_year'])        ? intval($_POST['birth_year']) : null;
-        $profile_text              = request()->validate([
-            'description'    => ['nullable', 'string', 'max:2000'],
-            'how_to_find_me' => ['nullable', 'string', 'max:200'],
-        ]);
-        $description               = $profile_text['description'] ?? '';
-        $how_to_find_me            = $profile_text['how_to_find_me'] ?? '';
+        $description               = $profile_data['description'] ?? '';
+        $how_to_find_me            = $profile_data['how_to_find_me'] ?? '';
         $share_info_with_favorites = isset($_POST['share_info_with_favorites']);
         $random_ok                 = isset($_POST['random_ok']);
         $hoping_to_find_friend     = true;
@@ -381,17 +383,6 @@ class ProfileController extends Controller
             // Video id is already extracted from the link, leave as-is
         } else {
             $video_id = '';
-        }
-
-        $email_exists = DB::select('select id,email from users where email=? and id<>?', [$email, $profile_id]);
-        if ($email_exists) {
-            $update_errors .= 'Email already in use.';
-        }
-
-        if (strlen($password) > 0) {
-            if ($password !== $password_confirmation) {
-                $update_errors .= 'Passwords do not match';
-            }
         }
 
         if ($profile_id != 1 && preg_match('/irebird/i', $wasteland_name)) {
@@ -442,6 +433,7 @@ class ProfileController extends Controller
             $profile->hoping_to_find_friend     = true;
             $profile->hoping_to_find_love       = $hoping_to_find_love;
             $profile->hoping_to_find_enemy      = $hoping_to_find_enemy;
+            $profile->profile_vetted            = null;
             $profile->ip                        = $ip;
             $profile->user_agent                = $user_agent;
             $profile->video_id                  = $video_id;
