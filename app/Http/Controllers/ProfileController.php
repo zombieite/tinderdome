@@ -68,7 +68,7 @@ class ProfileController extends Controller
 
         // If we have a logged in user (not someone looking at Firebird's profile)
         if ($logged_in_user_id && $logged_in_user) {
-            if ($logged_in_user->admin_user) {
+            if (\App\Util::is_site_owner($logged_in_user_id)) {
                 DB::update('update users set profile_vetted = ? where id = ?', [$logged_in_user_id, $profile_id]);
             }
 

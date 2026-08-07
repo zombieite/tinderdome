@@ -40,10 +40,8 @@ class EventController extends Controller
         $logged_in_user_id         = Auth::id();
         $is_editing                = (bool) $event;
 
-        $missions_completed = \App\Util::missions_completed( $logged_in_user_id );
-
         $logged_in_user_can_create_public_missions = false;
-        if (\App\Util::is_site_owner($logged_in_user_id) || ($logged_in_user->admin_user && $missions_completed > 5)) {
+        if (\App\Util::is_site_owner($logged_in_user_id)) {
             $logged_in_user_can_create_public_missions = true;
         }
 
