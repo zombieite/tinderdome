@@ -329,19 +329,6 @@ class ProfileController extends Controller
         $titles                    = \App\Util::titles();
         $update_errors             = '';
 
-        if (isset($_POST['delete'])) {
-            $photo_paths = glob(public_path("uploads/image-$profile_id-*.jpg"));
-            if ($photo_paths && !File::delete($photo_paths)) {
-                Log::error('Could not delete every photo while deleting account', ['user_id' => $profile_id]);
-            }
-
-            DB::delete('delete from users     where id = ?',         [$profile_id]);
-            DB::delete('delete from attending where user_id = ?',    [$profile_id]); // Don't delete user_id_of_match because we want to keep records of who was matched to deleted user
-            DB::delete('delete from choose    where chooser_id = ?', [$profile_id]); // Don't delete chosen_id because we want to keep records of who met the deleted user
-            DB::delete('delete from comment   where commenting_user_id = ? or commented_on_user_id = ?', [$profile_id, $profile_id]);
-            return redirect('/');
-        }
-
         $missions_completed        = \App\Util::missions_completed( $profile_id );
 
         $title_index               = isset($_POST['title_index']) ? $_POST['title_index'] : null;
@@ -452,6 +439,32 @@ class ProfileController extends Controller
             'is_wastelander'            => $is_wastelander,
             'video_id'                  => $video_id,
         ]);
+    }
+
+    public function deleteConfirmation()
+    {
+        if (Auth::id() === 1) {
+            return redirect('/profile/edit');
+        }
+
+        return view('delete_profile');
+    }
+
+    public function deleteAccount()
+    {
+        $profile_id = Auth::id();
+
+        $photo_paths = glob(public_path("uploads/image-$profile_id-*.jpg"));
+        if ($photo_paths && !File::delete($photo_paths)) {
+            Log::error('Could not delete every photo while deleting account', ['user_id' => $profile_id]);
+        }
+
+        DB::delete('delete from users     where id = ?',         [$profile_id]);
+        DB::delete('delete from attending where user_id = ?',    [$profile_id]); // Don't delete user_id_of_match because we want to keep records of who was matched to deleted user
+        DB::delete('delete from choose    where chooser_id = ?', [$profile_id]); // Don't delete chosen_id because we want to keep records of who met the deleted user
+        DB::delete('delete from comment   where commenting_user_id = ? or commented_on_user_id = ?', [$profile_id, $profile_id]);
+
+        return redirect('/');
     }
 
     public function showFirebird()

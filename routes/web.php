@@ -33,6 +33,7 @@ Route::get( '/hunt',                                  'App\Http\Controllers\Hunt
 Route::get( '/admin-match',                           'App\Http\Controllers\AdminMatchController@admin_match'        )->middleware('auth');
 Route::get( '/profile/{profile_id}/{wasteland_name}', 'App\Http\Controllers\ProfileController@show'                  )->middleware('auth');
 Route::get( '/profile/edit',                          'App\Http\Controllers\ProfileController@edit'                  )->middleware('auth');
+Route::get( '/profile/delete',                        'App\Http\Controllers\ProfileController@deleteConfirmation'    )->middleware('auth');
 Route::get( '/profile/compatible',                    'App\Http\Controllers\ProfileController@compatible'            )->middleware('auth');
 Route::get( '/profile/match',                         'App\Http\Controllers\ProfileController@match'                 )->middleware('auth');
 Route::get( '/image/upload',                          'App\Http\Controllers\ImageController@upload'                  )->middleware('auth');
@@ -44,6 +45,7 @@ Route::post('/',                                      'App\Http\Controllers\Home
 Route::post('/profile/compatible',                    'App\Http\Controllers\ProfileController@compatible'            )->middleware('auth');
 Route::post('/profile/comment',                       'App\Http\Controllers\ProfileController@comment'               )->middleware('auth');
 Route::delete('/profile/comment/{comment_id}',        'App\Http\Controllers\ProfileController@deleteComment'         )->where('comment_id', '[0-9]+')->middleware('auth');
+Route::delete('/profile/delete',                      'App\Http\Controllers\ProfileController@deleteAccount'         )->middleware('auth');
 Route::post('/image/upload',                          'App\Http\Controllers\ImageController@upload'                  )->middleware('auth');
 Route::post('/profile/edit',                          'App\Http\Controllers\ProfileController@update'                )->middleware('auth');
 Route::post('/profile/{profile_id}/{wasteland_name}', 'App\Http\Controllers\ProfileController@compatible'            )->middleware('auth');

@@ -175,9 +175,8 @@ We will try to match you to a user of your preferred gender, but you must be ope
 @guest
 @else
 	@if ($profile_id !== 1)
-		<form method="POST" action="" style="width:100%;text-align:right;">
-			{{ csrf_field() }}
-			<button type="submit" name="delete" class="no">
+		<form method="GET" action="/profile/delete" style="width:100%;text-align:right;">
+			<button type="submit" class="no">
 				DELETE PROFILE
 			</button>
 		</form>
