@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Support\Facades\DB;
+use File;
 use Log;
 
 class Util {
@@ -926,6 +927,17 @@ class Util {
         $score      = \App\Util::user_score($user_id);
         DB::update('update users set last_active = now(), ip = ?, user_agent = ?, score = ? where id = ?', [$ip, $user_agent, $score, $user_id]);
         return;
+    }
+
+    public static function delete_user_photos($user_id) {
+        $user_id = intval($user_id);
+        $photo_paths = glob(public_path("uploads/image-$user_id-*.jpg"));
+        if ($photo_paths && !File::delete($photo_paths)) {
+            Log::error('Could not delete every photo', ['user_id' => $user_id]);
+            return false;
+        }
+
+        return true;
     }
 
     public static function already_matched_but_dont_know_it($user_id, $event_id) {
