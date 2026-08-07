@@ -8,6 +8,10 @@ use Log;
 
 class Util {
 
+    const SITE_OWNER_USER_ID = 1;
+    // User IDs 1 through this value are reserved for the owner and test accounts.
+    const MAX_RESERVED_TEST_USER_ID = 10;
+
     public static function check_session_match_requested_time()              { return true; }
     public static function min_signups_to_run_event()                        { return   20; }
     public static function days_before_event_when_everyone_can_get_match()   { return    7; }
@@ -15,7 +19,22 @@ class Util {
     public static function max_event_days_away()                             { return  180; }
 
     public static function is_site_owner($user_id) {
-        return $user_id === 1 || $user_id === '1';
+        return self::user_id_as_integer($user_id) === self::SITE_OWNER_USER_ID;
+    }
+
+    public static function is_reserved_test_id($user_id) {
+        $user_id = self::user_id_as_integer($user_id);
+        return $user_id !== null && $user_id <= self::MAX_RESERVED_TEST_USER_ID;
+    }
+
+    private static function user_id_as_integer($user_id) {
+        if (is_int($user_id) && $user_id > 0) {
+            return $user_id;
+        }
+        if (is_string($user_id) && preg_match('/^[1-9][0-9]*$/', $user_id)) {
+            return intval($user_id);
+        }
+        return null;
     }
 
     private static function the_algorithm_sort($a, $b) {
@@ -140,7 +159,7 @@ class Util {
                 $left_maybe join choose c1 on (users.id = c1.chosen_id and c1.chooser_id = ?)
                 left join choose c2 on (users.id = c2.chooser_id and c2.chosen_id = ?)
             where
-                users.id > 10
+                users.id > ?
                 and (users.random_ok = 1 or c2.choice is not null)
                 and (c1.choice is null or c1.choice > 0)
                 and (c2.choice is null or c2.choice > 0)
@@ -150,7 +169,7 @@ class Util {
                 and attending_was_matched_in_the_past_according_to_potential_match.user_id_of_match is null
                 and attending_was_matched_in_the_past_according_to_logged_in_user.user_id_of_match is null
                 and users.number_photos > 0
-        ", [$event_id, $event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id]);
+        ", [$event_id, $event_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, self::MAX_RESERVED_TEST_USER_ID, $logged_in_user_id]);
         Log::debug(count($mutual_unmet_matches)." possible matches found for ".$logged_in_user->name);
         if ($mutual_unmet_matches) {
             foreach ($mutual_unmet_matches as $match) {
@@ -331,9 +350,9 @@ class Util {
 					attending
 					join users on user_id = users.id
 				where
-                    user_id > 10
+                    user_id > ?
 					and event_id = ?
-			',[$event_result->event_id]);
+			', [self::MAX_RESERVED_TEST_USER_ID, $event_result->event_id]);
 			$count                              = $event_count_result[0]->event_count;
 			$event_result->attending_count      = $count;
 			$event_result->signups_still_needed = $count >= $min_signups_to_run_event ? 0 : $min_signups_to_run_event - $count;
@@ -414,9 +433,9 @@ class Util {
 					attending
 					join users on user_id = users.id 
 				where
-                    user_id > 10
+                    user_id > ?
 					and event_id = ?
-			', [$event_result->event_id]);
+			', [self::MAX_RESERVED_TEST_USER_ID, $event_result->event_id]);
 			$count                              = $event_count_result[0]->event_count;
             $event_result->created_by_name      = '';
 			$event_result->attending_count      = $count;
@@ -569,7 +588,7 @@ class Util {
                     and i_have_attended.user_id = ?
                 )
             where
-                id > 10
+                id > ?
                 and id <> ?
                 $both_attending_join
                 and my_choice.choice is null
@@ -587,7 +606,7 @@ class Util {
                 id asc
         ";
         //Log::debug($unrated_users_sql);
-        $unrated_users = DB::select($unrated_users_sql, [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id]);
+        $unrated_users = DB::select($unrated_users_sql, [$chooser_user_id, $chooser_user_id, $chooser_user_id, $chooser_user_id, self::MAX_RESERVED_TEST_USER_ID, $chooser_user_id]);
 
         return $unrated_users;
     }
@@ -609,11 +628,11 @@ class Util {
 				left join event on (attending.event_id = event.event_id and attending.user_id_of_match = ? and event.bounty_hunt = 1)
             where
                 users.id <> ?
-                and users.id > 10
+                and users.id > ?
                 and (your_choice.choice is null or (your_choice.choice > 0 and your_choice.updated_at < their_choice.updated_at))
             order by
                 their_choice.updated_at desc
-        ', [$user_id, $user_id, $user_id, $user_id]);
+        ', [$user_id, $user_id, $user_id, $user_id, self::MAX_RESERVED_TEST_USER_ID]);
         foreach ($results as $result) {
             $wasteland_name = $result->name;
             $result->wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -634,11 +653,11 @@ class Util {
                 left join comment on (commenting_user_id = ? and commented_on_user_id = users.id)
             where
                 users.id <> ?
-                and users.id > 10
+                and users.id > ?
                 and comment.comment_id is null
                 and your_choice.updated_at < your_choice.created_at + interval 3 month
                 and your_choice.updated_at < their_choice.updated_at
-        ', [$user_id, $user_id, $user_id, $user_id]);
+        ', [$user_id, $user_id, $user_id, $user_id, self::MAX_RESERVED_TEST_USER_ID]);
         foreach ($results as $result) {
             $wasteland_name = $result->name;
             $result->wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
@@ -704,8 +723,8 @@ class Util {
             from
                 users
             where
-                id > 10
-        ');
+                id > ?
+        ', [self::MAX_RESERVED_TEST_USER_ID]);
         foreach ($all_users as $profile) {
             $profile_id                = $profile->id;
             $wasteland_name            = $profile->name;

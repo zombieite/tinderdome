@@ -161,7 +161,7 @@ class HomeController extends Controller
                     (
                         they_chose_logged_in_user.chooser_id = users.id
                         and users.share_info_with_favorites
-                        and users.id > 10
+                        and users.id > ?
                     )
                     join choose logged_in_user_chose on
                     (
@@ -175,7 +175,7 @@ class HomeController extends Controller
                 order by
                     name,
                     id
-            ", [ $logged_in_user_id, $logged_in_user_id ]);
+            ", [ \App\Util::MAX_RESERVED_TEST_USER_ID, $logged_in_user_id, $logged_in_user_id ]);
             foreach ($mutuals as $mutual) {
                 $mutual->wasteland_name_hyphenated = preg_replace('/\s/', '-', $mutual->name);
             }

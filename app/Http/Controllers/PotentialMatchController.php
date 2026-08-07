@@ -78,7 +78,7 @@ class PotentialMatchController extends Controller
                 join attending i_am_attending on (i_am_attending.user_id = ? and they_are_attending.event_id = i_am_attending.event_id)
                 join event on (i_am_attending.event_id = event.event_id and event.event_date >= curdate())
             where
-                id > 10
+                id > ?
                 and id <> ?
                 and (c1.choice > 0 $c1_choice_additional)
                 and (c2.choice is null or c2.choice > 0 $c2_choice_additional)
@@ -100,7 +100,7 @@ class PotentialMatchController extends Controller
             order by
                 c1.choice desc,
                 name
-        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $logged_in_user_id ]);
+        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, \App\Util::MAX_RESERVED_TEST_USER_ID, $logged_in_user_id ]);
 
         foreach ($all_users as $profile) {
             $profile_id                = $profile->id;;

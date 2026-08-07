@@ -81,7 +81,7 @@ class SearchController extends Controller
                 left join attending on (user_id = ? and attending.user_id_of_match = id)
                 left join event on attending.event_id = event.event_id
             where
-                id > 10
+                id > ?
                 and c1.choice = ?
                 and
                 (
@@ -92,7 +92,7 @@ class SearchController extends Controller
             order by
                 c1.choice desc,
                 name
-        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, $search_for_rating ]);
+        ", [ $logged_in_user_id, $logged_in_user_id, $logged_in_user_id, \App\Util::MAX_RESERVED_TEST_USER_ID, $search_for_rating ]);
 
         foreach ($searched_for_users as $profile) {
             $profile_id                = $profile->id;;
