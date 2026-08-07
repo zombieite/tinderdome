@@ -392,6 +392,7 @@ class ProfileController extends Controller
 
         $wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
         $image_height              = 500;
+        $image_width               = $image_height * 3;
         $number_photos             = 0;
         if (isset($_FILES["image1"])) {
             $uploaded_file = $_FILES["image1"]['tmp_name'];
@@ -402,6 +403,9 @@ class ProfileController extends Controller
                 $img = Image::make($destination);
                 $img->orientate();
                 $img->heighten($image_height);
+                if ($img->width() > $image_width) {
+                    $img->widen($image_width);
+                }
                 $img->encode('jpg');
                 $img->save($destination);
             }

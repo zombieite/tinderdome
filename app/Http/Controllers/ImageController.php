@@ -25,6 +25,7 @@ class ImageController extends Controller
 		$wasteland_name            = $profile->name;
 		$wasteland_name_hyphenated = preg_replace('/\s/', '-', $wasteland_name);
 		$image_height              = 500;
+		$image_width               = $image_height * 3;
 		$max_photos                = 5;
 		$errors                    = '';
 		$max_filesize_mb           = 40;
@@ -59,6 +60,9 @@ class ImageController extends Controller
 								$img = \Intervention\Image\ImageManagerStatic::make($uploaded_file);
 								$img->orientate();
 								$img->heighten($image_height);
+								if ($img->width() > $image_width) {
+									$img->widen($image_width);
+								}
 								$img->encode('jpg');
 								$img->save($destination);
 
