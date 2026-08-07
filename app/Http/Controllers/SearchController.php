@@ -32,7 +32,7 @@ class SearchController extends Controller
              return redirect('/image/upload');
         }
 
-        if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
+        if (\App\Util::is_site_owner($logged_in_user_id) && isset($_GET['masquerade'])) {
             $logged_in_user_id = $_GET['masquerade']+0;
             Log::debug("Masquerading as $logged_in_user_id");
         }

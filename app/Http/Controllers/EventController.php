@@ -43,7 +43,7 @@ class EventController extends Controller
         $missions_completed = \App\Util::missions_completed( $logged_in_user_id );
 
         $logged_in_user_can_create_public_missions = false;
-        if (($logged_in_user->admin_user && $logged_in_user_id === 1) || ($logged_in_user->admin_user && $missions_completed > 5)) {
+        if (\App\Util::is_site_owner($logged_in_user_id) || ($logged_in_user->admin_user && $missions_completed > 5)) {
             $logged_in_user_can_create_public_missions = true;
         }
 

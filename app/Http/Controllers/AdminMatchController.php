@@ -15,7 +15,7 @@ class AdminMatchController extends Controller
         $logged_in_user            = Auth::user();
         $logged_in_user_id         = Auth::id();
 
-        if ($logged_in_user->admin_user && $logged_in_user_id === 1) {
+        if (\App\Util::is_site_owner($logged_in_user_id)) {
             // All good
         } else {
             return redirect('/');

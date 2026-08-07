@@ -3,7 +3,7 @@
 
 @if ($is_my_match and $choice !== 0 and $choice !== -1)
     @include('profile_is_an_unfound_match', [])
-@elseif (!$is_me && $profile_id != 1)
+@elseif (!$is_me && !\App\Util::is_site_owner($profile_id))
     @include('not_match_but_needs_rating_form', [])
 @endif
 
@@ -18,7 +18,7 @@
 @endif
 
 @if ($show_how_to_find_me)
-	@if ($profile_id == 1)
+	@if (\App\Util::is_site_owner($profile_id))
 	@else
         @if (!$is_me && $how_to_find_me && !$bounty_hunt)
     		<span class="labelclass">Do not share screenshots of this page. This information is confidential.</span>
@@ -70,7 +70,7 @@
     @include('profile_comments', [])
 @endif
 
-@if ($logged_in_user && $logged_in_user->id === 1)
+@if ($logged_in_user && \App\Util::is_site_owner($logged_in_user->id))
     @include('admin_password_reset', [])
 @endif
 

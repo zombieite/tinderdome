@@ -174,7 +174,7 @@ We will try to match you to a user of your preferred gender, but you must be ope
 
 @guest
 @else
-	@if ($profile_id !== 1)
+	@if (!\App\Util::is_site_owner($profile_id))
 		<form method="GET" action="/profile/delete" style="width:100%;text-align:right;">
 			<button type="submit" class="no">
 				DELETE PROFILE

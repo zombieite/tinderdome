@@ -14,6 +14,10 @@ class Util {
     public static function days_before_event_when_top_ranked_can_get_match() { return   21; }
     public static function max_event_days_away()                             { return  180; }
 
+    public static function is_site_owner($user_id) {
+        return $user_id === 1 || $user_id === '1';
+    }
+
     private static function the_algorithm_sort($a, $b) {
 
         // Move greylist users to the bottom because they are always everyone's worst match

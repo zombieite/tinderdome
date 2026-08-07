@@ -30,11 +30,11 @@ class ProfileController extends Controller
         $logged_in_user          = Auth::user();
         $logged_in_user_id       = Auth::id();
 
-        if ($profile_id != 1 && !$logged_in_user->number_photos && $profile_id != 1 && $profile_id != $logged_in_user_id) {
+        if (!\App\Util::is_site_owner($profile_id) && !$logged_in_user->number_photos && $profile_id != $logged_in_user_id) {
             return redirect('/image/upload');
         }
 
-        if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
+        if (\App\Util::is_site_owner($logged_in_user_id) && isset($_GET['masquerade'])) {
             $logged_in_user_id = $_GET['masquerade']+0;
             Log::debug("Masquerading as $logged_in_user_id");
         }
@@ -137,7 +137,7 @@ class ProfileController extends Controller
                 $image_query_string = '?t=' . time();
             } else {
                 // If they're trying to look at someone who is not Firebird
-                if ($profile_id != 1) {
+                if (!\App\Util::is_site_owner($profile_id)) {
                     // Make sure the person they're trying to look at hasn't said no to them
                     $they_said_no = DB::select('select * from choose where chooser_id=? and chosen_id=? and choice=0', [$profile_id, $logged_in_user_id]);
                     if ($they_said_no) {
@@ -163,7 +163,7 @@ class ProfileController extends Controller
 
             // If the logged in user knows this user, and vice versa, show comment option
             $we_know_each_other = DB::select('select * from choose c1 join choose c2 on (c1.chosen_id=c2.chooser_id and c1.chooser_id=c2.chosen_id) where c1.chooser_id=? and c1.chosen_id=? and c1.choice=-1 and c2.choice=-1', [$logged_in_user_id, $profile_id]);
-            if (($profile_id == 1) || ($logged_in_user_id == 1) || ($profile_id == $logged_in_user_id)) {
+            if (\App\Util::is_site_owner($profile_id) || \App\Util::is_site_owner($logged_in_user_id) || ($profile_id == $logged_in_user_id)) {
                 $we_know_each_other = 1;
             }
 
@@ -195,7 +195,7 @@ class ProfileController extends Controller
             }
         }
 
-        $show_how_to_find_me                = ($is_my_match) || ($profile_id === 1) || ($logged_in_user_id === 1);
+        $show_how_to_find_me                = ($is_my_match) || \App\Util::is_site_owner($profile_id) || \App\Util::is_site_owner($logged_in_user_id);
         $gender                             = $profile->gender;
         $gender_of_match                    = $profile->gender_of_match;
         $gender_of_match_2                  = $profile->gender_of_match_2;
@@ -375,7 +375,7 @@ class ProfileController extends Controller
             $video_id = '';
         }
 
-        if ($profile_id != 1 && preg_match('/irebird/i', $wasteland_name)) {
+        if (!\App\Util::is_site_owner($profile_id) && preg_match('/irebird/i', $wasteland_name)) {
             $wasteland_name = NULL;
             $update_errors .= 'Invalid username';
         }
@@ -442,7 +442,7 @@ class ProfileController extends Controller
 
     public function deleteConfirmation()
     {
-        if (Auth::id() === 1) {
+        if (\App\Util::is_site_owner(Auth::id())) {
             return redirect('/profile/edit');
         }
 
@@ -486,7 +486,7 @@ class ProfileController extends Controller
         $match_name             = null;
         $match_id               = null;
 
-        if ($logged_in_user_id === 1 && isset($_GET['masquerade'])) {
+        if (\App\Util::is_site_owner($logged_in_user_id) && isset($_GET['masquerade'])) {
             $logged_in_user_id = $_GET['masquerade']+0;
             Log::debug("Masquerading as $logged_in_user_id");
         }
@@ -619,7 +619,7 @@ class ProfileController extends Controller
 
     public function resetPassword()
     {
-        if (Auth::id() !== 1) {
+        if (!\App\Util::is_site_owner(Auth::id())) {
             abort(403);
         }
 
@@ -654,7 +654,7 @@ class ProfileController extends Controller
 
         // If the logged in user knows this user, and vice versa, allow comment to be submitted for approval
         $we_know_each_other = DB::select('select * from choose c1 join choose c2 on (c1.chosen_id=c2.chooser_id and c1.chooser_id=c2.chosen_id) where c1.chooser_id=? and c1.chosen_id=? and c1.choice=-1 and c2.choice=-1', [$commenting_user_id, $commented_upon_user_id]);
-        if ((($commented_upon_user_id == 1) || ($commenting_user_id == 1)) || ($commented_upon_user_id == $commenting_user_id)) {
+        if ((\App\Util::is_site_owner($commented_upon_user_id) || \App\Util::is_site_owner($commenting_user_id)) || ($commented_upon_user_id == $commenting_user_id)) {
             $we_know_each_other = 1;
         }
 

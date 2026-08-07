@@ -41,7 +41,7 @@ class HomeController extends Controller
 
         $leaderboard               = \App\Util::leaderboard( 5 );
 
-        if ($logged_in_user_id == 1 and isset($_GET['masquerade'])) {
+        if (\App\Util::is_site_owner($logged_in_user_id) and isset($_GET['masquerade'])) {
             $logged_in_user_id     = $_GET['masquerade'];
             $logged_in_user_query  = DB::select('select * from users where id=?', [$logged_in_user_id]);
             if ($logged_in_user_query) {
