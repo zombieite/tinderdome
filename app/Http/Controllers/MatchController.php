@@ -94,13 +94,39 @@ class MatchController extends Controller
                     }
                 }
                 if ($my_match_user_id) {
-                    Log::debug("Matched $logged_in_user_id to $my_match_user_id");
+                    Log::debug("Attempting to match $logged_in_user_id to $my_match_user_id");
                     try {
-                        DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
-                        DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$logged_in_user_id, $my_match_user_id, $event_id]);
-                    } catch (Exception $e) {
-                        $my_match_user_id = null;
+                        DB::transaction(function () use ($logged_in_user_id, $my_match_user_id, $event_id) {
+                            // Lock both attending rows in user-id order so neither side can be
+                            // assigned to a different person between the reciprocal updates.
+                            $attending_rows = DB::select('
+                                select user_id, user_id_of_match
+                                from attending
+                                where event_id = ? and user_id in (?, ?)
+                                order by user_id
+                                for update
+                            ', [$event_id, $logged_in_user_id, $my_match_user_id]);
+
+                            if (count($attending_rows) !== 2) {
+                                throw new \RuntimeException('Both users must be attending the event');
+                            }
+
+                            $current_matches = [];
+                            foreach ($attending_rows as $attending_row) {
+                                $current_matches[$attending_row->user_id] = $attending_row->user_id_of_match;
+                            }
+
+                            if (($current_matches[$logged_in_user_id] !== null && $current_matches[$logged_in_user_id] != $my_match_user_id)
+                                || ($current_matches[$my_match_user_id] !== null && $current_matches[$my_match_user_id] != $logged_in_user_id)) {
+                                throw new \RuntimeException('One of the users was matched by another request');
+                            }
+
+                            DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
+                            DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$logged_in_user_id, $my_match_user_id, $event_id]);
+                        });
+                    } catch (\Throwable $e) {
                         Log::error("Error matching '$logged_in_user_id' to '$my_match_user_id', probably race condition, probably someone else got them as a match, can retry: '".$e->getMessage()."'");
+                        $my_match_user_id = null;
                     }
                     if ($my_match_user_id) {
                         Log::debug("Matched ".$logged_in_user->name." $logged_in_user_id to $my_match_user_id.");

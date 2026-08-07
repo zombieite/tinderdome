@@ -80,9 +80,9 @@ class HuntController extends Controller
                 DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$my_match_user_id, $logged_in_user_id, $event_id]);
                 // This would be what we do for YAA missions, but I think we don't even want this at all for bounty hunts
                 //DB::update('update attending set user_id_of_match = ? where user_id = ? and event_id = ?', [$logged_in_user_id, $my_match_user_id, $event_id]);
-            } catch (Exception $e) {
-                $my_match_user_id = null;
+            } catch (\Throwable $e) {
                 Log::error("Error matching '$logged_in_user_id' to '$my_match_user_id', probably race condition, probably someone else got them as a match, can retry: '".$e->getMessage()."'");
+                $my_match_user_id = null;
             }
             if ($my_match_user_id) {
                 Log::debug("User ".$logged_in_user->name." '$logged_in_user_id' will hunt '$my_match_user_id'.");
