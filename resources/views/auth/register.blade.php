@@ -174,8 +174,7 @@ We will try to match you to a user of your preferred gender, but you must be ope
 
 @guest
 @else
-	@if ($wasteland_name === 'Firebird')
-	@else
+	@if ($profile_id !== 1)
 		<form method="POST" action="" style="width:100%;text-align:right;">
 			{{ csrf_field() }}
 			<button type="submit" name="delete" class="no">

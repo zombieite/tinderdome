@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use App\User;
 use App\Util;
+use File;
 use Log;
 
 class ProfileController extends Controller
@@ -329,6 +330,11 @@ class ProfileController extends Controller
         $update_errors             = '';
 
         if (isset($_POST['delete'])) {
+            $photo_paths = glob(public_path("uploads/image-$profile_id-*.jpg"));
+            if ($photo_paths && !File::delete($photo_paths)) {
+                Log::error('Could not delete every photo while deleting account', ['user_id' => $profile_id]);
+            }
+
             DB::delete('delete from users     where id = ?',         [$profile_id]);
             DB::delete('delete from attending where user_id = ?',    [$profile_id]); // Don't delete user_id_of_match because we want to keep records of who was matched to deleted user
             DB::delete('delete from choose    where chooser_id = ?', [$profile_id]); // Don't delete chosen_id because we want to keep records of who met the deleted user
