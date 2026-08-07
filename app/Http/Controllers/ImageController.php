@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Util;
 use Image;
-use File;
 use Log;
 
 class ImageController extends Controller
@@ -39,10 +38,11 @@ class ImageController extends Controller
 				if ($uploaded_file) {
 					if (isset($_POST['imagenum'])) {
 						$image_number = $_POST['imagenum'];
+						$adding_new_image = false;
 						if ($image_number == 'new') {
 						   if ($number_photos < $max_photos) {
-								$number_photos++;
-								$image_number = $number_photos;
+								$image_number = $number_photos + 1;
+								$adding_new_image = true;
 							} else {
 								$image_number = 1;
 							}
@@ -53,16 +53,25 @@ class ImageController extends Controller
 						$size = filesize($uploaded_file);
 						if ($size > $max_filesize) {
 							$errors .= 'Image file is too large. Please <a href="https://duckduckgo.com/?q=online+image+resizer">resize it</a> and retry.';
-							if ( $_POST['imagenum'] == 'new' ) {
-								$number_photos--;
-							}
 						} else {
-							File::copy($uploaded_file, $destination);
-							$img = \Intervention\Image\ImageManagerStatic::make($destination);
-							$img->orientate();
-							$img->heighten($image_height);
-							$img->encode('jpg');
-							$img->save($destination);
+							try {
+								// Decode the temporary upload before writing anything into the public directory.
+								$img = \Intervention\Image\ImageManagerStatic::make($uploaded_file);
+								$img->orientate();
+								$img->heighten($image_height);
+								$img->encode('jpg');
+								$img->save($destination);
+
+								if ($adding_new_image) {
+									$number_photos++;
+								}
+							} catch (\Throwable $e) {
+								$errors = 'The uploaded file is not a valid image.';
+								Log::warning('Invalid image upload', [
+									'user_id' => $profile_id,
+									'error' => $e->getMessage(),
+								]);
+							}
 						}
 					}
 				} else {
