@@ -33,3 +33,6 @@ CREATE TABLE users (
     signup_code VARCHAR(255),
     video_id VARCHAR(255)
 );
+
+-- IDs 1-10 are reserved for the site owner and test accounts.
+ALTER TABLE users AUTO_INCREMENT = 11;

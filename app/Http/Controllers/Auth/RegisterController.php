@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Util;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Exceptions\HttpResponseException;;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use File;
 
 class RegisterController extends Controller
 {
@@ -79,7 +80,7 @@ class RegisterController extends Controller
             throw new HttpResponseException(response('Invalid signup code. Please contact Firebird directly to create an account.', 403));
         }
 
-		$user = User::create([
+		$user_attributes = [
 			'name'                        => $wasteland_name,
 			'email'                       => $data['email'],
 			'password'                    => bcrypt($data['password']),
@@ -100,11 +101,17 @@ class RegisterController extends Controller
 			'ip'                          => $ip,
 			'user_agent'                  => $user_agent,
 			'referer'                     => $referer,
-            'signup_code'                 => $signup_code,
-		]);
+			'signup_code'                 => $signup_code,
+		];
 
-		$user_id = $user->id;
+		return DB::transaction(function () use ($user_attributes) {
+			$user = User::create($user_attributes);
 
-		return $user;
+			if (Util::is_reserved_test_id($user->id)) {
+				throw new \LogicException('A real account received a reserved user ID');
+			}
+
+			return $user;
+		});
 	}
 }
