@@ -453,12 +453,22 @@ class ProfileController extends Controller
     {
         $profile_id = Auth::id();
 
-        \App\Util::delete_user_photos($profile_id);
+        try {
+            DB::transaction(function () use ($profile_id) {
+                DB::delete('delete from users     where id = ?',         [$profile_id]);
+                DB::delete('delete from attending where user_id = ?',    [$profile_id]); // Don't delete user_id_of_match because we want to keep records of who was matched to deleted user
+                DB::delete('delete from choose    where chooser_id = ?', [$profile_id]); // Don't delete chosen_id because we want to keep records of who met the deleted user
+                DB::delete('delete from comment   where commenting_user_id = ? or commented_on_user_id = ?', [$profile_id, $profile_id]);
+            });
+        } catch (\Throwable $e) {
+            Log::error('Could not delete account database records', [
+                'user_id' => $profile_id,
+                'error' => $e->getMessage(),
+            ]);
+            abort(500, 'Account deletion failed. Please email wastelandfirebird@gmail.com for help.');
+        }
 
-        DB::delete('delete from users     where id = ?',         [$profile_id]);
-        DB::delete('delete from attending where user_id = ?',    [$profile_id]); // Don't delete user_id_of_match because we want to keep records of who was matched to deleted user
-        DB::delete('delete from choose    where chooser_id = ?', [$profile_id]); // Don't delete chosen_id because we want to keep records of who met the deleted user
-        DB::delete('delete from comment   where commenting_user_id = ? or commented_on_user_id = ?', [$profile_id, $profile_id]);
+        \App\Util::delete_user_photos($profile_id);
 
         return redirect('/');
     }
