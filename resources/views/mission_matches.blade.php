@@ -7,6 +7,7 @@
             @if ($matched_to_user->logged_in_users_rating_of_this_user === 0)
                 @include('user_block_found_not_liked', [
                     'event_long_name'                  => $matched_to_user->event_long_name,
+                    'bounty_hunt'                      => $matched_to_user->bounty_hunt,
                 ])
             @else
                 @if ($matched_to_user->logged_in_users_rating_of_this_user === -1)
@@ -14,6 +15,7 @@
                         @include('user_block_found_but_deleted', [
                             'event_long_name'          => $matched_to_user->event_long_name,
                             'event_id'                 => $matched_to_user->event_id,
+                            'bounty_hunt'              => $matched_to_user->bounty_hunt,
                         ])
                     @else
                         @include('user_block_found', [
