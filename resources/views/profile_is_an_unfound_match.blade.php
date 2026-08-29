@@ -14,12 +14,12 @@
 			{{ $count_with_same_name }} other wastelanders go by the name {{ $wasteland_name }}. Be sure to find the right one.
 		@endif
 	@endif
-	Your mission is to seek out {{ $wasteland_name }} at {{ $event_long_name }}.
+	Try to find {{ $wasteland_name }} at {{ $event_long_name }}.
     @if ($match_knows_you_are_their_match && !$bounty_hunt)
     	{{ $wasteland_name }} will be looking for you, too.
     @endif
-    You can find them during the event or after.
-    This mission won't expire until one of you deletes the mission or deletes their profile.
+    You can find them during the event, or after.
+    This mission won't expire until one of you deletes the mission, or deletes their profile.
     If you find them and meet them in person let us know. This will mark your mission as complete.
 	<br>
     @if ($ok_to_mark_user_found)
