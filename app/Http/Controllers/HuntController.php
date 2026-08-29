@@ -20,7 +20,6 @@ class HuntController extends Controller
         $event_name                        = null;
         $mutual_unmet_matches              = [];
 		$my_match_user_id                  = null;
-		$matchme                           = null;
         $titles                            = \App\Util::titles();
         $quarry_already_chosen             = null;
 
@@ -137,8 +136,6 @@ class HuntController extends Controller
             'logged_in_user_id'          => $logged_in_user_id,
             'event_id'                   => $event_id,
             'event_name'                 => $event_name,
-			'matchme'                    => $matchme,
-			'my_match_user_id'           => $my_match_user_id,
             'profiles'                   => $profiles,
             'titles'                     => $titles,
             'quarry_already_chosen'      => $quarry_already_chosen,
