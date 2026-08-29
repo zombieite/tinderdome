@@ -12,6 +12,8 @@
     @else
         @if ($show_met)
             No one you have rated has signed up yet.
+        @elseif ($bounty_hunt)
+            We can't find any potential quarries for you yet.
         @else
             We can't find any potential matches for you yet.
         @endif
