@@ -3,7 +3,11 @@
 
 @if ($matches_done)
 	@if ($deleted_match_or_match_said_no)
-        <h2>You were matched for {{ $event }}, but your match deleted their account.</h2>
+        @if ($bounty_hunt)
+            <h2>Your quarry for {{ $event }} deleted their account.</h2>
+        @else
+            <h2>You were matched for {{ $event }}, but your match deleted their account.</h2>
+        @endif
         @if ($logged_in_users_rating_of_this_user != -1)
             @include('rating_form_matched_to_deleted')
         @endif

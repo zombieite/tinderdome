@@ -509,6 +509,7 @@ class ProfileController extends Controller
                 users_1.name user_1_name,
                 users_2.name user_2_name,
                 event_long_name,
+                bounty_hunt,
                 if(event_date < curdate(), 1, 0) ok_to_mark_user_found
             from
                 attending
@@ -521,6 +522,7 @@ class ProfileController extends Controller
         ', [$event_id, $logged_in_user_id]);
         $match           = array_shift($match_array);
         $event_long_name = $match ? $match->event_long_name : '';
+        $bounty_hunt = $match ? (bool) $match->bounty_hunt : false;
         $ok_to_mark_user_found = $match ? $match->ok_to_mark_user_found : true;
 
         if ($match && $match->user_id_of_match) {
@@ -533,6 +535,7 @@ class ProfileController extends Controller
                 'event_id'                        => $event_id,
                 'deleted_match_or_match_said_no'  => $deleted_match_or_match_said_no,
                 'time_until_can_re_request_match' => $time_until_can_re_request_match,
+                'bounty_hunt'                     => $bounty_hunt,
             ]);
         }
 
@@ -574,6 +577,7 @@ class ProfileController extends Controller
                 'deleted_match_or_match_said_no'      => $deleted_match_or_match_said_no,
                 'user_id_of_match'                    => $match_id,
                 'logged_in_users_rating_of_this_user' => $logged_in_users_rating_of_this_user,
+                'bounty_hunt'                         => $bounty_hunt,
             ]);
         }
 

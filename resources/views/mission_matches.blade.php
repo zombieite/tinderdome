@@ -46,6 +46,7 @@
                             'event_id'                            => $matched_to_user->event_id,
                             'user_id_of_match'                    => $matched_to_user->user_id_of_match,
                             'logged_in_users_rating_of_this_user' => $matched_to_user->logged_in_users_rating_of_this_user,
+                            'bounty_hunt'                         => $matched_to_user->bounty_hunt,
                         ])
                     @endif
                 @endif
