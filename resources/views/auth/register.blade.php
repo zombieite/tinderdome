@@ -6,6 +6,9 @@
 		<h2 class="bright">Error updating profile: {{ $update_errors }}</h2>
 	@endif
 @endif
+@if ($errors->has('description'))
+	<h2 class="bright">The profile description cannot be longer than 2000 characters.</h2>
+@endif
 
 <form method="POST" action="@guest {{ route('register') }} @endguest" enctype="multipart/form-data">
 {{ csrf_field() }}
@@ -146,7 +149,7 @@ We will try to match you to a user of your preferred gender, but you must be ope
 
 <label for="description">Tell other users about yourself.</label> Feel free to include where you're from but do not include real names, emails, phone numbers, or addresses. 2000 characters maximum.
 <br>
-<textarea rows="10" name="description" id="description">@guest{{ old('description') }}@else{{ $description }}@endguest</textarea>
+<textarea rows="10" name="description" id="description">@guest{{ old('description') }}@else{{ old('description', $description) }}@endguest</textarea>
 
 <br><br>
 <label for="how_to_find_me">(Optional) Tell your matches how they can find you at the event.</label> Do not include real names, emails, phone numbers, or addresses.
